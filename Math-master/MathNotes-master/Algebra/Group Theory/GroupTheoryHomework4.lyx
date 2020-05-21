@@ -1,0 +1,1111 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{tikz}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\usetikzlibrary{shapes.geometric}
+\usepackage{tikz-cd}
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem*{cor}{Corollary}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{ex}{Exercise} 
+\newtheorem{example}{Example}[section]
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem{case}{Case}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{tikz-cd}
+\usetikzlibrary{calc,arrows,decorations.pathreplacing}
+\tikzset{mydot/.style={circle,fill,inner sep=1.5pt},
+commutative diagrams/.cd,
+  arrow style=tikz,
+  diagrams={>=latex},
+}
+
+\usepackage{babel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+\usepackage{pgfplots}
+\usetikzlibrary{decorations.markings}
+\pgfplotsset{compat=1.9}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding iso8859-15
+\fontencoding global
+\font_roman "palatino" "default"
+\font_sans "lmss" "default"
+\font_typewriter "lmtt" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf true
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing single
+\use_hyperref false
+\papersize custom
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\paperwidth 30cm
+\paperheight 35cm
+\topmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0bp
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Group Theory Homework
+\end_layout
+
+\begin_layout Author
+Michael Nelson
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $(1):$
+\end_inset
+
+ We draw the lattice of subgroups below:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd}   & 
+\backslash
+langle a , b 
+\backslash
+rangle 
+\backslash
+arrow[dl,dash] 
+\backslash
+arrow[d,dash] 
+\backslash
+arrow[dr,dash] 
+\backslash
+
+\backslash
+ 
+\backslash
+langle a 
+\backslash
+rangle 
+\backslash
+arrow [dr,dash] & 
+\backslash
+langle b 
+\backslash
+rangle 
+\backslash
+arrow[d,dash] & 
+\backslash
+langle ab 
+\backslash
+rangle  
+\backslash
+arrow[dl,dash] 
+\backslash
+
+\backslash
+ & 
+\backslash
+langle e 
+\backslash
+rangle  
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+An automorphism of 
+\begin_inset Formula $K$
+\end_inset
+
+ which does not fix the subgroups 
+\begin_inset Formula $\langle a\rangle$
+\end_inset
+
+ or 
+\begin_inset Formula $\langle b\rangle$
+\end_inset
+
+ is given by mapping 
+\begin_inset Formula $e\mapsto e$
+\end_inset
+
+, 
+\begin_inset Formula $a\mapsto b$
+\end_inset
+
+, 
+\begin_inset Formula $b\mapsto a$
+\end_inset
+
+, and 
+\begin_inset Formula $ab\mapsto ab$
+\end_inset
+
+.
+ An automorphism of 
+\begin_inset Formula $K$
+\end_inset
+
+ which does not fix the subgroup 
+\begin_inset Formula $\langle ab\rangle$
+\end_inset
+
+ is given by mapping 
+\begin_inset Formula $e\mapsto e$
+\end_inset
+
+, 
+\begin_inset Formula $a\mapsto ab$
+\end_inset
+
+, 
+\begin_inset Formula $b\mapsto b$
+\end_inset
+
+, and 
+\begin_inset Formula $ab\mapsto a$
+\end_inset
+
+.
+ Every automorphism of 
+\begin_inset Formula $K$
+\end_inset
+
+ fixes 
+\begin_inset Formula $\langle a,b\rangle=K$
+\end_inset
+
+ and 
+\begin_inset Formula $\langle e\rangle=\{e\}$
+\end_inset
+
+, so these are the only two characteristic subgroups of 
+\begin_inset Formula $K$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $(2):$
+\end_inset
+
+ By Cauchy's theorem, there exists subgroups 
+\begin_inset Formula $P$
+\end_inset
+
+ and 
+\begin_inset Formula $Q$
+\end_inset
+
+ of 
+\begin_inset Formula $G$
+\end_inset
+
+ whose orders are 
+\begin_inset Formula $p$
+\end_inset
+
+ and 
+\begin_inset Formula $q$
+\end_inset
+
+ respectively.
+ Since 
+\begin_inset Formula $P$
+\end_inset
+
+ and 
+\begin_inset Formula $Q$
+\end_inset
+
+ have prime order, they must be cyclic, say 
+\begin_inset Formula $P=\langle x\rangle$
+\end_inset
+
+ and 
+\begin_inset Formula $Q=\langle y\rangle$
+\end_inset
+
+ for some 
+\begin_inset Formula $x,y\in G$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $G$
+\end_inset
+
+ is abelian, 
+\begin_inset Formula $x$
+\end_inset
+
+ and 
+\begin_inset Formula $y$
+\end_inset
+
+ commute, hence 
+\begin_inset Formula $\mbox{ord}(xy)=\mbox{lcm}(\mbox{ord}(x),\mbox{ord}(y))=pq$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $G$
+\end_inset
+
+ has order 
+\begin_inset Formula $pq$
+\end_inset
+
+, we must have 
+\begin_inset Formula $G=\langle xy\rangle$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lemma}
+\backslash
+label{1}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $G$
+\end_inset
+
+ be a group and let 
+\begin_inset Formula $p$
+\end_inset
+
+ be a prime.
+ If 
+\begin_inset Formula $G$
+\end_inset
+
+ has 
+\begin_inset Formula $k$
+\end_inset
+
+ subgroups of size 
+\begin_inset Formula $p$
+\end_inset
+
+, then 
+\begin_inset Formula $G$
+\end_inset
+
+ has 
+\begin_inset Formula $k(p-1)$
+\end_inset
+
+ elements of order 
+\begin_inset Formula $p$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lemma}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Every nonidentity element in a subgroup of size 
+\begin_inset Formula $p$
+\end_inset
+
+ has order 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $P$
+\end_inset
+
+ and 
+\begin_inset Formula $Q$
+\end_inset
+
+ are two distinct subgroups of 
+\begin_inset Formula $G$
+\end_inset
+
+ each with size 
+\begin_inset Formula $p$
+\end_inset
+
+, then we must have 
+\begin_inset Formula $P\cap Q=\{e\}$
+\end_inset
+
+, since if there exists an 
+\begin_inset Formula $x\in P\cap Q$
+\end_inset
+
+ such that 
+\begin_inset Formula $x\neq e$
+\end_inset
+
+, then 
+\begin_inset Formula $P=\langle x\rangle=Q$
+\end_inset
+
+.
+ Therefore each subgroup of size 
+\begin_inset Formula $p$
+\end_inset
+
+ has its own 
+\begin_inset Formula $p-1$
+\end_inset
+
+ elements of order 
+\begin_inset Formula $p$
+\end_inset
+
+, not shared by any other subgroup of size 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ Therefore there are 
+\begin_inset Formula $k(p-1)$
+\end_inset
+
+ elements of order 
+\begin_inset Formula $p$
+\end_inset
+
+ in 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $(3):$
+\end_inset
+
+ Let 
+\begin_inset Formula $G$
+\end_inset
+
+ be a group of order 
+\begin_inset Formula $56=2^{3}\cdot7$
+\end_inset
+
+.
+ By Sylow III, 
+\begin_inset Formula 
+\[
+n_{2}\mid7,\quad n_{2}\equiv1\mbox{ mod }2\quad\implies\quad n_{2}=1\mbox{ or }7,
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+n_{7}\mid8,\quad n_{7}\equiv1\mbox{ mod }7\quad\implies\quad n_{7}=1\mbox{ or }8,
+\]
+
+\end_inset
+
+If 
+\begin_inset Formula $n_{7}=1$
+\end_inset
+
+, then the 
+\begin_inset Formula $7$
+\end_inset
+
+-Sylow subgroup is a normal 
+\begin_inset Formula $7$
+\end_inset
+
+-subgroup.
+ So assume 
+\begin_inset Formula $n_{7}=8$
+\end_inset
+
+.
+ By 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Lemma~(
+\backslash
+ref{1})
+\end_layout
+
+\end_inset
+
+, there are 
+\begin_inset Formula $8\cdot(7-1)=48$
+\end_inset
+
+ elements in 
+\begin_inset Formula $G$
+\end_inset
+
+ with order 
+\begin_inset Formula $7$
+\end_inset
+
+.
+ So there are only 
+\begin_inset Formula $56-48=8$
+\end_inset
+
+ elements left in the group 
+\begin_inset Formula $G$
+\end_inset
+
+ whose order is not 
+\begin_inset Formula $7$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $P$
+\end_inset
+
+ be a 
+\begin_inset Formula $2$
+\end_inset
+
+-Sylow subgroup.
+ There are exactly 
+\begin_inset Formula $8$
+\end_inset
+
+ elements in 
+\begin_inset Formula $P$
+\end_inset
+
+, and none of these elements have order 
+\begin_inset Formula $7$
+\end_inset
+
+, so 
+\begin_inset Formula $P$
+\end_inset
+
+ must account for the remaining 
+\begin_inset Formula $8$
+\end_inset
+
+ elements in 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $n_{2}=1$
+\end_inset
+
+ if 
+\begin_inset Formula $n_{7}\neq1$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $(4):$
+\end_inset
+
+ Let 
+\begin_inset Formula $G$
+\end_inset
+
+ be a group of order 
+\begin_inset Formula $pqr$
+\end_inset
+
+ where 
+\begin_inset Formula $p,q,r$
+\end_inset
+
+ are primes and 
+\begin_inset Formula $p<q<r$
+\end_inset
+
+.
+ By Sylow III,
+\begin_inset Formula 
+\[
+n_{p}\mid qr,\quad n_{p}\equiv1\mbox{ mod }p\quad\implies\quad n_{p}\in\{1,q,r,qr\},
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+n_{q}\mid pr,\quad n_{q}\equiv1\mbox{ mod }q\quad\implies\quad n_{q}\in\{1,r,pr\},
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+n_{r}\mid pq,\quad n_{r}\equiv1\mbox{ mod }r\quad\implies\quad n_{r}\in\{1,pq\}.
+\]
+
+\end_inset
+
+If 
+\begin_inset Formula $n_{r}=1$
+\end_inset
+
+, then the 
+\begin_inset Formula $r$
+\end_inset
+
+-Sylow subgroup is a normal subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ So assume 
+\begin_inset Formula $n_{r}=pq$
+\end_inset
+
+.
+ By 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Lemma~(
+\backslash
+ref{1})
+\end_layout
+
+\end_inset
+
+, there are 
+\begin_inset Formula $pq(r-1)=pqr-pq$
+\end_inset
+
+ elements in 
+\begin_inset Formula $G$
+\end_inset
+
+ whose order is 
+\begin_inset Formula $r$
+\end_inset
+
+.
+ So there are only 
+\begin_inset Formula $pqr-(pqr-pq)=pq$
+\end_inset
+
+ elements whose order is not 
+\begin_inset Formula $r$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $n_{q}=1$
+\end_inset
+
+, then the 
+\begin_inset Formula $q$
+\end_inset
+
+-Sylow subgroup is a normal subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ So we first assume 
+\begin_inset Formula $n_{q}=pr$
+\end_inset
+
+.
+ By 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Lemma~(
+\backslash
+ref{1})
+\end_layout
+
+\end_inset
+
+, there are 
+\begin_inset Formula $pr(q-1)$
+\end_inset
+
+ elements whose order is 
+\begin_inset Formula $q$
+\end_inset
+
+.
+ But this is a contradiction since 
+\begin_inset Formula $pr(q-1)>pq(q-1)>pq$
+\end_inset
+
+.
+ Now assume 
+\begin_inset Formula $n_{q}=r$
+\end_inset
+
+.
+ By 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Lemma~(
+\backslash
+ref{1})
+\end_layout
+
+\end_inset
+
+, there are 
+\begin_inset Formula $r(q-1)$
+\end_inset
+
+ elements whose order is 
+\begin_inset Formula $q$
+\end_inset
+
+.
+ So there are only 
+\begin_inset Formula $pq-r(q-1)=pq+r(1-q)$
+\end_inset
+
+ elements whose order is not 
+\begin_inset Formula $q$
+\end_inset
+
+, or 
+\begin_inset Formula $r$
+\end_inset
+
+.
+ Finally, we cannot have 
+\begin_inset Formula $n_{p}>q$
+\end_inset
+
+, since there would be more than 
+\begin_inset Formula $q(p-1)=pq-q$
+\end_inset
+
+ elements in 
+\begin_inset Formula $G$
+\end_inset
+
+ whose order is 
+\begin_inset Formula $p$
+\end_inset
+
+, but 
+\begin_inset Formula $r(1-q)<-q$
+\end_inset
+
+ implies 
+\begin_inset Formula $pq+r(1-q)<pq-q$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $n_{p}=1$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $(5):$
+\end_inset
+
+ The prime factorization of 
+\begin_inset Formula $1375$
+\end_inset
+
+ is 
+\begin_inset Formula $3\cdot5\cdot7\cdot13$
+\end_inset
+
+.
+ By Sylow III, 
+\begin_inset Formula 
+\[
+n_{3}\mid5\cdot7\cdot13,\quad n_{3}\equiv1\mbox{ mod }3\quad\implies\quad n_{3}\in\{1,7,13,91\},
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+n_{5}\mid3\cdot7\cdot13,\quad n_{5}\equiv1\mbox{ mod }5\quad\implies\quad n_{5}\in\{1,21,91\},
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+n_{7}\mid3\cdot5\cdot13,\quad n_{7}\equiv1\mbox{ mod }7\quad\implies\quad n_{7}\in\{1,15\},
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+n_{13}\mid3\cdot5\cdot7,\quad n_{13}\equiv1\mbox{ mod }13\quad\implies\quad n_{13}\in\{1,105\}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $n_{13}=1$
+\end_inset
+
+, then the 
+\begin_inset Formula $13$
+\end_inset
+
+-Sylow subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
+ is normal.
+ So assume 
+\begin_inset Formula $n_{13}=105$
+\end_inset
+
+, then there are 
+\begin_inset Formula $105(13-1)=1260$
+\end_inset
+
+ elements of order 
+\begin_inset Formula $13$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $n_{7}=1$
+\end_inset
+
+, then the 
+\begin_inset Formula $7$
+\end_inset
+
+-Sylow subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
+ is normal.
+ So assume 
+\begin_inset Formula $n_{7}=15$
+\end_inset
+
+, then there are 
+\begin_inset Formula $15(7-1)=90$
+\end_inset
+
+ elements of order 
+\begin_inset Formula $7$
+\end_inset
+
+.
+ This leaves us with 
+\begin_inset Formula $25$
+\end_inset
+
+ elements left whose order is not 
+\begin_inset Formula $7$
+\end_inset
+
+ or 
+\begin_inset Formula $13$
+\end_inset
+
+.
+ Clearly 
+\begin_inset Formula $n_{5}=1$
+\end_inset
+
+ since if 
+\begin_inset Formula $n_{5}=21$
+\end_inset
+
+ or 
+\begin_inset Formula $n_{5}=91$
+\end_inset
+
+, then there would be 
+\begin_inset Formula $21(5-1)=84$
+\end_inset
+
+ or 
+\begin_inset Formula $91(5-1)=380$
+\end_inset
+
+ elements of order 
+\begin_inset Formula $5$
+\end_inset
+
+, both of which are contradictions since we only have 
+\begin_inset Formula $25$
+\end_inset
+
+ elements whose order is not 
+\begin_inset Formula $7$
+\end_inset
+
+ or 
+\begin_inset Formula $13$
+\end_inset
+
+.
+ This would implies 
+\begin_inset Formula $n_{5}=1$
+\end_inset
+
+ if 
+\begin_inset Formula $n_{13}\neq1$
+\end_inset
+
+ and 
+\begin_inset Formula $n_{7}\neq1$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_body
+\end_document

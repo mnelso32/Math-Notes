@@ -1,0 +1,4620 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{tikz}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\usetikzlibrary{shapes.geometric}
+\usepackage{tikz-cd}
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem*{cor}{Corollary}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{ex}{Exercise} 
+\newtheorem{example}{Example}[section]
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem{case}{Case}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{tikz-cd}
+\usetikzlibrary{calc,arrows,decorations.pathreplacing}
+\tikzset{mydot/.style={circle,fill,inner sep=1.5pt},
+commutative diagrams/.cd,
+  arrow style=tikz,
+  diagrams={>=latex},
+}
+
+\usepackage{babel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+\usepackage{pgfplots}
+\usetikzlibrary{decorations.markings}
+\pgfplotsset{compat=1.9}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding iso8859-15
+\fontencoding global
+\font_roman "palatino" "default"
+\font_sans "lmss" "default"
+\font_typewriter "lmtt" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf true
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize custom
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\paperwidth 30cm
+\paperheight 35cm
+\topmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0bp
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Associated Primes and Primary Decomposition
+\end_layout
+
+\begin_layout Subsection*
+Radicals and Colon Ideals 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\backslash
+label{defradical}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a ring and let 
+\begin_inset Formula $\mathfrak{a}$
+\end_inset
+
+ be an ideal in 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ The 
+\begin_inset Formula $\textbf{radical}$
+\end_inset
+
+ 
+\series bold
+of
+\series default
+ 
+\begin_inset Formula $\mathfrak{a}$
+\end_inset
+
+, denoted 
+\begin_inset Formula $\sqrt{\mathfrak{a}}$
+\end_inset
+
+, is defined to be the ideal
+\begin_inset Formula 
+\[
+\sqrt{\mathfrak{a}}:=\{a\in A\mid a^{n}\in I\mbox{ for some }n\in\mathbb{N}\}.
+\]
+
+\end_inset
+
+We call 
+\begin_inset Formula $\sqrt{\langle0\rangle}$
+\end_inset
+
+ the 
+\series bold
+nilradical of 
+\begin_inset Formula $A$
+\end_inset
+
+
+\series default
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\backslash
+label{prop}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a ring and let 
+\begin_inset Formula $\mathfrak{a}$
+\end_inset
+
+ be an ideal in 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula 
+\[
+\sqrt{\mathfrak{a}}=\bigcap_{\substack{\mathfrak{p}\supset\mathfrak{a}\\
+\text{prime}
+}
+}\mathfrak{p}.
+\]
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ We claim that 
+\begin_inset Formula $\mathfrak{p}\supset\mathfrak{a}$
+\end_inset
+
+ implies 
+\begin_inset Formula $\mathfrak{p}\supset\sqrt{\mathfrak{a}}$
+\end_inset
+
+.
+ Indeed, if 
+\begin_inset Formula $x\in\sqrt{\mathfrak{a}}$
+\end_inset
+
+, then 
+\begin_inset Formula $x^{n}\in\mathfrak{a}\subset\mathfrak{p}$
+\end_inset
+
+.
+ But this implies 
+\begin_inset Formula $x\in\mathfrak{p}$
+\end_inset
+
+ since 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ is prime.
+ Thus, we have 
+\begin_inset Formula 
+\[
+\sqrt{\mathfrak{a}}\subset\bigcap_{\substack{\mathfrak{p}\supset\mathfrak{a}\\
+\text{prime}
+}
+}\mathfrak{p}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For the reverse inclusion, we may assume that 
+\begin_inset Formula $\mathfrak{a}=0$
+\end_inset
+
+ by passing to the quotient 
+\begin_inset Formula $A\slash\mathfrak{a}$
+\end_inset
+
+.
+ Suppose that 
+\begin_inset Formula $x\in\bigcap\limits _{\text{prime}}\mathfrak{p}$
+\end_inset
+
+ but 
+\begin_inset Formula $x^{n}\neq0$
+\end_inset
+
+ for all 
+\begin_inset Formula $n\geq0$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $A[x^{-1}]$
+\end_inset
+
+ is nonzero and hence contains a prime ideal 
+\begin_inset Formula $\mathfrak{q}$
+\end_inset
+
+.
+ The preimage of 
+\begin_inset Formula $\mathfrak{q}$
+\end_inset
+
+ in 
+\begin_inset Formula $A$
+\end_inset
+
+ under the natural inclusion 
+\begin_inset Formula $A\to A[x^{-1}]$
+\end_inset
+
+ is a prime ideal which doesn't contain 
+\begin_inset Formula $x$
+\end_inset
+
+.
+ This is a contradiction.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a ring and let 
+\begin_inset Formula $I,J$
+\end_inset
+
+ be ideals in 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Then
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\sqrt{I}$
+\end_inset
+
+ is an ideal.
+ 
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $I\subset J$
+\end_inset
+
+, then 
+\begin_inset Formula $\sqrt{I}\subset\sqrt{J}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\sqrt{I\cap J}=\sqrt{I}\cap\sqrt{J}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\sqrt{I+J}=\sqrt{\sqrt{I}+\sqrt{J}}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Suppose 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ and 
+\begin_inset Formula $x,y\in\sqrt{I}$
+\end_inset
+
+, so 
+\begin_inset Formula $x^{n},y^{m}\in I$
+\end_inset
+
+ for some 
+\begin_inset Formula $n,m\in\mathbb{N}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula 
+\begin{equation}
+(ax+y)^{n+m}=\sum_{i=0}^{n+m}(ax)^{n+m-i}y^{i}.\label{eq:radicalequation-1}
+\end{equation}
+
+\end_inset
+
+Each term in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{eq:radicalequation-1})
+\end_layout
+
+\end_inset
+
+ belongs to 
+\begin_inset Formula $I$
+\end_inset
+
+, so 
+\begin_inset Formula $(ax+y)^{n+m}$
+\end_inset
+
+ belongs to 
+\begin_inset Formula $I$
+\end_inset
+
+.
+ Therefore 
+\begin_inset Formula $ax+y$
+\end_inset
+
+ belongs to 
+\begin_inset Formula $\sqrt{I}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Suppose 
+\begin_inset Formula $a\in\sqrt{I}$
+\end_inset
+
+, then for some 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+, we have 
+\begin_inset Formula $a^{n}\in I\subset J$
+\end_inset
+
+, thus 
+\begin_inset Formula $a\in\sqrt{J}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Suppose 
+\begin_inset Formula $a\in\sqrt{I\cap J}$
+\end_inset
+
+, so 
+\begin_inset Formula $a^{n}\in I\cap J$
+\end_inset
+
+ for some 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $a^{n}\in I\cap J\subset I$
+\end_inset
+
+ and 
+\begin_inset Formula $a^{n}\in I\cap J\subset J$
+\end_inset
+
+, we have 
+\begin_inset Formula $a\in\sqrt{I}$
+\end_inset
+
+ and 
+\begin_inset Formula $a\in\sqrt{J}$
+\end_inset
+
+.
+ Therefore 
+\begin_inset Formula $\sqrt{I\cap J}\subset\sqrt{I}\cap\sqrt{J}$
+\end_inset
+
+.
+ For the reverse inclusion, suppose 
+\begin_inset Formula $a\in\sqrt{I}\cap\sqrt{J}$
+\end_inset
+
+, so 
+\begin_inset Formula $a^{n}\in I$
+\end_inset
+
+ and 
+\begin_inset Formula $a^{m}\in J$
+\end_inset
+
+ for some 
+\begin_inset Formula $n,m\in\mathbb{N}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $a^{\max(m,n)}\in I\cap J$
+\end_inset
+
+ implies 
+\begin_inset Formula $a\in\sqrt{I\cap J}$
+\end_inset
+
+.
+ Therefore 
+\begin_inset Formula $\sqrt{I\cap J}\supset\sqrt{I}\cap\sqrt{J}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+The inclusion 
+\begin_inset Formula $\sqrt{I+J}\subset\sqrt{\sqrt{I}+\sqrt{J}}$
+\end_inset
+
+ follows from the fact that 
+\begin_inset Formula $I+J\subset\sqrt{I}+\sqrt{J}$
+\end_inset
+
+.
+ For the reverse inclusion, suppose 
+\begin_inset Formula $a\in\sqrt{\sqrt{I}+\sqrt{J}}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $a^{n}=b+c$
+\end_inset
+
+, where 
+\begin_inset Formula $b^{m}\in I$
+\end_inset
+
+ and 
+\begin_inset Formula $c^{k}\in J$
+\end_inset
+
+ for some 
+\begin_inset Formula $n,m,k\in\mathbb{N}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $(a^{n})^{(m+k)}\in I+J$
+\end_inset
+
+, and it follows that 
+\begin_inset Formula $a\in\sqrt{I+J}$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $\sqrt{I+J}\supset\sqrt{\sqrt{I}+\sqrt{J}}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{rem}
+\backslash
+label{rem}
+\end_layout
+
+\end_inset
+
+ Note that we do not necessarily have 
+\begin_inset Formula $\sqrt{\bigcap_{\lambda\in\Lambda}I_{\lambda}}=\bigcap_{\lambda\in\Lambda}\sqrt{I_{\lambda}}$
+\end_inset
+
+.
+ Indeed, consider 
+\begin_inset Formula $I_{n}=\langle T^{n}\rangle$
+\end_inset
+
+ in 
+\begin_inset Formula $K[T]$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula 
+\begin{align*}
+\sqrt{\bigcap_{n=1}^{\infty}\langle T^{n}\rangle} & =\sqrt{0}\\
+ & =0\\
+ & \neq\langle T\rangle.\\
+ & =\bigcap_{n=1}^{\infty}\langle T\rangle\\
+ & =\bigcap_{n=1}^{\infty}\sqrt{\langle T^{n}\rangle}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{rem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a ring and let 
+\begin_inset Formula $I,J$
+\end_inset
+
+ be ideals in 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ The 
+\begin_inset Formula $\textbf{colon ideal}$
+\end_inset
+
+ 
+\begin_inset Formula $I:J$
+\end_inset
+
+ is defined as:
+\begin_inset Formula 
+\[
+I:J=\{a\in A\mid aJ\subseteq I\}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{rem}
+\end_layout
+
+\end_inset
+
+ Given 
+\begin_inset Formula $a\in A$
+\end_inset
+
+, we use the shorthand notation 
+\begin_inset Formula $I:a$
+\end_inset
+
+ for 
+\begin_inset Formula $I:\langle a\rangle$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{rem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a ring, 
+\begin_inset Formula $a,b\in A$
+\end_inset
+
+, 
+\begin_inset Formula $d$
+\end_inset
+
+ be a nonzerodivisor in 
+\begin_inset Formula $A$
+\end_inset
+
+, and let 
+\begin_inset Formula $I,J$
+\end_inset
+
+ be ideals in 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Then
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $(I\cap J):a=(I:a)\cap(J:a)$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $I:\langle a,b\rangle=(I:a)\cap(I:b)$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $I:d=\frac{1}{d}(I\cap\langle d\rangle)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill 
+\backslash
+break
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Suppose 
+\begin_inset Formula $x\in(I\cap J):a$
+\end_inset
+
+, so 
+\begin_inset Formula $ax\in I\cap J.$
+\end_inset
+
+ Since 
+\begin_inset Formula $I\cap J\subset I$
+\end_inset
+
+ and 
+\begin_inset Formula $I\cap J\subset J$
+\end_inset
+
+, this implies 
+\begin_inset Formula $x\in I:a$
+\end_inset
+
+ and 
+\begin_inset Formula $x\in J:a$
+\end_inset
+
+.
+ Therefore 
+\begin_inset Formula $(I\cap J):f\subset(I:f)\cap(J:f)$
+\end_inset
+
+.
+ Now suppose 
+\begin_inset Formula $x\in(I:a)\cap(J:a)$
+\end_inset
+
+, then 
+\begin_inset Formula $ax\in I$
+\end_inset
+
+ and 
+\begin_inset Formula $ax\in J$
+\end_inset
+
+, so 
+\begin_inset Formula $x\in(I\cap J):a$
+\end_inset
+
+, which means 
+\begin_inset Formula $(I\cap J):f\supset(I:f)\cap(J:f)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $x\in A$
+\end_inset
+
+, then 
+\begin_inset Formula $x\langle a,b\rangle\subset I$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $xa\in I$
+\end_inset
+
+ and 
+\begin_inset Formula $xb\in I$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Omitted.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lemma}
+\backslash
+label{lemma}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a ring and 
+\begin_inset Formula $I_{1},I_{2},I_{3}$
+\end_inset
+
+ be ideals in 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $(I_{1}\cap I_{2}):I_{3}=(I_{1}:I_{3})\cap(I_{2}:I_{3})$
+\end_inset
+
+, in particular 
+\begin_inset Formula $I_{1}:I_{3}=(I_{1}\cap I_{2}):I_{3}$
+\end_inset
+
+ if 
+\begin_inset Formula $I_{3}\subset I_{2}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $(I_{1}:I_{2}):I_{3}=I_{1}:(I_{2}I_{3})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $I_{1}$
+\end_inset
+
+ is prime and 
+\begin_inset Formula $I_{2}\not\subset I_{1}$
+\end_inset
+
+, then 
+\begin_inset Formula $I_{1}:I_{2}^{j}=I_{1}$
+\end_inset
+
+ for 
+\begin_inset Formula $j\geq1$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $I_{1}=\bigcap_{i=1}^{r}\mathfrak{p}_{i}$
+\end_inset
+
+ with 
+\begin_inset Formula $\mathfrak{p}_{i}$
+\end_inset
+
+ prime, then 
+\begin_inset Formula $I_{1}:I_{2}^{\infty}=I_{1}:I_{2}=\bigcap_{I_{2}\not\subset\mathfrak{p}_{i}}\mathfrak{p}_{i}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lemma}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Is an easy exercise
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $I_{1}\subset I_{1}:I_{2}^{j}$
+\end_inset
+
+ is clear.
+ Let 
+\begin_inset Formula $gI_{2}^{j}\subset I_{1}$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $I_{2}\not\subset I_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $I_{1}$
+\end_inset
+
+ is radical, 
+\begin_inset Formula $I_{2}^{j}\not\subset I_{1}$
+\end_inset
+
+ and we can find an 
+\begin_inset Formula $h\in I_{2}^{j}$
+\end_inset
+
+ such that 
+\begin_inset Formula $h\notin I_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $gh\in I_{1}$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $I_{1}$
+\end_inset
+
+ is prime, we have 
+\begin_inset Formula $g\in I_{1}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Primary Ideals
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a ring and let 
+\begin_inset Formula $Q\subset A$
+\end_inset
+
+ be an ideal.
+ We say 
+\begin_inset Formula $Q$
+\end_inset
+
+ is a 
+\series bold
+primary ideal 
+\series default
+if for all 
+\begin_inset Formula $a,b\in A$
+\end_inset
+
+, we have
+\begin_inset Formula 
+\[
+ab\in Q\text{ and }a\notin Q\text{ implies }b^{n}\in Q\text{ for some }n\in\mathbb{N}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\backslash
+label{radicalprimary}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a ring and let 
+\begin_inset Formula $Q\subset A$
+\end_inset
+
+ be a primary ideal.
+ Then 
+\begin_inset Formula $\sqrt{Q}$
+\end_inset
+
+ is a prime ideal.
+ Moreover, 
+\begin_inset Formula $\sqrt{Q}$
+\end_inset
+
+ is the smallest prime ideal containing 
+\begin_inset Formula $Q$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Suppose 
+\begin_inset Formula $ab\in\sqrt{Q}$
+\end_inset
+
+ and 
+\begin_inset Formula $a\notin\sqrt{Q}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $(ab)^{m}=a^{m}b^{m}\in Q$
+\end_inset
+
+ for some 
+\begin_inset Formula $m\in\mathbb{N}$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $a^{m}\notin Q$
+\end_inset
+
+ and 
+\begin_inset Formula $Q$
+\end_inset
+
+ is primary, 
+\begin_inset Formula $(b^{m})^{n}=b^{mn}\in Q$
+\end_inset
+
+ for some 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+.
+ This implies 
+\begin_inset Formula $b\in\sqrt{Q}$
+\end_inset
+
+.
+ This shows that 
+\begin_inset Formula $\sqrt{Q}$
+\end_inset
+
+ is a prime ideal.
+ To see that it is the smallest prime ideal, suppose 
+\begin_inset Formula $\mathfrak{p}\subset A$
+\end_inset
+
+ is a prime ideal such that 
+\begin_inset Formula $Q\subset\mathfrak{p}$
+\end_inset
+
+ and suppose 
+\begin_inset Formula $a\in\sqrt{Q}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $a^{n}\in Q\subset\mathfrak{p}$
+\end_inset
+
+ for some 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ is a prime ideal, this implies 
+\begin_inset Formula $a\in\mathfrak{p}$
+\end_inset
+
+.
+ Therefore 
+\begin_inset Formula $\sqrt{Q}\subset\mathfrak{p}$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{rem}
+\end_layout
+
+\end_inset
+
+ The converse to 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Proposition~(
+\backslash
+ref{radicalprimary})
+\end_layout
+
+\end_inset
+
+ is not true.
+ That is, if 
+\begin_inset Formula $I\subset A$
+\end_inset
+
+ is an ideal such that 
+\begin_inset Formula $\sqrt{I}$
+\end_inset
+
+ is prime, then 
+\begin_inset Formula $I$
+\end_inset
+
+ is not necessarily primary.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{rem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A=K[x,y]$
+\end_inset
+
+ and 
+\begin_inset Formula $I=\langle x^{2},xy\rangle$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\sqrt{I}=\langle x\rangle$
+\end_inset
+
+ is prime, but 
+\begin_inset Formula $I$
+\end_inset
+
+ is not primary.
+ We have 
+\begin_inset Formula $xy\in I$
+\end_inset
+
+ and 
+\begin_inset Formula $x\notin I$
+\end_inset
+
+, but no power of 
+\begin_inset Formula $y$
+\end_inset
+
+ belongs to 
+\begin_inset Formula $I$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a ring and let 
+\begin_inset Formula $Q\subset A$
+\end_inset
+
+ be a primary ideal.
+ We denote 
+\begin_inset Formula $\mathfrak{p}:=\sqrt{Q}$
+\end_inset
+
+ and say 
+\begin_inset Formula $Q$
+\end_inset
+
+ is 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+
+\series bold
+-primary
+\series default
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\backslash
+label{primaryintersection}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a ring and let 
+\begin_inset Formula $Q_{1},Q_{2}\subset A$
+\end_inset
+
+ be 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+-primary ideals.
+ The 
+\begin_inset Formula $Q_{1}\cap Q_{2}$
+\end_inset
+
+ is a 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+-primary ideal.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Suppose 
+\begin_inset Formula $ab\in Q_{1}\cap Q_{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $a\notin Q_{1}\cap Q_{2}$
+\end_inset
+
+.
+ Then either 
+\begin_inset Formula $a\notin Q_{1}$
+\end_inset
+
+ or 
+\begin_inset Formula $a\notin Q_{2}$
+\end_inset
+
+.
+ Without loss of generality, assume 
+\begin_inset Formula $a\notin Q_{2}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $b^{n}\in Q_{2}$
+\end_inset
+
+ for some 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $\sqrt{Q_{2}}=\mathfrak{p}$
+\end_inset
+
+, we have 
+\begin_inset Formula $b\in P$
+\end_inset
+
+.
+ But since 
+\begin_inset Formula $\mathfrak{p}=\sqrt{Q_{1}}$
+\end_inset
+
+, we also have 
+\begin_inset Formula $b^{m}\in Q_{1}$
+\end_inset
+
+ for some 
+\begin_inset Formula $m\in\mathbb{N}$
+\end_inset
+
+.
+ So 
+\begin_inset Formula $b^{\gcd(m,n)}\in Q_{1}\cap Q_{2}$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{rem}
+\end_layout
+
+\end_inset
+
+ Notice that we used the fact that these are 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+-primary ideals.
+ If 
+\begin_inset Formula $Q_{1}$
+\end_inset
+
+ is 
+\begin_inset Formula $\mathfrak{p}_{1}$
+\end_inset
+
+-primary and 
+\begin_inset Formula $Q_{2}$
+\end_inset
+
+ is 
+\begin_inset Formula $\mathfrak{p}_{2}$
+\end_inset
+
+-primary, where 
+\begin_inset Formula $\mathfrak{p}_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathfrak{p}_{2}$
+\end_inset
+
+ are different primes, then 
+\begin_inset Formula 
+\[
+\sqrt{Q_{1}\cap Q_{2}}=\sqrt{Q_{1}}\cap\sqrt{Q_{2}}=\mathfrak{p}_{1}\cap\mathfrak{p}_{2},
+\]
+
+\end_inset
+
+which is not a prime ideal.
+ Hence 
+\begin_inset Formula $Q_{1}\cap Q_{2}$
+\end_inset
+
+ is not primary.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{rem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a ring, 
+\begin_inset Formula $\mathfrak{p}\subset A$
+\end_inset
+
+ be a prime ideal, and 
+\begin_inset Formula $Q\subset A$
+\end_inset
+
+ be a 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+-primary ideal.
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $x\notin Q$
+\end_inset
+
+, then 
+\begin_inset Formula $Q:x$
+\end_inset
+
+ is 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+-primary.
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $x\notin\mathfrak{p}$
+\end_inset
+
+, then 
+\begin_inset Formula $Q:x=Q$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $x\in Q$
+\end_inset
+
+, then 
+\begin_inset Formula $Q:x=A$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Suppose 
+\begin_inset Formula $ab\in Q:x$
+\end_inset
+
+ and 
+\begin_inset Formula $a\notin Q:x$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $abx\in Q$
+\end_inset
+
+ and 
+\begin_inset Formula $ax\notin Q$
+\end_inset
+
+ implies 
+\begin_inset Formula $b^{n}\in Q$
+\end_inset
+
+ for some 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+, since 
+\begin_inset Formula $Q$
+\end_inset
+
+ is primary.
+ Therefore 
+\begin_inset Formula $b\in Q:x$
+\end_inset
+
+ since 
+\begin_inset Formula $b^{n}x\in Q$
+\end_inset
+
+.
+ To see that 
+\begin_inset Formula $Q:x$
+\end_inset
+
+ is 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+-primary, we simply note that 
+\begin_inset Formula $a\in Q:x$
+\end_inset
+
+ implies 
+\begin_inset Formula $ax\in Q$
+\end_inset
+
+ implies 
+\begin_inset Formula $a^{n}\in Q$
+\end_inset
+
+.
+ So 
+\begin_inset Formula $Q\subset Q:x\subset\sqrt{Q}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+We certainly have 
+\begin_inset Formula $Q\subset Q:x$
+\end_inset
+
+ since 
+\begin_inset Formula $ax\in Q$
+\end_inset
+
+ for all 
+\begin_inset Formula $a\in Q$
+\end_inset
+
+.
+ For the reverse inclusion, suppose 
+\begin_inset Formula $a\in Q:x$
+\end_inset
+
+, so 
+\begin_inset Formula $ax\in Q$
+\end_inset
+
+.
+ Assume 
+\begin_inset Formula $a\notin Q$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $Q$
+\end_inset
+
+ is a primary ideal, then 
+\begin_inset Formula $ax\in Q$
+\end_inset
+
+ and 
+\begin_inset Formula $a\notin Q$
+\end_inset
+
+ implies 
+\begin_inset Formula $x^{n}\in Q$
+\end_inset
+
+ for some 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+.
+ But this implies 
+\begin_inset Formula $x\in\mathfrak{p}$
+\end_inset
+
+, which is a contradiction.
+ Hence 
+\begin_inset Formula $a\in Q$
+\end_inset
+
+, and thus, 
+\begin_inset Formula $Q:x\subset Q$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $a\in A$
+\end_inset
+
+, then 
+\begin_inset Formula $ax\in Q$
+\end_inset
+
+ since 
+\begin_inset Formula $x\in Q$
+\end_inset
+
+.
+ So 
+\begin_inset Formula $A\subset Q:x$
+\end_inset
+
+.
+ The reverse inclusion is obvious.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Primary Decomposition
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+In a Noetherian ring, any ideal can be written as a finite intersection
+ of primary ideals (called the 
+\begin_inset Formula $\textbf{primary decomposition}$
+\end_inset
+
+).
+ Before we go over the proof, we need a definition and a lemma.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a ring and let 
+\begin_inset Formula $I\subset A$
+\end_inset
+
+ be an ideal.
+ We say 
+\begin_inset Formula $I$
+\end_inset
+
+ is 
+\series bold
+irreducible 
+\series default
+if there do not exists ideals 
+\begin_inset Formula $I_{1},I_{2}\subset A$
+\end_inset
+
+ such that 
+\begin_inset Formula $I=I_{1}\cap I_{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $I\subsetneq I_{i}$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lemma}
+\backslash
+label{irreducibleimpliesprimary}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a Noetherian ring and let 
+\begin_inset Formula $I\subset A$
+\end_inset
+
+ be a primary ideal.
+ Then 
+\begin_inset Formula $I$
+\end_inset
+
+ is primary.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lemma}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Suppose 
+\begin_inset Formula $ab\in I$
+\end_inset
+
+ with 
+\begin_inset Formula $a\notin I$
+\end_inset
+
+.
+ There is a chain of ideals:
+\begin_inset Formula 
+\[
+I\subset I:b\subset I:b^{2}\subset\cdots
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+By the Noetherian condition we must have 
+\begin_inset Formula $I:b^{n}=I:b^{n+1}$
+\end_inset
+
+ for some 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+.
+ Assume 
+\begin_inset Formula $b^{n}\notin I$
+\end_inset
+
+.
+ We will show 
+\begin_inset Formula $\langle I,b^{n}\rangle\cap\langle I,a\rangle=I$
+\end_inset
+
+, which is a contradiction since 
+\begin_inset Formula $b^{n},a\notin I$
+\end_inset
+
+.
+ To show this, we only need to show 
+\begin_inset Formula $\langle b^{n}\rangle\cap\langle a\rangle\subset I$
+\end_inset
+
+.
+ Suppose 
+\begin_inset Formula $x\in\langle b^{n}\rangle\cap\langle a\rangle$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $x\in\langle a\rangle$
+\end_inset
+
+ implies 
+\begin_inset Formula $x=ay$
+\end_inset
+
+ and 
+\begin_inset Formula $x\in\langle b^{n}\rangle$
+\end_inset
+
+ implies 
+\begin_inset Formula $x=b^{n}z$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\[
+bx=b^{n+1}z=bay\in I
+\]
+
+\end_inset
+
+implies 
+\begin_inset Formula $z\in I:b^{n+1}=I:b^{n}$
+\end_inset
+
+.
+ Therefore 
+\begin_inset Formula $x=zb^{n}\in I$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a Noetherian ring and let 
+\begin_inset Formula $I\subset A$
+\end_inset
+
+ be an ideal.
+ Then 
+\begin_inset Formula $I$
+\end_inset
+
+ can be expressed as a finite intersection of primary ideals.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ First, we show that 
+\begin_inset Formula $I$
+\end_inset
+
+ can be expressed as a finite intersection of irreducible ideals.
+ Assume, on the contrary, that 
+\begin_inset Formula $I$
+\end_inset
+
+ cannot be expressed as a finite intersection of irreducible ideals.
+ Let 
+\begin_inset Formula $S$
+\end_inset
+
+ be the set of all ideals which cannot be expressed as a finite intersection
+ of irreducible ideals.
+ Then 
+\begin_inset Formula $S$
+\end_inset
+
+ is nonempty since 
+\begin_inset Formula $I\in S$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $A$
+\end_inset
+
+ is noetherian, 
+\begin_inset Formula $S$
+\end_inset
+
+ has a maximal element 
+\begin_inset Formula $J$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $J\in S$
+\end_inset
+
+, it must be reducible, so we can write 
+\begin_inset Formula $J=J_{1}\cap J_{2}$
+\end_inset
+
+ with 
+\begin_inset Formula $J\subsetneq J_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $J\subsetneq J_{2}$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $J$
+\end_inset
+
+ is maximal, we can express 
+\begin_inset Formula $J_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $J_{2}$
+\end_inset
+
+ as a finite intersection of irreducible ideals, and hence we can express
+ 
+\begin_inset Formula $J$
+\end_inset
+
+ as a finite intersection of irreducible ideals, which is a contradiction.
+ Now apply 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Lemma~
+\backslash
+ref{irreducibleimpliesprimary}
+\end_layout
+
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{rem}
+\end_layout
+
+\end_inset
+
+ It is interesting to compare this proof with the proof given in my Algebraic
+ Number Theory notes on why every ideal in 
+\begin_inset Formula $\mathcal{O}_{K}$
+\end_inset
+
+ contains a product of primes.
+ In both cases, we needed a maximal element; one based on the index of an
+ ideal in the ring of integers, and one based containment.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{rem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ A primary decomposition 
+\begin_inset Formula $I=\bigcap\limits _{i=1}^{n}Q_{i}$
+\end_inset
+
+ is 
+\begin_inset Formula $\textbf{irredundant}$
+\end_inset
+
+ if for each 
+\begin_inset Formula $j\in\{1,\dots,n\}$
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+\bigcap_{i\neq j}Q_{i}\neq I.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{rem}
+\end_layout
+
+\end_inset
+
+ So there are no 
+\begin_inset Quotes eld
+\end_inset
+
+extraneous
+\begin_inset Quotes erd
+\end_inset
+
+ factors
+\begin_inset Quotes erd
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{rem}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Given an irredundant primary decomposition 
+\begin_inset Formula $I=\bigcap\limits _{i=1}^{n}Q_{i}$
+\end_inset
+
+, if 
+\begin_inset Formula $i\neq j$
+\end_inset
+
+ then 
+\begin_inset Formula $\mathfrak{p}_{i}\neq\mathfrak{p}_{j}$
+\end_inset
+
+.
+ The reason is because if 
+\begin_inset Formula $\mathfrak{p}_{i}=\mathfrak{p}_{j}$
+\end_inset
+
+, then by 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Proposition~
+\backslash
+ref{primaryintersection}
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Formula $Q=Q_{i}\cap Q_{j}$
+\end_inset
+
+ is a smaller primary ideal which contains 
+\begin_inset Formula $I$
+\end_inset
+
+, and hence the primary decomposition for 
+\begin_inset Formula $I$
+\end_inset
+
+ can be replaced by removing 
+\begin_inset Formula $Q_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $Q_{j}$
+\end_inset
+
+ and replacing them with 
+\begin_inset Formula $Q$
+\end_inset
+
+, which means 
+\begin_inset Formula $I=\bigcap\limits _{i=1}^{n}Q_{i}$
+\end_inset
+
+ is not irredundant.
+ So we get a picture that looks like this: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ The set of 
+\begin_inset Formula $\textbf{associated primes}$
+\end_inset
+
+ of 
+\begin_inset Formula $I$
+\end_inset
+
+, denoted by 
+\begin_inset Formula $Ass(I)$
+\end_inset
+
+, is defined as
+\begin_inset Formula 
+\[
+Ass(I)=\{P\subset R\mid P\mbox{ prime, }P=I:f\mbox{ for some }f\in R\}
+\]
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Given an irredundant primary decomposition 
+\begin_inset Formula $I=\bigcap\limits _{i=1}^{n}Q_{i}$
+\end_inset
+
+, we claim 
+\begin_inset Formula $P_{i}\in Ass(I)$
+\end_inset
+
+: For any 
+\begin_inset Formula $j$
+\end_inset
+
+, we can find 
+\begin_inset Formula $f_{j}\notin Q_{j}$
+\end_inset
+
+ but which is in all the other 
+\begin_inset Formula $Q_{i}$
+\end_inset
+
+ for 
+\begin_inset Formula $i\neq j$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\[
+I:f_{j}=\left(\bigcap\limits _{i=1}^{n}Q_{i}\right):f_{j}=\bigcap\limits _{i=1}^{n}(Q_{i}:f_{j})=Q_{j}:f_{j}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Thus, 
+\begin_inset Formula $I:f_{j}$
+\end_inset
+
+ is 
+\begin_inset Formula $P_{j}$
+\end_inset
+
+-primary.
+ In particular 
+\begin_inset Formula $\sqrt{I:f_{j}}=\sqrt{Q_{j}:f_{j}}=P_{j}$
+\end_inset
+
+.
+ Also, if 
+\begin_inset Formula $P=I:f$
+\end_inset
+
+ for some 
+\begin_inset Formula $f\in R$
+\end_inset
+
+, then 
+\begin_inset Formula 
+\[
+P\supset Q_{1}\cap Q_{2}\cap\cdots\cap Q_{n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Since 
+\begin_inset Formula $P$
+\end_inset
+
+ is a prime ideal, 
+\begin_inset Formula $P\supset Q_{k}$
+\end_inset
+
+ for some 
+\begin_inset Formula $1\leq k\leq n$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $P\supset P_{k}$
+\end_inset
+
+ since 
+\begin_inset Formula $P_{k}$
+\end_inset
+
+ is the smallest prime ideal which contains 
+\begin_inset Formula $Q_{k}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ An associated prime 
+\begin_inset Formula $P_{i}$
+\end_inset
+
+ which does not properly contain any other associated prime 
+\begin_inset Formula $P_{j}$
+\end_inset
+
+ is called a 
+\begin_inset Formula $\textbf{minimal}$
+\end_inset
+
+ associated prime.
+ The non-minimal associated primes are called 
+\begin_inset Formula $\textbf{embedded}$
+\end_inset
+
+ associated primes.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $I=\langle x^{2},xy\rangle$
+\end_inset
+
+.
+ Clearly 
+\begin_inset Formula $I=\langle x^{2},y\rangle\cap\langle x\rangle$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzpicture}[scale=0.80]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (x) at (0,0) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (x') at (0,6) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node[circle, fill=black, inner sep=1.5pt] (y) at (0,3) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (text) at (0,-1) {
+\backslash
+LARGE $ 
+\backslash
+langle x^2 , xy 
+\backslash
+rangle $};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (z) at (7,0) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (z') at (7,6) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node[circle, fill=black, inner sep=1.5pt] (y') at (6,3) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (text) at (7,-1) {
+\backslash
+LARGE $ 
+\backslash
+langle x^2 - x , xy 
+\backslash
+rangle $};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw[-{Straight Barb[length=5pt,width=5pt]}] (x) edge[] node[right] {} (x');
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw[-{Straight Barb[length=5pt,width=5pt]}] (x') edge[] node[right] {}
+ (x);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw[-{Straight Barb[length=5pt,width=5pt]}] (z) edge[] node[right] {} (z');
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw[-{Straight Barb[length=5pt,width=5pt]}] (z') edge[] node[right] {}
+ (z);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture} 
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lemma}
+\backslash
+label{lemma1}
+\end_layout
+
+\end_inset
+
+ (Splitting tool) Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a ring, 
+\begin_inset Formula $I\subset A$
+\end_inset
+
+ an ideal, and let 
+\begin_inset Formula $I:a=I:a^{2}$
+\end_inset
+
+ for some 
+\begin_inset Formula $a\in A$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $I=(I:a)\cap\langle I,a\rangle$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lemma}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Since both 
+\begin_inset Formula $I:a$
+\end_inset
+
+ and 
+\begin_inset Formula $\langle I,a\rangle$
+\end_inset
+
+ contain 
+\begin_inset Formula $I$
+\end_inset
+
+, we have 
+\begin_inset Formula $I\subset(I:a)\cap\langle I,a\rangle$
+\end_inset
+
+.
+ For the reverse inclusion, let 
+\begin_inset Formula $f\in(I:a)\cap\langle I,a\rangle$
+\end_inset
+
+ and let 
+\begin_inset Formula $f=g+xa$
+\end_inset
+
+ for some 
+\begin_inset Formula $g\in I$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $af=ag+xa^{2}\in I$
+\end_inset
+
+ and, therefore, 
+\begin_inset Formula $xa^{2}\in I$
+\end_inset
+
+.
+ That is, 
+\begin_inset Formula $x\in I:a^{2}=I:a$
+\end_inset
+
+ which implies 
+\begin_inset Formula $xa\in I$
+\end_inset
+
+ and, consequently, 
+\begin_inset Formula $f\in I$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\backslash
+label{example1}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $I=\langle xy^{2},y^{3}\rangle$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $I:x=\langle y^{2}\rangle=I:x^{2}$
+\end_inset
+
+.
+ Therefore, 
+\begin_inset Formula $I=\langle y^{2}\rangle\cap\langle x,y^{3}\rangle$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\backslash
+label{example2}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $I=\langle wx,wy,wz,vx,vy,vz,ux,uy,uz,y^{3}-x^{2}\rangle$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $I:w=\langle x,y,z\rangle=I:w^{2}$
+\end_inset
+
+.
+ Therefore 
+\begin_inset Formula $I=\langle x,y,z\rangle\cap I_{1}$
+\end_inset
+
+ where 
+\begin_inset Formula $I_{1}=\langle w,vx,vy,vz,ux,uy,uz,y^{3}-x^{2}\rangle$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $I_{1}:v=\langle w,x,y,z\rangle=I_{1}:v^{2}$
+\end_inset
+
+, and so 
+\begin_inset Formula $I_{1}=\langle w,x,y,z\rangle\cap I_{2}$
+\end_inset
+
+ where 
+\begin_inset Formula $I_{2}=\langle w,v,ux,uy,uz,y^{3}-x^{2}\rangle$
+\end_inset
+
+.
+ Finally, 
+\begin_inset Formula $I_{2}:u=\langle w,v,x,y,z\rangle=I_{2}:u^{2}$
+\end_inset
+
+, and so 
+\begin_inset Formula $I_{2}=\langle w,v,x,y,z\rangle\cap\langle w,v,u,y^{3}-x^{2}\rangle$
+\end_inset
+
+.
+ So 
+\begin_inset Formula $I=\langle x,y,z\rangle\cap\langle w,x,y,z\rangle\cap\langle w,v,x,y,z\rangle\cap\langle w,v,u,y^{3}-x^{2}\rangle=\langle x,y,z\rangle\cap\langle w,v,u,y^{3}-x^{2}\rangle$
+\end_inset
+
+.
+  
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\backslash
+label{exampletwistedcubic}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A=K[x,y,z,w]$
+\end_inset
+
+.
+ The twisted cubic is the set-theoretic intersection of 
+\begin_inset Formula $xz-y^{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $z(yw-z^{2})-w(xw-yz)$
+\end_inset
+
+, but it is not a sheme-theoretic or ideal-theoretic complete intersection.
+ To get a sense of why this is, we compute a primary decomposition of 
+\begin_inset Formula $I=\langle xz-y^{2},z(yw-z^{2})-w(xw-yz)\rangle$
+\end_inset
+
+.
+ Using Singular, we see that 
+\begin_inset Formula $I$
+\end_inset
+
+ is 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+-primary where 
+\begin_inset Formula $\mathfrak{p}=\langle xz-y^{2},yw-z^{2},xw-yz\rangle$
+\end_inset
+
+, and thus 
+\begin_inset Formula $\sqrt{I}=\mathfrak{p}$
+\end_inset
+
+.
+ Therefore 
+\begin_inset Formula $\mathbf{V}(I)=\mathbf{V}(\mathfrak{p})$
+\end_inset
+
+.
+ On the other hand, 
+\begin_inset Formula $I\subsetneq\mathfrak{p}$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\backslash
+label{defn1}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a Noetherian ring and let 
+\begin_inset Formula $I$
+\end_inset
+
+ be an ideal in 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+The set of 
+\series bold
+associated primes 
+\series default
+of 
+\begin_inset Formula $I$
+\end_inset
+
+, denoted by 
+\begin_inset Formula $\mbox{Ass}(I)$
+\end_inset
+
+, is defined as 
+\begin_inset Formula 
+\[
+\mbox{Ass}(I)=\{\mathfrak{p}\subset A\mid\mathfrak{p}\mbox{ is prime and }\mathfrak{p}=I:a\mbox{ for some }a\in A\}.
+\]
+
+\end_inset
+
+Elements of 
+\begin_inset Formula $\mbox{Ass}\left(\langle0\rangle\right)$
+\end_inset
+
+ are also called 
+\series bold
+associated primes 
+\series default
+of 
+\begin_inset Formula $A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Let 
+\begin_inset Formula $\mathfrak{p},\mathfrak{q}\in\mbox{Ass}(I)$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathfrak{q}\subset\mathfrak{p}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ is called an 
+\series bold
+embedded prime ideal 
+\series default
+of 
+\begin_inset Formula $I$
+\end_inset
+
+.
+ We define 
+\begin_inset Formula $\mbox{Ass}(I,\mathfrak{p}):=\{\mathfrak{q}\mid\mathfrak{q}\in\mbox{Ass}(I)\mbox{ and }\mathfrak{q}\subset\mathfrak{p}\}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $I$
+\end_inset
+
+ is called 
+\series bold
+equidimensional 
+\series default
+or 
+\series bold
+pure dimensional 
+\series default
+if all associated primes of 
+\begin_inset Formula $I$
+\end_inset
+
+ have the same dimension.
+ 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $I$
+\end_inset
+
+ is a 
+\series bold
+primary ideal 
+\series default
+if, for any 
+\begin_inset Formula $a,b\in A$
+\end_inset
+
+, 
+\begin_inset Formula $ab\in I$
+\end_inset
+
+, and 
+\begin_inset Formula $a\notin I$
+\end_inset
+
+, then 
+\begin_inset Formula $b\in\sqrt{I}$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ be a prime ideal.
+ Then a primary ideal 
+\begin_inset Formula $I$
+\end_inset
+
+ is called 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+-primary if 
+\begin_inset Formula $\mathfrak{p}=\sqrt{I}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+A 
+\series bold
+primary decomposition 
+\series default
+of 
+\begin_inset Formula $I$
+\end_inset
+
+, that is, a decomposition 
+\begin_inset Formula $I=Q_{1}\cap\cdots\cap Q_{s}$
+\end_inset
+
+ with 
+\begin_inset Formula $Q_{i}$
+\end_inset
+
+ primary ideals, is called 
+\series bold
+irredundant 
+\series default
+if no 
+\begin_inset Formula $Q_{i}$
+\end_inset
+
+ can be omitted in the decomposition and if 
+\begin_inset Formula $\sqrt{Q_{i}}\neq\sqrt{Q}_{j}$
+\end_inset
+
+ for all 
+\begin_inset Formula $i\neq j$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Examples
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\backslash
+label{example}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A=K[x,y]$
+\end_inset
+
+ and 
+\begin_inset Formula $I=\langle x^{2},xy\rangle$
+\end_inset
+
+.
+ Then a primary decomposition of 
+\begin_inset Formula $I$
+\end_inset
+
+ is given by 
+\begin_inset Formula $I=I_{1}\cap I_{2}$
+\end_inset
+
+, where
+\begin_inset Formula 
+\begin{align*}
+I_{1} & =\langle x^{2},y\rangle & \sqrt{I_{1}} & =\langle x,y\rangle\\
+I_{2} & =\langle x\rangle & \sqrt{I_{2}} & =\langle x\rangle
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\backslash
+label{example}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A=K[x,y,u,v]$
+\end_inset
+
+ and 
+\begin_inset Formula $I=\langle xu,xv,yu,yv\rangle$
+\end_inset
+
+.
+ Then a primary decomposition of 
+\begin_inset Formula $I$
+\end_inset
+
+ is given by 
+\begin_inset Formula $I=I_{1}\cap I_{2}$
+\end_inset
+
+, where
+\begin_inset Formula 
+\begin{align*}
+I_{1} & =\langle x,y\rangle & \sqrt{I_{1}} & =\langle x,y\rangle\\
+I_{2} & =\langle u,v\rangle & \sqrt{I_{2}} & =\langle u,v\rangle
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\backslash
+label{example}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A=K[x,y,u,v]$
+\end_inset
+
+ and 
+\begin_inset Formula $I=\langle xu,yv,xv+yu\rangle$
+\end_inset
+
+.
+ Then a primary decomposition of 
+\begin_inset Formula $I$
+\end_inset
+
+ is given by 
+\begin_inset Formula $I=I_{1}\cap I_{2}\cap I_{3}$
+\end_inset
+
+, where
+\begin_inset Formula 
+\begin{align*}
+I_{1} & =\langle x,y\rangle & \sqrt{I_{1}} & =\langle x,y\rangle\\
+I_{2} & =\langle u,v\rangle & \sqrt{I_{2}} & =\langle u,v\rangle\\
+I_{3} & =\langle x^{2},xy,xu,yu+xv,y^{2},yv,u^{2},uv,v^{2}\rangle & \sqrt{I_{3}} & =\langle x,y,u,v\rangle
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\backslash
+label{example}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A=K[x,y,u,v]$
+\end_inset
+
+ and 
+\begin_inset Formula $I=\langle xu+yv,xv+yu\rangle$
+\end_inset
+
+.
+ Then a primary decomposition of 
+\begin_inset Formula $I$
+\end_inset
+
+ is given by 
+\begin_inset Formula $I=I_{1}\cap I_{2}\cap I_{3}\cap I_{4}$
+\end_inset
+
+, where=
+\begin_inset Formula 
+\begin{align*}
+I_{1} & =\langle x,y\rangle & \sqrt{I_{1}} & =\langle x,y\rangle\\
+I_{2} & =\langle u,v\rangle & \sqrt{I_{2}} & =\langle u,v\rangle\\
+I_{3} & =\langle x+y,u-v\rangle & \sqrt{I_{3}} & =\langle x+y,u-v\rangle\\
+I_{4} & =\langle x-y,u+v\rangle & \sqrt{I_{4}} & =\langle x-y,u+v\rangle
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Associated Primes
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a ring, 
+\series bold
+
+\begin_inset Formula $\mathfrak{p}\subset A$
+\end_inset
+
+ 
+\series default
+a prime ideal, and 
+\begin_inset Formula $M$
+\end_inset
+
+ an 
+\begin_inset Formula $A$
+\end_inset
+
+-module.
+ We say 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ is an 
+\series bold
+associated prime 
+\series default
+of 
+\begin_inset Formula $M$
+\end_inset
+
+ if 
+\begin_inset Formula $\mathfrak{p}=\text{Ann}(m)$
+\end_inset
+
+ for some 
+\begin_inset Formula $m\in M$
+\end_inset
+
+.
+ The set of all associated primes of 
+\begin_inset Formula $M$
+\end_inset
+
+ is written 
+\begin_inset Formula $\text{Ass}(M)$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a Noetherian ring and let 
+\begin_inset Formula $M$
+\end_inset
+
+ be a finitely generated 
+\begin_inset Formula $A$
+\end_inset
+
+-module.
+ 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\text{Ass}(M)$
+\end_inset
+
+ is a finite, nonempty set of primes, each containing 
+\begin_inset Formula $\text{Ann}(M)$
+\end_inset
+
+.
+ The set 
+\begin_inset Formula $\text{Ass}(M)$
+\end_inset
+
+ includes all primes minimal among primes containing 
+\begin_inset Formula $\text{Ann}(M)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+The union of associated primes of 
+\begin_inset Formula $M$
+\end_inset
+
+ consists of 
+\begin_inset Formula $0$
+\end_inset
+
+ and the set of zerodivisors on 
+\begin_inset Formula $M$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+The formation of the set 
+\begin_inset Formula $\text{Ass}(M)$
+\end_inset
+
+ commutes with localization at an arbitrary multiplicately closed set, in
+ the sense that 
+\begin_inset Formula 
+\[
+\text{Ass}_{S^{-1}A}(S^{-1}M)=\{S^{-1}\mathfrak{p}\mid\mathfrak{p}\in\text{Ass}(M)\text{ and }\mathfrak{p}\cap S=\emptyset\}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lemma}
+\backslash
+label{primeavoidance}
+\end_layout
+
+\end_inset
+
+ (Prime Avoidance) If 
+\begin_inset Formula $I\subseteq\bigcup_{i=1}^{n}\mathfrak{p}_{i}$
+\end_inset
+
+, with 
+\begin_inset Formula $\mathfrak{p}_{i}$
+\end_inset
+
+ prime, then 
+\begin_inset Formula $I\subseteq\mathfrak{p}_{i}$
+\end_inset
+
+ for some 
+\begin_inset Formula $i$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lemma}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ We prove the contrapositive: 
+\begin_inset Formula $I\not\subseteq\mathfrak{p}_{i}$
+\end_inset
+
+ for all 
+\begin_inset Formula $i$
+\end_inset
+
+ implies 
+\begin_inset Formula $I\not\subseteq\bigcup_{i=1}^{n}\mathfrak{p}_{i}$
+\end_inset
+
+.
+ Induct on 
+\begin_inset Formula $n$
+\end_inset
+
+, the base case is trivial.
+ We now suppose that 
+\begin_inset Formula $I\not\subseteq\mathfrak{p}_{i}$
+\end_inset
+
+ for all 
+\begin_inset Formula $i$
+\end_inset
+
+ and 
+\begin_inset Formula $I\subseteq\bigcup_{i=1}^{n}\mathfrak{p}_{i}$
+\end_inset
+
+, and arrive at a contradiction.
+ From our inductive hypothesis, for each 
+\begin_inset Formula $i$
+\end_inset
+
+, 
+\begin_inset Formula $I\not\subseteq\bigcup_{j\neq i}\mathfrak{p}_{j}$
+\end_inset
+
+.
+ In particular, for each 
+\begin_inset Formula $i$
+\end_inset
+
+ there is an 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+ which is in 
+\begin_inset Formula $I$
+\end_inset
+
+ but is not in 
+\begin_inset Formula $\bigcup_{j\neq i}\mathfrak{p}_{j}$
+\end_inset
+
+.
+ Notice that if 
+\begin_inset Formula $x_{i}\notin\mathfrak{p}_{i}$
+\end_inset
+
+ then 
+\begin_inset Formula $x_{i}\notin\bigcup_{j=1}^{n}\mathfrak{p}_{j}$
+\end_inset
+
+, and we have an immediate contradiction.
+ So suppose for every 
+\begin_inset Formula $i$
+\end_inset
+
+ that 
+\begin_inset Formula $x_{i}\in\mathfrak{p}_{i}$
+\end_inset
+
+.
+ Consider the element
+\begin_inset Formula 
+\[
+x=\sum_{i=1}^{n}x_{1}\cdots\hat{x}_{i}\cdots x_{n}.
+\]
+
+\end_inset
+
+By construction, 
+\begin_inset Formula $x\in I$
+\end_inset
+
+.
+ We claim that 
+\begin_inset Formula $x\notin\bigcup_{i=1}^{n}\mathfrak{p}_{i}$
+\end_inset
+
+.
+ To see this, observe that 
+\begin_inset Formula $x_{1}\cdots\hat{x}_{i}\cdots x_{n}\notin\mathfrak{p}_{i}$
+\end_inset
+
+, because for each index 
+\begin_inset Formula $k\neq i$
+\end_inset
+
+, 
+\begin_inset Formula $x_{k}$
+\end_inset
+
+ is not in 
+\begin_inset Formula $\bigcup_{j\neq k}\mathfrak{p}_{j}$
+\end_inset
+
+, so in particular is not in 
+\begin_inset Formula $\mathfrak{p}_{i}$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $\mathfrak{p}_{i}$
+\end_inset
+
+ is prime, this proves that 
+\begin_inset Formula $x_{1}\cdots\hat{x}_{i}\cdots x_{n}\notin\mathfrak{p}_{i}$
+\end_inset
+
+.
+ But every other monomial of 
+\begin_inset Formula $x$
+\end_inset
+
+ is in 
+\begin_inset Formula $\mathfrak{p}_{i}$
+\end_inset
+
+, since every other monomial contains 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+.
+ This shows that 
+\begin_inset Formula $x\notin\mathfrak{p}_{i}$
+\end_inset
+
+ for any 
+\begin_inset Formula $i$
+\end_inset
+
+, hence 
+\begin_inset Formula $x\notin\bigcup_{j=1}^{n}\mathfrak{p}_{j}$
+\end_inset
+
+, a contradiction.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Finitely generated modules over Noetherian rings are distinguished for two
+ reasons: 
+\end_layout
+
+\begin_layout Enumerate
+Every zerodivisor of 
+\begin_inset Formula $M$
+\end_inset
+
+ is contained in an associated prime ideal: Let 
+\begin_inset Formula $x$
+\end_inset
+
+ be a nonzerodivisor of 
+\begin_inset Formula $M$
+\end_inset
+
+.
+ This means there is a nonzero 
+\begin_inset Formula $m\in M$
+\end_inset
+
+ such that 
+\begin_inset Formula $xm=0$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $x$
+\end_inset
+
+ belongs to the ideal 
+\begin_inset Formula $0:m=\{a\in A\mid am=0\}$
+\end_inset
+
+.
+ In a Noetherian ring, we have primary decomposition.
+ So
+\begin_inset Formula 
+\[
+x\in0:m=Q_{1}\cap Q_{2}\cap\cdots\cap Q_{k}\subseteq\mathfrak{p}_{1}\cap\mathfrak{p}_{2}\cap\cdots\cap\mathfrak{p}_{k}
+\]
+
+\end_inset
+
+where each 
+\begin_inset Formula $\mathfrak{p}_{i}=(0:m):d_{i}=0:d_{i}m$
+\end_inset
+
+ for some 
+\begin_inset Formula $d_{i}\in A$
+\end_inset
+
+.
+ That is, each 
+\begin_inset Formula $\mathfrak{p}_{i}$
+\end_inset
+
+ is an associated prime ideal of 
+\begin_inset Formula $M$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+The number of associated prime ideals of 
+\begin_inset Formula $M$
+\end_inset
+
+ is finite.
+ So if 
+\begin_inset Formula $I$
+\end_inset
+
+ is an ideal which consists of zero-divisors of 
+\begin_inset Formula $M$
+\end_inset
+
+, then 
+\begin_inset Formula 
+\[
+I\subseteq\bigcup\limits _{\mathfrak{p}\in\mbox{Ass}(M)}\mathfrak{p}.
+\]
+
+\end_inset
+
+and by the 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Lemma~(
+\backslash
+ref{primeavoidance})
+\end_layout
+
+\end_inset
+
+, we must have 
+\begin_inset Formula $I\subseteq\mathfrak{p}_{i}$
+\end_inset
+
+ for some 
+\begin_inset Formula $i$
+\end_inset
+
+.
+ Writing 
+\begin_inset Formula $\mathfrak{p}_{i}=0:m_{i}$
+\end_inset
+
+, the assignment 
+\begin_inset Formula $1\mapsto m_{i}$
+\end_inset
+
+ induces a non-zero homomorphism 
+\begin_inset Formula $\varphi:A/I\to M$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\backslash
+label{example}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A=K[x,y]$
+\end_inset
+
+ and 
+\begin_inset Formula $M=K[x,y]/\langle xy\rangle$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\text{Ass}(M)=\left\{ \langle x\rangle,\langle y\rangle\right\} $
+\end_inset
+
+ and 
+\begin_inset Formula $\text{Supp}(M)=\mathbf{V}\left(\langle xy\rangle\right)$
+\end_inset
+
+.
+ Clearly 
+\begin_inset Formula $\text{Supp}(M)$
+\end_inset
+
+ is much bigger than 
+\begin_inset Formula $\text{Ass}(M)$
+\end_inset
+
+.
+ For example, 
+\begin_inset Formula $\langle x-a,y\rangle\in\text{Supp}(M)$
+\end_inset
+
+ but 
+\begin_inset Formula $\langle x-a,y\rangle\notin\text{Ass}(M)$
+\end_inset
+
+ for all 
+\begin_inset Formula $a\in K$
+\end_inset
+
+.
+ Consider the filtration
+\begin_inset Formula 
+\[
+0=M_{0}\subset M_{1}\subset M_{2}\subset M_{3}=M,
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $M_{1}=\langle x\rangle/\langle xy\rangle$
+\end_inset
+
+ and 
+\begin_inset Formula $M_{2}=\langle x,y\rangle/\langle xy\rangle$
+\end_inset
+
+.
+ The factors of this filtration are 
+\begin_inset Formula 
+\begin{align*}
+M_{3}/M_{2} & \cong K[x,y]/\langle x,y\rangle,\\
+M_{2}/M_{1} & \cong K[x,y]/\langle x\rangle,\\
+M_{1}/M_{0} & \cong K[x,y]/\langle y\rangle.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

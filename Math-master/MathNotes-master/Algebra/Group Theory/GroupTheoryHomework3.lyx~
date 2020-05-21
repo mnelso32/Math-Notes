@@ -1,0 +1,1083 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{tikz}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\usetikzlibrary{shapes.geometric}
+\usepackage{tikz-cd}
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem*{cor}{Corollary}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{ex}{Exercise} 
+\newtheorem{example}{Example}[section]
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem{case}{Case}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{tikz-cd}
+\usetikzlibrary{calc,arrows,decorations.pathreplacing}
+\tikzset{mydot/.style={circle,fill,inner sep=1.5pt},
+commutative diagrams/.cd,
+  arrow style=tikz,
+  diagrams={>=latex},
+}
+
+\usepackage{babel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+\usepackage{pgfplots}
+\usetikzlibrary{decorations.markings}
+\pgfplotsset{compat=1.9}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding iso8859-15
+\fontencoding global
+\font_roman "palatino" "default"
+\font_sans "lmss" "default"
+\font_typewriter "lmtt" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf true
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing single
+\use_hyperref false
+\papersize custom
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\paperwidth 30cm
+\paperheight 35cm
+\topmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0bp
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Group Theory Homework
+\end_layout
+
+\begin_layout Author
+Michael Nelson
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $(1):$
+\end_inset
+
+ Let 
+\begin_inset Formula $|G|=p_{1}^{e_{1}}\cdots p_{k}^{e_{k}}$
+\end_inset
+
+ be the prime factorization of the 
+\begin_inset Formula $|G|$
+\end_inset
+
+.
+ For each 
+\begin_inset Formula $i=1,2,\dots k$
+\end_inset
+
+, we prove by induction on 
+\begin_inset Formula $n$
+\end_inset
+
+ that the group 
+\begin_inset Formula $G$
+\end_inset
+
+ has a subgroup of order 
+\begin_inset Formula $p_{i}^{n}$
+\end_inset
+
+ where 
+\begin_inset Formula $1\leq n\leq e_{i}$
+\end_inset
+
+.
+ The base case 
+\begin_inset Formula $n=1$
+\end_inset
+
+ is given by Cauchy's theorem; there exists a subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
+ of order 
+\begin_inset Formula $p_{i}$
+\end_inset
+
+.
+ Now assume 
+\begin_inset Formula $G$
+\end_inset
+
+ has a subgroup 
+\begin_inset Formula $H$
+\end_inset
+
+ such that 
+\begin_inset Formula $|H|=p_{i}^{n}$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $n=e_{i}$
+\end_inset
+
+, we are done, so assume 
+\begin_inset Formula $n<e_{i}$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $G$
+\end_inset
+
+ is abelian, 
+\begin_inset Formula $H$
+\end_inset
+
+ is a normal subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
+, and therefore we can consider the quotient group 
+\begin_inset Formula $G/H$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $|G/H|=p_{1}^{e_{1}}\cdots p_{i}^{e_{i}-n}\cdots p_{k}^{e_{k}}$
+\end_inset
+
+ and 
+\begin_inset Formula $n<e_{i}$
+\end_inset
+
+, by Cauchy's theorem, there exists a subgroup of 
+\begin_inset Formula $G/H$
+\end_inset
+
+ such that the order of this subgroup is 
+\begin_inset Formula $p_{i}$
+\end_inset
+
+.
+ Subgroups of 
+\begin_inset Formula $G/H$
+\end_inset
+
+ have the form 
+\begin_inset Formula $H'/H$
+\end_inset
+
+ for some subgroup 
+\begin_inset Formula $H'$
+\end_inset
+
+ between 
+\begin_inset Formula $H$
+\end_inset
+
+ and 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $|H|=p^{n}$
+\end_inset
+
+ and 
+\begin_inset Formula $|H'/H|=p$
+\end_inset
+
+, we must have 
+\begin_inset Formula $|H'|=p^{n+1}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Now suppose 
+\begin_inset Formula $H$
+\end_inset
+
+ and 
+\begin_inset Formula $K$
+\end_inset
+
+ are subgroups of 
+\begin_inset Formula $G$
+\end_inset
+
+ such that 
+\begin_inset Formula $|H|=m$
+\end_inset
+
+ and 
+\begin_inset Formula $|K|=n$
+\end_inset
+
+ where 
+\begin_inset Formula $m$
+\end_inset
+
+ and 
+\begin_inset Formula $n$
+\end_inset
+
+ are relatively prime.
+ We will show 
+\begin_inset Formula $HK$
+\end_inset
+
+ is a subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
+ with 
+\begin_inset Formula $|HK|=mn$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $G$
+\end_inset
+
+ is abelian, 
+\begin_inset Formula $HK=KH$
+\end_inset
+
+, so 
+\begin_inset Formula $HK$
+\end_inset
+
+ is a subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $HK$
+\end_inset
+
+ is a subgroup of an abelian group, 
+\begin_inset Formula $HK$
+\end_inset
+
+ is abelian too, and therefore 
+\begin_inset Formula $H$
+\end_inset
+
+ is a normal subgroup of 
+\begin_inset Formula $HK$
+\end_inset
+
+.
+ Thus, the short exact sequence makes sense
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd}[row sep=tiny]  1 
+\backslash
+arrow[r] & H 
+\backslash
+arrow[r] & HK 
+\backslash
+arrow[r] & HK/H 
+\backslash
+arrow[r] & 1  
+\backslash
+
+\backslash
+ & h 
+\backslash
+arrow[r,mapsto] & he 
+\backslash
+
+\backslash
+ & & hk 
+\backslash
+arrow[r,mapsto] & hkH  
+\backslash
+end{tikzcd} 
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+From the short exact sequence and the second isomorphism theorem , we conclude
+ that
+\begin_inset Formula 
+\begin{align*}
+|HK| & =|HK/H||H|\\
+ & =|K/H\cap K||H|\\
+ & =|H||K|/|H\cap K|.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Finally we show 
+\begin_inset Formula $H\cap K=\{e\}$
+\end_inset
+
+.
+ Suppose 
+\begin_inset Formula $x\in H\cap K$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\mbox{ord}(x)$
+\end_inset
+
+ divides both 
+\begin_inset Formula $m$
+\end_inset
+
+ and 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $1\leq\mbox{ord}(x)\leq\mbox{gcd}(m,n)=1$
+\end_inset
+
+, we must have 
+\begin_inset Formula $\mbox{ord}(x)=1$
+\end_inset
+
+.
+ This implies 
+\begin_inset Formula $x=e$
+\end_inset
+
+, and thus 
+\begin_inset Formula $|HK|=mn$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Let 
+\begin_inset Formula $\ell=p_{1}^{f_{1}}\cdots p_{k}^{f_{k}}$
+\end_inset
+
+ be divisor of 
+\begin_inset Formula $|G|$
+\end_inset
+
+.
+ This means 
+\begin_inset Formula $0\le f_{i}\le e_{i}$
+\end_inset
+
+ for all 
+\begin_inset Formula $i=1,\dots,k$
+\end_inset
+
+.
+ To construct a subgroup of order 
+\begin_inset Formula $\ell$
+\end_inset
+
+, first construct subgroups 
+\begin_inset Formula $H_{i}$
+\end_inset
+
+ of order 
+\begin_inset Formula $p_{i}^{f_{i}}$
+\end_inset
+
+ for all 
+\begin_inset Formula $i=1,2,\dots,k$
+\end_inset
+
+.
+ Then a subgroup of order 
+\begin_inset Formula $\ell$
+\end_inset
+
+ is given by 
+\begin_inset Formula $H=H_{1}\cdots H_{k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $(2a):$
+\end_inset
+
+ These are conjugate.
+ A permutation 
+\begin_inset Formula $\tau$
+\end_inset
+
+ such that 
+\begin_inset Formula $\sigma_{2}=\tau\sigma_{1}\tau^{-1}$
+\end_inset
+
+ is given by 
+\begin_inset Formula $\tau=(1,2,4,5,3)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $(2b):$
+\end_inset
+
+ These are conjugate.
+ A permutation 
+\begin_inset Formula $\tau$
+\end_inset
+
+ such that 
+\begin_inset Formula $\sigma_{2}=\tau\sigma_{1}\tau^{-1}$
+\end_inset
+
+ is given by 
+\begin_inset Formula $\tau=(1,4)(6,7,11,10,3,13)(8,5,9)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $(2c):$
+\end_inset
+
+ These are conjugate.
+ A permutation 
+\begin_inset Formula $\tau$
+\end_inset
+
+ such that 
+\begin_inset Formula $\sigma_{2}=\tau\sigma_{1}\tau^{-1}$
+\end_inset
+
+ is given by 
+\begin_inset Formula $\tau=(1,2,3,4,5)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $(3):$
+\end_inset
+
+ We list all conjugacy classes and their sizes in 
+\begin_inset Formula $S_{5}$
+\end_inset
+
+ in the table below
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Representative
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Size
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $(1)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $(1,2)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $10$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $(1,2,3)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $20$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $(1,2,3,4)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $30$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $(1,2,3,4,5)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $24$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $(1,2)(3,4,5)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $20$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $(1,2)(3,4)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $15$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $(4):$
+\end_inset
+
+ There are three obvious normal subgroups of 
+\begin_inset Formula $S_{5}$
+\end_inset
+
+, namely the trivial group, 
+\begin_inset Formula $A_{5}$
+\end_inset
+
+, and 
+\begin_inset Formula $S_{5}$
+\end_inset
+
+ itself.
+ We use the fact that 
+\begin_inset Formula $A_{5}$
+\end_inset
+
+ is simple to show that this is all of them.
+ If 
+\begin_inset Formula $N$
+\end_inset
+
+ is a normal subgroup of 
+\begin_inset Formula $S_{5}$
+\end_inset
+
+, then 
+\begin_inset Formula $N\cap A_{5}$
+\end_inset
+
+ is a normal subgroup of 
+\begin_inset Formula $A_{5}$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $A_{5}$
+\end_inset
+
+ is simple, we must have either 
+\begin_inset Formula $A_{5}\cap N=A_{5}$
+\end_inset
+
+ or 
+\begin_inset Formula $A_{5}\cap N=\{e\}$
+\end_inset
+
+.
+ We show 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $N\cap A_{5}=A_{5}\mbox{ implies }N=A_{5}\mbox{ or }N=S_{5}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $N\cap A_{5}=\{e\}\mbox{ implies }N=\{e\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $(1):$
+\end_inset
+
+ If 
+\begin_inset Formula $A_{5}\cap N=A_{5}$
+\end_inset
+
+, then 
+\begin_inset Formula $A_{5}\trianglelefteq N\trianglelefteq S_{5}.$
+\end_inset
+
+ Passing modulo 
+\begin_inset Formula $A_{5}$
+\end_inset
+
+ we obtain 
+\begin_inset Formula $\{e\}\trianglelefteq N/A_{5}\trianglelefteq S_{5}/A_{5}$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $S_{5}/A_{5}\cong\mathbb{Z}_{2}$
+\end_inset
+
+ is simple, 
+\begin_inset Formula $N/A_{5}\cong\{e\}$
+\end_inset
+
+ or 
+\begin_inset Formula $N/A_{5}\cong\mathbb{Z}_{2}$
+\end_inset
+
+.
+ In the former case, 
+\begin_inset Formula $N=A_{5}$
+\end_inset
+
+.
+ In the latter case, 
+\begin_inset Formula $N=S_{5}$
+\end_inset
+
+ since 
+\begin_inset Formula $N\subset S_{5}$
+\end_inset
+
+ and 
+\begin_inset Formula $|N|=|A_{5}||\mathbb{Z}_{2}|=|S_{5}|$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $(2):$
+\end_inset
+
+ If 
+\begin_inset Formula $A_{5}\cap N=\{e\}$
+\end_inset
+
+, then 
+\begin_inset Formula $|S_{5}|\geq|A_{5}N|=|A_{5}||N|.$
+\end_inset
+
+ This implies 
+\begin_inset Formula $|N|=1$
+\end_inset
+
+ or 
+\begin_inset Formula $|N|=2$
+\end_inset
+
+.
+ A quick look at the conjugacy class table for 
+\begin_inset Formula $S_{5}$
+\end_inset
+
+ tells us that there are no normal subgroups in 
+\begin_inset Formula $S_{5}$
+\end_inset
+
+ with size 
+\begin_inset Formula $2$
+\end_inset
+
+.
+ Therefore 
+\begin_inset Formula $|N|=1$
+\end_inset
+
+, which implies 
+\begin_inset Formula $N=\{e\}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_body
+\end_document

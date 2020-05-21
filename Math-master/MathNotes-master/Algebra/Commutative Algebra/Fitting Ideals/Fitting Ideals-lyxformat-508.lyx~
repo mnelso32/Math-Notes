@@ -1,0 +1,3120 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{tikz}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\usetikzlibrary{shapes.geometric}
+\usepackage{tikz-cd}
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem*{cor}{Corollary}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{ex}{Exercise} 
+\newtheorem{example}{Example}[section]
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem{case}{Case}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{tikz-cd}
+\usetikzlibrary{calc,arrows,decorations.pathreplacing}
+\tikzset{mydot/.style={circle,fill,inner sep=1.5pt},
+commutative diagrams/.cd,
+  arrow style=tikz,
+  diagrams={>=latex},
+}
+
+\usepackage{babel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+\usepackage{pgfplots}
+\usetikzlibrary{decorations.markings}
+\pgfplotsset{compat=1.9}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding iso8859-15
+\fontencoding global
+\font_roman "palatino" "default"
+\font_sans "lmss" "default"
+\font_typewriter "lmtt" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf true
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing single
+\use_hyperref false
+\papersize custom
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\paperwidth 30cm
+\paperheight 35cm
+\topmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0bp
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Fitting Ideals
+\end_layout
+
+\begin_layout Subsection*
+Generalization of Rank
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a Noetherian ring.
+ Recall that we define the total quotient ring 
+\begin_inset Formula $Q(A)$
+\end_inset
+
+ of 
+\begin_inset Formula $A$
+\end_inset
+
+ to be 
+\begin_inset Formula $Q(A):=D^{-1}A$
+\end_inset
+
+, where 
+\begin_inset Formula $D$
+\end_inset
+
+ is the set of all nonzerodivisors, i.e.
+ 
+\begin_inset Formula 
+\[
+D:=A\backslash\left(\bigcup_{\mathfrak{p}\in\mbox{Ass}(A)}\mathfrak{p}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Moreover, if 
+\begin_inset Formula $\mathfrak{p}\in\mbox{Ass}(A)$
+\end_inset
+
+, then 
+\begin_inset Formula $D\subset A\backslash\mathfrak{p}$
+\end_inset
+
+ implies 
+\begin_inset Formula $Q(A)_{\mathfrak{p}Q(A)}\cong A_{\mathfrak{p}}.$
+\end_inset
+
+ We also note that the prime ideals in 
+\begin_inset Formula $Q(A)$
+\end_inset
+
+ correspond to the prime ideals in 
+\begin_inset Formula $A$
+\end_inset
+
+ which are completely contained in 
+\begin_inset Formula 
+\[
+\bigcup_{\mathfrak{p}\in\mbox{Ass}(A)}\mathfrak{p}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In general, 
+\begin_inset Formula $Q(A)$
+\end_inset
+
+ will be a direct sum of local rings.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A=K[x,y]/\langle x^{2},xy\rangle$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\mbox{Ass}(A)=\{\langle x\rangle,\langle x,y\rangle\}$
+\end_inset
+
+.
+ Therefore 
+\begin_inset Formula $D=A\backslash\langle x,y\rangle$
+\end_inset
+
+, and 
+\begin_inset Formula $Q(A)=K[x,y]_{\langle x,y\rangle}/\langle x^{2},xy\rangle.$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A=K[x,y,z]/\langle xz,yz\rangle$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\mbox{Ass}(A)=\{\langle x,y\rangle,\langle z\rangle\}$
+\end_inset
+
+.
+ Therefore 
+\begin_inset Formula $D=A\backslash\left(\langle x,y\rangle\cup\langle z\rangle\right)$
+\end_inset
+
+, and
+\begin_inset Formula 
+\begin{align*}
+D^{-1}\left(K[x,y,z]/\left(\langle x,y\rangle\cap\langle z\rangle\right)\right) & \cong D^{-1}K[x,y,z]/D^{-1}\left(\langle x,y\rangle\cap\langle z\rangle\right)\\
+ & =D^{-1}K[x,y,z]/\left(D^{-1}\langle x,y\rangle\cap D^{-1}\langle z\rangle\right)\\
+ & \cong\left(D^{-1}K[x,y,z]/D^{-1}\langle x,y\rangle\right)\oplus\left(D^{-1}K[x,y,z]/D^{-1}\langle z\rangle\right)\\
+ & \cong K(z)\oplus K(x,y).
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Notice how 
+\begin_inset Formula $z/1$
+\end_inset
+
+ becomes a unit in 
+\begin_inset Formula $D^{-1}K[x,y,z]/D^{-1}\langle x,y\rangle$
+\end_inset
+
+: specifically 
+\begin_inset Formula $z/1\equiv(z+x)/1$
+\end_inset
+
+, and 
+\begin_inset Formula $z+x\in D$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A=K[x,y,z]/\left(\langle y,z^{2}\rangle\cap\langle y^{2}-xz\rangle\cap\langle x^{2},z\rangle\right)$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\mbox{Ass}(A)=\{\langle y,z\rangle,\langle y^{2}-xz\rangle,\langle x,z\rangle\}$
+\end_inset
+
+.
+ Therefore 
+\begin_inset Formula $D=A\backslash\left(\langle y,z\rangle\cup\langle x,z\rangle\right)$
+\end_inset
+
+, and
+\begin_inset Formula 
+\begin{align*}
+D^{-1}\left(K[x,y,z]/\left(\langle y,z^{2}\rangle\cap\langle y^{2}-xz\rangle\cap\langle x^{2},z\rangle\right)\right) & \cong D^{-1}K[x,y,z]/D^{-1}\left(\langle y,z^{2}\rangle\cap\langle y^{2}-xz\rangle\cap\langle x^{2},z\rangle\right)\\
+ & =D^{-1}K[x,y,z]/\left(D^{-1}\langle y,z^{2}\rangle\cap D^{-1}\langle y^{2}-xz\rangle\cap D^{-1}\langle x^{2},z\rangle\right)\\
+ & \cong\left(D^{-1}K[x,y,z]/D^{-1}\langle y^{2}z-xz^{2},y^{3}-xyz\rangle\right)\oplus\left(D^{-1}K[x,y,z]/D^{-1}\langle x^{2},z\rangle\right)\\
+ & \cong\left(K[x,y,z]_{\langle y,z\rangle}/\langle y^{2}z-xz^{2},y^{3}-xyz\rangle\right)\oplus\left(K[x,y,z]_{\langle x,z\rangle}/\langle x^{2},z\rangle\right).
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The ring 
+\begin_inset Formula $K[x,y,z]_{\langle x,z\rangle}/\langle x^{2},z\rangle$
+\end_inset
+
+ is a local ring of dimension zero, with its maximal ideal being 
+\begin_inset Formula $\langle x\rangle$
+\end_inset
+
+.
+ The ring 
+\begin_inset Formula $K[x,y,z]_{\langle y,z\rangle}/\langle y^{2}z-xz^{2},y^{3}-xyz\rangle$
+\end_inset
+
+ is a local ring ring of dimension one, with its maximal ideal being 
+\begin_inset Formula $\langle y,z\rangle$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a ring and 
+\begin_inset Formula $M$
+\end_inset
+
+ be a finitely generated 
+\begin_inset Formula $A$
+\end_inset
+
+-module.
+ We say that 
+\begin_inset Formula $M$
+\end_inset
+
+ has 
+\series bold
+rank 
+\series default
+
+\begin_inset Formula $r$
+\end_inset
+
+ if 
+\begin_inset Formula $M\otimes_{A}Q(A)$
+\end_inset
+
+ is a free 
+\begin_inset Formula $Q(A)$
+\end_inset
+
+-module of rank 
+\begin_inset Formula $r$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{rem}
+\end_layout
+
+\end_inset
+
+ If 
+\begin_inset Formula $A$
+\end_inset
+
+ is an integral domain, then 
+\begin_inset Formula $Q(A)$
+\end_inset
+
+ is a field, hence every finitely generated 
+\begin_inset Formula $A$
+\end_inset
+
+-module 
+\begin_inset Formula $M$
+\end_inset
+
+ has a rank, namely 
+\begin_inset Formula 
+\[
+\mbox{rank}(M)=\mbox{dim}_{Q(A)}M\otimes_{A}Q(A).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{rem}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lemma}
+\backslash
+label{lemmalocal}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a Noetherian ring and 
+\begin_inset Formula $M$
+\end_inset
+
+ be a finitely generated 
+\begin_inset Formula $A$
+\end_inset
+
+-module.
+ Then 
+\begin_inset Formula $M$
+\end_inset
+
+ has rank 
+\begin_inset Formula $r$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $M_{\mathfrak{p}}$
+\end_inset
+
+ is a free 
+\begin_inset Formula $A_{\mathfrak{p}}$
+\end_inset
+
+-module of rank 
+\begin_inset Formula $r$
+\end_inset
+
+ for all prime ideals 
+\begin_inset Formula $\mathfrak{p}\in\mbox{Ass}(A)$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lemma}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Since 
+\begin_inset Formula $\left(M\otimes_{A}Q(A)\right)_{\mathfrak{p}Q(A)}\cong M_{\mathfrak{p}}$
+\end_inset
+
+ and 
+\begin_inset Formula $Q(A)_{\mathfrak{p}Q(A)}\cong A_{\mathfrak{p}}$
+\end_inset
+
+ for all 
+\begin_inset Formula $\mathfrak{p}\in\mbox{Ass}(A)$
+\end_inset
+
+, we may assume that 
+\begin_inset Formula $A=Q(A)$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $M$
+\end_inset
+
+ is a free 
+\begin_inset Formula $A$
+\end_inset
+
+-module of rank 
+\begin_inset Formula $r$
+\end_inset
+
+, then 
+\begin_inset Formula $M_{\mathfrak{p}}$
+\end_inset
+
+ is a free 
+\begin_inset Formula $A_{\mathfrak{p}}$
+\end_inset
+
+-module of rank 
+\begin_inset Formula $r$
+\end_inset
+
+.
+ Now suppose that 
+\begin_inset Formula $M_{\mathfrak{p}}$
+\end_inset
+
+ is a free 
+\begin_inset Formula $A_{\mathfrak{p}}$
+\end_inset
+
+-module of rank 
+\begin_inset Formula $r$
+\end_inset
+
+ for all prime ideals 
+\begin_inset Formula $\mathfrak{p}\in\mbox{Ass}(A)$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $r=0$
+\end_inset
+
+, then 
+\begin_inset Formula $M_{\mathfrak{p}}=\langle0\rangle$
+\end_inset
+
+ for all 
+\begin_inset Formula $\mathfrak{p}\in\mbox{Ass}(A)$
+\end_inset
+
+, which implies 
+\begin_inset Formula $M=\langle0\rangle$
+\end_inset
+
+.
+ Therefore, we may assume 
+\begin_inset Formula $r>0$
+\end_inset
+
+.
+ Choose 
+\begin_inset Formula $x\in M$
+\end_inset
+
+ such that 
+\begin_inset Formula $x\notin\mathfrak{p}M_{\mathfrak{p}}$
+\end_inset
+
+ for all 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+.
+ Now 
+\begin_inset Formula $x$
+\end_inset
+
+ is an element of a minimal system of generators of 
+\begin_inset Formula $M_{\mathfrak{p}}$
+\end_inset
+
+ for all 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+.
+ Using Nakayama's Lemma, we obtain that 
+\begin_inset Formula $x$
+\end_inset
+
+ is an element of a basis of the free module 
+\begin_inset Formula $M_{\mathfrak{p}}$
+\end_inset
+
+ for all 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+.
+ This implies that 
+\begin_inset Formula $M_{\mathfrak{p}}/xA_{\mathfrak{p}}\cong(M/xA)_{\mathfrak{p}}$
+\end_inset
+
+ is free of rank 
+\begin_inset Formula $r-1$
+\end_inset
+
+ for all 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+.
+ Using induction we may assume that 
+\begin_inset Formula $M/xA$
+\end_inset
+
+ is free of rank 
+\begin_inset Formula $r-1$
+\end_inset
+
+.
+ This implies 
+\begin_inset Formula $M\cong xA\oplus M/xA$
+\end_inset
+
+ is free of rank 
+\begin_inset Formula $r$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lemma}
+\backslash
+label{lemmalocal}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a Noetherian ring and 
+\begin_inset Formula $M$
+\end_inset
+
+ be a finitely generated 
+\begin_inset Formula $A$
+\end_inset
+
+-module with a finite free presentation
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} F_1 
+\backslash
+arrow[r,"
+\backslash
+varphi "] & F_0 
+\backslash
+arrow[r]  & M 
+\backslash
+arrow[r] & 0.
+ 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then 
+\begin_inset Formula $M$
+\end_inset
+
+ has rank 
+\begin_inset Formula $r$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $\text{rank}(\text{Im}(\varphi))=\text{rank}(F_{0})-r.$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lemma}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ First assume 
+\begin_inset Formula $M$
+\end_inset
+
+ has rank 
+\begin_inset Formula $r$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\mathfrak{p}\in\text{Ass}(A)$
+\end_inset
+
+.
+ We have to show that 
+\begin_inset Formula $\text{Im}(\varphi)_{\mathfrak{p}}$
+\end_inset
+
+ is a free 
+\begin_inset Formula $A_{\mathfrak{p}}$
+\end_inset
+
+-module and 
+\begin_inset Formula $\text{rank}(\text{Im}(\varphi)_{\mathfrak{p}})=\text{rank}(F_{0})_{\mathfrak{p}}-r$
+\end_inset
+
+.
+ Consider the exact sequence 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}
+\backslash
+label{diagram1} 
+\backslash
+begin{tikzcd} 0 
+\backslash
+arrow[r] & 
+\backslash
+text{Im}(
+\backslash
+varphi ) _ 
+\backslash
+mathfrak{p} 
+\backslash
+arrow[r] & (F_{0}) _{ 
+\backslash
+mathfrak{p}} 
+\backslash
+arrow[r]  & M _ 
+\backslash
+mathfrak{p} 
+\backslash
+arrow[r] & 0.
+ 
+\backslash
+end{tikzcd}
+\backslash
+end{equation}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $M_{\mathfrak{p}}$
+\end_inset
+
+ is free, then 
+\begin_inset Formula $\text{Im}(\varphi)_{\mathfrak{p}}$
+\end_inset
+
+ must be free too.
+ The converse is true too, since if 
+\begin_inset Formula $\mathfrak{p}\in\text{Ass}(A)$
+\end_inset
+
+, we can tensor 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{diagram1})
+\end_layout
+
+\end_inset
+
+ with 
+\begin_inset Formula $K:=A_{\mathfrak{p}}/\mathfrak{p}A_{\mathfrak{p}}$
+\end_inset
+
+ to get another exact sequence of 
+\begin_inset Formula $K$
+\end_inset
+
+-vector spaces.
+ Then 
+\begin_inset Formula $\text{rank}(\text{Im}(\varphi)_{\mathfrak{p}})=\text{rank}(F_{0})_{\mathfrak{p}}-r$
+\end_inset
+
+ follows from additivity of dimension and Nakayamma's Lemma.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}
+\backslash
+label{diagram1}
+\backslash
+begin{tikzcd} 0 
+\backslash
+arrow[r] & 
+\backslash
+text{Im}(
+\backslash
+varphi ) _ 
+\backslash
+mathfrak{p} /  
+\backslash
+mathfrak{p} 
+\backslash
+text{Im}(
+\backslash
+varphi ) _ 
+\backslash
+mathfrak{p} 
+\backslash
+arrow[r] & (F_{0}) _{ 
+\backslash
+mathfrak{p}} / ( 
+\backslash
+mathfrak{p} F_{0}) _{ 
+\backslash
+mathfrak{p}} 
+\backslash
+arrow[r]  & M _ 
+\backslash
+mathfrak{p} / 
+\backslash
+mathfrak{p} M _ 
+\backslash
+mathfrak{p}  
+\backslash
+arrow[r] & 0.
+ 
+\backslash
+end{tikzcd}
+\backslash
+end{equation}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The converse is also true.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a Noetherian ring and let 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} 0 
+\backslash
+arrow[r] & U 
+\backslash
+arrow[r]  & M 
+\backslash
+arrow[r]  & N 
+\backslash
+arrow[r]  & 0 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+be an exact sequence of finitely generated 
+\begin_inset Formula $A$
+\end_inset
+
+-modules.
+ If two of 
+\begin_inset Formula $U,M,N$
+\end_inset
+
+ have a rank, then so does the third, and 
+\begin_inset Formula $\text{rank}(M)=\text{rank}(U)+\text{rank}(N)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ In view of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Lemma~(
+\backslash
+ref{lemmalocal})
+\end_layout
+
+\end_inset
+
+, we may assume that 
+\begin_inset Formula $A$
+\end_inset
+
+ is local and of depth 
+\begin_inset Formula $0$
+\end_inset
+
+.
+ Then two of 
+\begin_inset Formula $U,M,N$
+\end_inset
+
+ are free.
+ In each case, we get an isomorphism 
+\begin_inset Formula $M\cong U\oplus N$
+\end_inset
+
+ .
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Fitting Ideals
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a ring and let 
+\begin_inset Formula $M$
+\end_inset
+
+ be an 
+\begin_inset Formula $A$
+\end_inset
+
+-module with presentation
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} A^m 
+\backslash
+arrow[r, "
+\backslash
+varphi "] & A^n 
+\backslash
+arrow[r] & M 
+\backslash
+arrow[r] & 0 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Assume that 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ is defined by the matrix 
+\begin_inset Formula $S$
+\end_inset
+
+ for some choice in 
+\begin_inset Formula $A^{m}$
+\end_inset
+
+ and 
+\begin_inset Formula $A^{n}$
+\end_inset
+
+.
+ For all 
+\begin_inset Formula $k$
+\end_inset
+
+, let 
+\begin_inset Formula $F_{k}(M)=F_{k}^{A}(M)\subset A$
+\end_inset
+
+ be the ideal generated by the 
+\begin_inset Formula $(n-k)$
+\end_inset
+
+-minors of the matrix 
+\begin_inset Formula $S$
+\end_inset
+
+, the 
+\begin_inset Formula $k$
+\end_inset
+
+-
+\series bold
+th Fitting ideal 
+\series default
+of 
+\begin_inset Formula $M$
+\end_inset
+
+.
+ We use the convention that 
+\begin_inset Formula $F_{k}(M)=0$
+\end_inset
+
+ if 
+\begin_inset Formula $n-k>\mbox{min}\{n,m\}$
+\end_inset
+
+ and 
+\begin_inset Formula $F_{k}(M)=A$
+\end_inset
+
+ if 
+\begin_inset Formula $k\geq n$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{rem}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Note that 
+\begin_inset Formula $F_{k}(M)=F_{{n \choose n-k}-1}(\Lambda^{n-k}M)$
+\end_inset
+
+.
+ For instance, if 
+\begin_inset Formula $n=3$
+\end_inset
+
+, then we have 
+\begin_inset Formula 
+\begin{align*}
+F_{0}(M) & =F_{0}(\Lambda^{3}M)\\
+F_{1}(M) & =F_{2}(\Lambda^{2}M)\\
+F_{2}(M) & =F_{2}(\Lambda^{1}M)\\
+F_{3}(M) & =F_{0}(\Lambda^{0}M)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $S$
+\end_inset
+
+ is a matrix with entries in 
+\begin_inset Formula $A$
+\end_inset
+
+, then by a 
+\begin_inset Formula $k$
+\end_inset
+
+-
+\series bold
+minor 
+\series default
+we denote the determinant of a 
+\begin_inset Formula $k\times k$
+\end_inset
+
+-submatrix of 
+\begin_inset Formula $S$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{rem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a ring and let 
+\begin_inset Formula $M$
+\end_inset
+
+ be the finitely presented 
+\begin_inset Formula $A$
+\end_inset
+
+-module whose presentation matrix is 
+\begin_inset Formula $\left(\begin{smallmatrix}a_{11} & a_{12} & a_{13} & a_{14}\\
+a_{21} & a_{22} & a_{23} & a_{24}\\
+a_{31} & a_{32} & a_{33} & a_{34}
+\end{smallmatrix}\right)$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula 
+\begin{align*}
+F_{-1}(M) & =0\\
+F_{0}(M) & =\langle a_{11}a_{22}a_{33}-a_{11}a_{23}a_{32}+a_{12}a_{23}a_{31}-a_{12}a_{21}a_{33}+a_{13}a_{21}a_{32}-a_{13}a_{22}a_{31},\dots\rangle\\
+F_{1}(M) & =\langle a_{11}a_{22}-a_{12}a_{21},a_{11}a_{32}-a_{12}a_{31},a_{21}a_{32}-a_{22}a_{31},a_{11}a_{23}-a_{13}a_{21},\dots\rangle\\
+F_{2}(M) & =\langle a_{11},a_{12},a_{13},a_{14},a_{21},a_{22},a_{23},a_{24},a_{31},a_{32},a_{33},a_{34}\rangle\\
+F_{3}(M) & =\langle1\rangle
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A=\mathbb{Q}[x_{0},x_{1},x_{2},x_{3},x_{4}]$
+\end_inset
+
+ and let 
+\begin_inset Formula $M$
+\end_inset
+
+ be the finitely presented 
+\begin_inset Formula $A$
+\end_inset
+
+-module whose presentation matrix is 
+\begin_inset Formula $\left(\begin{smallmatrix}x_{0} & x_{1} & x_{2} & x_{3}\\
+x_{1} & x_{2} & x_{3} & x_{4}
+\end{smallmatrix}\right)$
+\end_inset
+
+, then
+\begin_inset Formula 
+\begin{align*}
+F_{-1}(M) & =0\\
+F_{0}(M) & =\langle x_{0}x_{2}-x_{1}^{2},x_{0}x_{3}-x_{2}x_{1},x_{0}x_{4}-x_{1}x_{3},x_{1}x_{3}-x_{2}^{2},x_{1}x_{4}-x_{2}x_{3},x_{2}x_{4}-x_{3}^{2}\rangle\\
+F_{1}(M) & =\langle x_{0},x_{1},x_{2},x_{3},x_{4}\rangle\\
+F_{2}(M) & =\langle1\rangle.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A=\mathbb{Q}[x,y,z,w]$
+\end_inset
+
+ and let 
+\begin_inset Formula $M$
+\end_inset
+
+ be the finitely presented 
+\begin_inset Formula $A$
+\end_inset
+
+-module whose presentation matrix is 
+\begin_inset Formula $\left(\begin{smallmatrix}x & y & z\\
+y & z & w
+\end{smallmatrix}\right)$
+\end_inset
+
+, then 
+\begin_inset Formula $F_{0}(M)=\langle xz-y^{2},xw-yz,yw-z^{2}\rangle$
+\end_inset
+
+.
+ In particular, 
+\begin_inset Formula $\mathbf{V}(F_{0}(M))$
+\end_inset
+
+ is the twisted cubic.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a ring and let 
+\begin_inset Formula $M$
+\end_inset
+
+ be an 
+\begin_inset Formula $A$
+\end_inset
+
+-module with finite presentation, and assume that 
+\begin_inset Formula $M$
+\end_inset
+
+ can be generated by 
+\begin_inset Formula $n$
+\end_inset
+
+ elements.
+ Then 
+\begin_inset Formula 
+\[
+0=F_{-1}(M)\subset F_{0}(M)\subset\cdots\subset F_{n}(M)=A
+\]
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ The determinant of an 
+\begin_inset Formula $(n-k)$
+\end_inset
+
+-minor can be expressed as a linear combination of determinants of 
+\begin_inset Formula $(n-k+1)$
+\end_inset
+
+-minors.
+ Hence, we have 
+\begin_inset Formula $F_{k}(M)\subset F_{k+1}(M)$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lemma}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a ring and let 
+\begin_inset Formula $M$
+\end_inset
+
+ be a finitely presented 
+\begin_inset Formula $A$
+\end_inset
+
+-module.
+ Then the following holds:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $F_{k}(M)$
+\end_inset
+
+ is independent of the choice of bases in 
+\begin_inset Formula $A^{m}$
+\end_inset
+
+ and 
+\begin_inset Formula $A^{n}$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $F_{k}(M)$
+\end_inset
+
+ is independent of the presentation of 
+\begin_inset Formula $M$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Enumerate
+Let 
+\begin_inset Formula $B$
+\end_inset
+
+ be an 
+\begin_inset Formula $A$
+\end_inset
+
+-algebra.
+ Then 
+\begin_inset Formula $F_{k}^{B}(M\otimes_{A}B)=F_{k}^{A}(M)\cdot B$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lemma}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+It is enough to prove that for two matrices 
+\begin_inset Formula $S$
+\end_inset
+
+ and 
+\begin_inset Formula $T$
+\end_inset
+
+ with the property that 
+\begin_inset Formula $T$
+\end_inset
+
+ is obtained from 
+\begin_inset Formula $S$
+\end_inset
+
+ by adding the 
+\begin_inset Formula $i$
+\end_inset
+
+th row to the 
+\begin_inset Formula $j$
+\end_inset
+
+th row, the ideal generated by the 
+\begin_inset Formula $r$
+\end_inset
+
+-minors of 
+\begin_inset Formula $S$
+\end_inset
+
+ is equal to the ideal generated by the 
+\begin_inset Formula $r$
+\end_inset
+
+-minors of 
+\begin_inset Formula $T$
+\end_inset
+
+.
+ If an 
+\begin_inset Formula $r$
+\end_inset
+
+-minor contains either both or neither rows, then it has the same determinant.
+ Therefore, we only need to check the case when an 
+\begin_inset Formula $r$
+\end_inset
+
+-minor contains just one row.
+ So assume, without loss of generality, that 
+\begin_inset Formula $T$
+\end_inset
+
+ is obtained from 
+\begin_inset Formula $S$
+\end_inset
+
+ by adding the second row to the first row and that we are computing the
+ determinant of an 
+\begin_inset Formula $r$
+\end_inset
+
+-minor in 
+\begin_inset Formula $T$
+\end_inset
+
+ which just contains the first row, but not the second row.
+ Then the determinant of this 
+\begin_inset Formula $r$
+\end_inset
+
+-minor in 
+\begin_inset Formula $T$
+\end_inset
+
+ is given by the determinant of the corresponding 
+\begin_inset Formula $r$
+\end_inset
+
+-minor in 
+\begin_inset Formula $S$
+\end_inset
+
+ plus the determinant of the 
+\begin_inset Formula $r$
+\end_inset
+
+-minor in 
+\begin_inset Formula $S$
+\end_inset
+
+ obtained by replacing the first row with the second row.
+ This doesn't change the ideal.
+\end_layout
+
+\begin_layout Enumerate
+Let 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzcd} A^{m_1} 
+\backslash
+arrow[r, "
+\backslash
+varphi _1 "] & A^{n_1} 
+\backslash
+arrow[r] & M 
+\backslash
+arrow[r] & 0 
+\backslash
+end{tikzcd}
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzcd} A^{m_2} 
+\backslash
+arrow[r, "
+\backslash
+varphi _2 "] & A^{n_2} 
+\backslash
+arrow[r] & M 
+\backslash
+arrow[r] & 0 
+\backslash
+end{tikzcd}
+\end_layout
+
+\end_inset
+
+ be two presentations.
+ We have to prove that the ideal generated by the 
+\begin_inset Formula $(n_{1}-k)$
+\end_inset
+
+-minors of 
+\begin_inset Formula $\varphi_{1}$
+\end_inset
+
+ is equal to the ideal generated by the 
+\begin_inset Formula $(n_{2}-k)$
+\end_inset
+
+-minors of 
+\begin_inset Formula $\varphi_{2}$
+\end_inset
+
+.
+ It is enough to prove this for the localizations in the prime ideals 
+\begin_inset Formula $\mathfrak{p}\subset A$
+\end_inset
+
+.
+ Therefore we may assume that 
+\begin_inset Formula $(A,\mathfrak{m})$
+\end_inset
+
+ is local.
+ We first treat the case that 
+\begin_inset Formula $\mbox{Ker}(\varphi_{j})\subset\mathfrak{m}A^{m_{j}}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mbox{Im}(\varphi_{j})\subset\mathfrak{m}A^{n_{j}}$
+\end_inset
+
+.
+ In this case, we have 
+\begin_inset Formula $n_{1}=n_{2}=b_{0}(M)$
+\end_inset
+
+ and 
+\begin_inset Formula $m_{1}=m_{2}=b_{1}(M)$
+\end_inset
+
+.
+ Now we use (1) and obtain that the ideal of 
+\begin_inset Formula $(n_{1}-k)$
+\end_inset
+
+-minors of 
+\begin_inset Formula $\varphi_{1}$
+\end_inset
+
+ is equal to the ideal of 
+\begin_inset Formula $(n_{2}-k)$
+\end_inset
+
+-minors of 
+\begin_inset Formula $\varphi_{2}$
+\end_inset
+
+.
+ To prove the general case, it is enough to prove that, given a presentation
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzcd} A^{m_1} 
+\backslash
+arrow[r, "
+\backslash
+varphi _1 "] & A^{n_1} 
+\backslash
+arrow[r] & M 
+\backslash
+arrow[r] & 0 
+\backslash
+end{tikzcd}
+\end_layout
+
+\end_inset
+
+, there exists a presentation 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzcd} A^{m_2} 
+\backslash
+arrow[r, "
+\backslash
+varphi _2 "] & A^{n_2} 
+\backslash
+arrow[r] & M 
+\backslash
+arrow[r] & 0 
+\backslash
+end{tikzcd}
+\end_layout
+
+\end_inset
+
+ such that 
+\begin_inset Formula $\mbox{Ker}(\varphi_{2})\subset\mathfrak{m}A^{m_{2}}$
+\end_inset
+
+, 
+\begin_inset Formula $\mbox{Im}(\varphi_{2})\subset\mathfrak{m}A^{n_{2}}$
+\end_inset
+
+ and the ideal generated by the 
+\begin_inset Formula $(n_{1}-k)$
+\end_inset
+
+-minors of 
+\begin_inset Formula $\varphi_{1}$
+\end_inset
+
+ is equal to the ideal generated by the 
+\begin_inset Formula $(n_{2}-k)$
+\end_inset
+
+-minors of 
+\begin_inset Formula $\varphi_{2}$
+\end_inset
+
+.
+ It is enough to prove that, for a suitable choice of the bases in 
+\begin_inset Formula $A^{n_{1}}$
+\end_inset
+
+ and 
+\begin_inset Formula $A^{m_{1}}$
+\end_inset
+
+, the matrix corresponding to 
+\begin_inset Formula $\varphi_{1}$
+\end_inset
+
+ is of type 
+\begin_inset Formula $\left(\begin{smallmatrix}L & 0 & 0\\
+0 & E_{s} & 0
+\end{smallmatrix}\right)$
+\end_inset
+
+ such that the entries of 
+\begin_inset Formula $L$
+\end_inset
+
+ are in 
+\begin_inset Formula $\mathfrak{m}$
+\end_inset
+
+ and 
+\begin_inset Formula $E_{s}$
+\end_inset
+
+ is the 
+\begin_inset Formula $s$
+\end_inset
+
+-unit matrix.
+ Then define the presentation 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzcd} A^{m_2} 
+\backslash
+arrow[r, "
+\backslash
+varphi _2 "] & A^{n_2} 
+\backslash
+arrow[r] & M 
+\backslash
+arrow[r] & 0 
+\backslash
+end{tikzcd}
+\end_layout
+
+\end_inset
+
+ by the matrix 
+\begin_inset Formula $L$
+\end_inset
+
+.
+ Then obviously the 
+\begin_inset Formula $(n_{2}-k)$
+\end_inset
+
+-minors of 
+\begin_inset Formula $L$
+\end_inset
+
+ generate the same ideal as the 
+\begin_inset Formula $(n_{1}-k)$
+\end_inset
+
+-minors of 
+\begin_inset Formula $\left(\begin{smallmatrix}L & 0 & 0\\
+0 & E_{s} & 0
+\end{smallmatrix}\right)$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $\mbox{Im}(\varphi_{1})\not\subset\mathfrak{m}A^{n_{1}}$
+\end_inset
+
+, then the matrix corresponding to 
+\begin_inset Formula $\varphi_{1}$
+\end_inset
+
+ contains a unit.
+ Using a suitable bases, we obtain a matrix of type 
+\begin_inset Formula $\left(\begin{smallmatrix}L' & 0\\
+0 & 1
+\end{smallmatrix}\right)$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $\mbox{Ker}(\varphi_{1})\not\subset\mathfrak{m}A^{m_{1}}$
+\end_inset
+
+, then we can find a new basis of 
+\begin_inset Formula $A^{m_{1}}$
+\end_inset
+
+ such that the matrix is of type 
+\begin_inset Formula $\left(\begin{smallmatrix}L'' & 0\end{smallmatrix}\right)$
+\end_inset
+
+.
+ Combining both and using induction, we obtain the result claimed above.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Let 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzcd} A^{m} 
+\backslash
+arrow[r, "
+\backslash
+varphi "] & A^{n} 
+\backslash
+arrow[r] & M 
+\backslash
+arrow[r] & 0 
+\backslash
+end{tikzcd}
+\end_layout
+
+\end_inset
+
+ be a presentation of 
+\begin_inset Formula $M$
+\end_inset
+
+.
+ Then 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzcd} B^{m} 
+\backslash
+arrow[r, "
+\backslash
+varphi 
+\backslash
+otimes 1_B "] & B^{n} 
+\backslash
+arrow[r] & M 
+\backslash
+otimes _A B 
+\backslash
+arrow[r] & 0 
+\backslash
+end{tikzcd}
+\end_layout
+
+\end_inset
+
+ is a presentation of 
+\begin_inset Formula $M\otimes_{A}B$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{rem}
+\end_layout
+
+\end_inset
+
+ Property (3) is usually expressed by saying that 
+\emph on
+Fitting ideals are compatible with base change
+\emph default
+.
+ Note that this implies that Fitting ideals are compatible with localization,
+ that is, 
+\begin_inset Formula $F_{k}^{A_{\mathfrak{p}}}(M_{\mathfrak{p}})=(F_{k}^{A}(M))_{\mathfrak{p}}$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{rem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\backslash
+label{theoremfitting}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a local ring and 
+\begin_inset Formula $M$
+\end_inset
+
+ be an 
+\begin_inset Formula $A$
+\end_inset
+
+-module of finite presentation.
+ The following conditions are equivalent:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $M$
+\end_inset
+
+ is a free module of rank 
+\begin_inset Formula $r$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $F_{r}(M)=A$
+\end_inset
+
+ and 
+\begin_inset Formula $F_{r-1}(M)=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ If 
+\begin_inset Formula $M$
+\end_inset
+
+ is a free module of rank 
+\begin_inset Formula $r$
+\end_inset
+
+, then a presentation matrix of 
+\begin_inset Formula $M$
+\end_inset
+
+ is the 
+\begin_inset Formula $1\times r$
+\end_inset
+
+ matrix with entries zero.
+ This gives us 
+\begin_inset Formula $F_{r}(M)=A$
+\end_inset
+
+ and 
+\begin_inset Formula $F_{r-1}(M)=0$
+\end_inset
+
+.
+ To prove (2) implies (1), let 
+\begin_inset Formula $F_{r}(M)=A$
+\end_inset
+
+ and 
+\begin_inset Formula $F_{r-1}(M)=0$
+\end_inset
+
+, and choose a presentation 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} A^{m} 
+\backslash
+arrow[r, "
+\backslash
+varphi "] & A^{n} 
+\backslash
+arrow[r] & M 
+\backslash
+arrow[r] & 0 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+with presentation matrix 
+\begin_inset Formula $S$
+\end_inset
+
+.
+ Then either 
+\begin_inset Formula $n=r$
+\end_inset
+
+ and 
+\begin_inset Formula $S$
+\end_inset
+
+ is the zero matrix, or 
+\begin_inset Formula $n>r$
+\end_inset
+
+, one 
+\begin_inset Formula $(n-r)$
+\end_inset
+
+-minor of 
+\begin_inset Formula $S$
+\end_inset
+
+ is a unit and all 
+\begin_inset Formula $(n-r+1)$
+\end_inset
+
+-minors of 
+\begin_inset Formula $S$
+\end_inset
+
+ vanish.
+ If 
+\begin_inset Formula $n=r$
+\end_inset
+
+ and 
+\begin_inset Formula $S$
+\end_inset
+
+ is the zero matrix, then, obviously 
+\begin_inset Formula $M$
+\end_inset
+
+ is free of rank 
+\begin_inset Formula $r$
+\end_inset
+
+.
+ In the second case, one 
+\begin_inset Formula $(n-r)$
+\end_inset
+
+-minor is a unit (in a local ring, if an ideal is generated by non-units,
+ then the ideal must be contained in the maximal ideal), so we can choose
+ new bases of 
+\begin_inset Formula $A^{m}$
+\end_inset
+
+ and 
+\begin_inset Formula $A^{n}$
+\end_inset
+
+ such that the presentation matrix is of type 
+\begin_inset Formula $\left(\begin{smallmatrix}E_{n-r} & 0\\
+0 & C
+\end{smallmatrix}\right)$
+\end_inset
+
+, where 
+\begin_inset Formula $E_{n-r}$
+\end_inset
+
+ is the 
+\begin_inset Formula $(n-r)$
+\end_inset
+
+-unit matrix.
+ Because all 
+\begin_inset Formula $(n-r+1)$
+\end_inset
+
+-minors are zero, we obtain, indeed, 
+\begin_inset Formula $C=0$
+\end_inset
+
+.
+ This implies that 
+\begin_inset Formula $M$
+\end_inset
+
+ is free and isomorphic to the submodule of 
+\begin_inset Formula $A^{n}$
+\end_inset
+
+ generated by the vectors 
+\begin_inset Formula $e_{n-r+1},\dots,e_{n}$
+\end_inset
+
+.
+  
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{cor}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a ring and 
+\begin_inset Formula $M$
+\end_inset
+
+ an 
+\begin_inset Formula $A$
+\end_inset
+
+-module of finite presentation.
+ Then the following conditions are equivalent.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $M$
+\end_inset
+
+ is locally free of constant rank 
+\begin_inset Formula $r$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $F_{r}(M)=A$
+\end_inset
+
+ and 
+\begin_inset Formula $F_{r-1}(M)=0$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{cor}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ For (1) implies (2), let 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ be a prime ideal in 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $M_{\mathfrak{p}}$
+\end_inset
+
+ is free of rank 
+\begin_inset Formula $r$
+\end_inset
+
+, we have 
+\begin_inset Formula $A_{\mathfrak{p}}=F_{r}^{A_{\mathfrak{p}}}(M_{\mathfrak{p}})=F_{r}^{A}(M)_{\mathfrak{p}}$
+\end_inset
+
+ and 
+\begin_inset Formula $0=F_{r-1}^{A_{\mathfrak{p}}}(M_{\mathfrak{p}})=F_{r-1}^{A}(M)_{\mathfrak{p}}$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ is arbitrary, this implies 
+\begin_inset Formula $F_{r}(M)=A$
+\end_inset
+
+ and 
+\begin_inset Formula $F_{r-1}(M)=0$
+\end_inset
+
+.
+ For (2) implies (1), we simply go backwards: Let 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ be a prime ideal in 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $A=F_{r}(M)$
+\end_inset
+
+ and 
+\begin_inset Formula $0=F_{r-1}(M)$
+\end_inset
+
+, we must have 
+\begin_inset Formula $A_{\mathfrak{p}}=F_{r}^{A}(M)_{\mathfrak{p}}=F_{r}^{A_{\mathfrak{p}}}(M_{\mathfrak{p}})$
+\end_inset
+
+ and 
+\begin_inset Formula $0=F_{r-1}^{A}(M)_{\mathfrak{p}}=F_{r-1}^{A_{\mathfrak{p}}}(M_{\mathfrak{p}})$
+\end_inset
+
+.
+ This implies 
+\begin_inset Formula $M_{\mathfrak{p}}$
+\end_inset
+
+ is free.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{cor}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $\varphi:A^{m}\to A^{n}$
+\end_inset
+
+ be a homomorphism, and let 
+\begin_inset Formula $S$
+\end_inset
+
+ be a matrix representation of 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ with respect to some bases of 
+\begin_inset Formula $A^{m}$
+\end_inset
+
+ and 
+\begin_inset Formula $A^{n}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ is surjective if and only if there exists an 
+\begin_inset Formula $n$
+\end_inset
+
+-minor of 
+\begin_inset Formula $S$
+\end_inset
+
+ which is a unit in 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{cor}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\text{Coker}(\varphi)$
+\end_inset
+
+ has finite presentation 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} A^{m} 
+\backslash
+arrow[r, "
+\backslash
+varphi "] & A^{n} 
+\backslash
+arrow[r] & 
+\backslash
+mbox{Coker}( 
+\backslash
+varphi ) 
+\backslash
+arrow[r] & 0 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If there exists an 
+\begin_inset Formula $n$
+\end_inset
+
+-minor of 
+\begin_inset Formula $S$
+\end_inset
+
+ which is a unit in 
+\begin_inset Formula $A$
+\end_inset
+
+, then 
+\begin_inset Formula $F_{0}(\text{Coker}(\varphi))=A$
+\end_inset
+
+, and hence 
+\begin_inset Formula $\text{Coker}(\varphi)$
+\end_inset
+
+ is free of rank 
+\begin_inset Formula $0$
+\end_inset
+
+.
+ This implies 
+\begin_inset Formula $A^{m}\cong A^{n}$
+\end_inset
+
+.
+ Conversely, if 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ is surjective, then 
+\begin_inset Formula $\text{Coker}(\varphi)\cong0$
+\end_inset
+
+ is free of rank 
+\begin_inset Formula $0$
+\end_inset
+
+, so 
+\begin_inset Formula $F_{0}(\text{Coker}(\varphi))=A$
+\end_inset
+
+, which implies there exists an 
+\begin_inset Formula $n$
+\end_inset
+
+-minor of 
+\begin_inset Formula $S$
+\end_inset
+
+ which is a unit in 
+\begin_inset Formula $A$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{cor}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a Noetherian ring and 
+\begin_inset Formula $M$
+\end_inset
+
+ an 
+\begin_inset Formula $A$
+\end_inset
+
+-module of finite presentation.
+ Then the following conditions are equivalent.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $M$
+\end_inset
+
+ has rank 
+\begin_inset Formula $r$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $F_{r}(M)_{\mathfrak{p}}=A_{\mathfrak{p}}$
+\end_inset
+
+ and 
+\begin_inset Formula $F_{r-1}(M)_{\mathfrak{p}}=0$
+\end_inset
+
+ for all 
+\begin_inset Formula $\mathfrak{p}\in\text{Ass}(A)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{cor}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{rem}
+\end_layout
+
+\end_inset
+
+ Note that we have 
+\begin_inset Formula $F_{r}(M)_{\mathfrak{p}}=A_{\mathfrak{p}}$
+\end_inset
+
+ whenever there exists an 
+\begin_inset Formula $(n-r)$
+\end_inset
+
+-minor of 
+\begin_inset Formula $S$
+\end_inset
+
+ which does not belong to 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{rem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

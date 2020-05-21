@@ -1,0 +1,652 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{tikz}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\usetikzlibrary{shapes.geometric}
+\usepackage{tikz-cd}
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem*{cor}{Corollary}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{ex}{Exercise} 
+\newtheorem{example}{Example}[section]
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem{case}{Case}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{tikz-cd}
+\usetikzlibrary{calc,arrows,decorations.pathreplacing}
+\tikzset{mydot/.style={circle,fill,inner sep=1.5pt},
+commutative diagrams/.cd,
+  arrow style=tikz,
+  diagrams={>=latex},
+}
+
+\usepackage{babel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+\usepackage{pgfplots}
+\usetikzlibrary{decorations.markings}
+\pgfplotsset{compat=1.9}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding iso8859-15
+\fontencoding global
+\font_roman "palatino" "default"
+\font_sans "lmss" "default"
+\font_typewriter "lmtt" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf true
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing single
+\use_hyperref false
+\papersize custom
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\paperwidth 30cm
+\paperheight 35cm
+\topmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0bp
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Cauchy's Theorem
+\end_layout
+
+\begin_layout Section
+Cauchy's Theorem
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\end_layout
+
+\end_inset
+
+ (Cauchy's Theorem) Let 
+\begin_inset Formula $G$
+\end_inset
+
+ be a finite group and 
+\begin_inset Formula $p$
+\end_inset
+
+ be a prime factor of 
+\begin_inset Formula $|G|$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $G$
+\end_inset
+
+ contains an element of order 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ Equivalently, 
+\begin_inset Formula $G$
+\end_inset
+
+ contains a subgroup of size 
+\begin_inset Formula $p$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We will use induction on 
+\begin_inset Formula $|G|$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $n=|G|$
+\end_inset
+
+.
+ The base case is 
+\begin_inset Formula $n=p$
+\end_inset
+
+.
+ In this case, any nonidentity element has order 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ Now suppose 
+\begin_inset Formula $n>p$
+\end_inset
+
+, 
+\begin_inset Formula $p|n$
+\end_inset
+
+, and the theorem is true for all groups of order less than 
+\begin_inset Formula $n$
+\end_inset
+
+ and divisible by 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ We now split the proof into two cases:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\textbf{Case 1}$
+\end_inset
+
+: Suppose 
+\begin_inset Formula $G$
+\end_inset
+
+ is abelian.
+ Assume (to obtain a contradiction) that no element of 
+\begin_inset Formula $G$
+\end_inset
+
+ has order 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $g$
+\end_inset
+
+ has order 
+\begin_inset Formula $kp$
+\end_inset
+
+ for some 
+\begin_inset Formula $k\in\mathbb{N}$
+\end_inset
+
+, then 
+\begin_inset Formula $g^{k}$
+\end_inset
+
+ has order 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ Thus, no element has order divisible by 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $G=\{g_{1},g_{2},\dots,g_{n}\}$
+\end_inset
+
+ and let 
+\begin_inset Formula $g_{i}$
+\end_inset
+
+ have order 
+\begin_inset Formula $m_{i}$
+\end_inset
+
+, so 
+\begin_inset Formula $m_{i}$
+\end_inset
+
+ is not divisible by 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ Set 
+\begin_inset Formula $m$
+\end_inset
+
+ to be the least common multiple of the 
+\begin_inset Formula $m_{i}'s$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $g_{i}^{m}=e$
+\end_inset
+
+ for all 
+\begin_inset Formula $1\leq i\leq n$
+\end_inset
+
+, there exists a homomorphism of abelian groups 
+\begin_inset Formula $f:(\mathbb{Z}/(m))^{n}\to G$
+\end_inset
+
+ given by 
+\begin_inset Formula $f(\overline{a_{1}},\dots,\overline{a_{n}})=g_{1}^{a_{1}}\cdots g_{r}^{a_{r}}$
+\end_inset
+
+.
+ It is obviously surjective (for example, 
+\begin_inset Formula $f(\overline{1},\overline{0},\overline{0}\dots,\overline{0})=g_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $f(\overline{0},\overline{1},\overline{0}\dots,\overline{0})=g_{2}$
+\end_inset
+
+, etc...), and so there is a short exact sequence given by:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd}  1 
+\backslash
+arrow[r] & 
+\backslash
+ker f 
+\backslash
+arrow[r] & ( 
+\backslash
+mathbb{Z} / (m) )^n  
+\backslash
+arrow[r,"f"]  & G 
+\backslash
+arrow[r] & 1 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We deduce from this short exact sequence the equation
+\begin_inset Formula 
+\[
+|\ker f|\cdot|G|=m^{n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Since 
+\begin_inset Formula $p$
+\end_inset
+
+ divides 
+\begin_inset Formula $|G|$
+\end_inset
+
+, it divides 
+\begin_inset Formula $m^{n}$
+\end_inset
+
+ too.
+ But 
+\begin_inset Formula $m^{n}$
+\end_inset
+
+ is not divisible by 
+\begin_inset Formula $p$
+\end_inset
+
+ since 
+\begin_inset Formula $m$
+\end_inset
+
+ is not divisible by 
+\begin_inset Formula $p$
+\end_inset
+
+, so we have reached a contradiction.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\textbf{Case 2}$
+\end_inset
+
+: Suppose 
+\begin_inset Formula $G$
+\end_inset
+
+ is nonabelian.
+ If a proper subgroup 
+\begin_inset Formula $H$
+\end_inset
+
+ of 
+\begin_inset Formula $G$
+\end_inset
+
+ has order divisible by 
+\begin_inset Formula $p$
+\end_inset
+
+, then by induction there is an element of order 
+\begin_inset Formula $p$
+\end_inset
+
+ in 
+\begin_inset Formula $H$
+\end_inset
+
+, which gives us an element of order 
+\begin_inset Formula $p$
+\end_inset
+
+ in 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ Thus we may assume no proper subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
+ has order divisible by 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ We will show 
+\begin_inset Formula $|Z(G)|$
+\end_inset
+
+ is divisible by 
+\begin_inset Formula $p$
+\end_inset
+
+, and hence 
+\begin_inset Formula $Z(G)$
+\end_inset
+
+ can't be a proper subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
+, and the proof reduces to the abelian case.
+ For any proper subgroup 
+\begin_inset Formula $H$
+\end_inset
+
+, 
+\begin_inset Formula $|G|=|H|\cdot[G:H]$
+\end_inset
+
+ and 
+\begin_inset Formula $|H|$
+\end_inset
+
+ is not divisible by 
+\begin_inset Formula $p$
+\end_inset
+
+, so 
+\begin_inset Formula $p|[G:H]$
+\end_inset
+
+ for every proper subgroup 
+\begin_inset Formula $H$
+\end_inset
+
+.
+ Let the conjugacy classes in 
+\begin_inset Formula $G$
+\end_inset
+
+ with size greater than 
+\begin_inset Formula $1$
+\end_inset
+
+ be represented by 
+\begin_inset Formula $g_{1},g_{2},\dots,g_{k}$
+\end_inset
+
+.
+ The conjugacy classes of size 
+\begin_inset Formula $1$
+\end_inset
+
+ are the elements in 
+\begin_inset Formula $Z(G)$
+\end_inset
+
+.
+ Since the conjugacy classes are a partition of 
+\begin_inset Formula $G$
+\end_inset
+
+, counting 
+\begin_inset Formula $|G|$
+\end_inset
+
+ by counting conjugacy classes implies
+\begin_inset Formula 
+\[
+|G|=|Z(G)|+\sum_{i=1}^{k}[G:Z(g_{i})]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $Z(g_{i})$
+\end_inset
+
+ is the centralizer of 
+\begin_inset Formula $g_{i}$
+\end_inset
+
+.
+ Since the conjugacy class of each 
+\begin_inset Formula $g_{i}$
+\end_inset
+
+ has size greater than 
+\begin_inset Formula $1$
+\end_inset
+
+, 
+\begin_inset Formula $[G:Z(g_{i})]>1$
+\end_inset
+
+, so 
+\begin_inset Formula $Z(g_{i})\neq G$
+\end_inset
+
+.
+ Therefore 
+\begin_inset Formula $p|[G:Z(g_{i})]$
+\end_inset
+
+.
+ The left side is divisible by 
+\begin_inset Formula $p$
+\end_inset
+
+ and each index in the sum on the right side is divisible by 
+\begin_inset Formula $p$
+\end_inset
+
+, so 
+\begin_inset Formula $|Z(G)|$
+\end_inset
+
+ is divisible by 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ Since proper subgroups of 
+\begin_inset Formula $G$
+\end_inset
+
+ don't have order divisible by 
+\begin_inset Formula $p$
+\end_inset
+
+, 
+\begin_inset Formula $Z(G)$
+\end_inset
+
+ has to be all of 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ That means 
+\begin_inset Formula $G$
+\end_inset
+
+ is abelian, which is a contradiction.
+ 
+\end_layout
+
+\end_body
+\end_document

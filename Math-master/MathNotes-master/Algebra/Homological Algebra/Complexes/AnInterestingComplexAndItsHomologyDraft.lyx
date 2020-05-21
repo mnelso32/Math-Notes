@@ -1,0 +1,1458 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{tikz}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\usetikzlibrary{shapes.geometric}
+\usepackage{tikz-cd}
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem*{cor}{Corollary}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{ex}{Exercise} 
+\newtheorem{example}{Example}[section]
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem{case}{Case}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{tikz-cd}
+\usetikzlibrary{calc,arrows,decorations.pathreplacing}
+\tikzset{mydot/.style={circle,fill,inner sep=1.5pt},
+commutative diagrams/.cd,
+  arrow style=tikz,
+  diagrams={>=latex},
+}
+
+\usepackage{babel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+\usepackage{pgfplots}
+\usetikzlibrary{decorations.markings}
+\pgfplotsset{compat=1.9}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding iso8859-15
+\fontencoding global
+\font_roman "palatino" "default"
+\font_sans "lmss" "default"
+\font_typewriter "lmtt" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf true
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing single
+\use_hyperref false
+\papersize custom
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\paperwidth 30cm
+\paperheight 35cm
+\topmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0bp
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+An Interesting Complex and its Homology
+\end_layout
+
+\begin_layout Section*
+Monomial Ideals
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ An ideal 
+\begin_inset Formula $I\subseteq\mathbb{F}_{2}[x_{1},\dots,x_{n}]$
+\end_inset
+
+ is a 
+\series bold
+monomial ideal 
+\series default
+if there is a subset 
+\begin_inset Formula $S\subset\mathbb{Z}_{\geq0}^{n}$
+\end_inset
+
+ (possibly infinite) such that 
+\begin_inset Formula $I$
+\end_inset
+
+ consists of all polynomials which are finite sums of the form 
+\begin_inset Formula $\sum_{\alpha\in S}h_{\alpha}x^{\alpha}$
+\end_inset
+
+, where 
+\begin_inset Formula $h_{\alpha}\in K[x_{1},\dots,x_{n}]$
+\end_inset
+
+.
+ In this case, we write 
+\begin_inset Formula $I=\langle x^{\alpha}\mid\alpha\in S\rangle$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ An example of a monomial ideal is given by 
+\begin_inset Formula $I=\langle x^{4}y^{2},x^{3}y^{4},x^{2}y^{5}\rangle\subseteq K[x,y]$
+\end_inset
+
+.
+ A nontrivial example of a monomial ideal is given by 
+\begin_inset Formula $J=\langle f_{1},f_{2},f_{3},f_{4}\rangle=\langle x^{2}+x^{2}y^{3},-x^{2}y^{3}+y^{3},x^{4},y^{6}\rangle$
+\end_inset
+
+.
+ It's easy to see that 
+\begin_inset Formula $J\subset\langle x^{2},y^{3}\rangle$
+\end_inset
+
+, let's show the reverse inclusion.
+ Write
+\begin_inset Formula 
+\begin{align*}
+x^{2} & =f_{1}-x^{2}f_{2}-y^{3}f_{3}\\
+y^{3} & =f_{1}+y^{3}f_{2}-x^{2}f_{4}.
+\end{align*}
+
+\end_inset
+
+So 
+\begin_inset Formula $\langle x^{2},y^{3}\rangle\subset J$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lemma}
+\backslash
+label{monomialdivisible}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $I=\langle x^{\alpha}\mid\alpha\in S\rangle$
+\end_inset
+
+ be a monomial ideal.
+ Then a monomial 
+\begin_inset Formula $x^{\beta}$
+\end_inset
+
+ lies in 
+\begin_inset Formula $I$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $x^{\beta}$
+\end_inset
+
+ is divisible by 
+\begin_inset Formula $x^{\alpha}$
+\end_inset
+
+ for some 
+\begin_inset Formula $\alpha\in S$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lemma}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ If 
+\begin_inset Formula $x^{\beta}$
+\end_inset
+
+ is a multiple of 
+\begin_inset Formula $x^{\alpha}$
+\end_inset
+
+ for some 
+\begin_inset Formula $\alpha\in A$
+\end_inset
+
+, then 
+\begin_inset Formula $x^{\beta}\in I$
+\end_inset
+
+ by the definition of the ideal.
+ Conversely, if 
+\begin_inset Formula $x^{\beta}\in I$
+\end_inset
+
+, then 
+\begin_inset Formula $x^{\beta}=\sum_{i=1}^{s}h_{i}x^{\alpha(i)}$
+\end_inset
+
+, where 
+\begin_inset Formula $h_{i}\in K[x_{1},\dots,x_{n}]$
+\end_inset
+
+ and 
+\begin_inset Formula $\alpha(i)\in A$
+\end_inset
+
+.
+ If we expand each 
+\begin_inset Formula $h_{i}$
+\end_inset
+
+ as a sum of terms, we obtain
+\begin_inset Formula 
+\[
+x^{\beta}=\sum_{i=1}^{s}h_{i}x^{\alpha(i)}=\sum_{i=1}^{s}\left(\sum_{j}c_{i,j}x^{\beta(i,j)}\right)x^{\alpha(i)}=\sum_{i,j}c_{i,j}x^{\beta(i,j)}x^{\alpha(i)}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+After collecting terms of the same multidegree, every term on the right
+ side of the equation is divisible by some 
+\begin_inset Formula $x^{\alpha(i)}$
+\end_inset
+
+.
+ Hence, the left side 
+\begin_inset Formula $x^{\beta}$
+\end_inset
+
+ must have the same property.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\backslash
+label{dicksonlemma}
+\end_layout
+
+\end_inset
+
+ (Dickson's Lemma.) Let 
+\begin_inset Formula $I=\langle x^{\alpha}\mid\alpha\in S\rangle$
+\end_inset
+
+ be a monomial ideal.
+ Then 
+\begin_inset Formula $I$
+\end_inset
+
+ can be written as 
+\begin_inset Formula $I=\langle x^{\alpha(1)},\dots,x^{\alpha(s)}\rangle$
+\end_inset
+
+ where 
+\begin_inset Formula $\alpha(1),\dots,\alpha(s)\in S$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ (By induction on 
+\begin_inset Formula $n$
+\end_inset
+
+, the number of variables.) If 
+\begin_inset Formula $n=1$
+\end_inset
+
+, then 
+\begin_inset Formula $I$
+\end_inset
+
+ is generated by the monomials 
+\begin_inset Formula $x_{1}^{\alpha}$
+\end_inset
+
+, where 
+\begin_inset Formula $\alpha\in S\subseteq\mathbb{Z}_{\geq0}$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $\mathbb{Z}_{\geq0}$
+\end_inset
+
+ is well-ordered, there exists a smallest element of 
+\begin_inset Formula $S$
+\end_inset
+
+, call it 
+\begin_inset Formula $\beta$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\beta\leq\alpha$
+\end_inset
+
+ for all 
+\begin_inset Formula $\alpha\in A$
+\end_inset
+
+, so that 
+\begin_inset Formula $x_{1}^{\beta}$
+\end_inset
+
+ divides all other generators 
+\begin_inset Formula $x_{1}^{\alpha}$
+\end_inset
+
+.
+ From here, it follows 
+\begin_inset Formula $I=\langle x^{\beta}\rangle$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Now assume 
+\begin_inset Formula $n>1$
+\end_inset
+
+ and that the theorem is true for 
+\begin_inset Formula $n-1$
+\end_inset
+
+.
+ We will write the variables as 
+\begin_inset Formula $x_{1},\dots,x_{n-1},y$
+\end_inset
+
+, so that monomials in 
+\begin_inset Formula $K[x_{1},\dots,x_{n-1},y]$
+\end_inset
+
+ can be written as 
+\begin_inset Formula $x^{\alpha}y^{m}$
+\end_inset
+
+, where 
+\begin_inset Formula $\alpha=(\alpha_{1},\dots,\alpha_{n-1})\in\mathbb{Z}_{\geq0}^{n-1}$
+\end_inset
+
+ and 
+\begin_inset Formula $m\in\mathbb{Z}_{\geq0}$
+\end_inset
+
+.
+ Suppose that 
+\begin_inset Formula $I\subseteq K[x_{1},\dots,x_{n-1},y]$
+\end_inset
+
+ is a monomial ideal.
+ To find generators for 
+\begin_inset Formula $I$
+\end_inset
+
+, let 
+\begin_inset Formula $J=I:y^{\infty}\cap K[x_{1},\dots,x_{n-1}]$
+\end_inset
+
+ be the ideal in 
+\begin_inset Formula $K[x_{1},\dots,x_{n-1}]$
+\end_inset
+
+ generated by the monomials 
+\begin_inset Formula $x^{\alpha}$
+\end_inset
+
+ for which 
+\begin_inset Formula $x^{\alpha}y^{m}\in I$
+\end_inset
+
+ for some 
+\begin_inset Formula $m\geq0$
+\end_inset
+
+.
+ From the induction hypothesis, we obtain that 
+\begin_inset Formula $J$
+\end_inset
+
+ is finitely generated, say 
+\begin_inset Formula $J=\langle x^{\alpha(1)},\dots,x^{\alpha(s)}\rangle$
+\end_inset
+
+.
+ For each 
+\begin_inset Formula $i$
+\end_inset
+
+ between 
+\begin_inset Formula $1$
+\end_inset
+
+ and 
+\begin_inset Formula $s$
+\end_inset
+
+, the definition of 
+\begin_inset Formula $J$
+\end_inset
+
+ tells us that 
+\begin_inset Formula $x^{\alpha(i)}y^{m_{i}}\in I$
+\end_inset
+
+ for some 
+\begin_inset Formula $m_{i}\geq0$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $m$
+\end_inset
+
+ be the largest 
+\begin_inset Formula $m_{i}$
+\end_inset
+
+.
+ Then for each 
+\begin_inset Formula $\ell$
+\end_inset
+
+ between 
+\begin_inset Formula $0$
+\end_inset
+
+ and 
+\begin_inset Formula $m-1$
+\end_inset
+
+, consider the ideal 
+\begin_inset Formula $J_{\ell}=I:y^{\ell}\cap K[x_{1},\dots,x_{n-1}]$
+\end_inset
+
+ generated by the monomials 
+\begin_inset Formula $x^{\beta}$
+\end_inset
+
+ such that 
+\begin_inset Formula $x^{\beta}y^{\ell}\in I$
+\end_inset
+
+.
+ One can think of 
+\begin_inset Formula $J_{\ell}$
+\end_inset
+
+ as the 
+\begin_inset Quotes eld
+\end_inset
+
+slice
+\begin_inset Quotes erd
+\end_inset
+
+ of 
+\begin_inset Formula $I$
+\end_inset
+
+ generated by monomials containing 
+\begin_inset Formula $y$
+\end_inset
+
+ exactly to the 
+\begin_inset Formula $\ell$
+\end_inset
+
+th power.
+ Clearly we have 
+\begin_inset Formula 
+\[
+J=J_{m}\supset J_{m-1}\cdots\supset J_{1}\supset J_{0}=I\cap K[x_{1},\dots,x_{n-1}].
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using our inductive hypothesis again, 
+\begin_inset Formula $J_{\ell}$
+\end_inset
+
+ has a finite generating set of monomials, say 
+\begin_inset Formula $J_{\ell}=\langle x^{\alpha_{\ell}(1)},\dots,x^{\alpha_{\ell}(s_{\ell})}\rangle$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+We claim that 
+\begin_inset Formula $I$
+\end_inset
+
+ is generated by the monomials in the following list: 
+\begin_inset Formula 
+\begin{align*}
+\mbox{from }J_{0}: & x^{\alpha_{0}(1)},\dots,x^{\alpha_{0}(s_{0})},\\
+\mbox{from }J_{1}: & x^{\alpha_{1}(1)}y,\dots,x^{\alpha_{1}(s_{1})}y,\\
+\vdots\\
+\mbox{from }J_{m-1}: & x^{\alpha_{m-1}(1)}y^{m-1},\dots,x^{\alpha_{m-1}(s_{m-1})}y^{m-1},\\
+\mbox{from }J: & x^{\alpha(1)}y^{m},\dots,x^{\alpha(s)}y^{m}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+First note that every monomial in 
+\begin_inset Formula $I$
+\end_inset
+
+ is divisible by one on the list.
+ To see why, let 
+\begin_inset Formula $x^{\alpha}y^{p}\in I$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $p\geq m$
+\end_inset
+
+, then 
+\begin_inset Formula $x^{\alpha}y^{p}$
+\end_inset
+
+ is divisible by some 
+\begin_inset Formula $x^{\alpha(i)}y^{m}$
+\end_inset
+
+ by the construction of 
+\begin_inset Formula $J$
+\end_inset
+
+: Since 
+\begin_inset Formula $x^{\alpha}y^{p}\in I$
+\end_inset
+
+, we have 
+\begin_inset Formula $x^{\alpha}\in J$
+\end_inset
+
+.
+ So by 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Lemma~(
+\backslash
+ref{monomialdivisible})
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Formula $x^{\alpha}$
+\end_inset
+
+ is divisible by some 
+\begin_inset Formula $x^{\alpha(i)}$
+\end_inset
+
+, and since 
+\begin_inset Formula $p\geq m$
+\end_inset
+
+, 
+\begin_inset Formula $x^{\alpha}y^{p}$
+\end_inset
+
+ is divisible by 
+\begin_inset Formula $x^{\alpha(i)}y^{m}$
+\end_inset
+
+.
+ On the other hand, if 
+\begin_inset Formula $p\leq m-1$
+\end_inset
+
+, then 
+\begin_inset Formula $x^{\alpha}y^{p}$
+\end_inset
+
+ is divisible by some 
+\begin_inset Formula $x^{\alpha_{p}(j)}y^{p}$
+\end_inset
+
+ by the construction of 
+\begin_inset Formula $J_{p}$
+\end_inset
+
+, for the same reason as above.
+ It follows from 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Lemma~(
+\backslash
+ref{monomialdivisible})
+\end_layout
+
+\end_inset
+
+ that the above monomials generate an ideal having the same monomials as
+ 
+\begin_inset Formula $I$
+\end_inset
+
+, and this forces the ideals to be the same.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ Let's illustrate how the proof works when 
+\begin_inset Formula $I=\langle x^{4},x^{3}y^{2}z,x^{2}yz^{3},xy^{3}z^{2},y^{4},z^{4}\rangle$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $J$
+\end_inset
+
+ be the ideal in 
+\begin_inset Formula $K[y,z]$
+\end_inset
+
+ generated by the monomials 
+\begin_inset Formula $y^{m_{1}}z^{m_{2}}$
+\end_inset
+
+ for which 
+\begin_inset Formula $x^{m}y^{m_{1}}z^{m_{1}}\in I$
+\end_inset
+
+ for some 
+\begin_inset Formula $m\geq0$
+\end_inset
+
+, and let 
+\begin_inset Formula $J_{\ell}$
+\end_inset
+
+ be defined as in the theorem above.
+ Then 
+\begin_inset Formula 
+\begin{align*}
+J_{0} & =\langle y^{4},z^{4}\rangle\\
+J_{1} & =\langle y^{4},z^{4},y^{3}z^{2}\rangle\\
+J_{2} & =\langle y^{4},z^{4},y^{3}z^{2},yz^{3}\rangle\\
+J_{3} & =\langle y^{4},z^{4},yz^{3},y^{2}z\rangle\\
+J & =\langle1\rangle.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The theorem then tells us that 
+\begin_inset Formula $I$
+\end_inset
+
+ is generated by the monomials in the following list:
+\begin_inset Formula 
+\begin{align*}
+\mbox{from }J: & x^{4}\\
+\mbox{from }J_{0}: & y^{4},z^{4}\\
+\mbox{from }J_{1}: & y^{4}x,z^{4}x,y^{3}z^{2}x\\
+\mbox{from }J_{2}: & y^{4}x^{2},z^{4}x^{2},y^{3}z^{2}x^{2},yz^{3}x^{2}\\
+\mbox{from }J_{3}: & y^{4}x^{3},z^{4}x^{3},yz^{3}x^{3},y^{2}zx^{2}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\backslash
+label{defn}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $I$
+\end_inset
+
+ be a monomial ideal in 
+\begin_inset Formula $\mathbb{F}_{2}[x_{1},\dots,x_{n}]$
+\end_inset
+
+ and let 
+\begin_inset Formula $G=\left\{ x^{\alpha(1)},\dots,x^{\alpha(s)}\right\} $
+\end_inset
+
+ be a set of generators for 
+\begin_inset Formula $I$
+\end_inset
+
+.
+ We say 
+\begin_inset Formula $G$
+\end_inset
+
+ is 
+\series bold
+interreduced 
+\series default
+if 
+\begin_inset Formula $0\notin G$
+\end_inset
+
+ and if 
+\begin_inset Formula $x^{\alpha(i)}\not\mid x^{\alpha(j)}$
+\end_inset
+
+ for any two elements 
+\begin_inset Formula $x^{\alpha(i)}\neq x^{\alpha(j)}$
+\end_inset
+
+ in 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ An interreduced standard basis is also called 
+\series bold
+minimal
+\series default
+.
+ If 
+\begin_inset Formula $G$
+\end_inset
+
+ is interreduced, then then monomials 
+\begin_inset Formula $x^{\alpha(i)}$
+\end_inset
+
+ are uniquely determined, and we shall say 
+\begin_inset Formula $G$
+\end_inset
+
+ is 
+\series bold
+set of minimal generators 
+\series default
+for 
+\begin_inset Formula $I$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Chain Complex of 
+\begin_inset Formula $\mathbb{F}_{2}$
+\end_inset
+
+-Vector Spaces Associated to Monomial Ideals in 
+\begin_inset Formula $\mathbb{F}_{2}[x_{1},\dots,x_{n}]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\backslash
+label{propchaincomplex}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A=\mathbb{F}_{2}[x_{1},\dots,x_{n}]/I$
+\end_inset
+
+ where 
+\begin_inset Formula $I$
+\end_inset
+
+ is a monomial ideal.
+ For 
+\begin_inset Formula $i\geq0$
+\end_inset
+
+, let 
+\begin_inset Formula $A_{i}$
+\end_inset
+
+ denote the 
+\begin_inset Formula $\mathbb{F}_{2}$
+\end_inset
+
+-vector space generated by monomials 
+\begin_inset Formula $\overline{x}^{\alpha}:=\overline{x}_{1}^{\alpha_{1}}\cdots\overline{x}_{n}^{\alpha_{n}}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\alpha_{1}+\alpha_{2}+\cdots+\alpha_{n}=i$
+\end_inset
+
+.
+ Finally, let 
+\begin_inset Formula $d$
+\end_inset
+
+ denote the 
+\begin_inset Formula $\mathbb{F}_{2}$
+\end_inset
+
+-linear operator 
+\begin_inset Formula $\partial_{x_{1}}+\partial_{x_{2}}+\cdots+\partial_{x_{n}}$
+\end_inset
+
+.
+ Then 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} 
+\backslash
+mathcal{A}: = (A,d):= 
+\backslash
+cdots 
+\backslash
+arrow[r] & A_2 
+\backslash
+arrow[r, "d"]  & A_1  
+\backslash
+arrow[r, "d"]  & A_0 
+\backslash
+arrow[r, "d"]  & 0 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+ is a chain complex of 
+\begin_inset Formula $\mathbb{F}_{2}$
+\end_inset
+
+-vector spaces.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ We just need to check that 
+\begin_inset Formula $d^{2}=0$
+\end_inset
+
+.
+ Since the monomials form a 
+\begin_inset Formula $\mathbb{F}_{2}$
+\end_inset
+
+-basis of 
+\begin_inset Formula $A$
+\end_inset
+
+, we just need to show that 
+\begin_inset Formula $d^{2}\left(\overline{x}^{\alpha}\right)=0$
+\end_inset
+
+ for all monomials 
+\begin_inset Formula $\overline{x}^{\alpha}\in A$
+\end_inset
+
+.
+ Thus, let 
+\begin_inset Formula $\overline{x}^{\alpha}:=\overline{x}_{1}^{\alpha_{1}}\cdots\overline{x}_{n}^{\alpha_{n}}\in A$
+\end_inset
+
+ be a monomial.
+ Then
+\begin_inset Formula 
+\[
+d^{2}\left(\overline{x}_{1}^{\alpha_{1}}\cdots\overline{x}_{n}^{\alpha_{n}}\right)=\sum_{k=1}^{n}\alpha_{k}(\alpha_{k}-1)\overline{x}_{1}^{\alpha_{1}}\cdots\overline{x}_{k}^{\alpha_{k}-2}\cdots\overline{x}_{n}^{\alpha_{n}}+2\sum_{k<\ell}\alpha_{k}\alpha_{\ell}\overline{x}_{1}^{\alpha_{1}}\cdots\overline{x}_{k}^{\alpha_{k}-1}\cdots\overline{x}_{\ell}^{\alpha_{\ell}-1}\cdots\overline{x}_{n}^{\alpha_{n}}\equiv0\text{ mod }2.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This proves the claim.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\backslash
+label{defn}
+\end_layout
+
+\end_inset
+
+ With the notation as in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Proposition~(
+\backslash
+ref{propchaincomplex})
+\end_layout
+
+\end_inset
+
+, we say 
+\begin_inset Formula $\mathcal{A}$
+\end_inset
+
+ is the 
+\series bold
+chain complex of 
+\begin_inset Formula $\mathbb{F}_{2}$
+\end_inset
+
+-vector spaces associated to 
+\begin_inset Formula $I$
+\end_inset
+
+
+\series default
+.
+ We denote the 
+\begin_inset Formula $i$
+\end_inset
+
+th homology of this chain complex simply as 
+\begin_inset Formula $H_{i}(A)$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\backslash
+label{prop}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A=\mathbb{F}_{2}[x_{1},\dots,x_{n}]/I$
+\end_inset
+
+ where 
+\begin_inset Formula $I$
+\end_inset
+
+ is a monomial ideal and let 
+\begin_inset Formula $I'$
+\end_inset
+
+ be the monomial ideal 
+\begin_inset Formula $I'=I:\langle x_{1},\dots,x_{n}\rangle$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $G$
+\end_inset
+
+ and 
+\begin_inset Formula $G'$
+\end_inset
+
+ be the minimal set of generators for 
+\begin_inset Formula $I$
+\end_inset
+
+ and 
+\begin_inset Formula $I'$
+\end_inset
+
+ respectively.
+ Finally, let 
+\begin_inset Formula $G_{\text{odd}}$
+\end_inset
+
+ be the set of monomials 
+\begin_inset Formula $x^{\alpha}\in G$
+\end_inset
+
+ such that 
+\begin_inset Formula $\alpha\in\mathbb{Z}_{\geq0}^{n}\backslash2\mathbb{Z}_{\geq0}^{n}$
+\end_inset
+
+, and let 
+\begin_inset Formula $G'_{\text{even}}$
+\end_inset
+
+ be the set of monomial generators 
+\begin_inset Formula $x^{\alpha}\in G'$
+\end_inset
+
+ such that 
+\begin_inset Formula $\alpha\in2\mathbb{Z}_{\geq0}^{n}$
+\end_inset
+
+.
+ Then
+\end_layout
+
+\begin_layout Enumerate
+if 
+\begin_inset Formula $k$
+\end_inset
+
+ is even, then 
+\begin_inset Formula $H_{k}(A)$
+\end_inset
+
+ is generated as an 
+\begin_inset Formula $\mathbb{F}_{2}$
+\end_inset
+
+-vector space by the monomials 
+\begin_inset Formula $x^{\alpha}\in G'_{\text{even}}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\text{deg}\left(x^{\alpha}\right)=k$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+if 
+\begin_inset Formula $k$
+\end_inset
+
+ is odd, then 
+\begin_inset Formula $H_{k}(A)$
+\end_inset
+
+ is generated as an 
+\begin_inset Formula $\mathbb{F}_{2}$
+\end_inset
+
+-vector space by the monomials 
+\begin_inset Formula $d(x^{\alpha})\in G_{\text{odd}}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\text{deg}\left(x^{\alpha}\right)=k$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

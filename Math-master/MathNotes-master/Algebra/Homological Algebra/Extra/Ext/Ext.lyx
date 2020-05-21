@@ -1,0 +1,2925 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{tikz}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\usetikzlibrary{shapes.geometric}
+\usepackage{tikz-cd}
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem*{cor}{Corollary}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{ex}{Exercise} 
+\newtheorem{example}{Example}[section]
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem{case}{Case}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{tikz-cd}
+\usetikzlibrary{calc,arrows,decorations.pathreplacing}
+\tikzset{mydot/.style={circle,fill,inner sep=1.5pt},
+commutative diagrams/.cd,
+  arrow style=tikz,
+  diagrams={>=latex},
+}
+
+\usepackage{babel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+\usepackage{pgfplots}
+\usetikzlibrary{decorations.markings}
+\pgfplotsset{compat=1.9}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding iso8859-15
+\fontencoding global
+\font_roman "palatino" "default"
+\font_sans "lmss" "default"
+\font_typewriter "lmtt" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf true
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize custom
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\paperwidth 30cm
+\paperheight 35cm
+\topmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0bp
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Ext
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}
+\backslash
+label{freeres}
+\backslash
+begin{tikzcd} 
+\backslash
+cdots 
+\backslash
+arrow[r] & F_{i+1} 
+\backslash
+arrow[r,"
+\backslash
+varphi _{i+1}"] & F_i 
+\backslash
+arrow[r," 
+\backslash
+varphi _i "] & 
+\backslash
+cdots 
+\backslash
+arrow[r] & F_0 
+\backslash
+arrow[r,"
+\backslash
+varphi _0 "] & N 
+\backslash
+arrow[r] & 0 
+\backslash
+end{tikzcd}
+\backslash
+end{equation}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+be a free resolution of the 
+\begin_inset Formula $A$
+\end_inset
+
+-module 
+\begin_inset Formula $N$
+\end_inset
+
+.
+ Then for any 
+\begin_inset Formula $A$
+\end_inset
+
+-module 
+\begin_inset Formula $M$
+\end_inset
+
+, the induced sequence of 
+\begin_inset Formula $A$
+\end_inset
+
+-modules and homomorphisms 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} 
+\backslash
+cdots 
+\backslash
+arrow[r] & M 
+\backslash
+otimes _A F_{i+1} 
+\backslash
+arrow[r,"1_M 
+\backslash
+otimes 
+\backslash
+varphi _{i+1}"] & M 
+\backslash
+otimes _A F_i  
+\backslash
+arrow[r,"1_M 
+\backslash
+otimes 
+\backslash
+varphi _i "] & 
+\backslash
+cdots 
+\backslash
+arrow[r] & M 
+\backslash
+otimes _A F_0 
+\backslash
+arrow[r] & 0 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+defines a complex 
+\begin_inset Formula $M\otimes_{A}F_{\bullet}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ We introduce the 
+\begin_inset Formula $A$
+\end_inset
+
+-modules 
+\begin_inset Formula $\mbox{Tor}_{i}^{A}(M,N)$
+\end_inset
+
+, which are called 
+\series bold
+Tor-modules
+\series default
+: 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\mbox{Tor}_{0}^{A}(M,N):=M\otimes_{A}N;$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\mbox{Tor}_{i}^{A}(M,N):=\mbox{Ker}(1_{M}\otimes\varphi_{i})/\mbox{Im}(1_{M}\otimes\varphi_{i+1})$
+\end_inset
+
+ for 
+\begin_inset Formula $i\geq1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{rem}
+\end_layout
+
+\end_inset
+
+ A more unified way of defining Tor is to replace 
+\begin_inset Formula $N$
+\end_inset
+
+ with 
+\begin_inset Formula $0$
+\end_inset
+
+ and 
+\begin_inset Formula $\varphi_{0}$
+\end_inset
+
+ with the zero map in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{freeres})
+\end_layout
+
+\end_inset
+
+, to obain a new complex.
+ One then defines 
+\begin_inset Formula $\mbox{Tor}_{i}^{A}(M,N)$
+\end_inset
+
+, for all 
+\begin_inset Formula $i\geq0$
+\end_inset
+
+, to be the homology of the complex we obtain by tensoring this new complex
+ with 
+\begin_inset Formula $M$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{rem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A=K[x,y]$
+\end_inset
+
+.
+ We compute 
+\begin_inset Formula $\mbox{Tor}_{1}^{A}(A/\langle x^{2},y\rangle,A/\langle x\rangle)$
+\end_inset
+
+.
+ First we compute a free resolution of 
+\begin_inset Formula $A/\langle x\rangle$
+\end_inset
+
+: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} 0 
+\backslash
+arrow[r] & A 
+\backslash
+arrow[r," 
+\backslash
+cdot x "] & A 
+\backslash
+arrow[r] & A/ 
+\backslash
+langle x 
+\backslash
+rangle 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now tensor this with 
+\begin_inset Formula $A/\langle x^{2},y\rangle$
+\end_inset
+
+ and drop the rightmost term to get 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} 0 
+\backslash
+arrow[r] & A/ 
+\backslash
+langle x^2 , y 
+\backslash
+rangle 
+\backslash
+arrow[r," 
+\backslash
+cdot x "] & A / 
+\backslash
+langle x^2 , y 
+\backslash
+rangle 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So 
+\begin_inset Formula $\mbox{Tor}_{1}^{A}(A/\langle x^{2},y\rangle,A/\langle x\rangle)$
+\end_inset
+
+ is simply the kernel of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzcd}  A/ 
+\backslash
+langle x^2 , y 
+\backslash
+rangle 
+\backslash
+arrow[r," 
+\backslash
+cdot x "] & A / 
+\backslash
+langle x^2 , y 
+\backslash
+rangle 
+\backslash
+end{tikzcd}
+\end_layout
+
+\end_inset
+
+, which is 
+\begin_inset Formula 
+\begin{align*}
+\left(\langle x^{2},y\rangle:\langle x\rangle\right)/\langle x^{2},y\rangle & =\langle x,y\rangle/\langle x^{2},y\rangle\\
+ & \cong K\overline{x}\\
+ & \cong K.
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A=\mathbb{Q}[x,y,z]$
+\end_inset
+
+, 
+\begin_inset Formula $I=\langle\alpha_{1},\alpha_{2},\alpha_{3},\alpha_{4},\alpha_{5},\alpha_{6}\rangle$
+\end_inset
+
+ where 
+\begin_inset Formula $\alpha_{1}=xy^{2}z^{3}$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha_{2}=x^{2}yz^{3}$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha_{3}=x^{3}yz^{2}$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha_{4}=x^{3}y^{2}z$
+\end_inset
+
+, 
+\begin_inset Formula $\alpha_{5}=x^{2}y^{3}z$
+\end_inset
+
+, and 
+\begin_inset Formula $\alpha_{6}=xy^{3}z^{2}$
+\end_inset
+
+, and let 
+\begin_inset Formula $M$
+\end_inset
+
+ be any 
+\begin_inset Formula $A$
+\end_inset
+
+-module.
+ Let's see what 
+\begin_inset Formula $\mbox{Tor}_{i}^{A}(A/I,M)$
+\end_inset
+
+ looks like.
+ First we compute a free resolution for 
+\begin_inset Formula $A/I$
+\end_inset
+
+: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} 0 
+\backslash
+arrow[r] & A 
+\backslash
+arrow[r," 
+\backslash
+varphi _3 "] & A^6 
+\backslash
+arrow[r," 
+\backslash
+varphi _2 "] & A^6 
+\backslash
+arrow[r, " 
+\backslash
+varphi _1 "] & A 
+\backslash
+arrow[r] & A/I   
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where
+\begin_inset Formula 
+\[
+\varphi_{3}=\begin{pmatrix}xy\\
+y^{2}\\
+yz\\
+z^{2}\\
+xz\\
+x^{2}
+\end{pmatrix},\qquad\varphi_{2}=\begin{pmatrix}-x & 0 & 0 & 0 & 0 & y\\
+y & -x & 0 & 0 & 0 & 0\\
+0 & z & -y & 0 & 0 & 0\\
+0 & 0 & z & -y & 0 & 0\\
+0 & 0 & 0 & x & -z & 0\\
+0 & 0 & 0 & 0 & x & -z
+\end{pmatrix},\qquad\varphi_{1}=\begin{pmatrix}\alpha_{1} & \alpha_{2} & \alpha_{3} & \alpha_{4} & \alpha_{5} & \alpha_{6}\end{pmatrix}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Replace the 
+\begin_inset Formula $A/I$
+\end_inset
+
+ term with 
+\begin_inset Formula $0$
+\end_inset
+
+ and and tensor this new complex with 
+\begin_inset Formula $M$
+\end_inset
+
+ to get: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} 0 
+\backslash
+arrow[r] & M 
+\backslash
+arrow[r," 
+\backslash
+widetilde { 
+\backslash
+varphi } _3 "] & M^6 
+\backslash
+arrow[r," 
+\backslash
+widetilde { 
+\backslash
+varphi } _2 "] & M^6 
+\backslash
+arrow[r, " 
+\backslash
+widetilde { 
+\backslash
+varphi } _1 "] & M  
+\backslash
+arrow[r] & 0 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For example, let 
+\begin_inset Formula $J=\langle x,y\rangle$
+\end_inset
+
+ and suppose 
+\begin_inset Formula $M=A/\langle x,y\rangle\cong\mathbb{Q}[z]$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula 
+\[
+\widetilde{\varphi}_{3}=\begin{pmatrix}0\\
+0\\
+0\\
+z^{2}\\
+0\\
+0
+\end{pmatrix},\qquad\widetilde{\varphi}_{2}=\begin{pmatrix}0 & 0 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 0 & 0\\
+0 & z & 0 & 0 & 0 & 0\\
+0 & 0 & z & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & -z & 0\\
+0 & 0 & 0 & 0 & 0 & -z
+\end{pmatrix},\qquad\widetilde{\varphi}_{1}=\begin{pmatrix}0 & 0 & 0 & 0 & 0 & 0\end{pmatrix}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The kernel of 
+\begin_inset Formula $\widetilde{\varphi}_{1}$
+\end_inset
+
+ is 
+\begin_inset Formula 
+\[
+\mbox{Ker}\tilde{\varphi}_{1}=\mathbb{Q}[z]e_{1}+\mathbb{Q}[z]e_{2}+\mathbb{Q}[z]e_{3}+\mathbb{Q}[z]e_{4}+\mathbb{Q}[z]e_{5}+\mathbb{Q}[z]e_{6},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and the image of 
+\begin_inset Formula $\tilde{\varphi}_{2}$
+\end_inset
+
+ is 
+\begin_inset Formula 
+\[
+\mbox{Im}\tilde{\varphi}_{2}=\mathbb{Q}[z]ze_{3}+\mathbb{Q}[z]ze_{4}+\mathbb{Q}[z]ze_{5}+\mathbb{Q}[z]ze_{6}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Therefore 
+\begin_inset Formula $\mbox{Tor}_{1}^{A}(A/\langle x,y\rangle,A/I)$
+\end_inset
+
+ is 
+\begin_inset Formula 
+\[
+\mbox{Tor}_{1}^{A}(A/\langle x,y\rangle,A/I)=\mathbb{Q}[z]e_{1}+\mathbb{Q}[z]e_{2}+\mathbb{Q}e_{3}+\mathbb{Q}e_{4}+\mathbb{Q}e_{5}+\mathbb{Q}e_{6}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In other words, 
+\begin_inset Formula $\mbox{Tor}_{1}^{A}(A/J,A/I)\cong\mathbb{Q}[z]^{2}\oplus\mathbb{Q}^{4}$
+\end_inset
+
+.
+ This implies 
+\begin_inset Formula $I\cap J/IJ\cong\mathbb{Q}[z]^{2}\oplus\mathbb{Q}^{4}$
+\end_inset
+
+.
+ Let's verify this.
+ Since 
+\begin_inset Formula $J\supset I$
+\end_inset
+
+, we have 
+\begin_inset Formula $I\cap J=I$
+\end_inset
+
+.
+ Clearly 
+\begin_inset Formula $x\overline{\alpha_{i}}=y\overline{\alpha_{i}}=\overline{0}$
+\end_inset
+
+ for all 
+\begin_inset Formula $i=1,\dots6$
+\end_inset
+
+.
+ Also, 
+\begin_inset Formula 
+\[
+z\overline{\alpha_{3}}=x\overline{\alpha_{3}}=\overline{0}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+z\overline{\alpha_{4}}=y\overline{\alpha_{3}}=\overline{0}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+z\overline{\alpha_{5}}=x\overline{\alpha_{6}}=\overline{0}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+z\overline{\alpha_{6}}=y\overline{\alpha_{1}}=\overline{0}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+Next, the kernel of 
+\begin_inset Formula $\tilde{\varphi}_{2}$
+\end_inset
+
+ is 
+\begin_inset Formula 
+\[
+\mbox{Ker}\tilde{\varphi}_{2}=\mathbb{Q}[z]e_{1}+\mathbb{Q}[z]e_{4},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and the image of 
+\begin_inset Formula $\tilde{\varphi}_{3}$
+\end_inset
+
+ is 
+\begin_inset Formula 
+\[
+\mbox{Im}\tilde{\varphi}_{2}=\mathbb{Q}[z]z^{2}e_{4}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Therefore 
+\begin_inset Formula $\mbox{Tor}_{2}^{A}(A/\langle x,y\rangle,A/I)$
+\end_inset
+
+ is 
+\begin_inset Formula 
+\[
+\mbox{Tor}_{1}^{A}(A/\langle x,y\rangle,A/I)=\mathbb{Q}[z]e_{1}+\mathbb{Q}[\varepsilon]e_{2},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\varepsilon^{2}=0$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzcd} 0 
+\backslash
+arrow[r] & M 
+\backslash
+arrow[r,"i"] & N 
+\backslash
+arrow[r," 
+\backslash
+pi "] & P 
+\backslash
+arrow[r] & 0 
+\backslash
+end{tikzcd}
+\end_layout
+
+\end_inset
+
+ be an exact sequence of 
+\begin_inset Formula $A$
+\end_inset
+
+-modules and 
+\begin_inset Formula $L$
+\end_inset
+
+ an 
+\begin_inset Formula $A$
+\end_inset
+
+-module.
+ Then, with the canonical induced maps, the sequence 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd}[row sep=30] M 
+\backslash
+otimes _A L 
+\backslash
+arrow[r]  & N 
+\backslash
+otimes _A L 
+\backslash
+arrow[r] 
+\backslash
+arrow[d, phantom, ""{coordinate, name=Z}] & P 
+\backslash
+otimes _A L 
+\backslash
+arrow[r] & 0 
+\backslash
+
+\backslash
+ 
+\backslash
+mbox{Tor}_1 ^A (M,L) 
+\backslash
+arrow[r] & 
+\backslash
+mbox{Tor}_1 ^A (N,L) 
+\backslash
+arrow[r] 
+\backslash
+arrow[d, phantom, ""{coordinate, name=Z'}] & 
+\backslash
+mbox{Tor}_1 ^A (P,L) 
+\backslash
+arrow[ull, "
+\backslash
+gamma _1 ", swap, rounded corners, to path={ -- ([xshift=2ex]
+\backslash
+tikztostart.east) |- (Z) [near end]
+\backslash
+tikztonodes -| ([xshift=-2ex]
+\backslash
+tikztotarget.west) -- (
+\backslash
+tikztotarget)}]  
+\backslash
+
+\backslash
+ & 
+\backslash
+cdots 
+\backslash
+arrow[r] & 
+\backslash
+mbox{Tor}_2 ^A (P,L) 
+\backslash
+arrow[ull, "
+\backslash
+gamma _2 ", swap, rounded corners, to path={ -- ([xshift=2ex]
+\backslash
+tikztostart.east) |- (Z') [near end]
+\backslash
+tikztonodes -| ([xshift=-2ex]
+\backslash
+tikztotarget.west) -- (
+\backslash
+tikztotarget)}] 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+is exact.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{rem}
+\end_layout
+
+\end_inset
+
+ This sequence is called the 
+\series bold
+long exact Tor-sequence
+\series default
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{rem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ We will focus on 
+\begin_inset Formula $\mbox{Tor}_{1}^{A}(-,L)$
+\end_inset
+
+ for clarity.
+ Our arguments can easily be extended for 
+\begin_inset Formula $\mbox{Tor}_{i}^{A}(-,L)$
+\end_inset
+
+.
+ Consider a free resolution of 
+\begin_inset Formula $L$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} 
+\backslash
+cdots 
+\backslash
+arrow[r] & F_{i+1} 
+\backslash
+arrow[r,"
+\backslash
+varphi _{i+1}"] & F_i 
+\backslash
+arrow[r," 
+\backslash
+varphi _i "] & 
+\backslash
+cdots 
+\backslash
+arrow[r] & F_0 
+\backslash
+arrow[r,"
+\backslash
+varphi _0 "] & L 
+\backslash
+arrow[r] & 0 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tensoring the latter with 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzcd} 0 
+\backslash
+arrow[r] & M 
+\backslash
+arrow[r] & N 
+\backslash
+arrow[r] & P 
+\backslash
+arrow[r] & 0 
+\backslash
+end{tikzcd}
+\end_layout
+
+\end_inset
+
+, we obtain the commutative diagram:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd}[row sep=30] 0 
+\backslash
+arrow[r] & 0 
+\backslash
+arrow[r," i 
+\backslash
+otimes 1 "] & 0 
+\backslash
+arrow[r," 
+\backslash
+pi 
+\backslash
+otimes 1 "] &  0 
+\backslash
+arrow[r] & 0 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+ 0 
+\backslash
+arrow[r] & M 
+\backslash
+otimes _A F_0 
+\backslash
+arrow[r, "i 
+\backslash
+otimes 1"] 
+\backslash
+arrow[u, " 1 
+\backslash
+otimes 
+\backslash
+varphi_0  " ] & N 
+\backslash
+otimes _A F_0 
+\backslash
+arrow[r," 
+\backslash
+pi 
+\backslash
+otimes 1"] 
+\backslash
+arrow[u, " 1 
+\backslash
+otimes 
+\backslash
+varphi_0 "] & P 
+\backslash
+otimes _A F_0 
+\backslash
+arrow[r] 
+\backslash
+arrow[u, " 1 
+\backslash
+otimes 
+\backslash
+varphi_0  "] & 0
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+ 0 
+\backslash
+arrow[r] & M 
+\backslash
+otimes _A F_1 
+\backslash
+arrow[r, "i 
+\backslash
+otimes 1"] 
+\backslash
+arrow[u, "1 
+\backslash
+otimes 
+\backslash
+varphi _1 "] & N 
+\backslash
+otimes _A F_1 
+\backslash
+arrow[r," 
+\backslash
+pi 
+\backslash
+otimes 1"] 
+\backslash
+arrow[u, "1 
+\backslash
+otimes 
+\backslash
+varphi _1 "] & P 
+\backslash
+otimes _A F_1 
+\backslash
+arrow[r] 
+\backslash
+arrow[u, "1 
+\backslash
+otimes 
+\backslash
+varphi _1 "] & 0
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+ 0 
+\backslash
+arrow[r] & M 
+\backslash
+otimes _A F_2 
+\backslash
+arrow[r, "i 
+\backslash
+otimes 1"] 
+\backslash
+arrow[u, "1 
+\backslash
+otimes 
+\backslash
+varphi _2 "] & N 
+\backslash
+otimes _A F_2 
+\backslash
+arrow[r," 
+\backslash
+pi 
+\backslash
+otimes 1"] 
+\backslash
+arrow[u, "1 
+\backslash
+otimes 
+\backslash
+varphi _2 "] & P 
+\backslash
+otimes _A F_2 
+\backslash
+arrow[r] 
+\backslash
+arrow[u, "1 
+\backslash
+otimes 
+\backslash
+varphi _2 "] & 0
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+   & 
+\backslash
+vdots 
+\backslash
+arrow[u] & 
+\backslash
+vdots 
+\backslash
+arrow[u] & 
+\backslash
+vdots 
+\backslash
+arrow[u]
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+First we want to show that this commutative diagram induces a sequence
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}
+\backslash
+label{tor1}
+\backslash
+begin{tikzcd} 
+\backslash
+mbox{Tor}_1 ^A (M,L) 
+\backslash
+arrow[r, "
+\backslash
+overline{ i 
+\backslash
+otimes 1 }"] & 
+\backslash
+mbox{Tor}_1 ^A (N,L) 
+\backslash
+arrow[r, "
+\backslash
+overline{ 
+\backslash
+pi 
+\backslash
+otimes 1 }"] & 
+\backslash
+mbox{Tor}_1 ^A (P,L) 
+\backslash
+end{tikzcd}
+\backslash
+end{equation}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\overline{x}\in\mbox{Tor}_{1}^{A}(N,L)$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $(\overline{\pi\otimes1})(\overline{x})=\overline{(\pi\otimes1)(x)}\in\mbox{Tor}_{1}^{A}(P,L)$
+\end_inset
+
+ since
+\begin_inset Formula 
+\begin{align*}
+(1\otimes\varphi_{1})(\pi\otimes1)(x) & =(\pi\otimes1)(1\otimes\varphi_{1})(x)\\
+ & =(\pi\otimes1)(0)\\
+ & =0.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now choose another representative for 
+\begin_inset Formula $\overline{x}$
+\end_inset
+
+, say 
+\begin_inset Formula $x+(1\otimes\varphi_{2})(y)$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\begin{align*}
+\overline{(\pi\otimes1)(x+(1\otimes\varphi_{2})(y))} & =\overline{(\pi\otimes1)(x)+(\pi\otimes1)(1\otimes\varphi_{2})(y))}\\
+ & =\overline{(\pi\otimes1)(x)+(1\otimes\varphi_{2})(\pi\otimes1)(y))}\\
+ & =\overline{(\pi\otimes1)(x)}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So the map from 
+\begin_inset Formula $\mbox{Tor}_{1}^{A}(N,L)$
+\end_inset
+
+ to 
+\begin_inset Formula $\mbox{Tor}_{1}^{A}(P,L)$
+\end_inset
+
+ is well-defined.
+ Next, let 
+\begin_inset Formula $\overline{x}\in\mbox{Tor}_{1}^{A}(M,L)$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $(\overline{i\otimes1})(\overline{x})=\overline{(i\otimes1)(x)}\in\mbox{Tor}_{1}^{A}(N,L)$
+\end_inset
+
+ since
+\begin_inset Formula 
+\begin{align*}
+(1\otimes\varphi_{1})(i\otimes1)(x) & =(i\otimes1)(1\otimes\varphi_{1})(x)\\
+ & =(i\otimes1)(0)\\
+ & =0.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now choose another representative for 
+\begin_inset Formula $\overline{x}$
+\end_inset
+
+, say 
+\begin_inset Formula $x+(1\otimes\varphi_{2})(y)$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\begin{align*}
+\overline{(\pi\otimes1)(x+(1\otimes\varphi_{2})(y))} & =\overline{(\pi\otimes1)(x)+(\pi\otimes1)(1\otimes\varphi_{2})(y))}\\
+ & =\overline{(\pi\otimes1)(x)+(1\otimes\varphi_{2})(\pi\otimes1)(y))}\\
+ & =\overline{(\pi\otimes1)(x)}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So the map from 
+\begin_inset Formula $\mbox{Tor}_{1}^{A}(M,L)$
+\end_inset
+
+ to 
+\begin_inset Formula $\mbox{Tor}_{1}^{A}(N,L)$
+\end_inset
+
+ is well-defined.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Next we want to show that 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{tor1})
+\end_layout
+
+\end_inset
+
+ is exact.
+ Suppose 
+\begin_inset Formula $\overline{x}\in\mbox{Tor}_{1}^{A}(N,L)$
+\end_inset
+
+ such that 
+\begin_inset Formula $\overline{(\pi\otimes1)(x)}=\overline{0}$
+\end_inset
+
+.
+ This means there is a 
+\begin_inset Formula $y\in P\otimes_{A}F_{2}$
+\end_inset
+
+ such that 
+\begin_inset Formula $(1\otimes\varphi_{2})(y)=(\pi\otimes1)(x)$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $\pi\otimes1$
+\end_inset
+
+ is surjective, there is a 
+\begin_inset Formula $z\in N\otimes_{A}F_{2}$
+\end_inset
+
+ such that 
+\begin_inset Formula $(\pi\otimes1)(z)=y$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $x-(1\otimes\varphi_{2})(z)\in\mbox{Ker}(\pi\otimes1)$
+\end_inset
+
+ since 
+\begin_inset Formula 
+\begin{align*}
+(\pi\otimes1)(x-(1\otimes\varphi_{2})(z)) & =(\pi\otimes1)(x)-(\pi\otimes1)(1\otimes\varphi_{2})(z)\\
+ & =(\pi\otimes1)(x)-(1\otimes\varphi_{2})(\pi\otimes1)(z)\\
+ & =(\pi\otimes1)(x)-(1\otimes\varphi_{2})(y)\\
+ & =0.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Therefore there is a 
+\begin_inset Formula $w\in M\otimes_{A}F_{1}$
+\end_inset
+
+ such that 
+\begin_inset Formula $(i\otimes1)(w)=x-(1\otimes\varphi_{2})(z)$
+\end_inset
+
+.
+ Therefore
+\begin_inset Formula 
+\begin{align*}
+\overline{(i\otimes1)}(\overline{w}) & =\overline{(i\otimes1)(w)}\\
+ & =\overline{x-(1\otimes\varphi_{2})(z)}\\
+ & =\overline{x},
+\end{align*}
+
+\end_inset
+
+which shows 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{tor1})
+\end_layout
+
+\end_inset
+
+ is exact.
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Now the key point is to find the map 
+\begin_inset Formula $\gamma_{1}:\mbox{Tor}_{1}^{A}(P,L)\to\mbox{Tor}_{0}^{A}(M,L)$
+\end_inset
+
+ such that 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}
+\backslash
+label{connectingmap}
+\backslash
+begin{tikzcd} 
+\backslash
+mbox{Tor}_1 ^A (N,L) 
+\backslash
+arrow[r] & 
+\backslash
+mbox{Tor}_1 ^A (P,L) 
+\backslash
+arrow[r," 
+\backslash
+gamma _1 "] & 
+\backslash
+mbox{Tor}_0 ^A (M,L) 
+\backslash
+arrow[r] & 
+\backslash
+mbox{Tor}_0 ^A (N,L) 
+\backslash
+end{tikzcd}
+\backslash
+end{equation}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+is exact.
+ Let 
+\begin_inset Formula $\overline{x}\in\mbox{Tor}_{1}^{A}(P,L)$
+\end_inset
+
+.
+ Choose 
+\begin_inset Formula $y\in N\otimes_{A}F_{1}$
+\end_inset
+
+ such that 
+\begin_inset Formula $(\pi\otimes1)(y)=x$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $(1\otimes\varphi_{1})(y)\in\mbox{Ker}(\pi\otimes1)$
+\end_inset
+
+ since 
+\begin_inset Formula 
+\begin{align*}
+(\pi\otimes1)(1\otimes\varphi_{1})(y) & =(1\otimes\varphi_{1})(\pi\otimes1)(y)\\
+ & =(1\otimes\varphi_{1})(x)\\
+ & =0.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Therefore, there is a unique 
+\begin_inset Formula $z\in M\otimes_{A}F_{0}$
+\end_inset
+
+ such that 
+\begin_inset Formula $(i\otimes1)(z)=(1\otimes\varphi_{1})(y)$
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+This is because 
+\begin_inset Formula $F_{0}$
+\end_inset
+
+ is free, and hence flat
+\end_layout
+
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $i\otimes1$
+\end_inset
+
+ is injective, and 
+\begin_inset Formula 
+\begin{align*}
+(i\otimes1)(1\otimes\varphi_{0})(z) & =(1\otimes\varphi_{0})(i\otimes1)(z)\\
+ & =(1\otimes\varphi_{0})(1\otimes\varphi_{1})(y)\\
+ & =0,
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+It follows that 
+\begin_inset Formula $\overline{z}\in\mbox{Tor}_{0}^{A}(M,L)$
+\end_inset
+
+.
+ Now define 
+\begin_inset Formula $\gamma_{1}(\overline{x})=\overline{z}$
+\end_inset
+
+.
+ We need to check that it is well-defined.
+ In our construction, we used two choices: 
+\begin_inset Formula $x$
+\end_inset
+
+ and 
+\begin_inset Formula $y$
+\end_inset
+
+.
+ We need to show that our construction of 
+\begin_inset Formula $\gamma_{1}$
+\end_inset
+
+ does not depend on these two choices.
+ First, choose another lift of 
+\begin_inset Formula $x$
+\end_inset
+
+, say 
+\begin_inset Formula $y+(i\otimes1)(w)$
+\end_inset
+
+ for some 
+\begin_inset Formula $w\in M\otimes_{A}F_{1}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $z+(1\otimes\varphi_{1})(w)$
+\end_inset
+
+ is the unique element in 
+\begin_inset Formula $M\otimes_{A}F_{0}$
+\end_inset
+
+ such that 
+\begin_inset Formula $(i\otimes1)(z+(1\otimes\varphi_{1})(w))=(1\otimes\varphi_{1})(y+(i\otimes1)(w))$
+\end_inset
+
+, since 
+\begin_inset Formula $(i\otimes1)(1\otimes\varphi_{1})(w)=(1\otimes\varphi_{1})(i\otimes1)(w)$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $\overline{z+(1\otimes\varphi_{1})(w)}=\overline{z}$
+\end_inset
+
+ in 
+\begin_inset Formula $\mbox{Tor}_{0}^{A}(M,L)$
+\end_inset
+
+, it follows that 
+\begin_inset Formula $\gamma_{1}$
+\end_inset
+
+ does not depend on the choice of a lift of 
+\begin_inset Formula $x$
+\end_inset
+
+.
+ Next, choose another representative of 
+\begin_inset Formula $\overline{x}$
+\end_inset
+
+, say 
+\begin_inset Formula $x+(1\otimes\varphi_{2})(u)$
+\end_inset
+
+ for some 
+\begin_inset Formula $u\in P\otimes_{A}F_{2}$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $\pi\otimes1$
+\end_inset
+
+ is surjective, there is a 
+\begin_inset Formula $v\in N\otimes_{A}F_{2}$
+\end_inset
+
+ such that 
+\begin_inset Formula $(\pi\otimes1)(v)=u$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $y+(1\otimes\varphi_{2})(v)$
+\end_inset
+
+ is a lift of 
+\begin_inset Formula $x+(1\otimes\varphi_{2})(u)$
+\end_inset
+
+ since
+\begin_inset Formula 
+\begin{align*}
+(\pi\otimes1)(y+(1\otimes\varphi_{2})(v)) & =(\pi\otimes1)(y)+(\pi\otimes1)(1\otimes\varphi_{2})(v)\\
+ & =x+(1\otimes\varphi_{2})(\pi\otimes1)(v)\\
+ & =x+(1\otimes\varphi_{2})(u).
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then 
+\begin_inset Formula $z$
+\end_inset
+
+ is the unique element in 
+\begin_inset Formula $M\otimes_{A}F_{0}$
+\end_inset
+
+ such that 
+\begin_inset Formula $(i\otimes1)(z)=(1\otimes\varphi_{1})(y+(1\otimes\varphi_{2})(v))$
+\end_inset
+
+ since 
+\begin_inset Formula $(1\otimes\varphi_{1})(1\otimes\varphi_{2})(v)=0$
+\end_inset
+
+.
+ It follows that 
+\begin_inset Formula $\gamma_{1}$
+\end_inset
+
+ does not depend on the choice of representative for 
+\begin_inset Formula $\overline{x}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+The last thing we need to check is that 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{connectingmap})
+\end_layout
+
+\end_inset
+
+ is exact.
+ First we show exactness at 
+\begin_inset Formula $\mbox{Tor}_{1}^{A}(P,L)$
+\end_inset
+
+.
+ Suppose 
+\begin_inset Formula $\overline{x}\in\mbox{Tor}_{1}^{A}(P,L)$
+\end_inset
+
+ such that 
+\begin_inset Formula $\gamma_{1}(\overline{x})=\overline{0}$
+\end_inset
+
+.
+ As before, choose a lift 
+\begin_inset Formula $y\in N\otimes_{A}F_{1}$
+\end_inset
+
+ of 
+\begin_inset Formula $x$
+\end_inset
+
+ so that 
+\begin_inset Formula $\gamma_{1}(\overline{x})=\overline{z}$
+\end_inset
+
+ for a unique 
+\begin_inset Formula $z\in M\otimes_{A}F_{0}$
+\end_inset
+
+ corresponding to 
+\begin_inset Formula $y$
+\end_inset
+
+.
+ Then there is a 
+\begin_inset Formula $w\in M\otimes_{A}F_{1}$
+\end_inset
+
+ such that 
+\begin_inset Formula $(1\otimes\varphi_{1})(w)=z$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\overline{y-(i\otimes1)(w)}\in\mbox{Tor}_{1}^{A}(N,L)$
+\end_inset
+
+ since
+\begin_inset Formula 
+\begin{align*}
+(1\otimes\varphi_{1})(y-(i\otimes1)(w)) & =(1\otimes\varphi_{1})(y)-(1\otimes\varphi_{1})(i\otimes1)(w))\\
+ & =(i\otimes1)(z)-(i\otimes1)(1\otimes\varphi_{1})(w)\\
+ & =(i\otimes1)(z)-(i\otimes1)(z)\\
+ & =0.
+\end{align*}
+
+\end_inset
+
+Moreover, 
+\begin_inset Formula $\left(\overline{\pi\otimes1}\right)\left(\overline{y-(i\otimes1)(w)}\right)=\overline{(\pi\otimes1)y-(i\otimes1)(w)}=\overline{x}$
+\end_inset
+
+.
+ This shows exactness at 
+\begin_inset Formula $\mbox{Tor}_{1}^{A}(P,L)$
+\end_inset
+
+.
+ Next we show exactness at 
+\begin_inset Formula $\mbox{Tor}_{0}^{A}(M,L)$
+\end_inset
+
+.
+ Suppose 
+\begin_inset Formula $\overline{z}\in\mbox{Tor}_{0}^{A}(M,L)$
+\end_inset
+
+ such that 
+\begin_inset Formula $\overline{(i\otimes1)(z)}=\overline{0}$
+\end_inset
+
+.
+ Then there is a 
+\begin_inset Formula $y\in N\otimes_{A}F_{1}$
+\end_inset
+
+ such that 
+\begin_inset Formula $(1\otimes\varphi_{1})(y)=(i\otimes1)(z)$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\overline{(\pi\otimes1)(y)}\in\mbox{Tor}_{1}^{A}(P,L)$
+\end_inset
+
+ since 
+\begin_inset Formula $(\pi\otimes1)(y)\in\mbox{Ker}(1\otimes\varphi_{1})$
+\end_inset
+
+.
+ Moreover, it's clear that 
+\begin_inset Formula $\gamma_{1}(\overline{(\pi\otimes1)(y)})=\overline{z}$
+\end_inset
+
+.
+ This shows exactness at 
+\begin_inset Formula $\mbox{Tor}_{0}^{A}(M,L)$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ We compute 
+\begin_inset Formula $\mbox{Tor}_{1}^{A}(A/I,A/J)$
+\end_inset
+
+.
+ First write down the short exact sequence
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} 0 
+\backslash
+arrow[r] & I 
+\backslash
+arrow[r] & A 
+\backslash
+arrow[r] & A/I 
+\backslash
+arrow[r] & 0 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then tensor this with 
+\begin_inset Formula $A/J$
+\end_inset
+
+ to get the exact sequence 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd}[row sep=30] I/IJ 
+\backslash
+arrow[r]  & A/J 
+\backslash
+arrow[r] 
+\backslash
+arrow[d, phantom, ""{coordinate, name=Z}] & A/ (I+J) 
+\backslash
+arrow[r] & 0 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+  & 0 
+\backslash
+arrow[r] & 
+\backslash
+mbox{Tor}_1 ^A (A/I,A/J) 
+\backslash
+arrow[ull, "
+\backslash
+gamma _1 ", swap, rounded corners, to path={ -- ([xshift=2ex]
+\backslash
+tikztostart.east) |- (Z) [near end]
+\backslash
+tikztonodes -| ([xshift=-2ex]
+\backslash
+tikztotarget.west) -- (
+\backslash
+tikztotarget)}]  
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\mbox{Tor}_{1}^{A}(A,A/J)\cong0$
+\end_inset
+
+ for trivial reasons.
+ From here, it follows that 
+\begin_inset Formula $\mbox{Tor}_{1}^{A}(A/I,A/J)$
+\end_inset
+
+ is isomorphic to the kernel of the map 
+\begin_inset Formula $I/IJ\to A/J$
+\end_inset
+
+, which is just 
+\begin_inset Formula $I\cap J/IJ$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A=K[x,y,z]$
+\end_inset
+
+ and let 
+\begin_inset Formula $(x_{1},x_{2},x_{3})$
+\end_inset
+
+ be a weak 
+\begin_inset Formula $A$
+\end_inset
+
+-sequence.
+ Then we get a particularly nice free resolution of 
+\begin_inset Formula $A/I$
+\end_inset
+
+ called the 
+\series bold
+Koszul complex
+\series default
+: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd}[column sep=huge, row sep=0.4, ampersand replacement=
+\backslash
+&] A 
+\backslash
+arrow{r}{
+\backslash
+begin{pmatrix} x_3 
+\backslash
+
+\backslash
+ -x_2 
+\backslash
+
+\backslash
+ x_1 
+\backslash
+end{pmatrix} } 
+\backslash
+& A^3 
+\backslash
+arrow{r}{ 
+\backslash
+begin{pmatrix} -x_2 & -x_3 & 0 
+\backslash
+
+\backslash
+ x_1 & 0 & -x_3 
+\backslash
+
+\backslash
+ 0 & x_1 & x_2 
+\backslash
+end{pmatrix} } 
+\backslash
+& A^3 
+\backslash
+arrow{r}{
+\backslash
+begin{pmatrix} x_1 & x_2 & x_3 
+\backslash
+end{pmatrix} } 
+\backslash
+& A 
+\backslash
+arrow[r] 
+\backslash
+& A/I
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+ e_{123} 
+\backslash
+arrow[r,mapsto,shorten >=0.2cm,shorten <=0.2cm] 
+\backslash
+& x_1 e_{23} - x_2 e_{13} + x_3 e_{12} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+ 
+\backslash
+& e_{12} 
+\backslash
+arrow[r,mapsto,shorten >=0.2cm,shorten <=0.2cm] 
+\backslash
+& x_1 e_2 - x_2 e_1 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+ 
+\backslash
+& e_{13} 
+\backslash
+arrow[r,mapsto,shorten >=0.2cm,shorten <=0.2cm] 
+\backslash
+& x_1 e_3 - x_3 e_1 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+ 
+\backslash
+& e_{23} 
+\backslash
+arrow[r,mapsto,shorten >=0.2cm,shorten <=0.2cm] 
+\backslash
+& x_2 e_3 - x_3 e_2 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+ 
+\backslash
+& 
+\backslash
+& e_1 
+\backslash
+arrow[r,mapsto,shorten >=0.2cm,shorten <=0.2cm] 
+\backslash
+& x_1 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+ 
+\backslash
+& 
+\backslash
+& e_2 
+\backslash
+arrow[r,mapsto,shorten >=0.2cm,shorten <=0.2cm] 
+\backslash
+& x_2 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+ 
+\backslash
+& 
+\backslash
+& e_3 
+\backslash
+arrow[r,mapsto,shorten >=0.2cm,shorten <=0.2cm] 
+\backslash
+& x_3 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dropping the 
+\begin_inset Formula $A/I$
+\end_inset
+
+ term and tensoring this with 
+\begin_inset Formula $M$
+\end_inset
+
+, we obtain the complex:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd}[column sep=80, ampersand replacement=
+\backslash
+&] M 
+\backslash
+arrow{r}{
+\backslash
+begin{pmatrix} x_3 
+\backslash
+
+\backslash
+ -x_2 
+\backslash
+
+\backslash
+ x_1 
+\backslash
+end{pmatrix} } 
+\backslash
+& M^3 
+\backslash
+arrow{r}{ 
+\backslash
+begin{pmatrix} -x_2 & -x_3 & 0 
+\backslash
+
+\backslash
+ x_1 & 0 & -x_3 
+\backslash
+
+\backslash
+ 0 & x_1 & x_2 
+\backslash
+end{pmatrix} } 
+\backslash
+& M^3 
+\backslash
+arrow{r}{
+\backslash
+begin{pmatrix} x_1 & x_2 & x_3 
+\backslash
+end{pmatrix} } 
+\backslash
+& M 
+\backslash
+arrow[r] 
+\backslash
+& 0 
+\backslash
+end{tikzcd} 
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So an element in 
+\begin_inset Formula $\mbox{Tor}_{1}^{A}(A/I,M)$
+\end_inset
+
+ is represented by a triple 
+\begin_inset Formula $(m_{1},m_{2},m_{3})\in M^{3}$
+\end_inset
+
+ such that 
+\begin_inset Formula $x_{1}m_{1}+x_{2}m_{2}+x_{3}m_{3}=0$
+\end_inset
+
+.
+ The zero element in 
+\begin_inset Formula $\mbox{Tor}_{1}^{A}(A/I,M)$
+\end_inset
+
+ is represented by an element of the form 
+\begin_inset Formula $(-x_{3}m_{2}-x_{2}m_{1},x_{1}m_{1}-x_{3}m_{3},x_{1}m_{2}+x_{2}m_{3})\in M$
+\end_inset
+
+.
+ Let's explicitely compute the connecting map 
+\begin_inset Formula $\gamma_{1}$
+\end_inset
+
+ by looking at an explicit example.
+ Let 
+\begin_inset Formula $M$
+\end_inset
+
+ be the module given by the finite presentation:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd}[column sep=50, row sep=0.4, ampersand replacement=
+\backslash
+&] 0 
+\backslash
+arrow[r] 
+\backslash
+&  A 
+\backslash
+arrow{r}{
+\backslash
+begin{pmatrix} -z 
+\backslash
+
+\backslash
+ y 
+\backslash
+end{pmatrix} } 
+\backslash
+& A^2 
+\backslash
+arrow{r} 
+\backslash
+& M 
+\backslash
+arrow[r] 
+\backslash
+& 0 
+\backslash
+
+\backslash
+ 
+\backslash
+& f_1 
+\backslash
+arrow[r,mapsto,shorten >=0.2cm,shorten <=0.2cm] 
+\backslash
+& -ze_1 + ye_2 
+\backslash
+
+\backslash
+ 
+\backslash
+&
+\backslash
+&  e_1 
+\backslash
+arrow[r,mapsto,shorten >=0.2cm,shorten <=0.2cm] 
+\backslash
+& 
+\backslash
+widetilde{m}_1 
+\backslash
+
+\backslash
+ 
+\backslash
+&
+\backslash
+&  e_2 
+\backslash
+arrow[r,mapsto, shorten >=0.2cm,shorten <=0.2cm] 
+\backslash
+& 
+\backslash
+widetilde{m}_2 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then the connecting map can be described as follows.
+ Choose a triple 
+\begin_inset Formula $(m_{1},m_{2},m_{3})\in M^{3}$
+\end_inset
+
+ such that 
+\begin_inset Formula $x_{1}m_{1}+x_{2}m_{2}+x_{3}m_{3}=0$
+\end_inset
+
+.
+ Write them in terms of the generators 
+\begin_inset Formula $\widetilde{m}_{i}$
+\end_inset
+
+: 
+\begin_inset Formula 
+\[
+m_{1}=a_{11}\widetilde{m}_{1}+a_{21}\widetilde{m}_{2},\qquad m_{2}=a_{12}\widetilde{m}_{1}+a_{22}\widetilde{m}_{2},\qquad m_{3}=a_{13}\widetilde{m}_{1}+a_{23}\widetilde{m}_{2},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+for some 
+\begin_inset Formula $a_{ij}\in A$
+\end_inset
+
+.
+ Now, lift 
+\begin_inset Formula $(m_{1},m_{2},m_{3})\in M^{3}$
+\end_inset
+
+ to an element in 
+\begin_inset Formula $\left(A^{2}\right)^{3}$
+\end_inset
+
+ by replacing each 
+\begin_inset Formula $\widetilde{m}_{i}$
+\end_inset
+
+ with 
+\begin_inset Formula $e_{i}$
+\end_inset
+
+: So 
+\begin_inset Formula $(m_{1},m_{2},m_{3})$
+\end_inset
+
+ lifts to 
+\begin_inset Formula $(a_{11}e_{1}+a_{21}e_{2},a_{12}e_{1}+a_{22}e_{2},a_{13}e_{1}+a_{23}e_{2})$
+\end_inset
+
+.
+ Then map this element to 
+\begin_inset Formula 
+\[
+x_{1}(a_{11}e_{1}+a_{21}e_{2})+x_{2}(a_{12}e_{1}+a_{22}e_{2})+x_{3}(a_{13}e_{1}+a_{23}e_{2})=(x_{1}a_{11}+x_{2}a_{12}+x_{3}a_{13})e_{1}+(x_{1}a_{21}+x_{2}a_{22}+x_{3}a_{23})e_{2}\in A^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This element must belong to the image of the map from 
+\begin_inset Formula $A\to A^{2}$
+\end_inset
+
+, so there is some 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\[
+-zae_{1}+aye_{2}=(x_{1}a_{11}+x_{2}a_{12}+x_{3}a_{13})e_{1}+(x_{1}a_{21}+x_{2}a_{22}+x_{3}a_{23})e_{2},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+or in other words, there is an 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\[
+-za=(x_{1}a_{11}+x_{2}a_{12}+x_{3}a_{13})\qquad\mbox{and}\qquad ya=(x_{1}a_{21}+x_{2}a_{22}+x_{3}a_{23}).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So 
+\begin_inset Formula $\gamma_{1}\overline{(m_{1},m_{2},m_{3})}=\overline{a}$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Ext
+\end_layout
+
+\end_body
+\end_document

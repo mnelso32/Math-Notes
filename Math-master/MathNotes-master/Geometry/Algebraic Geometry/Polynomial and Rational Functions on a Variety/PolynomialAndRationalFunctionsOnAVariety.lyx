@@ -1,0 +1,902 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{tikz}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\usetikzlibrary{shapes.geometric}
+\usepackage{tikz-cd}
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem*{cor}{Corollary}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{ex}{Exercise} 
+\newtheorem{example}{Example}[section]
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem{case}{Case}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{tikz-cd}
+\usetikzlibrary{calc,arrows,decorations.pathreplacing}
+\tikzset{mydot/.style={circle,fill,inner sep=1.5pt},
+commutative diagrams/.cd,
+  arrow style=tikz,
+  diagrams={>=latex},
+}
+
+\usepackage{babel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+\usepackage{pgfplots}
+\usetikzlibrary{decorations.markings}
+\pgfplotsset{compat=1.9}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding iso8859-15
+\fontencoding global
+\font_roman "palatino" "default"
+\font_sans "lmss" "default"
+\font_typewriter "lmtt" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf true
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize custom
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\paperwidth 30cm
+\paperheight 35cm
+\topmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0bp
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Polynomial and Rational Functions on a Variety
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+One of the unifying themes of modern mathematics is that in order to understand
+ any class of mathematical objects, one should also study 
+\series bold
+mappings 
+\series default
+between those objects, and especially the mappings which preserve some property
+ of interest.
+ For instance, in linear algebra after studying vector spaces, one also
+ studies properties of 
+\series bold
+linear mappings 
+\series default
+between vector spaces.
+ This chapter will consider mappings between varieties.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\backslash
+label{defn1}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $V\subseteq K^{m}$
+\end_inset
+
+ and 
+\begin_inset Formula $W\subseteq K^{n}$
+\end_inset
+
+ be varieties.
+ A function 
+\begin_inset Formula $\phi:V\to W$
+\end_inset
+
+ is said to be a 
+\series bold
+polynomial mapping 
+\series default
+(or 
+\series bold
+regular mapping
+\series default
+) if there exist polynomials 
+\begin_inset Formula $f_{1},\dots,f_{n}\in K[x_{1},\dots,x_{m}]$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\[
+\phi(a_{1},\dots,a_{m})=(f_{1}(a_{1},\dots,a_{m}),\dots,f_{n}(a_{1},\dots,a_{m}))
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $(a_{1},\dots,a_{m})\in V$
+\end_inset
+
+.
+ We say that the 
+\begin_inset Formula $n$
+\end_inset
+
+-tuple of polynomials 
+\begin_inset Formula 
+\[
+(f_{1},\dots,f_{n})\in(K[x_{1},\dots,x_{m}])^{n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+represents 
+\series default
+
+\begin_inset Formula $\phi$
+\end_inset
+
+.
+ The 
+\begin_inset Formula $f_{i}$
+\end_inset
+
+ are the 
+\series bold
+components 
+\series default
+of this representation.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{rem}
+\backslash
+label{rem1}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+To say that 
+\begin_inset Formula $\phi$
+\end_inset
+
+ is a polynomial mapping from 
+\begin_inset Formula $V\subseteq K^{m}$
+\end_inset
+
+ to 
+\begin_inset Formula $W\subseteq K^{n}$
+\end_inset
+
+ represented by 
+\begin_inset Formula $(f_{1},\dots,f_{n})$
+\end_inset
+
+ means that 
+\begin_inset Formula $(f_{1}(a_{1},\dots,a_{m}),\dots,f_{n}(a_{1},\dots,a_{m}))$
+\end_inset
+
+ must satisfy the defining equations of 
+\begin_inset Formula $W$
+\end_inset
+
+ for all points 
+\begin_inset Formula $(a_{1},\dots,a_{m})\in V$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Of particular interest is the case 
+\begin_inset Formula $W=K$
+\end_inset
+
+, where 
+\begin_inset Formula $\phi$
+\end_inset
+
+ simply becomes a scalar 
+\series bold
+polynomial function
+\series default
+ defined on 
+\begin_inset Formula $V$
+\end_inset
+
+.
+ One reason to consider polynomial functions from 
+\begin_inset Formula $V$
+\end_inset
+
+ to 
+\begin_inset Formula $K$
+\end_inset
+
+ is that a general polynomial mapping 
+\begin_inset Formula $\phi:V\to K^{n}$
+\end_inset
+
+ is constructed by using any 
+\begin_inset Formula $n$
+\end_inset
+
+ polynomial functions 
+\begin_inset Formula $\phi:V\to K$
+\end_inset
+
+ as the components.
+ Hence, if we understand functions 
+\begin_inset Formula $\phi:V\to K$
+\end_inset
+
+, we understand how to construct all mappings 
+\begin_inset Formula $\phi:V\to K^{n}$
+\end_inset
+
+ as well.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{rem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Let's go over some examples of polynomial mappings.
+ We typically use 
+\begin_inset Formula $x,y,z$
+\end_inset
+
+ and 
+\begin_inset Formula $u,v,w$
+\end_inset
+
+ to denote coordinate functions, 
+\begin_inset Formula $a,b,c$
+\end_inset
+
+ and 
+\begin_inset Formula $\alpha,\beta,\gamma$
+\end_inset
+
+ to denote numbers, and 
+\begin_inset Formula $p,q$
+\end_inset
+
+ to denote points.
+ For example, let 
+\begin_inset Formula $V=\mathbf{V}(y-x^{2},z-x^{3})$
+\end_inset
+
+ be the twisted cubic in 
+\begin_inset Formula $\mathbb{R}^{3}$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\[
+V=\left\{ (a,b,c)\in K^{3}\mid b=a^{2}\text{ and }c=a^{3}\right\} .
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now let 
+\begin_inset Formula $W=\mathbf{V}(v-u-u^{2})$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathbb{R}^{2}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula 
+\[
+W=\left\{ (\alpha,\beta)\in K^{2}\mid\beta=\alpha+\alpha^{2}\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We want to describe a polynomial map from 
+\begin_inset Formula $V$
+\end_inset
+
+ to 
+\begin_inset Formula $W$
+\end_inset
+
+.
+ We claim that 
+\begin_inset Formula $\phi:V\to W$
+\end_inset
+
+ be given by mapping 
+\begin_inset Formula $(a,b,c)\in V$
+\end_inset
+
+ to 
+\begin_inset Formula $(ab,a^{2}b^{2}+c):=(\alpha,\beta)\in W$
+\end_inset
+
+ is such a map.
+ We need to make sure that this is well-defined.
+ In particular, we need to check that the point 
+\begin_inset Formula $(\alpha,\beta)$
+\end_inset
+
+ really does belong to 
+\begin_inset Formula $W$
+\end_inset
+
+.
+ We verify this by showing that the point satisfies the defining equation
+ of 
+\begin_inset Formula $W$
+\end_inset
+
+: Indeed, we have 
+\begin_inset Formula $c-ab=0$
+\end_inset
+
+, since 
+\begin_inset Formula $(a,b,c)\in V$
+\end_inset
+
+ and 
+\begin_inset Formula $z-xy\in\langle y-x^{2},z-x^{3}\rangle$
+\end_inset
+
+.
+ Therefore 
+\begin_inset Formula 
+\begin{align*}
+(v-u-u^{2})(\alpha,\beta) & =\alpha-\beta-\beta^{2}\\
+ & =(c+a^{2}b^{2})-(ab)-(ab)^{2}\\
+ & =c-ab\\
+ & =0.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Therefore 
+\begin_inset Formula $\phi$
+\end_inset
+
+ is indeed a polynomial map from 
+\begin_inset Formula $V$
+\end_inset
+
+ to 
+\begin_inset Formula $W$
+\end_inset
+
+.
+ The map 
+\begin_inset Formula $\phi$
+\end_inset
+
+ is represented by 
+\begin_inset Formula $(f_{1},f_{2})$
+\end_inset
+
+, where 
+\begin_inset Formula 
+\begin{align*}
+f_{1}(x,y) & =xy\\
+f_{2}(x,y) & =x^{2}y^{2}+z.
+\end{align*}
+
+\end_inset
+
+Observe that the map 
+\begin_inset Formula $\phi$
+\end_inset
+
+ induces a map 
+\begin_inset Formula 
+\[
+\phi^{*}:K[u,v]/\langle v-u-u^{2}\rangle\to K[x,y,z]/\langle y-x^{2},z-x^{3}\rangle,
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\phi^{*}$
+\end_inset
+
+ is the 
+\begin_inset Formula $K$
+\end_inset
+
+-algebra map induced by mapping
+\begin_inset Formula 
+\begin{align*}
+u & \mapsto xy\\
+v & \mapsto x^{2}y^{2}+z
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\backslash
+label{example2}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $V=\mathbf{V}(y-x)$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathbb{R}^{2}$
+\end_inset
+
+ and let 
+\begin_inset Formula $\phi:\mathbb{R}^{2}\to\mathbb{R}^{3}$
+\end_inset
+
+ be the polynomial mapping represented by 
+\begin_inset Formula $\phi(a,b)=(a^{2}-b,a^{2},a-3b^{2})$
+\end_inset
+
+.
+ The image of 
+\begin_inset Formula $V$
+\end_inset
+
+ under 
+\begin_inset Formula $\phi$
+\end_inset
+
+ is a variety in 
+\begin_inset Formula $\mathbb{R}^{3}$
+\end_inset
+
+, namely 
+\begin_inset Formula $\mathbf{V}(u+2v+w,u^{2}-18uv^{2}-12uvw-2uw^{2}+81v^{4}+108v^{3}w+54v^{2}w^{2}+12vw^{3}-v+w^{4})$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\backslash
+label{example2}
+\end_layout
+
+\end_inset
+
+ The maps 
+\begin_inset Formula $\phi_{1}(x,y,z)=(2x^{2}+y^{2},z-y^{3}+3xz)$
+\end_inset
+
+ and 
+\begin_inset Formula $\phi_{2}(x,y,z)=(2y+xz,3y^{2})$
+\end_inset
+
+ represent the same polynomial mapping from the twisted cubic in 
+\begin_inset Formula $\mathbb{R}^{3}$
+\end_inset
+
+ to 
+\begin_inset Formula $\mathbb{R}^{2}$
+\end_inset
+
+.
+ To see this, note that 
+\begin_inset Formula $z-y^{3}+3xz\equiv3y^{2}\mbox{ mod }\langle y-x^{2},z-x^{3}\rangle$
+\end_inset
+
+ and 
+\begin_inset Formula $2x^{2}+y^{2}\equiv2y+xz\mbox{ mod }\langle y-x^{2},z-x^{3}\rangle$
+\end_inset
+
+.
+  
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\backslash
+label{prop}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $V\subseteq K^{m}$
+\end_inset
+
+ be an affine variety.
+ Then
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $f$
+\end_inset
+
+ and 
+\begin_inset Formula $g$
+\end_inset
+
+ in 
+\begin_inset Formula $K[x_{1},\dots,x_{m}]$
+\end_inset
+
+ represent the same polynomial function on 
+\begin_inset Formula $V$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $f-g\in\mathbf{I}(V)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $(f_{1},\dots,f_{n})$
+\end_inset
+
+ and 
+\begin_inset Formula $(g_{1},\dots,g_{n})$
+\end_inset
+
+ represent the same polynomial mapping from 
+\begin_inset Formula $V$
+\end_inset
+
+ to 
+\begin_inset Formula $K^{n}$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $f_{i}-g_{i}\in\mathbf{I}(V)$
+\end_inset
+
+ for each 
+\begin_inset Formula $i$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $f-g=h\in\mathbf{I}(V)$
+\end_inset
+
+, then for any point 
+\begin_inset Formula $p=(a_{1},\dots,a_{m})\in V$
+\end_inset
+
+, we have 
+\begin_inset Formula $f(p)-g(p)=h(p)=0$
+\end_inset
+
+.
+ Hence, 
+\begin_inset Formula $f$
+\end_inset
+
+ and 
+\begin_inset Formula $g$
+\end_inset
+
+ represent the same function on 
+\begin_inset Formula $V$
+\end_inset
+
+.
+ Conversely, if 
+\begin_inset Formula $f$
+\end_inset
+
+ and 
+\begin_inset Formula $g$
+\end_inset
+
+ represent the same function, then, at every 
+\begin_inset Formula $p\in V$
+\end_inset
+
+, we have 
+\begin_inset Formula $f(p)-g(p)=0$
+\end_inset
+
+.
+ Thus, 
+\begin_inset Formula $f-g\in\mathbf{I}(V)$
+\end_inset
+
+ by definition.
+\end_layout
+
+\begin_layout Enumerate
+Follows directly from (1).
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

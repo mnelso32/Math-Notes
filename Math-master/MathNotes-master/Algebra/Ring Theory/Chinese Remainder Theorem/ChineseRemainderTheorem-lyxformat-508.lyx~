@@ -1,0 +1,692 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{tikz}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\usetikzlibrary{shapes.geometric}
+\usepackage{tikz-cd}
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{conj}{Conjecture}[section]
+\newtheorem*{cor}{Corollary}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{ex}{Exercise} 
+\newtheorem{example}{Example}[section]
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem{case}{Case}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{tikz-cd}
+\usetikzlibrary{calc,arrows,decorations.pathreplacing}
+\tikzset{mydot/.style={circle,fill,inner sep=1.5pt},
+commutative diagrams/.cd,
+  arrow style=tikz,
+  diagrams={>=latex},
+}
+
+\usepackage{babel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=blue,
+    filecolor=blue,
+    linkcolor=blue,
+    urlcolor=blue
+}
+\usepackage{pgfplots}
+\usetikzlibrary{decorations.markings}
+\pgfplotsset{compat=1.9}
+
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding iso8859-15
+\fontencoding global
+\font_roman "palatino" "default"
+\font_sans "lmss" "default"
+\font_typewriter "lmtt" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf true
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize custom
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\paperwidth 30cm
+\paperheight 35cm
+\topmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0bp
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+The Chinese Remainder Theorem
+\end_layout
+
+\begin_layout Standard
+Throughout this section, let 
+\begin_inset Formula $R$
+\end_inset
+
+ be a commutative ring with identity.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $I$
+\end_inset
+
+ and 
+\begin_inset Formula $J$
+\end_inset
+
+ be ideals in 
+\begin_inset Formula $R$
+\end_inset
+
+.
+ We say 
+\begin_inset Formula $I$
+\end_inset
+
+ and 
+\begin_inset Formula $J$
+\end_inset
+
+ are 
+\series bold
+relatively prime 
+\series default
+or 
+\series bold
+comaximal 
+\series default
+if 
+\begin_inset Formula $I+J=R$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{rem}
+\end_layout
+
+\end_inset
+
+ In other words, there exists 
+\begin_inset Formula $x\in I$
+\end_inset
+
+ and 
+\begin_inset Formula $y\in J$
+\end_inset
+
+ such that 
+\begin_inset Formula $x+y=1$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{rem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ If 
+\begin_inset Formula $I=a\mathbb{Z}$
+\end_inset
+
+ and 
+\begin_inset Formula $J=b\mathbb{Z}$
+\end_inset
+
+, then 
+\begin_inset Formula $I$
+\end_inset
+
+ and 
+\begin_inset Formula $J$
+\end_inset
+
+ are relatively prime if and only if 
+\begin_inset Formula $\mbox{gcd}(a,b)=1$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ If 
+\begin_inset Formula $I$
+\end_inset
+
+ and 
+\begin_inset Formula $J$
+\end_inset
+
+ are ideals in 
+\begin_inset Formula $R$
+\end_inset
+
+, then their product is 
+\begin_inset Formula $IJ=\{x_{1}y_{1}+\cdots+x_{k}y_{k}\mid x_{i}\in I,\,y_{i}\in J,\,k\in\mathbb{N}\}$
+\end_inset
+
+.
+ More generally, if 
+\begin_inset Formula $I_{1},\dots,I_{n}$
+\end_inset
+
+ are ideals in 
+\begin_inset Formula $R$
+\end_inset
+
+, then their product is 
+\begin_inset Formula $I_{1}\cdots I_{n}=\{x_{11}x_{12}\cdots x_{1n}+\cdots+x_{k1}x_{k2}\cdots x_{kn}\mid x_{ij}\in I_{j},\,k\in\mathbb{N}\}$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{rem}
+\end_layout
+
+\end_inset
+
+ For any ideals 
+\begin_inset Formula $I$
+\end_inset
+
+ and 
+\begin_inset Formula $J$
+\end_inset
+
+, we have 
+\begin_inset Formula $IJ\subseteq I\cap J$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{rem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lemma}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $I$
+\end_inset
+
+ and 
+\begin_inset Formula $J$
+\end_inset
+
+ are relatively prime, then 
+\begin_inset Formula $I\cap J\subseteq IJ$
+\end_inset
+
+, hence 
+\begin_inset Formula $I\cap J=IJ$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $I_{1},\dots,I_{k}$
+\end_inset
+
+ are pairwise relatively prime (i.e.
+ 
+\begin_inset Formula $I_{i}+I_{j}=R$
+\end_inset
+
+ for 
+\begin_inset Formula $i\neq j$
+\end_inset
+
+), then 
+\begin_inset Formula $I_{1}\cdots I_{k}=I_{1}\cap\cdots\cap I_{k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lemma}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+We have 
+\begin_inset Formula $I\cap J=(I\cap J)(I+J)\subseteq IJ$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+We prove by induction on 
+\begin_inset Formula $k$
+\end_inset
+
+.
+ The base case is 
+\begin_inset Formula $(1)$
+\end_inset
+
+.
+ Now suppose the statement is true for some 
+\begin_inset Formula $k-1\geq1$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $I_{1},\dots I_{k-1}$
+\end_inset
+
+ are relatively prime to 
+\begin_inset Formula $I_{k}$
+\end_inset
+
+, then there exists 
+\begin_inset Formula $x_{i}\in I_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $y_{i}\in I_{k}$
+\end_inset
+
+ such that 
+\begin_inset Formula $x_{i}+y_{i}=1$
+\end_inset
+
+ for all 
+\begin_inset Formula $1\leq i<k$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $1=(x_{1}+y_{1})\cdots(x_{k-1}+y_{k-1})\in I_{1}\cdots I_{k-1}+I_{k}$
+\end_inset
+
+.
+ So 
+\begin_inset Formula $I_{1}\cdots I_{k-1}$
+\end_inset
+
+ and 
+\begin_inset Formula $I_{k}$
+\end_inset
+
+ are relatively prime.
+ Therefore 
+\begin_inset Formula 
+\[
+I_{1}\cap\cdots\cap I_{k}=(I_{1}\cdots I_{k-1})\cap I_{k}=I_{1}\cdots I_{k}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\end_layout
+
+\end_inset
+
+ (The Chinese Remainder Theorem) Let 
+\begin_inset Formula $I_{1},\dots I_{k}$
+\end_inset
+
+ be pairwise relatively prime ideals in 
+\begin_inset Formula $R$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula 
+\[
+R/I_{1}\cdots I_{k}\cong R/I_{1}\times\cdots\times R/I_{k}.
+\]
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Define a map 
+\begin_inset Formula $\varphi:R\to R/I_{1}\times\cdots\times R/I_{k}$
+\end_inset
+
+ by 
+\begin_inset Formula $\varphi(r)=(r+I_{1},\dots,r+I_{2})$
+\end_inset
+
+.
+ Check that this is a ring homomorphism with kernel being 
+\begin_inset Formula $I_{1}\cap\cdots\cap I_{k}$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

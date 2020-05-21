@@ -1,0 +1,348 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{tikz}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\usetikzlibrary{shapes.geometric}
+\usepackage{tikz-cd}
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem*{cor}{Corollary}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{ex}{Exercise} 
+\newtheorem{example}{Example}[section]
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem{case}{Case}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{tikz-cd}
+\usetikzlibrary{calc,arrows,decorations.pathreplacing}
+\tikzset{mydot/.style={circle,fill,inner sep=1.5pt},
+commutative diagrams/.cd,
+  arrow style=tikz,
+  diagrams={>=latex},
+}
+
+\usepackage{babel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+\usepackage{pgfplots}
+\usetikzlibrary{decorations.markings}
+\pgfplotsset{compat=1.9}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding iso8859-15
+\fontencoding global
+\font_roman "palatino" "default"
+\font_sans "lmss" "default"
+\font_typewriter "lmtt" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf true
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize custom
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\paperwidth 30cm
+\paperheight 35cm
+\topmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0bp
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Introduction to Singular
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lemma}
+\backslash
+label{lemma1}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A[x_{1},\dots,x_{n}]$
+\end_inset
+
+ be a polynomial ring, 
+\begin_inset Formula $\psi:A\to B$
+\end_inset
+
+ a ring map, 
+\begin_inset Formula $C$
+\end_inset
+
+ a 
+\begin_inset Formula $B$
+\end_inset
+
+-algebra, and 
+\begin_inset Formula $f_{1},\dots,f_{n}\in C$
+\end_inset
+
+.
+ Then there exists a unique ring map 
+\begin_inset Formula 
+\[
+\varphi:A[x_{1},\dots,x_{n}]\to C
+\]
+
+\end_inset
+
+satisfying 
+\begin_inset Formula $\varphi(x_{i})=f_{i}$
+\end_inset
+
+ for 
+\begin_inset Formula $i=1,\dots,n$
+\end_inset
+
+ and 
+\begin_inset Formula $\varphi(a)=\psi(a)\cdot1\in C$
+\end_inset
+
+ for 
+\begin_inset Formula $a\in A$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lemma}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Given any 
+\begin_inset Formula $f=\sum_{\alpha}a_{\alpha}x^{\alpha}\in A[x]$
+\end_inset
+
+, then a ring map 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ with 
+\begin_inset Formula $\varphi(x_{i})=f_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $\varphi(a)=\psi(a)$
+\end_inset
+
+ for 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ must satisfy
+\begin_inset Formula 
+\[
+\varphi(f)=\sum_{\alpha}\psi(a_{\alpha})\varphi(x_{1})^{\alpha_{1}}\cdots\varphi(x_{n})^{\alpha_{n}}.
+\]
+
+\end_inset
+
+Hence, 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ is uniquely determined.
+ Moreover, defining 
+\begin_inset Formula $\varphi(f)$
+\end_inset
+
+ for 
+\begin_inset Formula $f\in A[x]$
+\end_inset
+
+ by the above formula, it is easy to see that 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ becomes a homomorphism, which proves existence.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+We use 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Lemma~(
+\backslash
+ref{lemma1})
+\end_layout
+
+\end_inset
+
+ to define ring maps in SINGULAR.
+ Indeed, one has three possibilities; 
+\series bold
+fetch
+\series default
+, 
+\series bold
+imap
+\series default
+, and 
+\series bold
+map
+\series default
+, to define ring maps by giving the name of the preimage ring and a list
+ of polynomials 
+\begin_inset Formula $f_{1},\dots,f_{n}$
+\end_inset
+
+ in the current basering.
+ The commands 
+\series bold
+fetch
+\series default
+, respectively 
+\series bold
+imap
+\series default
+, map an object directly from the preimage ring to the basering whereas
+ 
+\series bold
+fetch 
+\series default
+maps the first variable to the first, the second to the second, and so on
+ (hence, is convenient for renaming the variables), while 
+\series bold
+imap 
+\series default
+maps a variable to the variable with the same name (or to 
+\begin_inset Formula $0$
+\end_inset
+
+ if it does not exist), hence is convenient for inclusion of subrings or
+ for changing the monomial order.
+ 
+\end_layout
+
+\end_body
+\end_document

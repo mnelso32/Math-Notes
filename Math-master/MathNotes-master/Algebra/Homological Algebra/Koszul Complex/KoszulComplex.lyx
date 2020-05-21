@@ -1,0 +1,3929 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{tikz}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\usetikzlibrary{shapes.geometric}
+\usepackage{tikz-cd}
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem*{cor}{Corollary}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{ex}{Exercise} 
+\newtheorem{example}{Example}[section]
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem{case}{Case}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{tikz-cd}
+\usetikzlibrary{calc,arrows,decorations.pathreplacing}
+\tikzset{mydot/.style={circle,fill,inner sep=1.5pt},
+commutative diagrams/.cd,
+  arrow style=tikz,
+  diagrams={>=latex},
+}
+
+\usepackage{babel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+\usepackage{pgfplots}
+\usetikzlibrary{decorations.markings}
+\tikzset{->-/.style={decoration={
+  markings,
+  mark=at position #1 with {\arrow{>}}},postaction={decorate}}}
+\pgfplotsset{compat=1.9}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding iso8859-15
+\fontencoding global
+\font_roman "palatino" "default"
+\font_sans "lmss" "default"
+\font_typewriter "lmtt" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf true
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing single
+\use_hyperref false
+\papersize custom
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\paperwidth 30cm
+\paperheight 35cm
+\topmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0bp
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Koszul Complex
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a ring and 
+\begin_inset Formula $x_{1},\dots,x_{n}\in A$
+\end_inset
+
+.
+ The 
+\series bold
+Koszul complex 
+\series default
+
+\begin_inset Formula $K(x_{1},\dots,x_{n})_{\bullet}$
+\end_inset
+
+ is defined as follows:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $K(x_{1},\dots,x_{n})_{0}:=A$
+\end_inset
+
+ and 
+\begin_inset Formula $K(x_{1},\dots,x_{n})_{p}:=\langle0\rangle$
+\end_inset
+
+ for 
+\begin_inset Formula $p\notin\{0,\dots,n\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Let 
+\begin_inset Formula $1\leq p\leq n$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula 
+\[
+K(x_{1},\dots,x_{n})_{p}:=\bigoplus_{1\leq i_{1}<\cdots<i_{p}\leq n}Ae_{i_{1},\dots,i_{p}},
+\]
+
+\end_inset
+
+the free 
+\begin_inset Formula $A$
+\end_inset
+
+-module with 
+\begin_inset Formula ${n \choose p}$
+\end_inset
+
+ free generators 
+\begin_inset Formula $\{e_{i_{1},\dots,i_{p}}\}_{1\leq i_{1}<\cdots<i_{p}\leq n}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+The differential 
+\begin_inset Formula $d_{p}:K(x_{1},\dots,x_{n})_{p}\to K(x_{1},\dots,x_{n})_{p-1}$
+\end_inset
+
+ is defined by 
+\begin_inset Formula 
+\begin{align*}
+d_{p} & =0\mbox{ if }p\notin\{1,\dots,n\},\\
+d_{1}(e_{i}) & =x_{i},\\
+d_{p}(e_{i_{1},\dots,i_{p}}) & =\sum_{\mu=1}^{p}(-1)^{\mu-1}x_{i_{\mu}}e_{i_{1},\dots,i_{\mu-1},i_{\mu+1},\dots,i_{p}}\mbox{ if }p\in\{2,\dots,n\}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+For an 
+\begin_inset Formula $A$
+\end_inset
+
+-module 
+\begin_inset Formula $M$
+\end_inset
+
+ we define 
+\begin_inset Formula 
+\[
+K(x_{1},\dots,x_{n},M)_{\bullet}:=K(x_{1},\dots,x_{n})_{\bullet}\otimes_{A}M,
+\]
+
+\end_inset
+
+ the 
+\series bold
+Koszul complex 
+\series default
+of 
+\begin_inset Formula $M$
+\end_inset
+
+ and 
+\begin_inset Formula $x$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a ring and 
+\begin_inset Formula $x_{1},x_{2},x_{3}\in A$
+\end_inset
+
+.
+ Here's what the Koszul complex 
+\begin_inset Formula $K(x_{1},x_{2},x_{3})_{\bullet}$
+\end_inset
+
+ looks like:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd}[column sep=huge, row sep=0.4, ampersand replacement=
+\backslash
+&] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+A 
+\backslash
+arrow{r}{
+\backslash
+begin{pmatrix} x_1 
+\backslash
+
+\backslash
+ -x_2 
+\backslash
+
+\backslash
+ x_3 
+\backslash
+end{pmatrix} } 
+\backslash
+& A^3 
+\backslash
+arrow{r}{ 
+\backslash
+begin{pmatrix} 0 & -x_3 & -x_2 
+\backslash
+
+\backslash
+ -x_3 & 0 & x_1 
+\backslash
+
+\backslash
+ x_2 & x_1 & 0 
+\backslash
+end{pmatrix} } 
+\backslash
+& A^3 
+\backslash
+arrow{r}{
+\backslash
+begin{pmatrix} x_1 & x_2 & x_3 
+\backslash
+end{pmatrix} } 
+\backslash
+& A 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+ e_{1,2,3} 
+\backslash
+arrow[r,mapsto,shorten >=0.2cm,shorten <=0.2cm] 
+\backslash
+& x_1 e_{2,3} - x_2 e_{1,3} + x_3 e_{1,2} 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+ 
+\backslash
+& e_{2,3} 
+\backslash
+arrow[r,mapsto,shorten >=0.2cm,shorten <=0.2cm] 
+\backslash
+& x_2 e_3 - x_3 e_2 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+ 
+\backslash
+& e_{1,3} 
+\backslash
+arrow[r,mapsto,shorten >=0.2cm,shorten <=0.2cm] 
+\backslash
+& x_1 e_3 - x_3 e_1
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+ 
+\backslash
+& e_{1,2} 
+\backslash
+arrow[r,mapsto,shorten >=0.2cm,shorten <=0.2cm] 
+\backslash
+& x_1 e_2 - x_2 e_1 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+ 
+\backslash
+& 
+\backslash
+& e_1 
+\backslash
+arrow[r,mapsto,shorten >=0.2cm,shorten <=0.2cm] 
+\backslash
+& x_1 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+ 
+\backslash
+& 
+\backslash
+& e_2 
+\backslash
+arrow[r,mapsto,shorten >=0.2cm,shorten <=0.2cm] 
+\backslash
+& x_2 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+ 
+\backslash
+& 
+\backslash
+& e_3 
+\backslash
+arrow[r,mapsto,shorten >=0.2cm,shorten <=0.2cm] 
+\backslash
+& x_3
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The correspond 
+\begin_inset Formula $2$
+\end_inset
+
+-simplex looks like this
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node[circle, fill=black, inner sep=1pt, label=below left:$e_1 $] (a) at
+ (0,0) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node[circle, fill=black, inner sep=1pt, label=above :$e_2 $] (b) at (2,3)
+ {};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node[circle, fill=black, inner sep=1pt, label=below right:$e_3 $] (c) at
+ (4,0) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw[->-=0.5] (a) -- (b) node [midway, above left] {$ e_{1,2} $};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw[->-=0.5] (b) -- (c) node [midway, above right] {$ e_{2,3} $};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw[->-=0.5] (c) -- (a) node [midway, below] {$ e_{1,3} $};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node[label=above:$ e_{1,2,3} $] (f) at (2,0.6) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture} 
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lemma}
+\backslash
+label{lemmakoszulcomplex}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $K(x_{1},\dots,x_{n})_{\bullet}$
+\end_inset
+
+ is a complex, that is 
+\begin_inset Formula $d_{p}\circ d_{p+1}=0$
+\end_inset
+
+ for all 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Let 
+\begin_inset Formula $H_{i}(x_{1},\dots,x_{n},M)$
+\end_inset
+
+ be the homology of 
+\begin_inset Formula $K(x_{1},\dots,x_{n},M)_{\bullet}$
+\end_inset
+
+, that is 
+\begin_inset Formula 
+\[
+H_{i}(x_{1},\dots,x_{n},M):=\mbox{Ker}(d_{i}\otimes1_{M})/\mbox{Im}(d_{i+1}\otimes1_{M}),
+\]
+
+\end_inset
+
+ then 
+\begin_inset Formula $H_{0}(x_{1},\dots,x_{n},M)=M/\langle x_{1},\dots,x_{n}\rangle M$
+\end_inset
+
+ and 
+\begin_inset Formula $H_{n}(x_{1},\dots,x_{n},M)=\{m\in M\mid x_{i}m=0\mbox{ for all }i\}\cong\mbox{Hom}_{A}(A/\langle x_{1},\dots,x_{n}\rangle,M)=\text{Soc}(M)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $K(x_{1},\dots,x_{n},M)_{\bullet}=K(x_{1},M)_{\bullet}\otimes\cdots\otimes K(x_{n},M)_{\bullet}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lemma}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ The first two statements are straightforward.
+ To prove the third statement, recall the definition of tensor product of
+ complexes: Let 
+\begin_inset Formula $(L_{\bullet},d_{\bullet})$
+\end_inset
+
+ and 
+\begin_inset Formula $(K_{\bullet},d_{\bullet})$
+\end_inset
+
+ be two complexes of 
+\begin_inset Formula $A$
+\end_inset
+
+-modules.
+ Then the tensor product of 
+\begin_inset Formula $(L_{\bullet},d_{\bullet})$
+\end_inset
+
+ and 
+\begin_inset Formula $(K_{\bullet},d_{\bullet})$
+\end_inset
+
+ is 
+\begin_inset Formula $(L_{\bullet}\otimes K_{\bullet},d_{\bullet})$
+\end_inset
+
+, where 
+\begin_inset Formula 
+\[
+(L_{\bullet}\otimes K_{\bullet})_{n}=\bigoplus_{p+q=n}L_{p}\otimes K_{q},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and for 
+\begin_inset Formula $x\in L_{p}$
+\end_inset
+
+ and 
+\begin_inset Formula $y\in K_{q}$
+\end_inset
+
+ we have 
+\begin_inset Formula 
+\[
+d_{n}(x\otimes y)=d_{p}(x)\otimes y+(-1)^{p}x\otimes d_{q}(y).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using induction, it is enough to prove that 
+\begin_inset Formula 
+\[
+K(x_{1},\dots,x_{n})_{\bullet}=K(x_{1},\dots,x_{n-1})_{\bullet}\otimes K(x_{n})_{\bullet}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Observe that 
+\begin_inset Formula $(K(x_{1},\dots,x_{n-1})_{\bullet}\otimes K(x_{n})_{\bullet})_{p}\cong K(x_{1},\dots,x_{n-1})_{p}\oplus K(x_{1},\dots,x_{n-1})_{p-1}$
+\end_inset
+
+ is free with generators given by 
+\begin_inset Formula $e_{i_{1},\dots,i_{p}}\otimes1$
+\end_inset
+
+ and 
+\begin_inset Formula $e_{j_{1},\dots,j_{p-1}}\otimes e_{n}$
+\end_inset
+
+ where 
+\begin_inset Formula $1\leq i_{1}<\cdots<i_{p}\leq n-1$
+\end_inset
+
+ and 
+\begin_inset Formula $1\leq j_{1}<\cdots<j_{p-1}\leq n-1$
+\end_inset
+
+.
+ Define a map 
+\begin_inset Formula $\varphi_{p}:(K(x_{1},\dots,x_{n-1})_{\bullet}\otimes K(x_{n})_{\bullet})_{p}\to(K(x_{1},\dots,x_{n})_{\bullet})_{p}$
+\end_inset
+
+ by sending generators of the form 
+\begin_inset Formula $e_{i_{1},\dots,i_{p}}\otimes1$
+\end_inset
+
+ to 
+\begin_inset Formula $e_{i_{1},\dots,i_{p}}$
+\end_inset
+
+, and sending generators of the form 
+\begin_inset Formula $e_{j_{1},\dots,j_{p-1}}\otimes e_{n}$
+\end_inset
+
+ to 
+\begin_inset Formula $e_{j_{1},\dots,j_{p-1},n}$
+\end_inset
+
+, and then extend this map linearly.
+ The map 
+\begin_inset Formula $\varphi_{p}$
+\end_inset
+
+ is clearly an isomorphism, we just need to be sure it commutes with the
+ differential.
+ We have 
+\begin_inset Formula 
+\begin{align*}
+d_{p}(e_{i_{1},\dots,i_{p}}\otimes1) & =d_{p}(e_{i_{1},\dots,i_{p}})\otimes1+(-1)^{p}e_{i_{1},\dots,i_{p}}\otimes d_{0}(1)\\
+ & =\left(\sum_{\mu=1}^{p}(-1)^{\mu-1}x_{i_{\mu}}e_{i_{1}\dots i_{\mu-1}i_{\mu+1}\dots i_{p}}\right)\otimes1\\
+ & =\sum_{\mu=1}^{p}(-1)^{\mu-1}x_{i_{\mu}}(e_{i_{1}\dots i_{\mu-1}i_{\mu+1}\dots i_{p}}\otimes1),
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and 
+\begin_inset Formula $\varphi_{p-1}(d_{p}(e_{i_{1},\dots,i_{p}}\otimes1))=\sum_{\mu=1}^{p}(-1)^{\mu-1}x_{i_{\mu}}e_{i_{1}\dots i_{\mu-1}i_{\mu+1}\dots i_{p}}.$
+\end_inset
+
+ Next we have 
+\begin_inset Formula 
+\begin{align*}
+d_{p}(e_{j_{1},\dots,j_{p-1}}\otimes e_{n}) & =d_{p-1}(e_{j_{1},\dots,j_{p-1}})\otimes e_{n}+(-1)^{p-1}e_{j_{1},\dots,j_{p-1}}\otimes x_{n}\\
+ & =\sum_{\mu=1}^{p-1}(-1)^{\mu-1}x_{i_{\mu}}e_{j_{1}\dots j_{\mu-1}j_{\mu+1}\dots j_{p-1}}\otimes e_{n}+(-1)^{p-1}x_{n}e_{j_{1},\dots,j_{p-1}}\otimes1,
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and 
+\begin_inset Formula $\varphi_{p-1}(d_{p}(e_{j_{1},\dots,j_{p-1}}\otimes e_{n}))=\sum_{\mu=1}^{p-1}(-1)^{\mu-1}x_{i_{\mu}}e_{j_{1}\dots j_{\mu-1}j_{\mu+1}\dots j_{p-1}}+(-1)^{p-1}x_{n}e_{j_{1},\dots,j_{p-1}}.$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{cor}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a ring, 
+\begin_inset Formula $M$
+\end_inset
+
+ an 
+\begin_inset Formula $A$
+\end_inset
+
+-module and 
+\begin_inset Formula $x_{1},\dots,x_{n}\in A$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $x=(x_{1},\dots,x_{n})$
+\end_inset
+
+ and 
+\begin_inset Formula $y=(x_{\pi(1)},\dots,x_{\pi(n)})$
+\end_inset
+
+ for a permutation 
+\begin_inset Formula $\pi$
+\end_inset
+
+.
+ Then the complexes 
+\begin_inset Formula $K(x,M)_{\bullet}$
+\end_inset
+
+ and 
+\begin_inset Formula $K(y,M)_{\bullet}$
+\end_inset
+
+ are isomorphic.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{cor}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lemma}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a ring, 
+\begin_inset Formula $C_{\bullet}$
+\end_inset
+
+ a complex and 
+\begin_inset Formula $x\in A$
+\end_inset
+
+.
+ 
+\begin_inset Formula 
+\[
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+The sequence of complexes 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd}  0 
+\backslash
+arrow[r] &  C_{
+\backslash
+bullet } 
+\backslash
+arrow[r] & C_{
+\backslash
+bullet } 
+\backslash
+otimes K(x)_{
+\backslash
+bullet } 
+\backslash
+arrow[r] & C_{
+\backslash
+bullet } (-1) 
+\backslash
+arrow[r] & 0 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+ is exact (with 
+\begin_inset Formula $C_{\bullet}(-1)_{p}=C_{p-1}$
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Enumerate
+The induced homology sequence 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd}[row sep=40]  && 
+\backslash
+cdots 
+\backslash
+arrow[r] 
+\backslash
+arrow[d, phantom, ""{coordinate, name=Z'}] & H_{p} (C_{
+\backslash
+bullet }) 
+\backslash
+arrow[dll, "
+\backslash
+cdot (-1)^{p} x ", rounded corners, to path={ -- ([xshift=2ex]
+\backslash
+tikztostart.east) |- (Z') [near end]
+\backslash
+tikztonodes -| ([xshift=-2ex]
+\backslash
+tikztotarget.west) -- (
+\backslash
+tikztotarget)}, swap] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+  & H_p (C_{
+\backslash
+bullet }) 
+\backslash
+arrow[r] & H_p (C_{
+\backslash
+bullet } 
+\backslash
+otimes K(x)_{
+\backslash
+bullet }) 
+\backslash
+arrow[r,] 
+\backslash
+arrow[d, phantom, ""{coordinate, name=Z}] & H_{p-1} (C_{
+\backslash
+bullet }) 
+\backslash
+arrow[dll, "
+\backslash
+cdot (-1)^{p-1} x ", rounded corners, to path={ -- ([xshift=2ex]
+\backslash
+tikztostart.east) |- (Z) [near end]
+\backslash
+tikztonodes -| ([xshift=-2ex]
+\backslash
+tikztotarget.west) -- (
+\backslash
+tikztotarget)}, swap] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+ & H_{p-1} (C_{
+\backslash
+bullet }) 
+\backslash
+arrow[r] & H_{p-1} (C_{
+\backslash
+bullet } 
+\backslash
+otimes K(x)_{
+\backslash
+bullet }) 
+\backslash
+arrow[r] & 
+\backslash
+cdots 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+is exact.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $x\cdot H_{p}(C_{\bullet}\otimes K(x)_{\bullet})=0$
+\end_inset
+
+ for all 
+\begin_inset Formula $p\in\mathbb{Z}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lemma}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ (1) and (2) are simple consequences of the usual diagram chase, where we
+ have to consider the following diagram
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+vdots 
+\backslash
+arrow[d] & 
+\backslash
+vdots 
+\backslash
+arrow[d] & 
+\backslash
+vdots 
+\backslash
+arrow[d] 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+0 
+\backslash
+arrow[r] & C_p 
+\backslash
+arrow[r] 
+\backslash
+arrow[d,"d_p "] & C_p 
+\backslash
+oplus C_{p-1} 
+\backslash
+arrow[r] 
+\backslash
+arrow[d,"d' _p "] & C_{p-1} 
+\backslash
+arrow[r] 
+\backslash
+arrow[d, "d_{p-1} "] & 0 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+0 
+\backslash
+arrow[r] & C_{p-1} 
+\backslash
+arrow[r] 
+\backslash
+arrow[d] & C_{p-1} 
+\backslash
+oplus C_{p-2} 
+\backslash
+arrow[r] 
+\backslash
+arrow[d] & C_{p-2} 
+\backslash
+arrow[r] 
+\backslash
+arrow[d] & 0
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+& 
+\backslash
+vdots  & 
+\backslash
+vdots  & 
+\backslash
+vdots 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+with 
+\begin_inset Formula $d_{p}'(a,b)=(d_{p}(a)+(-1)^{p-1}xb,d_{p-1}(b))$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+To prove (3), let 
+\begin_inset Formula $(a,b)$
+\end_inset
+
+ be a representative of an element in 
+\begin_inset Formula $H_{p}(C_{\bullet}\otimes K(x)_{\bullet})$
+\end_inset
+
+, that is, 
+\begin_inset Formula $d_{p}(a)+(-1)^{p-1}xb=0$
+\end_inset
+
+ and 
+\begin_inset Formula $d_{p-1}(b)=0$
+\end_inset
+
+.
+ But then we have 
+\begin_inset Formula 
+\[
+x(a,b)=(xa,xb)=d'_{p+1}(0,(-1)^{p}a),
+\]
+
+\end_inset
+
+that is, 
+\begin_inset Formula $x(a,b)\equiv0$
+\end_inset
+
+ mod 
+\begin_inset Formula $\text{Im}(d'_{p+1})$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{cor}
+\backslash
+label{cor7.6.10}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a ring, 
+\begin_inset Formula $M$
+\end_inset
+
+ an 
+\begin_inset Formula $A$
+\end_inset
+
+-module, and 
+\begin_inset Formula $x_{1},\dots,x_{n}\in A$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Let 
+\begin_inset Formula $x:=(x_{1},\dots,x_{n})$
+\end_inset
+
+, 
+\begin_inset Formula $x':=(x_{1},\dots,x_{i-1},x_{i+1},\dots,x_{n})$
+\end_inset
+
+.
+ Then there exists an exact sequence 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd}[row sep=40]  && 
+\backslash
+cdots 
+\backslash
+arrow[r] 
+\backslash
+arrow[d, phantom, ""{coordinate, name=Z'}] & H_{p}(x_1 , 
+\backslash
+dots , x_{n-1} , M ) 
+\backslash
+arrow[dll, "
+\backslash
+cdot (-1)^{p} x_n ", rounded corners, to path={ -- ([xshift=2ex]
+\backslash
+tikztostart.east) |- (Z') [near end]
+\backslash
+tikztonodes -| ([xshift=-2ex]
+\backslash
+tikztotarget.west) -- (
+\backslash
+tikztotarget)}, swap] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+  & H_{p}(x_1 , 
+\backslash
+dots , x_{n-1} , M ) 
+\backslash
+arrow[r] & H_{p}(x_1 , 
+\backslash
+dots , x_{n} , M ) 
+\backslash
+arrow[r] 
+\backslash
+arrow[d, phantom, ""{coordinate, name=Z}] & H_{p-1}(x_1 , 
+\backslash
+dots , x_{n-1} , M ) 
+\backslash
+arrow[dll, "
+\backslash
+cdot (-1)^{p-1} x_n ", rounded corners, to path={ -- ([xshift=2ex]
+\backslash
+tikztostart.east) |- (Z) [near end]
+\backslash
+tikztonodes -| ([xshift=-2ex]
+\backslash
+tikztotarget.west) -- (
+\backslash
+tikztotarget)}, swap] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+ & H_{p-1}(x_1 , 
+\backslash
+dots , x_{n-1} , M ) 
+\backslash
+arrow[r] & H_{p-1}(x_1 , 
+\backslash
+dots , x_{n} , M ) 
+\backslash
+arrow[r] 
+\backslash
+arrow[d, phantom, ""{coordinate, name=Z''}] & 
+\backslash
+cdots 
+\backslash
+arrow[dll, "", rounded corners, to path={ -- ([xshift=2ex]
+\backslash
+tikztostart.east) |- (Z'') [near end]
+\backslash
+tikztonodes -| ([xshift=-2ex]
+\backslash
+tikztotarget.west) -- (
+\backslash
+tikztotarget)}, swap] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+  & H_{1}(x_1 , 
+\backslash
+dots , x_{n-1} , M ) 
+\backslash
+arrow[r] & H_{1}(x_1 , 
+\backslash
+dots , x_{n} , M ) 
+\backslash
+arrow[r] 
+\backslash
+arrow[d, phantom, ""{coordinate, name=Z'''}] & M/ 
+\backslash
+langle x_1 ,
+\backslash
+dots , x_{n-1} 
+\backslash
+rangle M 
+\backslash
+arrow[dll, "
+\backslash
+cdot  x_n ", rounded corners, to path={ -- ([xshift=2ex]
+\backslash
+tikztostart.east) |- (Z''') [near end]
+\backslash
+tikztonodes -| ([xshift=-2ex]
+\backslash
+tikztotarget.west) -- (
+\backslash
+tikztotarget)}, swap] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+ &  M/ 
+\backslash
+langle x_1 ,
+\backslash
+dots , x_{n-1} 
+\backslash
+rangle M 
+\backslash
+arrow[r] & M/ 
+\backslash
+langle x_1 ,
+\backslash
+dots , x_{n} 
+\backslash
+rangle M
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\langle x_{1},\dots,x_{n}\rangle\cdot H_{p}(x_{1},\dots,x_{n},M)=0$
+\end_inset
+
+ for all 
+\begin_inset Formula $p\in\mathbb{Z}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{cor}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A=K[x,y,z]$
+\end_inset
+
+, 
+\begin_inset Formula $f_{1}=y(1-x),$
+\end_inset
+
+ 
+\begin_inset Formula $f_{2}=z(1-x)$
+\end_inset
+
+, 
+\begin_inset Formula $f_{3}=x$
+\end_inset
+
+, and 
+\begin_inset Formula $e_{1},e_{2},e_{3}$
+\end_inset
+
+ denote the standard basis in 
+\begin_inset Formula $A^{3}$
+\end_inset
+
+.
+ It may seem that 
+\begin_inset Formula $H_{1}(f_{1},f_{2},f_{3},A)\neq0$
+\end_inset
+
+ since 
+\begin_inset Formula $-ze_{1}+ye_{2}$
+\end_inset
+
+ seems to represent a nontrivial element in 
+\begin_inset Formula $H_{1}(f_{1},f_{2},f_{3},A)$
+\end_inset
+
+, but one can check that 
+\begin_inset Formula $-ze_{1}+ye_{2}=(f_{1}e_{2}-f_{2}e_{1})+z(f_{1}e_{3}-f_{3}e_{1})-y(f_{2}e_{3}-f_{3}e_{2})$
+\end_inset
+
+.
+ So 
+\begin_inset Formula $-ze_{1}+ye_{2}$
+\end_inset
+
+ represents the trivial element in 
+\begin_inset Formula $H_{1}(f_{1},f_{2},f_{3},A)$
+\end_inset
+
+.
+ The fact that 
+\begin_inset Formula $(f_{3},f_{1},f_{2})$
+\end_inset
+
+ is an 
+\begin_inset Formula $A$
+\end_inset
+
+-sequence tells us that 
+\begin_inset Formula $H_{1}(f_{1},f_{2},f_{3},A)=0$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a ring and let 
+\begin_inset Formula $I=\langle f_{1},\dots,f_{n}\rangle$
+\end_inset
+
+ be an ideal in 
+\begin_inset Formula $A$
+\end_inset
+
+ generated by 
+\begin_inset Formula $f_{1},\dots,f_{n}\in A$
+\end_inset
+
+.
+ Suppose 
+\begin_inset Formula $x_{1}\in I$
+\end_inset
+
+ is a nonzero divisor of 
+\begin_inset Formula $M$
+\end_inset
+
+, i.e.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd}  0 
+\backslash
+arrow[r] &  M 
+\backslash
+arrow[r," 
+\backslash
+cdot x_1 "] & M 
+\backslash
+arrow[r] & M/x_1 M 
+\backslash
+arrow[r] & 0 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+is a short exact sequence.
+ Then 
+\begin_inset Formula $H_{n}(f_{1},\dots,f_{n},M)=0$
+\end_inset
+
+.
+ This is because 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd}  0 
+\backslash
+arrow[r] &  K(f_1 , 
+\backslash
+dots , f_n , M) _ 
+\backslash
+bullet  
+\backslash
+arrow[r," 
+\backslash
+cdot x_1 "] & K(f_1 , 
+\backslash
+dots , f_n , M) _ 
+\backslash
+bullet  
+\backslash
+arrow[r] & K(f_1 , 
+\backslash
+dots , f_n , M/ x_1 M) _ 
+\backslash
+bullet ) 
+\backslash
+arrow[r] & 0 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+is a short exact sequence of complexes, and so it induces the following
+ long exact sequence in homology:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd}[row sep=40]  && 
+\backslash
+cdots 
+\backslash
+arrow[r] 
+\backslash
+arrow[d, phantom, ""{coordinate, name=Z'}] & H_{n+1} (f_1 , 
+\backslash
+dots , f_n , M/x_1 M) 
+\backslash
+arrow[dll,  rounded corners, to path={ -- ([xshift=2ex]
+\backslash
+tikztostart.east) |- (Z') [near end]
+\backslash
+tikztonodes -| ([xshift=-2ex]
+\backslash
+tikztotarget.west) -- (
+\backslash
+tikztotarget)}] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+  & H_{n} (f_1 , 
+\backslash
+dots , f_n , M) 
+\backslash
+arrow[r, "
+\backslash
+cdot x_1 "] & H_{n} (f_1 , 
+\backslash
+dots , f_n , M) 
+\backslash
+arrow[r,] 
+\backslash
+arrow[d, phantom, ""{coordinate, name=Z}] & H_{n} (f_1 , 
+\backslash
+dots , f_n , M/x_1 M) 
+\backslash
+arrow[dll, rounded corners, to path={ -- ([xshift=2ex]
+\backslash
+tikztostart.east) |- (Z) [near end]
+\backslash
+tikztonodes -| ([xshift=-2ex]
+\backslash
+tikztotarget.west) -- (
+\backslash
+tikztotarget)}] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+ & H_{n-1} (f_1 , 
+\backslash
+dots , f_n , M) 
+\backslash
+arrow[r, "
+\backslash
+cdot x_1 "] & H_{n-1} (f_1 , 
+\backslash
+dots , f_n , M) 
+\backslash
+arrow[r] & 
+\backslash
+cdots 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Since 
+\begin_inset Formula $H_{n+1}(f_{1},\dots,f_{n},M/x_{1}M)=0$
+\end_inset
+
+ and 
+\begin_inset Formula $I\cdot H_{i}(f_{1},\dots,f_{n},M)=0$
+\end_inset
+
+ for all 
+\begin_inset Formula $i\geq0$
+\end_inset
+
+ (in particular 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+ kills 
+\begin_inset Formula $H_{n}(f_{1},\dots,f_{n},M)$
+\end_inset
+
+), we conclude that 
+\begin_inset Formula $H_{n}(f_{1},\dots,f_{n},M)=0$
+\end_inset
+
+.
+ Now suppose 
+\begin_inset Formula $x_{2}\in A$
+\end_inset
+
+ such that 
+\begin_inset Formula $x_{1},x_{2}\in I$
+\end_inset
+
+ is an 
+\begin_inset Formula $M$
+\end_inset
+
+-sequence, i.e.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd}  0 
+\backslash
+arrow[r] &  M/ x_1 M 
+\backslash
+arrow[r," 
+\backslash
+cdot x_2 "] & M/ x_1 M 
+\backslash
+arrow[r] & M/ 
+\backslash
+langle x_1 , x_2 
+\backslash
+rangle M 
+\backslash
+arrow[r] & 0 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+is a short exact sequence.
+ Then 
+\begin_inset Formula $H_{n-1}(f_{1},\dots,f_{n},M)=0$
+\end_inset
+
+.
+ The reason is because 
+\begin_inset Formula $x_{2}\in I$
+\end_inset
+
+ is a nonzero divisor of 
+\begin_inset Formula $M/x_{1}M$
+\end_inset
+
+, and by the same logic as above, we conclude that 
+\begin_inset Formula $H_{n}(f_{1},\dots,f_{n},M/x_{1}M)=0$
+\end_inset
+
+.
+ Then since 
+\begin_inset Formula $H_{n}(f_{1},\dots,f_{n},M/x_{1}M)=0$
+\end_inset
+
+ and 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+ kills 
+\begin_inset Formula $H_{n-1}(f_{1},\dots,f_{n},M)$
+\end_inset
+
+, we conclude from the long exact sequence above that 
+\begin_inset Formula $H_{n-1}(f_{1},\dots,f_{n},M)=0$
+\end_inset
+
+.
+ Now let's suppose that 
+\begin_inset Formula $x_{1},x_{2}\in I$
+\end_inset
+
+ was a maximal 
+\begin_inset Formula $M$
+\end_inset
+
+-sequence.
+ Then first observe that the long exact sequence above, together with the
+ facts that 
+\begin_inset Formula $H_{n-1}(f_{1},\dots,f_{n},M)=0$
+\end_inset
+
+ and 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+ kills 
+\begin_inset Formula $H_{n-2}(f_{1},\dots,f_{n},M)$
+\end_inset
+
+, gives us the isomorphism 
+\begin_inset Formula $H_{n-2}(f_{1},\dots,f_{n},M)\cong H_{n-1}(f_{1},\dots,f_{n},M/x_{1}M)$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $x_{2}\in I$
+\end_inset
+
+ is a nonzero divisor of 
+\begin_inset Formula $M/x_{1}M$
+\end_inset
+
+, we can repeat everything we did above to conclude 
+\begin_inset Formula $H_{n-1}(f_{1},\dots,f_{n},M/x_{1}M)\cong H_{n}(f_{1},\dots,f_{n},M/\langle x_{1},x_{2}\rangle M)$
+\end_inset
+
+.
+ Now we just need to show 
+\begin_inset Formula $H_{n}(f_{1},\dots,f_{n},M/\langle x_{1},x_{2}\rangle M)\neq0$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $x_{1},x_{2}\in I$
+\end_inset
+
+ is a maximal 
+\begin_inset Formula $M$
+\end_inset
+
+-sequence, 
+\begin_inset Formula $I$
+\end_inset
+
+ consists of zero divisors of 
+\begin_inset Formula $M/\langle x_{1},x_{2}\rangle M$
+\end_inset
+
+, and so we can construct a nonzero homomorphism from 
+\begin_inset Formula $A/I$
+\end_inset
+
+ to 
+\begin_inset Formula $M/\langle x_{1},x_{2}\rangle M$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $H_{n}(f_{1},\dots,f_{n},M/\langle x_{1},x_{2}\rangle M)\cong\mbox{Hom}_{A}(A/I,M/\langle x_{1},x_{2}\rangle M)\neq0$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{cor}
+\backslash
+label{cor}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a Noetherian ring, 
+\begin_inset Formula $I=\langle f_{1},\dots,f_{n}\rangle$
+\end_inset
+
+ an ideal in 
+\begin_inset Formula $A$
+\end_inset
+
+, and 
+\begin_inset Formula $M$
+\end_inset
+
+ a finitely generated 
+\begin_inset Formula $A$
+\end_inset
+
+-module.
+ Assume that 
+\begin_inset Formula $M\neq IM$
+\end_inset
+
+, and set 
+\begin_inset Formula $q:=\text{sup}\{i\mid H_{i}(f_{1},\dots,f_{n},M)\neq0\}$
+\end_inset
+
+.
+ Then every maximal 
+\begin_inset Formula $M$
+\end_inset
+
+-sequence in 
+\begin_inset Formula $I$
+\end_inset
+
+ has length 
+\begin_inset Formula $n-q$
+\end_inset
+
+.
+ In particular
+\begin_inset Formula 
+\[
+\text{depth}(I,M)=n-\text{sup}\{i\mid H_{i}(f_{1},\dots,f_{n},M)\neq0\}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{cor}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $x_{1},\dots,x_{s}\in I$
+\end_inset
+
+ be a maximal 
+\begin_inset Formula $M$
+\end_inset
+
+-sequence.
+ We shall prove 
+\begin_inset Formula $s=n-q$
+\end_inset
+
+ by induction on 
+\begin_inset Formula $s$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $s=0$
+\end_inset
+
+, then every element of 
+\begin_inset Formula $I$
+\end_inset
+
+ is a zerodivisor for 
+\begin_inset Formula $M$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $I$
+\end_inset
+
+ is contained in an associated prime 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ of 
+\begin_inset Formula $M$
+\end_inset
+
+.
+ Being associated prime of 
+\begin_inset Formula $M$
+\end_inset
+
+, 
+\begin_inset Formula $\mathfrak{p}=0:m$
+\end_inset
+
+ for some nonzero 
+\begin_inset Formula $m\in M$
+\end_inset
+
+.
+ This implies 
+\begin_inset Formula $I\cdot m=0$
+\end_inset
+
+, that is, 
+\begin_inset Formula $m\in H_{n}(f_{1},\dots,f_{n},M)$
+\end_inset
+
+.
+ Therefore 
+\begin_inset Formula $q=n$
+\end_inset
+
+ and we have 
+\begin_inset Formula $s=n-q$
+\end_inset
+
+.
+ Assume now that 
+\begin_inset Formula $s>0$
+\end_inset
+
+, and consider the exact sequence
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} 0 
+\backslash
+arrow[r] & M 
+\backslash
+arrow[r, " 
+\backslash
+cdot x_1 "]  & M 
+\backslash
+arrow[r]  & M/x_1 M 
+\backslash
+arrow[r]  & 0 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Corollary~(
+\backslash
+ref{cor7.6.10})
+\end_layout
+
+\end_inset
+
+ implies that 
+\begin_inset Formula $I\cdot H_{i}(f_{1},\dots,f_{n},M)=0$
+\end_inset
+
+ for all 
+\begin_inset Formula $i$
+\end_inset
+
+.
+ Moreover, the sequence 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} H_i (f_1 , 
+\backslash
+dots , f_{n} , M) 
+\backslash
+arrow[r,  ] & H_i (f_1 , 
+\backslash
+dots , f_n ,M/x_1 M) 
+\backslash
+arrow[r]  & H_{i-1} (f_1 , 
+\backslash
+dots , f_n ,M) 
+\backslash
+arrow[r] & 0 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+is exact for all 
+\begin_inset Formula $i$
+\end_inset
+
+.
+ This implies especially that 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} 0 = H_{q+1} (f_1 , 
+\backslash
+dots , f_{n} , M) 
+\backslash
+arrow[r,] & H_{q+1} (f_1 , 
+\backslash
+dots , f_n ,M/x_1 M) 
+\backslash
+arrow[r]  & H_q (f_1 , 
+\backslash
+dots , f_n ,M) 
+\backslash
+arrow[r] & 0 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+is exact, hence 
+\begin_inset Formula $H_{q+1}(f_{1},\dots,f_{n},M/x_{1}M)\neq0$
+\end_inset
+
+, and 
+\begin_inset Formula $H_{i}(f_{1},\dots,f_{n},M/x_{1}M)$
+\end_inset
+
+ vanishes for 
+\begin_inset Formula $i>q+1$
+\end_inset
+
+.
+ But 
+\begin_inset Formula $x_{2},\dots,x_{s}$
+\end_inset
+
+ is a maximal 
+\begin_inset Formula $M/x_{1}M$
+\end_inset
+
+-sequence in 
+\begin_inset Formula $I$
+\end_inset
+
+.
+ Using induction, we obtain 
+\begin_inset Formula $q+1=n-(s-1)$
+\end_inset
+
+, and therefore, 
+\begin_inset Formula $q=n-s$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\backslash
+label{example}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $(A,\mathfrak{m})$
+\end_inset
+
+ be a Noetherian ring of dimension 
+\begin_inset Formula $3$
+\end_inset
+
+, 
+\begin_inset Formula $Q=\langle f_{1},f_{2},f_{3}\rangle$
+\end_inset
+
+ an 
+\begin_inset Formula $\mathfrak{m}$
+\end_inset
+
+-primary ideal in 
+\begin_inset Formula $A$
+\end_inset
+
+, and 
+\begin_inset Formula $M$
+\end_inset
+
+ a finitely generated 
+\begin_inset Formula $A$
+\end_inset
+
+-module.
+ Assume that 
+\begin_inset Formula 
+\begin{align*}
+H_{3}(f_{1},f_{2},f_{3},M) & =0\\
+H_{2}(f_{1},f_{2},f_{3},M) & =0\\
+H_{1}(f_{1},f_{2},f_{3},M) & =0\\
+H_{0}(f_{1},f_{2},f_{3},M) & \cong M/IM\neq0,
+\end{align*}
+
+\end_inset
+
+then 
+\begin_inset Formula $\text{depth}(M)=\text{depth}(Q,M)=3$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\backslash
+label{koszulcomplexsequence}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a ring, 
+\begin_inset Formula $M$
+\end_inset
+
+ an 
+\begin_inset Formula $A$
+\end_inset
+
+-module, and 
+\begin_inset Formula $x_{1},\dots,x_{n}\in A$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $x=(x_{1},\dots,x_{n})$
+\end_inset
+
+ is an 
+\begin_inset Formula $M$
+\end_inset
+
+-sequence, then 
+\begin_inset Formula $H_{p}(x_{1},\dots,x_{n},M)=0$
+\end_inset
+
+ for all 
+\begin_inset Formula $p>0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $(A,\mathfrak{m})$
+\end_inset
+
+ is local with 
+\begin_inset Formula $x_{1},\dots,x_{n}\in\mathfrak{m}$
+\end_inset
+
+ and 
+\begin_inset Formula $M\neq0$
+\end_inset
+
+ is finitely generated, then 
+\begin_inset Formula $H_{1}(x_{1},\dots,x_{n},M)=0$
+\end_inset
+
+ implies that 
+\begin_inset Formula $x=(x_{1},\dots,x_{n})$
+\end_inset
+
+ is an 
+\begin_inset Formula $M$
+\end_inset
+
+-sequence.
+ 
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $M$
+\end_inset
+
+ are 
+\begin_inset Formula $\mathbb{N}$
+\end_inset
+
+-graded and 
+\begin_inset Formula $x_{1},\dots,x_{n}$
+\end_inset
+
+ are homogeneous of positive degree, then 
+\begin_inset Formula $H_{1}(x_{1},\dots,x_{n},M)=0$
+\end_inset
+
+ and 
+\begin_inset Formula $M\neq0$
+\end_inset
+
+ implies that 
+\begin_inset Formula $x=(x_{1},\dots,x_{n})$
+\end_inset
+
+ is an 
+\begin_inset Formula $M$
+\end_inset
+
+-sequence.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+We prove this by induction on 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $n=1$
+\end_inset
+
+, then 
+\begin_inset Formula $H_{1}(x,M)=\{m\in M\mid xm=0\}$
+\end_inset
+
+.
+ Thus, 
+\begin_inset Formula $H_{1}(x_{1},M)=0$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+ is 
+\begin_inset Formula $M$
+\end_inset
+
+-regular.
+ Assume now that 
+\begin_inset Formula $n>1$
+\end_inset
+
+ and consider the exact sequence
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd}[row sep=40]  && 
+\backslash
+cdots 
+\backslash
+arrow[r] 
+\backslash
+arrow[d, phantom, ""{coordinate, name=Z'}] & H_{p}(x_1 , 
+\backslash
+dots , x_{n-1} , M ) 
+\backslash
+arrow[dll, "
+\backslash
+cdot (-1)^{p} x_n ", rounded corners, to path={ -- ([xshift=2ex]
+\backslash
+tikztostart.east) |- (Z') [near end]
+\backslash
+tikztonodes -| ([xshift=-2ex]
+\backslash
+tikztotarget.west) -- (
+\backslash
+tikztotarget)}, swap] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+  & H_{p}(x_1 , 
+\backslash
+dots , x_{n-1} , M ) 
+\backslash
+arrow[r] & H_{p}(x_1 , 
+\backslash
+dots , x_{n} , M ) 
+\backslash
+arrow[r] 
+\backslash
+arrow[d, phantom, ""{coordinate, name=Z}] & H_{p-1}(x_1 , 
+\backslash
+dots , x_{n-1} , M ) 
+\backslash
+arrow[dll, "
+\backslash
+cdot (-1)^{p-1} x_n ", rounded corners, to path={ -- ([xshift=2ex]
+\backslash
+tikztostart.east) |- (Z) [near end]
+\backslash
+tikztonodes -| ([xshift=-2ex]
+\backslash
+tikztotarget.west) -- (
+\backslash
+tikztotarget)}, swap] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+ & H_{p-1}(x_1 , 
+\backslash
+dots , x_{n-1} , M ) 
+\backslash
+arrow[r] & H_{p-1}(x_1 , 
+\backslash
+dots , x_{n} , M ) 
+\backslash
+arrow[r] 
+\backslash
+arrow[d, phantom, ""{coordinate, name=Z''}] & 
+\backslash
+cdots 
+\backslash
+arrow[dll, "", rounded corners, to path={ -- ([xshift=2ex]
+\backslash
+tikztostart.east) |- (Z'') [near end]
+\backslash
+tikztonodes -| ([xshift=-2ex]
+\backslash
+tikztotarget.west) -- (
+\backslash
+tikztotarget)}, swap] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+  & H_{1}(x_1 , 
+\backslash
+dots , x_{n-1} , M ) 
+\backslash
+arrow[r] & H_{1}(x_1 , 
+\backslash
+dots , x_{n} , M ) 
+\backslash
+arrow[r] 
+\backslash
+arrow[d, phantom, ""{coordinate, name=Z'''}] & M/ 
+\backslash
+langle x_1 ,
+\backslash
+dots , x_{n-1} 
+\backslash
+rangle M 
+\backslash
+arrow[dll, "
+\backslash
+cdot  x_n ", rounded corners, to path={ -- ([xshift=2ex]
+\backslash
+tikztostart.east) |- (Z''') [near end]
+\backslash
+tikztonodes -| ([xshift=-2ex]
+\backslash
+tikztotarget.west) -- (
+\backslash
+tikztotarget)}, swap] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+ &  M/ 
+\backslash
+langle x_1 ,
+\backslash
+dots , x_{n-1} 
+\backslash
+rangle M 
+\backslash
+arrow[r] & M/ 
+\backslash
+langle x_1 ,
+\backslash
+dots , x_{n} 
+\backslash
+rangle M
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+If 
+\begin_inset Formula $x_{1},\dots,x_{n}$
+\end_inset
+
+ is an 
+\begin_inset Formula $M$
+\end_inset
+
+-sequence, then 
+\begin_inset Formula $x_{1},\dots,x_{n-1}$
+\end_inset
+
+ is an 
+\begin_inset Formula $M$
+\end_inset
+
+-sequence and 
+\begin_inset Formula $H_{p}(x_{1},\dots,x_{n-1},M)=0$
+\end_inset
+
+ for all 
+\begin_inset Formula $p>0$
+\end_inset
+
+ by induction hypothesis.
+ It follows that 
+\begin_inset Formula $H_{p}(x_{1},\dots,x_{n},M)=0$
+\end_inset
+
+ for all 
+\begin_inset Formula $p>1$
+\end_inset
+
+.
+ For 
+\begin_inset Formula $p=1$
+\end_inset
+
+, the vanishing of 
+\begin_inset Formula $H_{1}(x_{1},\dots,x_{n},M)$
+\end_inset
+
+ follows from the fact that 
+\begin_inset Formula $x_{n}$
+\end_inset
+
+ is 
+\begin_inset Formula $M/\langle x_{1},\dots,x_{n-1}\rangle M$
+\end_inset
+
+-regular, i.e.
+ the map
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} M / 
+\backslash
+langle x_1 ,
+\backslash
+dots , x_{n-1} 
+\backslash
+rangle 
+\backslash
+arrow[r, "
+\backslash
+cdot x_n "] & M / 
+\backslash
+langle x_1 ,
+\backslash
+dots , x_{n-1} 
+\backslash
+rangle 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+ is injective.
+\end_layout
+
+\begin_layout Enumerate
+Assume that 
+\begin_inset Formula $H_{1}(x_{1},\dots,x_{n},M)=0$
+\end_inset
+
+ and consider the exact sequence
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} H_1 (x_1 , 
+\backslash
+dots , x_{n-1} , M) 
+\backslash
+arrow[r, "- x_n " ] & H_1 (x_1 , 
+\backslash
+dots , x_{n-1} ,M) 
+\backslash
+arrow[r]  & H_1 (x_1 , 
+\backslash
+dots , x_n ,M) = 0 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+This implies that 
+\begin_inset Formula 
+\[
+x_{n}H_{1}(x_{1},\dots,x_{n-1},M)=H_{1}(x_{1},\dots,x_{n-1},M).
+\]
+
+\end_inset
+
+We can use Nakayama's Lemma and obtain 
+\begin_inset Formula $H_{1}(x_{1},\dots,x_{n-1},M)=0$
+\end_inset
+
+, because 
+\begin_inset Formula $x_{n}\in\mathfrak{m}$
+\end_inset
+
+ and 
+\begin_inset Formula $H_{1}(x_{1},\dots,x_{n-1},M)$
+\end_inset
+
+ is finitely generated.
+ Using induction, we obtain that 
+\begin_inset Formula $x_{1},\dots,x_{n-1}$
+\end_inset
+
+ is an 
+\begin_inset Formula $M$
+\end_inset
+
+-sequence.
+ Now 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} 0 = H_1 (x_1 , 
+\backslash
+dots , x_n , M) 
+\backslash
+arrow[r, ] & H_0 (x_1 , 
+\backslash
+dots , x_{n-1} , M) 
+\backslash
+arrow[r , "x_n "]  & H_0 (x_1 , 
+\backslash
+dots , x_{n-1} ,M) 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+ is exact and 
+\begin_inset Formula $H_{0}(x_{1},\dots,x_{n-1},M)=M/\langle x_{1},\dots,x_{n-1}\rangle M$
+\end_inset
+
+.
+ This implies that 
+\begin_inset Formula $x_{n}$
+\end_inset
+
+ is 
+\begin_inset Formula $M/\langle x_{1},\dots,x_{n-1}\rangle M$
+\end_inset
+
+-regular.
+ 
+\end_layout
+
+\begin_layout Enumerate
+The proof of (3) is similar and left as an exercise.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{cor}
+\backslash
+label{cor}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $(A,\mathfrak{m})$
+\end_inset
+
+ be a local ring, 
+\begin_inset Formula $Q=\langle f_{1},\dots,f_{n}\rangle$
+\end_inset
+
+ be a proper ideal in 
+\begin_inset Formula $A$
+\end_inset
+
+, and 
+\begin_inset Formula $M$
+\end_inset
+
+ an 
+\begin_inset Formula $A$
+\end_inset
+
+-module.
+ Suppose 
+\begin_inset Formula $x_{1},\dots,x_{n}\in Q$
+\end_inset
+
+ is an 
+\begin_inset Formula $M$
+\end_inset
+
+-sequence.
+ Then 
+\begin_inset Formula $f_{1},\dots,f_{n}$
+\end_inset
+
+ is an 
+\begin_inset Formula $M$
+\end_inset
+
+-sequence.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{cor}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Since 
+\begin_inset Formula $x_{1},\dots,x_{n}\in\langle f_{1},\dots,f_{n}\rangle$
+\end_inset
+
+ is an 
+\begin_inset Formula $M$
+\end_inset
+
+-sequence, we must have 
+\begin_inset Formula $H_{1}(f_{1},\dots,f_{n},M)=0$
+\end_inset
+
+.
+ Therefore 
+\begin_inset Formula $f_{1},\dots,f_{n}$
+\end_inset
+
+ must be an 
+\begin_inset Formula $M$
+\end_inset
+
+-sequence, by 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Theorem~(
+\backslash
+ref{koszulcomplexsequence})
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\backslash
+label{theoremduality}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a ring, 
+\begin_inset Formula $M$
+\end_inset
+
+ and 
+\begin_inset Formula $A$
+\end_inset
+
+-module, and 
+\begin_inset Formula $(x_{1},\dots,x_{n})$
+\end_inset
+
+ an 
+\begin_inset Formula $A$
+\end_inset
+
+-sequence.
+ Then
+\begin_inset Formula 
+\[
+H_{i}(x_{1},\dots,x_{n},M)\cong\text{Tor}_{i}^{A}(A/\langle x_{1},\dots,x_{n}\rangle,M)\cong\text{Ext}_{A}^{n-i}(A/\langle x_{1},\dots,x_{n}\rangle,M).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ For simplicity, we assume 
+\begin_inset Formula $A$
+\end_inset
+
+ has characteristic 
+\begin_inset Formula $2$
+\end_inset
+
+ (so that the differential has no minus signs) and 
+\begin_inset Formula $n$
+\end_inset
+
+ is odd.
+ It isn't too difficult to extend the proof to the more general case.
+ Since 
+\begin_inset Formula $(x_{1},\dots,x_{n})$
+\end_inset
+
+ is an 
+\begin_inset Formula $A$
+\end_inset
+
+-sequence, the Koszul complex 
+\begin_inset Formula $K(x_{1},\dots,x_{n})_{\bullet}$
+\end_inset
+
+ is a free resolution of 
+\begin_inset Formula $A/\langle x_{1},\dots,x_{n}\rangle$
+\end_inset
+
+.
+ Therefore 
+\begin_inset Formula 
+\[
+H_{i}(x_{1},\dots,x_{n},M)\cong\text{Tor}_{i}^{A}(A/\langle x_{1},\dots,x_{n}\rangle,M)
+\]
+
+\end_inset
+
+by definition.
+ We know that a basis for 
+\begin_inset Formula $A^{{n \choose p}}$
+\end_inset
+
+ is given by 
+\begin_inset Formula $\{e_{i_{1},\dots,i_{p}}\}_{1\leq i_{1}<\cdots<i_{p}\leq n}$
+\end_inset
+
+.
+ Now we want to give this basis an ordering.
+ For 
+\begin_inset Formula $p\leq{n \choose (n-1)/2}$
+\end_inset
+
+, we say 
+\begin_inset Formula 
+\[
+e_{i_{1},\dots,i_{p}}>e_{j_{1},\dots,j_{p}}\text{ if there exists }1\leq k\leq p\text{ such that }i_{1}=j_{1},\dots,i_{k-1}=j_{k-1}\text{ and }i_{k}<j_{k}.
+\]
+
+\end_inset
+
+For 
+\begin_inset Formula $p\geq{n \choose (n-1)/2}$
+\end_inset
+
+, we say 
+\begin_inset Formula 
+\[
+e_{i_{1},\dots,i_{p}}>e_{j_{1},\dots,j_{p}}\text{ if }e_{i'_{1},\dots,i'_{n-p}}>e_{j'_{1},\dots,j'_{n-p}}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\{i'_{1},\dots,i'_{n-p}\}\cup\{i_{1},\dots,i_{p}\}=\{1,\dots,n\}$
+\end_inset
+
+ and 
+\begin_inset Formula $\{j'_{1},\dots,j'_{n-p}\}\cup\{j_{1},\dots,j_{p}\}=\{1,\dots,n\}$
+\end_inset
+
+.
+ Now that we have an ordered basis, we can write the Koszul complex more
+ explicitely as
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}
+\backslash
+label{koszul}
+\backslash
+begin{tikzcd} 
+\backslash
+cdots 
+\backslash
+arrow[r] & A ^ { n 
+\backslash
+choose{p} }  
+\backslash
+arrow[r, " 
+\backslash
+varphi _p "] & A ^ { n 
+\backslash
+choose{p-1} } 
+\backslash
+arrow[r] & 
+\backslash
+cdots  
+\backslash
+end{tikzcd}
+\backslash
+end{equation}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\varphi_{p}$
+\end_inset
+
+ is the 
+\begin_inset Formula ${n \choose p-1}\times{n \choose p}$
+\end_inset
+
+ matrix representation of 
+\begin_inset Formula $d_{p}$
+\end_inset
+
+ with respect to the ordered basis we have just described.
+ Applying 
+\begin_inset Formula $-\otimes M$
+\end_inset
+
+ to 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{koszul})
+\end_layout
+
+\end_inset
+
+, we obtain 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} 
+\backslash
+cdots 
+\backslash
+arrow[r] & M ^ { n 
+\backslash
+choose{p} }  
+\backslash
+arrow[r, " 
+\backslash
+varphi _p "] & M ^ { n 
+\backslash
+choose{p-1} }   
+\backslash
+arrow[r] & 
+\backslash
+cdots  
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and applying 
+\begin_inset Formula $\text{Hom}(-,M)$
+\end_inset
+
+ to 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{koszul})
+\end_layout
+
+\end_inset
+
+, we obtain 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} 
+\backslash
+cdots 
+\backslash
+arrow[r] & M ^ { n 
+\backslash
+choose{p-1} }  
+\backslash
+arrow[r, " 
+\backslash
+varphi _p ^t "] & M ^ { n 
+\backslash
+choose{p} }   
+\backslash
+arrow[r] & 
+\backslash
+cdots  
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\varphi_{p}^{t}$
+\end_inset
+
+ is the transpose of 
+\begin_inset Formula $\varphi_{p}$
+\end_inset
+
+.
+ We will show that 
+\begin_inset Formula $\varphi_{p}=\varphi_{n-p+1}^{t}$
+\end_inset
+
+.
+ Then it will follow that 
+\begin_inset Formula 
+\[
+\text{Tor}_{i}^{A}(A/\langle x_{1},\dots,x_{n}\rangle,M)\cong\text{Ext}_{A}^{n-i}(A/\langle x_{1},\dots,x_{n}\rangle,M).
+\]
+
+\end_inset
+
+First, note that 
+\begin_inset Formula $\varphi_{n-p+1}^{t}$
+\end_inset
+
+ is a 
+\begin_inset Formula ${n \choose p-1}\times{n \choose p}$
+\end_inset
+
+ matrix.
+ So we just need to show that 
+\begin_inset Formula $\varphi_{p}$
+\end_inset
+
+ and 
+\begin_inset Formula $\varphi_{n-p+1}^{t}$
+\end_inset
+
+ have the same entries.
+ The entry in 
+\begin_inset Formula $\varphi_{p}$
+\end_inset
+
+ which corresponds to 
+\begin_inset Formula $(e_{j_{1},\dots,j_{p-1}},e_{i_{1},\dots,i_{p}})$
+\end_inset
+
+ is in the same position as the entry in 
+\begin_inset Formula $\varphi_{n-p+1}^{t}$
+\end_inset
+
+ which corresponds to 
+\begin_inset Formula $(e_{j_{1}',\dots,j_{n-p+1}'},e_{i_{1}',\dots,i_{n-p}'})$
+\end_inset
+
+.
+ Set 
+\begin_inset Formula 
+\begin{align*}
+\mathbf{n} & =\{1,2\dots,n\}\\
+\mathbf{i} & =\{i_{1},\dots,i_{p}\}\\
+\mathbf{j} & =\{j_{1},\dots,j_{p-1}\}\\
+\mathbf{i}' & =\mathbf{n}\backslash\mathbf{i}=\{i_{1}',\dots,i_{n-p}'\}\\
+\mathbf{j}' & =\mathbf{n}\backslash\mathbf{j}=\{j_{1}',\dots,j_{n-p+1}'\}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The entry in 
+\begin_inset Formula $\varphi_{p}$
+\end_inset
+
+ which corresponds to 
+\begin_inset Formula $(e_{j_{1},\dots,j_{p-1}},e_{i_{1},\dots,i_{p}})$
+\end_inset
+
+ is 
+\begin_inset Formula $a_{i_{k}}$
+\end_inset
+
+ if 
+\begin_inset Formula $\mathbf{i}\backslash\mathbf{j}=\{i_{k}\}$
+\end_inset
+
+, and 
+\begin_inset Formula $0$
+\end_inset
+
+ otherwise.
+ Similarly, the entry in 
+\begin_inset Formula $\varphi_{n-p+1}^{t}$
+\end_inset
+
+ which corresponds to 
+\begin_inset Formula $(e_{j_{1}',\dots,j_{n-p+1}'},e_{i_{1}',\dots,i_{n-p}'})$
+\end_inset
+
+ is 
+\begin_inset Formula $a_{j_{k}'}$
+\end_inset
+
+ if 
+\begin_inset Formula $\mathbf{j}'\backslash\mathbf{i}'=\{j_{k}'\}$
+\end_inset
+
+ and 
+\begin_inset Formula $0$
+\end_inset
+
+ otherwise.
+ Since 
+\begin_inset Formula 
+\[
+\mathbf{i}\backslash\mathbf{j}=\left(\mathbf{n}\backslash\mathbf{j}\right)\backslash\left(\mathbf{n}\backslash\mathbf{i}\right)=\mathbf{j}'\backslash\mathbf{i}'
+\]
+
+\end_inset
+
+these entries must be the same.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

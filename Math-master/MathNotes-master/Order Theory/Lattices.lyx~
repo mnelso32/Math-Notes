@@ -1,0 +1,2521 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{tikz}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\usetikzlibrary{shapes.geometric}
+\usepackage{tikz-cd}
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem*{cor}{Corollary}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{ex}{Exercise} 
+\newtheorem{example}{Example}[section]
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem{case}{Case}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{tikz-cd}
+\usetikzlibrary{calc,arrows,decorations.pathreplacing}
+\tikzset{mydot/.style={circle,fill,inner sep=1.5pt},
+commutative diagrams/.cd,
+  arrow style=tikz,
+  diagrams={>=latex},
+}
+
+\usepackage{babel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=blue,
+    filecolor=blue,
+    linkcolor=blue,
+    urlcolor=blue
+}
+\newcommand{\liminj}{\varinjlim}
+\newcommand{\limproj}{\varprojlim}
+
+\newcommand{\define}[1]{{\bf{\boldmath{#1}}}}
+
+\DeclareMathOperator{\Aut}{Aut}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding iso8859-15
+\fontencoding global
+\font_roman "palatino" "default"
+\font_sans "lmss" "default"
+\font_typewriter "lmtt" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf true
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize custom
+\use_geometry false
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\paperwidth 30cm
+\paperheight 35cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0bp
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Lattices
+\end_layout
+
+\begin_layout Section
+Partially Ordered Sets
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $X$
+\end_inset
+
+ be a set.
+ A 
+\series bold
+partial order 
+\series default
+on 
+\begin_inset Formula $X$
+\end_inset
+
+ is a binary relation 
+\begin_inset Formula $\leq$
+\end_inset
+
+ which satisfies the following properties
+\end_layout
+
+\begin_layout Enumerate
+(reflexive) 
+\begin_inset Formula $x\leq x$
+\end_inset
+
+ for all 
+\begin_inset Formula $x\in X$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+(antisymetric) 
+\begin_inset Formula $x\leq y$
+\end_inset
+
+ and 
+\begin_inset Formula $y\leq x$
+\end_inset
+
+ implies 
+\begin_inset Formula $x=y$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+(transitive) If 
+\begin_inset Formula $x\leq y$
+\end_inset
+
+ and 
+\begin_inset Formula $y\leq z$
+\end_inset
+
+, then 
+\begin_inset Formula $x\leq z$
+\end_inset
+
+ for all 
+\begin_inset Formula $x,y,z\in X$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The pair 
+\begin_inset Formula $(X,\leq)$
+\end_inset
+
+ is called a 
+\series bold
+partially ordered set 
+\series default
+(also called a 
+\series bold
+poset
+\series default
+).
+\end_layout
+
+\begin_layout Subsection
+Lattices and Boolean Algebras
+\end_layout
+
+\begin_layout Subsubsection
+Upper and Lower Bounds
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $(X,\leq)$
+\end_inset
+
+ be a poset and let 
+\begin_inset Formula $A$
+\end_inset
+
+ be any subset of 
+\begin_inset Formula $X$
+\end_inset
+
+.
+ Then an element 
+\begin_inset Formula $u\in X$
+\end_inset
+
+ is said to be an 
+\series bold
+upper bound 
+\series default
+of 
+\begin_inset Formula $A$
+\end_inset
+
+ if 
+\begin_inset Formula $a\leq u$
+\end_inset
+
+ for all 
+\begin_inset Formula $a\in A$
+\end_inset
+
+.
+ An upper bound 
+\begin_inset Formula $u$
+\end_inset
+
+ of 
+\begin_inset Formula $A$
+\end_inset
+
+ is said to be its 
+\series bold
+least upper bound
+\series default
+, or 
+\series bold
+join
+\series default
+, or 
+\series bold
+supremum
+\series default
+, if for any other upper bound 
+\begin_inset Formula $u'$
+\end_inset
+
+ of 
+\begin_inset Formula $A$
+\end_inset
+
+, we have 
+\begin_inset Formula $u\leq u'$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Dually, an element 
+\begin_inset Formula $l\in X$
+\end_inset
+
+ is said to be a 
+\series bold
+lower bound 
+\series default
+of 
+\begin_inset Formula $A$
+\end_inset
+
+ if 
+\begin_inset Formula $l\leq a$
+\end_inset
+
+ for all 
+\begin_inset Formula $a\in A$
+\end_inset
+
+.
+ A lower bound of 
+\begin_inset Formula $A$
+\end_inset
+
+ is said to be its 
+\series bold
+greatest lower bound
+\series default
+, or 
+\series bold
+meet
+\series default
+, or 
+\series bold
+infimum
+\series default
+, if for any other upper bound 
+\begin_inset Formula $l'$
+\end_inset
+
+ of 
+\begin_inset Formula $A$
+\end_inset
+
+, we have 
+\begin_inset Formula $l'\leq l$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Lattices
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\backslash
+label{defn}
+\end_layout
+
+\end_inset
+
+ A lattice 
+\begin_inset Formula $(L,\leq)$
+\end_inset
+
+ is a partially ordered set such that each two-element subset 
+\begin_inset Formula $\{a,b\}\subseteq L$
+\end_inset
+
+ has a join, written 
+\begin_inset Formula $a\lor b$
+\end_inset
+
+, and a meet, written 
+\begin_inset Formula $a\wedge b$
+\end_inset
+
+.
+ A 
+\begin_inset Formula $\textbf{distributive lattice}$
+\end_inset
+
+ is a lattice 
+\begin_inset Formula $(L,\leq)$
+\end_inset
+
+ that satisfies the distributive law:
+\begin_inset Formula 
+\[
+a\wedge(b\vee c)=(a\wedge b)\vee(a\wedge c)
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $a,b,c\in L$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\backslash
+label{example}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Let 
+\begin_inset Formula $X$
+\end_inset
+
+ be a set.
+ The pair 
+\begin_inset Formula $(\mathbf{P}(X),\subseteq)$
+\end_inset
+
+ is a distributive lattice, with set union 
+\begin_inset Formula $\cup$
+\end_inset
+
+ being the join operation and set intersection 
+\begin_inset Formula $\cap$
+\end_inset
+
+ being the meet operation.
+\end_layout
+
+\begin_layout Enumerate
+Let 
+\begin_inset Formula $X$
+\end_inset
+
+ be a topological space.
+ The pair 
+\begin_inset Formula $(\text{Open}(X),\subseteq)$
+\end_inset
+
+ is a distributive lattice, with set union 
+\begin_inset Formula $\cup$
+\end_inset
+
+ being the join operation and set intersection 
+\begin_inset Formula $\cap$
+\end_inset
+
+ being the meet operation.
+ Similarly, 
+\begin_inset Formula $(\text{Closed}(X),\subseteq)$
+\end_inset
+
+ is a lattice.
+\end_layout
+
+\begin_layout Enumerate
+Let 
+\begin_inset Formula $X$
+\end_inset
+
+ be a set and let 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ be a 
+\begin_inset Formula $\sigma$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a ring.
+ The pair 
+\begin_inset Formula $(\text{Ideal}(A),\subseteq)$
+\end_inset
+
+ is a lattice.
+ In this case, set intersection 
+\begin_inset Formula $\cap$
+\end_inset
+
+ is still the meet operation, but set union 
+\begin_inset Formula $\cup$
+\end_inset
+
+ cannot be the join operation since 
+\begin_inset Formula $\mathfrak{a}\cup\mathfrak{b}$
+\end_inset
+
+ is not necessarily ideal whenever 
+\begin_inset Formula $\mathfrak{a}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathfrak{b}$
+\end_inset
+
+ are.
+ Instead, addition of ideals 
+\begin_inset Formula $+$
+\end_inset
+
+ is the joint operator.
+ Indeed, 
+\begin_inset Formula $\mathfrak{a}+\mathfrak{b}$
+\end_inset
+
+ is the smallest ideal which contains 
+\begin_inset Formula $\mathfrak{a}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathfrak{b}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Boolean Algebras
+\end_layout
+
+\begin_layout Standard
+An element 
+\begin_inset Formula $a$
+\end_inset
+
+ in a lattice 
+\begin_inset Formula $(L,\leq)$
+\end_inset
+
+ is said to be a 
+\begin_inset Formula $\textbf{complement}$
+\end_inset
+
+ of 
+\begin_inset Formula $b$
+\end_inset
+
+ (and vice versa) if 
+\begin_inset Formula $a\vee b=1$
+\end_inset
+
+ or 
+\begin_inset Formula $a\wedge b=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ A 
+\begin_inset Formula $\textbf{boolean algebra}$
+\end_inset
+
+ 
+\begin_inset Formula $(\mathcal{A},\leq)$
+\end_inset
+
+ is a distributive lattice with the property that every element has a complement.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Modular Lattices
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ A 
+\begin_inset Formula $\textbf{modular lattice}$
+\end_inset
+
+ is a lattice 
+\begin_inset Formula $(L,\leq)$
+\end_inset
+
+ that satisfies the self-dual condition:
+\begin_inset Formula 
+\[
+a\leq c\mbox{ implies }a\vee(b\wedge c)=(a\vee b)\wedge c
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $a,b,c\in L$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{rem}
+\end_layout
+
+\end_inset
+
+ Notice that every distributive lattice is modular.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{rem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ Smallest example of a non-modular lattice: 
+\begin_inset Formula 
+\[
+a\vee(b\wedge c)=a\vee0=x\neq c=1\wedge c=(a\vee b)\wedge c
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} & 1 
+\backslash
+
+\backslash
+ c 
+\backslash
+arrow[ur] 
+\backslash
+
+\backslash
+ && b 
+\backslash
+arrow[uul] 
+\backslash
+
+\backslash
+ a 
+\backslash
+arrow[uu] 
+\backslash
+
+\backslash
+ & 0 
+\backslash
+arrow[ul] 
+\backslash
+arrow[uur] 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\backslash
+label{example}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Let 
+\begin_inset Formula $X$
+\end_inset
+
+ be a set.
+ The pair 
+\begin_inset Formula $(\mathbf{P}(X),\subseteq)$
+\end_inset
+
+ is a boolean algebra, with set union 
+\begin_inset Formula $\cup$
+\end_inset
+
+ being the join operation and set intersection 
+\begin_inset Formula $\cap$
+\end_inset
+
+ being the meet operation.
+ If 
+\begin_inset Formula $A$
+\end_inset
+
+ is a subset of 
+\begin_inset Formula $X$
+\end_inset
+
+, then its complement is 
+\begin_inset Formula $X\backslash A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Let 
+\begin_inset Formula $X$
+\end_inset
+
+ be a topological space.
+ The pair 
+\begin_inset Formula $(\text{Open}(X),\subseteq)$
+\end_inset
+
+ is a lattice, with set union 
+\begin_inset Formula $\cup$
+\end_inset
+
+ being the join operation and set intersection 
+\begin_inset Formula $\cap$
+\end_inset
+
+ being the meet operation.
+ If 
+\begin_inset Formula $U$
+\end_inset
+
+ is an open subset of 
+\begin_inset Formula $X$
+\end_inset
+
+, then 
+\begin_inset Formula $\text{int}(X\backslash U)$
+\end_inset
+
+ is its complement.
+ Similarly, 
+\begin_inset Formula $(\text{Closed}(X),\subseteq)$
+\end_inset
+
+ is a lattice.
+\end_layout
+
+\begin_layout Enumerate
+Let 
+\begin_inset Formula $X$
+\end_inset
+
+ be a topological space.
+ The pair 
+\begin_inset Formula $(\text{Closed}(X),\subseteq)$
+\end_inset
+
+ is a lattice, with set union 
+\begin_inset Formula $\cup$
+\end_inset
+
+ being the join operation and set intersection 
+\begin_inset Formula $\cap$
+\end_inset
+
+ being the meet operation.
+ If 
+\begin_inset Formula $E$
+\end_inset
+
+ is a closed subset of 
+\begin_inset Formula $X$
+\end_inset
+
+, then 
+\begin_inset Formula $\overline{X\backslash E}$
+\end_inset
+
+ is its complement.
+\end_layout
+
+\begin_layout Enumerate
+Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a ring.
+ The pair 
+\begin_inset Formula $(\text{Ideal}(A),\subseteq)$
+\end_inset
+
+ is a lattice.
+ In this case, set intersection 
+\begin_inset Formula $\cap$
+\end_inset
+
+ is still the meet operation, but set union 
+\begin_inset Formula $\cup$
+\end_inset
+
+ cannot be the join operation since 
+\begin_inset Formula $\mathfrak{a}\cup\mathfrak{b}$
+\end_inset
+
+ is not necessarily ideal whenever 
+\begin_inset Formula $\mathfrak{a}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathfrak{b}$
+\end_inset
+
+ are.
+ Instead, addition of ideals 
+\begin_inset Formula $+$
+\end_inset
+
+ is the joint operator.
+ Indeed, 
+\begin_inset Formula $\mathfrak{a}+\mathfrak{b}$
+\end_inset
+
+ is the smallest ideal which contains 
+\begin_inset Formula $\mathfrak{a}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathfrak{b}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $(\mathbf{P}(X),\subseteq)$
+\end_inset
+
+ is a complete boolean algebra, with set inclusion 
+\begin_inset Formula $\subseteq$
+\end_inset
+
+ being the partial order, set intersection 
+\begin_inset Formula $\cap$
+\end_inset
+
+ being meet, and set union 
+\begin_inset Formula $\cup$
+\end_inset
+
+ being join.
+ Given a subset 
+\begin_inset Formula $S\subset X$
+\end_inset
+
+, the lattice complement of 
+\begin_inset Formula $S$
+\end_inset
+
+ is the set complement 
+\begin_inset Formula $S^{c}=X\setminus S=\{x\in X\mid x\notin S\}$
+\end_inset
+
+.
+ The initial object is 
+\begin_inset Formula $\emptyset$
+\end_inset
+
+.
+ The terminal object is 
+\begin_inset Formula $X$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [fill=red!30!white] (-4,-4) rectangle (4,4);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [fill=green!0!white] (330:1.2) circle (2);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node at (3.8,4.5) {
+\backslash
+LARGE $X$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node at ( 90:3) {
+\backslash
+LARGE $ S^c $}; 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node at (330:2) { 
+\backslash
+LARGE $S$}; 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ A 
+\begin_inset Formula $\textbf{modular lattice}$
+\end_inset
+
+ is a lattice 
+\begin_inset Formula $(L,\leq)$
+\end_inset
+
+ that satisfies the self-dual condition:
+\begin_inset Formula 
+\[
+a\leq c\mbox{ implies }a\vee(b\wedge c)=(a\vee b)\wedge c\quad\forall a,b,c\in L
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{rem}
+\end_layout
+
+\end_inset
+
+ Notice that every distributive lattice is modular.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{rem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ Smallest example of a non-modular lattice: 
+\begin_inset Formula 
+\[
+a\vee(b\wedge c)=a\vee0=x\neq c=1\wedge c=(a\vee b)\wedge c
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} & 1 
+\backslash
+
+\backslash
+ c 
+\backslash
+arrow[ur] 
+\backslash
+
+\backslash
+ && b 
+\backslash
+arrow[uul] 
+\backslash
+
+\backslash
+ a 
+\backslash
+arrow[uu] 
+\backslash
+
+\backslash
+ & 0 
+\backslash
+arrow[ul] 
+\backslash
+arrow[uur] 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ Given a commutative ring with identity 
+\begin_inset Formula $R$
+\end_inset
+
+, let 
+\begin_inset Formula $\mathbf{I}(R)$
+\end_inset
+
+ be the set of all ideals in 
+\begin_inset Formula $R$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $(\mathbf{I}(R),\subseteq)$
+\end_inset
+
+ is a complete modular lattice, with ideal inclusion 
+\begin_inset Formula $\subseteq$
+\end_inset
+
+ being the partial order, the sum 
+\begin_inset Formula $+$
+\end_inset
+
+ of ideals being join, and the 
+\begin_inset Formula $\cap$
+\end_inset
+
+ intersection of ideals being meet.
+ The initial object is 
+\begin_inset Formula $\emptyset$
+\end_inset
+
+.
+ The terminal object is 
+\begin_inset Formula $R$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ If 
+\begin_inset Formula $A$
+\end_inset
+
+ is a subset of a lattice 
+\begin_inset Formula $(L,\leq)$
+\end_inset
+
+, then 
+\begin_inset Formula $z\in L$
+\end_inset
+
+ is an 
+\begin_inset Formula $\textbf{upper bound}$
+\end_inset
+
+ of 
+\begin_inset Formula $A$
+\end_inset
+
+, denoted 
+\begin_inset Formula $A\leq z$
+\end_inset
+
+, if 
+\begin_inset Formula $x\leq z$
+\end_inset
+
+ whenever 
+\begin_inset Formula $x\in A$
+\end_inset
+
+.
+ If moreover, 
+\begin_inset Formula $z\leq y$
+\end_inset
+
+ whenever 
+\begin_inset Formula $A\le y$
+\end_inset
+
+, then 
+\begin_inset Formula $z$
+\end_inset
+
+ is a 
+\begin_inset Formula $\textbf{least upper bound}$
+\end_inset
+
+ of 
+\begin_inset Formula $A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ We say that 
+\begin_inset Formula $z$
+\end_inset
+
+ is the 
+\begin_inset Formula $\textbf{greatest element}$
+\end_inset
+
+ of 
+\begin_inset Formula $A$
+\end_inset
+
+ if 
+\begin_inset Formula $z$
+\end_inset
+
+ is a least upper bound of 
+\begin_inset Formula $A$
+\end_inset
+
+ and also a member of 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Thus, 
+\begin_inset Formula $A$
+\end_inset
+
+ has a greatest element precisely when one of its members is a least upper
+ bound of 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ If 
+\begin_inset Formula $(L,\leq)$
+\end_inset
+
+ is a lattice and 
+\begin_inset Formula $x\in L$
+\end_inset
+
+, then 
+\begin_inset Formula $y\in L$
+\end_inset
+
+ is the 
+\begin_inset Formula $\textbf{pseudo complement}$
+\end_inset
+
+ of 
+\begin_inset Formula $x$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $y$
+\end_inset
+
+ is the greatest element of 
+\begin_inset Formula $L$
+\end_inset
+
+ disjoint from 
+\begin_inset Formula $x$
+\end_inset
+
+, i.e.
+ greatest element of the set: 
+\begin_inset Formula 
+\[
+\{z\in L\mid x\wedge z=0\}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If every member of 
+\begin_inset Formula $L$
+\end_inset
+
+ has a pseudo complement, 
+\begin_inset Formula $L$
+\end_inset
+
+ is called a 
+\begin_inset Formula $\textbf{pseudo complemented lattice}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $M$
+\end_inset
+
+ is a monoid, then the lattice of left ideals 
+\begin_inset Formula $(L_{M},\subseteq)$
+\end_inset
+
+ is a pseudo complemented lattice.
+ Given a left ideal 
+\begin_inset Formula $I\in L_{M}$
+\end_inset
+
+, define 
+\begin_inset Formula $\lnot I=\{m\mid I:m=\emptyset\}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\lnot I$
+\end_inset
+
+ is the pseudo complement of 
+\begin_inset Formula $I$
+\end_inset
+
+, since 
+\begin_inset Formula $J\subseteq\lnot I$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $J\cap I=\emptyset$
+\end_inset
+
+ for all left ideals 
+\begin_inset Formula $J\in L_{M}$
+\end_inset
+
+.
+ Let's show this: First, we show that 
+\begin_inset Formula $\lnot I$
+\end_inset
+
+ is an ideal.
+ If 
+\begin_inset Formula $m\in\lnot I$
+\end_inset
+
+, then 
+\begin_inset Formula $n\cdot m$
+\end_inset
+
+ must be in 
+\begin_inset Formula $\lnot I$
+\end_inset
+
+ too.
+ since if 
+\begin_inset Formula $k\in I:n\cdot m$
+\end_inset
+
+, then 
+\begin_inset Formula $k\cdot(n\cdot m)\in I$
+\end_inset
+
+, but this means that 
+\begin_inset Formula $(k\cdot n)\cdot m\in I$
+\end_inset
+
+, which is a contradiction.
+ Now we show 
+\begin_inset Formula $\lnot I\cap I=\emptyset$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $m\in\lnot I\cap I$
+\end_inset
+
+, then 
+\begin_inset Formula $I:m=M$
+\end_inset
+
+, which is a contradiction.
+ Finally, we show that 
+\begin_inset Formula $\lnot I$
+\end_inset
+
+ is the greatest element of the set of all left ideals disjoint from 
+\begin_inset Formula $I$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $j\in J$
+\end_inset
+
+ and 
+\begin_inset Formula $J\cap I=\emptyset$
+\end_inset
+
+, then 
+\begin_inset Formula $I:j=\emptyset$
+\end_inset
+
+ (
+\begin_inset Formula $J$
+\end_inset
+
+ swallows everything up!).
+ So 
+\begin_inset Formula $\lnot I$
+\end_inset
+
+ contains all left ideals 
+\begin_inset Formula $J$
+\end_inset
+
+ disjoint from 
+\begin_inset Formula $I$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ If 
+\begin_inset Formula $X$
+\end_inset
+
+ is a topological space, then the lattice of open sets 
+\begin_inset Formula $(\mathbf{O}(X),\subseteq)$
+\end_inset
+
+ is a pseudo complemented lattice.
+ Even though the set complement 
+\begin_inset Formula $X\setminus U$
+\end_inset
+
+ is not necessarily open, the interior 
+\begin_inset Formula $(X\setminus U)^{\circ},$
+\end_inset
+
+ i.e.
+ the largest open set contained in 
+\begin_inset Formula $X\setminus U$
+\end_inset
+
+, is.
+ So, 
+\begin_inset Formula $(X\setminus U)^{\circ}$
+\end_inset
+
+ is the pseudo complement of 
+\begin_inset Formula $U$
+\end_inset
+
+ since have 
+\begin_inset Formula $V\subseteq(X\setminus U)^{\circ}$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $U\cap V=\emptyset$
+\end_inset
+
+, for all open 
+\begin_inset Formula $V\in\mathbf{O}(X)$
+\end_inset
+
+.
+ In this case, 
+\begin_inset Formula $(X\setminus U)^{\circ}$
+\end_inset
+
+ is simply the union of all open sets disjoint from 
+\begin_inset Formula $U$
+\end_inset
+
+.
+ Since arbitrary unions of open sets are open, we are done.
+ Notice that this is not the argument we used for 
+\begin_inset Formula $(L_{M},\subseteq)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+The notion of pseudo complement can be generalized by replacing the initial
+ object 
+\begin_inset Formula $0$
+\end_inset
+
+ by some other object 
+\begin_inset Formula $y$
+\end_inset
+
+, to obtain the pseudo complement of 
+\begin_inset Formula $x$
+\end_inset
+
+ 
+\begin_inset Formula $\textbf{relative}$
+\end_inset
+
+ to 
+\begin_inset Formula $y$
+\end_inset
+
+.
+ This, if it exists, is the greatest element of the set: 
+\begin_inset Formula 
+\[
+\{w\mid x\wedge w\leq y\}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So, the pseudo complement of 
+\begin_inset Formula $x$
+\end_inset
+
+ relative to 
+\begin_inset Formula $y$
+\end_inset
+
+ is the greatest element 
+\begin_inset Formula $z$
+\end_inset
+
+ such that 
+\begin_inset Formula $x\wedge z\leq y$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ If 
+\begin_inset Formula $S,T\in(\mathbf{P}(X),\subseteq)$
+\end_inset
+
+, then 
+\begin_inset Formula $S^{c}\cup T$
+\end_inset
+
+ is the pseudo complement of 
+\begin_inset Formula $S$
+\end_inset
+
+ relative to 
+\begin_inset Formula $T$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [fill=red!30!white] (-4,-4) rectangle (4,4);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [fill=green!0!white] (330:1.2) circle (2);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw [fill=red!30!white] (210:1.2) circle (2);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node at (3.8,4.5) {
+\backslash
+LARGE $X$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node at ( 90:3) {
+\backslash
+LARGE $S^{c} 
+\backslash
+cup T $}; 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node at (210:2) {
+\backslash
+LARGE $T$}; 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node at (330:2) { 
+\backslash
+LARGE $S$}; 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+If 
+\begin_inset Formula $I,J\in(L_{M},\subseteq)$
+\end_inset
+
+, then the pseudo complement of 
+\begin_inset Formula $I$
+\end_inset
+
+ relative to 
+\begin_inset Formula $J$
+\end_inset
+
+ is 
+\begin_inset Formula $\{m\mid I:m\subseteq J:m\}$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $I\subseteq J$
+\end_inset
+
+, then the pseudo complement of 
+\begin_inset Formula $I$
+\end_inset
+
+ relative to 
+\begin_inset Formula $J$
+\end_inset
+
+ is 
+\begin_inset Formula $M$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $I\cap J=\emptyset$
+\end_inset
+
+, then the pseudo complement of 
+\begin_inset Formula $I$
+\end_inset
+
+ relative to 
+\begin_inset Formula $J$
+\end_inset
+
+ contains 
+\begin_inset Formula $J$
+\end_inset
+
+, but is disjoint from 
+\begin_inset Formula $I$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+If 
+\begin_inset Formula $U,V\in(\mathbf{O}(X),\subseteq)$
+\end_inset
+
+, then the pseudo complement of 
+\begin_inset Formula $U$
+\end_inset
+
+ relative to 
+\begin_inset Formula $V$
+\end_inset
+
+ is 
+\begin_inset Formula $((X\setminus U)\cup V)^{\circ}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ Given a lattice 
+\begin_inset Formula $(L,\leq)$
+\end_inset
+
+, the pseudo complement of 
+\begin_inset Formula $x$
+\end_inset
+
+ relative to 
+\begin_inset Formula $y$
+\end_inset
+
+, when it exists, is denoted 
+\begin_inset Formula $x\Rightarrow y$
+\end_inset
+
+.
+ And if 
+\begin_inset Formula $x\Rightarrow y$
+\end_inset
+
+ exists for every 
+\begin_inset Formula $x,y\in L$
+\end_inset
+
+, then 
+\begin_inset Formula $L$
+\end_inset
+
+ is called a 
+\begin_inset Formula $\textbf{Heyting Algebra}$
+\end_inset
+
+.
+ We use the notation 
+\begin_inset Formula $(H,\leq)$
+\end_inset
+
+ to denote a Heyting Algebra.
+ We also define 
+\begin_inset Formula $\lnot:H\to H$
+\end_inset
+
+ by setting 
+\begin_inset Formula $\lnot x$
+\end_inset
+
+ equal to 
+\begin_inset Formula $x\Rightarrow0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{ex}
+\end_layout
+
+\end_inset
+
+ Check that this is the same definition as we gave in the other set of notes,
+ i.e.
+ a Heyting Algebra is a poset that has finite limits, finite colimits, and
+ is cartesian closed.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{ex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\end_layout
+
+\end_inset
+
+ A Heyting Algebra is distributive.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ A 
+\begin_inset Formula $\textbf{locale}$
+\end_inset
+
+ is a complete lattice in which the infinite distributivity law 
+\begin_inset Formula 
+\[
+a\land\left(\bigvee_{i\in I}b_{i}\right)=\bigvee_{i\in I}\left(a\land b_{i}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+holds for all elements 
+\begin_inset Formula $a,b_{i}$
+\end_inset
+
+ and every set 
+\begin_inset Formula $I$
+\end_inset
+
+ of indices.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

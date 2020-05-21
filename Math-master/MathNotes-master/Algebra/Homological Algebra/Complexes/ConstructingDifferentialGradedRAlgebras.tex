@@ -1,0 +1,397 @@
+%% LyX 2.2.3 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[12pt,english]{article}
+\usepackage[osf]{mathpazo}
+\renewcommand{\sfdefault}{lmss}
+\renewcommand{\ttdefault}{lmtt}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage[paperwidth=30cm,paperheight=35cm]{geometry}
+\geometry{verbose,tmargin=3cm,bmargin=3cm}
+\setlength{\parindent}{0bp}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{tikz}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\usetikzlibrary{shapes.geometric}
+\usepackage{tikz-cd}
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem*{cor}{Corollary}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{ex}{Exercise} 
+\newtheorem{example}{Example}[section]
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem{case}{Case}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{tikz-cd}
+\usetikzlibrary{calc,arrows,decorations.pathreplacing}
+\tikzset{mydot/.style={circle,fill,inner sep=1.5pt},
+commutative diagrams/.cd,
+  arrow style=tikz,
+  diagrams={>=latex},
+}
+
+\usepackage{babel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+\usepackage{pgfplots}
+\usetikzlibrary{decorations.markings}
+\pgfplotsset{compat=1.9}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+
+\title{Construction of the Differential Graded $R$-algebras}
+
+\maketitle
+~~~Throughout this article, let $R$ be a ring of characteristic
+$2$ and let $a_{1},\dots,a_{n}\in R\backslash\{0\}$. We let $S$
+to denote the \textbf{polynomial ring over} $R$. That is,
+
+\[
+S:=R[x_{1},\dots,x_{n}].
+\]
+Our aim in this article is to generalize our differential graded algebra
+constructions by replacing the base field $K$ with the ring $R$. 
+
+\section*{Constructing the Differential Graded $R$-algebra $\mathbf{A}_{\bullet}(S)$}
+
+\subsection*{Defining the Differential}
+
+~~~The polynomial ring $S$ over $R$ is a graded $R$-algebra,
+where the homogeneous component $S_{i}$ is the free $R$-module generated
+by the monomials of degree $i$. We want to construct a map $d$ from
+$S$ to $S$ such that $d$ gives $S$ the structure of a differential
+graded $R$-algebra. We do this in the following way: First we define
+$d$ on $R$ as $d(r)=0$ for all $r$ in $R$. Now, we define $d$
+on the monomials in $S$ by induction on the degree of the monomial.
+\begin{itemize}
+\item \textbf{Base Case: }We define $d(x_{\lambda}):=a_{\lambda}$ for all
+$1\leq\lambda\leq n$. 
+\item \textbf{Induction}: Assume that $d$ is defined on all monomials of
+degree $i\geq1$. Let $m$ be a monomial of degree $i+1$. Then we
+can decompose $m$ as $m=x_{\lambda}m_{\lambda}$ for some $1\leq\lambda\leq n$
+where $m_{\lambda}$ is a monomial of degree $i$. Using the decomposition
+together with the induction step, we define
+\begin{align*}
+d(m) & :=d(x_{\lambda}m_{\lambda})\\
+ & :=d(x_{\lambda})m_{\lambda}+x_{\lambda}d(m_{\lambda})\\
+ & =a_{\lambda}m_{\lambda}+x_{\lambda}d(m_{\lambda}).
+\end{align*}
+\end{itemize}
+Observe that the induction step does not depend on the decomposition.
+We can prove this again by induction on the degree of the monomial: 
+\begin{itemize}
+\item \textbf{Base Case: }If $m$ is a monomial of degree $2$, then we
+can decompose $m$ in two wasy: as $m=x_{\lambda}x_{\mu}$ or $m=x_{\mu}x_{\lambda}$.
+It is clear that $d$ is well-defined in this case. 
+\item \textbf{Induction}: Assume that $d$ is well-defined on all monomials
+of degree $i\geq1$. Let $m$ be a monomial of degree $i+1$ and let
+$m=x_{\lambda}m_{\lambda}$ and $m=x_{\mu}m_{\mu}$ be two decompositions
+of $m$. Then using the decomposition $m=x_{\lambda}m_{\lambda}$,
+we have 
+\begin{align*}
+d(m) & =a_{\lambda}m_{\lambda}+x_{\lambda}d(m_{\lambda})\\
+ & =a_{\lambda}m_{\lambda}+x_{\lambda}d(x_{\mu}m_{\mu\lambda})\\
+ & =a_{\lambda}m_{\lambda}+x_{\lambda}a_{\mu}m_{\mu\lambda}+x_{\lambda}x_{\mu}d(m_{\mu\lambda})\\
+ & =a_{\lambda}m_{\lambda}+x_{\lambda}a_{\mu}x_{\mu}^{-1}x_{\lambda}^{-1}m+x_{\lambda}x_{\mu}d(m_{\mu\lambda})\\
+ & =a_{\lambda}m_{\lambda}+a_{\mu}x_{\mu}^{-1}m+x_{\lambda}x_{\mu}d(m_{\mu\lambda})\\
+ & =a_{\lambda}m_{\lambda}+a_{\mu}m_{\mu}+x_{\lambda}x_{\mu}d(m_{\mu\lambda})
+\end{align*}
+where we used the fact that $m_{\mu\lambda}=x_{\mu}^{-1}x_{\lambda}^{-1}m$
+and $m_{\mu}=x_{\mu}^{-1}m$. On other hand, using the decomposition
+$m=x_{\mu}m_{\mu}$, a similar computation shows us that 
+\[
+d(m)=a_{\mu}m_{\mu}=a_{\lambda}m_{\lambda}+x_{\mu}x_{\lambda}d(m_{\lambda\mu}).
+\]
+Therefore, both decompositions lead to the same result. 
+\end{itemize}
+~~~Now that $d$ is defined on all monomials, we define $d$ on
+all homogeneous polynomials $f$ of degree $i$, by extending $d$
+$R$-linearly. Thus, if we express $f$ in terms of the monomial basis,
+say $f=c_{1}m_{1}+\cdots+c_{k}m_{k}$, then 
+\[
+d(f)=c_{1}d(m_{1})+\cdots+c_{k}d(m_{k}).
+\]
+
+\subsection*{Showing that the Differential Satisfies Leibniz Law}
+
+~~~Given the way $d$ is defined, we see that $d:S\to S$ is a
+graded $R$-linear map of degree $-1$. We now want to show that $d$
+satisfies Leibniz law. To do this, we first show that it satisfies
+Leibniz law for all pairs of monomials in the next proposition. 
+
+\begin{prop}\label{prop} Let $m_{1}$ and $m_{2}$ be monomials in
+$S$. Then
+\[
+d(m_{1}m_{2})=d(m_{1})m_{2}+m_{1}d(m_{2}).
+\]
+\end{prop}
+
+\begin{proof} We prove this by induction on the degree of $m_{1}m_{2}$.
+For the base case, we have 
+\[
+d(x_{\lambda}x_{\mu})=d(x_{\lambda})x_{\mu}+x_{\lambda}d(x_{\mu})
+\]
+by definition. Now assume that the proposition is true for all monomials
+$m_{1}$ and $m_{2}$ such that $\text{deg}(m_{1}m_{2})\leq i$. Let
+$m_{1}$ and $m_{2}$ be two monomials such that $\text{deg}(m_{1}m_{2})=i+1$.
+If $\text{deg}(m_{1})=0$ or $\text{deg}(m_{2})=0$, then the Leibniz
+law is obviously satisfied. Therefore, we may assume that $\text{deg}(m_{1})>0$
+and $\text{deg}(m_{2})>0$. Let $m_{1}=x_{\lambda}m$ be a decomposition
+of $m_{1}$. Then $\text{deg}(mm_{2})\leq i$ and $d(x_{\lambda}m)\leq i$,
+and so by induction, we have 
+\begin{align*}
+d(m_{1}m_{2}) & =d(x_{\lambda}mm_{2})\\
+ & =d(x_{\lambda})mm_{2}+x_{\lambda}d(mm_{2})\\
+ & =a_{\lambda}mm_{2}+x_{\lambda}\left(d(m)m_{2}+md(m_{2})\right)\\
+ & =a_{\lambda}mm_{2}+x_{\lambda}d(m)m_{2}+x_{\lambda}md(m_{2})\\
+ & =(d(x_{\lambda})m+x_{\lambda}d(m))m_{2}+x_{\lambda}md(m_{2})\\
+ & =d(x_{\lambda}m)m_{2}+x_{\lambda}md(m_{2})\\
+ & =d(m_{1})m_{2}+m_{1}d(m_{2}),
+\end{align*}
+\end{proof}
+
+~~~Now we show that Leibniz law is satisfied for all pairs of homogeneous
+polynomials.
+
+\begin{prop}\label{prop} Let $f_{1}$ and $f_{2}$ be homogeneous
+polynomials in $S$. Then 
+\[
+d(f_{1}f_{2})=d(f_{1})f_{2}+f_{2}d(f_{2})
+\]
+\end{prop}
+
+\begin{proof} Write $f_{1}$ and $f_{2}$ in terms of the monomial
+basis of $S$:
+\[
+f_{1}=\sum_{\lambda=1}^{r}b_{\lambda}m_{1\lambda}\qquad\text{and}\qquad f_{2}=\sum_{\mu=1}^{s}c_{\mu}m_{2\mu}
+\]
+ where $b_{\lambda},c_{\mu}\in R$ for all $1\leq\lambda\leq r$ and
+$1\leq\mu\leq s$. Then
+
+\begin{align*}
+d\left(f_{1}f_{2}\right) & =d\left(\left(\sum_{\lambda=1}^{r}b_{\lambda}m_{1\lambda}\right)\left(\sum_{\mu=1}^{s}c_{\mu}m_{2\mu}\right)\right)\\
+ & =d\left(\sum_{\lambda,\mu}b_{\lambda}c_{\mu}m_{1\lambda}m_{2\mu}\right)\\
+ & =\sum_{\lambda,\mu}b_{\lambda}c_{\mu}d\left(m_{1\lambda}m_{2\mu}\right)\\
+ & =\sum_{\lambda,\mu}b_{\lambda}c_{\mu}\left(d(m_{1\lambda})m_{2\mu}+m_{1\lambda}d(m_{2\mu})\right)\\
+ & =\sum_{\lambda,\mu}b_{\lambda}c_{\mu}d(m_{1\lambda})m_{2\mu}+\sum_{\lambda,\mu}b_{\lambda}c_{\mu}m_{1\lambda}d(m_{2\mu})\\
+ & =\left(\sum_{\lambda=1}^{r}b_{\lambda}d(m_{1\lambda})\right)\left(\sum_{\mu=1}^{s}c_{\mu}m_{2\mu}\right)+\left(\sum_{\lambda=1}^{r}b_{\lambda}m_{1\lambda}\right)\left(\sum_{\mu=1}^{s}c_{\mu}d(m_{2\mu})\right)\\
+ & =d\left(\sum_{\lambda=1}^{r}b_{\lambda}m_{1\lambda}\right)\left(\sum_{\mu=1}^{s}c_{\mu}m_{2\mu}\right)+\left(\sum_{\lambda=1}^{r}b_{\lambda}m_{1\lambda}\right)d\left(\sum_{\mu=1}^{s}c_{\mu}m_{2\mu}\right)\\
+ & =d(f_{1})f_{2}+f_{1}d(f_{2}).
+\end{align*}
+\end{proof}
+
+\subsection*{Showing that the Differential Satisfies $d^{2}=0$}
+
+~~~With Leinbiz law established, it is easy to show that $d^{2}=0$.
+Indeed, to show that $d^{2}=0$, it is enough to show that $d^{2}(m)=0$
+for all monomials in $S$. We prove this in the next proposition. 
+
+\begin{prop}\label{prop} For all monomials $m$ in $S$, we have
+$d^{2}(m)=0$. \end{prop}
+
+\begin{proof} We prove this by induction on the degree of $m$. For
+the base case, we have 
+\[
+d^{2}(x_{\lambda})=d(a_{\lambda})=0.
+\]
+Now assume that the proposition is true for all monomials of degree
+$i>1$. Let $m$ be a monomial of degree $i+1$. Then we can write
+$m=m_{1}m_{2}$ where $m_{1}$ and $m_{2}$ are monomials of degree
+$\leq i$. Thus, $d^{2}(m_{1})=d^{2}(m_{2})=0$ by induction. Therefore
+\begin{align*}
+d^{2}(m) & =d^{2}(m_{1}m_{2})\\
+ & =d(d(m_{1})m_{2}+m_{1}d(m_{2}))\\
+ & =d(d(m_{1})m_{2})+d(m_{1}d(m_{2}))\\
+ & =d^{2}(m_{1})m_{2}+d(m_{1})d(m_{2})+d(m_{1})d(m_{2})+m_{1}d^{2}(m_{2})\\
+ & =d(m_{1})d(m_{2})+d(m_{1})d(m_{2})\\
+ & =0.
+\end{align*}
+\end{proof}
+
+\subsubsection*{The Differential $d$ Gives $S$ the Structure of a Differential
+Graded $R$-Algebra}
+
+~~~We have shown that the differential $d$ gives $S$ the structure
+of a differential graded $R$-algebra. We will formally denote this
+differential graded $R$-algebra as $\mathbf{A}_{\bullet}(S)$. To
+ease notation however, we will simply use $S$ to denote this differential
+graded $R$-algebra whenever the context clear. 
+
+\section*{Constructing the Differential Graded $R$-algebra $\mathbf{A}_{\bullet}(S/I)$}
+
+~~~Let $I$ be a proper ideal in $S$. If $I$ is a homogeneous
+ideal in $S$, then $S/I$ is a graded $R$-algebra. If $I$ satisfies
+an additional condition, we can give $S/I$ the structure of a differential
+graded $R$-algebra where the differential $\overline{d}$ on $S/I$
+is induced by the differential $d$ on $S$. We state this additional
+requirement in the next definition.
+
+\begin{defn}\label{defn} Let $I$ be a homogeneous ideal in $S$.
+We say $I$ is $d$-\textbf{stable }if $d$ maps $I$ into $I$. \end{defn}
+
+\begin{prop}\label{prop} Let $I$ be a $d$-stable homogeneous ideal
+in $S$. Then the differential $d:S\to S$ induces a graded linear
+map of degree $-1$, denoted $\overline{d}:S/I\to S/I$, where 
+\[
+\overline{d}(\overline{f})=\overline{d(f)}\text{ for all }f\in S.
+\]
+
+Moreover, the $\overline{d}$ gives $S/I$ the structure of a differential
+graded $R$-algebra. \end{prop}
+
+\begin{proof} Indeed, the map $\overline{d}$ is well-defined since
+$d$ is $I$-stable. To see why, let $\overline{f+g}=\overline{f}$
+where $g\in I$. Then 
+\begin{align*}
+\overline{d}\left(\overline{f+g}\right) & =\overline{d(f+g)}\\
+ & =\overline{d(f)+d(g)}\\
+ & =\overline{d(f)}\\
+ & =\overline{d}(\overline{f}).
+\end{align*}
+
+where $\overline{d(f)+d(g)}=\overline{d(f)}$ since $d(g)\in I$. 
+
+~~~It is clear that $\overline{d}:S/I\to S/I$ is a graded linear
+map of degree $-1$. Also, $\overline{d}$ satisfies Leibniz law because
+it inherits this property from $d$: for all $\overline{f}_{1}$ and
+$\overline{f}_{2}$ in $S/I$, we have 
+\begin{align*}
+\overline{d}(\overline{f_{1}f_{2}}) & =\overline{d(f_{1}f_{2})}\\
+ & =\overline{d(f_{1})f_{2}+f_{1}d(f_{2})}\\
+ & =\overline{d(f_{1})f_{2}}+\overline{f_{1}d(f_{2})}\\
+ & =\overline{d}(\overline{f_{1}})\overline{f_{2}}+\overline{f_{1}}\overline{d}(\overline{f_{2}}).
+\end{align*}
+
+Similarly, we have $\overline{d}^{2}=0$ since it inherits this property
+from $d$. \end{proof}
+
+\subsection*{Criterion for $I$ Being $d$-Stable}
+
+~~~The next proposition gives us a criterion for $I$ being $d$-stable. 
+
+\begin{prop}\label{prop} Let $I$ be a homogeneous ideal in $S$
+such that $I$ is generated by the set $\{f_{1},\dots,f_{r}\}$. If
+$d(f_{1})=\cdots=d(f_{r})=0$, then $I$ is $d$-stable. \end{prop}
+
+\begin{proof} Let $f\in I$. Since $\{f_{1},\dots,f_{r}\}$ generates
+$I$, we can write $f=q_{1}f_{1}+\cdots+q_{r}f_{r}$ for some $q_{1},\dots,q_{r}\in S$.
+Thus
+\[
+d(f)=d(q_{1}f_{1}+\cdots+q_{r}f_{r})=d(q_{1})f_{1}+\cdots+d(q_{r})f_{r}\in I.
+\]
+\end{proof} 
+
+\subsubsection*{The Differential $\overline{d}$ Gives $S/I$ the Structure of a
+Differential Graded $R$-Algebra}
+
+~~~By combining our propositions together, we arrive at the following
+theorem. 
+
+\begin{theorem}\label{theoremdifferentialgradedalgebraSmodI} Let
+$I$ be a homogeneous ideal in $S$ such that $I$ is generated by
+the set $\{f_{1},\dots,f_{r}\}$ and $d(f_{1})=\cdots=d(f_{r})=0$.
+Then $\overline{d}$ gives $S/I$ the structure of a differential
+graded $R$-algebra. \end{theorem}
+
+~~~We will formally denote this differential graded $R$-algebra
+as $\mathbf{A}_{\bullet}(S/I)$. To ease notation however, we will
+simply use $S/I$ to denote this differential graded $R$-algebra
+whenever the context clear. If we write, ``let $S/I$ be a differential
+graded $R$-algebra'', then it it understood that $I$ is an homogeneous
+ideal in $S$ which satisfies the conditions in Theorem~(\ref{theoremdifferentialgradedalgebraSmodI}).
+We will write $H_{i}(S/I)$ to denote the $i$th homology of $S/I$. 
+
+\section*{Calculating The Homologies $H_{i}(S)$ and $H_{i}(S/I)$}
+
+\subsubsection*{Acyclicity of $\mathbf{A}_{\bullet}(S)$ and $\mathbf{A}_{\bullet}(S/I)$ }
+
+\begin{prop}\label{propSisfree} Let $S/I$ be a differential graded
+$R$-algebra. Suppose that there are \textbf{$b_{1},b_{2},\dots,b_{n}\in R$
+}such 
+\[
+b_{1}a_{1}+b_{2}a_{2}+\cdots+b_{n}a_{n}=1.
+\]
+Then $H_{i}(S/I)=0$ for all $i\geq0$. \end{prop}
+
+\begin{proof} First note that $x_{\lambda}\notin I$ for all $1\leq\lambda\leq n$,
+since $d(x_{\lambda})=a_{\lambda}\neq0$ and $x_{\lambda}$ must be
+an element in any generating set of $I$. Let $\overline{f}$ be a
+homogeneous polynomial of degree $i$ such that $\overline{d}(\overline{f})=0$.
+Then
+\begin{align*}
+\overline{d}((b_{1}\overline{x}_{1}+b_{2}\overline{x}_{2}+\cdots+b_{n}\overline{x}_{n})\overline{f}) & =\overline{d}(b_{1}\overline{x}_{1}+b_{2}\overline{x}_{2}+\cdots+b_{n}\overline{x}_{n})\overline{f}+(b_{1}\overline{x}_{\lambda}+b_{2}\overline{x}_{2}+\cdots+b_{n}\overline{x}_{n})d(\overline{f})\\
+ & =\overline{d}(b_{1}\overline{x}_{1}+b_{2}\overline{x}_{2}+\cdots+b_{n}\overline{x}_{n})\overline{f}\\
+ & =(b_{1}\overline{d}(\overline{x}_{\lambda})+b_{2}\overline{d}(\overline{x}_{2})+\cdots+b_{n}\overline{d}(\overline{x}_{n}))\overline{f}\\
+ & =(b_{1}a_{1}+b_{2}a_{2}+\cdots+b_{n}a_{n})\overline{f}\\
+ & =\overline{f}.
+\end{align*}
+Therefore, $\text{Ker}(\overline{d})=\text{Im}(\overline{d})$, which
+proves the claim. \end{proof}
+
+\begin{rem}\label{remSIisfreeforspecialG} By setting $I=0$, we also
+find that $H_{i}(S)=0$ for all $i\geq0$. \end{rem}
+
+\section*{Examples}
+
+\begin{example}\label{example} Consider the ring $R=\mathbb{F}_{2}[s,t]/\langle st\rangle$
+with $a_{1}=s$ and $a_{2}=t$. So $S=R[x,y]$ has a differential
+graded $R$-algebra structure with the differential $d$ where $d(x)=s$
+and $d(y)=t$. Using graded lexicographical ordering on the monomials,
+we can explicitely write $S$ as a chain complex over $R$ using matrices 
+
+\begin{center}\begin{tikzcd}[ampersand replacement=\&] \cdots  \arrow[r] \& R^4 \arrow{rrrr}{\begin{pmatrix} s & t & 0 & 0 \\ 0 & 0 & 0 & 0 \\ 0 & 0 & s & t \end{pmatrix}} \& \& \& \& R^3 \arrow{rrr}{\begin{pmatrix} 0 & t & 0 \\ 0 & s & 0 \end{pmatrix}}  \& \& \& R^2 \arrow{rr}{\begin{pmatrix} s & t \end{pmatrix}}  \& \& R \arrow[r] \& 0  \end{tikzcd}\end{center}
+
+~~~Now let $I$ be the homogeneous ideal in $S$ generated by $\{x^{2},y^{2}\}$.
+Then $d(x^{2})=d(y^{2})=0$. Therefore the differential $d$ induces
+a differential graded $R$-algebra stucture on $S/I$. In fact, $S/I$
+is none other than the usual Koszul complex: 
+
+\begin{center}\begin{tikzcd}[ampersand replacement=\&] 0 \arrow[r] \& R \arrow{rr}{\begin{pmatrix} t \\ s \end{pmatrix}}   \& \& R^2 \arrow{rr}{\begin{pmatrix} s & t \end{pmatrix}}  \& \& R \arrow[r] \& 0  \end{tikzcd}\end{center}
+
+~~~Now let $J$ be the homogeneous ideal in $S$ generated by $\{sx,ty\}$.
+Then $d(sx)=d(ty)=0$. Therefore the differential $d$ induces a differential
+graded $R$-algebra stucture on $S/J$. Note that 
+\[
+S/J\cong\mathbb{F}_{2}[s,t,x,y]/\langle st,sx,ty\rangle.
+\]
+
+So we can view the map $R\to S/J$ as a ring extension: 
+\[
+\mathbb{F}_{2}[s,t]/\langle st\rangle\hookrightarrow\mathbb{F}_{2}[s,t,x,y]/\langle st,sx,ty\rangle
+\]
+Writing down $S/J$ as a chain complex over $R$ will be a little
+more involved. Since $x$ kills $s$ and $y$ kills $t$, we will
+have To see why, let's write down the first few homogeneous terms
+of $S/J$ in terms of the field $\mathbb{F}_{2}$: 
+\begin{align*}
+(S/J)_{0} & \cong R\\
+(S/J)_{1} & \cong(R/s)\oplus(R/t)\\
+(S/J)_{2} & \cong(R/s)\oplus(R/\langle s,t\rangle)\oplus(R/t)\\
+(S/J)_{3} & \cong(R/s)\oplus(R/\langle s,t\rangle)^{2}\oplus(R/t)\\
+ & \vdots
+\end{align*}
+
+The reason $(S/J)_{1}\cong(R/s)\oplus(R/t)$ for example, is because
+$x$ kills $s$ and $y$ kills $t$. \end{example}
+\end{document}

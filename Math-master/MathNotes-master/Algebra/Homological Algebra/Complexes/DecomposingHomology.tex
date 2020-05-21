@@ -1,0 +1,323 @@
+%% LyX 2.2.3 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[12pt,english]{article}
+\usepackage[osf]{mathpazo}
+\renewcommand{\sfdefault}{lmss}
+\renewcommand{\ttdefault}{lmtt}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage[paperwidth=30cm,paperheight=35cm]{geometry}
+\geometry{verbose,tmargin=3cm,bmargin=3cm}
+\setlength{\parindent}{0bp}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{tikz}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\usetikzlibrary{shapes.geometric}
+\usepackage{tikz-cd}
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem*{cor}{Corollary}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{ex}{Exercise} 
+\newtheorem{example}{Example}[section]
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem{case}{Case}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{tikz-cd}
+\usetikzlibrary{calc,arrows,decorations.pathreplacing}
+\tikzset{mydot/.style={circle,fill,inner sep=1.5pt},
+commutative diagrams/.cd,
+  arrow style=tikz,
+  diagrams={>=latex},
+}
+
+\usepackage{babel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+\usepackage{pgfplots}
+\usetikzlibrary{decorations.markings}
+\pgfplotsset{compat=1.9}
+
+\makeatother
+
+\usepackage{babel}
+\begin{document}
+
+\subsection*{Decomposing $H_{i}(S_{I})$ }
+
+~~~Let $I$ be a homogeneous ideal and let $g$ be a homogeneous
+polynomial of degree $j$. Let $G$ be the reduced Gröbner basis for
+$I$ and $G'$ be the reduced Gröbner basis for $\langle I,g\rangle$
+with respect to our fixed monomial ordering. In Commutative Algebra,
+we learn about the following short exact sequence of graded $S$-modules\begin{center}\begin{tikzcd}[row sep=5] 0 \arrow[r] & (S/(I:g))(-j) \arrow[r, "g"] & S/I \arrow[r] & S/\langle I \text{,} g \rangle \arrow[r] & 0 
+
+\\
+
+& \overline{f} \arrow[r,mapsto,shorten >=0.5cm,shorten <=0.5cm] & \overline{fg}
+\end{tikzcd}\end{center}
+
+We want to use this short exact sequence to our advantage. First,
+using the isomorphisms $S_{I:g}\cong S/(I:g)$, $S_{I}\cong S/I$,
+and $S_{\langle I,g\rangle}\cong S/\langle I,g\rangle$, we get, for
+each $i$, a short exact sequence of $K$-vector spaces
+
+\begin{center}\begin{tikzcd}[row sep=5] 0 \arrow[r] & (S_{I:g} )_{j-i} \arrow[r, "\cdot g"] & (S_I )_i \arrow[r, "-^{G'} "] & ( S _{\langle I \text{,} g \rangle })_i \arrow[r] & 0 
+
+\\
+
+& f \arrow[r,mapsto,shorten >=0.5cm,shorten <=0.5cm] & (fg)^G
+
+\\
+
+&& f \arrow[r,mapsto,shorten >=0.5cm,shorten <=0.5cm] & f^{G' }
+\end{tikzcd}\end{center}
+
+
+
+or in other words, a short exact sequence of graded $K$-vector spaces 
+
+\begin{center}\begin{tikzcd}[row sep=5] 0 \arrow[r] & (S_{I:g})(-j)  \arrow[r, "\cdot g"] & S_I  \arrow[r,"-^{G'} "] & S _{\langle I \text{,} g \rangle } \arrow[r] & 0
+
+\end{tikzcd}\end{center}
+
+We want to know under what conditions this becomes a short exact sequence
+of chain complexes over $K$. That is, under what conditions when
+does the following diagram commute?
+
+\begin{center}\begin{tikzcd} & \vdots \arrow[d] & \vdots \arrow[d] & \vdots \arrow[d]
+
+\\
+
+0 \arrow[r] & (S_{I:g} )_{j-i} \arrow[d,"d",swap] \arrow[r, "\cdot g"] & (S_I )_i \arrow[d,"d",swap] \arrow[r, "-^{G'} "] & ( S _{\langle I \text{,} g \rangle })_i \arrow[r] \arrow[d,"d"] & 0 
+
+\\
+
+0 \arrow[r] & (S_{I:g} )_{j-i-1} \arrow[d] \arrow[r, "\cdot g"] & (S_I )_{i-1} \arrow[d] \arrow[r, "-^{G'} "] & ( S _{\langle I \text{,} g \rangle })_{i-1} \arrow[d] \arrow[r] & 0 
+
+\\
+
+& \vdots  & \vdots  & \vdots
+
+\end{tikzcd}\end{center}
+
+
+
+After some thought, we find that the conditions which need to be satisfied
+are the following:
+\begin{equation}
+(gd(m))^{G}=d((gm)^{G})\text{ for all monomials }m\text{ which are not in }\text{LT}(I:g)\label{eq:condtion1}
+\end{equation}
+\begin{equation}
+d(m)^{G'}=d(m^{G'})\text{ for all monomials }m\text{ which are not in }\text{LT}(I)\label{eq:condition2}
+\end{equation}
+
+For the moment, let's assume that these conditions are satisfied so
+that we have a short exact sequence of chain complexes. Then by the
+usual argument, the short exact sequence of chain complexes gives
+rise to a long exact sequence in homology:
+
+\begin{center}\begin{tikzcd}[row sep=40]  && \cdots \arrow[r] \arrow[d, phantom, ""{coordinate, name=Z'}] & H_{i+1} (S _{\langle I \text{,} g \rangle }) \arrow[dll, " \lambda ", swap, rounded corners, to path={ -- ([xshift=2ex]\tikztostart.east) |- (Z') [near end]\tikztonodes -| ([xshift=-2ex]\tikztotarget.west) -- (\tikztotarget)}] 
+
+
+
+\\  & H_{i-j} (S_{I:g} ) \arrow[r, "\cdot g"] & H_{i} (S_I ) \arrow[r, "-^{G'} "] \arrow[d, phantom, ""{coordinate, name=Z}] & H_{i} (S _{\langle I \text{,} g \rangle }) \arrow[dll, " \lambda ", swap, rounded corners, to path={ -- ([xshift=2ex]\tikztostart.east) |- (Z) [near end]\tikztonodes -| ([xshift=-2ex]\tikztotarget.west) -- (\tikztotarget)}] 
+
+\\ & H_{i-j-1} (S_{I:g} ) \arrow[r, "\cdot g "] & H_{i-1} (S_I ) \arrow[r, "-^{G'} "] & \cdots 
+
+\end{tikzcd}\end{center}
+
+It's easy to see that the connecting maps $\lambda$ all induce the
+zero map. So in fact, we get for each $i$, the short exact sequence
+of $K$-vector spaces:
+
+\begin{center}\begin{tikzcd}[row sep=40] 0 \arrow[r]  & H_{i-j} (S_{I:g} ) \arrow[r, "\cdot g"] & H_{i} (S_I ) \arrow[r,"-^{G'} "] & H_{i} (S _{\langle I \text{,} g \rangle }) \arrow[r] & 0,  
+
+\end{tikzcd}\end{center}
+
+and since the inclusion map $S_{\langle I,g\rangle}\hookrightarrow S_{I}$
+splits the map $-^{G'}$, we obtain the following isomorphism
+\begin{equation}
+H_{i-j}(S_{I:g})\oplus H_{i}(S_{\langle I,g\rangle})\cong H_{i}(S_{I})\label{eq:homologydirectsum}
+\end{equation}
+
+where we map the representative $(f_{1},f_{2})$ in $H_{i-j}(S_{I:g})\oplus H_{i}(S_{\langle I,g\rangle})$
+to the representative $gf_{1}+f_{2}$ in $H_{i}(S_{I})$. We summarize
+this discussion in the form of a theorem. 
+
+\begin{theorem}\label{theoremdecomposition} Let $I$ be a homogeneous
+ideal and let $g$ be a homogeneous polynomial of degree $j$. Let
+$G$ be the reduced Gröbner basis for $I$ and $G'$ be the reduced
+Gröbner basis for $\langle I,g\rangle$ with respect to our fixed
+monomial ordering. Suppose that the following conditions are satisfied:
+\begin{enumerate}
+\item $(gd(m))^{G}=d((gm)^{G})\text{ for all monomials }m\text{ which are not in }\text{LT}(I:g)$.
+\item $d(m)^{G'}=d(m^{G'})\text{ for all monomials }m\text{ which are not in }\text{LT}(I)$. 
+\end{enumerate}
+Then we have an isomorphism 
+\[
+H_{i-j}(S_{I:g})\oplus H_{i}(S_{\langle I,g\rangle})\cong H_{i}(S_{I})
+\]
+given by mapping the representative $(f_{1},f_{2})$ in $H_{i-j}(S_{I:g})\oplus H_{i}(S_{\langle I,g\rangle})$
+to the representative $gf_{1}+f_{2}$ in $H_{i}(S_{I})$. \end{theorem}
+
+\subsubsection*{Decomposition Example}
+
+~~~We will now discuss a special case of when the conditions in
+Theorem~(\ref{theoremdecomposition}) are satisfied. Consider the
+case where $I$ is a monomial ideal and $g$ is a monomial of degree
+$j$ which is not in $I$. Then condition (\ref{eq:condtion1}) is
+satisfied since if $m$ is not in $I:g$, then $gm$ is not in $I$,
+and so $(gm)^{G}=gm$ which implies $(gd(m))^{G}=gd(m)$. 
+
+~~~For condition (\ref{eq:condition2}) first assume that $m$
+is not in $\langle I,g\rangle$. Then then $m^{G'}=m$, which implies
+$d(m)^{G'}=d(m)=d(m^{G'})$. Thus condition (\ref{eq:condition2})
+is satisfied in this case. Now assume that $m=g$. Then $m^{G'}=0$,
+which implies $d(m^{G'})=0$. Thus, we must have $d(g)=0$ in order
+for condition (\ref{eq:condition2}) to be satisfied in this case.
+So assume $d(g)=0$ and consider the final case where $m=m_{1}g$.
+Since $d(g)=0$, we obtain $d(m)^{G'}=(d(m_{1})g)^{G'}=0$, and thus
+(\ref{eq:condition2}) is satisfied in this case as well. 
+
+~~~In the next example, we show how we can apply Theorem~(\ref{theoremdecomposition})
+recursively. In what follows, we frequently use the notation $I,g$
+to mean $\langle I,g\rangle$ and $I:g$ to mean $I:\langle g\rangle$.
+For example, $I,g_{1}:g_{2}=\langle I,g_{1}\rangle:\langle g_{2}\rangle$,
+and $I:g_{1},g_{2}=\langle(I:g_{1}),\langle g_{2}\rangle\rangle$,
+and so on. We also note that $I:g_{1}:g_{2}=I:g_{1}g_{2}$. 
+
+\begin{example}\label{examplerecursivehomology} Consider $S=K[x,y,z]$
+and $I=\langle x^{3}y,yz^{3}\rangle$. Then $d(x^{2})=d(z^{2})=0$,
+and so 
+\begin{align*}
+H_{i}(S_{I}) & =x^{2}H_{i-2}(S_{I:x^{2}})\oplus H_{i}(S_{I,x^{2}})\\
+ & =x^{2}(z^{2}H_{i-4}(S_{I:x^{2}z^{2}})\oplus H_{i-2}(S_{I:x^{2},z^{2}}))\oplus z^{2}H_{i-2}(S_{I,x^{2}:z^{2}})\oplus H_{i}(S_{I,x^{2},z^{2}})\\
+ & =x^{2}z^{2}H_{i-4}(S_{I:x^{2}z^{2}})\oplus x^{2}H_{i-2}(S_{I:x^{2},z^{2}})\oplus z^{2}H_{i-2}(S_{I,x^{2}:z^{2}})\oplus H_{i}(S_{I,x^{2},z^{2}})
+\end{align*}
+
+We calculate
+\begin{align*}
+I:x^{2}z^{2} & =\langle xy,yz\rangle\\
+I,x^{2}:z^{2} & =\langle x^{2},yz\rangle\\
+I:x^{2},z^{2} & =\langle xy,z^{2}\rangle\\
+I,x^{2},z^{2} & =\langle x^{2},z^{2}\rangle
+\end{align*}
+
+The only part which has nontrivial homology is $S_{I:x^{2}z^{2}}$.
+Thus, $H_{5}(S_{I})=[d(x^{3}yz^{2})]K$ and $H_{i}(S_{I})=0\text{ for }$all
+$i\neq5$. \end{example}
+
+\subsubsection*{More Differential Graded $K$-Algebras}
+
+~~~To simplify notation, we often write ``$S_{I}$ is a differential
+graded $K$-algebra'' when we really mean ``the chain complex $\mathbf{A}_{\bullet}(S_{I})$
+can be given the structure of a differential graded $K$-algebra with
+respect to multiplication maps in $S_{I}$'' . Let $I$ be a homogeneous
+ideal such that $S_{I}$ is a differential graded $K$-algebra and
+let $g$ be a homogeneous polynomial. If $d(g)=0$, then Theorem~(\ref{theoremdifferentialgradedalgebraI})
+implies that $S_{\langle I,g\rangle}$ is also a differential graded
+$K$-algebra. In this case, both condition (\ref{eq:condition1})
+and condition (\ref{eq:condition2}) are satisfied. Indeed, let $G$
+and $G'$ be the reduced Gröbner bases of $I$ and $\langle I,g\rangle$
+with respect to our fixed monomial ordering. Then since both $S_{I}$
+and $S_{\langle I,g\rangle}$ are differential graded $K$-algebras,
+we have $d(f)^{G}=d(f^{G})$ and $d(f)^{G'}=d(f^{G'})$ for any $f\in S$.
+Since the homology of $S_{I}$ and $S_{\langle I,g\rangle}$ are trivial,
+Theorem~(\ref{theoremdecomposition}) tells us that the homology of
+$S_{I:g}$ is trivial too. Given that the homology of $S_{I:g}$ is
+trivial, it's natural to wonder if $S_{I:g}$ is in fact a differential
+graded $K$-algebra. It turns out it is:
+
+\begin{theorem}\label{theorem} Let $I$ be a homogeneous ideal such
+that $S_{I}$ is a differential graded $K$-algebra and let $g$ be
+a homogeneous polynomial such that $d(g)=0$. Then both $S_{\langle I,g\rangle}$
+and $S_{I:g}$ are also differential graded $K$-algebras, and we
+have a short exact sequence of differential graded $K$-algebras:
+
+\begin{center}\begin{tikzcd}[row sep=5] 0 \arrow[r] & S/(I:g) \arrow[r, "g"] & S/I \arrow[r] & S/\langle I \text{,} g \rangle \arrow[r] & 0 
+
+\\
+
+& \overline{f} \arrow[r,mapsto,shorten >=0.5cm,shorten <=0.5cm] & \overline{fg}
+\end{tikzcd}\end{center}
+
+\end{theorem}
+
+\begin{proof} We've explained why $S_{\langle I,g\rangle}$ is a
+differential graded $K$-algebra. So the only thing we need to show
+is why $S_{I:g}$ is also a differential graded $K$-algebra. Let
+$G''$ be the reduced Gröbner basis of $I:g$ and let $g''$ be an
+element in $G''$. We need to show that $d(g'')=0$. Since $g''\in I:g$,
+we know that $gg''\in I$. So applying the division algorithm to $gg''$,
+we obtain 
+\begin{equation}
+gg''=q_{1}g_{1}+\cdots+q_{r}g_{r}\label{eq:ggprimeprime}
+\end{equation}
+where $G=\{g_{1},\dots,g_{r}\}$ is the reduced Gröbner basis for
+$I$. Applying $d$ to both sides of (\ref{eq:ggprimeprime}) and
+using the fact that $d(g)=0$ and $d(g_{\lambda})=0$ for all $g_{\lambda}\in G$,
+we obtain
+\[
+gd(g'')=d(q_{1})g_{1}+\cdots+d(q_{r})g_{r}.
+\]
+Therefore, $d(g'')\in I:g$. Therefore $d(g'')=d(g'')^{G''}=0$. \end{proof}
+
+\begin{example}\label{example} Consider $S=K[x,y,z]$, $g=x^{2}y+x^{2}z$,
+and $I=\langle f_{1},f_{2},f_{3}\rangle$ where
+\begin{align*}
+f_{1} & =xy+xz+yz\\
+f_{2} & =x^{4}y+x^{5}\\
+f_{3} & =y^{3}+y^{2}z
+\end{align*}
+Then $d(f_{1})=d(f_{2})=d(f_{3})=0$ implies that $S_{I}$ is a differential
+graded $K$-algebra. The reduced Gröbner basis for $I$ with respect
+to graded lexicographical ordering is $G=\{g_{1},g_{2},g_{3},g_{4},g_{5},g_{6}\}$,
+where 
+\begin{align*}
+g_{1} & =xy+xz+yz\\
+g_{2} & =y^{3}+y^{2}z\\
+g_{3} & =y^{2}z^{2}\\
+g_{4} & =xz^{4}+yz^{4}\\
+g_{5} & =x^{5}+x^{4}z+x^{3}z^{2}+x^{2}z^{3}\\
+g_{6} & =x^{4}z^{2}
+\end{align*}
+
+Since $d(g)=0$, we know that $S_{\langle I,g\rangle}$ and $S_{I:g}$
+are also differential graded $K$-algebras. The reduced Gröbner basis
+for $I:g$ with respect to graded lexicographical ordering is $G''=\{g_{1}'',g_{2}'',g_{3}''\}$,
+where 
+\begin{align*}
+g_{1}'' & =y+z\\
+g_{2}'' & =z^{2}\\
+g_{3}'' & =x^{3}+x^{2}z
+\end{align*}
+and the reduced Gröbner basis for $\langle I,g\rangle$ with respect
+to graded lexicographical ordering is $G'=\{g_{1}',g_{2}',g_{3}',g_{4}',g_{5}'\}$,
+where 
+\begin{align*}
+g_{1}' & =xy+xz+yz\\
+g_{2}' & =y^{3}+y^{2}z\\
+g_{3}' & =xz^{2}+yz^{2}\\
+g_{4}' & =y^{2}z^{2}\\
+g_{5}' & =x^{5}+x^{4}z+x^{3}z^{2}+x^{2}z^{3}
+\end{align*}
+
+\end{example}
+\end{document}

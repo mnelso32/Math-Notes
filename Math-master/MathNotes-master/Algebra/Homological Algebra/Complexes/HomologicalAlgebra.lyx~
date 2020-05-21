@@ -1,0 +1,4110 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{tikz}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\usetikzlibrary{shapes.geometric}
+\usepackage{tikz-cd}
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem*{cor}{Corollary}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{ex}{Exercise} 
+\newtheorem{example}{Example}[section]
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem{case}{Case}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{tikz-cd}
+\usetikzlibrary{calc,arrows,decorations.pathreplacing}
+\tikzset{mydot/.style={circle,fill,inner sep=1.5pt},
+commutative diagrams/.cd,
+  arrow style=tikz,
+  diagrams={>=latex},
+}
+
+\usepackage{babel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+\usepackage{pgfplots}
+\usetikzlibrary{decorations.markings}
+\pgfplotsset{compat=1.9}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding iso8859-15
+\fontencoding global
+\font_roman "palatino" "default"
+\font_sans "lmss" "default"
+\font_typewriter "lmtt" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf true
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing single
+\use_hyperref false
+\papersize custom
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\paperwidth 30cm
+\paperheight 35cm
+\topmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0bp
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Homological Algebra
+\end_layout
+
+\begin_layout Section
+Complexes
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ A sequence of 
+\begin_inset Formula $A$
+\end_inset
+
+-modules and homomorphisms 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} 
+\backslash
+cdots 
+\backslash
+arrow[r] & M_{k+1} 
+\backslash
+arrow[r,"
+\backslash
+varphi _{k+1}"] & M_k 
+\backslash
+arrow[r," 
+\backslash
+varphi _k "] & M_{k-1} 
+\backslash
+arrow[r] & 
+\backslash
+cdots 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+is called a 
+\series bold
+complex 
+\series default
+if 
+\begin_inset Formula $\mbox{Ker}(\varphi_{k})\supset\mbox{Im}(\varphi_{k+1})$
+\end_inset
+
+ for all 
+\begin_inset Formula $k$
+\end_inset
+
+.
+ It is called 
+\series bold
+exact 
+\series default
+at 
+\begin_inset Formula $M_{k}$
+\end_inset
+
+ if 
+\begin_inset Formula $\mbox{Ker}(\varphi_{k})=\mbox{Im}(\varphi_{k+1})$
+\end_inset
+
+.
+ It is called 
+\series bold
+exact 
+\series default
+if it is exact at all 
+\begin_inset Formula $M_{k}$
+\end_inset
+
+.
+ An exact sequence of the form 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} 0 
+\backslash
+arrow[r] & M' 
+\backslash
+arrow[r,"
+\backslash
+varphi "] & M 
+\backslash
+arrow[r," 
+\backslash
+psi "] & M'' 
+\backslash
+arrow[r] & 0 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+is called a 
+\series bold
+short exact sequence
+\series default
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $I$
+\end_inset
+
+ and 
+\begin_inset Formula $J$
+\end_inset
+
+ be ideals in 
+\begin_inset Formula $A$
+\end_inset
+
+ such that 
+\begin_inset Formula $I+J=A$
+\end_inset
+
+.
+ Then
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd}[row sep=0.4] 0 
+\backslash
+arrow[r] & I 
+\backslash
+cap J 
+\backslash
+arrow[r] & I 
+\backslash
+oplus J 
+\backslash
+arrow[r,"+"] & A 
+\backslash
+arrow[r] & 0  
+\backslash
+
+\backslash
+ & x 
+\backslash
+arrow[r,mapsto,shorten >=0.2cm,shorten <=0.2cm] & (x,-x) 
+\backslash
+
+\backslash
+ && (i,j) 
+\backslash
+arrow[r,mapsto,shorten >=0.2cm,shorten <=0.2cm] & i+j 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+is a short exact sequence.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ A short exact sequence 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzcd} 0 
+\backslash
+arrow[r] & M' 
+\backslash
+arrow[r,"
+\backslash
+varphi "] & M 
+\backslash
+arrow[r," 
+\backslash
+psi "] & M'' 
+\backslash
+arrow[r] & 0 
+\backslash
+end{tikzcd}
+\end_layout
+
+\end_inset
+
+ is called 
+\begin_inset Formula $\textbf{split}$
+\end_inset
+
+ when there is an 
+\begin_inset Formula $A$
+\end_inset
+
+-module isomorphism 
+\begin_inset Formula $\theta:M\to M'\oplus M''$
+\end_inset
+
+ such that the diagram
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} 0 
+\backslash
+arrow[r] & M' 
+\backslash
+arrow[r," 
+\backslash
+varphi "] 
+\backslash
+arrow[d,"id"] & M 
+\backslash
+arrow[r," 
+\backslash
+psi "] 
+\backslash
+arrow[d, " 
+\backslash
+theta "] & M'' 
+\backslash
+arrow[r]  
+\backslash
+arrow[d, "id"] & 0 
+\backslash
+
+\backslash
+ 0 
+\backslash
+arrow[r] & M' 
+\backslash
+arrow[r] & M' 
+\backslash
+oplus M''  
+\backslash
+arrow[r] & M'' 
+\backslash
+arrow[r] & 0 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+commutes, where the bottom maps to and from the direct sum are the standard
+ embedding and projection.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+We want to stress that being split is not just saying that there is an isomorphi
+sm 
+\begin_inset Formula $M\to M'\oplus M''$
+\end_inset
+
+ of 
+\begin_inset Formula $A$
+\end_inset
+
+-modules, but 
+\emph on
+how 
+\emph default
+the isomorphism works with the maps 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ and 
+\begin_inset Formula $\psi$
+\end_inset
+
+ in the exact sequence: The commutativity of the diagram says 
+\begin_inset Formula $\varphi:M'\to M$
+\end_inset
+
+ behaves like the standard embedding 
+\begin_inset Formula $M'\to M'\oplus M''$
+\end_inset
+
+ and 
+\begin_inset Formula $\psi:M\to M''$
+\end_inset
+
+ behaves like the standard projection 
+\begin_inset Formula $M'\oplus M''\to M''$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\backslash
+label{defn1}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a ring and 
+\begin_inset Formula $M$
+\end_inset
+
+ a finitely generated 
+\begin_inset Formula $A$
+\end_inset
+
+-module.
+ A 
+\series bold
+free resolution 
+\series default
+of 
+\begin_inset Formula $M$
+\end_inset
+
+ is an exact sequence 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}
+\backslash
+label{diagram}
+\backslash
+begin{tikzcd} 
+\backslash
+cdots 
+\backslash
+arrow[r] & F_{k+1} 
+\backslash
+arrow[r,"
+\backslash
+varphi _{k+1}"] & F_k 
+\backslash
+arrow[r] & 
+\backslash
+cdots  
+\backslash
+arrow[r] & F_1 
+\backslash
+arrow[r, "
+\backslash
+varphi _1 "] & F_0 
+\backslash
+arrow[r, "
+\backslash
+varphi _0 "] & M 
+\backslash
+end{tikzcd}
+\backslash
+end{equation}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+with finitely generated free 
+\begin_inset Formula $A$
+\end_inset
+
+-modules 
+\begin_inset Formula $F_{i}$
+\end_inset
+
+ for 
+\begin_inset Formula $i\geq0$
+\end_inset
+
+.
+ We say that a free resolution has 
+\series bold
+length 
+\series default
+
+\begin_inset Formula $n$
+\end_inset
+
+ if 
+\begin_inset Formula $F_{k}=0$
+\end_inset
+
+ for all 
+\begin_inset Formula $k>n$
+\end_inset
+
+ and 
+\begin_inset Formula $n$
+\end_inset
+
+ is minimal with this property.
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+If 
+\begin_inset Formula $(A,\mathfrak{m})$
+\end_inset
+
+ is a local ring, then a free resolution as above is called 
+\series bold
+minimal 
+\series default
+if 
+\begin_inset Formula $\varphi_{k}(F_{k})\subset\mathfrak{m}F_{k-1}$
+\end_inset
+
+ for 
+\begin_inset Formula $k\geq1$
+\end_inset
+
+, and then 
+\begin_inset Formula $b_{k}(M):=\mbox{rank}(F_{k})$
+\end_inset
+
+, 
+\begin_inset Formula $k\geq0$
+\end_inset
+
+, is called the 
+\begin_inset Formula $k$
+\end_inset
+
+th 
+\series bold
+Betti number 
+\series default
+of 
+\begin_inset Formula $M$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{rem}
+\backslash
+label{rem1}
+\end_layout
+
+\end_inset
+
+ What does the condition 
+\begin_inset Formula $\varphi_{k}(F_{k})\subset\mathfrak{m}F_{k-1}$
+\end_inset
+
+ have to do with being minimal? Let 
+\begin_inset Formula $K_{i}:=\mbox{Ker}(\varphi_{i})$
+\end_inset
+
+.
+ Then 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{diagram})
+\end_layout
+
+\end_inset
+
+ breaks up into exact sequences of the form 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}
+\backslash
+label{diagram2}
+\backslash
+begin{tikzcd}  F_k 
+\backslash
+arrow[r, "
+\backslash
+varphi _k " ] & F_{k-1} 
+\backslash
+arrow[r] & K_{k-2} 
+\backslash
+arrow[r] & 0 
+\backslash
+end{tikzcd}
+\backslash
+end{equation}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tensoring 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{diagram2})
+\end_layout
+
+\end_inset
+
+ with 
+\begin_inset Formula $A/\mathfrak{m}$
+\end_inset
+
+ gives us 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}
+\backslash
+label{diagram3}
+\backslash
+begin{tikzcd}  F_k / 
+\backslash
+mathfrak{m} F_k 
+\backslash
+arrow[r, "
+\backslash
+bar{ 
+\backslash
+varphi } _k " ] & F_{k-1} / 
+\backslash
+mathfrak{m} F_{k-1} 
+\backslash
+arrow[r] & K_{k-2} / 
+\backslash
+mathfrak{m} K_{k-2} 
+\backslash
+arrow[r] & 0 
+\backslash
+end{tikzcd}
+\backslash
+end{equation}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The condition 
+\begin_inset Formula $\varphi_{k}(F_{k})\subset\mathfrak{m}F_{k-1}$
+\end_inset
+
+ forces 
+\begin_inset Formula $\mbox{dim}_{A/\mathfrak{m}}(F_{k-1}/\mathfrak{m}F_{k-1})=\mbox{dim}_{A/\mathfrak{m}}(K_{k-2}/\mathfrak{m}K_{k-2})=b_{k-1}(M)$
+\end_inset
+
+.
+ Applying Nakayama's lemma shows that 
+\begin_inset Formula $b_{k-1}(M)$
+\end_inset
+
+ is the minimal number of generators of 
+\begin_inset Formula $K_{k-2}$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{rem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\backslash
+label{theorem1}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $(A,\mathfrak{m})$
+\end_inset
+
+ be a local Noetherian ring and 
+\begin_inset Formula $M$
+\end_inset
+
+ a finitely generated 
+\begin_inset Formula $A$
+\end_inset
+
+-module, then 
+\begin_inset Formula $M$
+\end_inset
+
+ has a minimal free resolution.
+ The rank of 
+\begin_inset Formula $F_{k}$
+\end_inset
+
+ in a minimal free resolution is independent of the resolution.
+ If 
+\begin_inset Formula $M$
+\end_inset
+
+ has a minimal resolution of finite length 
+\begin_inset Formula $n$
+\end_inset
+
+, 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}
+\backslash
+begin{tikzcd} 0 
+\backslash
+arrow[r] & F_{n} 
+\backslash
+arrow[r] & F_{n-1} 
+\backslash
+arrow[r] & 
+\backslash
+cdots  
+\backslash
+arrow[r] & F_0 
+\backslash
+arrow[r] & M  
+\backslash
+arrow[r] & 0
+\backslash
+end{tikzcd}
+\backslash
+end{equation}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and if 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}
+\backslash
+begin{tikzcd} 0 
+\backslash
+arrow[r] & G_{m} 
+\backslash
+arrow[r] & G_{m-1} 
+\backslash
+arrow[r] & 
+\backslash
+cdots  
+\backslash
+arrow[r] & G_0 
+\backslash
+arrow[r] & M  
+\backslash
+arrow[r] & 0 
+\backslash
+end{tikzcd}
+\backslash
+end{equation}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+is any free resolution, then 
+\begin_inset Formula $m\geq n$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $m_{1},\dots,m_{s_{0}}$
+\end_inset
+
+ be a minimal set of generators of 
+\begin_inset Formula $M$
+\end_inset
+
+ and consider the surjective map 
+\begin_inset Formula $\varphi_{0}:F_{0}:=A^{s_{0}}\to M$
+\end_inset
+
+ defined by 
+\begin_inset Formula $\varphi_{0}(a_{1},\dots,a_{s_{0}})=\sum_{i=1}^{s_{0}}a_{i}m_{i}$
+\end_inset
+
+.
+ Because of Nakayama's Lemma, 
+\begin_inset Formula $m_{1},\dots,m_{s_{0}}$
+\end_inset
+
+ induces a basis of the vector space 
+\begin_inset Formula $M/\mathfrak{m}M$
+\end_inset
+
+.
+ Hence, 
+\begin_inset Formula $\varphi_{0}$
+\end_inset
+
+ induces an isomorphism 
+\begin_inset Formula $\bar{\varphi}_{0}:F_{0}/\mathfrak{m}F_{0}\cong M/\mathfrak{m}M$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $K_{1}$
+\end_inset
+
+ be the kernel of 
+\begin_inset Formula $\varphi_{0}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $K_{1}\subset\mathfrak{m}F_{0}$
+\end_inset
+
+.
+ 
+\begin_inset Formula $K_{1}$
+\end_inset
+
+ is a submodule of a finitely generated module over a Noetherian ring, hence
+ is finitely generated.
+ As before, we can find a surjective map 
+\begin_inset Formula $F_{1}:=A^{s_{1}}\to K_{1}$
+\end_inset
+
+, where 
+\begin_inset Formula $s_{1}$
+\end_inset
+
+ is the minimal number of generators of 
+\begin_inset Formula $K_{1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Continuing like this we obtain a minimal free resolution for 
+\begin_inset Formula $M$
+\end_inset
+
+.
+ To show the invariance of the Betti numbers, we consider two minimal resolution
+s of 
+\begin_inset Formula $M$
+\end_inset
+
+: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}
+\backslash
+begin{tikzcd} 
+\backslash
+cdots 
+\backslash
+arrow[r, "
+\backslash
+varphi _{n+1} "] & F_{n} 
+\backslash
+arrow[r] &  
+\backslash
+cdots  
+\backslash
+arrow[r, "
+\backslash
+varphi _1 "] & F_0 
+\backslash
+arrow[r, "
+\backslash
+varphi _0 "] & M  
+\backslash
+arrow[r] & 0
+\backslash
+end{tikzcd}
+\backslash
+end{equation}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}
+\backslash
+begin{tikzcd} 
+\backslash
+cdots 
+\backslash
+arrow[r, "
+\backslash
+psi _{n+1} "] & G_{n} 
+\backslash
+arrow[r] &  
+\backslash
+cdots  
+\backslash
+arrow[r, "
+\backslash
+psi _1 "] & G_0 
+\backslash
+arrow[r, "
+\backslash
+psi _0 "] & M  
+\backslash
+arrow[r] & 0 
+\backslash
+end{tikzcd} 
+\backslash
+end{equation}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We have 
+\begin_inset Formula $F_{0}/\mathfrak{m}F_{0}\cong M/\mathfrak{m}M\cong G_{0}/\mathfrak{m}G_{0}$
+\end_inset
+
+ and therefore 
+\begin_inset Formula $\mbox{rank}(F_{0})=\mbox{rank}(G_{0})$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\{f_{1},\dots,f_{s_{0}}\}$
+\end_inset
+
+, respectively 
+\begin_inset Formula $\{g_{1},\dots,g_{s_{0}}\}$
+\end_inset
+
+ be bases of 
+\begin_inset Formula $F_{0}$
+\end_inset
+
+, respectively 
+\begin_inset Formula $G_{0}$
+\end_inset
+
+.
+ As 
+\begin_inset Formula $\{\psi_{0}(g_{i})\}$
+\end_inset
+
+ generate 
+\begin_inset Formula $M$
+\end_inset
+
+, we have 
+\begin_inset Formula $\varphi_{0}(f_{i})=\sum_{j}h_{ij}\cdot\psi_{0}(g_{j})$
+\end_inset
+
+ for some 
+\begin_inset Formula $h_{ij}\in A$
+\end_inset
+
+.
+ The matrix 
+\begin_inset Formula $(h_{ij})$
+\end_inset
+
+ defines a map 
+\begin_inset Formula $h_{1}:F_{0}\to G_{0}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\psi_{0}\circ h_{1}=\varphi_{0}$
+\end_inset
+
+.
+ The induced map 
+\begin_inset Formula $\bar{h}_{1}:F_{0}/\mathfrak{m}F_{0}\to G_{0}/\mathfrak{m}G_{0}$
+\end_inset
+
+ is an isomorphism since it is a composition of isomorpisms: 
+\begin_inset Formula $\bar{h}_{1}=\bar{\psi}_{0}^{-1}\circ\bar{\varphi}_{0}$
+\end_inset
+
+.
+ In particular, we derive that 
+\begin_inset Formula $\det(h_{ij})\neq0\mbox{ mod }\mathfrak{m}$
+\end_inset
+
+.
+ This implies that 
+\begin_inset Formula $\det(h_{ij})$
+\end_inset
+
+ is a unit in 
+\begin_inset Formula $A$
+\end_inset
+
+ (
+\begin_inset Formula $A$
+\end_inset
+
+ is local ring) and 
+\begin_inset Formula $h_{1}$
+\end_inset
+
+ is an isomorphism.
+ Especially, 
+\begin_inset Formula $h_{1}$
+\end_inset
+
+ induces an isomorphism 
+\begin_inset Formula $\mbox{Ker}(\varphi_{0})\to\mbox{Ker}(\psi_{0})$
+\end_inset
+
+.
+ As 
+\begin_inset Formula $\varphi_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\psi_{1}$
+\end_inset
+
+, considered as matrices, have entries in 
+\begin_inset Formula $\mathfrak{m}$
+\end_inset
+
+, and since we have surjections 
+\begin_inset Formula $F_{1}\to\mbox{Ker}(\varphi_{0})$
+\end_inset
+
+ and 
+\begin_inset Formula $G_{1}\to\mbox{Ker}(\varphi_{0})$
+\end_inset
+
+, it follows, as before, that 
+\begin_inset Formula $\mbox{rank}(F_{1})=\mbox{rank}(G_{1})$
+\end_inset
+
+.
+ Now we can continue like this and obtain the invariance of the Betti numbers.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename C:/Users/mnels/Music/pic.jpg
+	lyxscale 10
+	scale 10
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+To prove the last statement, let 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}
+\backslash
+begin{tikzcd} 0 
+\backslash
+arrow[r] & F_{n} 
+\backslash
+arrow[r] & F_{n-1} 
+\backslash
+arrow[r] & 
+\backslash
+cdots  
+\backslash
+arrow[r] & F_0 
+\backslash
+arrow[r] & M  
+\backslash
+arrow[r] & 0
+\backslash
+end{tikzcd}
+\backslash
+end{equation}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+be a minimal free resolution with 
+\begin_inset Formula $F_{n}\neq\langle0\rangle$
+\end_inset
+
+ and 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}
+\backslash
+begin{tikzcd} 0 
+\backslash
+arrow[r] & G_{m} 
+\backslash
+arrow[r] & G_{m-1} 
+\backslash
+arrow[r] & 
+\backslash
+cdots  
+\backslash
+arrow[r] & G_0 
+\backslash
+arrow[r] & M  
+\backslash
+arrow[r] & 0 
+\backslash
+end{tikzcd}
+\backslash
+end{equation}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+be any free resolution.
+ We have to prove that 
+\begin_inset Formula $m\geq n$
+\end_inset
+
+.
+ This can be proved in a similar way to the previous step.
+ With the same idea, one can prove that there are injections 
+\begin_inset Formula $h_{i}:F_{i}\to G_{i}$
+\end_inset
+
+ for all 
+\begin_inset Formula $i\leq n$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\backslash
+label{defn2}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $K$
+\end_inset
+
+ be a field, 
+\begin_inset Formula $A$
+\end_inset
+
+ be a graded 
+\begin_inset Formula $K$
+\end_inset
+
+-algebra and 
+\begin_inset Formula $M$
+\end_inset
+
+ a graded 
+\begin_inset Formula $A$
+\end_inset
+
+-module.
+ A 
+\series bold
+homogeneous free resolution 
+\series default
+of 
+\begin_inset Formula $M$
+\end_inset
+
+ is a resolution
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}
+\backslash
+label{diagram}
+\backslash
+begin{tikzcd} 
+\backslash
+cdots 
+\backslash
+arrow[r] & F_{k+1} 
+\backslash
+arrow[r,"
+\backslash
+varphi _{k+1}"] & F_k 
+\backslash
+arrow[r] & 
+\backslash
+cdots  
+\backslash
+arrow[r] & F_1 
+\backslash
+arrow[r, "
+\backslash
+varphi _1 "] & F_0 
+\backslash
+arrow[r, "
+\backslash
+varphi _0 "] & M 
+\backslash
+end{tikzcd}
+\backslash
+end{equation}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+such that the 
+\begin_inset Formula $F_{k}$
+\end_inset
+
+ are finitely generated free 
+\begin_inset Formula $A$
+\end_inset
+
+-modules,
+\begin_inset Formula 
+\[
+F_{k}=\bigoplus_{j\in\mathbb{Z}}A(-j)^{b_{j-k,k}},
+\]
+
+\end_inset
+
+and the 
+\begin_inset Formula $\varphi_{k}$
+\end_inset
+
+ are homogeneous maps (of degree 
+\begin_inset Formula $0$
+\end_inset
+
+).
+ Such a resolution is called 
+\series bold
+minimal 
+\series default
+if if 
+\begin_inset Formula $\varphi_{k}(F_{k})\subset\mathfrak{m}F_{k-1}$
+\end_inset
+
+ for 
+\begin_inset Formula $k\geq1$
+\end_inset
+
+, where 
+\begin_inset Formula $\mathfrak{m}$
+\end_inset
+
+ is the ideal generated by all elements of positive degree.
+ The numbers 
+\begin_inset Formula $b_{j,k}=b_{j,k}(M)$
+\end_inset
+
+ are called 
+\series bold
+graded Betti numbers 
+\series default
+of 
+\begin_inset Formula $M$
+\end_inset
+
+, and 
+\begin_inset Formula $b_{k}(M):=\sum_{j}b_{j,k}(M)$
+\end_inset
+
+ is called the 
+\begin_inset Formula $k$
+\end_inset
+
+th 
+\series bold
+Betti number 
+\series default
+of 
+\begin_inset Formula $M$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Tensor Product of Complexes
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $(L_{\bullet},d_{\bullet})$
+\end_inset
+
+ and 
+\begin_inset Formula $(K_{\bullet},d_{\bullet})$
+\end_inset
+
+ be two complexes of 
+\begin_inset Formula $A$
+\end_inset
+
+-modules.
+ Then the tensor product of 
+\begin_inset Formula $(L_{\bullet},d_{\bullet})$
+\end_inset
+
+ and 
+\begin_inset Formula $(K_{\bullet},d_{\bullet})$
+\end_inset
+
+ is 
+\begin_inset Formula $(L_{\bullet}\otimes K_{\bullet},d_{\bullet})$
+\end_inset
+
+, where 
+\begin_inset Formula 
+\[
+(L_{\bullet}\otimes K_{\bullet})_{n}=\bigoplus_{p+q=n}L_{p}\otimes K_{q},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and for 
+\begin_inset Formula $x\in L_{p}$
+\end_inset
+
+ and 
+\begin_inset Formula $y\in K_{q}$
+\end_inset
+
+ we have 
+\begin_inset Formula 
+\[
+d_{n}(x\otimes y)=d_{p}(x)\otimes y+(-1)^{p}x\otimes d_{q}(y).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Tor
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} 
+\backslash
+cdots 
+\backslash
+arrow[r] & F_{i+1} 
+\backslash
+arrow[r,"
+\backslash
+varphi _{i+1}"] & F_i 
+\backslash
+arrow[r," 
+\backslash
+varphi _i "] & 
+\backslash
+cdots 
+\backslash
+arrow[r] & F_0 
+\backslash
+arrow[r,"
+\backslash
+varphi _0 "] & N 
+\backslash
+arrow[r] & 0 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+be a free resolution of the 
+\begin_inset Formula $A$
+\end_inset
+
+-module 
+\begin_inset Formula $N$
+\end_inset
+
+.
+ Then for any 
+\begin_inset Formula $A$
+\end_inset
+
+-module 
+\begin_inset Formula $M$
+\end_inset
+
+, the induced sequence of 
+\begin_inset Formula $A$
+\end_inset
+
+-modules and homomorphisms 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} 
+\backslash
+cdots 
+\backslash
+arrow[r] & M 
+\backslash
+otimes _A F_{i+1} 
+\backslash
+arrow[r,"1_M 
+\backslash
+otimes 
+\backslash
+varphi _{i+1}"] & M 
+\backslash
+otimes _A F_i  
+\backslash
+arrow[r,"1_M 
+\backslash
+otimes 
+\backslash
+varphi _i "] & 
+\backslash
+cdots 
+\backslash
+arrow[r] & M 
+\backslash
+otimes _A F_0 
+\backslash
+arrow[r] & 0 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+defines a complex 
+\begin_inset Formula $M\otimes_{A}F_{\bullet}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ We introduce the 
+\begin_inset Formula $A$
+\end_inset
+
+-modules 
+\begin_inset Formula $\mbox{Tor}_{i}^{A}(M,N)$
+\end_inset
+
+, which are called 
+\series bold
+Tor-modules
+\series default
+: 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\mbox{Tor}_{0}^{A}(M,N):=M\otimes_{A}N;$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\mbox{Tor}_{i}^{A}(M,N):=\mbox{Ker}(1_{M}\otimes\varphi_{i})/\mbox{Im}(1_{M}\otimes\varphi_{i+1})$
+\end_inset
+
+ for 
+\begin_inset Formula $i\geq1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} 0 
+\backslash
+arrow[r] & K 
+\backslash
+arrow[r,"f"] & M 
+\backslash
+arrow[r,"g"] & P 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+be a short exact sequence of 
+\begin_inset Formula $R$
+\end_inset
+
+-modules.
+ Then for any 
+\begin_inset Formula $R$
+\end_inset
+
+-module 
+\begin_inset Formula $N$
+\end_inset
+
+, 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} K 
+\backslash
+otimes _{R} N 
+\backslash
+arrow[r] & M 
+\backslash
+otimes _{R} N 
+\backslash
+arrow[r] & P 
+\backslash
+otimes _{R} N  
+\backslash
+arrow[r] & 0 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A=\mathbb{Q}[x,y,z]$
+\end_inset
+
+, 
+\begin_inset Formula $I=\langle xy^{2}z^{3},x^{2}yz^{3},x^{3}yz^{2},x^{3}y^{2}z,x^{2}y^{3}z,xy^{3}z^{2}\rangle$
+\end_inset
+
+, and 
+\begin_inset Formula $M$
+\end_inset
+
+ be any 
+\begin_inset Formula $A$
+\end_inset
+
+-module.
+ Let's see what 
+\begin_inset Formula $\mbox{Tor}_{i}^{A}(M,A/I)$
+\end_inset
+
+ looks like.
+ First we compute a free resolution for 
+\begin_inset Formula $A/I$
+\end_inset
+
+: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} 0 
+\backslash
+arrow[r] & A 
+\backslash
+arrow[r," 
+\backslash
+varphi _3 "] & A^6 
+\backslash
+arrow[r," 
+\backslash
+varphi _2 "] & A^6 
+\backslash
+arrow[r, " 
+\backslash
+varphi _1 "] & A 
+\backslash
+arrow[r] & A/I   
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where
+\begin_inset Formula 
+\[
+\varphi_{3}=\begin{pmatrix}xy\\
+y^{2}\\
+yz\\
+z^{2}\\
+xz\\
+x^{2}
+\end{pmatrix},\qquad\varphi_{2}=\begin{pmatrix}-x & 0 & 0 & 0 & 0 & y\\
+y & -x & 0 & 0 & 0 & 0\\
+0 & z & -y & 0 & 0 & 0\\
+0 & 0 & z & -y & 0 & 0\\
+0 & 0 & 0 & x & -z & 0\\
+0 & 0 & 0 & 0 & x & -z
+\end{pmatrix},\qquad\varphi_{1}=\begin{pmatrix}xy^{2}z^{3} & x^{2}yz^{3} & x^{3}yz^{2} & x^{3}y^{2}z & x^{2}y^{3}z & xy^{3}z^{2}\end{pmatrix}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then we drop the 
+\begin_inset Formula $A/I$
+\end_inset
+
+ term and tensor the rest with 
+\begin_inset Formula $M$
+\end_inset
+
+: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} 0 
+\backslash
+arrow[r] & M 
+\backslash
+arrow[r," 
+\backslash
+tilde { 
+\backslash
+varphi } _3 "] & M^6 
+\backslash
+arrow[r," 
+\backslash
+tilde { 
+\backslash
+varphi } _2 "] & M^6 
+\backslash
+arrow[r, " 
+\backslash
+tilde { 
+\backslash
+varphi } _1 "] & M  
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For example, suppose 
+\begin_inset Formula $M=A/\langle x,y\rangle\cong\mathbb{Q}[z]$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula 
+\[
+\tilde{\varphi}_{3}=\begin{pmatrix}0\\
+0\\
+0\\
+z^{2}\\
+0\\
+0
+\end{pmatrix},\qquad\tilde{\varphi}_{2}=\begin{pmatrix}0 & 0 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 0 & 0\\
+0 & z & 0 & 0 & 0 & 0\\
+0 & 0 & z & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & -z & 0\\
+0 & 0 & 0 & 0 & 0 & -z
+\end{pmatrix},\qquad\tilde{\varphi}_{1}=\begin{pmatrix}0 & 0 & 0 & 0 & 0 & 0\end{pmatrix}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The kernel of 
+\begin_inset Formula $\tilde{\varphi}_{1}$
+\end_inset
+
+ is 
+\begin_inset Formula 
+\[
+\mbox{Ker}\tilde{\varphi}_{1}=\mathbb{Q}[z]e_{1}+\mathbb{Q}[z]e_{2}+\mathbb{Q}[z]e_{3}+\mathbb{Q}[z]e_{4}+\mathbb{Q}[z]e_{5}+\mathbb{Q}[z]e_{6},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and the image of 
+\begin_inset Formula $\tilde{\varphi}_{2}$
+\end_inset
+
+ is 
+\begin_inset Formula 
+\[
+\mbox{Im}\tilde{\varphi}_{2}=\mathbb{Q}[z]ze_{3}+\mathbb{Q}[z]ze_{4}+\mathbb{Q}[z]ze_{5}+\mathbb{Q}[z]ze_{6}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Therefore 
+\begin_inset Formula $\mbox{Tor}_{1}^{A}(A/\langle x,y\rangle,A/I)$
+\end_inset
+
+ is 
+\begin_inset Formula 
+\[
+\mbox{Tor}_{1}^{A}(A/\langle x,y\rangle,A/I)=\mathbb{Q}[z]e_{1}+\mathbb{Q}[z]e_{2}+\mathbb{Q}e_{3}+\mathbb{Q}e_{4}+\mathbb{Q}e_{5}+\mathbb{Q}e_{6}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In other words, 
+\begin_inset Formula $\mbox{Tor}_{1}^{A}(A/\langle x,y\rangle,A/I)\cong\mathbb{Q}[z]^{2}\oplus\mathbb{Q}^{4}$
+\end_inset
+
+.
+ Next, the kernel of 
+\begin_inset Formula $\tilde{\varphi}_{2}$
+\end_inset
+
+ is 
+\begin_inset Formula 
+\[
+\mbox{Ker}\tilde{\varphi}_{2}=\mathbb{Q}[z]e_{1}+\mathbb{Q}[z]e_{4},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and the image of 
+\begin_inset Formula $\tilde{\varphi}_{3}$
+\end_inset
+
+ is 
+\begin_inset Formula 
+\[
+\mbox{Im}\tilde{\varphi}_{2}=\mathbb{Q}[z]z^{2}e_{4}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Therefore 
+\begin_inset Formula $\mbox{Tor}_{2}^{A}(A/\langle x,y\rangle,A/I)$
+\end_inset
+
+ is 
+\begin_inset Formula 
+\[
+\mbox{Tor}_{1}^{A}(A/\langle x,y\rangle,A/I)=\mathbb{Q}[z]e_{1}+\mathbb{Q}[\varepsilon]e_{2},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\varepsilon^{2}=0$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ We compute 
+\begin_inset Formula $\mbox{Tor}_{1}^{A}(A/I,A/J)$
+\end_inset
+
+.
+ First write down the short exact sequence
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} 0 
+\backslash
+arrow[r] & I 
+\backslash
+arrow[r] & A 
+\backslash
+arrow[r] & A/I 
+\backslash
+arrow[r] & 0 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then tensor this with 
+\begin_inset Formula $A/J$
+\end_inset
+
+ to get the long exact sequence 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} 0 
+\backslash
+arrow[r] & 
+\backslash
+mbox{Tor}_{1}^{A}(A/I,A/J) 
+\backslash
+arrow[r] & I/IJ 
+\backslash
+arrow[r] & A/J 
+\backslash
+arrow[r] & A/(I+J) 
+\backslash
+arrow[r] & 0  
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that 
+\begin_inset Formula $\mbox{Tor}_{1}^{A}(A,A/J)$
+\end_inset
+
+ vanishes since 
+\begin_inset Formula $A$
+\end_inset
+
+ is a flat 
+\begin_inset Formula $A$
+\end_inset
+
+-module.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Fitting Ideals
+\end_layout
+
+\begin_layout Standard
+In this section, we develop the theory of Fitting ideals as a tool for checking
+ locally the freeness of a module.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $M$
+\end_inset
+
+ be a finitely presented 
+\begin_inset Formula $A$
+\end_inset
+
+-module.
+ The 
+\begin_inset Formula $k$
+\end_inset
+
+-
+\series bold
+th Fitting ideal 
+\series default
+
+\begin_inset Formula $F_{k}(M)$
+\end_inset
+
+ is the ideal generated by the 
+\begin_inset Formula $(n-k)$
+\end_inset
+
+-minors of the presentation matrix of 
+\begin_inset Formula $M$
+\end_inset
+
+ where 
+\begin_inset Formula $n$
+\end_inset
+
+ is the number of rows of the presentation matrix.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A=\mathbb{Q}[x_{0},x_{1},x_{2},x_{3},x_{4}]$
+\end_inset
+
+ and let 
+\begin_inset Formula $M$
+\end_inset
+
+ be the finitely presented 
+\begin_inset Formula $A$
+\end_inset
+
+-module whose presentation matrix 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ is 
+\begin_inset Formula 
+\[
+\varphi=\begin{pmatrix}x_{0} & x_{1} & x_{2} & x_{3}\\
+x_{1} & x_{2} & x_{3} & x_{4}
+\end{pmatrix}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then 
+\begin_inset Formula 
+\begin{align*}
+F_{0}(M) & =\langle x_{0}x_{2}-x_{1}^{2},x_{0}x_{3}-x_{2}x_{1},x_{0}x_{4}-x_{1}x_{3},x_{1}x_{3}-x_{2}^{2},x_{1}x_{4}-x_{2}x_{3},x_{2}x_{4}-x_{3}^{2}\rangle\\
+F_{1}(M) & =\langle x_{0},x_{1},x_{2},x_{3},x_{4}\rangle\\
+F_{2}(M) & =\langle1\rangle.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a ring and 
+\begin_inset Formula $M$
+\end_inset
+
+ be a finitely generated 
+\begin_inset Formula $A$
+\end_inset
+
+-module.
+ We say that 
+\begin_inset Formula $M$
+\end_inset
+
+ has 
+\series bold
+rank 
+\series default
+
+\begin_inset Formula $r$
+\end_inset
+
+ if 
+\begin_inset Formula $M\otimes_{A}Q(A)$
+\end_inset
+
+ is a free 
+\begin_inset Formula $Q(A)$
+\end_inset
+
+-module of rank 
+\begin_inset Formula $r$
+\end_inset
+
+, where 
+\begin_inset Formula $Q(A)$
+\end_inset
+
+ denotes the total quotient ring of 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{rem}
+\end_layout
+
+\end_inset
+
+ If 
+\begin_inset Formula $A$
+\end_inset
+
+ is an integral domain, then 
+\begin_inset Formula $Q(A)$
+\end_inset
+
+ is a field, hence every finitely generated 
+\begin_inset Formula $A$
+\end_inset
+
+-module 
+\begin_inset Formula $M$
+\end_inset
+
+ has a rank, namely 
+\begin_inset Formula 
+\[
+\mbox{rank}(M)=\mbox{dim}_{Q(A)}M\otimes_{A}Q(A).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{rem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lemma}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a Noetherian ring and 
+\begin_inset Formula $M$
+\end_inset
+
+ be a finitely generated 
+\begin_inset Formula $A$
+\end_inset
+
+-module.
+ 
+\begin_inset Formula $M$
+\end_inset
+
+ has rank 
+\begin_inset Formula $r$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $M_{P}$
+\end_inset
+
+ is a free 
+\begin_inset Formula $A_{P}$
+\end_inset
+
+-module of rank 
+\begin_inset Formula $r$
+\end_inset
+
+ for all prime ideals 
+\begin_inset Formula $P\in\mbox{Ass}(\langle0\rangle)$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lemma}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Regular Sequences
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a ring and 
+\begin_inset Formula $M$
+\end_inset
+
+ an 
+\begin_inset Formula $A$
+\end_inset
+
+-module.
+ 
+\begin_inset Formula $a_{1},\dots,a_{n}\in A$
+\end_inset
+
+ is called a 
+\series bold
+regular sequence 
+\series default
+with respect to 
+\begin_inset Formula $M$
+\end_inset
+
+, or, in short, an 
+\begin_inset Formula $M$
+\end_inset
+
+-sequence if 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $a_{i}$
+\end_inset
+
+ is not a zerodivisor for 
+\begin_inset Formula $M/\langle a_{1},\dots,a_{i-1}\rangle M$
+\end_inset
+
+ for 
+\begin_inset Formula $i=1,\dots,n$
+\end_inset
+
+; 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $M\neq\langle a_{1},\dots,a_{n}\rangle M$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Another way of phrasing first condition is that the map 
+\begin_inset Formula $a_{i}:M/\langle a_{1},\dots,a_{i-1}\rangle M\to M/\langle a_{1},\dots,a_{i-1}\rangle M$
+\end_inset
+
+ is injective.
+ What does it mean for this map to be injective? It means the set of all
+ 
+\begin_inset Formula $\bar{m}\in M/\langle a_{1},\dots,a_{i-1}\rangle M$
+\end_inset
+
+ such that 
+\begin_inset Formula $a_{i}\bar{m}\in\langle a_{1},\dots,a_{i-1}\rangle M$
+\end_inset
+
+ is 
+\begin_inset Formula $\langle a_{1},\dots,a_{i-1}\rangle M$
+\end_inset
+
+.
+ In other words, if 
+\begin_inset Formula $a_{i}m=a_{1}m_{1}+\cdots+a_{i-1}m_{i-1}$
+\end_inset
+
+ for some 
+\begin_inset Formula $m_{j}\in M$
+\end_inset
+
+, then 
+\begin_inset Formula $m=a_{1}\tilde{m}_{1}+\cdots+a_{i-1}\tilde{m}_{i-1}$
+\end_inset
+
+ for some 
+\begin_inset Formula $\tilde{m}_{j}\in M$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $K$
+\end_inset
+
+ be a field and 
+\begin_inset Formula $a_{1}=x(y-1)$
+\end_inset
+
+, 
+\begin_inset Formula $a_{2}=y$
+\end_inset
+
+, 
+\begin_inset Formula $a_{3}=z(y-1)\in K[x,y,z]$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $a_{1},a_{2},a_{3}$
+\end_inset
+
+ is a 
+\begin_inset Formula $K[x,y,z]$
+\end_inset
+
+-sequence but 
+\begin_inset Formula $a_{1},a_{3},a_{2}$
+\end_inset
+
+ is not.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+We shall see that, for local rings, the permutation of a regular sequence
+ is again a regular sequence.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a ring, 
+\begin_inset Formula $I\subset A$
+\end_inset
+
+ and ideal and 
+\begin_inset Formula $M$
+\end_inset
+
+ an 
+\begin_inset Formula $A$
+\end_inset
+
+-module.
+ If 
+\begin_inset Formula $M\neq IM$
+\end_inset
+
+, then the maximal length 
+\begin_inset Formula $n$
+\end_inset
+
+ of an 
+\begin_inset Formula $M$
+\end_inset
+
+-sequence 
+\begin_inset Formula $a_{1},\dots,a_{n}\in I$
+\end_inset
+
+ is called the 
+\begin_inset Formula $I$
+\end_inset
+
+-
+\series bold
+depth 
+\series default
+of 
+\begin_inset Formula $M$
+\end_inset
+
+ and denoted by 
+\begin_inset Formula $\mbox{depth}(I,M)$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $M=IM$
+\end_inset
+
+ then the 
+\begin_inset Formula $I$
+\end_inset
+
+-depth of 
+\begin_inset Formula $M$
+\end_inset
+
+ is by convention 
+\begin_inset Formula $\infty$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $(A,\mathfrak{m})$
+\end_inset
+
+ is a local ring, then the 
+\begin_inset Formula $\mathfrak{m}$
+\end_inset
+
+-depth of 
+\begin_inset Formula $M$
+\end_inset
+
+ is simply called the 
+\series bold
+depth 
+\series default
+of 
+\begin_inset Formula $M$
+\end_inset
+
+, that is, 
+\begin_inset Formula $\mbox{depth}(M):=\mbox{depth}(\mathfrak{m},M)$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Let 
+\begin_inset Formula $K$
+\end_inset
+
+ be a field and 
+\begin_inset Formula $K[x_{1},\dots,x_{n}]$
+\end_inset
+
+ the polynomial ring.
+ Then 
+\begin_inset Formula 
+\[
+\mbox{depth}(\langle x_{1},\dots,x_{n}\rangle,K[x_{1},\dots,x_{n}])\geq n,
+\]
+
+\end_inset
+
+ since 
+\begin_inset Formula $x_{1},\dots,x_{n}$
+\end_inset
+
+ is an 
+\begin_inset Formula $\langle x_{1},\dots,x_{n}\rangle$
+\end_inset
+
+-sequence (and we shall see later that it is 
+\begin_inset Formula $=n$
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Enumerate
+Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a ring, 
+\begin_inset Formula $I\subset A$
+\end_inset
+
+ an ideal and 
+\begin_inset Formula $M$
+\end_inset
+
+ an 
+\begin_inset Formula $A$
+\end_inset
+
+-module.
+ Then the 
+\begin_inset Formula $I$
+\end_inset
+
+-depth of 
+\begin_inset Formula $M$
+\end_inset
+
+ is 
+\begin_inset Formula $0$
+\end_inset
+
+ if and only if every element of 
+\begin_inset Formula $I$
+\end_inset
+
+ is a zerodivisor for 
+\begin_inset Formula $M$
+\end_inset
+
+.
+ Hence, 
+\begin_inset Formula $\mbox{depth}(I,M)=0$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $I$
+\end_inset
+
+ is contained in some associated prime ideal of 
+\begin_inset Formula $M$
+\end_inset
+
+.
+ In particular, for a local ring 
+\begin_inset Formula $(A,\mathfrak{m})$
+\end_inset
+
+, we have 
+\begin_inset Formula $\mbox{depth}(\mathfrak{m},A/\mathfrak{m})=0$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+The aim of this section is to give, for 
+\begin_inset Formula $A$
+\end_inset
+
+ a Noetherian ring and 
+\begin_inset Formula $M$
+\end_inset
+
+ a finitely generated 
+\begin_inset Formula $A$
+\end_inset
+
+-module, a formula for the 
+\begin_inset Formula $I$
+\end_inset
+
+-depth of 
+\begin_inset Formula $M$
+\end_inset
+
+ in terms of the homology 
+\begin_inset Formula $H_{i}(f_{1},\dots,f_{n},M)$
+\end_inset
+
+ of the Koszul complex: if 
+\begin_inset Formula $I=\langle f_{1},\dots,f_{n}\rangle$
+\end_inset
+
+ then 
+\begin_inset Formula 
+\[
+\mbox{depth}(I,M)=n-\mbox{sup}\{i\mid H_{i}(f_{1},\dots,f_{n},M)\neq0\}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We shall also see that 
+\begin_inset Formula 
+\[
+\mbox{depth}(I,M)=\mbox{inf}\{n\mid\mbox{Ext}_{A}^{n}(A/I,M)\neq0\}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In particular, we shall see that the 
+\begin_inset Formula $I$
+\end_inset
+
+-depth is a geometric invariant, that is, 
+\begin_inset Formula 
+\[
+\mbox{depth}(I,M)=\mbox{depth}(\sqrt{I},M).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a ring and 
+\begin_inset Formula $x_{1},\dots,x_{n}\in A$
+\end_inset
+
+, 
+\begin_inset Formula $x:=(x_{1},\dots,x_{n})$
+\end_inset
+
+.
+ The 
+\series bold
+Koszul complex 
+\series default
+
+\begin_inset Formula $K(x)_{\bullet}$
+\end_inset
+
+ is defined as follows:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $K(x)_{0}:=A$
+\end_inset
+
+, 
+\begin_inset Formula $K(x)_{p}:=\langle0\rangle$
+\end_inset
+
+ for 
+\begin_inset Formula $p\notin\{0,\dots,n\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Let 
+\begin_inset Formula $1\leq p\leq n$
+\end_inset
+
+ then 
+\begin_inset Formula $K(x)_{p}:=\oplus_{1\leq i_{1}<\cdots<i_{p}\leq n}Ae_{i_{1}\dots i_{p}}$
+\end_inset
+
+, the free 
+\begin_inset Formula $A$
+\end_inset
+
+-module with 
+\begin_inset Formula ${n \choose p}$
+\end_inset
+
+ free generators 
+\begin_inset Formula $\{e_{i_{1}\dots i_{p}}\}_{1\leq i_{1}<\cdots<i_{p}\leq n}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+The differential 
+\begin_inset Formula $d_{p}:K(x)_{p}\to K(x)_{p-1}$
+\end_inset
+
+ is defined by 
+\begin_inset Formula 
+\begin{align*}
+d_{p}(e_{i_{1}\dots i_{p}}) & =\sum_{\mu=1}^{p}(-1)^{\mu-1}x_{i_{\mu}}e_{i_{1}\dots i_{\mu-1}i_{\mu+1}\dots i_{p}}\mbox{ if }p\in\{2,\dots,n\},\\
+d_{1}(e_{i}) & =x_{i},\\
+d_{p} & =0\mbox{ if }p\notin\{1,\dots,n\}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+For an 
+\begin_inset Formula $A$
+\end_inset
+
+-module 
+\begin_inset Formula $M$
+\end_inset
+
+ we define 
+\begin_inset Formula 
+\[
+K(x,M)_{\bullet}:=K(x)_{\bullet}\otimes_{A}M,
+\]
+
+\end_inset
+
+ the 
+\series bold
+Koszul complex 
+\series default
+of 
+\begin_inset Formula $M$
+\end_inset
+
+ and 
+\begin_inset Formula $x$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a ring and 
+\begin_inset Formula $x_{1},x_{2},x_{3}\in A$
+\end_inset
+
+.
+ Here's what the Koszul complex 
+\begin_inset Formula $K(x_{1},x_{2},x_{3})_{\bullet}$
+\end_inset
+
+ looks like:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd}[column sep=huge, row sep=0.4, ampersand replacement=
+\backslash
+&] A 
+\backslash
+arrow{r}{
+\backslash
+begin{pmatrix} x_3 
+\backslash
+
+\backslash
+ -x_2 
+\backslash
+
+\backslash
+ x_1 
+\backslash
+end{pmatrix} } 
+\backslash
+& A^3 
+\backslash
+arrow{r}{ 
+\backslash
+begin{pmatrix} -x_2 & -x_3 & 0 
+\backslash
+
+\backslash
+ x_1 & 0 & -x_3 
+\backslash
+
+\backslash
+ 0 & x_1 & x_2 
+\backslash
+end{pmatrix} } 
+\backslash
+& A^3 
+\backslash
+arrow{r}{
+\backslash
+begin{pmatrix} x_1 & x_2 & x_3 
+\backslash
+end{pmatrix} } 
+\backslash
+& A 
+\backslash
+
+\backslash
+ e_{123} 
+\backslash
+arrow[r,mapsto,shorten >=0.2cm,shorten <=0.2cm] 
+\backslash
+& x_1 e_{23} - x_2 e_{13} + x_3 e_{12} 
+\backslash
+
+\backslash
+ 
+\backslash
+& e_{12} 
+\backslash
+arrow[r,mapsto,shorten >=0.2cm,shorten <=0.2cm] 
+\backslash
+& x_1 e_2 - x_2 e_1 
+\backslash
+
+\backslash
+ 
+\backslash
+& e_{13} 
+\backslash
+arrow[r,mapsto,shorten >=0.2cm,shorten <=0.2cm] 
+\backslash
+& x_1 e_3 - x_3 e_1 
+\backslash
+
+\backslash
+ 
+\backslash
+& e_{23} 
+\backslash
+arrow[r,mapsto,shorten >=0.2cm,shorten <=0.2cm] 
+\backslash
+& x_2 e_3 - x_3 e_2 
+\backslash
+
+\backslash
+ 
+\backslash
+& 
+\backslash
+& e_1 
+\backslash
+arrow[r,mapsto,shorten >=0.2cm,shorten <=0.2cm] 
+\backslash
+& x_1 
+\backslash
+
+\backslash
+ 
+\backslash
+& 
+\backslash
+& e_2 
+\backslash
+arrow[r,mapsto,shorten >=0.2cm,shorten <=0.2cm] 
+\backslash
+& x_2 
+\backslash
+
+\backslash
+ 
+\backslash
+& 
+\backslash
+& e_3 
+\backslash
+arrow[r,mapsto,shorten >=0.2cm,shorten <=0.2cm] 
+\backslash
+& x_3 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lemma}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $K(x)_{\bullet}$
+\end_inset
+
+ is a complex, that is 
+\begin_inset Formula $d_{p}\circ d_{p+1}=0$
+\end_inset
+
+ for all 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Let 
+\begin_inset Formula $H_{i}(x,M)$
+\end_inset
+
+ be the homology of 
+\begin_inset Formula $K(x,M)_{\bullet}$
+\end_inset
+
+, that is 
+\begin_inset Formula 
+\[
+H_{i}(x,M)_{\bullet}:=\mbox{Ker}(d_{i}\otimes1_{M})/\mbox{Im}(d_{i+1}\otimes1_{M}),
+\]
+
+\end_inset
+
+ then 
+\begin_inset Formula $H_{0}(x,M)=M/xM$
+\end_inset
+
+ and 
+\begin_inset Formula $H_{n}(x,M)=\{m\in M\mid x_{i}m=0\mbox{ for all }i\}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $K(x,M)_{\bullet}=K(x_{1},M)_{\bullet}\otimes\cdots\otimes K(x_{n},M)_{\bullet}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lemma}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ The first two statements are straightforward.
+ To prove the third statement, recall the definition of tensor product of
+ complexes: Let 
+\begin_inset Formula $(L_{\bullet},d_{\bullet})$
+\end_inset
+
+ and 
+\begin_inset Formula $(K_{\bullet},d_{\bullet})$
+\end_inset
+
+ be two complexes of 
+\begin_inset Formula $A$
+\end_inset
+
+-modules.
+ Then the tensor product of 
+\begin_inset Formula $(L_{\bullet},d_{\bullet})$
+\end_inset
+
+ and 
+\begin_inset Formula $(K_{\bullet},d_{\bullet})$
+\end_inset
+
+ is 
+\begin_inset Formula $(L_{\bullet}\otimes K_{\bullet},d_{\bullet})$
+\end_inset
+
+, where 
+\begin_inset Formula 
+\[
+(L_{\bullet}\otimes K_{\bullet})_{n}=\bigoplus_{p+q=n}L_{p}\otimes K_{q},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and for 
+\begin_inset Formula $x\in L_{p}$
+\end_inset
+
+ and 
+\begin_inset Formula $y\in K_{q}$
+\end_inset
+
+ we have 
+\begin_inset Formula 
+\[
+d_{n}(x\otimes y)=d_{p}(x)\otimes y+(-1)^{p}x\otimes d_{q}(y).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using induction, it is enough to prove that 
+\begin_inset Formula 
+\[
+K(x_{1},\dots,x_{n})_{\bullet}=K(x_{1},\dots,x_{n-1})_{\bullet}\otimes K(x_{n})_{\bullet}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+It's easy to see that 
+\begin_inset Formula $(K(x_{1},\dots,x_{n-1})_{\bullet}\otimes K(x_{n})_{\bullet})_{p}$
+\end_inset
+
+ is free with generators given by 
+\begin_inset Formula $e_{i_{1},\dots,i_{p}}\otimes1$
+\end_inset
+
+ and 
+\begin_inset Formula $e_{j_{1},\dots,j_{p-1}}\otimes e_{n}$
+\end_inset
+
+ where 
+\begin_inset Formula $1\leq i_{1}<\cdots<i_{p}\leq n-1$
+\end_inset
+
+ and 
+\begin_inset Formula $1\leq j_{1}<\cdots<j_{p-1}\leq n-1$
+\end_inset
+
+.
+ Define a map 
+\begin_inset Formula $\varphi_{p}:(K(x_{1},\dots,x_{n-1})_{\bullet}\otimes K(x_{n})_{\bullet})_{p}\to(K(x_{1},\dots,x_{n})_{\bullet})_{p}$
+\end_inset
+
+ by sending generators of the form 
+\begin_inset Formula $e_{i_{1},\dots,i_{p}}\otimes1$
+\end_inset
+
+ to 
+\begin_inset Formula $e_{i_{1},\dots,i_{p}}$
+\end_inset
+
+, and sending generators of the form 
+\begin_inset Formula $e_{j_{1},\dots,j_{p-1}}\otimes e_{n}$
+\end_inset
+
+ to 
+\begin_inset Formula $e_{j_{1},\dots,j_{p-1},n}$
+\end_inset
+
+.
+ The map 
+\begin_inset Formula $\varphi_{p}$
+\end_inset
+
+ is clearly an isomorphism, we just need to be sure it commutes with the
+ differential.
+ We have 
+\begin_inset Formula 
+\begin{align*}
+d_{p}(e_{i_{1},\dots,i_{p}}\otimes1) & =d_{p}(e_{i_{1},\dots,i_{p}})\otimes1+(-1)^{p}e_{i_{1},\dots,i_{p}}\otimes d_{0}(1)\\
+ & =\left(\sum_{\mu=1}^{p}(-1)^{\mu-1}x_{i_{\mu}}e_{i_{1}\dots i_{\mu-1}i_{\mu+1}\dots i_{p}}\right)\otimes1\\
+ & =\sum_{\mu=1}^{p}(-1)^{\mu-1}x_{i_{\mu}}(e_{i_{1}\dots i_{\mu-1}i_{\mu+1}\dots i_{p}}\otimes1),
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and 
+\begin_inset Formula $\varphi_{p-1}(d_{p}(e_{i_{1},\dots,i_{p}}\otimes1))=\sum_{\mu=1}^{p}(-1)^{\mu-1}x_{i_{\mu}}e_{i_{1}\dots i_{\mu-1}i_{\mu+1}\dots i_{p}}.$
+\end_inset
+
+ Next we have 
+\begin_inset Formula 
+\begin{align*}
+d_{p}(e_{j_{1},\dots,j_{p-1}}\otimes e_{n}) & =d_{p-1}(e_{j_{1},\dots,j_{p-1}})\otimes e_{n}+(-1)^{p-1}e_{j_{1},\dots,j_{p-1}}\otimes x_{n}\\
+ & =\sum_{\mu=1}^{p-1}(-1)^{\mu-1}x_{i_{\mu}}e_{j_{1}\dots j_{\mu-1}j_{\mu+1}\dots j_{p-1}}\otimes e_{n}+(-1)^{p-1}x_{n}e_{j_{1},\dots,j_{p-1}}\otimes1,
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and 
+\begin_inset Formula $\varphi_{p-1}(d_{p}(e_{j_{1},\dots,j_{p-1}}\otimes e_{n}))=\sum_{\mu=1}^{p-1}(-1)^{\mu-1}x_{i_{\mu}}e_{j_{1}\dots j_{\mu-1}j_{\mu+1}\dots j_{p-1}}+(-1)^{p-1}x_{n}e_{j_{1},\dots,j_{p-1}}.$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{cor}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a ring, 
+\begin_inset Formula $M$
+\end_inset
+
+ an 
+\begin_inset Formula $A$
+\end_inset
+
+-module and 
+\begin_inset Formula $x_{1},\dots,x_{n}\in A$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $x=(x_{1},\dots,x_{n})$
+\end_inset
+
+ and 
+\begin_inset Formula $y=(x_{\pi(1)},\dots,x_{\pi(n)})$
+\end_inset
+
+ for a permutation 
+\begin_inset Formula $\pi$
+\end_inset
+
+.
+ Then the complexes 
+\begin_inset Formula $K(x,M)_{\bullet}$
+\end_inset
+
+ and 
+\begin_inset Formula $K(y,M)_{\bullet}$
+\end_inset
+
+ are isomorphic.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{cor}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

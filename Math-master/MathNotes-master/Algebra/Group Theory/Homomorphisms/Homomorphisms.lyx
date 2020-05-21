@@ -1,0 +1,4972 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{tikz}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\usetikzlibrary{shapes.geometric}
+\usepackage{tikz-cd}
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem*{cor}{Corollary}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{ex}{Exercise} 
+\newtheorem{example}{Example}[section]
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem{case}{Case}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{tikz-cd}
+\usetikzlibrary{calc,arrows,decorations.pathreplacing}
+\tikzset{mydot/.style={circle,fill,inner sep=1.5pt},
+commutative diagrams/.cd,
+  arrow style=tikz,
+  diagrams={>=latex},
+}
+
+\usepackage{babel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+\usepackage{pgfplots}
+\usetikzlibrary{decorations.markings}
+\pgfplotsset{compat=1.9}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding iso8859-15
+\fontencoding global
+\font_roman "palatino" "default"
+\font_sans "lmss" "default"
+\font_typewriter "lmtt" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf true
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing single
+\use_hyperref false
+\papersize custom
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\paperwidth 30cm
+\paperheight 35cm
+\topmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0bp
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Homomorphism, Isomorphism
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+Let 
+\begin_inset Formula $(G,\cdot)$
+\end_inset
+
+ and 
+\begin_inset Formula $(G',\star)$
+\end_inset
+
+ be groups.
+ A map 
+\begin_inset Formula $\varphi:G\to G'$
+\end_inset
+
+ is a 
+\begin_inset Formula $\textbf{homomorphism}$
+\end_inset
+
+ if 
+\begin_inset Formula $\varphi(a\cdot b)=\varphi(a)\star\varphi(b)$
+\end_inset
+
+ for all 
+\begin_inset Formula $a,b\in G$
+\end_inset
+
+.
+ An 
+\begin_inset Formula $\textbf{isomorphism}$
+\end_inset
+
+ is a bijective homomorphism.
+ If there exists an an isomorphism from 
+\begin_inset Formula $G$
+\end_inset
+
+ to 
+\begin_inset Formula $G'$
+\end_inset
+
+, then we say 
+\begin_inset Formula $G$
+\end_inset
+
+ is isomorphic to 
+\begin_inset Formula $G'$
+\end_inset
+
+ or 
+\begin_inset Formula $G\cong G'$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{ex}
+\end_layout
+
+\end_inset
+
+ Decide whether 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ is a group homomorphism.
+ If yes, is it an isomorphism?
+\end_layout
+
+\begin_layout Enumerate
+Is 
+\begin_inset Formula $(\mathbb{R},+)$
+\end_inset
+
+ isomorphic to 
+\begin_inset Formula $((0,\infty),\cdot)$
+\end_inset
+
+? Yes, define 
+\begin_inset Formula $\varphi\mathbb{R}\to(0,\infty)$
+\end_inset
+
+ by
+\begin_inset Formula $\varphi(x)=e^{x}$
+\end_inset
+
+.
+ This is a homomorphism since
+\begin_inset Formula 
+\[
+\varphi(x)\varphi(y)=e^{x}e^{y}=e^{x+y}=\varphi(x+y).
+\]
+
+\end_inset
+
+ This is also an isomorphism since 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ is bijective.
+ The inverse of 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ is 
+\begin_inset Formula $\log$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Is 
+\begin_inset Formula $(M_{2}(\mathbb{R}),+)$
+\end_inset
+
+ isomorphic to 
+\begin_inset Formula $(\mathbb{R},+)$
+\end_inset
+
+? No, but there does exist a homomorphism from 
+\begin_inset Formula $M_{2}(\mathbb{R})$
+\end_inset
+
+ to 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+.
+ One example of a homomorphism is given by 
+\begin_inset Formula $\varphi\left(\begin{pmatrix}a & b\\
+c & d
+\end{pmatrix}\right)=a+d$
+\end_inset
+
+.
+ This is a homomorphism since
+\begin_inset Formula 
+\[
+\varphi\left(\begin{pmatrix}a & b\\
+c & d
+\end{pmatrix}\right)+\varphi\left(\begin{pmatrix}a' & b'\\
+c' & d'
+\end{pmatrix}\right)=a+d+a'+d'=\varphi\left(\begin{pmatrix}a+a' & b+b'\\
+c+c' & d+d'
+\end{pmatrix}\right)=\varphi\left(\begin{pmatrix}a & b\\
+c & d
+\end{pmatrix}+\begin{pmatrix}a' & b'\\
+c' & d'
+\end{pmatrix}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Is 
+\begin_inset Formula $(GL_{2}(\mathbb{R}),\cdot)$
+\end_inset
+
+ isomorphic to 
+\begin_inset Formula $(\mathbb{R}\setminus\{0\},\cdot)$
+\end_inset
+
+? No, but there does exist a homomorphism from 
+\begin_inset Formula $GL_{2}(\mathbb{R})$
+\end_inset
+
+ to 
+\begin_inset Formula $\mathbb{R}\setminus\{0\}$
+\end_inset
+
+.
+ One example of a homomorphism is given by 
+\begin_inset Formula $\varphi\left(\begin{pmatrix}a & b\\
+c & d
+\end{pmatrix}\right)=ad-bc$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{ex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\varphi:G\to G'$
+\end_inset
+
+ be a group homomorphism.
+ Then 
+\begin_inset Formula $\varphi(e)=e'$
+\end_inset
+
+, where 
+\begin_inset Formula $e$
+\end_inset
+
+ is the identity of 
+\begin_inset Formula $(G,\cdot)$
+\end_inset
+
+ and 
+\begin_inset Formula $e'$
+\end_inset
+
+ is the identity of 
+\begin_inset Formula $(G',\star)$
+\end_inset
+
+, and for any 
+\begin_inset Formula $a\in G$
+\end_inset
+
+, 
+\begin_inset Formula $\varphi(a^{-1})=\varphi(a)^{-1}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a set with 
+\begin_inset Formula $|A|=m$
+\end_inset
+
+, then 
+\begin_inset Formula $S_{A}\cong S_{n}$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Since 
+\begin_inset Formula $|A|=m$
+\end_inset
+
+, there exists a bijection 
+\begin_inset Formula $f:\{1,\dots,m\}\to A$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\alpha:S_{A}\to S_{m}$
+\end_inset
+
+ be given by 
+\begin_inset Formula $\alpha(h)=f^{-1}\cdot h\cdot f$
+\end_inset
+
+.
+ 
+\begin_inset Formula $\alpha(h)$
+\end_inset
+
+ is bijection from 
+\begin_inset Formula $\{1,\dots,m\}$
+\end_inset
+
+ to 
+\begin_inset Formula $\{1,\dots,m\}$
+\end_inset
+
+ since it is a composition of bijections.
+ Therefore 
+\begin_inset Formula $\alpha(h)\in S_{m}$
+\end_inset
+
+.
+ 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ is a homomorphism since
+\begin_inset Formula 
+\[
+\alpha(h)\cdot\alpha(h')=f^{-1}\cdot h\cdot f\cdot f^{-1}\cdot h'\cdot f=f^{-1}\cdot h\cdot h'\cdot f=\alpha(h\cdot h')
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To show 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ is an isomorphism, we just need to show 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ is a bijection.
+ To show this, we construct an inverse of 
+\begin_inset Formula $\alpha$
+\end_inset
+
+.
+ An inverse of 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ is given by 
+\begin_inset Formula $\alpha^{'}:S_{A}\to S_{m}$
+\end_inset
+
+ where 
+\begin_inset Formula $\alpha'(\sigma)=f\cdot\sigma\cdot f^{-1}$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Subsection*
+Kernels, Centralizers, and Normalizers
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $(G,\cdot)$
+\end_inset
+
+ and 
+\begin_inset Formula $(G',\star)$
+\end_inset
+
+ be two groups and let 
+\begin_inset Formula $\varphi:G\to G'$
+\end_inset
+
+ be a homomorphism.
+ Then 
+\begin_inset Formula 
+\[
+\textbf{ker}\varphi=\{a\in G\mid\varphi(a)=e\}
+\]
+
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $(G,\cdot)$
+\end_inset
+
+ and 
+\begin_inset Formula $(G',\star)$
+\end_inset
+
+ be two groups and let 
+\begin_inset Formula $\varphi:G\to G'$
+\end_inset
+
+ be a homomorphism.
+ Then 
+\begin_inset Formula 
+\[
+\textbf{im}\varphi=\{\varphi(a)\mid a\in G\}
+\]
+
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $(G,\cdot)$
+\end_inset
+
+ and 
+\begin_inset Formula $(G,\star)$
+\end_inset
+
+ be two groups and let 
+\begin_inset Formula $\varphi:G\to G'$
+\end_inset
+
+ be a homomorphism.
+ Then ker
+\begin_inset Formula $\varphi\leq G$
+\end_inset
+
+ and im
+\begin_inset Formula $\varphi\leq G'$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $e\in$
+\end_inset
+
+ker
+\begin_inset Formula $\varphi$
+\end_inset
+
+ since 
+\begin_inset Formula $\varphi(e)=e$
+\end_inset
+
+, so ker
+\begin_inset Formula $\varphi$
+\end_inset
+
+ is nonempty.
+ Given 
+\begin_inset Formula $a,b\in$
+\end_inset
+
+ker
+\begin_inset Formula $\varphi$
+\end_inset
+
+, 
+\begin_inset Formula $\varphi(ab^{-1})=\varphi(a)\varphi(b)^{-1}=e$
+\end_inset
+
+, so 
+\begin_inset Formula $ab^{-1}\in$
+\end_inset
+
+ker
+\begin_inset Formula $\varphi$
+\end_inset
+
+.
+ This proves ker
+\begin_inset Formula $\varphi\leq G$
+\end_inset
+
+.
+ 
+\begin_inset Formula $e\in$
+\end_inset
+
+im
+\begin_inset Formula $\varphi$
+\end_inset
+
+ since 
+\begin_inset Formula $\varphi(e)=e$
+\end_inset
+
+, so im
+\begin_inset Formula $\varphi$
+\end_inset
+
+ is nonempty.
+ Given 
+\begin_inset Formula $a',b'\in$
+\end_inset
+
+im
+\begin_inset Formula $\varphi$
+\end_inset
+
+, there exists an 
+\begin_inset Formula $a,b\in G$
+\end_inset
+
+ such that 
+\begin_inset Formula $\varphi(a)=a'$
+\end_inset
+
+ and 
+\begin_inset Formula $\varphi(b)=b'$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\varphi(ab^{-1})=\varphi(a)\varphi(b)^{-1}=a'b'^{-1}$
+\end_inset
+
+, so 
+\begin_inset Formula $a'b'^{-1}\in$
+\end_inset
+
+im
+\begin_inset Formula $\varphi$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $m\in\mathbb{Z}^{+}$
+\end_inset
+
+ be fixed.
+ Then 
+\begin_inset Formula $\pi:\mathbb{Z}\to\mathbb{Z}/(m)$
+\end_inset
+
+, where 
+\begin_inset Formula $\pi(a)=\bar{\pi}$
+\end_inset
+
+, is a group homomorphism: 
+\begin_inset Formula $\pi(a+b)=\overline{a+b}=\bar{a}+\bar{b}=\pi(a)+\pi(b)$
+\end_inset
+
+.
+ Notice that ker
+\begin_inset Formula $\pi=m\mathbb{Z}$
+\end_inset
+
+ and im
+\begin_inset Formula $\pi=\mathbb{Z}/(m)$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $(G,\cdot)$
+\end_inset
+
+ be a group and let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a nonempty subset of 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ Then the 
+\begin_inset Formula $\textbf{centralizer}$
+\end_inset
+
+ of 
+\begin_inset Formula $A$
+\end_inset
+
+ in 
+\begin_inset Formula $G$
+\end_inset
+
+ is 
+\begin_inset Formula 
+\[
+C_{G}(A)=\{g\in G\mid ga=ag\quad\forall a\in A\}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $C_{G}(A)\leq G$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $e\in C_{G}(A)$
+\end_inset
+
+ since 
+\begin_inset Formula $ea=ae$
+\end_inset
+
+ for all 
+\begin_inset Formula $a\in A$
+\end_inset
+
+.
+ So 
+\begin_inset Formula $C_{G}(A)$
+\end_inset
+
+ is nonempty.
+ Given 
+\begin_inset Formula $g,h\in C_{G}(A)$
+\end_inset
+
+, 
+\begin_inset Formula $gh^{-1}a=gah^{-1}=agh^{-1}$
+\end_inset
+
+ for all 
+\begin_inset Formula $a\in A$
+\end_inset
+
+, so 
+\begin_inset Formula $gh^{-1}\in C_{G}(A)$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ Consider 
+\begin_inset Formula $(S_{3},\cdot)$
+\end_inset
+
+ and 
+\begin_inset Formula $A=\{(1,2)\}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $C_{S_{3}}(A)=\{1,(1,2)\}$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $G$
+\end_inset
+
+ be an abelian group and 
+\begin_inset Formula $A$
+\end_inset
+
+ be a subset of 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $C_{G}(A)=G$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ The 
+\begin_inset Formula $\textbf{center}$
+\end_inset
+
+ of a group 
+\begin_inset Formula $G$
+\end_inset
+
+ is 
+\begin_inset Formula $Z(G)=\{g\in\mid ga=ag\mbox{ , }\forall a\in G\}$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{rem}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $Z(G)=C_{G}(G)$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{rem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $Z(G)\leq G$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Obviously 
+\begin_inset Formula $e\in Z(G)$
+\end_inset
+
+ so 
+\begin_inset Formula $Z(G)$
+\end_inset
+
+ is nonempty.
+ Given 
+\begin_inset Formula $g,h\in Z(G)$
+\end_inset
+
+, 
+\begin_inset Formula $gh^{-1}\in Z(G)$
+\end_inset
+
+ since
+\begin_inset Formula 
+\[
+\ell gh^{-1}=g\ell h^{-1}=gh^{-1}\ell\qquad\forall\ell\in G
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{rem}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+Z(G)=\bigcap_{\emptyset\neq A\subseteq G}C_{G}(A)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{rem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $Z(S_{3})=\{1\}$
+\end_inset
+
+.
+ We have 
+\begin_inset Formula $Z(S_{3})\subseteq C_{S_{3}}((1,2))\cap C_{S_{3}}((1,3))=\{1\}$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $G$
+\end_inset
+
+ be a group and let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a nonempty subset of 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ Then for each 
+\begin_inset Formula $g\in G$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+gAg^{-1}=\{gag^{-1}\mid a\in A\}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ The 
+\begin_inset Formula $\textbf{normalizer}$
+\end_inset
+
+ of 
+\begin_inset Formula $A$
+\end_inset
+
+ in 
+\begin_inset Formula $G$
+\end_inset
+
+ is 
+\begin_inset Formula 
+\[
+N_{G}(A)=\{g\in G\mid gAg^{-1}=A\}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $G$
+\end_inset
+
+ be a group and let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a nonempty subset of 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $N_{G}(A)\leq G$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Obviously 
+\begin_inset Formula $e\in N_{G}(A)$
+\end_inset
+
+ so 
+\begin_inset Formula $N_{G}(A)$
+\end_inset
+
+ is nonempty.
+ Given 
+\begin_inset Formula $g,h\in N_{G}(A)$
+\end_inset
+
+, we have 
+\begin_inset Formula 
+\[
+gh^{-1}A=gAh^{-1}=Agh^{-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{rem}
+\end_layout
+
+\end_inset
+
+ If 
+\begin_inset Formula $H\leq G$
+\end_inset
+
+, then 
+\begin_inset Formula $H\leq N_{G}(H)$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{rem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A,B\subseteq S_{3}$
+\end_inset
+
+ where 
+\begin_inset Formula $A=\{1,(1,2)\}$
+\end_inset
+
+ and 
+\begin_inset Formula $B=\{1,(1,2,3),(1,3,2)\}$
+\end_inset
+
+, then 
+\begin_inset Formula $N_{S_{3}}(A)=\{1,(1,2)\}$
+\end_inset
+
+ and 
+\begin_inset Formula $N_{S_{3}}(B)=S_{3}$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Normal Subgroups
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $G$
+\end_inset
+
+ be a group and let 
+\begin_inset Formula $H\leq G$
+\end_inset
+
+.
+ Consider the relation 
+\begin_inset Formula $\sim$
+\end_inset
+
+ on 
+\begin_inset Formula $G$
+\end_inset
+
+: 
+\begin_inset Formula 
+\[
+a\sim b\quad\mbox{if}\quad a^{-1}b\in H
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\sim$
+\end_inset
+
+ is an equivalence relation: 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\sim$
+\end_inset
+
+ is reflexive: 
+\begin_inset Formula $a^{-1}a=e\in H\implies a\sim a,\forall a\in G.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\sim$
+\end_inset
+
+ is symmetric: If 
+\begin_inset Formula $a^{-1}b\in H$
+\end_inset
+
+, then 
+\begin_inset Formula $b^{-1}a=\left(a^{-1}b\right)^{-1}\in H$
+\end_inset
+
+ since 
+\begin_inset Formula $H$
+\end_inset
+
+ is closed under inverses.
+ Therefore 
+\begin_inset Formula $a\sim b$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $b\sim a$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\sim$
+\end_inset
+
+ is transitive: Suppose 
+\begin_inset Formula $a\sim b$
+\end_inset
+
+ and 
+\begin_inset Formula $b\sim c$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $a^{-1}b\in H$
+\end_inset
+
+ and 
+\begin_inset Formula $b^{-1}c\in H$
+\end_inset
+
+ implies 
+\begin_inset Formula $a^{-1}c=\left(a^{-1}b\right)\left(b^{-1}c\right)\in H$
+\end_inset
+
+ since 
+\begin_inset Formula $H$
+\end_inset
+
+ is closed under products.
+ Therefore 
+\begin_inset Formula $a\sim c$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+The equivalence class of 
+\begin_inset Formula $a\in G$
+\end_inset
+
+ is 
+\begin_inset Formula 
+\[
+\{b\in G\mid a^{-1}b\in H\}=\{ah\mid h\in H\}=aH
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $aH$
+\end_inset
+
+ is called the 
+\series bold
+left coset of H in G containing a
+\series default
+.
+ We have
+\begin_inset Formula 
+\[
+aH=bH\quad\mbox{if and only if}\quad a\sim b
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The 
+\series bold
+right coset of H in G containing a
+\series default
+ is given by
+\begin_inset Formula 
+\[
+Ha=\{ha\mid h\in H\}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A subgroup 
+\begin_inset Formula $H$
+\end_inset
+
+ of 
+\begin_inset Formula $G$
+\end_inset
+
+ is 
+\series bold
+normal in G
+\series default
+ if 
+\begin_inset Formula $aH=Ha$
+\end_inset
+
+ for all 
+\begin_inset Formula $a\in G$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $H$
+\end_inset
+
+ is normal in 
+\begin_inset Formula $G$
+\end_inset
+
+, we write 
+\begin_inset Formula $H\trianglelefteq G$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\{e\}\trianglelefteq G$
+\end_inset
+
+ and 
+\begin_inset Formula $G\trianglelefteq G$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ If 
+\begin_inset Formula $G$
+\end_inset
+
+ is abelian then any subgroup 
+\begin_inset Formula $H$
+\end_inset
+
+ is normal in 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $H\leq G$
+\end_inset
+
+.
+ Any left 
+\begin_inset Formula $H$
+\end_inset
+
+-coset in 
+\begin_inset Formula $G$
+\end_inset
+
+ has a bijection with 
+\begin_inset Formula $H$
+\end_inset
+
+.
+ In particular, when 
+\begin_inset Formula $H$
+\end_inset
+
+ is finite, the cosets of 
+\begin_inset Formula $H$
+\end_inset
+
+ all have the same size as 
+\begin_inset Formula $H$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Pick a left coset, say 
+\begin_inset Formula $gH$
+\end_inset
+
+.
+ We can pass from 
+\begin_inset Formula $gH$
+\end_inset
+
+ to 
+\begin_inset Formula $H$
+\end_inset
+
+ by left multiplication by 
+\begin_inset Formula $g^{-1}:$
+\end_inset
+
+ 
+\begin_inset Formula $g^{-1}(gh)=h\in H$
+\end_inset
+
+.
+ Conversely, we can pass from 
+\begin_inset Formula $H$
+\end_inset
+
+ to 
+\begin_inset Formula $gH$
+\end_inset
+
+ by left multiplication by 
+\begin_inset Formula $g$
+\end_inset
+
+.
+ These functions from 
+\begin_inset Formula $gH$
+\end_inset
+
+ to 
+\begin_inset Formula $H$
+\end_inset
+
+ and vice versa are inverses to each other, showing 
+\begin_inset Formula $gH$
+\end_inset
+
+ and 
+\begin_inset Formula $H$
+\end_inset
+
+ are in bijection with each other.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $H\leq G$
+\end_inset
+
+.
+ The 
+\series bold
+index 
+\series default
+of 
+\begin_inset Formula $H$
+\end_inset
+
+ in 
+\begin_inset Formula $G$
+\end_inset
+
+ is the number of left cosets of 
+\begin_inset Formula $H$
+\end_inset
+
+ in 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ This number, which is a positive integer or 
+\begin_inset Formula $\infty$
+\end_inset
+
+, is denoted 
+\begin_inset Formula $[G:H]$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{rem}
+\end_layout
+
+\end_inset
+
+ The number of left cosets of 
+\begin_inset Formula $H$
+\end_inset
+
+ in 
+\begin_inset Formula $G$
+\end_inset
+
+ is equal to the number of right cosets of 
+\begin_inset Formula $H$
+\end_inset
+
+ in 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ A bijection from is given by the inverse map:
+\begin_inset Formula 
+\[
+aH\mapsto Ha^{-1}
+\]
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{rem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $H\leq G$
+\end_inset
+
+.
+ The following statements are equivalent
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $H\trianglelefteq G$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $gHg^{-1}=H$
+\end_inset
+
+ for all 
+\begin_inset Formula $g\in G$
+\end_inset
+
+, where 
+\begin_inset Formula $gHg^{-1}=\{ghg^{-1}\mid h\in H\}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $N_{G}(H)=G$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $gHg^{-1}\subseteq H$
+\end_inset
+
+ for all 
+\begin_inset Formula $g\in G$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $(1\implies2):$
+\end_inset
+
+ 
+\begin_inset Formula $H\trianglelefteq G$
+\end_inset
+
+ means 
+\begin_inset Formula $gH=Hg$
+\end_inset
+
+ for all 
+\begin_inset Formula $g\in G$
+\end_inset
+
+.
+ Multiply both sides by 
+\begin_inset Formula $g^{-1}$
+\end_inset
+
+ (a bijection) to get 
+\begin_inset Formula $gHg^{-1}=Hgg^{-1}=H$
+\end_inset
+
+.
+ 
+\begin_inset Formula $(2\implies3):$
+\end_inset
+
+ Recall 
+\begin_inset Formula $N_{G}(H)=\{g\in G\mid gHg^{-1}=H\}$
+\end_inset
+
+.
+ By assumption, 
+\begin_inset Formula $gHg^{-1}=H$
+\end_inset
+
+ for all 
+\begin_inset Formula $g\in G$
+\end_inset
+
+, therefore 
+\begin_inset Formula $N_{G}(H)=G$
+\end_inset
+
+.
+ 
+\begin_inset Formula $(3\implies4):$
+\end_inset
+
+ By assumption 
+\begin_inset Formula $gHg^{-1}=H$
+\end_inset
+
+ for all 
+\begin_inset Formula $g\in G$
+\end_inset
+
+, therefore 
+\begin_inset Formula $gHg^{-1}\subseteq H$
+\end_inset
+
+.
+ 
+\begin_inset Formula $(4\implies1):$
+\end_inset
+
+ We need to show 
+\begin_inset Formula $gHg^{-1}\supseteq H$
+\end_inset
+
+ for all 
+\begin_inset Formula $g\in G$
+\end_inset
+
+.
+ Suppose 
+\begin_inset Formula $h\in H$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $g^{-1}hg\in H$
+\end_inset
+
+ by assumption.
+ Then 
+\begin_inset Formula $h=gg^{-1}hgg^{-1}\in gHg^{-1}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ We show 
+\begin_inset Formula $SL_{2}(\mathbb{R})\trianglelefteq GL_{2}(\mathbb{R})$
+\end_inset
+
+.
+ It suffices to check 
+\begin_inset Formula $MAM^{-1}\subseteq SL_{2}(\mathbb{R})$
+\end_inset
+
+ for all 
+\begin_inset Formula $M\in GL_{2}(\mathbb{R})$
+\end_inset
+
+ and 
+\begin_inset Formula $A\in SL_{2}(\mathbb{R})$
+\end_inset
+
+.
+ Given any such 
+\begin_inset Formula $M$
+\end_inset
+
+ and 
+\begin_inset Formula $A$
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+\det(MAM^{-1})=\det(M)\det(A)\det(M^{-1})=\det(M)\det(M^{-1})=\det(I)=1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Therefore 
+\begin_inset Formula $MAM^{-1}\in SL_{2}(\mathbb{R})$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Quotient Group
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $H\leq G$
+\end_inset
+
+.
+ Define multiplication on the left cosets by 
+\begin_inset Formula 
+\[
+(aH)(bH)=abH
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Check that this is well-defined iff 
+\begin_inset Formula $H\trianglelefteq G$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $G$
+\end_inset
+
+ be a group and let 
+\begin_inset Formula $H\leq G$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula 
+\[
+G/H=\{gH\mid g\in G\}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Define multiplication on 
+\begin_inset Formula $G/H$
+\end_inset
+
+ by 
+\begin_inset Formula 
+\[
+(aH)(bH)=abH
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\end_layout
+
+\end_inset
+
+ Multiplication of left cosets is well defined if and only if 
+\begin_inset Formula $H\trianglelefteq G$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Choose different coset representatives 
+\begin_inset Formula $a'$
+\end_inset
+
+ and 
+\begin_inset Formula $b'$
+\end_inset
+
+.
+ So 
+\begin_inset Formula $b'=bh_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $a'=ah_{2}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula 
+\[
+(a'H)(b'H)=(ah_{2}H)(bh_{1}H)=aHbH=abH'H
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $H'=H$
+\end_inset
+
+ for all 
+\begin_inset Formula $b\in G$
+\end_inset
+
+, then 
+\begin_inset Formula $H$
+\end_inset
+
+ is normal.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+HK=\{hk\mid h\in H,\,k\in K\}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\end_layout
+
+\end_inset
+
+ If 
+\begin_inset Formula $H\trianglelefteq G$
+\end_inset
+
+, then 
+\begin_inset Formula $G/H=\{gH\mid g\in G\}$
+\end_inset
+
+ is a group with multiplication 
+\begin_inset Formula $\cdot$
+\end_inset
+
+ being 
+\begin_inset Formula $(aH)(bH)=abH$
+\end_inset
+
+ for all 
+\begin_inset Formula $a,b\in G$
+\end_inset
+
+.
+ We say 
+\begin_inset Formula $G/H$
+\end_inset
+
+ is the quotient group 
+\begin_inset Formula $G\mod H$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Enumerate
+Binary Operation: For all 
+\begin_inset Formula $a,b\in G$
+\end_inset
+
+, 
+\begin_inset Formula $abH$
+\end_inset
+
+ is a left coset of 
+\begin_inset Formula $H$
+\end_inset
+
+.
+ So 
+\begin_inset Formula $\cdot$
+\end_inset
+
+ is a binary operation defined on the set of left cosets of 
+\begin_inset Formula $H$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Associativity: For all, 
+\begin_inset Formula $a,b,c\in G$
+\end_inset
+
+, we have
+\begin_inset Formula $((aH)(bH))(cH)=(abH)(cH)=((ab)cH)=(a(bc)H)=(aH)(bcH)=(aH)((bH)(cH))$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Identity: For all 
+\begin_inset Formula $a\in G$
+\end_inset
+
+, we have 
+\begin_inset Formula $(aH)(eH)=aeH=aH=eaH=(eH)(aH)$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Enumerate
+Inverse: For all 
+\begin_inset Formula $a\in G$
+\end_inset
+
+, we have 
+\begin_inset Formula $(aH)(a^{-1}H)=aa^{-1}H=eH=H=eH=a^{-1}aH=(a^{-1}H)(aH)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $K=\langle(1,2,3)\rangle\trianglelefteq S_{3}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $(1,2)K=\{(1,2),(2,3),(1,3)\}$
+\end_inset
+
+, 
+\begin_inset Formula $(2,3)K=\{(2,3),(1,3),(1,2)\}$
+\end_inset
+
+, and 
+\begin_inset Formula $(1,3)K=\{(1,3),(1,2),(2,3)\}$
+\end_inset
+
+.
+ So 
+\begin_inset Formula $(1,2)K=(2,3)K=(1,3)K$
+\end_inset
+
+ and 
+\begin_inset Formula $()K=(1,2,3)K=(3,2,1)K$
+\end_inset
+
+.
+ So there are two elements in 
+\begin_inset Formula $S_{3}/K$
+\end_inset
+
+, and they are represented by 
+\begin_inset Formula $\{()K,(1,2)K\}$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\varphi:S_{3}/K\to\mathbb{Z}_{2}$
+\end_inset
+
+ be given by 
+\begin_inset Formula $\varphi(()K)=\bar{0}$
+\end_inset
+
+ and 
+\begin_inset Formula $\varphi((1,2)K)=\bar{1}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ is an isomorphism.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{rem}
+\end_layout
+
+\end_inset
+
+ If 
+\begin_inset Formula $G$
+\end_inset
+
+ is abelian then 
+\begin_inset Formula $G/H$
+\end_inset
+
+ is abelian: 
+\begin_inset Formula $(aH)(bH)=abH=baH=(bH)(aH)$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $G$
+\end_inset
+
+ is cyclic then 
+\begin_inset Formula $G/H$
+\end_inset
+
+ is cyclic: Suppose 
+\begin_inset Formula $G=\langle a\rangle$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $bH=a^{n}H=(aH)^{n}$
+\end_inset
+
+.
+ Therefore 
+\begin_inset Formula $G/H=\langle aH\rangle$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{rem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+What does it mean to say 
+\begin_inset Formula $G/H$
+\end_inset
+
+ is abelian.
+ It means for all 
+\begin_inset Formula $a,b\in G$
+\end_inset
+
+, 
+\begin_inset Formula $ab=\varphi(a,b)ba$
+\end_inset
+
+ where 
+\begin_inset Formula $\varphi(a,b)\in H$
+\end_inset
+
+.
+ So we have a function 
+\begin_inset Formula $\varphi:G\times G\to H$
+\end_inset
+
+.
+ What can we say about this function 
+\begin_inset Formula $\varphi$
+\end_inset
+
+? First of all, 
+\begin_inset Formula $ab=ba$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $\varphi(a,b)=e$
+\end_inset
+
+ for all 
+\begin_inset Formula $a,b\in G$
+\end_inset
+
+.
+ Next 
+\begin_inset Formula 
+\[
+ab=\varphi(a,b)ba=\varphi(a,b)\varphi(b,a)ab
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+tells us 
+\begin_inset Formula $\varphi(a,b)=\varphi(b,a)^{-1}$
+\end_inset
+
+.
+ Next, associativity tells us
+\begin_inset Formula 
+\[
+\varphi(a,b)\varphi(b,ac)acb=\varphi(a,b)bac=abc=a\varphi(b,c)cb=\varphi(a,\varphi(b,c))\varphi(b,c)acb\qquad\forall a,b,c\in G
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So 
+\begin_inset Formula 
+\begin{equation}
+a\varphi(b,c)a^{-1}=\varphi(a,\varphi(b,c))\varphi(b,c)=\varphi(a,b)\varphi(b,ac)\qquad\forall a,b,c\in G\label{eq:ass}
+\end{equation}
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+And finally, the identity element 
+\begin_inset Formula $e$
+\end_inset
+
+ tells us
+\begin_inset Formula 
+\[
+a\varphi(e,a)=ae\varphi(e,a)=ea=a=ae=ea\varphi(a,e)=a\varphi(a,e)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So 
+\begin_inset Formula 
+\begin{equation}
+\varphi(a,e)=\varphi(e,a)=e\qquad\forall a\in G\label{eq:id}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Given 
+\begin_inset Formula $b,c\in G$
+\end_inset
+
+, suppose 
+\begin_inset Formula $bc=cb$
+\end_inset
+
+ or in other words 
+\begin_inset Formula $\varphi(b,c)=e$
+\end_inset
+
+.
+ Then using 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{eq:ass})
+\end_layout
+
+\end_inset
+
+ and 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{eq:id})
+\end_layout
+
+\end_inset
+
+ we get 
+\begin_inset Formula 
+\[
+e=\varphi(a,b)\varphi(b,ac)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+What we've been calling 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ actually goes by a better name.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ Given 
+\begin_inset Formula $a,b\in G$
+\end_inset
+
+, the 
+\series bold
+commutator 
+\series default
+
+\begin_inset Formula $[a,b]$
+\end_inset
+
+
+\series bold
+ 
+\series default
+of 
+\begin_inset Formula $a$
+\end_inset
+
+ and 
+\begin_inset Formula $b$
+\end_inset
+
+ is
+\begin_inset Formula 
+\[
+[a,b]=aba^{-1}b^{-1}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Check that 
+\begin_inset Formula $ab=[a,b]ba$
+\end_inset
+
+ so what we've been calling 
+\begin_inset Formula $\varphi(a,b)$
+\end_inset
+
+ can also be thought of as 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+.
+ Next, what does it mean to say 
+\begin_inset Formula $G/H$
+\end_inset
+
+ is cyclic? It means for every 
+\begin_inset Formula $b\in G$
+\end_inset
+
+, 
+\begin_inset Formula $b=a^{\psi(b)}\varphi(b)$
+\end_inset
+
+ where 
+\begin_inset Formula $\varphi(b)\in H$
+\end_inset
+
+ and 
+\begin_inset Formula $\psi(b)\in\mathbb{Z}$
+\end_inset
+
+.
+ Now suppose 
+\begin_inset Formula $H$
+\end_inset
+
+ is abelian.
+ Then 
+\begin_inset Formula 
+\[
+a^{\psi(b)+\psi(c)}\varphi(b)\varphi(c)=a^{\psi(b)}\varphi(b)a^{\psi(c)}\varphi(c)=bc=a^{\psi(bc)}\varphi(bc)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ If 
+\begin_inset Formula $G/Z(G)$
+\end_inset
+
+ is cyclic, then 
+\begin_inset Formula $G$
+\end_inset
+
+ is abelian.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\end_layout
+
+\end_inset
+
+ A subgroup 
+\begin_inset Formula $H$
+\end_inset
+
+ of 
+\begin_inset Formula $G$
+\end_inset
+
+ is normal in 
+\begin_inset Formula $G$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $H$
+\end_inset
+
+ is the kernel of a group homomorphism.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ If 
+\begin_inset Formula $H\trianglelefteq G$
+\end_inset
+
+ then 
+\begin_inset Formula $G/H=\{aH\mid a\in G\}$
+\end_inset
+
+ is a group.
+ Let 
+\begin_inset Formula $\pi:G\to G/H$
+\end_inset
+
+ be given by 
+\begin_inset Formula $\pi(a)=aH$
+\end_inset
+
+.
+ 
+\begin_inset Formula $\pi$
+\end_inset
+
+ is a homomorphism: 
+\begin_inset Formula $\pi(ab)=abH=(aH)(bH)=\pi(a)\pi(b)$
+\end_inset
+
+ for all 
+\begin_inset Formula $a,b\in G$
+\end_inset
+
+.
+ And 
+\begin_inset Formula $\mbox{Ker}\pi=\{a\in G\mid\pi(a)=H\}=\{a\in G\mid aH=H\}=H$
+\end_inset
+
+.
+ Conversely, let 
+\begin_inset Formula $\varphi:G\to G'$
+\end_inset
+
+ be a homomorphism.
+ Then 
+\begin_inset Formula $a\mbox{Ker}\varphi a^{-1}\subset\mbox{Ker}\varphi$
+\end_inset
+
+ since 
+\begin_inset Formula 
+\[
+\varphi(axa^{-1})=\varphi(a)\varphi(x)\varphi(a^{-1})=\varphi(a)\varphi(a^{-1})=1\qquad\forall x\in\mbox{Ker}\varphi
+\]
+
+\end_inset
+
+We also have 
+\begin_inset Formula $\mbox{Ker}\varphi\subset a\mbox{Ker}\varphi a^{-1}$
+\end_inset
+
+ since 
+\begin_inset Formula $x=a(a^{-1}xa)a^{-1}$
+\end_inset
+
+ for all 
+\begin_inset Formula $x\in\mbox{Ker}\varphi$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\det:(GL_{n}(\mathbb{R}),\cdot)\to(\mathbb{R}\setminus\{0\},\cdot)$
+\end_inset
+
+ is a homomorphism with 
+\begin_inset Formula $\mbox{Ker}\det=SL_{n}(\mathbb{R})$
+\end_inset
+
+, so 
+\begin_inset Formula $SL_{n}(\mathbb{R})$
+\end_inset
+
+ is a normal subgroup in 
+\begin_inset Formula $GL_{n}(\mathbb{R})$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Section*
+The Isomorphism Theorems
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\end_layout
+
+\end_inset
+
+ (The First Isomorphism Theorem) Let 
+\begin_inset Formula $\varphi:G\to G'$
+\end_inset
+
+ be a group homomorphism between groups 
+\begin_inset Formula $G$
+\end_inset
+
+ and 
+\begin_inset Formula $G'$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\mbox{Ker}\varphi\trianglelefteq G$
+\end_inset
+
+ and 
+\begin_inset Formula $G/\mbox{Ker}\varphi\cong\varphi(G)$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ We've already shown 
+\begin_inset Formula $\mbox{Ker}\varphi\trianglelefteq G$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\psi:G/\mbox{Ker}\varphi\to\varphi(G)$
+\end_inset
+
+ be given by 
+\begin_inset Formula $\psi(a\mbox{Ker}\varphi)=\psi(a)$
+\end_inset
+
+.
+ First we show 
+\begin_inset Formula $\psi$
+\end_inset
+
+ is well defined.
+ If 
+\begin_inset Formula $a\mbox{Ker}\varphi=b\mbox{Ker}\varphi$
+\end_inset
+
+, then 
+\begin_inset Formula $a=bx$
+\end_inset
+
+ with 
+\begin_inset Formula $x\in\mbox{Ker}\varphi$
+\end_inset
+
+, and this implies 
+\begin_inset Formula $\varphi(a)=\varphi(bx)=\varphi(b)\varphi(x)=\varphi(b)$
+\end_inset
+
+.
+ Now we show 
+\begin_inset Formula $\psi$
+\end_inset
+
+ is a homomorphism.
+ 
+\begin_inset Formula 
+\begin{align*}
+\psi(a\mbox{Ker}\varphi b\mbox{Ker}\varphi) & =\varphi(ab\mbox{Ker}\varphi)\\
+ & =\varphi(ab)\\
+ & =\varphi(a)\varphi(b)\\
+ & =\psi(\mbox{Ker}\varphi)\psi(\mbox{Ker}\varphi)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now we show 
+\begin_inset Formula $\psi$
+\end_inset
+
+ is injective.
+ Suppose 
+\begin_inset Formula $\psi(a\mbox{Ker}\varphi)=\psi(b\mbox{Ker}\varphi)$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\varphi(ab^{-1})=e$
+\end_inset
+
+, which implies 
+\begin_inset Formula $ab^{-1}\in\mbox{Ker}\varphi$
+\end_inset
+
+.
+ So 
+\begin_inset Formula $a\mbox{Ker}\varphi=b\mbox{Ker}\varphi$
+\end_inset
+
+.
+ Finally, 
+\begin_inset Formula $\psi$
+\end_inset
+
+ is clearly surjective, so we are done.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $m\geq2$
+\end_inset
+
+ and 
+\begin_inset Formula $\varphi:\mathbb{Z}\to\mathbb{Z}/(m\mathbb{Z})$
+\end_inset
+
+ be given by 
+\begin_inset Formula $\varphi(a)=\bar{a}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\varphi(a+b)=\overline{a+b}=\bar{a}+\bar{b}=\varphi(a)+\varphi(b)$
+\end_inset
+
+, so by the first isomorphism theorem, 
+\begin_inset Formula $\mathbb{Z}/\mbox{Ker}\varphi\cong\varphi(\mathbb{Z})$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $G$
+\end_inset
+
+ be a group and let 
+\begin_inset Formula $H$
+\end_inset
+
+ and 
+\begin_inset Formula $K$
+\end_inset
+
+ be subgroups of 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ Define 
+\begin_inset Formula 
+\[
+HK=\{ab\mid a\in H,\,b\in K\}
+\]
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $HK\leq G$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $HK=KH$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+Assume 
+\begin_inset Formula $HK=KH$
+\end_inset
+
+.
+ We can write the identity 
+\begin_inset Formula $e$
+\end_inset
+
+ as 
+\begin_inset Formula $e\cdot e\in HK=KH$
+\end_inset
+
+.
+ Next, we have closure under inverses since of 
+\begin_inset Formula $b\in HK=KH$
+\end_inset
+
+, then 
+\begin_inset Formula $b=hk$
+\end_inset
+
+ for some 
+\begin_inset Formula $h\in H$
+\end_inset
+
+ and 
+\begin_inset Formula $k\in K$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $b^{-1}=k^{-1}h^{-1}\in KH=HK$
+\end_inset
+
+.
+ Now suppose 
+\begin_inset Formula $a,b^{-1}\in HK=KH$
+\end_inset
+
+, then 
+\begin_inset Formula $a$
+\end_inset
+
+ has the form 
+\begin_inset Formula $h_{1}k_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $b^{-1}$
+\end_inset
+
+ has the form 
+\begin_inset Formula $h_{2}k_{2}$
+\end_inset
+
+.
+ So 
+\begin_inset Formula 
+\begin{align*}
+ab^{-1} & =h_{1}k_{1}h_{2}k_{2}\\
+ & =h_{1}h_{2}'k_{1}'k_{2}\in HK
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Where we have 
+\begin_inset Formula $k_{1}h_{2}=h_{2}'k_{1}'$
+\end_inset
+
+ for some 
+\begin_inset Formula $h_{2}'\in H$
+\end_inset
+
+ and 
+\begin_inset Formula $k_{1}'\in K$
+\end_inset
+
+ since 
+\begin_inset Formula $HK=KH$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{cor}
+\backslash
+label{hk}
+\end_layout
+
+\end_inset
+
+ If 
+\begin_inset Formula $H$
+\end_inset
+
+ and 
+\begin_inset Formula $K$
+\end_inset
+
+ are subgroups of 
+\begin_inset Formula $G$
+\end_inset
+
+ and if 
+\begin_inset Formula $H\leq N_{G}(K)$
+\end_inset
+
+, then 
+\begin_inset Formula $HK\leq G$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{cor}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ It suffices to check 
+\begin_inset Formula $HK=KH$
+\end_inset
+
+.
+ Start with 
+\begin_inset Formula $hk\in HK$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $H\subset N_{G}(K)$
+\end_inset
+
+, 
+\begin_inset Formula $hk=k'h\in KH$
+\end_inset
+
+.
+ Conversely starting with 
+\begin_inset Formula $kh\in KH$
+\end_inset
+
+, we get 
+\begin_inset Formula $hk'\in HK$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{cor}
+\end_layout
+
+\end_inset
+
+ If 
+\begin_inset Formula $G$
+\end_inset
+
+ is a group, 
+\begin_inset Formula $H\leq G$
+\end_inset
+
+ and 
+\begin_inset Formula $K\trianglelefteq G$
+\end_inset
+
+, then 
+\begin_inset Formula $HK\leq G$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{cor}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $K\trianglelefteq G$
+\end_inset
+
+ implies 
+\begin_inset Formula $N_{G}(K)=G$
+\end_inset
+
+.
+ So 
+\begin_inset Formula $H\leq N_{G}(K)=G$
+\end_inset
+
+.
+ So by 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Corrolary~(
+\backslash
+ref{hk})
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Formula $HK\leq G$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\end_layout
+
+\end_inset
+
+ (The Second Isomorphism Theorem) Let 
+\begin_inset Formula $G$
+\end_inset
+
+ be a group, 
+\begin_inset Formula $H\leq G$
+\end_inset
+
+, 
+\begin_inset Formula $K\leq G$
+\end_inset
+
+ and 
+\begin_inset Formula $H\leq N_{G}(K)$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $HK\leq G$
+\end_inset
+
+, 
+\begin_inset Formula $K\trianglelefteq HK$
+\end_inset
+
+ and 
+\begin_inset Formula $\frac{HK}{K}\cong\frac{H}{H\cap K}$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} & HK 
+\backslash
+
+\backslash
+ H 
+\backslash
+arrow[ur,dash] && K 
+\backslash
+arrow[ul,dash] 
+\backslash
+
+\backslash
+ & H 
+\backslash
+cap K 
+\backslash
+arrow[ul,dash] 
+\backslash
+arrow[ur,dash] 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ We've shown 
+\begin_inset Formula $HK\leq G$
+\end_inset
+
+.
+ Now we check 
+\begin_inset Formula $K\trianglelefteq HK$
+\end_inset
+
+.
+ We have 
+\begin_inset Formula $(h_{1}k_{1})k=(h_{1}k_{1}kk_{1}^{-1}h_{1}^{-1})h_{1}k_{1}$
+\end_inset
+
+ where 
+\begin_inset Formula $h_{1}k_{1}kk_{1}^{-1}h_{1}^{-1}\in K$
+\end_inset
+
+ since 
+\begin_inset Formula $H\subset N_{G}(K)$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ Consider 
+\begin_inset Formula $(\mathbb{Z},+)$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $A=a\mathbb{Z}\leq\mathbb{Z}$
+\end_inset
+
+ and 
+\begin_inset Formula $B=b\mathbb{Z}\leq\mathbb{Z}$
+\end_inset
+
+.
+ By the second isomorphism theorem, 
+\begin_inset Formula $\frac{A+B}{B}\cong\frac{A}{A\cap B}$
+\end_inset
+
+.
+ So 
+\begin_inset Formula $\frac{a\mathbb{Z}+b\mathbb{Z}}{b\mathbb{Z}}\cong\frac{a\mathbb{Z}}{a\mathbb{Z}\cap b\mathbb{Z}}$
+\end_inset
+
+.
+ Recall 
+\begin_inset Formula $a\mathbb{Z}+b\mathbb{Z}=d\mathbb{Z}$
+\end_inset
+
+ with 
+\begin_inset Formula $d=\gcd(a,b)$
+\end_inset
+
+.
+ Also 
+\begin_inset Formula $a\mathbb{Z}\cap b\mathbb{Z}=\ell\mathbb{Z}$
+\end_inset
+
+ with 
+\begin_inset Formula $\ell=\mbox{lcm}(a,b)$
+\end_inset
+
+.
+ So we have 
+\begin_inset Formula $\frac{d\mathbb{Z}}{b\mathbb{Z}}\cong\frac{a\mathbb{Z}}{\ell\mathbb{Z}}$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\end_layout
+
+\end_inset
+
+ ( The Third Isomorphism Theorem) Let 
+\begin_inset Formula $(G,\cdot)$
+\end_inset
+
+ be a group.
+ Let 
+\begin_inset Formula $H,K\trianglelefteq G$
+\end_inset
+
+ such that 
+\begin_inset Formula $H\leq K$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\[
+(G/H)/(K/H)\cong G/K
+\]
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $\varphi:G/H\to G/K$
+\end_inset
+
+ be given by mapping 
+\begin_inset Formula $\varphi(aH)=aK$
+\end_inset
+
+.
+ To be sure this is well defined, suppose 
+\begin_inset Formula $aH=bH$
+\end_inset
+
+.
+ We want to show 
+\begin_inset Formula $\varphi(aH)=\varphi(bH)$
+\end_inset
+
+ or 
+\begin_inset Formula $aK=bK$
+\end_inset
+
+ .
+ Since 
+\begin_inset Formula $aH=bH$
+\end_inset
+
+, then 
+\begin_inset Formula $b=ah$
+\end_inset
+
+ where 
+\begin_inset Formula $h\in H\subset K$
+\end_inset
+
+.
+ This implies 
+\begin_inset Formula $b\in aK$
+\end_inset
+
+, and therefore 
+\begin_inset Formula $bK=aK$
+\end_inset
+
+.
+ Next we check this is a homomorphism.
+ 
+\begin_inset Formula 
+\begin{align*}
+\varphi(aHbH) & =\varphi(abH)\\
+ & =abK\\
+ & =aKbK\\
+ & =\varphi(aH)\varphi(bH)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+By the first isomorhpism theorem, 
+\begin_inset Formula $(G/H)/\mbox{Ker}\varphi\cong\varphi(G/H)$
+\end_inset
+
+.
+ So 
+\begin_inset Formula 
+\[
+\mbox{Ker}\varphi=\{aH\in G/H\mid aK=K\}=\{aH\in G/H\mid a\in K\}=K/H
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Also 
+\begin_inset Formula $\varphi(G/H)=G/K$
+\end_inset
+
+ because for any 
+\begin_inset Formula $aK\in G/K$
+\end_inset
+
+ we have 
+\begin_inset Formula $aK=\varphi(aH)$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $H=8\mathbb{Z}$
+\end_inset
+
+, 
+\begin_inset Formula $K=4\mathbb{Z}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $H\trianglelefteq\mathbb{Z}$
+\end_inset
+
+, 
+\begin_inset Formula $K\trianglelefteq\mathbb{Z}$
+\end_inset
+
+ and 
+\begin_inset Formula $8\mathbb{Z}\leq4\mathbb{Z}$
+\end_inset
+
+.
+ By the third isomorphism theorem, 
+\begin_inset Formula $(\mathbb{Z}/8\mathbb{Z})/(4\mathbb{Z}/8\mathbb{Z})\cong\mathbb{Z}/4\mathbb{Z}$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $(G,\cdot)$
+\end_inset
+
+ be a group and let 
+\begin_inset Formula $H\trianglelefteq G$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $T\leq G/H$
+\end_inset
+
+, then 
+\begin_inset Formula $T=A/H$
+\end_inset
+
+ with 
+\begin_inset Formula $A\leq G$
+\end_inset
+
+ such that 
+\begin_inset Formula $H\leq A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $A/H\trianglelefteq G/H$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $A\trianglelefteq G$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $(1):$
+\end_inset
+
+ Let 
+\begin_inset Formula $A=\{a\in G\mid aH\in T\}$
+\end_inset
+
+.
+ We need to check that 
+\begin_inset Formula $A\leq G$
+\end_inset
+
+ and 
+\begin_inset Formula $H\leq A$
+\end_inset
+
+ and 
+\begin_inset Formula $A/H=T$
+\end_inset
+
+.
+ We have 
+\begin_inset Formula $e\in A$
+\end_inset
+
+ because 
+\begin_inset Formula $eH\in T$
+\end_inset
+
+.
+ We have closure under multiplication because 
+\begin_inset Formula $a,b\in A$
+\end_inset
+
+ implies 
+\begin_inset Formula $aH,bH\in T$
+\end_inset
+
+, and since 
+\begin_inset Formula $T$
+\end_inset
+
+ is a group, we have 
+\begin_inset Formula $abH=(aH)(bH)\in T$
+\end_inset
+
+ which implies 
+\begin_inset Formula $ab\in A$
+\end_inset
+
+.
+ Finally we check for inverses.
+ 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ implies 
+\begin_inset Formula $aH\in T$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $T$
+\end_inset
+
+ is a group, 
+\begin_inset Formula $aH$
+\end_inset
+
+ has an inverse, namely 
+\begin_inset Formula $a^{-1}H$
+\end_inset
+
+.
+ This implies 
+\begin_inset Formula $a^{-1}\in A$
+\end_inset
+
+.
+ So 
+\begin_inset Formula $A\leq G$
+\end_inset
+
+.
+ Now if 
+\begin_inset Formula $x\in H$
+\end_inset
+
+ then 
+\begin_inset Formula $xH=H\in T$
+\end_inset
+
+, so 
+\begin_inset Formula $x\in A$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $H\subset A$
+\end_inset
+
+.
+ Finally, we have 
+\begin_inset Formula $A/H=\{aH\mid a\in A\}=T$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $(2):$
+\end_inset
+
+ First assume 
+\begin_inset Formula $A/H\trianglelefteq G/H$
+\end_inset
+
+.
+ We need to show for all 
+\begin_inset Formula $g\in G$
+\end_inset
+
+, we have 
+\begin_inset Formula $gAg^{-1}\subset A$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $g\in G$
+\end_inset
+
+ and let 
+\begin_inset Formula $a\in A$
+\end_inset
+
+.
+ We know 
+\begin_inset Formula $gHaHg^{-1}H=gaHg^{-1}H=gag^{-1}H=a'H$
+\end_inset
+
+.
+ some 
+\begin_inset Formula $a'\in A$
+\end_inset
+
+.
+ Therefore 
+\begin_inset Formula $gAg^{-1}\subset A$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $A\trianglelefteq G$
+\end_inset
+
+.
+ To prove the converse, assume 
+\begin_inset Formula $A\trianglelefteq G$
+\end_inset
+
+.
+ Then we want to show 
+\begin_inset Formula $gH(A/H)(gH)^{-1}\subset A/H$
+\end_inset
+
+ for all 
+\begin_inset Formula $g\in G$
+\end_inset
+
+.
+ So let 
+\begin_inset Formula $g\in G$
+\end_inset
+
+ and 
+\begin_inset Formula $a\in A$
+\end_inset
+
+.
+ We know that 
+\begin_inset Formula $gag^{-1}=a'$
+\end_inset
+
+ for some 
+\begin_inset Formula $a'\in A$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $gHaH(gH)^{-1}=gag^{-1}H=a'H$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ All the subgroups of 
+\begin_inset Formula $\mathbb{Z}/10\mathbb{Z}$
+\end_inset
+
+ are of the form 
+\begin_inset Formula $A/10\mathbb{Z}$
+\end_inset
+
+ with 
+\begin_inset Formula $10\mathbb{Z}\leq A\leq\mathbb{Z}$
+\end_inset
+
+.
+ So any subgroup of 
+\begin_inset Formula $\mathbb{Z}/10\mathbb{Z}$
+\end_inset
+
+ is of the form 
+\begin_inset Formula $d\mathbb{Z}/10\mathbb{Z}$
+\end_inset
+
+ with 
+\begin_inset Formula $d|10$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

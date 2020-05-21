@@ -1,0 +1,2711 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{tikz}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\usetikzlibrary{shapes.geometric}
+\usepackage{tikz-cd}
+\usepackage{amsthm}
+\usepackage{xparse,etoolbox}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem*{cor}{Corollary}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{ex}{Exercise} 
+\newtheorem{example}{Example}[section]
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem{case}{Case}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{tikz-cd}
+\usetikzlibrary{calc,arrows,decorations.pathreplacing}
+\tikzset{mydot/.style={circle,fill,inner sep=1.5pt},
+commutative diagrams/.cd,
+  arrow style=tikz,
+  diagrams={>=latex},
+}
+
+\usepackage{babel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=blue,
+    filecolor=blue,
+    linkcolor=blue,
+    urlcolor=blue
+}
+\usepackage{pgfplots}
+\usetikzlibrary{decorations.markings}
+\pgfplotsset{compat=1.9}
+
+
+\newcommand{\blocktheorem}[1]{%
+  \csletcs{old#1}{#1}% Store \begin
+  \csletcs{endold#1}{end#1}% Store \end
+  \RenewDocumentEnvironment{#1}{o}
+    {\par\addvspace{1.5ex}
+     \noindent\begin{minipage}{\textwidth}
+     \IfNoValueTF{##1}
+       {\csuse{old#1}}
+       {\csuse{old#1}[##1]}}
+    {\csuse{endold#1}
+     \end{minipage}
+     \par\addvspace{1.5ex}}
+}
+
+\raggedbottom
+
+\blocktheorem{theorem}% Make theo into a block
+\blocktheorem{defn}% Make defi into a block
+\blocktheorem{lemma}% Make lem into a block
+\blocktheorem{rem}% Make rem into a block
+\blocktheorem{cor}% Make col into a block
+\blocktheorem{prop}% Make prop into a block
+
+
+\makeatletter
+\newcommand*{\@old@slash}{}\let\@old@slash\slash
+\def\slash{\relax\ifmmode\delimiter"502F30E\mathopen{}\else\@old@slash\fi}
+\makeatother
+
+\def\backslash{\delimiter"526E30F\mathopen{}}
+
+
+
+\usepackage[bottom]{footmisc}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding iso8859-15
+\fontencoding global
+\font_roman "palatino" "default"
+\font_sans "lmss" "default"
+\font_typewriter "lmtt" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf true
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing single
+\use_hyperref false
+\papersize custom
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\paperwidth 30cm
+\paperheight 35cm
+\topmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0bp
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Krull's Principal Ideal Theorem
+\end_layout
+
+\begin_layout Section
+Krull's Principal Ideal Theorem
+\end_layout
+
+\begin_layout Standard
+We now wish to study dimension theory in Noetherian rings.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\backslash
+label{defn}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a ring and let 
+\begin_inset Formula $\mathfrak{q}$
+\end_inset
+
+ be a prime ideal in 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ The 
+\series bold
+
+\begin_inset Formula $n$
+\end_inset
+
+th symbolic power of 
+\begin_inset Formula $\mathfrak{q}$
+\end_inset
+
+
+\series default
+, denoted 
+\begin_inset Formula $\mathfrak{q}^{(n)}$
+\end_inset
+
+, is defined to be the ideal
+\begin_inset Formula 
+\[
+\mathfrak{q}^{(n)}=\mathfrak{q}^{n}A_{\mathfrak{q}}\cap A=\left\{ a\in A\mid as\in\mathfrak{q}^{n}\text{ for some }s\in A\backslash\mathfrak{q}\right\} .
+\]
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\backslash
+label{prop}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a ring and let 
+\begin_inset Formula $\mathfrak{q}$
+\end_inset
+
+ be a prime ideal in 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\mathfrak{q}^{(n)}$
+\end_inset
+
+ is the smallest 
+\begin_inset Formula $\mathfrak{q}$
+\end_inset
+
+-primary ideal which contains 
+\begin_inset Formula $\mathfrak{q}^{n}$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ It is clear that 
+\begin_inset Formula $\mathfrak{q}^{n}\subset\mathfrak{q}^{(n)}$
+\end_inset
+
+.
+ Let us show that 
+\begin_inset Formula $\mathfrak{q}^{(n)}$
+\end_inset
+
+ is a 
+\begin_inset Formula $\mathfrak{q}$
+\end_inset
+
+-primary ideal.
+ Suppose 
+\begin_inset Formula $ab\in\mathfrak{q}^{(n)}$
+\end_inset
+
+ and 
+\begin_inset Formula $a\notin\mathfrak{q}^{(n)}$
+\end_inset
+
+.
+ Choose 
+\begin_inset Formula $s\in A\backslash\mathfrak{q}$
+\end_inset
+
+ such that 
+\begin_inset Formula $abs\in\mathfrak{q}^{n}$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $a\in\mathfrak{q}^{(n)}$
+\end_inset
+
+, we must not have 
+\begin_inset Formula $bs\in A\backslash\mathfrak{q}$
+\end_inset
+
+.
+ In particular, this implies 
+\begin_inset Formula $b\in\mathfrak{q}$
+\end_inset
+
+ since 
+\begin_inset Formula $A\backslash\mathfrak{q}$
+\end_inset
+
+ is multiplicatively closed.
+ But then 
+\begin_inset Formula $b^{n}\in\mathfrak{q}^{n}\subset\mathfrak{q}^{(n)}$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $\mathfrak{q}^{(n)}$
+\end_inset
+
+ is 
+\begin_inset Formula $\mathfrak{q}$
+\end_inset
+
+-primary.
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Now we will show that it is the smallest 
+\begin_inset Formula $\mathfrak{q}$
+\end_inset
+
+-primary ideal which contains 
+\begin_inset Formula $\mathfrak{q}^{n}$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $Q$
+\end_inset
+
+ be any 
+\begin_inset Formula $\mathfrak{q}$
+\end_inset
+
+-primary ideal which contains 
+\begin_inset Formula $\mathfrak{q}^{n}$
+\end_inset
+
+ and let 
+\begin_inset Formula $a\in\mathfrak{q}^{(n)}$
+\end_inset
+
+.
+ Choose 
+\begin_inset Formula $s\in A\backslash\mathfrak{q}$
+\end_inset
+
+ such that 
+\begin_inset Formula $as\in\mathfrak{q}^{n}\subset Q$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $A\backslash\mathfrak{q}$
+\end_inset
+
+ is multiplicatively closed and since 
+\begin_inset Formula $Q\cap A\backslash\mathfrak{q}=\emptyset$
+\end_inset
+
+, we must have 
+\begin_inset Formula $s^{m}\notin Q$
+\end_inset
+
+ for all 
+\begin_inset Formula $m\in\mathbb{N}$
+\end_inset
+
+.
+ This implies 
+\begin_inset Formula $a\in Q$
+\end_inset
+
+ since 
+\begin_inset Formula $Q$
+\end_inset
+
+ is primary.
+ Thus 
+\begin_inset Formula $\mathfrak{q}^{(n)}\subset Q$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\backslash
+label{theorem}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a Noetherian ring, 
+\begin_inset Formula $x\in A$
+\end_inset
+
+, and 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ a minimal prime of 
+\begin_inset Formula $\langle x\rangle$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\text{height}(\mathfrak{p})\leq1$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Sketch of Proof: 
+\series default
+Proof is by contradiction.
+ We may assume 
+\begin_inset Formula $(A,\mathfrak{p})$
+\end_inset
+
+ is a local domain since passing to this case preserves chains.
+ Recall that 
+\begin_inset Formula $\mathfrak{q}^{(n)}$
+\end_inset
+
+ is the 
+\begin_inset Formula $n$
+\end_inset
+
+th symbolic power of 
+\begin_inset Formula $\mathfrak{q}$
+\end_inset
+
+.
+ Use the fact that 
+\begin_inset Formula $A\slash x$
+\end_inset
+
+ is Artinian to deduce that 
+\begin_inset Formula $\mathfrak{q}^{(n)}+xA=\mathfrak{q}^{(n+1)}+xA$
+\end_inset
+
+ for all 
+\begin_inset Formula $n\geq N$
+\end_inset
+
+, for some 
+\begin_inset Formula $N\in\mathbb{N}$
+\end_inset
+
+.
+ Use the fact that 
+\begin_inset Formula $\mathfrak{q}^{(n)}$
+\end_inset
+
+ is 
+\begin_inset Formula $\mathfrak{q}$
+\end_inset
+
+-primary to conclude that 
+\begin_inset Formula $\mathfrak{q}^{(n)}=\mathfrak{q}^{(n+1)}+x\mathfrak{q}^{(n)}$
+\end_inset
+
+.
+ This implies that 
+\begin_inset Formula $\mathfrak{q}^{(n)}\slash\mathfrak{q}^{(n+1)}=0$
+\end_inset
+
+, by Nakayama's lemma.
+ Finally, if 
+\begin_inset Formula $b\in\mathfrak{q}\backslash\{0\}$
+\end_inset
+
+, it follows that 
+\begin_inset Formula $b^{N}\in\mathfrak{q}^{N}\subseteq\mathfrak{q}^{(N)}$
+\end_inset
+
+ and is hence in the intersection of all the 
+\begin_inset Formula $\mathfrak{q}^{(n)}$
+\end_inset
+
+.
+ But then, since 
+\begin_inset Formula $\mathfrak{q}^{(n)}\subseteq\mathfrak{q}^{n}A_{\mathfrak{q}}$
+\end_inset
+
+ for all 
+\begin_inset Formula $n$
+\end_inset
+
+, in the local domain 
+\begin_inset Formula $A_{\mathfrak{q}}$
+\end_inset
+
+, the intersection of the powers of the maximal ideal 
+\begin_inset Formula $\mathfrak{q}A_{\mathfrak{q}}$
+\end_inset
+
+ is not 
+\begin_inset Formula $0$
+\end_inset
+
+, a contradiction.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{rem}
+\backslash
+label{rem}
+\end_layout
+
+\end_inset
+
+ The reason we used 
+\begin_inset Formula $\mathfrak{q}^{(n)}$
+\end_inset
+
+ and not 
+\begin_inset Formula $\mathfrak{q}^{n}$
+\end_inset
+
+ is because 
+\begin_inset Formula $\mathfrak{q}^{n}$
+\end_inset
+
+ is not necessarily a 
+\begin_inset Formula $\mathfrak{q}$
+\end_inset
+
+-primary ideal.
+ Here is counterexample: Consider the ideal 
+\begin_inset Formula $\mathfrak{p}=\langle x,y\rangle$
+\end_inset
+
+ in 
+\begin_inset Formula $K[x,y,z]/\langle xy-z^{2}\rangle$
+\end_inset
+
+.
+ It's easy to check that 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ is a prime ideal in this ring, but 
+\begin_inset Formula $\mathfrak{p}^{2}$
+\end_inset
+
+ is not 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+-primary.
+ Indeed, 
+\begin_inset Formula $\mathfrak{p}^{2}$
+\end_inset
+
+ contains 
+\begin_inset Formula $xy=z^{2}$
+\end_inset
+
+, but it does not contain 
+\begin_inset Formula $x$
+\end_inset
+
+ nor 
+\begin_inset Formula $y^{n}$
+\end_inset
+
+ for any 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{rem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Suppose there is a chain of primes of length two or more in 
+\begin_inset Formula $A$
+\end_inset
+
+, say 
+\begin_inset Formula 
+\[
+\mathfrak{p}\supset\mathfrak{p}'\supset\mathfrak{p}''.
+\]
+
+\end_inset
+
+If we localize 
+\begin_inset Formula $A$
+\end_inset
+
+ at 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+, then we still have a chain of length two or more in 
+\begin_inset Formula $A_{\mathfrak{p}}$
+\end_inset
+
+, so we may as well assume that 
+\begin_inset Formula $(A,\mathfrak{p})$
+\end_inset
+
+ is local.
+ Also, by passing to the quotient 
+\begin_inset Formula $A\slash\mathfrak{p}''$
+\end_inset
+
+, we still get a chain of length two in 
+\begin_inset Formula $A\slash\mathfrak{p}''$
+\end_inset
+
+.
+ Thus, we may assume that 
+\begin_inset Formula $(A,\mathfrak{p})$
+\end_inset
+
+ is a local domain, that 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ is a minimal prime of 
+\begin_inset Formula $\langle x\rangle$
+\end_inset
+
+, and that there is a prime 
+\begin_inset Formula $\mathfrak{q}$
+\end_inset
+
+ with 
+\begin_inset Formula 
+\[
+\mathfrak{p}\supset\mathfrak{q}\supset\langle0\rangle.
+\]
+
+\end_inset
+
+We shall get a contradiction.
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+The ring 
+\begin_inset Formula $A\slash x$
+\end_inset
+
+ has only one prime ideal, namely 
+\begin_inset Formula $\mathfrak{p}\slash x$
+\end_inset
+
+, since 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ is minimal over 
+\begin_inset Formula $\langle x\rangle$
+\end_inset
+
+ and a maximal ideal in 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Therefore it is a zero dimensional local ring, and has DCC.
+ In consequence, the chain of ideals 
+\begin_inset Formula $\langle\mathfrak{q}^{(n)},x\rangle\slash x$
+\end_inset
+
+ is eventually stable.
+ Taking inverse images in 
+\begin_inset Formula $A$
+\end_inset
+
+, we find that there exists 
+\begin_inset Formula $N$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\[
+\mathfrak{q}^{(n)}+\langle x\rangle=\mathfrak{q}^{(n+1)}+\langle x\rangle
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $n\geq N$
+\end_inset
+
+.
+ In particular, for 
+\begin_inset Formula $n\geq N$
+\end_inset
+
+, we have 
+\begin_inset Formula $\mathfrak{q}^{(n)}\subseteq\mathfrak{q}^{(n+1)}+xA.$
+\end_inset
+
+ Let 
+\begin_inset Formula $u\in\mathfrak{q}^{(n)}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $u=q+xa$
+\end_inset
+
+, where 
+\begin_inset Formula $q\in\mathfrak{q}^{(n+1)}$
+\end_inset
+
+, and so 
+\begin_inset Formula $xa=u-q\in\mathfrak{q}^{(n)}$
+\end_inset
+
+.
+ But 
+\begin_inset Formula $x^{k}\notin\mathfrak{q}$
+\end_inset
+
+ for any 
+\begin_inset Formula $k\in\mathbb{N}$
+\end_inset
+
+, since 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ is the only minimal prime of 
+\begin_inset Formula $\langle x\rangle$
+\end_inset
+
+ in 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $\mathfrak{q}^{(n)}$
+\end_inset
+
+ is 
+\begin_inset Formula $\mathfrak{q}$
+\end_inset
+
+-primary, we have 
+\begin_inset Formula $a\in\mathfrak{q}^{(n)}$
+\end_inset
+
+.
+ This leads to the conclusion that 
+\begin_inset Formula $\mathfrak{q}^{(n)}\subseteq\mathfrak{q}^{(n+1)}+x\mathfrak{q}^{(n)}$
+\end_inset
+
+, and since obviously 
+\begin_inset Formula $\mathfrak{q}^{(n)}\supseteq\mathfrak{q}^{(n+1)}+x\mathfrak{q}^{(n)}$
+\end_inset
+
+, we have
+\begin_inset Formula 
+\[
+\mathfrak{q}^{(n)}=\mathfrak{q}^{(n+1)}+x\mathfrak{q}^{(n)}.
+\]
+
+\end_inset
+
+But that means that with 
+\begin_inset Formula $M=\mathfrak{q}^{(n)}\slash\mathfrak{q}^{(n+1)}$
+\end_inset
+
+, we have that 
+\begin_inset Formula $M=xM$
+\end_inset
+
+.
+ By Nakayama's lemma, 
+\begin_inset Formula $M=0$
+\end_inset
+
+, i.e.
+ 
+\begin_inset Formula $\mathfrak{q}^{(n)}\slash\mathfrak{q}^{(n+1)}=0$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Thus, 
+\begin_inset Formula $\mathfrak{q}^{(n)}=\mathfrak{q}^{(N)}$
+\end_inset
+
+ for all 
+\begin_inset Formula $n\geq N$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $b\in\mathfrak{q}\backslash\{0\}$
+\end_inset
+
+, it follows that 
+\begin_inset Formula $b^{N}\in\mathfrak{q}^{N}\subseteq\mathfrak{q}^{(N)}$
+\end_inset
+
+ and is hence in the intersection of all the 
+\begin_inset Formula $\mathfrak{q}^{(n)}$
+\end_inset
+
+.
+ But then, since 
+\begin_inset Formula $\mathfrak{q}^{(n)}\subseteq\mathfrak{q}^{n}A_{\mathfrak{q}}$
+\end_inset
+
+ for all 
+\begin_inset Formula $n$
+\end_inset
+
+, in the local domain 
+\begin_inset Formula $A_{\mathfrak{q}}$
+\end_inset
+
+, the intersection of the powers of the maximal ideal 
+\begin_inset Formula $\mathfrak{q}A_{\mathfrak{q}}$
+\end_inset
+
+ is not 
+\begin_inset Formula $0$
+\end_inset
+
+, a contradiction.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\backslash
+label{theoremprimeavoidance}
+\end_layout
+
+\end_inset
+
+ (Prime Avoidance) Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a ring.
+ Let 
+\begin_inset Formula $V\subseteq W$
+\end_inset
+
+ be vector spaces over an infinite field 
+\begin_inset Formula $K$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Let 
+\begin_inset Formula $\mathfrak{U}$
+\end_inset
+
+ be an ideal of 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Given finitely many ideals of 
+\begin_inset Formula $A$
+\end_inset
+
+, all but two of which are prime, if 
+\begin_inset Formula $\mathfrak{U}$
+\end_inset
+
+ is not contained in any of these ideals, then it is not contained in their
+ union.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Given finitely many subspaces of 
+\begin_inset Formula $W$
+\end_inset
+
+, if 
+\begin_inset Formula $V$
+\end_inset
+
+ is not contained in any of these subspaces, then 
+\begin_inset Formula $V$
+\end_inset
+
+ is not contained in their union.
+ 
+\end_layout
+
+\begin_layout Enumerate
+(Ed Davis) Let 
+\begin_inset Formula $x\in A$
+\end_inset
+
+ and 
+\begin_inset Formula $I,\mathfrak{p}_{1},\dots,\mathfrak{p}_{n}$
+\end_inset
+
+ be ideals of 
+\begin_inset Formula $A$
+\end_inset
+
+, such that 
+\begin_inset Formula $\mathfrak{p}_{i}$
+\end_inset
+
+ are prime.
+ If 
+\begin_inset Formula $\langle I,x\rangle$
+\end_inset
+
+ is not contained in any of the 
+\begin_inset Formula $\mathfrak{p}_{i}$
+\end_inset
+
+, then for some 
+\begin_inset Formula $b\in I$
+\end_inset
+
+, 
+\begin_inset Formula $b+x\notin\bigcup_{i}\mathfrak{p}_{i}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+We may assume that no term may be omitted from the union, or work with a
+ smaller family of ideals.
+ Call the ideals 
+\begin_inset Formula $I,J,\mathfrak{p}_{1},\dots,\mathfrak{p}_{n}$
+\end_inset
+
+ with 
+\begin_inset Formula $\mathfrak{p}_{i}$
+\end_inset
+
+ prime.
+ Choose elements 
+\begin_inset Formula $x\in I\cap\mathfrak{U}$
+\end_inset
+
+, 
+\begin_inset Formula $y\in J\cap\mathfrak{U}$
+\end_inset
+
+, and 
+\begin_inset Formula $z_{i}\in\mathfrak{p}_{i}\cap\mathfrak{U}$
+\end_inset
+
+, such that each belongs to only one of the ideals 
+\begin_inset Formula $I,J,\mathfrak{p}_{1},\dots\mathfrak{p}_{n}$
+\end_inset
+
+, i.e., to the one it is specified in.
+ This must be possible, or not all of the ideals would be needed to cover
+ 
+\begin_inset Formula $\mathfrak{U}$
+\end_inset
+
+.
+ For instance, if every element 
+\begin_inset Formula $x\in I\cap\mathfrak{U}$
+\end_inset
+
+ belonged to 
+\begin_inset Formula $J\cap\mathfrak{U}$
+\end_inset
+
+, then 
+\begin_inset Formula $I\cap\mathfrak{U}\subset J\cap\mathfrak{U}$
+\end_inset
+
+, and thus
+\begin_inset Formula 
+\[
+(I\cap\mathfrak{U})\cup(J\cap\mathfrak{\mathfrak{U})}\cup(\mathfrak{p}_{1}\cap\mathfrak{U})\cup\cdots\cup(\mathfrak{p}_{n}\cap\mathfrak{U})=(J\cap\mathfrak{\mathfrak{U})}\cup(\mathfrak{p}_{1}\cap\mathfrak{U})\cup\cdots\cup(\mathfrak{p}_{n}\cap\mathfrak{U}),
+\]
+
+\end_inset
+
+and we would simply proceed with the ideals 
+\begin_inset Formula $J,\mathfrak{p}_{1},\dots,\mathfrak{p}_{n}$
+\end_inset
+
+.
+  Let 
+\begin_inset Formula $a=(x+y)+xyb$
+\end_inset
+
+, where 
+\begin_inset Formula 
+\[
+b=\prod_{i\text{ such that }x+y\notin\mathfrak{p}_{i}}z_{i},
+\]
+
+\end_inset
+
+where a product over the empty set is defined to be 
+\begin_inset Formula $1$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $x+y$
+\end_inset
+
+ is not in 
+\begin_inset Formula $I$
+\end_inset
+
+ nor in 
+\begin_inset Formula $J$
+\end_inset
+
+, while 
+\begin_inset Formula $xyb$
+\end_inset
+
+ is in both, so that 
+\begin_inset Formula $a\notin I$
+\end_inset
+
+ and 
+\begin_inset Formula $a\notin J$
+\end_inset
+
+.
+ Now choose 
+\begin_inset Formula $i$
+\end_inset
+
+, 
+\begin_inset Formula $1\leq i\leq n$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $x+y\in\mathfrak{p}_{i}$
+\end_inset
+
+, the factors of 
+\begin_inset Formula $xyb$
+\end_inset
+
+ are not in 
+\begin_inset Formula $\mathfrak{p}_{i}$
+\end_inset
+
+, and so 
+\begin_inset Formula $xyb\notin\mathfrak{p}_{i}$
+\end_inset
+
+, and therefore 
+\begin_inset Formula $a\notin\mathfrak{p}_{i}$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $x+y\notin\mathfrak{p}_{i}$
+\end_inset
+
+ there is a factor of 
+\begin_inset Formula $b$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathfrak{p}_{i}$
+\end_inset
+
+, and so 
+\begin_inset Formula $a\notin\mathfrak{p}_{i}$
+\end_inset
+
+ again.
+ 
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $V$
+\end_inset
+
+ is not contained in any one of the finitely many vector spaces 
+\begin_inset Formula $V_{t}$
+\end_inset
+
+ covering 
+\begin_inset Formula $V$
+\end_inset
+
+, for every 
+\begin_inset Formula $t$
+\end_inset
+
+ choose a vector 
+\begin_inset Formula $v_{t}\in V\backslash V_{t}$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $V_{0}$
+\end_inset
+
+ be the span of the 
+\begin_inset Formula $v_{t}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $V_{0}$
+\end_inset
+
+ is a finite-dimensional counterexample.
+ We replace 
+\begin_inset Formula $V$
+\end_inset
+
+ by 
+\begin_inset Formula $V_{0}$
+\end_inset
+
+ and 
+\begin_inset Formula $V_{t}$
+\end_inset
+
+ by its intersection with 
+\begin_inset Formula $V_{0}$
+\end_inset
+
+.
+ Thus, we need only show that a finite-dimensional vector space 
+\begin_inset Formula $K^{n}$
+\end_inset
+
+ is not a finite union of proper subspaces 
+\begin_inset Formula $V_{t}$
+\end_inset
+
+.
+ (When the field is algebraically closed we have a contradiction because
+ 
+\begin_inset Formula $K^{n}$
+\end_inset
+
+ is irreducible.
+ Essentially the same idea works over any infinite field).
+ For each 
+\begin_inset Formula $t$
+\end_inset
+
+ we can choose a linear form 
+\begin_inset Formula $L_{t}\neq0$
+\end_inset
+
+ that vanishes on 
+\begin_inset Formula $V_{t}$
+\end_inset
+
+.
+ The product 
+\begin_inset Formula $f=L_{1}\cdots L_{t}$
+\end_inset
+
+ is a nonzero polynomial that vanishes identically on 
+\begin_inset Formula $K^{n}$
+\end_inset
+
+.
+ This is a contradiction, since 
+\begin_inset Formula $K$
+\end_inset
+
+ is infinite.
+ 
+\end_layout
+
+\begin_layout Enumerate
+We may assume that no 
+\begin_inset Formula $\mathfrak{p}_{t}$
+\end_inset
+
+ may be omitted from the union.
+ For every 
+\begin_inset Formula $t,$
+\end_inset
+
+ choose an element 
+\begin_inset Formula $p_{t}$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathfrak{p}_{t}$
+\end_inset
+
+ and not in any of the other 
+\begin_inset Formula $\mathfrak{p}_{k}$
+\end_inset
+
+.
+ Suppose, after renumbering, that 
+\begin_inset Formula $\mathfrak{p}_{1},\dots,\mathfrak{p}_{k}$
+\end_inset
+
+ all contain 
+\begin_inset Formula $x$
+\end_inset
+
+ while the other 
+\begin_inset Formula $\mathfrak{p}_{t}$
+\end_inset
+
+ do not (the values 
+\begin_inset Formula $0$
+\end_inset
+
+ and 
+\begin_inset Formula $n$
+\end_inset
+
+ for 
+\begin_inset Formula $k$
+\end_inset
+
+ are allowed).
+ If 
+\begin_inset Formula $I\subseteq\bigcup_{j=1}^{k}\mathfrak{p}_{j}$
+\end_inset
+
+ then it is easy to see that 
+\begin_inset Formula $\langle I,x\rangle\subseteq\bigcup_{j=1}^{k}\mathfrak{p}_{j}$
+\end_inset
+
+, and hence in one of the 
+\begin_inset Formula $\mathfrak{p}_{j}$
+\end_inset
+
+ by part (1), a contradiction.
+ Choose 
+\begin_inset Formula $a\in I$
+\end_inset
+
+ not in any of the 
+\begin_inset Formula $\mathfrak{p}_{1},\dots,\mathfrak{p}_{k}$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $q$
+\end_inset
+
+ be the product of the 
+\begin_inset Formula $p_{t}$
+\end_inset
+
+ for 
+\begin_inset Formula $t>k$
+\end_inset
+
+ (or 
+\begin_inset Formula $1$
+\end_inset
+
+ if 
+\begin_inset Formula $k=n$
+\end_inset
+
+).
+ Then 
+\begin_inset Formula $x+aq$
+\end_inset
+
+ is not in any 
+\begin_inset Formula $\mathfrak{p}_{t}$
+\end_inset
+
+, and so we may take 
+\begin_inset Formula $b=aq$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\backslash
+label{example}
+\end_layout
+
+\end_inset
+
+ Consider the ring 
+\begin_inset Formula $\mathbb{F}_{2}[x,y]/\langle x^{2},xy,y^{2}\rangle$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\langle x,y\rangle=\langle x\rangle\cup\langle y\rangle\cup\langle x+y\rangle$
+\end_inset
+
+, but 
+\begin_inset Formula $\langle x,y\rangle\not\subset\langle x\rangle$
+\end_inset
+
+, 
+\begin_inset Formula $\langle x,y\rangle\not\subset\langle y\rangle$
+\end_inset
+
+, and 
+\begin_inset Formula $\langle x,y\rangle\not\subset\langle x+y\rangle$
+\end_inset
+
+.
+ This shows that we cannot replace 
+\begin_inset Quotes eld
+\end_inset
+
+all but two are prime
+\begin_inset Quotes erd
+\end_inset
+
+ by 
+\begin_inset Quotes eld
+\end_inset
+
+all but three are prime
+\begin_inset Quotes erd
+\end_inset
+
+ in part (1) of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Theorem~(
+\backslash
+ref{theoremprimeavoidance})
+\end_layout
+
+\end_inset
+
+.
+ Also note that 
+\begin_inset Formula $\mathbb{F}_{2}[x,y]\slash\langle x^{2},xy,y^{2}\rangle$
+\end_inset
+
+ is a finite-dimensional 
+\begin_inset Formula $\mathbb{F}_{2}$
+\end_inset
+
+-vector space which is the union of the proper subspaces 
+\begin_inset Formula $\langle1\rangle$
+\end_inset
+
+ and 
+\begin_inset Formula $\langle x,y\rangle$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\backslash
+label{theorem}
+\end_layout
+
+\end_inset
+
+ (Krull's principal ideal theorem, strong version, alias Krulls height theorem)
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a Noetherian ring and 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ a minimal prime ideal of an ideal generated by 
+\begin_inset Formula $n$
+\end_inset
+
+ elements.
+ Then the height of 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ is at most 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ Conversely, if 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ has height 
+\begin_inset Formula $n$
+\end_inset
+
+, then it is a minimal prime of an ideal generated by 
+\begin_inset Formula $n$
+\end_inset
+
+ elements.
+ That is, the height of a prime 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ is the same as the least number of generators of an ideal 
+\begin_inset Formula $I\subset\mathfrak{p}$
+\end_inset
+
+ of which 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ is a minimal prime.
+ In particular, the height of every prime ideal 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ is at most the number of generators of 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+, and is therefore finite.
+ For every local ring 
+\begin_inset Formula $A$
+\end_inset
+
+, the Krull dimension of 
+\begin_inset Formula $A$
+\end_inset
+
+ is finite.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ We begin by proving by induction on 
+\begin_inset Formula $n$
+\end_inset
+
+ that the first statement holds.
+ If 
+\begin_inset Formula $n=0$
+\end_inset
+
+, then 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ is a minimal prime of 
+\begin_inset Formula $\langle0\rangle$
+\end_inset
+
+ and this does mean that 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ has height 
+\begin_inset Formula $0$
+\end_inset
+
+.
+ Note that the zero ideal is the ideal generated by the empty set, and so
+ constitutes a 
+\begin_inset Formula $0$
+\end_inset
+
+ generator ideal.
+ The case 
+\begin_inset Formula $n=1$
+\end_inset
+
+ has already been proved.
+ Now suppose that 
+\begin_inset Formula $n\geq2$
+\end_inset
+
+ and that we know the result for integers 
+\begin_inset Formula $<n$
+\end_inset
+
+.
+ Suppose that 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ is a minimal prime of 
+\begin_inset Formula $\langle x_{1},\dots,x_{n}\rangle$
+\end_inset
+
+ and that we want to show that the height of 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ is at most 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ Suppose not, and that there is a chain of primes
+\begin_inset Formula 
+\[
+\mathfrak{p}_{0}\subset\mathfrak{p}_{1}\subset\cdots\subset\mathfrak{p}_{n+1}=\mathfrak{p}
+\]
+
+\end_inset
+
+with strict inclusions.
+ If 
+\begin_inset Formula $x_{1}\in\mathfrak{p}_{1}$
+\end_inset
+
+, then 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ is evidently also a minimal prime of 
+\begin_inset Formula $\mathfrak{p}_{1}+\langle x_{2},\dots,x_{n}\rangle$
+\end_inset
+
+ and this implies that 
+\begin_inset Formula $\mathfrak{p}\slash\mathfrak{p}_{1}$
+\end_inset
+
+ is a minimal prime of the ideal generated by the images of 
+\begin_inset Formula $x_{2},\dots,x_{n}$
+\end_inset
+
+ in 
+\begin_inset Formula $A\slash\mathfrak{p}_{1}$
+\end_inset
+
+.
+ Then the chain
+\begin_inset Formula 
+\[
+\mathfrak{p}_{1}\slash\mathfrak{p}_{1}\subset\cdots\subset\mathfrak{p}_{n+1}\slash\mathfrak{p}_{1}
+\]
+
+\end_inset
+
+contradicts the induction hypothesis.
+ Therefore it will suffice to show that the chain
+\begin_inset Formula 
+\[
+\mathfrak{p}_{0}\subset\mathfrak{p}_{1}\subset\cdots\subset\mathfrak{p}_{n+1}=\mathfrak{p}
+\]
+
+\end_inset
+
+can be modified so that 
+\begin_inset Formula $x=x_{1}$
+\end_inset
+
+ is in 
+\begin_inset Formula $\mathfrak{p}_{1}$
+\end_inset
+
+.
+ Suppose that 
+\begin_inset Formula $x\in\mathfrak{p}_{k}$
+\end_inset
+
+ but not in 
+\begin_inset Formula $\mathfrak{p}_{k-1}$
+\end_inset
+
+ for 
+\begin_inset Formula $k\geq2$
+\end_inset
+
+.
+ (To get started, note that 
+\begin_inset Formula $x\in\mathfrak{p}=\mathfrak{p}_{n+1}$
+\end_inset
+
+.) It will suffice to show that there is a prime strictly between 
+\begin_inset Formula $\mathfrak{p}_{k}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathfrak{p}_{k-2}$
+\end_inset
+
+ that contains 
+\begin_inset Formula $x$
+\end_inset
+
+, for then we use this prime instead of 
+\begin_inset Formula $\mathfrak{p}_{k-1}$
+\end_inset
+
+, and we have increased the number of primes in the chain that contains
+ 
+\begin_inset Formula $x$
+\end_inset
+
+.
+ Thus, we eventually reach a chain such that 
+\begin_inset Formula $x\in\mathfrak{p}_{1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+To find such a prime, we may work in the local domain
+\begin_inset Formula 
+\[
+D=A_{\mathfrak{p}_{k}}\slash\mathfrak{p}_{k-2}A_{\mathfrak{p}_{k}}.
+\]
+
+\end_inset
+
+The element 
+\begin_inset Formula $x$
+\end_inset
+
+ has nonzero image in the maximal ideal of this ring.
+ A minimal prime 
+\begin_inset Formula $\mathfrak{p}'$
+\end_inset
+
+ of 
+\begin_inset Formula $\langle x\rangle$
+\end_inset
+
+ in this ring cannot be 
+\begin_inset Formula $\mathfrak{p}_{k}A_{\mathfrak{p}_{k}}$
+\end_inset
+
+, for that ideal has height at least two, and 
+\begin_inset Formula $\mathfrak{p}'$
+\end_inset
+
+ has height at most one by the case of the principal ideal theorem already
+ proved.
+ Of course, 
+\begin_inset Formula $\mathfrak{p}'\neq0$
+\end_inset
+
+ since it contains 
+\begin_inset Formula $x\neq0$
+\end_inset
+
+.
+ The inverse image of 
+\begin_inset Formula $\mathfrak{p}'$
+\end_inset
+
+ in 
+\begin_inset Formula $A$
+\end_inset
+
+ gives the required prime.
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Thus we can modify the chain
+\begin_inset Formula 
+\[
+\mathfrak{p}_{0}\subset\mathfrak{p}_{1}\subset\cdots\subset\mathfrak{p}_{n+1}=\mathfrak{p}
+\]
+
+\end_inset
+
+repeatedly until 
+\begin_inset Formula $x_{1}\in\mathfrak{p}_{1}$
+\end_inset
+
+.
+ This completes the proof that the height of 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ is at most 
+\begin_inset Formula $n$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+We now prove the converse.
+ Suppose that 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ is a prime ideal of 
+\begin_inset Formula $A$
+\end_inset
+
+ of height 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ We want to show that we can choose 
+\begin_inset Formula $x_{1},\dots,x_{n}$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ is a minimal prime of 
+\begin_inset Formula $\langle x_{1},\dots,x_{n}\rangle$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $n=0$
+\end_inset
+
+ we take the empty set of 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+.
+ The fact that 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ has height 
+\begin_inset Formula $0$
+\end_inset
+
+ means precisely that it is a minimal prime of 
+\begin_inset Formula $\langle0\rangle$
+\end_inset
+
+.
+ It remains to consider the case where 
+\begin_inset Formula $n>0$
+\end_inset
+
+.
+ We use induction on 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\mathfrak{q}_{1},\dots\mathfrak{q}_{k}$
+\end_inset
+
+ be the minimal primes of 
+\begin_inset Formula $A$
+\end_inset
+
+ that are contained in 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ cannot be contained in the union of these, or else it will be contained
+ in one of them, and hence be equal to one of them and of height 
+\begin_inset Formula $0$
+\end_inset
+
+.
+ Choose 
+\begin_inset Formula $x_{1}\in\mathfrak{p}$
+\end_inset
+
+ not in any minimal prime contained in 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+.
+ Then the height of 
+\begin_inset Formula $\mathfrak{p}\slash x_{1}$
+\end_inset
+
+ in 
+\begin_inset Formula $A\slash x_{1}$
+\end_inset
+
+ is at most 
+\begin_inset Formula $n-1$
+\end_inset
+
+: the chains in 
+\begin_inset Formula $A$
+\end_inset
+
+ descending from 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ that had maximum length 
+\begin_inset Formula $n$
+\end_inset
+
+ must have ended with a minimal prime of 
+\begin_inset Formula $A$
+\end_inset
+
+ contained in 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+, and these are no longer available.
+ By the induction hypothesis, 
+\begin_inset Formula $\mathfrak{p}\slash x_{1}$
+\end_inset
+
+ is a minimal prime of an ideal generated by at most 
+\begin_inset Formula $n-1$
+\end_inset
+
+ elements.
+ Consider 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+ together with pre-images of these elements chosen in 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ is a minimal prime of the ideal they generate, and so 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ is a minimal prime of an ideal generated by at most 
+\begin_inset Formula $n$
+\end_inset
+
+ elements.
+ The number cannot be smaller than 
+\begin_inset Formula $n$
+\end_inset
+
+, or else by the first part, 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ could not have height 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Systems of paramaters for a local ring
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\backslash
+label{defn}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $(A,\mathfrak{m})$
+\end_inset
+
+ be a local Noetherian ring of Krull dimension 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ A 
+\series bold
+system of parameters 
+\series default
+for 
+\begin_inset Formula $A$
+\end_inset
+
+ is a sequence of elements 
+\begin_inset Formula $x_{1},\dots,x_{n}\in\mathfrak{m}$
+\end_inset
+
+ such that, equivalently:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\mathfrak{m}$
+\end_inset
+
+ is a minimal prime of 
+\begin_inset Formula $\langle x_{1},\dots,x_{n}\rangle$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\sqrt{\langle x_{1},\dots,x_{n}\rangle}$
+\end_inset
+
+ is 
+\begin_inset Formula $\mathfrak{m}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\mathfrak{m}$
+\end_inset
+
+ has a power in 
+\begin_inset Formula $\langle x_{1},\dots,x_{n}\rangle$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\langle x_{1},\dots,x_{n}\rangle$
+\end_inset
+
+ is 
+\begin_inset Formula $\mathfrak{m}$
+\end_inset
+
+-primary.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+The theorem we have just proved shows that every local ring of Krull dimension
+ 
+\begin_inset Formula $n$
+\end_inset
+
+ has a system of parameters.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+One cannot have fewer than 
+\begin_inset Formula $n$
+\end_inset
+
+ elements generating an ideal whose radical is 
+\begin_inset Formula $\mathfrak{m}$
+\end_inset
+
+, for then 
+\begin_inset Formula $\dim A$
+\end_inset
+
+ would be 
+\begin_inset Formula $<n$
+\end_inset
+
+.
+ Note that 
+\begin_inset Formula $x_{1},\dots,x_{k}\in\mathfrak{m}$
+\end_inset
+
+ can be extended to a system of paramaters for 
+\begin_inset Formula $A$
+\end_inset
+
+ if and only if 
+\begin_inset Formula 
+\[
+\dim(A\slash\langle x_{1},\dots,x_{k}\rangle)\leq n-k
+\]
+
+\end_inset
+
+in which case
+\begin_inset Formula 
+\[
+\dim(A\slash\langle x_{1},\dots,x_{k}\rangle)=n-k.
+\]
+
+\end_inset
+
+In particular, 
+\begin_inset Formula $x=x_{1}$
+\end_inset
+
+ is a part of a system of parameters if and only if 
+\begin_inset Formula $x$
+\end_inset
+
+ is not in any minimal prime 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ of 
+\begin_inset Formula $A$
+\end_inset
+
+ such that 
+\begin_inset Formula $\dim(A\slash\mathfrak{p})=n$
+\end_inset
+
+.
+ In this situation, elements 
+\begin_inset Formula $y_{1},\dots,y_{n-k}$
+\end_inset
+
+ extend 
+\begin_inset Formula $x_{1},\dots,x_{k}$
+\end_inset
+
+ to a system of parameters for 
+\begin_inset Formula $A$
+\end_inset
+
+ if and only if their images in 
+\begin_inset Formula $A\slash\langle x_{1},\dots,x_{k}\rangle$
+\end_inset
+
+ are a system of parameters for 
+\begin_inset Formula $A\slash\langle x_{1},\dots,x_{k}\rangle$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{cor}
+\backslash
+label{cor}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $(A,\mathfrak{m})$
+\end_inset
+
+ be local and let 
+\begin_inset Formula $x_{1},\dots,x_{k}$
+\end_inset
+
+ be 
+\begin_inset Formula $k$
+\end_inset
+
+ elements of 
+\begin_inset Formula $\mathfrak{m}$
+\end_inset
+
+.
+ Then the dimension of 
+\begin_inset Formula $A\slash\langle x_{1},\dots,x_{k}\rangle$
+\end_inset
+
+ is at least 
+\begin_inset Formula $\dim A-k$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{cor}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Polynomial and Power Series Extensions
+\end_layout
+
+\begin_layout Standard
+We next want to address the issue of how dimension behaves for Noetherian
+ rings when one adjoins either polynomial or formal power series indeterminates.
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+We first note the following fact:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lemma}
+\backslash
+label{lemma}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $x$
+\end_inset
+
+ be an indeterminate over 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $x$
+\end_inset
+
+ is in every maximal ideal of 
+\begin_inset Formula $A[[x]]$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lemma}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ If 
+\begin_inset Formula $x$
+\end_inset
+
+ is not in the maximal ideal 
+\begin_inset Formula $\mathfrak{m}$
+\end_inset
+
+ it has an inverse mod 
+\begin_inset Formula $\mathfrak{m}$
+\end_inset
+
+, so that we have 
+\begin_inset Formula $xf\equiv1$
+\end_inset
+
+ mod 
+\begin_inset Formula $\mathfrak{m}$
+\end_inset
+
+, i.e.
+ 
+\begin_inset Formula $1-xf\in\mathfrak{m}$
+\end_inset
+
+.
+ Thus, it will suffice to show that 
+\begin_inset Formula $1-xf$
+\end_inset
+
+ is a unit.
+ The idea of the proof is to show that
+\begin_inset Formula 
+\[
+u=1+xf+x^{2}f^{2}+x^{3}f^{3}+\cdots
+\]
+
+\end_inset
+
+is an inverse: the infinite sum makes sense because only finitely many terms
+ involve any given power of 
+\begin_inset Formula $x$
+\end_inset
+
+.
+ Note that
+\begin_inset Formula 
+\[
+u=(1+xf+\cdots+x^{n}f^{n})+x^{n+1}w_{n}
+\]
+
+\end_inset
+
+with 
+\begin_inset Formula 
+\[
+w_{n}=f^{n+1}+xf^{n+2}+x^{2}f^{n+3}+\cdots,
+\]
+
+\end_inset
+
+which again makes sense since any given power of 
+\begin_inset Formula $x$
+\end_inset
+
+ occurs in only finitely many terms.
+ Thus: 
+\begin_inset Formula 
+\[
+u(1-xf)-1=(1+xf+\cdots+x^{n}f^{n})(1-xf)+x^{n+1}w_{n}(1-xf)-1.
+\]
+
+\end_inset
+
+The first of the summands on the right is 
+\begin_inset Formula $1-x^{n+1}f^{n+1}$
+\end_inset
+
+, and so this becomes
+\begin_inset Formula 
+\[
+1-x^{n+1}f^{n+1}+x^{n+1}w_{n}(1-xf)-1=x^{n+1}(-f^{n+1}+w_{n}(1-xf))\in x^{n+1}A[[x]],
+\]
+
+\end_inset
+
+and since the intersection of the ideals 
+\begin_inset Formula $x^{t}A[[x]]$
+\end_inset
+
+ is clearly 
+\begin_inset Formula $0$
+\end_inset
+
+, we have that 
+\begin_inset Formula $u(1-xf)-1=0$
+\end_inset
+
+ as required.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

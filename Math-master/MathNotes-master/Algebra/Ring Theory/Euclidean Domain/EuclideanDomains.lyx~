@@ -1,0 +1,1242 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{tikz}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\usetikzlibrary{shapes.geometric}
+\usepackage{tikz-cd}
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{conj}{Conjecture}[section]
+\newtheorem*{cor}{Corollary}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{ex}{Exercise} 
+\newtheorem{example}{Example}[section]
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem{case}{Case}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{tikz-cd}
+\usetikzlibrary{calc,arrows,decorations.pathreplacing}
+\tikzset{mydot/.style={circle,fill,inner sep=1.5pt},
+commutative diagrams/.cd,
+  arrow style=tikz,
+  diagrams={>=latex},
+}
+
+\usepackage{babel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=blue,
+    filecolor=blue,
+    linkcolor=blue,
+    urlcolor=blue
+}
+\usepackage{pgfplots}
+\usetikzlibrary{decorations.markings}
+\pgfplotsset{compat=1.9}
+
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding iso8859-15
+\fontencoding global
+\font_roman "palatino" "default"
+\font_sans "lmss" "default"
+\font_typewriter "lmtt" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf true
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize custom
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\paperwidth 30cm
+\paperheight 35cm
+\topmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0bp
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Euclidean Domains
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ A 
+\series bold
+norm 
+\series default
+on an integral domain 
+\begin_inset Formula $R$
+\end_inset
+
+ is a function 
+\begin_inset Formula $N:R\to\mathbb{N}\cup\{0\}$
+\end_inset
+
+ such that 
+\begin_inset Formula $N(0)=0$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $N(a)\neq0$
+\end_inset
+
+ for any 
+\begin_inset Formula $R\setminus\{0\}$
+\end_inset
+
+, then 
+\begin_inset Formula $N$
+\end_inset
+
+ is a 
+\series bold
+positive norm
+\series default
+.
+ If 
+\begin_inset Formula $N(ab)=N(a)N(b)$
+\end_inset
+
+ for all 
+\begin_inset Formula $a,b\in R$
+\end_inset
+
+, then 
+\begin_inset Formula $N$
+\end_inset
+
+ is a 
+\series bold
+multiplicative norm
+\series default
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ An Integral Domain 
+\begin_inset Formula $R$
+\end_inset
+
+ is called a 
+\series bold
+Euclidean Domain 
+\series default
+if there exists a norm 
+\begin_inset Formula $N:R\to\mathbb{N}\cup\{0\}$
+\end_inset
+
+ such that for any 
+\begin_inset Formula $a,b\in R$
+\end_inset
+
+ with 
+\begin_inset Formula $b\neq0$
+\end_inset
+
+, there exists 
+\begin_inset Formula $q,r\in R$
+\end_inset
+
+ with 
+\begin_inset Formula $a=bq+r$
+\end_inset
+
+ with 
+\begin_inset Formula $r=0$
+\end_inset
+
+ or 
+\begin_inset Formula $N(r)<N(b)$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+ is a Euclidean Domain with 
+\begin_inset Formula $N:\mathbb{Z}\to\mathbb{N}\cup\{0\}$
+\end_inset
+
+ given by 
+\begin_inset Formula $N(a)=|a|$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ Every field 
+\begin_inset Formula $F$
+\end_inset
+
+ is a Euclidean Domain with 
+\begin_inset Formula $N(a)=0$
+\end_inset
+
+ for all 
+\begin_inset Formula $a\in F$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $K$
+\end_inset
+
+ be a field.
+ Then 
+\begin_inset Formula $K[x]$
+\end_inset
+
+ is a Euclidean Domain with 
+\begin_inset Formula $N:K[x]\to\mathbb{N}\cup\{0\}$
+\end_inset
+
+ given by 
+\begin_inset Formula 
+\[
+N(f(x))=\begin{cases}
+0 & \mbox{if }f(x)=0\\
+\mbox{deg}f(x) & \mbox{if }f(x)\neq0.
+\end{cases}
+\]
+
+\end_inset
+
+So if 
+\begin_inset Formula $f(x),g(x)\in K[x]$
+\end_inset
+
+, then there exists 
+\begin_inset Formula $g(x),r(x)\in K[x]$
+\end_inset
+
+ such that 
+\begin_inset Formula $f(x)=g(x)q(x)+r(x)$
+\end_inset
+
+, with 
+\begin_inset Formula $r(x)=0$
+\end_inset
+
+ or 
+\begin_inset Formula $\mbox{deg}r(x)<\mbox{deg}g(x)$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ The Gaussian Integers 
+\begin_inset Formula $\mathbb{Z}[i]$
+\end_inset
+
+ is a Euclidean Domain with 
+\begin_inset Formula $N:\mathbb{Z}[i]\to\mathbb{N}\cup\{0\}$
+\end_inset
+
+ given by 
+\begin_inset Formula $N(a+bi)=a^{2}+b^{2}$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\end_layout
+
+\end_inset
+
+ The map 
+\begin_inset Formula $N:\mathbb{Q}(i)\to\mathbb{R}\cup\{0\}$
+\end_inset
+
+ given by 
+\begin_inset Formula $N(a+bi)=a^{2}+b^{2}$
+\end_inset
+
+ is multiplicative.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ First note that for any 
+\begin_inset Formula $m\in\mathbb{Z}$
+\end_inset
+
+ and 
+\begin_inset Formula $\alpha\in\mathbb{Q}(i)$
+\end_inset
+
+, we have 
+\begin_inset Formula $N(m\alpha)=m^{2}N(\alpha)$
+\end_inset
+
+.
+ Now let 
+\begin_inset Formula $\alpha,\beta\in\mathbb{Q}(i)$
+\end_inset
+
+.
+ Then there exists 
+\begin_inset Formula $m,n\in\mathbb{Z}$
+\end_inset
+
+ such that 
+\begin_inset Formula $m\alpha,n\beta\in\mathbb{Z}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula 
+\begin{align*}
+(mn)^{2}N(\alpha\beta) & =N(mn\alpha\beta)\\
+ & =N((m\alpha)(n\beta))\\
+ & =N(m\alpha)N(n\beta)\\
+ & =m^{2}n^{2}N(\alpha)N(\beta).
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $R$
+\end_inset
+
+ be a commutative ring and let 
+\begin_inset Formula $a,b\in R$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+We say that 
+\begin_inset Formula $a$
+\end_inset
+
+ 
+\series bold
+divides 
+\series default
+
+\begin_inset Formula $b$
+\end_inset
+
+, written 
+\begin_inset Formula $a\mid b$
+\end_inset
+
+, if there exists 
+\begin_inset Formula $c\in R$
+\end_inset
+
+ such that 
+\begin_inset Formula $ac=b$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+An element 
+\begin_inset Formula $d\in R$
+\end_inset
+
+ is a 
+\begin_inset Formula $\mbox{gcd}(a,b)$
+\end_inset
+
+ if for all 
+\begin_inset Formula $d'\in R$
+\end_inset
+
+ such that 
+\begin_inset Formula $d'\mid a$
+\end_inset
+
+ and 
+\begin_inset Formula $d'\mid b$
+\end_inset
+
+, we have 
+\begin_inset Formula $d\mid d'$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Let 
+\begin_inset Formula $R$
+\end_inset
+
+ be a Euclidean domain and let 
+\begin_inset Formula $a,b\in R$
+\end_inset
+
+ with 
+\begin_inset Formula $b\neq0$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula 
+\begin{align*}
+a & =bq+r & N(r)<N(b)\mbox{ or }r=0\\
+b & =rq_{0}+r_{0} & N(r_{0})<N(r)\mbox{ or }r=0\\
+r & =r_{0}q_{1}+r_{1} & N(r_{1})<N(r_{0})\mbox{ or }r=0\\
+ & \vdots & \vdots\\
+r_{n-1} & =r_{n}q_{n+1} & N(r_{n})<N(b)\mbox{ or }r=0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Assuming 
+\begin_inset Formula $r\neq0$
+\end_inset
+
+ and 
+\begin_inset Formula $r_{i}\neq0$
+\end_inset
+
+ for all 
+\begin_inset Formula $1\leq i\leq n$
+\end_inset
+
+, we get a strictly descending sequence in 
+\begin_inset Formula $\mathbb{N}$
+\end_inset
+
+: 
+\begin_inset Formula $N(b)>N(r)>N(r_{0})>N(r_{1})>\cdots>N(r_{n})$
+\end_inset
+
+.
+ This algorithm must terminate.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\end_layout
+
+\end_inset
+
+ The last nonzero remainder in the division algorithm for 
+\begin_inset Formula $a$
+\end_inset
+
+ and 
+\begin_inset Formula $b$
+\end_inset
+
+ is the a 
+\begin_inset Formula $\mbox{gcd}(a,b)$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\end_layout
+
+\end_inset
+
+ If 
+\begin_inset Formula $R$
+\end_inset
+
+ is a Euclidean Domain, then every ideal in 
+\begin_inset Formula $R$
+\end_inset
+
+ is principle.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $I$
+\end_inset
+
+ be an ideal in 
+\begin_inset Formula $R$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $I=0$
+\end_inset
+
+, then 
+\begin_inset Formula $I=\langle0\rangle$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $I\neq0$
+\end_inset
+
+, then let 
+\begin_inset Formula $d\in I-\{0\}$
+\end_inset
+
+ be an element of minimal norm.
+ So 
+\begin_inset Formula $N(d)=\mbox{min}\{N(a)\mid a\in I-\{0\}\}$
+\end_inset
+
+.
+ We show 
+\begin_inset Formula $I=\langle d\rangle$
+\end_inset
+
+.
+ Clearly 
+\begin_inset Formula $\langle d\rangle\subset I$
+\end_inset
+
+.
+ To show the converse, let 
+\begin_inset Formula $a\in I$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $R$
+\end_inset
+
+ is a Euclidean domain, we can write 
+\begin_inset Formula $a=dq+r$
+\end_inset
+
+ where either 
+\begin_inset Formula $r=0$
+\end_inset
+
+ or 
+\begin_inset Formula $N(r)<N(d)$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $r\in I$
+\end_inset
+
+ since 
+\begin_inset Formula $r=a-dq\in I$
+\end_inset
+
+.
+ Then since 
+\begin_inset Formula $N(d)$
+\end_inset
+
+ is minimal, we must have 
+\begin_inset Formula $r=0$
+\end_inset
+
+.
+ Therefore 
+\begin_inset Formula $a=dq\in\langle d\rangle$
+\end_inset
+
+, so 
+\begin_inset Formula $\langle d\rangle\supset I$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\mathbb{Z}[x]$
+\end_inset
+
+ is 
+\emph on
+not 
+\emph default
+a PID since 
+\begin_inset Formula $\langle2,x\rangle$
+\end_inset
+
+ is not a principal ideal, so it can't be a Euclidean Domain.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ The ring 
+\begin_inset Formula $\mathbb{Z}[\sqrt{-5}]$
+\end_inset
+
+ is not a Euclidean Domain since it's not even a principal ideal: 
+\begin_inset Formula $\langle3,1+\sqrt{-5}\rangle$
+\end_inset
+
+ is not principle.
+ However 
+\begin_inset Formula $\mathbb{Z}[\sqrt{-5}]$
+\end_inset
+
+ does have a positive multiplicative norm, namely 
+\begin_inset Formula $N(a+b\sqrt{-5})=a^{2}+5b^{2}$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $R$
+\end_inset
+
+ be an Integral Domain and let 
+\begin_inset Formula $a,b\in R-\{0\}$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $\langle a,b\rangle=\langle d\rangle$
+\end_inset
+
+, then 
+\begin_inset Formula $d$
+\end_inset
+
+ is a greatest common divisor of 
+\begin_inset Formula $a$
+\end_inset
+
+ and 
+\begin_inset Formula $b$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Since 
+\begin_inset Formula $\langle a,b\rangle=\langle d\rangle$
+\end_inset
+
+, there is 
+\begin_inset Formula $x,y\in R$
+\end_inset
+
+ such that 
+\begin_inset Formula $dx=a$
+\end_inset
+
+ and 
+\begin_inset Formula $dy=b$
+\end_inset
+
+.
+ So 
+\begin_inset Formula $d$
+\end_inset
+
+ is a common divisor of 
+\begin_inset Formula $a$
+\end_inset
+
+ and 
+\begin_inset Formula $b$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $d'$
+\end_inset
+
+ be another common divisor of 
+\begin_inset Formula $a$
+\end_inset
+
+ and 
+\begin_inset Formula $b$
+\end_inset
+
+.
+ Then there is 
+\begin_inset Formula $x',y'\in R$
+\end_inset
+
+ such that 
+\begin_inset Formula $d'x'=a$
+\end_inset
+
+ and 
+\begin_inset Formula $d'y'=b$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $\langle a,b\rangle=\langle d\rangle$
+\end_inset
+
+, there is 
+\begin_inset Formula $u,v\in R$
+\end_inset
+
+ such that 
+\begin_inset Formula $d=au+bv$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $d=(d'x')u+(d'y')v=d'(x'u+y'v)$
+\end_inset
+
+, do 
+\begin_inset Formula $d'\mid d$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $R$
+\end_inset
+
+ be an Integral Domain and let 
+\begin_inset Formula $d,d'\in R-\{0\}$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $\langle d\rangle=\langle d'\rangle$
+\end_inset
+
+, then 
+\begin_inset Formula $d'=du$
+\end_inset
+
+ where 
+\begin_inset Formula $u$
+\end_inset
+
+ is a unit.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

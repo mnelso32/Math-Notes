@@ -1,0 +1,3472 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{tikz}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\usetikzlibrary{shapes.geometric}
+\usepackage{tikz-cd}
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem*{cor}{Corollary}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{ex}{Exercise} 
+\newtheorem{example}{Example}[section]
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem{case}{Case}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{tikz-cd}
+\usetikzlibrary{calc,arrows,decorations.pathreplacing}
+\tikzset{mydot/.style={circle,fill,inner sep=1.5pt},
+commutative diagrams/.cd,
+  arrow style=tikz,
+  diagrams={>=latex},
+}
+
+\usepackage{babel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+\usepackage{pgfplots}
+\usetikzlibrary{decorations.markings}
+\pgfplotsset{compat=1.9}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding iso8859-15
+\fontencoding global
+\font_roman "palatino" "default"
+\font_sans "lmss" "default"
+\font_typewriter "lmtt" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf true
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing single
+\use_hyperref false
+\papersize custom
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\paperwidth 30cm
+\paperheight 35cm
+\topmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0bp
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Cohen-Macaulay Rings
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\backslash
+label{defn1}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $(A,\mathfrak{m})$
+\end_inset
+
+ be a local ring and let 
+\begin_inset Formula $M$
+\end_inset
+
+ be a finitely generated 
+\begin_inset Formula $A$
+\end_inset
+
+-module.
+ We say 
+\begin_inset Formula $M$
+\end_inset
+
+ is a 
+\series bold
+Cohen-Macaulay module 
+\series default
+if 
+\begin_inset Formula $M=0$
+\end_inset
+
+ or 
+\begin_inset Formula $M\neq0$
+\end_inset
+
+ and 
+\begin_inset Formula 
+\[
+\mbox{depth}(M)=\mbox{dim}(M).
+\]
+
+\end_inset
+
+if 
+\begin_inset Formula $\mbox{depth}(M)=\mbox{dim}(A)$
+\end_inset
+
+, then 
+\begin_inset Formula $M$
+\end_inset
+
+ is called 
+\series bold
+maximal Cohen-Macaulay
+\series default
+.
+ We say 
+\begin_inset Formula $A$
+\end_inset
+
+ is a 
+\series bold
+Cohen-Macaulay ring 
+\series default
+if it is a Cohen-Macaulay 
+\begin_inset Formula $A$
+\end_inset
+
+-module.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lemma}
+\backslash
+label{lemma2}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a Noetherian ring, 
+\begin_inset Formula $M$
+\end_inset
+
+ a finitely generated 
+\begin_inset Formula $A$
+\end_inset
+
+-module, and 
+\begin_inset Formula $I\subset A$
+\end_inset
+
+ an ideal with 
+\begin_inset Formula $IM\neq M$
+\end_inset
+
+.
+ Then the following are equivalent:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\mbox{Ext}_{A}^{i}(N,M)=0$
+\end_inset
+
+ for all 
+\begin_inset Formula $i<n$
+\end_inset
+
+ and all finitely generated 
+\begin_inset Formula $A$
+\end_inset
+
+-modules 
+\begin_inset Formula $N$
+\end_inset
+
+ with 
+\begin_inset Formula $\mbox{Supp}(N)\subset\mathbf{V}(I)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\mbox{Ext}_{A}^{i}(A/I,M)=0$
+\end_inset
+
+ for all 
+\begin_inset Formula $i<n$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\mbox{Ext}_{A}^{i}(N,M)=0$
+\end_inset
+
+ for all 
+\begin_inset Formula $i<n$
+\end_inset
+
+ and some finitely generated 
+\begin_inset Formula $A$
+\end_inset
+
+-module 
+\begin_inset Formula $N$
+\end_inset
+
+ with 
+\begin_inset Formula $\mbox{Supp}(N)=\mathbf{V}(I)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $I$
+\end_inset
+
+ contains an 
+\begin_inset Formula $M$
+\end_inset
+
+-sequence of length 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lemma}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ (1) implies (2) is obvious since 
+\begin_inset Formula $\mbox{Supp}(A/I)=V(I)$
+\end_inset
+
+.
+ Also, (2) implies (3) is obvious since 
+\begin_inset Formula $A/I$
+\end_inset
+
+ is some finitely generated 
+\begin_inset Formula $A$
+\end_inset
+
+-module with 
+\begin_inset Formula $\mbox{Supp}(A/I)=V(I)$
+\end_inset
+
+.
+ To prove (3) implies (4), let 
+\begin_inset Formula $n>0$
+\end_inset
+
+ and assume first that 
+\begin_inset Formula $I$
+\end_inset
+
+ contains only zero divisors of 
+\begin_inset Formula $M$
+\end_inset
+
+, that is, 
+\begin_inset Formula $I$
+\end_inset
+
+ is contained in an associated prime ideal 
+\begin_inset Formula $\mathfrak{p}=0:m$
+\end_inset
+
+, where 
+\begin_inset Formula $m$
+\end_inset
+
+ is some nonzero element in 
+\begin_inset Formula $M$
+\end_inset
+
+.
+ Then the map 
+\begin_inset Formula $A/\mathfrak{p}\to M$
+\end_inset
+
+, defined by 
+\begin_inset Formula $1\mapsto m$
+\end_inset
+
+, is injective.
+ Localizing a 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+, we obtain that 
+\begin_inset Formula $\mbox{Hom}_{A_{\mathfrak{p}}}(k,M_{\mathfrak{p}})\neq0$
+\end_inset
+
+, where 
+\begin_inset Formula $k=A_{\mathfrak{p}}/\mathfrak{p}A_{\mathfrak{p}}$
+\end_inset
+
+.
+ Now 
+\begin_inset Formula $\mathfrak{p}\in V(I)=\mbox{supp}(N)$
+\end_inset
+
+, that is, 
+\begin_inset Formula $N_{\mathfrak{p}}\neq0$
+\end_inset
+
+, and hence, 
+\begin_inset Formula $N_{\mathfrak{p}}/\mathfrak{p}N_{\mathfrak{p}}=N\otimes_{A}k\neq0$
+\end_inset
+
+ (Lemma of Nakayama).
+ This implies that 
+\begin_inset Formula $\mbox{Hom}_{k}(N\otimes_{A}k,k)\neq0$
+\end_inset
+
+ and, therefore, we have a non-trivial 
+\begin_inset Formula $A_{\mathfrak{p}}$
+\end_inset
+
+-linear map 
+\begin_inset Formula 
+\[
+N_{\mathfrak{p}}\to N\otimes_{A}k\to k\to M_{\mathfrak{p}},
+\]
+
+\end_inset
+
+that is, 
+\begin_inset Formula $\mbox{Hom}(N_{\mathfrak{p}},M_{\mathfrak{p}})\neq0$
+\end_inset
+
+.
+ This implies that 
+\begin_inset Formula $\mbox{Hom}_{A}(N,M)\neq0$
+\end_inset
+
+, which contradicts (3) for 
+\begin_inset Formula $i=0$
+\end_inset
+
+.
+ So we proved that 
+\begin_inset Formula $I$
+\end_inset
+
+ contains an 
+\begin_inset Formula $M$
+\end_inset
+
+-regular element 
+\begin_inset Formula $f$
+\end_inset
+
+.
+ By assumption, 
+\begin_inset Formula $M/IM\neq0$
+\end_inset
+
+, hence if 
+\begin_inset Formula $n=1$
+\end_inset
+
+ we are done.
+ If 
+\begin_inset Formula $n>1$
+\end_inset
+
+, then we obtain from the exact sequence 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd}  0 
+\backslash
+arrow[r] & M 
+\backslash
+arrow[r,"f"] & M 
+\backslash
+arrow[r] & M/fM 
+\backslash
+arrow[r] & 0 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+ that 
+\begin_inset Formula $\mbox{Ext}_{A}^{i}(N,M/fM)=0$
+\end_inset
+
+ for 
+\begin_inset Formula $i<n-1$
+\end_inset
+
+.
+ Using induction, this implies that 
+\begin_inset Formula $I$
+\end_inset
+
+ contains an 
+\begin_inset Formula $(M/fM)$
+\end_inset
+
+-regular sequence 
+\begin_inset Formula $f_{2},\dots,f_{n}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+To prove (4) implies (1), let 
+\begin_inset Formula $f_{1},\dots,f_{n}\in I$
+\end_inset
+
+ be an 
+\begin_inset Formula $M$
+\end_inset
+
+-sequence and consider again the exact sequence 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd}  0 
+\backslash
+arrow[r] & M 
+\backslash
+arrow[r,"f_1 "] & M 
+\backslash
+arrow[r] & M/f_1 M 
+\backslash
+arrow[r] & 0 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Applying the function 
+\begin_inset Formula $\mbox{Ext}_{A}^{i}(N,-)$
+\end_inset
+
+ to this sequence gives the exact sequence 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd}  
+\backslash
+cdots 
+\backslash
+arrow[r] & 
+\backslash
+mbox{Ext}_A ^i (N,M) 
+\backslash
+arrow[r,"f_1 "] & 
+\backslash
+mbox{Ext}_A ^i (N,M) 
+\backslash
+arrow[r] & 
+\backslash
+mbox{Ext}_A ^i (N,M/f_1 M) 
+\backslash
+arrow[r] & 
+\backslash
+cdots 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $n=1$
+\end_inset
+
+, then we consider the first part of this sequence 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd}  0 
+\backslash
+arrow[r] & 
+\backslash
+mbox{Hom}_A (N,M) 
+\backslash
+arrow[r,"f_1 "] & 
+\backslash
+mbox{Hom}_A (N,M) 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $n>1$
+\end_inset
+
+, then we use induction to obtain 
+\begin_inset Formula $\mbox{Ext}_{A}^{i}(N,M/f_{1}M)=0$
+\end_inset
+
+ for 
+\begin_inset Formula $i<n-1$
+\end_inset
+
+.
+ This implies 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd}  0 
+\backslash
+arrow[r] & 
+\backslash
+mbox{Ext}_A ^i (N,M) 
+\backslash
+arrow[r,"f_1 "] & 
+\backslash
+mbox{Ext}_A ^i (N,M) 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+is exact for 
+\begin_inset Formula $i<n$
+\end_inset
+
+.
+ Now 
+\begin_inset Formula $\mbox{Ext}_{A}^{i}(N,M)$
+\end_inset
+
+ is annihilated by elements of 
+\begin_inset Formula $\mbox{Ann}(N)$
+\end_inset
+
+.
+ On the other hand, by assumption, we have 
+\begin_inset Formula 
+\[
+\mbox{supp}(N)=\mathbf{V}(\mbox{Ann}(N))\subset\mathbf{V}(I).
+\]
+
+\end_inset
+
+This implies that 
+\begin_inset Formula $I\subset\sqrt{\mbox{Ann}(N)}$
+\end_inset
+
+.
+ Therefore, a sufficiently large power of 
+\begin_inset Formula $f_{1}$
+\end_inset
+
+ annihilates 
+\begin_inset Formula $\mbox{Ext}_{A}^{i}(N,M)$
+\end_inset
+
+.
+ But we already saw that 
+\begin_inset Formula $f_{1}$
+\end_inset
+
+ is a nonzerodivisor for 
+\begin_inset Formula $\mbox{Ext}_{A}^{i}(N,M)$
+\end_inset
+
+ and, consequently, 
+\begin_inset Formula $\mbox{Ext}_{A}^{i}(N,M)=0$
+\end_inset
+
+ for 
+\begin_inset Formula $i<n$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lemma}
+\backslash
+label{lemma1}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $(A,\mathfrak{m})$
+\end_inset
+
+ be a Noetherian local ring and let 
+\begin_inset Formula $M,N$
+\end_inset
+
+ be finitely generated 
+\begin_inset Formula $A$
+\end_inset
+
+-modules different from zero, then 
+\begin_inset Formula 
+\[
+\mbox{Ext}_{A}^{i}(N,M)=0\mbox{ for }i<\mbox{depth}(M)-\mbox{dim}(N).
+\]
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lemma}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $k=\mbox{depth}(M)$
+\end_inset
+
+ and 
+\begin_inset Formula $r=\mbox{dim}(N)$
+\end_inset
+
+.
+ We prove the lemma by induction on 
+\begin_inset Formula $r$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $r=0$
+\end_inset
+
+, then 
+\begin_inset Formula $\mbox{Ann}(N)$
+\end_inset
+
+ is 
+\begin_inset Formula $\mathfrak{m}$
+\end_inset
+
+-primary, hence 
+\begin_inset Formula $\mbox{supp}(N)=V(\mathfrak{m})$
+\end_inset
+
+.
+ Therefore 
+\begin_inset Formula $\mbox{Ext}_{A}^{i}(N,M)=0$
+\end_inset
+
+ for 
+\begin_inset Formula $i<\mbox{depth}(M)$
+\end_inset
+
+, by 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Lemma~(
+\backslash
+ref{lemma1})
+\end_layout
+
+\end_inset
+
+.
+ Now assume that 
+\begin_inset Formula $r>0$
+\end_inset
+
+.
+ We choose a sequence 
+\begin_inset Formula $N=N_{0}\supset N_{1}\supset\cdots\supset N_{n}=\langle0\rangle$
+\end_inset
+
+ such that 
+\begin_inset Formula $N_{j}/N_{j+1}\cong A/\mathfrak{p}_{j}$
+\end_inset
+
+ for suitable prime ideals 
+\begin_inset Formula $\mathfrak{p}_{j}$
+\end_inset
+
+.
+ Now it is sufficient to prove 
+\begin_inset Formula $\mbox{Ext}_{A}^{i}(N_{j}/N_{j+1},M)=0$
+\end_inset
+
+ for all 
+\begin_inset Formula $j$
+\end_inset
+
+ and 
+\begin_inset Formula $i<k-r$
+\end_inset
+
+ because this implies 
+\begin_inset Formula $\mbox{Ext}_{A}^{i}(N,M)=0$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $\mbox{dim}(N_{j}/N_{j+1})\leq\mbox{dim}(N)$
+\end_inset
+
+, we may assume that 
+\begin_inset Formula $N=A/\mathfrak{p}$
+\end_inset
+
+ for 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ a prime ideal.
+ Since 
+\begin_inset Formula $\mbox{dim}(A/\mathfrak{p})>0$
+\end_inset
+
+, we can choose 
+\begin_inset Formula $x\in\mathfrak{m}\backslash\mathfrak{p}$
+\end_inset
+
+.
+ We consider the exact sequence
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} 0 
+\backslash
+arrow[r] & A / 
+\backslash
+mathfrak{p} 
+\backslash
+arrow[r, "x"] & A / 
+\backslash
+mathfrak{p} 
+\backslash
+arrow[r] & A / 
+\backslash
+langle 
+\backslash
+mathfrak{p} , x 
+\backslash
+rangle 
+\backslash
+arrow[r] & 0 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now 
+\begin_inset Formula $\mbox{dim}(A/\langle\mathfrak{p},x\rangle)<r$
+\end_inset
+
+ implies 
+\begin_inset Formula $\mbox{Ext}_{A}^{i}(A/\langle\mathfrak{p},x\rangle,M)=0$
+\end_inset
+
+ for 
+\begin_inset Formula $i<k-r+1$
+\end_inset
+
+ by the induction hypothesis.
+ On the other hand, for 
+\begin_inset Formula $i<k-r$
+\end_inset
+
+ we have the exact sequence
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd}  0 
+\backslash
+arrow[r] & 
+\backslash
+mbox{Ext}_A ^i (A / 
+\backslash
+mathfrak{p} ,M) 
+\backslash
+arrow[r,"x "] & 
+\backslash
+mbox{Ext}_A ^i (A / 
+\backslash
+mathfrak{p} ,M) 
+\backslash
+arrow[r] & 
+\backslash
+mbox{Ext}_A ^{i+1} (A / 
+\backslash
+langle 
+\backslash
+mathfrak{p} , x 
+\backslash
+rangle ,M) = 0.
+ 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This implies 
+\begin_inset Formula $\mbox{Ext}_{A}^{i}(N,M)=x\cdot\mbox{Ext}_{A}^{i}(N,M)$
+\end_inset
+
+.
+ Using Nakayama's Lemma, we obtain 
+\begin_inset Formula $\mbox{Ext}_{A}^{i}(N,M)=0$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lemma}
+\backslash
+label{lemma1}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $(A,\mathfrak{m})$
+\end_inset
+
+ be a local Cohen-Macaulay ring of dimension 
+\begin_inset Formula $d$
+\end_inset
+
+, 
+\begin_inset Formula $M$
+\end_inset
+
+ be a maximal Cohen-Macaulay module of finite injective dimension, and 
+\begin_inset Formula $N$
+\end_inset
+
+ a finitely generated module of depth 
+\begin_inset Formula $e$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\[
+\mbox{Ext}_{A}^{i}(N,M)=0\mbox{ for }i>\text{depth}(M)-\text{depth}(N)=d-e.
+\]
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lemma}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ We do induction on 
+\begin_inset Formula $e$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\backslash
+label{prop1}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $(A,\mathfrak{m})$
+\end_inset
+
+ be a Noetherian local ring and let 
+\begin_inset Formula $M$
+\end_inset
+
+ be a finitely generated 
+\begin_inset Formula $A$
+\end_inset
+
+-module.
+ Then 
+\begin_inset Formula $\mbox{dim}(A/\mathfrak{p})\geq\mbox{depth}(M)$
+\end_inset
+
+ for all 
+\begin_inset Formula $\mathfrak{p}\in\mbox{Ass}(M)$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $\mathfrak{p}\in\mbox{Ass}(M)$
+\end_inset
+
+, that is, 
+\begin_inset Formula $\mathfrak{p}=0:m$
+\end_inset
+
+ for some nonzero 
+\begin_inset Formula $m$
+\end_inset
+
+ in 
+\begin_inset Formula $M$
+\end_inset
+
+.
+ This implies that 
+\begin_inset Formula $\mbox{Hom}(A/\mathfrak{p},M)\neq0$
+\end_inset
+
+, because 
+\begin_inset Formula $1\mapsto m$
+\end_inset
+
+ defines a non-trivial homomorphism.
+ Hence, by 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Lemma~(
+\backslash
+ref{lemma1})
+\end_layout
+
+\end_inset
+
+, we obtain 
+\begin_inset Formula $0\geq\mbox{depth}(M)-\mbox{dim}(A/\mathfrak{p})$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\backslash
+label{theorem1}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $(A,\mathfrak{m})$
+\end_inset
+
+ be a Noetherian local ring, 
+\begin_inset Formula $M\neq0$
+\end_inset
+
+ a finitely generated 
+\begin_inset Formula $A$
+\end_inset
+
+-module, and 
+\begin_inset Formula $x\in A$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Let 
+\begin_inset Formula $M$
+\end_inset
+
+ be Cohen-Macaulay.
+ Then 
+\begin_inset Formula $\mbox{dim}(A/\mathfrak{p})=\mbox{dim}(M)$
+\end_inset
+
+ for all 
+\begin_inset Formula $\mathfrak{p}\in\mbox{Ass}(M)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $\mbox{dim}(M/xM)=\mbox{dim}(M)-1$
+\end_inset
+
+, then 
+\begin_inset Formula $x$
+\end_inset
+
+ is 
+\begin_inset Formula $M$
+\end_inset
+
+-regular.
+\end_layout
+
+\begin_layout Enumerate
+Let 
+\begin_inset Formula $x_{1},\dots,x_{r}\in\mathfrak{m}$
+\end_inset
+
+ be an 
+\begin_inset Formula $M$
+\end_inset
+
+-sequence.
+ Then 
+\begin_inset Formula $M$
+\end_inset
+
+ is Cohen-Macaulay if and only if 
+\begin_inset Formula $M/\langle x_{1},\dots,x_{r}\rangle M$
+\end_inset
+
+ is Cohen-Macaulay.
+ 
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $M$
+\end_inset
+
+ is Cohen-Macaulay, then 
+\begin_inset Formula $M_{\mathfrak{p}}$
+\end_inset
+
+ is Cohen-Macualay for all prime ideal 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mbox{depth}(\mathfrak{p},M)=\mbox{depth}_{A_{\mathfrak{p}}}(M_{\mathfrak{p}})$
+\end_inset
+
+ if 
+\begin_inset Formula $M_{\mathfrak{p}}\neq0$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+For all associated primes 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ of 
+\begin_inset Formula $M$
+\end_inset
+
+, we have
+\begin_inset Formula 
+\[
+\text{depth}(M)\leq\text{dim}(A/\mathfrak{p})\leq\text{dim}(M).
+\]
+
+\end_inset
+
+Thus 
+\begin_inset Formula $\mbox{dim}(A/\mathfrak{p})=\mbox{dim}(M)$
+\end_inset
+
+ for all 
+\begin_inset Formula $\mathfrak{p}\in\mbox{Ass}(M)$
+\end_inset
+
+ since 
+\begin_inset Formula $\text{depth}(M)=\text{dim}(M)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Observe that 
+\begin_inset Formula 
+\begin{align*}
+\text{dim}(A/\langle x,\text{Ann}(M)\rangle) & =\text{dim}(M/xM)\\
+ & <\text{dim}(M)\\
+ & =\text{dim}(A/\mathfrak{p})
+\end{align*}
+
+\end_inset
+
+implies 
+\begin_inset Formula $x\notin\mathfrak{p}$
+\end_inset
+
+ for all 
+\begin_inset Formula $\mathfrak{p}\in\text{Ass}(M)$
+\end_inset
+
+.
+ Therefore 
+\begin_inset Formula $x$
+\end_inset
+
+ is 
+\begin_inset Formula $M$
+\end_inset
+
+-regular.
+ 
+\end_layout
+
+\begin_layout Enumerate
+We have
+\begin_inset Formula 
+\begin{align*}
+\text{depth}(M/\langle x_{1},\dots,x_{r}\rangle M) & =\text{depth}(M)-r\\
+ & =\text{dim}(M)-r\\
+ & =\text{dim}(M/\langle x_{1},\dots,x_{r}\rangle M).
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Auslander-Buchsbaum Formula
+\end_layout
+
+\begin_layout Standard
+We want to prove the Auslander-Buchsbaum formula, which is of fundamental
+ importance for modules which allow a finite projective resolution.
+ First we need a definition and a lemma.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $(A,\mathfrak{m})$
+\end_inset
+
+ be a Noetherian local ring and let 
+\begin_inset Formula $M$
+\end_inset
+
+ be a finitely generated 
+\begin_inset Formula $A$
+\end_inset
+
+-module.
+ We say 
+\begin_inset Formula $M$
+\end_inset
+
+ has finite 
+\series bold
+projective dimension 
+\series default
+if there exists an exact sequence (a free resolution)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}
+\backslash
+begin{tikzcd} 0 
+\backslash
+arrow[r] & F_{n} 
+\backslash
+arrow[r, " 
+\backslash
+varphi _n " ] & F_{n-1} 
+\backslash
+arrow[r, " 
+\backslash
+varphi _{n-1} "] & 
+\backslash
+cdots  
+\backslash
+arrow[r] & F_0 
+\backslash
+arrow[r, " 
+\backslash
+varphi _0 "] & M  
+\backslash
+arrow[r] & 0
+\backslash
+end{tikzcd}
+\backslash
+end{equation}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+with finitely generated free 
+\begin_inset Formula $A$
+\end_inset
+
+-modules 
+\begin_inset Formula $F_{i}$
+\end_inset
+
+.
+ The integer 
+\begin_inset Formula $n$
+\end_inset
+
+ is called the 
+\series bold
+length 
+\series default
+of the resolution.
+ The minimal length of a free resolution is called the 
+\series bold
+projective dimension 
+\series default
+of 
+\begin_inset Formula $M$
+\end_inset
+
+, and is denoted 
+\begin_inset Formula $\text{pd}_{A}(M)$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lemma}
+\backslash
+label{lemma7.8.9}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $(A,\mathfrak{m})$
+\end_inset
+
+ be a Noetherian local ring and 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} 0 
+\backslash
+arrow[r] & M_1 
+\backslash
+arrow[r, "
+\backslash
+psi "] & M_2 
+\backslash
+arrow[r, "
+\backslash
+varphi "] & M_3 
+\backslash
+arrow[r] & 0 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+be an exact sequence of 
+\begin_inset Formula $A$
+\end_inset
+
+-modules.
+ Then 
+\begin_inset Formula 
+\[
+\text{depth}(M_{2})\geq\mbox{min}(\mbox{depth}(M_{1}),\mbox{depth}(M_{3})).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If the inequality is strict, then 
+\begin_inset Formula $\mbox{depth}(M_{1})=\mbox{depth}(M_{3})+1$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lemma}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Assume all three modules have positive depth.
+ First we observe that we can find a common nonzerodivisor 
+\begin_inset Formula $f\in\mathfrak{m}\subset A$
+\end_inset
+
+ of 
+\begin_inset Formula $M_{1},M_{2},M_{3}$
+\end_inset
+
+.
+ The reason is because the set of all zerodivisors of 
+\begin_inset Formula $M_{j}$
+\end_inset
+
+ is 
+\begin_inset Formula 
+\[
+\bigcup_{\mathfrak{p}\in\text{Ass}(M_{j})}\mathfrak{p}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Assume that we cannot find a common nonzerodivisor 
+\begin_inset Formula $f\in\mathfrak{m}\subset A$
+\end_inset
+
+ of 
+\begin_inset Formula $M_{1},M_{2},M_{3}$
+\end_inset
+
+.
+ Then this implies that 
+\begin_inset Formula 
+\[
+\bigcup_{\substack{\mathfrak{p}\in\text{Ass}(M_{j})\\
+j=1,2,3
+}
+}\mathfrak{p}=\mathfrak{m}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Since the number associated primes is finite, we must have 
+\begin_inset Formula $\mathfrak{m}=\mathfrak{p}$
+\end_inset
+
+ for some 
+\begin_inset Formula $\mathfrak{p}\in\text{Ass}(M_{j})$
+\end_inset
+
+ and 
+\begin_inset Formula $j\in\{1,2,3\}$
+\end_inset
+
+, by prime avoidance.
+ However this is a contradiction, since it would imply that every 
+\begin_inset Formula $f\in\mathfrak{m}$
+\end_inset
+
+ is a zerodivisor for 
+\begin_inset Formula $M_{j}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+The next observation we make is that 
+\begin_inset Formula $f$
+\end_inset
+
+ being 
+\begin_inset Formula $M_{3}$
+\end_inset
+
+-regular induces a short exact sequence 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} 0 
+\backslash
+arrow[r] & M_1 / f M_1 
+\backslash
+arrow[r,  " 
+\backslash
+overline{ 
+\backslash
+psi } "] & M_2 / fM_2 
+\backslash
+arrow[r, " 
+\backslash
+overline{ 
+\backslash
+varphi } "] & M_3 / fM_3 
+\backslash
+arrow[r] & 0 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Since 
+\begin_inset Formula $-\otimes A/f$
+\end_inset
+
+ is right exact, we only need to check that 
+\begin_inset Formula $M_{1}/fM_{1}\to M_{2}/fM_{2}$
+\end_inset
+
+ injective.
+ Let 
+\begin_inset Formula $\overline{m}_{1}\in M_{1}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\overline{\psi}(\overline{m}_{1})=0$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\psi(m_{1})=fm_{2}$
+\end_inset
+
+ for some 
+\begin_inset Formula $m_{2}\in M_{2}$
+\end_inset
+
+.
+ After applying 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ to both sides, we have 
+\begin_inset Formula $f\varphi(m_{2})=0$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $f$
+\end_inset
+
+ is 
+\begin_inset Formula $M_{3}$
+\end_inset
+
+-regular, this implies 
+\begin_inset Formula $\varphi(m_{2})=0$
+\end_inset
+
+.
+ By exactness of the sequence in the lemma, this implies 
+\begin_inset Formula $m_{2}=\psi(n_{1})$
+\end_inset
+
+ for some 
+\begin_inset Formula $n_{1}\in M_{1}$
+\end_inset
+
+.
+ After plugging in 
+\begin_inset Formula $\psi(n_{1})$
+\end_inset
+
+ into our original equation 
+\begin_inset Formula $\psi(m_{1})=fm_{2}$
+\end_inset
+
+, we have 
+\begin_inset Formula $\psi(m_{1}-fn_{1})=0$
+\end_inset
+
+.
+ Finally, this implies 
+\begin_inset Formula $m_{1}=fn_{1}$
+\end_inset
+
+, since 
+\begin_inset Formula $\psi$
+\end_inset
+
+ is injective.
+ Therefore 
+\begin_inset Formula $\overline{m}_{1}=0$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Next, note that depth drops by one if we divide by 
+\begin_inset Formula $f$
+\end_inset
+
+.
+ This follows from the fact that the short exact sequence 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} 0 
+\backslash
+arrow[r] & M_j 
+\backslash
+arrow[r, "
+\backslash
+cdot f "] & M_j 
+\backslash
+arrow[r] & M_j / fM_j 
+\backslash
+arrow[r] & 0 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+induces a long exact sequence in homology 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd}[row sep=40]  && 
+\backslash
+cdots 
+\backslash
+arrow[r] 
+\backslash
+arrow[d, phantom, ""{coordinate, name=Z'}] & 0 
+\backslash
+cong H_{n-1} (x_1 , 
+\backslash
+dots , x_n , M_j / fM_j)  
+\backslash
+arrow[dll,  rounded corners, to path={ -- ([xshift=2ex]
+\backslash
+tikztostart.east) |- (Z') [near end]
+\backslash
+tikztonodes -| ([xshift=-2ex]
+\backslash
+tikztotarget.west) -- (
+\backslash
+tikztotarget)}] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+  & H_{n} (x_1 , 
+\backslash
+dots , x_n , M_j ) 
+\backslash
+arrow[r, "
+\backslash
+cdot f "] & H_{n} (x_1 , 
+\backslash
+dots , x_n , M_j ) 
+\backslash
+arrow[r,] 
+\backslash
+arrow[d, phantom, ""{coordinate, name=Z}] & H_{n} (x_1 , 
+\backslash
+dots , x_n , M_j / f M_j ) 
+\backslash
+arrow[dll, rounded corners, to path={ -- ([xshift=2ex]
+\backslash
+tikztostart.east) |- (Z) [near end]
+\backslash
+tikztonodes -| ([xshift=-2ex]
+\backslash
+tikztotarget.west) -- (
+\backslash
+tikztotarget)}] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+ & H_{n-1} (x_1 , 
+\backslash
+dots , x_n , M_j ) 
+\backslash
+arrow[r, "
+\backslash
+cdot f "] & H_{n-1} (x_1 , 
+\backslash
+dots , x_n , M_j ) 
+\backslash
+arrow[r] 
+\backslash
+arrow[d, phantom, ""{coordinate, name=Z''}] & H_{n-1} (x_1 , 
+\backslash
+dots , x_n , M_j / fM_j)
+\backslash
+arrow[dll, rounded corners, to path={ -- ([xshift=2ex]
+\backslash
+tikztostart.east) |- (Z'') [near end]
+\backslash
+tikztonodes -| ([xshift=-2ex]
+\backslash
+tikztotarget.west) -- (
+\backslash
+tikztotarget)}] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+ & H_{n-2} (x_1 , 
+\backslash
+dots , x_n , M_j ) 
+\backslash
+arrow[r, "
+\backslash
+cdot f "] & H_{n-2} (x_1 , 
+\backslash
+dots , x_n , M_j ) 
+\backslash
+arrow[r] & 
+\backslash
+cdots 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\mathfrak{m}=\langle x_{1},\dots,x_{n}\rangle$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $\text{depth}(M_{j})=q$
+\end_inset
+
+, then 
+\begin_inset Formula $H_{i}(x_{1},\dots,x_{n},M_{j})\cong0$
+\end_inset
+
+ for all 
+\begin_inset Formula $i>n-q$
+\end_inset
+
+ and 
+\begin_inset Formula $H_{n-q}(x_{1},\dots x_{n},M_{j})\not\cong0$
+\end_inset
+
+.
+ The map 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} H_{i} (x_1 , 
+\backslash
+dots , x_n , M_j ) 
+\backslash
+arrow[r, "
+\backslash
+cdot f "] & H_{i} (x_1 , 
+\backslash
+dots , x_n , M_j ) 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+is simply the zero map, and thus induces isomorphisms 
+\begin_inset Formula $H_{i}(x_{1},\dots,x_{n},M_{j})\cong H_{i+1}(x_{1},\dots,x_{n},M_{j}/fM_{j})$
+\end_inset
+
+ for all 
+\begin_inset Formula $i\geq n-q$
+\end_inset
+
+.
+ This implies, in particular, that 
+\begin_inset Formula $\text{depth}(M_{j}/fM_{j})=q-1$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+From all of this, we see that the proof of the lemma can be reduced to the
+ case that the depth of one of the 
+\begin_inset Formula $M_{i}$
+\end_inset
+
+ is zero.
+ Suppose that 
+\begin_inset Formula $\text{depth}(M_{1})=0$
+\end_inset
+
+.
+ But then 
+\begin_inset Formula $\text{depth}(M_{2})=0$
+\end_inset
+
+, because any nonzerodivisor of 
+\begin_inset Formula $M_{2}$
+\end_inset
+
+ is a nonzerodivisor of 
+\begin_inset Formula $M_{1}$
+\end_inset
+
+.
+ The lemma is proved in this case.
+ Now assume that 
+\begin_inset Formula $\text{depth}(M_{2})=0$
+\end_inset
+
+.
+ Suppose 
+\begin_inset Formula $\text{depth}(M_{1})>0$
+\end_inset
+
+ and 
+\begin_inset Formula $\text{depth}(M_{3})>0$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $f\in\mathfrak{m}\subset A$
+\end_inset
+
+ be a nonzerodivisor of 
+\begin_inset Formula $M_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $M_{3}$
+\end_inset
+
+.
+ Again, we can find such an 
+\begin_inset Formula $f$
+\end_inset
+
+ by prime avoidance.
+ From the Snake Lemma we obtain that 
+\begin_inset Formula $f$
+\end_inset
+
+ is a nonzerodivisor for 
+\begin_inset Formula $M_{2}$
+\end_inset
+
+ too.
+ This is a contradiction.
+ Finally assume that 
+\begin_inset Formula $\text{depth}(M_{3})=0$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $\text{depth}(M_{2})>0$
+\end_inset
+
+, let 
+\begin_inset Formula $f\in\mathfrak{m}$
+\end_inset
+
+ be a nonzerodivisor of 
+\begin_inset Formula $M_{2}$
+\end_inset
+
+.
+ This is also a nonzerodivisor for 
+\begin_inset Formula $M_{1}$
+\end_inset
+
+, and therefore 
+\begin_inset Formula $\text{depth}(M_{1})>0$
+\end_inset
+
+.
+ Using the Snake Lemma, we obtain an inclusion
+\begin_inset Formula 
+\[
+\text{Ker}(f:M_{3}\to M_{3})\subset M_{1}/fM_{1}.
+\]
+
+\end_inset
+
+As 
+\begin_inset Formula $\text{depth}(M_{3})=0$
+\end_inset
+
+, we have 
+\begin_inset Formula $\text{Ker}(f:M_{3}\to M_{3})\neq0$
+\end_inset
+
+.
+ Any nonzerodivisor of 
+\begin_inset Formula $M_{1}/fM_{1}$
+\end_inset
+
+ would give a nonzerodivisor of 
+\begin_inset Formula $\text{Ker}(f:M_{3}\to M_{3})\subset M_{3}$
+\end_inset
+
+.
+ But this is not possible, and therefore 
+\begin_inset Formula $\text{depth}(M_{1})=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{rem}
+\end_layout
+
+\end_inset
+
+ Note that the lemma says that if 
+\begin_inset Formula $\text{depth}(M_{1})>\text{depth}(M_{2})$
+\end_inset
+
+, then we must have 
+\begin_inset Formula $\text{depth}(M_{2})=\text{depth}(M_{3})$
+\end_inset
+
+.
+ For if 
+\begin_inset Formula $\text{depth}(M_{2})>\text{depth}(M_{3})$
+\end_inset
+
+, then 
+\begin_inset Formula $\text{depth}(M_{1})=\text{depth}(M_{3})+1$
+\end_inset
+
+.
+ But this would contradict the fact that 
+\begin_inset Formula $\text{depth}(M_{1})>\text{depth}(M_{2})$
+\end_inset
+
+.
+ Similarly, if 
+\begin_inset Formula $\text{depth}(M_{3})>\text{depth}(M_{2})$
+\end_inset
+
+, then we must have 
+\begin_inset Formula $\text{depth}(M_{2})=\text{depth}(M_{1})$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $\text{depth}(M_{1})=\text{depth}(M_{2})$
+\end_inset
+
+, then either 
+\begin_inset Formula $\text{depth}(M_{3})=\text{depth}(M_{1})-1$
+\end_inset
+
+ or 
+\begin_inset Formula $\text{depth}(M_{3})=\text{depth}(M_{1})$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $\text{depth}(M_{3})=\text{depth}(M_{2})$
+\end_inset
+
+, then we must have 
+\begin_inset Formula $\text{depth}(M_{3})=\text{depth}(M_{1})$
+\end_inset
+
+.
+ In all other cases, we have 
+\begin_inset Formula $\text{depth}(M_{1})=\text{depth}(M_{3})+1$
+\end_inset
+
+.
+ We summarize this in the table below.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Condition
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Implication
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\text{depth}(M_{1})>\text{depth}(M_{2})$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\text{depth}(M_{2})=\text{depth}(M_{3})$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\text{depth}(M_{1})=\text{depth}(M_{2})$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\text{depth}(M_{3})=\text{depth}(M_{1})-1$
+\end_inset
+
+ or 
+\begin_inset Formula $\text{depth}(M_{2})=\text{depth}(M_{1})$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\text{depth}(M_{3})\geq\text{depth}(M_{2})$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\text{depth}(M_{2})=\text{depth}(M_{1})$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+All other cases
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\text{depth}(M_{1})=\text{depth}(M_{3})+1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{rem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We are now ready to state the Auslander-Buchsbaum Formula.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\end_layout
+
+\end_inset
+
+ (Auslander-Buchsbaum Formula) Let 
+\begin_inset Formula $(A,\mathfrak{m})$
+\end_inset
+
+ be a Noetherian local ring and let 
+\begin_inset Formula $M$
+\end_inset
+
+ be a finitely generated 
+\begin_inset Formula $A$
+\end_inset
+
+-module of finite projective dimension.
+ Then 
+\begin_inset Formula 
+\[
+\text{depth}(M)+\text{pd}_{A}(M)=\text{depth}(A).
+\]
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ The proof is by induction on 
+\begin_inset Formula $\text{depth}(A)$
+\end_inset
+
+.
+ First assume 
+\begin_inset Formula $\text{depth}(A)=0$
+\end_inset
+
+.
+ This implies that 
+\begin_inset Formula $\mathfrak{m}$
+\end_inset
+
+ consists of zero divisors.
+ In particular, 
+\begin_inset Formula $\mathfrak{m}\subset\bigcup_{\mathfrak{p}\in\text{Ass}(\langle0\rangle)}\mathfrak{p}$
+\end_inset
+
+, and since the number of associated primes is finite, we must have 
+\begin_inset Formula $\mathfrak{m}=\mathfrak{p}$
+\end_inset
+
+ for some associated prime.
+ Therefore, there exists a nonzero 
+\begin_inset Formula $x\in A$
+\end_inset
+
+ such that 
+\begin_inset Formula $x\mathfrak{m}=0$
+\end_inset
+
+.
+ Let 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}
+\backslash
+begin{tikzcd} 0 
+\backslash
+arrow[r] & F_{n} 
+\backslash
+arrow[r, " 
+\backslash
+varphi _n " ] & F_{n-1} 
+\backslash
+arrow[r, " 
+\backslash
+varphi _{n-1} "] & 
+\backslash
+cdots  
+\backslash
+arrow[r] & F_0 
+\backslash
+arrow[r, " 
+\backslash
+varphi _0 "] & M  
+\backslash
+arrow[r] & 0
+\backslash
+end{tikzcd}
+\backslash
+end{equation}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+be a minimal free resolution of 
+\begin_inset Formula $M$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $n>0$
+\end_inset
+
+, we have 
+\begin_inset Formula $\varphi_{n}(F_{n})\subset\mathfrak{m}F_{n-1}$
+\end_inset
+
+, by minimality of the free resolution.
+ Then 
+\begin_inset Formula $xF_{n}\hookrightarrow x\mathfrak{m}F_{n-1}=0$
+\end_inset
+
+, hence 
+\begin_inset Formula $F_{n}=0$
+\end_inset
+
+, by Nakayama's Lemma.
+ This contradicts the minimality of the resolution.
+ Therefore, 
+\begin_inset Formula $\text{pd}_{A}(M)=0$
+\end_inset
+
+, which implies 
+\begin_inset Formula $M$
+\end_inset
+
+ is a free 
+\begin_inset Formula $A$
+\end_inset
+
+-module, and hence 
+\begin_inset Formula $\text{depth}(M)=\text{depth}(A)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Now assume 
+\begin_inset Formula $\text{depth}(A)>0$
+\end_inset
+
+ and 
+\begin_inset Formula $\text{depth}(M)>0$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $f\in\mathfrak{m}$
+\end_inset
+
+ be a nonzerodivisor of 
+\begin_inset Formula $M$
+\end_inset
+
+ and of 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ The projective dimension is constant if we divide by 
+\begin_inset Formula $f$
+\end_inset
+
+, that is, 
+\begin_inset Formula $\text{pd}_{A/f}(M/fM)=\text{pd}_{A}(M)$
+\end_inset
+
+, but the depth drops by one.
+ This is because the sequence
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}
+\backslash
+begin{tikzcd} 0 
+\backslash
+arrow[r] & F_{n} / fF_{n} 
+\backslash
+arrow[r, " 
+\backslash
+overline{ 
+\backslash
+varphi  } _n " ] & F_{n-1} / fF_{n-1} 
+\backslash
+arrow[r, "  
+\backslash
+overline{ 
+\backslash
+varphi  } _{n-1} "] & 
+\backslash
+cdots  
+\backslash
+arrow[r] & F_0 / fF_0 
+\backslash
+arrow[r, "  
+\backslash
+overline{ 
+\backslash
+varphi  } _0  "] & M /fM 
+\backslash
+arrow[r] & 0
+\backslash
+end{tikzcd}
+\backslash
+end{equation}
+\end_layout
+
+\end_inset
+
+ remains exact as long as 
+\begin_inset Formula $f$
+\end_inset
+
+ is both 
+\begin_inset Formula $M$
+\end_inset
+
+-regular and 
+\begin_inset Formula $A$
+\end_inset
+
+-regular.
+ Moreover, it is a minimal free 
+\begin_inset Formula $(A/f)$
+\end_inset
+
+-resolution since 
+\begin_inset Formula $\overline{\varphi}_{i}(F_{i}/fF_{i})\subset\overline{\mathfrak{m}}(F_{i}/fF_{i})$
+\end_inset
+
+, where 
+\begin_inset Formula $\overline{\mathfrak{m}}$
+\end_inset
+
+ is the maximal ideal in 
+\begin_inset Formula $A/f$
+\end_inset
+
+.
+ Moreover, by the induction hypothesis, we have 
+\begin_inset Formula 
+\[
+\text{pd}_{A/f}(M/fM)+\text{depth}_{A/f}(M/fM)=\text{depth}(A/f),
+\]
+
+\end_inset
+
+hence the statement.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Finally, assume 
+\begin_inset Formula $\text{depth}(A)>0$
+\end_inset
+
+ and 
+\begin_inset Formula $\text{depth}(M)=0$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\text{pd}_{A}(M)>0$
+\end_inset
+
+, because otherwise 
+\begin_inset Formula $M$
+\end_inset
+
+ would be free and 
+\begin_inset Formula $\text{depth}(M)=\text{depth}(A)>0$
+\end_inset
+
+.
+ Let 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} 0 
+\backslash
+arrow[r] & K 
+\backslash
+arrow[r] & F 
+\backslash
+arrow[r] & M 
+\backslash
+arrow[r] &  0 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+be an exact sequence where 
+\begin_inset Formula $F$
+\end_inset
+
+ is a finitely generated free 
+\begin_inset Formula $A$
+\end_inset
+
+-module and 
+\begin_inset Formula $0\neq K\subset\mathfrak{m}F$
+\end_inset
+
+.
+ We apply 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Lemma~(
+\backslash
+ref{lemma7.8.9})
+\end_layout
+
+\end_inset
+
+ and obtain 
+\begin_inset Formula $\text{depth}(K)=1$
+\end_inset
+
+.
+ Using the previous case we obtain 
+\begin_inset Formula $\text{depth}(K)+\text{pd}_{A}(K)=\text{depth}(A)$
+\end_inset
+
+.
+ But 
+\begin_inset Formula $\text{pd}_{A}(K)+1=\text{pd}_{A}(M)$
+\end_inset
+
+ and 
+\begin_inset Formula $\text{depth}(K)=\text{depth}(M)+1$
+\end_inset
+
+ implies 
+\begin_inset Formula $\text{depth}(M)+\text{pd}_{A}(M)=\text{depth}(A)$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A=K[x,y,z]_{\langle x,y,z\rangle}$
+\end_inset
+
+ and let 
+\begin_inset Formula $I$
+\end_inset
+
+ be an ideal in 
+\begin_inset Formula $A$
+\end_inset
+
+ given by 
+\begin_inset Formula $I=\langle xz,yz\rangle$
+\end_inset
+
+.
+ We want to compute a minimal free resolution of 
+\begin_inset Formula $A/I$
+\end_inset
+
+.
+ Then we would have 
+\begin_inset Formula $\text{depth}(A/I)=n-\text{pd}_{A}(A/I)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd}[column sep=huge, row sep=0.4, ampersand replacement=
+\backslash
+&] 0 
+\backslash
+arrow[r] 
+\backslash
+&  A 
+\backslash
+arrow{r}{
+\backslash
+begin{pmatrix} -y 
+\backslash
+
+\backslash
+ x 
+\backslash
+end{pmatrix} } 
+\backslash
+& A^2 
+\backslash
+arrow{r}{ 
+\backslash
+begin{pmatrix} xz & yz  
+\backslash
+end{pmatrix} } 
+\backslash
+& A 
+\backslash
+arrow[r] 
+\backslash
+& A/I  
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So 
+\begin_inset Formula $\text{pd}_{A}(A/I)=2$
+\end_inset
+
+, hence 
+\begin_inset Formula $\text{depth}(A/I)=1$
+\end_inset
+
+.
+ On the other hand, we know that 
+\begin_inset Formula $\text{dim}(A/I)\geq2$
+\end_inset
+
+, since 
+\begin_inset Formula 
+\[
+A\supset\langle x,y,z\rangle\supset\langle y,z\rangle\supset\langle z\rangle\supset I
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+gives a chain of prime ideals of length 
+\begin_inset Formula $2$
+\end_inset
+
+.
+ Therefore 
+\begin_inset Formula $A/I$
+\end_inset
+
+ is not a Cohen Macaulay 
+\begin_inset Formula $A$
+\end_inset
+
+-module.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A=K[x,y,z]_{\langle x,y,z\rangle}$
+\end_inset
+
+ and let 
+\begin_inset Formula $I$
+\end_inset
+
+ be an ideal in 
+\begin_inset Formula $A$
+\end_inset
+
+ given by 
+\begin_inset Formula $I=\langle xy,xz,yz\rangle$
+\end_inset
+
+.
+ A minimal free resolution of 
+\begin_inset Formula $A/I$
+\end_inset
+
+ is given by
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd}[column sep=huge, row sep=0.4, ampersand replacement=
+\backslash
+&] 0 
+\backslash
+arrow[r] 
+\backslash
+&  A^2 
+\backslash
+arrow{r}{
+\backslash
+begin{pmatrix} 0 & -z 
+\backslash
+
+\backslash
+ -y & y 
+\backslash
+
+\backslash
+ x & 0 
+\backslash
+end{pmatrix} } 
+\backslash
+& A^3 
+\backslash
+arrow{r}{ 
+\backslash
+begin{pmatrix} xy & xz & yz  
+\backslash
+end{pmatrix} } 
+\backslash
+& A 
+\backslash
+arrow[r] 
+\backslash
+& A/I  
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So 
+\begin_inset Formula $\text{pd}_{A}(A/I)=2$
+\end_inset
+
+, hence 
+\begin_inset Formula $\text{depth}(A/I)=1$
+\end_inset
+
+.
+ We also have 
+\begin_inset Formula $\text{dim}(A/I)=1$
+\end_inset
+
+, so 
+\begin_inset Formula $A/I$
+\end_inset
+
+ is a Cohen Macaulay 
+\begin_inset Formula $A$
+\end_inset
+
+-module.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

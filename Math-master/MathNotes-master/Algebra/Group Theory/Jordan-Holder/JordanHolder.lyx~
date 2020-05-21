@@ -1,0 +1,1444 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{tikz}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\usetikzlibrary{shapes.geometric}
+\usepackage{tikz-cd}
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem*{cor}{Corollary}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{ex}{Exercise} 
+\newtheorem{example}{Example}[section]
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem{case}{Case}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{tikz-cd}
+\usetikzlibrary{calc,arrows,decorations.pathreplacing}
+\tikzset{mydot/.style={circle,fill,inner sep=1.5pt},
+commutative diagrams/.cd,
+  arrow style=tikz,
+  diagrams={>=latex},
+}
+
+\usepackage{babel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+\usepackage{pgfplots}
+\usetikzlibrary{decorations.markings}
+\pgfplotsset{compat=1.9}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding iso8859-15
+\fontencoding global
+\font_roman "palatino" "default"
+\font_sans "lmss" "default"
+\font_typewriter "lmtt" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf true
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing single
+\use_hyperref false
+\papersize custom
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\paperwidth 30cm
+\paperheight 35cm
+\topmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0bp
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Joran-Hölder Composition Series
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+A 
+\series bold
+filtration 
+\series default
+of a group 
+\begin_inset Formula $G$
+\end_inset
+
+ is a sequence of subgroups 
+\begin_inset Formula $(G_{i})_{0\leq i\leq n}$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\begin{equation}
+G_{0}=G\supset G_{1}\supset\cdots\supset G_{n}=1,\label{eq:filtration}
+\end{equation}
+
+\end_inset
+
+with 
+\begin_inset Formula $G_{i+1}$
+\end_inset
+
+ normal in 
+\begin_inset Formula $G_{i}$
+\end_inset
+
+ for 
+\begin_inset Formula $1\le i\le n-1$
+\end_inset
+
+.
+ Given a filtration 
+\begin_inset Formula $(G_{i})_{0\leq i\leq n}$
+\end_inset
+
+, the successive quotients 
+\begin_inset Formula $G_{i}/G_{i+1}$
+\end_inset
+
+ are denoted 
+\begin_inset Formula $\mbox{gr}_{i}(G)$
+\end_inset
+
+.
+ The sequence of the 
+\begin_inset Formula $\mbox{gr}_{i}(G)$
+\end_inset
+
+ is denoted by 
+\begin_inset Formula $\mbox{gr}(G)$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ A filtration 
+\begin_inset Formula $(G_{i})_{0\leq i\leq n}$
+\end_inset
+
+ of 
+\begin_inset Formula $G$
+\end_inset
+
+ is called a 
+\series bold
+Jordan-Hölder filtration
+\series default
+ (or a 
+\series bold
+Jordan-Hölder series
+\series default
+ or a 
+\series bold
+composition series
+\series default
+) if 
+\begin_inset Formula $\mbox{gr}_{i}(G)$
+\end_inset
+
+ is simple for every 
+\begin_inset Formula $i$
+\end_inset
+
+ such 
+\begin_inset Formula $0\leq i<n$
+\end_inset
+
+.
+ The number 
+\begin_inset Formula $n$
+\end_inset
+
+ is called the 
+\series bold
+length 
+\series default
+of the filtration.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $F$
+\end_inset
+
+ be a field.
+ A filtration for the group 
+\begin_inset Formula $\mbox{Aff}(F)$
+\end_inset
+
+ is given by
+\begin_inset Formula 
+\[
+\mbox{Aff}(F)\trianglerighteq\{e_{12}(*)\}\trianglerighteq\{1\},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+with factors isomorphic to 
+\begin_inset Formula $F$
+\end_inset
+
+ and 
+\begin_inset Formula $F^{\times}$
+\end_inset
+
+.
+ Compare this with the following sequence of field extensions:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd}[row sep=large] 
+\backslash
+mathbb{Q}( 
+\backslash
+sqrt[5]{2} , 
+\backslash
+zeta _5 ) 
+\backslash
+arrow[d,dash, "
+\backslash
+mathbb{F}_5 "] 
+\backslash
+arrow[d,dash,bend right=60, "  e_{12} ( * )  ", swap ] 
+\backslash
+arrow[dd,dash,bend left=60, , "
+\backslash
+text{Aff}(
+\backslash
+mathbb{F}_5 )"] 
+\backslash
+
+\backslash
+ 
+\backslash
+mathbb{Q} ( 
+\backslash
+zeta _5 ) 
+\backslash
+arrow[d,dash,"
+\backslash
+mathbb{F}_5 ^{
+\backslash
+times}"] 
+\backslash
+
+\backslash
+ 
+\backslash
+mathbb{Q} 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ A composition series for 
+\begin_inset Formula $S_{4}$
+\end_inset
+
+ is 
+\begin_inset Formula 
+\[
+S_{4}\trianglerighteq A_{4}\trianglerighteq V\trianglerighteq U\trianglerighteq\{(1)\},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $V=\{(1),(1,2)(3,4),(1,3)(2,4),(1,4)(2,3)\}$
+\end_inset
+
+ and 
+\begin_inset Formula $U=\{(1),(1,2)(3,4)\}$
+\end_inset
+
+, with three factors being 
+\begin_inset Formula $C_{2}$
+\end_inset
+
+ and one factor being 
+\begin_inset Formula $C_{3}$
+\end_inset
+
+.
+ Compare this with the following sequence of field extensions:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd}[row sep=large] 
+\backslash
+mathbb{Q}( r_1 ) 
+\backslash
+arrow[d,dash, " C_2 "] 
+\backslash
+arrow[d,dash,bend right=30, " U ", swap ] 
+\backslash
+arrow[dd,dash,bend left=60, "V"] 
+\backslash
+arrow[ddd,dash,bend right=60,"A_4 ",swap] 
+\backslash
+arrow[dddd,dash,bend left=60, "S_4 "] 
+\backslash
+
+\backslash
+ 
+\backslash
+mathbb{Q}(r_1 + r_2 ) 
+\backslash
+arrow[d,dash," C_2 "] 
+\backslash
+
+\backslash
+ 
+\backslash
+mathbb{Q}(r_1 r_2  + r_3 r_4 ) 
+\backslash
+arrow[d,dash," C_3 "] 
+\backslash
+
+\backslash
+ 
+\backslash
+mathbb{Q} (
+\backslash
+prod _{i<j} (r_i - r_j )) 
+\backslash
+arrow[d,dash," C_2 "] 
+\backslash
+
+\backslash
+ 
+\backslash
+mathbb{Q} 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $r_{1},r_{2},r_{3}$
+\end_inset
+
+ and 
+\begin_inset Formula $r_{4}$
+\end_inset
+
+ are roots of the polynomial 
+\begin_inset Formula $f(x)=x^{4}-x-1$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ A composition series for 
+\begin_inset Formula $D_{4}$
+\end_inset
+
+ is 
+\begin_inset Formula 
+\[
+D_{4}\trianglerighteq\langle r^{2},s\rangle\trianglerighteq\langle s\rangle\trianglerighteq\langle1\rangle,
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+with all three factors being 
+\begin_inset Formula $C_{2}$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\end_layout
+
+\end_inset
+
+ Every finite group has a Jordan-Hölder filtration.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ If 
+\begin_inset Formula $G=1$
+\end_inset
+
+, take the trivial Jordan-Hölder filtration with 
+\begin_inset Formula $n=0$
+\end_inset
+
+ in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{eq:filtration})
+\end_layout
+
+\end_inset
+
+.
+ If 
+\begin_inset Formula $G$
+\end_inset
+
+ is simple, take 
+\begin_inset Formula $n=1$
+\end_inset
+
+ in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{eq:filtration})
+\end_layout
+
+\end_inset
+
+.
+ Suppose 
+\begin_inset Formula $G$
+\end_inset
+
+ is neither 
+\begin_inset Formula $1$
+\end_inset
+
+ nor simple.
+ Use induction on the order of 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $N$
+\end_inset
+
+ be a normal subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
+ , distinct from 
+\begin_inset Formula $G$
+\end_inset
+
+, and of maximal order.
+ Then 
+\begin_inset Formula $G/N$
+\end_inset
+
+ is simple.
+ Since 
+\begin_inset Formula $|N|<|G|$
+\end_inset
+
+, we apply the induction hypothesis to 
+\begin_inset Formula $N$
+\end_inset
+
+ and we obtain a Jordan-Hölder filtration 
+\begin_inset Formula $(N_{i})$
+\end_inset
+
+ for 
+\begin_inset Formula $N$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $(G,N_{0},N_{1},\dots)$
+\end_inset
+
+ is a Jordan-Hölder filtration for 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{rem}
+\end_layout
+
+\end_inset
+
+ An infinite group may not have a Jordan-Hölder filtration; example: 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{rem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\end_layout
+
+\end_inset
+
+ (Jordan-Hölder).
+ Let 
+\begin_inset Formula $(G_{i})_{0\leq i\leq n}$
+\end_inset
+
+ be a Jordan-Hölder filtration of a group 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ Then the 
+\begin_inset Formula $\mbox{gr}_{i}(G)$
+\end_inset
+
+ do not depend on the choice of filtration, up to the permutation of the
+ indices.
+ In particular, the length of the filtration is independent of the filtration.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{rem}
+\end_layout
+
+\end_inset
+
+The length of the filtration is called the 
+\series bold
+length
+\series default
+ of 
+\begin_inset Formula $G$
+\end_inset
+
+, and is denoted 
+\begin_inset Formula $\ell(G)$
+\end_inset
+
+; when 
+\begin_inset Formula $G$
+\end_inset
+
+ has no Jordan-Hölder filtration, we write 
+\begin_inset Formula $\ell(G)=\infty$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{rem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $S$
+\end_inset
+
+ be a simple group, and let 
+\begin_inset Formula $n(G,(G_{i}),S)$
+\end_inset
+
+ be the number of 
+\begin_inset Formula $j$
+\end_inset
+
+ such that 
+\begin_inset Formula $G_{j}/G_{j+1}$
+\end_inset
+
+ is isomorphic to 
+\begin_inset Formula $S$
+\end_inset
+
+.
+ What we have to prove is that 
+\begin_inset Formula $n(G,(G_{i}),S)$
+\end_inset
+
+ does not depend on the chosen filtration 
+\begin_inset Formula $(G_{i})$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Note first that, if 
+\begin_inset Formula $H$
+\end_inset
+
+ is a subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
+, a filtration 
+\begin_inset Formula $(G_{i})$
+\end_inset
+
+ of 
+\begin_inset Formula $G$
+\end_inset
+
+ incudes a filtration 
+\begin_inset Formula $(H_{i})$
+\end_inset
+
+ of 
+\begin_inset Formula $H$
+\end_inset
+
+ by putting 
+\begin_inset Formula $H_{i}=G_{i}\cap H$
+\end_inset
+
+.
+ Similarly, if 
+\begin_inset Formula $N$
+\end_inset
+
+ is a normal subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
+, we obtain a filtration of 
+\begin_inset Formula $G/N$
+\end_inset
+
+ by putting 
+\begin_inset Formula $(G/N)_{i}=G_{i}/(G_{i}\cap N)=G_{i}N/N$
+\end_inset
+
+.
+ The exact sequence 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} 1 
+\backslash
+arrow[r] & N 
+\backslash
+arrow[r] & G 
+\backslash
+arrow[r] & G/N 
+\backslash
+arrow[r] & 1 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+gives an exact sequence
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} 1 
+\backslash
+arrow[r] & N_i / N_{i+1} 
+\backslash
+arrow[r] & G_i / G_{i+1} 
+\backslash
+arrow[r] & (G/N)_i / (G/N)_{i+1} 
+\backslash
+arrow[r] & 1 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+i.e.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} 1 
+\backslash
+arrow[r] & 
+\backslash
+mbox{gr}_i (N) 
+\backslash
+arrow[r] & 
+\backslash
+mbox{gr}_i (G) 
+\backslash
+arrow[r] &  
+\backslash
+mbox{gr}_i (G/N) 
+\backslash
+arrow[r] & 1 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $(G_{i})$
+\end_inset
+
+ is a Jordan-Hölder filtration, all the 
+\begin_inset Formula $\mbox{gr}_{i}(G)$
+\end_inset
+
+ are simple; thus, 
+\begin_inset Formula $\mbox{gr}_{i}(N)$
+\end_inset
+
+ is either 
+\begin_inset Formula $1$
+\end_inset
+
+ or 
+\begin_inset Formula $\mbox{gr}_{i}(G)$
+\end_inset
+
+.
+ Let us partition 
+\begin_inset Formula $I=\{1,\dots,n\}$
+\end_inset
+
+ into two sets:
+\begin_inset Formula 
+\[
+I_{1}=\{i\in I\mid\mbox{gr}_{i}(N)=\mbox{gr}_{i}(G)\}\quad\mbox{and}\quad I_{2}=\{i\in I\mid\mbox{gr}_{i}(N)=1\}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+By reindexing 
+\begin_inset Formula $I_{1}$
+\end_inset
+
+ (resp.
+ 
+\begin_inset Formula $I_{2}$
+\end_inset
+
+) we obtain a Jordan-Hölder filtration of 
+\begin_inset Formula $N$
+\end_inset
+
+ (resp.
+ of 
+\begin_inset Formula $G/N$
+\end_inset
+
+) of length 
+\begin_inset Formula $|I_{1}|$
+\end_inset
+
+ (resp.
+ of length 
+\begin_inset Formula $|I_{2}|$
+\end_inset
+
+); note that 
+\begin_inset Formula $|I_{1}|+|I_{2}|=n$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+We now prove the theorem by induction on the length 
+\begin_inset Formula $n$
+\end_inset
+
+ of the filtration 
+\begin_inset Formula $(G_{i})$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $n=0$
+\end_inset
+
+, then 
+\begin_inset Formula $G=1$
+\end_inset
+
+, and if 
+\begin_inset Formula $n=1$
+\end_inset
+
+, then 
+\begin_inset Formula $G$
+\end_inset
+
+ is simple and only one filtration is possible.
+ Assume 
+\begin_inset Formula $n\geq2$
+\end_inset
+
+.
+ Choose a normal subgroup 
+\begin_inset Formula $N$
+\end_inset
+
+ of 
+\begin_inset Formula $G$
+\end_inset
+
+ distinct from 
+\begin_inset Formula $1$
+\end_inset
+
+ and 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ The sets 
+\begin_inset Formula $I_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $I_{2}$
+\end_inset
+
+ defined above are non-empty, hence their number of elements is 
+\begin_inset Formula $<n$
+\end_inset
+
+, and we can apply the induction hypothesis to 
+\begin_inset Formula $N$
+\end_inset
+
+ and 
+\begin_inset Formula $G/N$
+\end_inset
+
+; it shows that 
+\begin_inset Formula $n(N,(N_{i})_{i\in I_{1}},S)$
+\end_inset
+
+ and 
+\begin_inset Formula $n(G/N,((G/N)_{i})_{i\in I_{2}},S)$
+\end_inset
+
+ are independent of the filtrations since 
+\begin_inset Formula 
+\[
+n(G,(G)_{ii\in I},S)=n(N,(N_{i})_{i\in I_{2}},S)+n(G/N,((G/N)_{i})_{i\in I_{2}},S),
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+this implies that 
+\begin_inset Formula $n(G,(G_{i})_{i\in I},S)$
+\end_inset
+
+ is independent of the choice of filtration, as wanted.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ Illustration of proof for 
+\begin_inset Formula $D_{4}=\langle r,s\rangle$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} 
+\backslash
+langle s 
+\backslash
+rangle 
+\backslash
+arrow[r,dash, "C_1 "] 
+\backslash
+arrow[d,dash] & 
+\backslash
+langle s 
+\backslash
+rangle 
+\backslash
+arrow[r,dash, "C_1 "] 
+\backslash
+arrow[d,dash] & 
+\backslash
+langle s 
+\backslash
+rangle 
+\backslash
+arrow[r,dash, "C_2 "] 
+\backslash
+arrow[d,dash] & 
+\backslash
+langle 1 
+\backslash
+rangle 
+\backslash
+arrow[d,dash] 
+\backslash
+
+\backslash
+ 
+\backslash
+langle r , s 
+\backslash
+rangle 
+\backslash
+arrow[r,dash, "C_2 "] 
+\backslash
+arrow[d,dash] & 
+\backslash
+langle r^2 , s 
+\backslash
+rangle 
+\backslash
+arrow[r,dash, "C_2 "] 
+\backslash
+arrow[d,dash] & 
+\backslash
+langle s 
+\backslash
+rangle 
+\backslash
+arrow[r,dash, "C_2 "] 
+\backslash
+arrow[d,dash] & 
+\backslash
+langle 1 
+\backslash
+rangle 
+\backslash
+arrow[d,dash] 
+\backslash
+
+\backslash
+ 
+\backslash
+langle r 
+\backslash
+rangle 
+\backslash
+arrow[r,dash, "C_2 "] & 
+\backslash
+langle r^2 
+\backslash
+rangle 
+\backslash
+arrow[r,dash, "C_2 "] & 
+\backslash
+langle 1 
+\backslash
+rangle 
+\backslash
+arrow[r,dash, "C_1 "] & 
+\backslash
+langle 1 
+\backslash
+rangle 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,5419 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{tikz}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\usetikzlibrary{shapes.geometric}
+\usepackage{tikz-cd}
+\usepackage{amsthm}
+\usepackage{xparse,etoolbox}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{cor}{Corollary}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{ex}{Exercise}
+\newtheorem{sol}{Solution} 
+\newtheorem{example}{Example}[section]
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+\newtheorem{note}{Note}
+\newtheorem{case}{Case}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{tikz-cd}
+\usetikzlibrary{calc,arrows,decorations.pathreplacing}
+\tikzset{mydot/.style={circle,fill,inner sep=1.5pt},
+commutative diagrams/.cd,
+  arrow style=tikz,
+  diagrams={>=latex},
+}
+
+\usepackage{babel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=blue,
+    filecolor=blue,
+    linkcolor=blue,
+    urlcolor=blue
+}
+\usepackage{pgfplots}
+\usetikzlibrary{decorations.markings}
+\pgfplotsset{compat=1.9}
+
+
+\newcommand{\blocktheorem}[1]{%
+  \csletcs{old#1}{#1}% Store \begin
+  \csletcs{endold#1}{end#1}% Store \end
+  \RenewDocumentEnvironment{#1}{o}
+    {\par\addvspace{1.5ex}
+     \noindent\begin{minipage}{\textwidth}
+     \IfNoValueTF{##1}
+       {\csuse{old#1}}
+       {\csuse{old#1}[##1]}}
+    {\csuse{endold#1}
+     \end{minipage}
+     \par\addvspace{1.5ex}}
+}
+
+\raggedbottom
+
+\blocktheorem{theorem}% Make theo into a block
+\blocktheorem{defn}% Make defi into a block
+\blocktheorem{lemma}% Make lem into a block
+\blocktheorem{rem}% Make rem into a block
+\blocktheorem{cor}% Make col into a block
+\blocktheorem{prop}% Make prop into a block
+
+
+\makeatletter
+\newcommand*{\@old@slash}{}\let\@old@slash\slash
+\def\slash{\relax\ifmmode\delimiter"502F30E\mathopen{}\else\@old@slash\fi}
+\makeatother
+
+\def\backslash{\delimiter"526E30F\mathopen{}}
+
+
+
+\usepackage[bottom]{footmisc}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding iso8859-15
+\fontencoding global
+\font_roman "palatino" "default"
+\font_sans "lmss" "default"
+\font_typewriter "lmtt" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf true
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing single
+\use_hyperref false
+\papersize custom
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date true
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\paperwidth 30cm
+\paperheight 35cm
+\topmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0bp
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Algebra Prelim Solutions
+\end_layout
+
+\begin_layout Section
+Winter 2020
+\end_layout
+
+\begin_layout Subsection*
+Linear Algebra
+\end_layout
+
+\begin_layout Subsection
+Problem 1
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{ex}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $V$
+\end_inset
+
+ be an 
+\begin_inset Formula $n$
+\end_inset
+
+-dimensional vector space over a field 
+\begin_inset Formula $K$
+\end_inset
+
+ and let 
+\begin_inset Formula $T\colon V\to V$
+\end_inset
+
+ be a linear map.
+ We say 
+\begin_inset Formula $v\in V$
+\end_inset
+
+ is a 
+\series bold
+cyclic vector 
+\series default
+for 
+\begin_inset Formula $T$
+\end_inset
+
+ if 
+\begin_inset Formula $\{v,Tv,\dots,T^{n-1}v\}$
+\end_inset
+
+ is a basis for 
+\begin_inset Formula $V$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\chi_{T}(X)\in K[X]$
+\end_inset
+
+ be the characteristic polynomial of 
+\begin_inset Formula $T$
+\end_inset
+
+ and let 
+\begin_inset Formula $\pi_{T}(X)\in K[X]$
+\end_inset
+
+ be the minimal polynomial of 
+\begin_inset Formula $T$
+\end_inset
+
+ over 
+\begin_inset Formula $K$
+\end_inset
+
+.
+ Prove the following:
+\end_layout
+
+\begin_layout Enumerate
+Let 
+\begin_inset Formula $v\in V$
+\end_inset
+
+ and suppose 
+\begin_inset Formula $T^{n-1}v\neq0$
+\end_inset
+
+ but 
+\begin_inset Formula $T^{n}v=0$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $v$
+\end_inset
+
+ is a cyclic vector for 
+\begin_inset Formula $T$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $V$
+\end_inset
+
+ has a cyclic vector for 
+\begin_inset Formula $T$
+\end_inset
+
+, then 
+\begin_inset Formula $\chi_{T}=\pi_{T}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $T$
+\end_inset
+
+ is diagonalizable and 
+\begin_inset Formula $\chi_{T}=\pi_{T}$
+\end_inset
+
+, then 
+\begin_inset Formula $V$
+\end_inset
+
+ has a cyclic vector for 
+\begin_inset Formula $T$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $V$
+\end_inset
+
+ has a cyclic vector for 
+\begin_inset Formula $T$
+\end_inset
+
+ and 
+\begin_inset Formula $S\colon V\to V$
+\end_inset
+
+ is a linear map which commutes with 
+\begin_inset Formula $T$
+\end_inset
+
+, then 
+\begin_inset Formula $S$
+\end_inset
+
+ is a polynomial in 
+\begin_inset Formula $T$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{ex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sol}
+\end_layout
+
+\end_inset
+
+ 1.
+ We first show 
+\begin_inset Formula $\{v,Tv,\dots,T^{n-1}v\}$
+\end_inset
+
+ is linearly independent.
+ Suppose we have
+\begin_inset Formula 
+\begin{equation}
+a_{0}v+a_{1}Tv+\cdots+a_{n-1}T^{n-1}v=0\label{eq:bothsideslinearind222}
+\end{equation}
+
+\end_inset
+
+for some 
+\begin_inset Formula $a_{0},a_{1},\dots,a_{n-1}\in K$
+\end_inset
+
+.
+ Applying 
+\begin_inset Formula $T^{n-1}$
+\end_inset
+
+ to both sides of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{eq:bothsideslinearind222})
+\end_layout
+
+\end_inset
+
+ gives us 
+\begin_inset Formula $a_{0}T^{n-1}v=0$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $T^{n-1}v\neq0$
+\end_inset
+
+, we must have 
+\begin_inset Formula $a_{0}=0$
+\end_inset
+
+.
+ More generally, applying 
+\begin_inset Formula $T^{n-1-k}$
+\end_inset
+
+ to both sides of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{eq:bothsideslinearind222})
+\end_layout
+
+\end_inset
+
+, where 
+\begin_inset Formula $0\leq k\leq n-1$
+\end_inset
+
+, gives us 
+\begin_inset Formula $a_{k}T^{n-1}v=0$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $T^{n-1}v\neq0$
+\end_inset
+
+, we must have 
+\begin_inset Formula $a_{k}=0$
+\end_inset
+
+.
+ Therefore 
+\begin_inset Formula $\{v,Tv,\dots,T^{n-1}v\}$
+\end_inset
+
+ is linearly independent.
+ Finally, observe that 
+\begin_inset Formula $\{v,Tv,\dots,T^{n-1}v\}$
+\end_inset
+
+ spans 
+\begin_inset Formula $V$
+\end_inset
+
+ since 
+\begin_inset Formula $\mathrm{span}_{K}(\{v,Tv,\dots,T^{n-1}v\})\subseteq V$
+\end_inset
+
+ and 
+\begin_inset Formula $\dim V=n=\#\{v,Tv,\dots,T^{n-1}v\}$
+\end_inset
+
+.
+ Therefore 
+\begin_inset Formula $\{v,Tv,\dots,T^{n-1}v\}$
+\end_inset
+
+ is a basis for 
+\begin_inset Formula $V$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+2.
+ Let 
+\begin_inset Formula $v\in V$
+\end_inset
+
+ be a cyclic vector for 
+\begin_inset Formula $T$
+\end_inset
+
+.
+ Express the minimal polynomial of 
+\begin_inset Formula $T$
+\end_inset
+
+ over 
+\begin_inset Formula $K$
+\end_inset
+
+ as
+\begin_inset Formula 
+\[
+\pi_{T}(X)=X^{k}+a_{k-1}X^{k-1}+\cdots+a_{1}X+a_{0},
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $1\leq k\leq n$
+\end_inset
+
+.
+ As 
+\begin_inset Formula $\pi_{T}$
+\end_inset
+
+ is the minimal polynomial of 
+\begin_inset Formula $T$
+\end_inset
+
+ over 
+\begin_inset Formula $K$
+\end_inset
+
+, we must have
+\begin_inset Formula 
+\begin{equation}
+T^{k}v+a_{k-1}T^{k-1}v+\cdots+a_{1}T+a_{0}=0.\label{eq:thisimpliessfdsf}
+\end{equation}
+
+\end_inset
+
+If 
+\begin_inset Formula $k\leq n-1$
+\end_inset
+
+, then 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{eq:thisimpliessfdsf})
+\end_layout
+
+\end_inset
+
+ gives a nontrivial relation in 
+\begin_inset Formula $\{v,Tv,\dots,T^{n-1}v\}$
+\end_inset
+
+, contradicting the fact that 
+\begin_inset Formula $\{v,Tv,\dots,T^{n-1}v\}$
+\end_inset
+
+ is linearly independent.
+ Thus 
+\begin_inset Formula $k=n$
+\end_inset
+
+, which implies 
+\begin_inset Formula $\pi_{T}=\chi_{T}$
+\end_inset
+
+ since 
+\begin_inset Formula $\pi_{T}\mid\chi_{T}$
+\end_inset
+
+ and both 
+\begin_inset Formula $\pi_{T}$
+\end_inset
+
+ and 
+\begin_inset Formula $\chi_{T}$
+\end_inset
+
+ are monic of the same degree.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+3.
+ Suppose 
+\begin_inset Formula $T$
+\end_inset
+
+ is diagonalizable and 
+\begin_inset Formula $\pi_{T}=\chi_{T}$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\{v_{1},\dots,v_{n}\}$
+\end_inset
+
+ be an eigenbasis for 
+\begin_inset Formula $T$
+\end_inset
+
+ with corresponding eigenvalues 
+\begin_inset Formula $\{\lambda_{1},\dots,\lambda_{n}\}$
+\end_inset
+
+.
+ Suppose we have
+\begin_inset Formula 
+\begin{equation}
+a_{0}v+a_{1}Tv+\cdots+a_{n-1}T^{n-1}v=0\label{eq:bothsideslinearind222-1}
+\end{equation}
+
+\end_inset
+
+for some 
+\begin_inset Formula $a_{0},a_{1},\dots,a_{n-1}\in K$
+\end_inset
+
+.
+ Then we have
+\begin_inset Formula 
+\begin{align*}
+0 & =a_{0}v+a_{1}Tv+\cdots+a_{n-1}T^{n-1}v\\
+ & =\sum_{i=0}^{n-1}a_{i}\lambda_{k}^{i}v\\
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sol}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Problem 2
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{ex}
+\backslash
+label{ex}
+\end_layout
+
+\end_inset
+
+Let 
+\begin_inset Formula $V$
+\end_inset
+
+ and 
+\begin_inset Formula $W$
+\end_inset
+
+ be real vector spaces, and let 
+\begin_inset Formula $\mathrm{Hom}_{\mathbb{R}}(W,V)$
+\end_inset
+
+ denote the set of linear transformations 
+\begin_inset Formula $W\to V$
+\end_inset
+
+, which is a real vector space.
+\end_layout
+
+\begin_layout Enumerate
+Let 
+\begin_inset Formula $z\in\mathbb{C}$
+\end_inset
+
+ and 
+\begin_inset Formula $\phi\in\mathrm{Hom}_{\mathbb{R}}(\mathbb{C},V)$
+\end_inset
+
+.
+ Define 
+\begin_inset Formula $z\phi\colon\mathbb{C}\to V$
+\end_inset
+
+ by the formula
+\begin_inset Formula 
+\begin{equation}
+(z\phi)(w)=\phi(zw)\label{eq:complexscalaraction}
+\end{equation}
+
+\end_inset
+
+for all 
+\begin_inset Formula $w\in\mathbb{C}$
+\end_inset
+
+.
+ Prove that 
+\begin_inset Formula $z\phi\in\mathrm{Hom}_{\mathbb{R}}(\mathbb{C},V)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Prove that 
+\begin_inset Formula $\mathrm{Hom}_{\mathbb{R}}(\mathbb{C},V)$
+\end_inset
+
+ is a complex vector space using 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{eq:complexscalaraction})
+\end_layout
+
+\end_inset
+
+ to define scalar multiplication.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Prove that if 
+\begin_inset Formula $d=\dim_{\mathbb{R}}(V)<\infty$
+\end_inset
+
+, then 
+\begin_inset Formula $\dim_{\mathbb{C}}(\mathrm{Hom}_{\mathbb{R}}(\mathbb{C},V))=d$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Prove that if 
+\begin_inset Formula $f\colon V\to W$
+\end_inset
+
+ is a linear transformation over 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+, then the function 
+\begin_inset Formula $f_{*}\colon\mathrm{Hom}_{\mathbb{R}}(\mathbb{C},V)\to\mathrm{Hom}_{\mathbb{R}}(\mathbb{C},W)$
+\end_inset
+
+, defined by
+\begin_inset Formula 
+\[
+f_{*}(\phi)=f\circ\phi
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $\phi\in\mathrm{Hom}_{\mathbb{R}}(\mathbb{C},V)$
+\end_inset
+
+, is a linear transformation over 
+\begin_inset Formula $\mathbb{C}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Prove that if 
+\begin_inset Formula $\lambda\in\mathbb{R}$
+\end_inset
+
+ is an eigenvalue for a linear transformation 
+\begin_inset Formula $f\colon V\to V$
+\end_inset
+
+, then 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ is an eigenvalue for 
+\begin_inset Formula $f_{*}\colon\mathrm{Hom}_{\mathbb{R}}(\mathbb{C},V)\to\mathrm{Hom}_{\mathbb{R}}(\mathbb{C},V)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{ex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sol}
+\backslash
+label{sol}
+\end_layout
+
+\end_inset
+
+ 1.
+ Let 
+\begin_inset Formula $z_{1},z_{2}\in\mathbb{C}$
+\end_inset
+
+ and let 
+\begin_inset Formula $a_{1},a_{2}\in\mathbb{R}$
+\end_inset
+
+.
+ Then we have
+\begin_inset Formula 
+\begin{align*}
+(z\phi)(a_{1}z_{1}+a_{2}z_{2}) & =\phi(z(a_{1}z_{1}+a_{2}z_{2}))\\
+ & =\phi(a_{1}zz_{1}+a_{2}zz_{2})\\
+ & =a_{1}\phi(zz_{1})+a_{2}\phi(zz_{2})\\
+ & =a_{1}(z\phi)(z_{1})+a_{2}(z\phi)(z_{2}).
+\end{align*}
+
+\end_inset
+
+It follows that 
+\begin_inset Formula $z\phi$
+\end_inset
+
+ is 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+-linear, and hence 
+\begin_inset Formula $z\phi\in\mathrm{Hom}_{\mathbb{R}}(\mathbb{C},V)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+2.
+ We give 
+\begin_inset Formula $\mathrm{Hom}_{\mathbb{R}}(\mathbb{C},V)$
+\end_inset
+
+ a complex vector space structure via the scalar multiplication
+\begin_inset Formula 
+\[
+z\cdot\phi=z\phi
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $z\in\mathbb{C}$
+\end_inset
+
+ and 
+\begin_inset Formula $\phi\in\mathrm{Hom}_{\mathbb{R}}(\mathbb{C},V)$
+\end_inset
+
+, where 
+\begin_inset Formula $z\phi$
+\end_inset
+
+ is the 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+-linear map defined in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{eq:complexscalaraction})
+\end_layout
+
+\end_inset
+
+.
+ First note that 
+\begin_inset Formula $\mathrm{Hom}_{\mathbb{R}}(\mathbb{C},V)$
+\end_inset
+
+ is an abelian since it already has the structure of an 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+-vector space, so we just need to show that 
+\begin_inset Formula $\mathbb{C}$
+\end_inset
+
+ acts on 
+\begin_inset Formula $\mathrm{Hom}_{\mathbb{R}}(\mathbb{C},V)$
+\end_inset
+
+ by additive maps.
+ Clearly 
+\begin_inset Formula $1\cdot\phi=\phi$
+\end_inset
+
+ for all 
+\begin_inset Formula $\phi\in\mathrm{Hom}_{\mathbb{R}}(\mathbb{C},V)$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $z_{1},z_{2}\in\mathbb{C}$
+\end_inset
+
+ and let 
+\begin_inset Formula $\phi\in\mathrm{Hom}_{\mathbb{R}}(\mathbb{C},V)$
+\end_inset
+
+.
+ Then for all 
+\begin_inset Formula $w\in\mathbb{C}$
+\end_inset
+
+, we have
+\begin_inset Formula 
+\begin{align*}
+(z_{1}\cdot(z_{2}\cdot\phi))(w) & =(z_{1}(z_{2}\phi))(w)\\
+ & =(z_{2}\phi)(z_{1}w)\\
+ & =\phi(z_{2}z_{1}w))\\
+ & =\phi(z_{1}z_{2}w)\\
+ & =((z_{1}z_{2})\phi)(w)\\
+ & =(z_{1}z_{2}\cdot\phi)(w).
+\end{align*}
+
+\end_inset
+
+It follows that 
+\begin_inset Formula $z_{1}\cdot(z_{2}\cdot\phi)=z_{1}z_{2}\cdot\phi$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Next, let 
+\begin_inset Formula $z\in\mathbb{C}$
+\end_inset
+
+ and let 
+\begin_inset Formula $\phi_{1},\phi_{2}\in\mathrm{Hom}_{\mathbb{R}}(\mathbb{C},V)$
+\end_inset
+
+.
+ Then for all 
+\begin_inset Formula $w\in\mathbb{C}$
+\end_inset
+
+, we have
+\begin_inset Formula 
+\begin{align*}
+(z\cdot(\phi_{1}+\phi_{2}))(w) & =(z(\phi_{1}+\phi_{2}))(w)\\
+ & =(\phi_{1}+\phi_{2})(zw)\\
+ & =\phi_{1}(zw)+\phi_{2}(zw)\\
+ & =(z\phi_{1})(w)+(z\phi_{2})(w)\\
+ & =(z\cdot\phi_{1})(w)+(z\cdot\phi_{2})(w)\\
+ & =(z\cdot\phi_{1}+z\cdot\phi_{2})(w).
+\end{align*}
+
+\end_inset
+
+It follows that 
+\begin_inset Formula $z\cdot(\phi_{1}+\phi_{2})=z\cdot\phi_{1}+z\cdot\phi_{2}$
+\end_inset
+
+.
+ A similar calculation also shows that if 
+\begin_inset Formula $z_{1},z_{2}\in\mathbb{C}$
+\end_inset
+
+ and 
+\begin_inset Formula $\phi\in\mathrm{Hom}_{\mathbb{R}}(\mathbb{C},V)$
+\end_inset
+
+, then 
+\begin_inset Formula $(z_{1}+z_{2})\cdot\phi=z_{1}\cdot\phi+z_{2}\cdot\phi$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+3.
+ Before we prove this, let us prove another result:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\backslash
+label{prop}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $L\slash K$
+\end_inset
+
+ be a finite extension of fields and let 
+\begin_inset Formula $V$
+\end_inset
+
+ be a finite dimensional 
+\begin_inset Formula $L$
+\end_inset
+
+-vector space (so 
+\begin_inset Formula $V$
+\end_inset
+
+ is a 
+\begin_inset Formula $K$
+\end_inset
+
+-vector space by restriction of scalars).
+ Then we have 
+\begin_inset Formula 
+\[
+\dim_{L}V=[L:K]\cdot\dim_{K}V.
+\]
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Denote 
+\begin_inset Formula $m=[L:K]$
+\end_inset
+
+ and denote 
+\begin_inset Formula $n=\dim_{K}V$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\mathbf{e}=(e_{1},\dots,e_{m})$
+\end_inset
+
+ be an ordered basis for 
+\begin_inset Formula $L$
+\end_inset
+
+ as a 
+\begin_inset Formula $K$
+\end_inset
+
+-vector space, and let 
+\begin_inset Formula $\mathbf{v}=(v_{1},\dots,v_{n})$
+\end_inset
+
+ be an ordered basis for 
+\begin_inset Formula $V$
+\end_inset
+
+ as an 
+\begin_inset Formula $L$
+\end_inset
+
+-vector space.
+ We claim that 
+\begin_inset Formula $\mathbf{e}\otimes\mathbf{v}=(e_{1}v_{1},\dots,e_{1}v_{n},e_{2}v_{1},\dots,e_{2}v_{n},\dots,e_{m}v_{1},\dots,e_{m}v_{n})$
+\end_inset
+
+ is an ordered basis for 
+\begin_inset Formula $V$
+\end_inset
+
+ as a 
+\begin_inset Formula $K$
+\end_inset
+
+-vector space.
+ Indeed, let us first show that 
+\begin_inset Formula $\mathbf{e}\otimes\mathbf{v}$
+\end_inset
+
+ spans 
+\begin_inset Formula $V$
+\end_inset
+
+ as a 
+\begin_inset Formula $K$
+\end_inset
+
+-vector space.
+ Let 
+\begin_inset Formula $v\in V$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $\mathbf{v}$
+\end_inset
+
+ spans 
+\begin_inset Formula $V$
+\end_inset
+
+ as a 
+\begin_inset Formula $L$
+\end_inset
+
+-vector space, we have
+\begin_inset Formula 
+\[
+v=b_{1}v_{1}+\cdots+b_{n}v_{n}
+\]
+
+\end_inset
+
+for some 
+\begin_inset Formula $b_{1},\dots,b_{n}\in L$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $\mathbf{e}$
+\end_inset
+
+ spans 
+\begin_inset Formula $L$
+\end_inset
+
+ as a 
+\begin_inset Formula $K$
+\end_inset
+
+-vector space, for each 
+\begin_inset Formula $1\leq j\leq n$
+\end_inset
+
+ we have
+\begin_inset Formula 
+\[
+b_{j}=a_{1j}e_{1}+\cdots+a_{mj}e_{m}.
+\]
+
+\end_inset
+
+for some 
+\begin_inset Formula $a_{1j},\dots,a_{mj}\in K$
+\end_inset
+
+.
+ Therefore, we have
+\begin_inset Formula 
+\begin{align*}
+v & =\sum_{j=1}^{n}b_{j}v_{j}\\
+ & =\sum_{i=1}^{n}\left(\sum_{i=1}^{m}a_{ij}e_{i}\right)v_{j}\\
+ & =\sum_{\substack{1\leq i\leq m\\
+1\leq j\leq n
+}
+}a_{ij}e_{i}v_{j}.
+\end{align*}
+
+\end_inset
+
+Therefore 
+\begin_inset Formula $\mathbf{e}\otimes\mathbf{v}$
+\end_inset
+
+ spans 
+\begin_inset Formula $V$
+\end_inset
+
+ as 
+\begin_inset Formula $K$
+\end_inset
+
+-vector space.
+ Next we show that 
+\begin_inset Formula $\mathbf{e}\otimes\mathbf{v}$
+\end_inset
+
+ is linearly independent.
+ Suppose we have
+\begin_inset Formula 
+\[
+\sum_{\substack{1\leq i\leq m\\
+1\leq j\leq n
+}
+}a_{ij}e_{i}v_{j}=0
+\]
+
+\end_inset
+
+for some 
+\begin_inset Formula $a_{ij}\in K$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $\mathbf{v}$
+\end_inset
+
+ is linearly independent, this implies
+\begin_inset Formula 
+\[
+\sum_{i=1}^{m}a_{ij}e_{i}=0
+\]
+
+\end_inset
+
+for each 
+\begin_inset Formula $1\leq j\leq n$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $\mathbf{e}$
+\end_inset
+
+ is linearly independent, this implies 
+\begin_inset Formula $a_{ij}=0$
+\end_inset
+
+ for each 
+\begin_inset Formula $1\leq i\leq m$
+\end_inset
+
+ and for each 
+\begin_inset Formula $1\leq j\leq n$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $\mathbf{e}\otimes\mathbf{v}$
+\end_inset
+
+ is linearly independent.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Now we continue with our original problem.
+ First note that as an 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+-vector space, we have 
+\begin_inset Formula $\mathrm{dim}_{\mathbb{R}}(\mathrm{Hom}_{\mathbb{R}}(\mathbb{C},V))=2d$
+\end_inset
+
+.
+ Thus, the proposition above tells us that as 
+\begin_inset Formula $\mathbb{C}$
+\end_inset
+
+-dimensional vector space, we must have 
+\begin_inset Formula $\dim_{\mathbb{C}}(\mathrm{Hom}_{\mathbb{R}}(\mathbb{C},V))=d$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+4.
+ Let 
+\begin_inset Formula $z_{1},z_{2}\in\mathbb{C}$
+\end_inset
+
+ and let 
+\begin_inset Formula $\phi_{1},\phi_{2}\in\mathrm{Hom}_{\mathbb{R}}(\mathbb{C},V)$
+\end_inset
+
+.
+ Then for all 
+\begin_inset Formula $w\in\mathbb{C}$
+\end_inset
+
+, we have 
+\begin_inset Formula 
+\begin{align*}
+f_{*}(z_{1}\phi_{1}+z_{2}\phi_{2})(w) & =(f\circ(z_{1}\phi_{1}+z_{2}\phi_{2}))(w)\\
+ & =f((z_{1}\phi_{1}+z_{2}\phi_{2})(w))\\
+ & =f(z_{1}(\phi_{1}(w))+z_{2}(\phi_{2}(w)))\\
+ & =z_{1}f(\phi_{1}(w))+z_{2}f(\phi_{2}(w))\\
+ & =z_{1}(f\circ\phi_{1})(w)+z_{2}(f\circ\phi_{2})(w)\\
+ & =z_{1}(f_{*}\phi_{1})(w)+z_{2}(f_{*}\phi_{2})(w)\\
+ & =(z_{1}(f_{*}\phi_{1})+z_{2}(f_{*}\phi_{2}))(w).
+\end{align*}
+
+\end_inset
+
+It follows that 
+\begin_inset Formula $f_{*}$
+\end_inset
+
+ is 
+\begin_inset Formula $\mathbb{C}$
+\end_inset
+
+-linear.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+5.
+ Choose an eigenvector 
+\begin_inset Formula $v\in V$
+\end_inset
+
+ for 
+\begin_inset Formula $f$
+\end_inset
+
+ corresponding to the eigenvalue 
+\begin_inset Formula $\lambda\in\mathbb{R}$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\phi\colon\mathbb{C}\to V$
+\end_inset
+
+ be the unique 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+-linear map given by mapping 
+\begin_inset Formula $1\mapsto v$
+\end_inset
+
+ and 
+\begin_inset Formula $i\mapsto0$
+\end_inset
+
+ (note that 
+\begin_inset Formula $(1,i)$
+\end_inset
+
+ is an ordered basis for 
+\begin_inset Formula $\mathbb{C}$
+\end_inset
+
+ as an 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+-vector space and hence any 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+-linear map out of 
+\begin_inset Formula $\mathbb{C}$
+\end_inset
+
+ is completely determined by where it maps the ordered basis 
+\begin_inset Formula $(1,i)$
+\end_inset
+
+).
+ Then observe that for all 
+\begin_inset Formula $a+ib\in\mathbb{C}$
+\end_inset
+
+, we have
+\begin_inset Formula 
+\begin{align*}
+(f_{*}\phi)(a+ib) & =(f\circ\phi)(a+ib)\\
+ & =f(\phi(a+ib))\\
+ & =f(a\phi(1)+b\phi(i))\\
+ & =f(av)\\
+ & =af(v)\\
+ & =a\lambda v\\
+ & =\lambda av\\
+ & =\lambda(a\phi(1)+b\phi(i))\\
+ & =\lambda\phi(a+ib).
+\end{align*}
+
+\end_inset
+
+It follows that 
+\begin_inset Formula $f_{*}\phi=\lambda\phi$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ is an eigenvalue for 
+\begin_inset Formula $f_{*}$
+\end_inset
+
+ with 
+\begin_inset Formula $\phi$
+\end_inset
+
+ being a corresponding eigenvector.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sol}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Problem 3
+\end_layout
+
+\begin_layout Standard
+We give 
+\begin_inset Formula $V$
+\end_inset
+
+ the structure of a 
+\begin_inset Formula $K[X]$
+\end_inset
+
+-module by defining
+\begin_inset Formula 
+\begin{equation}
+p(X)\cdot v=p(f)(v)\label{eq:action}
+\end{equation}
+
+\end_inset
+
+for all 
+\begin_inset Formula $p(X)\in K[X]$
+\end_inset
+
+ and for all 
+\begin_inset Formula $v\in V$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $v,w\in\text{ker}(p(X))$
+\end_inset
+
+ and let 
+\begin_inset Formula $a,b\in K$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\begin{align*}
+p(X)\cdot(av+bw) & =p(f)(av+bw)\\
+ & =\sum_{i=0}^{n}c_{i}f^{i}(av+bw)\\
+ & =\sum_{i=0}^{n}c_{i}(af^{i}(v)+bf^{i}(w))\\
+ & =a\sum_{i=0}^{n}c_{i}f^{i}(v)+b\sum_{i=0}^{n}c_{i}f^{i}(w)\\
+ & =a(p(X)\cdot v)+b(p(X)\cdot w)\\
+ & =0+0\\
+ & =0.
+\end{align*}
+
+\end_inset
+
+Thus 
+\begin_inset Formula $av+bw\in\text{ker}(p(X))$
+\end_inset
+
+ which implies 
+\begin_inset Formula $\text{ker}(p(X))$
+\end_inset
+
+ is a linear subspace of 
+\begin_inset Formula $V$
+\end_inset
+
+.
+ In particular, when 
+\begin_inset Formula $p(X)=X-\lambda$
+\end_inset
+
+ where 
+\begin_inset Formula $\lambda\in K$
+\end_inset
+
+, we have
+\begin_inset Formula 
+\begin{align*}
+v\in\text{ker}(p(X)) & \iff v\in\text{ker}(X-\lambda)\\
+ & \iff(X-\lambda)\cdot v=0\\
+ & \iff(f-\lambda)(v)=0\\
+ & \iff f(v)=\lambda v.
+\end{align*}
+
+\end_inset
+
+Thus 
+\begin_inset Formula $v\in\text{ker}(p(X))$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $v$
+\end_inset
+
+ is an eigenvector of 
+\begin_inset Formula $f$
+\end_inset
+
+ with eigenvalue 
+\begin_inset Formula $\lambda$
+\end_inset
+
+.
+ Therefore 
+\begin_inset Formula $\text{ker}(p(X))=E_{\lambda}$
+\end_inset
+
+ where 
+\begin_inset Formula $E_{\lambda}$
+\end_inset
+
+ is the eigenspace of 
+\begin_inset Formula $f$
+\end_inset
+
+ with respect to 
+\begin_inset Formula $\lambda$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Now write 
+\begin_inset Formula 
+\[
+p(X)=\sum_{i=0}^{m}c_{i}X^{i}\quad\text{and}\quad q(X)=\sum_{j=0}^{n}d_{j}X^{j}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We first show that 
+\begin_inset Formula 
+\begin{equation}
+\text{ker}(p(X)q(X))=\text{ker}(p(X))+\text{ker}(q(X)).\label{dirsum}
+\end{equation}
+
+\end_inset
+
+Let 
+\begin_inset Formula $v\in\text{ker}(p(X))+\text{ker}(q(X))$
+\end_inset
+
+.
+ Write 
+\begin_inset Formula $v=v_{1}+v_{2}$
+\end_inset
+
+ where 
+\begin_inset Formula $v_{1}\in\text{ker}(p(X))$
+\end_inset
+
+ and 
+\begin_inset Formula $v_{2}\in\text{ker}(q(X))$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\begin{align*}
+(p(X)q(X))\cdot v & =p(X)\cdot(q(X)\cdot v)\\
+ & =p(X)\cdot(q(X)\cdot(v_{1}+v_{2}))\\
+ & =p(X)\cdot(q(X)\cdot v_{1}+q(X)\cdot v_{2})\\
+ & =p(X)\cdot(q(X)\cdot v_{1})\\
+ & =(p(X)q(X))\cdot v_{1}\\
+ & =(q(X)p(X))\cdot v_{1}\\
+ & =q(X)\cdot(p(X)\cdot v_{1})\\
+ & =q(X)\cdot0\\
+ & =0
+\end{align*}
+
+\end_inset
+
+implies 
+\begin_inset Formula $v\in\text{ker}(p(X)q(X))$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $\text{ker}(p(X))+\text{ker}(q(X))\subseteq\text{ker}(p(X)q(X))$
+\end_inset
+
+.
+ For the reverse inclusion, choose 
+\begin_inset Formula $a(X),b(X)\in K[X]$
+\end_inset
+
+ so that
+\begin_inset Formula 
+\begin{equation}
+a(X)p(X)+b(X)q(X)=1.\label{id}
+\end{equation}
+
+\end_inset
+
+Let 
+\begin_inset Formula $v\in\text{ker}(p(X)q(X))$
+\end_inset
+
+.
+ Using 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{id})
+\end_layout
+
+\end_inset
+
+, write 
+\begin_inset Formula $v=v_{1}+v_{2}$
+\end_inset
+
+ where
+\begin_inset Formula 
+\[
+v_{1}=(b(X)q(X))\cdot v\quad\text{and}\quad v_{2}=(a(X)p(X))\cdot v.
+\]
+
+\end_inset
+
+Then 
+\begin_inset Formula $v_{2}\in\text{ker}(q(X))$
+\end_inset
+
+ since
+\begin_inset Formula 
+\begin{align*}
+q(X)\cdot v_{2} & =q(X)\cdot((a(X)p(X))\cdot v)\\
+ & =(q(X)a(X)p(X))\cdot v\\
+ & =(a(X)p(X)q(X))\cdot v\\
+ & =a(X)\cdot(p(X)q(X)\cdot v)\\
+ & =a(X)\cdot0\\
+ & =0.
+\end{align*}
+
+\end_inset
+
+Similarly, 
+\begin_inset Formula $v_{1}\in\text{ker}(p(X))$
+\end_inset
+
+ since
+\begin_inset Formula 
+\begin{align*}
+p(X)\cdot v_{1} & =p(X)\cdot((b(X)q(X))\cdot v)\\
+ & =(p(X)b(X)q(X))\cdot v\\
+ & =(b(X)p(X)q(X))\cdot v\\
+ & =b(X)\cdot(p(X)q(X)\cdot v)\\
+ & =b(X)\cdot0\\
+ & =0.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Therefore 
+\begin_inset Formula $v\in\text{ker}(p(X))+\text{ker}(q(X))$
+\end_inset
+
+, and this implies 
+\begin_inset Formula $\text{ker}(p(X))+\text{ker}(q(X))\supseteq\text{ker}(p(X)q(X))$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+To see that 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{dirsum})
+\end_layout
+
+\end_inset
+
+ is a direct sum, let 
+\begin_inset Formula $v\in\text{ker}(p(X))\cap\text{ker}(q(X))$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\begin{align*}
+v & =1\cdot v\\
+ & =(a(X)p(X)+b(X)q(X))\cdot v\\
+ & =(a(X)p(X))\cdot v+(b(X)q(X))\cdot v\\
+ & =a(X)\cdot(p(X)\cdot v)+b(X)\cdot(q(X)\cdot v)\\
+ & =a(X)\cdot0+b(X)\cdot0\\
+ & =0+0\\
+ & =0.
+\end{align*}
+
+\end_inset
+
+Thus 
+\begin_inset Formula $\text{ker}(p(X))\cap\text{ker}(q(X))=0$
+\end_inset
+
+ and so the sum 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{dirsum})
+\end_layout
+
+\end_inset
+
+ is direct.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+We first prove by induction on 
+\begin_inset Formula $m\geq2$
+\end_inset
+
+ that for polynomials 
+\begin_inset Formula $p_{i}(X)\in K[X]$
+\end_inset
+
+ such that 
+\begin_inset Formula $\gcd(p_{i}(X),p_{j}(X))=1$
+\end_inset
+
+ for all 
+\begin_inset Formula $1\leq i<j\leq m$
+\end_inset
+
+, we have
+\begin_inset Formula 
+\begin{align}
+\text{ker}(p_{1}(X)p_{2}(X)\cdots p_{m}(X)) & =\text{ker}(p_{1}(X))\oplus\text{ker}(p_{2}(X))\oplus\cdots\oplus\text{ker}(p_{m}(X)).\label{ind}
+\end{align}
+
+\end_inset
+
+The base case 
+\begin_inset Formula $m=2$
+\end_inset
+
+ was established in problem b.2.
+ Now assume 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{ind})
+\end_layout
+
+\end_inset
+
+ is true for some 
+\begin_inset Formula $m\geq2$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $p_{i}(X)\in K[X]$
+\end_inset
+
+ such that 
+\begin_inset Formula $\gcd(p_{i}(X),p_{j}(X))=1$
+\end_inset
+
+ for all 
+\begin_inset Formula $1\leq i<j\leq m+1$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $\gcd(p_{1}(X),p_{i}(X))=1$
+\end_inset
+
+ for all 
+\begin_inset Formula $2\leq i\leq m+1$
+\end_inset
+
+, we have 
+\begin_inset Formula $\gcd(p_{1}(X),p_{2}(X)\cdots p_{m+1}(X))=1$
+\end_inset
+
+.
+ Therefore
+\begin_inset Formula 
+\begin{align*}
+\text{ker}(p_{1}(X)p_{2}(X)\cdots p_{m+1}(X)) & =\text{ker}(p_{1}(X))\oplus\text{ker}(p_{2}(X)\cdots p_{m+1}(X))\\
+ & =\text{ker}(p_{1}(X))\oplus\text{ker}(p_{2}(X))\oplus\cdots\oplus\text{ker}(p_{m+1}(X)),
+\end{align*}
+
+\end_inset
+
+where we used the base case on the first line and where we used the induction
+ hypothesis to get from the first line to the second line.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+To finish the problem, we just need to show that 
+\begin_inset Formula $V=\text{ker}(c(X))$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $v\in V$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\begin{align*}
+c(X)\cdot v & =c(f)(v)\\
+ & =0(v)\\
+ & =0
+\end{align*}
+
+\end_inset
+
+implies 
+\begin_inset Formula $v\in\text{ker}(c(X))$
+\end_inset
+
+.
+ Therefore 
+\begin_inset Formula $V\subseteq\text{ker}(c(X))$
+\end_inset
+
+, which implies 
+\begin_inset Formula $V=\text{ker}(c(X))$
+\end_inset
+
+ (since 
+\begin_inset Formula $\text{ker}(c(X))$
+\end_inset
+
+ was already shown to be a subspace of 
+\begin_inset Formula $V$
+\end_inset
+
+ in problem b.1).
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Let 
+\begin_inset Formula $E=\sum_{i=1}^{t}E_{\lambda_{i}}$
+\end_inset
+
+ and let 
+\begin_inset Formula $c(X)$
+\end_inset
+
+ be given by
+\begin_inset Formula 
+\[
+c(X)=(X-\lambda_{1})\cdots(X-\lambda_{t}),
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\lambda_{1},\dots,\lambda_{t}$
+\end_inset
+
+ are the distinct eigenvalues of 
+\begin_inset Formula $f$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $(X-\lambda_{i})$
+\end_inset
+
+ and 
+\begin_inset Formula $(X-\lambda_{j})$
+\end_inset
+
+ are relatively prime for all 
+\begin_inset Formula $1\leq i<j\leq t$
+\end_inset
+
+ and since 
+\begin_inset Formula $c(f)=0$
+\end_inset
+
+ on 
+\begin_inset Formula $E$
+\end_inset
+
+, we can apply problem b.3 and obtain
+\begin_inset Formula 
+\[
+E=E_{\lambda_{1}}\oplus\cdots\oplus E_{\lambda_{t}}
+\]
+
+\end_inset
+
+In particular 
+\begin_inset Formula $B_{1}\cup B_{2}\cup\cdots\cup B_{t}$
+\end_inset
+
+ must be linearly independent: Suppose
+\begin_inset Formula 
+\begin{equation}
+\sum_{i=1}^{t}\sum_{j=1}^{m_{i}}a_{ij}u_{ij}=0.\label{eq:linind}
+\end{equation}
+
+\end_inset
+
+Then for each 
+\begin_inset Formula $1\leq i\leq t$
+\end_inset
+
+, we must have 
+\begin_inset Formula $\sum_{j=1}^{m_{i}}a_{ij}u_{ij}=0$
+\end_inset
+
+.
+ Indeed, if 
+\begin_inset Formula $\sum_{j=1}^{m_{k}}a_{kj}u_{kj}\neq0$
+\end_inset
+
+ for some 
+\begin_inset Formula $1\leq k\leq t$
+\end_inset
+
+, then we can rearrange 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{eq:linind})
+\end_layout
+
+\end_inset
+
+ to get
+\begin_inset Formula 
+\[
+\sum_{j=1}^{m_{k}}a_{kj}u_{kj}=-\sum_{\substack{1\leq i\leq t\\
+i\neq k
+}
+}\sum_{j=1}^{m_{i}}a_{ij}u_{ij},
+\]
+
+\end_inset
+
+and so 
+\begin_inset Formula 
+\begin{align*}
+0\neq & \sum_{j=1}^{m_{k}}a_{kj}u_{kj}\\
+ & \in E_{\lambda_{k}}\cap\bigoplus_{\substack{1\leq i\leq t\\
+i\neq k
+}
+}E_{\lambda_{i}}\\
+ & =\{0\},
+\end{align*}
+
+\end_inset
+
+gives us our desired contradiction.
+ Thus, for each 
+\begin_inset Formula $1\leq i\leq t$
+\end_inset
+
+, we have
+\begin_inset Formula 
+\[
+\sum_{j=1}^{m_{i}}a_{ij}u_{ij}=0.
+\]
+
+\end_inset
+
+But this implies 
+\begin_inset Formula $a_{ij}=0$
+\end_inset
+
+ for all 
+\begin_inset Formula $1\leq j\leq m_{i}$
+\end_inset
+
+ since 
+\begin_inset Formula $B_{i}$
+\end_inset
+
+ is a basis for all 
+\begin_inset Formula $1\leq i\leq t$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $a_{ij}=0$
+\end_inset
+
+ for all 
+\begin_inset Formula $1\leq i\leq t$
+\end_inset
+
+ and 
+\begin_inset Formula $1\leq j\leq m_{i}$
+\end_inset
+
+, and hence 
+\begin_inset Formula $B_{1}\cup B_{2}\cup\cdots\cup B_{t}$
+\end_inset
+
+ is linearly independent.
+ 
+\end_layout
+
+\begin_layout Subsection*
+Abstract Algebra
+\end_layout
+
+\begin_layout Subsection
+Problem 1
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{ex}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $G$
+\end_inset
+
+ be a group.
+ If 
+\begin_inset Formula $x,y\in G$
+\end_inset
+
+, we define the commutator of 
+\begin_inset Formula $x$
+\end_inset
+
+ and 
+\begin_inset Formula $y$
+\end_inset
+
+ to be 
+\begin_inset Formula $[x,y]=x^{-1}y^{-1}xy$
+\end_inset
+
+ and denote the commutator subgroup by 
+\begin_inset Formula $[G,G]$
+\end_inset
+
+.
+ (recall that the commutator subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
+ is the subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
+ that is 
+\emph on
+generated 
+\emph default
+by the commutators of 
+\begin_inset Formula $G$
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Enumerate
+Show that the inverse of a commutator is a commutator and that any conjugate
+ of a commutator is a commutator.
+\end_layout
+
+\begin_layout Enumerate
+Show that 
+\begin_inset Formula $[G,G]$
+\end_inset
+
+ is a normal subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Show that if 
+\begin_inset Formula $\psi\in\mathrm{Aut}(G)$
+\end_inset
+
+, then 
+\begin_inset Formula $\psi([G,G])$
+\end_inset
+
+ is a subgroup of 
+\begin_inset Formula $[G,G]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Show that if 
+\begin_inset Formula $\varphi\colon G\to H$
+\end_inset
+
+ is a homomorphism of groups, then 
+\begin_inset Formula $\mathrm{im}\,\varphi$
+\end_inset
+
+ is abelian if and only if 
+\begin_inset Formula $[G,G]$
+\end_inset
+
+ is a subgroup of 
+\begin_inset Formula $\ker\varphi$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Show that if 
+\begin_inset Formula $N$
+\end_inset
+
+ is a subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
+ which contains 
+\begin_inset Formula $[G,G]$
+\end_inset
+
+, then 
+\begin_inset Formula $N$
+\end_inset
+
+ is a normal subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{ex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sol}
+\end_layout
+
+\end_inset
+
+ 1.
+ Let 
+\begin_inset Formula $x,y\in G$
+\end_inset
+
+.
+ Then note that 
+\begin_inset Formula 
+\begin{align*}
+[x,y]^{-1} & =(x^{-1}y^{-1}xy)^{-1}\\
+ & =y^{-1}x^{-1}yx\\
+ & =[y,x].
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+2.
+ First note that if 
+\begin_inset Formula $x,y,z\in G$
+\end_inset
+
+, then we have
+\begin_inset Formula 
+\begin{align*}
+z[x,y]z^{-1} & =zx^{-1}y^{-1}xyz^{-1}\\
+ & =zx^{-1}z^{-1}zy^{-1}z^{-1}zxz^{-1}zyz^{-1}\\
+ & =[zxz^{-1},zyz^{-1}].
+\end{align*}
+
+\end_inset
+
+Therefore if 
+\begin_inset Formula $S=\{[x,y]\mid x,y\in G\}$
+\end_inset
+
+, then 
+\begin_inset Formula $zSz^{-1}\subseteq S$
+\end_inset
+
+ for all 
+\begin_inset Formula $z\in G$
+\end_inset
+
+.
+ This implies 
+\begin_inset Formula $z[G,G]z^{-1}\subseteq[G,G]$
+\end_inset
+
+ for all 
+\begin_inset Formula $z\in G$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $[G,G]$
+\end_inset
+
+ is a normal subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+3.
+ We first note that 
+\begin_inset Formula $\psi([G,G])$
+\end_inset
+
+ is a nonempty subset of 
+\begin_inset Formula $[G,G]$
+\end_inset
+
+.
+ Indeed, it is clearly nonempty since 
+\begin_inset Formula $e\in\psi([G,G])$
+\end_inset
+
+.
+ Also, for any 
+\begin_inset Formula $[x,y]\in[G,G]$
+\end_inset
+
+, we have
+\begin_inset Formula 
+\begin{align*}
+\psi([x,y]) & =\psi(x^{-1}y^{-1}xy)\\
+ & =\psi(x)^{-1}\psi(y)^{-1}\psi(x)\psi(y)\\
+ & =[\psi(x),\psi(y)].
+\end{align*}
+
+\end_inset
+
+Since 
+\begin_inset Formula $[G,G]$
+\end_inset
+
+ is generated by all commutators, it follows that 
+\begin_inset Formula $\psi([G,G])\subseteq[G,G]$
+\end_inset
+
+.
+ Finally note that if 
+\begin_inset Formula $H\leq G$
+\end_inset
+
+, then 
+\begin_inset Formula $\psi(H)\leq G$
+\end_inset
+
+.
+ Indeed, 
+\begin_inset Formula $\psi(H)$
+\end_inset
+
+ is nonempty since 
+\begin_inset Formula $e\in\psi(H)$
+\end_inset
+
+, and if 
+\begin_inset Formula $\psi(x),\psi(y)\in\psi(H)$
+\end_inset
+
+, then 
+\begin_inset Formula $\psi(x)\psi(y)^{-1}=\psi(xy^{-1})\in\psi(H)$
+\end_inset
+
+.
+ In particular, 
+\begin_inset Formula $\psi([G,G])\leq G$
+\end_inset
+
+, and since 
+\begin_inset Formula $[G,G]\leq G$
+\end_inset
+
+ and 
+\begin_inset Formula $\psi([G,G])\subseteq[G,G]$
+\end_inset
+
+, we see that 
+\begin_inset Formula $\psi([G,G])\leq[G,G]$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+4.
+ First suppose 
+\begin_inset Formula $\mathrm{im}\,\varphi$
+\end_inset
+
+ is abelian.
+ Then for any 
+\begin_inset Formula $x,y\in G$
+\end_inset
+
+, we have
+\begin_inset Formula 
+\begin{align*}
+\varphi([x,y]) & =\varphi(x^{-1}y^{-1}xy)\\
+ & =\varphi(x)^{-1}\varphi(y)^{-1}\varphi(x)\varphi(y)\\
+ & =\varphi(x)^{-1}\varphi(x)\varphi(y)^{-1}\varphi(y)\\
+ & =e,
+\end{align*}
+
+\end_inset
+
+where we used the fact that 
+\begin_inset Formula $\mathrm{im}\,\varphi$
+\end_inset
+
+ is abelian in order to get the third line from the second line.
+ Thus all commutators belong to the kernel of 
+\begin_inset Formula $\varphi$
+\end_inset
+
+, and since 
+\begin_inset Formula $[G,G]$
+\end_inset
+
+ is generated by all commutators, it follows that 
+\begin_inset Formula $[G,G]\subseteq\ker\varphi$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Conversely, suppose 
+\begin_inset Formula $[G,G]\subseteq\ker\varphi$
+\end_inset
+
+.
+ By the first isomorphism theorem, we have 
+\begin_inset Formula $\mathrm{im}\,\varphi\cong G\slash\ker\varphi$
+\end_inset
+
+, so to show 
+\begin_inset Formula $\mathrm{im}\,\varphi$
+\end_inset
+
+ is abelian, we just need to show that 
+\begin_inset Formula $G\slash\ker\varphi$
+\end_inset
+
+ is abelian.
+ Let 
+\begin_inset Formula $\overline{x},\overline{y}\in G\slash\ker\varphi$
+\end_inset
+
+.
+ Then observe that
+\begin_inset Formula 
+\begin{align*}
+\overline{xy} & =\overline{xy[y,x]}\\
+ & =\overline{xyy^{-1}x^{-1}yx}\\
+ & =\overline{yx}.
+\end{align*}
+
+\end_inset
+
+It follows that 
+\begin_inset Formula $G\slash\ker\varphi$
+\end_inset
+
+ is abelian.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+5.
+ Let 
+\begin_inset Formula $x\in G$
+\end_inset
+
+ and let 
+\begin_inset Formula $y\in N$
+\end_inset
+
+.
+ Then note that 
+\begin_inset Formula $(xyx^{-1})y^{-1}=[x^{-1},y^{-1}]\in N$
+\end_inset
+
+.
+ It follows that 
+\begin_inset Formula $xyx^{-1}\in N$
+\end_inset
+
+ since 
+\begin_inset Formula $y^{-1}\in N$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $N$
+\end_inset
+
+ is a normal subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sol}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Problem 2
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{ex}
+\backslash
+label{ex}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $R$
+\end_inset
+
+ be a commutative ring with idenitty and let 
+\begin_inset Formula $S$
+\end_inset
+
+ be a nonempty subset of 
+\begin_inset Formula $R$
+\end_inset
+
+.
+ We say that 
+\begin_inset Formula $S$
+\end_inset
+
+ is 
+\series bold
+multiplicatively closed 
+\series default
+if 
+\begin_inset Formula $s,t\in S$
+\end_inset
+
+ implies 
+\begin_inset Formula $st\in S$
+\end_inset
+
+.
+ Additionally, we say that the set 
+\begin_inset Formula $S$
+\end_inset
+
+ is 
+\series bold
+saturated 
+\series default
+if 
+\begin_inset Formula $st\in S$
+\end_inset
+
+ implies 
+\begin_inset Formula $s,t\in S$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Let 
+\begin_inset Formula $I\subseteq R$
+\end_inset
+
+ be an ideal.
+ Show that its complement 
+\begin_inset Formula $S:=R\backslash I$
+\end_inset
+
+ is saturated.
+\end_layout
+
+\begin_layout Enumerate
+Let 
+\begin_inset Formula $I\subseteq R$
+\end_inset
+
+ be an ideal.
+ Show that its complement 
+\begin_inset Formula $S:=R\backslash I$
+\end_inset
+
+ is multiplicatively closed if and only if 
+\begin_inset Formula $R\slash I$
+\end_inset
+
+ is an integral domain.
+\end_layout
+
+\begin_layout Enumerate
+Suppose that 
+\begin_inset Formula $S$
+\end_inset
+
+ is a multiplicatively closed subset of 
+\begin_inset Formula $R$
+\end_inset
+
+ that does not contain 
+\begin_inset Formula $0$
+\end_inset
+
+.
+ Show that there is an ideal 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ in 
+\begin_inset Formula $R$
+\end_inset
+
+ that is maximal with respect to the property that 
+\begin_inset Formula $\mathfrak{p}\cap S=\emptyset$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Suppose that 
+\begin_inset Formula $S$
+\end_inset
+
+ is a multiplicatively closed subset of 
+\begin_inset Formula $R$
+\end_inset
+
+ that does not contain 
+\begin_inset Formula $0$
+\end_inset
+
+ and suppose that 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ is maximal with respect to the property that 
+\begin_inset Formula $\mathfrak{p}\cap S=\emptyset$
+\end_inset
+
+.
+ Show that 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ is necessarily prime.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{ex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sol}
+\backslash
+label{sol}
+\end_layout
+
+\end_inset
+
+ 1.
+ Suppose 
+\begin_inset Formula $s,t\in R$
+\end_inset
+
+ and 
+\begin_inset Formula $st\in S$
+\end_inset
+
+.
+ Assume for a contradiction that 
+\begin_inset Formula $s\notin S$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $s\in I$
+\end_inset
+
+, and since 
+\begin_inset Formula $I$
+\end_inset
+
+ is an ideal, this implies 
+\begin_inset Formula $st\in I$
+\end_inset
+
+, which is a contradiction since 
+\begin_inset Formula $st\in S$
+\end_inset
+
+.
+ Therefore 
+\begin_inset Formula $s\in S$
+\end_inset
+
+.
+ A similar argument shows that 
+\begin_inset Formula $t\in S$
+\end_inset
+
+ .
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+2.
+ Suppose 
+\begin_inset Formula $S$
+\end_inset
+
+ is multiplicatively closed.
+ We will show that 
+\begin_inset Formula $I$
+\end_inset
+
+ is prime, which will imply 
+\begin_inset Formula $R\slash I$
+\end_inset
+
+ is an integral domain.
+ Assume for a contradiction that 
+\begin_inset Formula $I$
+\end_inset
+
+ is not prime, so there exists 
+\begin_inset Formula $s,t\in R\backslash I$
+\end_inset
+
+ such that 
+\begin_inset Formula $st\in I$
+\end_inset
+
+.
+ However this contradicts the fact that 
+\begin_inset Formula $S=R\backslash I$
+\end_inset
+
+ is multiplicatively closed.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Conversely, suppose 
+\begin_inset Formula $R\slash I$
+\end_inset
+
+ is an integral domain, so 
+\begin_inset Formula $I$
+\end_inset
+
+ is a prime ideal.
+ Assume for a contradiction that 
+\begin_inset Formula $S$
+\end_inset
+
+ is not multiplicatively closed.
+ Then there exists 
+\begin_inset Formula $s,t\in S$
+\end_inset
+
+ such that 
+\begin_inset Formula $st\notin S$
+\end_inset
+
+.
+ In other words, 
+\begin_inset Formula $s,t\notin I$
+\end_inset
+
+ and 
+\begin_inset Formula $st\in I$
+\end_inset
+
+.
+ This contradicts the fact that 
+\begin_inset Formula $I$
+\end_inset
+
+ is a prime ideal.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+(3 and 4).
+ We appeal to Zorn's Lemma.
+ We define a partial order 
+\begin_inset Formula $(\mathcal{F},\subseteq)$
+\end_inset
+
+ as follows: the underlying set is given by 
+\begin_inset Formula 
+\[
+\mathcal{F}=\{I\subseteq R\mid I\text{ is an ideal and }I\cap S=\emptyset\}.
+\]
+
+\end_inset
+
+The partial order 
+\begin_inset Formula $\subseteq$
+\end_inset
+
+ is set inclusion.
+ Note that 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+ is nonempty since 
+\begin_inset Formula $0\in\mathcal{F}$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $(I_{\lambda})_{\lambda\in\Lambda}$
+\end_inset
+
+ be a totally ordered subset of 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+.
+ We claim that 
+\begin_inset Formula $\bigcup_{\lambda\in\Lambda}I_{\lambda}$
+\end_inset
+
+ is an upper bound for 
+\begin_inset Formula $(I_{\lambda})_{\lambda\in\Lambda}$
+\end_inset
+
+.
+ To see this, first we will show that 
+\begin_inset Formula $\bigcup_{\lambda\in\Lambda}I_{\lambda}$
+\end_inset
+
+ is an ideal in 
+\begin_inset Formula $R$
+\end_inset
+
+.
+ First note that 
+\begin_inset Formula $\bigcup_{\lambda\in\Lambda}I_{\lambda}$
+\end_inset
+
+ is nonempty since 
+\begin_inset Formula $0\in\bigcup_{\lambda\in\Lambda}I_{\lambda}$
+\end_inset
+
+.
+ Next, let 
+\begin_inset Formula $a,b\in R$
+\end_inset
+
+ and let 
+\begin_inset Formula $x,y\in\bigcup_{\lambda\in\Lambda}I_{\lambda}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $x\in I_{\lambda}$
+\end_inset
+
+ and 
+\begin_inset Formula $y\in I_{\mu}$
+\end_inset
+
+ for some 
+\begin_inset Formula $\lambda,\mu\in\Lambda$
+\end_inset
+
+.
+ Without loss of generality, say 
+\begin_inset Formula $\lambda\leq\mu$
+\end_inset
+
+, thus 
+\begin_inset Formula $x,y\in I_{\mu}$
+\end_inset
+
+.
+ Then since 
+\begin_inset Formula $I_{\mu}$
+\end_inset
+
+ is an ideal, we have 
+\begin_inset Formula $ax+by\in I_{\mu}\subseteq\bigcup_{\lambda\in\Lambda}I_{\lambda}$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $\bigcup_{\lambda\in\Lambda}I_{\lambda}$
+\end_inset
+
+ is an ideal as claimed.
+ Now we need to show that 
+\begin_inset Formula $\bigcup_{\lambda\in\Lambda}I_{\lambda}$
+\end_inset
+
+ has nonempty intersection with 
+\begin_inset Formula $S$
+\end_inset
+
+.
+ This is clear though since
+\begin_inset Formula 
+\begin{align*}
+S\cap\left(\bigcup_{\lambda\in\Lambda}I_{\lambda}\right) & =\bigcup_{\lambda\in\Lambda}\left(S\cap I_{\lambda}\right)\\
+ & =\bigcup_{\lambda\in\Lambda}\emptyset\\
+ & =\emptyset.
+\end{align*}
+
+\end_inset
+
+So we have shown that every totally ordered subset of 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+ has an upper bound.
+ We may therefore apply Zorn's Lemma to get an ideal 
+\begin_inset Formula $\mathfrak{p}\subseteq R$
+\end_inset
+
+ which is maximal which respect to the property that 
+\begin_inset Formula $\mathfrak{p}\cap S=\emptyset$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+We now want to show now that 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ is necessarily a prime ideal.
+ Assume for a contradiction that 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ is not a prime ideal.
+ Then there exists 
+\begin_inset Formula $x,y\in R\backslash\mathfrak{p}$
+\end_inset
+
+ such that 
+\begin_inset Formula $xy\in\mathfrak{p}$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $S$
+\end_inset
+
+ is multiplicatively closed, we cannot have both 
+\begin_inset Formula $x\in S$
+\end_inset
+
+ and 
+\begin_inset Formula $y\in S$
+\end_inset
+
+.
+ Without loss of generality, say 
+\begin_inset Formula $x\notin S$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\mathfrak{p}+\langle x\rangle$
+\end_inset
+
+ is an ideal which has nonempty intersection with 
+\begin_inset Formula $S$
+\end_inset
+
+ (since 
+\begin_inset Formula $x\notin S$
+\end_inset
+
+) and which strictly contains 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+.
+ This contradicts maximality of 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sol}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Summer 2019
+\end_layout
+
+\begin_layout Subsection*
+Linear Algebra
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\backslash
+label{example}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $t\in\mathbb{R}$
+\end_inset
+
+ and let 
+\begin_inset Formula $A_{t}$
+\end_inset
+
+ be the matrix given by
+\begin_inset Formula 
+\[
+A_{t}=\begin{pmatrix}4 & 1 & t\\
+0 & 5 & 1\\
+0 & 1 & 5
+\end{pmatrix}.
+\]
+
+\end_inset
+
+We wish to calculate the characteristic polynomial of 
+\begin_inset Formula $A_{t}$
+\end_inset
+
+ and the minimal polynomial of 
+\begin_inset Formula $A_{t}$
+\end_inset
+
+.
+ The characteristic polynomial of 
+\begin_inset Formula $A_{t}$
+\end_inset
+
+ is given by
+\begin_inset Formula 
+\begin{align*}
+\chi_{A_{t}}(T) & =\det\begin{pmatrix}T-4 & -1 & -t\\
+0 & T-5 & -1\\
+0 & -1 & T-5
+\end{pmatrix}\\
+ & =(T-4)((T-5)^{2}+1)\\
+ & =(T-4)^{2}(T-6).
+\end{align*}
+
+\end_inset
+
+Since the minimal polynomial divides 
+\begin_inset Formula $\chi_{A_{t}}$
+\end_inset
+
+ and shares the same roots as 
+\begin_inset Formula $\chi_{A_{t}}$
+\end_inset
+
+, we see that the minimal polynomial is either given by
+\begin_inset Formula 
+\[
+\pi_{A_{t}}(T)=(T-4)(T-6)\quad\text{ or }\quad\pi_{A_{t}}(T)=(T-4)^{2}(T-6).
+\]
+
+\end_inset
+
+Let us check for which values of 
+\begin_inset Formula $t\in\mathbb{R}$
+\end_inset
+
+ do we have 
+\begin_inset Formula $\pi_{A_{t}}(T)=(T-4)(T-6)=T^{2}-10T+24$
+\end_inset
+
+.
+ We calculate
+\begin_inset Formula 
+\begin{align*}
+\begin{pmatrix}4 & 1 & t\\
+0 & 5 & 1\\
+0 & 1 & 5
+\end{pmatrix}^{2}-10\begin{pmatrix}4 & 1 & t\\
+0 & 5 & 1\\
+0 & 1 & 5
+\end{pmatrix}+24 & =\begin{pmatrix}16 & 9+t & 1+9t\\
+0 & 26 & 10\\
+0 & 10 & 26
+\end{pmatrix}-10\begin{pmatrix}4 & 1 & t\\
+0 & 5 & 1\\
+0 & 1 & 5
+\end{pmatrix}+24\begin{pmatrix}1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{pmatrix}\\
+ & =\begin{pmatrix}16-40+24 & (9+t)-10 & (1+9t)-10t\\
+0 & 26-50+24 & 10-10\\
+0 & 10-10 & 26-50+24
+\end{pmatrix}\\
+ & =\begin{pmatrix}0 & t-1 & 1-t\\
+0 & 0 & 0\\
+0 & 0 & 0
+\end{pmatrix}.
+\end{align*}
+
+\end_inset
+
+Thus we have
+\begin_inset Formula 
+\begin{align*}
+\pi_{A_{t}}(T) & =\begin{cases}
+(T-4)(T-6) & \text{if }t=1\\
+(T-4)^{2}(T-6) & \text{else}
+\end{cases}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Abstract Algebra
+\end_layout
+
+\begin_layout Subsection
+Problem 3
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{ex}
+\backslash
+label{ex}
+\end_layout
+
+\end_inset
+
+ Prove or disprove each of the following:
+\end_layout
+
+\begin_layout Enumerate
+Every Euclidean domain is a principal ideal domain.
+\end_layout
+
+\begin_layout Enumerate
+Every principal ideal domain is a Euclidean domain.
+\end_layout
+
+\begin_layout Enumerate
+Every principal ideal domain is a unique factorization domain.
+\end_layout
+
+\begin_layout Enumerate
+Every unique factorization domain is a principal ideal domain.
+\end_layout
+
+\begin_layout Enumerate
+Every integral domain is a unique factorization domain.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{ex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sol}
+\backslash
+label{sol}
+\end_layout
+
+\end_inset
+
+ 1.
+ This is true.
+ Let 
+\begin_inset Formula $R$
+\end_inset
+
+ be a Euclidean domain with respect to the Euclidean function 
+\begin_inset Formula $\mathrm{d}\colon R\backslash\{0\}\to\mathbb{Z}_{\geq0}$
+\end_inset
+
+ and let 
+\begin_inset Formula $I\subseteq R$
+\end_inset
+
+ be an ideal.
+ If 
+\begin_inset Formula $I=0$
+\end_inset
+
+, then we are done, so assume 
+\begin_inset Formula $I\neq0$
+\end_inset
+
+.
+ Choose 
+\begin_inset Formula $x\in I\backslash\{0\}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\mathrm{d}(x)$
+\end_inset
+
+ is minimal; that is, if 
+\begin_inset Formula $y\in I$
+\end_inset
+
+, then 
+\begin_inset Formula $\mathrm{d}(x)\leq\mathrm{d}(y)$
+\end_inset
+
+.
+ We claim that 
+\begin_inset Formula $I=\langle x\rangle$
+\end_inset
+
+.
+ Indeed, let 
+\begin_inset Formula $y\in I$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $R$
+\end_inset
+
+ is a Euclidean domain, we have
+\begin_inset Formula 
+\begin{equation}
+y=qx+r\label{eq:euclideanispid}
+\end{equation}
+
+\end_inset
+
+for some 
+\begin_inset Formula $q,r\in R$
+\end_inset
+
+ where either 
+\begin_inset Formula $r=0$
+\end_inset
+
+ or 
+\begin_inset Formula $\mathrm{d}(r)<\mathrm{d}(x)$
+\end_inset
+
+.
+ Assume for a contradiction that 
+\begin_inset Formula $r\neq0$
+\end_inset
+
+, so 
+\begin_inset Formula $\mathrm{d}(r)<\mathrm{d}(x)$
+\end_inset
+
+.
+ Rewriting 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{eq:euclideanispid})
+\end_layout
+
+\end_inset
+
+ as 
+\begin_inset Formula 
+\[
+r=y-qx
+\]
+
+\end_inset
+
+shows us that 
+\begin_inset Formula $r\in I$
+\end_inset
+
+ since 
+\begin_inset Formula $x,y\in I$
+\end_inset
+
+.
+ However, this contradicts our choice of 
+\begin_inset Formula $x$
+\end_inset
+
+ with 
+\begin_inset Formula $\mathrm{d}(x)$
+\end_inset
+
+ being minimal, since 
+\begin_inset Formula $r\in I$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathrm{d}(r)<\mathrm{d}(x)$
+\end_inset
+
+.
+ Therefore 
+\begin_inset Formula $r=0$
+\end_inset
+
+, which implies 
+\begin_inset Formula $y\in\langle x\rangle$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $I\subseteq\langle x\rangle$
+\end_inset
+
+, and since clearly 
+\begin_inset Formula $\langle x\rangle\subseteq I$
+\end_inset
+
+, we in fact have 
+\begin_inset Formula $I=\langle x\rangle$
+\end_inset
+
+.
+ So every ideal in 
+\begin_inset Formula $R$
+\end_inset
+
+ is principal, which means 
+\begin_inset Formula $R$
+\end_inset
+
+ is a principal ideal domain.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+2.
+ This is false.
+ For example, the ring 
+\begin_inset Formula $R=\mathbb{Z}\left[(1+\sqrt{-19})/2\right]$
+\end_inset
+
+ is a principal ideal domain which is not a Euclidean domain.
+ To see why it is not a Euclidean domain, first note that 
+\begin_inset Formula $R$
+\end_inset
+
+ is not a field since 
+\begin_inset Formula $\mathbb{Z}\subseteq R$
+\end_inset
+
+ but 
+\begin_inset Formula $1/2\notin R$
+\end_inset
+
+.
+ Therefore to prove 
+\begin_inset Formula $R$
+\end_inset
+
+ is not Euclidean, we will show that for no nonunit 
+\begin_inset Formula $a\in R$
+\end_inset
+
+ is 
+\begin_inset Formula $R\slash a$
+\end_inset
+
+ represented by 
+\begin_inset Formula $0$
+\end_inset
+
+ and units.
+ First we compute the norm of a typical element 
+\begin_inset Formula $\alpha=x+y(1+\sqrt{-19})/2$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{equation}
+\mathrm{N}(\alpha)=x^{2}+xy+5y^{2}=\left(x+\frac{y}{2}\right)^{2}+\frac{19y^{2}}{4}.\label{eq:computenormofalpha19}
+\end{equation}
+
+\end_inset
+
+This norm always takes values 
+\begin_inset Formula $\geq0$
+\end_inset
+
+ (this is cleary from the second expression) and once 
+\begin_inset Formula $y\neq0$
+\end_inset
+
+ we have
+\begin_inset Formula 
+\begin{align*}
+\mathrm{N}(\alpha) & \geq\frac{19y^{2}}{4}\\
+ & \geq\frac{19}{4}\\
+ & >4.
+\end{align*}
+
+\end_inset
+
+In particular, the units are solutions to 
+\begin_inset Formula $\mathrm{N}(\alpha)=1$
+\end_inset
+
+, which are 
+\begin_inset Formula $\pm1$
+\end_inset
+
+: 
+\begin_inset Formula 
+\[
+R^{\times}=\{\pm1\}.
+\]
+
+\end_inset
+
+ The first few norm values are 
+\begin_inset Formula $0,1,4,5,7,$
+\end_inset
+
+ and 
+\begin_inset Formula $9$
+\end_inset
+
+.
+ In particular, there is no element of 
+\begin_inset Formula $R$
+\end_inset
+
+ with norm 
+\begin_inset Formula $2$
+\end_inset
+
+ or 
+\begin_inset Formula $3$
+\end_inset
+
+.
+ This and the fact that 
+\begin_inset Formula $R^{\times}\cup\{0|$
+\end_inset
+
+ has size 
+\begin_inset Formula $3$
+\end_inset
+
+ are the key facts we will use.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+If 
+\begin_inset Formula $R$
+\end_inset
+
+ were Euclidean, then there would be a nonunit 
+\begin_inset Formula $a$
+\end_inset
+
+ in 
+\begin_inset Formula $R$
+\end_inset
+
+ such that 
+\begin_inset Formula $R\slash a$
+\end_inset
+
+ is represented by 
+\begin_inset Formula $0$
+\end_inset
+
+ and units, so 
+\begin_inset Formula $0$
+\end_inset
+
+, 
+\begin_inset Formula $1$
+\end_inset
+
+, and 
+\begin_inset Formula $-1$
+\end_inset
+
+.
+ Perhaps 
+\begin_inset Formula $1\equiv-1\mod a$
+\end_inset
+
+, but we definitely have 
+\begin_inset Formula $\pm1\not\equiv0\mod a$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $R\slash a$
+\end_inset
+
+ has size 
+\begin_inset Formula $2$
+\end_inset
+
+ (if 
+\begin_inset Formula $1\equiv-1\mod a$
+\end_inset
+
+) or size 
+\begin_inset Formula $3$
+\end_inset
+
+.
+ We show this can't happen.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+If 
+\begin_inset Formula $R\slash a$
+\end_inset
+
+ has size 
+\begin_inset Formula $2$
+\end_inset
+
+ then 
+\begin_inset Formula $2\equiv0\mod a$
+\end_inset
+
+, so 
+\begin_inset Formula $a\mid2$
+\end_inset
+
+ in 
+\begin_inset Formula $R$
+\end_inset
+
+.
+ Therefore 
+\begin_inset Formula $\mathrm{N}(a)\mid4$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+.
+ There are no elements of 
+\begin_inset Formula $R$
+\end_inset
+
+ with norm 
+\begin_inset Formula $2$
+\end_inset
+
+, so the only nonunits with norm dividing 
+\begin_inset Formula $4$
+\end_inset
+
+ are elements with norm 
+\begin_inset Formula $4$
+\end_inset
+
+.
+ A check using 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{eq:computenormofalpha19})
+\end_layout
+
+\end_inset
+
+ shows the only such numbers are 
+\begin_inset Formula $\pm2$
+\end_inset
+
+.
+ However, 
+\begin_inset Formula $R\slash\langle2\rangle=R\slash\langle-2\rangle$
+\end_inset
+
+ does not have size 
+\begin_inset Formula $2$
+\end_inset
+
+.
+ For instance, 
+\begin_inset Formula $0$
+\end_inset
+
+, 
+\begin_inset Formula $1$
+\end_inset
+
+, and 
+\begin_inset Formula $(1+\sqrt{-19})/2$
+\end_inset
+
+ are incongruent modulo 
+\begin_inset Formula $\pm2$
+\end_inset
+
+: the difference of two of these (different) numbers, divided by two, is
+ never of the form 
+\begin_inset Formula $x+y(1+\sqrt{-19})/2$
+\end_inset
+
+ for 
+\begin_inset Formula $x$
+\end_inset
+
+ and 
+\begin_inset Formula $y$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Similarly, if 
+\begin_inset Formula $R\slash\langle a\rangle$
+\end_inset
+
+ has size 
+\begin_inset Formula $3$
+\end_inset
+
+, then 
+\begin_inset Formula $a\mid3$
+\end_inset
+
+ in 
+\begin_inset Formula $R$
+\end_inset
+
+, so 
+\begin_inset Formula $\mathrm{N}(a)\mid9$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+.
+ There is no element of 
+\begin_inset Formula $R$
+\end_inset
+
+ with norm 
+\begin_inset Formula $3$
+\end_inset
+
+, so 
+\begin_inset Formula $a$
+\end_inset
+
+ must have norm 
+\begin_inset Formula $9$
+\end_inset
+
+ (it doesn't have norm 
+\begin_inset Formula $1$
+\end_inset
+
+ since it is not a unit).
+ The only elements of 
+\begin_inset Formula $R$
+\end_inset
+
+ with norm 
+\begin_inset Formula $9$
+\end_inset
+
+ are 
+\begin_inset Formula $\pm3$
+\end_inset
+
+, so 
+\begin_inset Formula $a=\pm3$
+\end_inset
+
+.
+ The ring 
+\begin_inset Formula $R\slash\langle3\rangle-R\slash\langle-3\rangle$
+\end_inset
+
+ does not have size 
+\begin_inset Formula $3$
+\end_inset
+
+: 
+\begin_inset Formula $0$
+\end_inset
+
+, 
+\begin_inset Formula $1$
+\end_inset
+
+, 
+\begin_inset Formula $2$
+\end_inset
+
+, and 
+\begin_inset Formula $(1+\sqrt{-19})/2$
+\end_inset
+
+ are incongruent modulo 
+\begin_inset Formula $\pm3$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $R^{\times}\cup\{0\}$
+\end_inset
+
+ has size 
+\begin_inset Formula $3$
+\end_inset
+
+ and 
+\begin_inset Formula $R$
+\end_inset
+
+ has no element 
+\begin_inset Formula $a$
+\end_inset
+
+ such that 
+\begin_inset Formula $R\slash\langle a\rangle$
+\end_inset
+
+ has size 
+\begin_inset Formula $2$
+\end_inset
+
+ or 
+\begin_inset Formula $3$
+\end_inset
+
+, 
+\begin_inset Formula $R$
+\end_inset
+
+ can't be a Euclidean domain.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+3.
+ This is true.
+ Let 
+\begin_inset Formula $R$
+\end_inset
+
+ be a principal ideal domain.
+ Then 
+\begin_inset Formula $R$
+\end_inset
+
+ is a Noetherian, which means in particular that we can express any nonzero
+ nonunit in 
+\begin_inset Formula $R$
+\end_inset
+
+ as a product of irreducibles.
+ To see that such a factorization is unique, let 
+\begin_inset Formula $a$
+\end_inset
+
+ be a nonzero nonunit in 
+\begin_inset Formula $R$
+\end_inset
+
+ and let 
+\begin_inset Formula 
+\[
+p_{1}p_{2}\cdots p_{r}=a=q_{1}q_{2}\cdots q_{s}
+\]
+
+\end_inset
+
+be two factorizations of 
+\begin_inset Formula $a$
+\end_inset
+
+ into irreducibles.
+ By relabeling terms if necessary, we may assume that 
+\begin_inset Formula $r\leq s$
+\end_inset
+
+.
+ We will prove by induction on 
+\begin_inset Formula $r\geq1$
+\end_inset
+
+ that (after reordering terms if necessary) 
+\begin_inset Formula $p_{i}\sim q_{i}$
+\end_inset
+
+ for all 
+\begin_inset Formula $1\leq i\leq r$
+\end_inset
+
+, and 
+\begin_inset Formula $q_{r+1}\cdots q_{s}$
+\end_inset
+
+ is a unit.
+ In the base case, we have
+\begin_inset Formula 
+\[
+p_{1}=q_{1}q_{2}\cdots q_{s}.
+\]
+
+\end_inset
+
+Since 
+\begin_inset Formula $R$
+\end_inset
+
+ is a principal ideal domain, the irreducible element 
+\begin_inset Formula $p_{1}$
+\end_inset
+
+ is in fact prime.
+ Therefore 
+\begin_inset Formula $p_{1}\mid q_{j}$
+\end_inset
+
+ for some 
+\begin_inset Formula $1\leq j\leq s$
+\end_inset
+
+.
+ Without loss of generality, say 
+\begin_inset Formula $p_{1}\mid q_{1}$
+\end_inset
+
+, so 
+\begin_inset Formula $q_{1}=x_{1}p_{1}$
+\end_inset
+
+ for some 
+\begin_inset Formula $x_{1}\in R$
+\end_inset
+
+.
+ Then we have
+\begin_inset Formula 
+\begin{align*}
+0 & =p_{1}(1-x_{1}q_{2}\cdots q_{s}).
+\end{align*}
+
+\end_inset
+
+Since 
+\begin_inset Formula $R$
+\end_inset
+
+ is a domain and 
+\begin_inset Formula $p_{1}\neq0$
+\end_inset
+
+, this implies 
+\begin_inset Formula $1=x_{1}q_{2}\cdots q_{s}$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $q_{2}\cdots q_{s}$
+\end_inset
+
+ is a unit, and hence 
+\begin_inset Formula $p_{1}\sim q_{1}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Now assume that 
+\begin_inset Formula $r>1$
+\end_inset
+
+ and that we have shown our claim to be true for all 
+\begin_inset Formula $1\leq r'<r$
+\end_inset
+
+.
+ Again, 
+\begin_inset Formula $p_{1}$
+\end_inset
+
+ is prime, and again we may assume without loss of generality that 
+\begin_inset Formula $q_{1}=x_{1}p_{1}$
+\end_inset
+
+ for some 
+\begin_inset Formula $x_{1}\in R$
+\end_inset
+
+.
+ Note that 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+ is necessarily a unit since 
+\begin_inset Formula $q_{1}$
+\end_inset
+
+ is irreducible and since 
+\begin_inset Formula $p_{1}$
+\end_inset
+
+ is a nonunit.
+ So we have
+\begin_inset Formula 
+\begin{align*}
+0 & =p_{1}(p_{2}\cdots p_{r}-x_{1}q_{2}\cdots q_{s}).
+\end{align*}
+
+\end_inset
+
+Again, since 
+\begin_inset Formula $R$
+\end_inset
+
+ is a domain and 
+\begin_inset Formula $p_{1}\neq0$
+\end_inset
+
+, this implies 
+\begin_inset Formula $p_{2}\cdots p_{r}=x_{1}q_{2}\cdots q_{s}$
+\end_inset
+
+.
+ Now denote 
+\begin_inset Formula $q_{2}'=x_{1}q_{2}$
+\end_inset
+
+, so 
+\begin_inset Formula 
+\[
+p_{2}\cdots p_{r}=q_{2}'\cdots q_{s}.
+\]
+
+\end_inset
+
+Now we can proceed by induction to conclude that 
+\begin_inset Formula $r=s$
+\end_inset
+
+ and 
+\begin_inset Formula $p_{i}\sim q_{i}$
+\end_inset
+
+ for all 
+\begin_inset Formula $1\leq i\leq r$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+4.
+ This is false.
+ Consider the ring 
+\begin_inset Formula $K[x,y]$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+5.
+ This is false.
+ Consider the ring 
+\begin_inset Formula $\mathbb{Z}[\sqrt{-5}]$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sol}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Summer 2018
+\end_layout
+
+\begin_layout Section*
+Abstract Algebra
+\end_layout
+
+\begin_layout Subsection
+Problem 1
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{ex}
+\backslash
+label{ex}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $p$
+\end_inset
+
+ be a positive prime integer.
+ We consider 
+\begin_inset Formula $S_{p}$
+\end_inset
+
+, the symmetric group on 
+\begin_inset Formula $p$
+\end_inset
+
+ elements.
+ 
+\end_layout
+
+\begin_layout Enumerate
+How many elements of order 
+\begin_inset Formula $p$
+\end_inset
+
+ are there in 
+\begin_inset Formula $S_{p}$
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Enumerate
+How many subgroups of order 
+\begin_inset Formula $p$
+\end_inset
+
+ are there?
+\end_layout
+
+\begin_layout Enumerate
+What do the Sylow Theorems tell us about the possibilities for the number
+ of 
+\begin_inset Formula $p$
+\end_inset
+
+-Sylow subgroups of 
+\begin_inset Formula $S_{p}$
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Enumerate
+For what value(s) of 
+\begin_inset Formula $p$
+\end_inset
+
+ is the 
+\begin_inset Formula $p$
+\end_inset
+
+-Sylow subgroup of 
+\begin_inset Formula $S_{p}$
+\end_inset
+
+ a normal subgroup of 
+\begin_inset Formula $S_{p}$
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Enumerate
+Wilson's Theorem implies that if 
+\begin_inset Formula $p$
+\end_inset
+
+ is a prime, then
+\begin_inset Formula 
+\[
+(p-1)!\equiv-1\mod p.
+\]
+
+\end_inset
+
+Use the previous results to prove this statement.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{ex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sol}
+\backslash
+label{sol}
+\end_layout
+
+\end_inset
+
+ 1.
+ An element 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ in 
+\begin_inset Formula $S_{p}$
+\end_inset
+
+ has order 
+\begin_inset Formula $p$
+\end_inset
+
+ if and only if it is a cycle of length 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ Thus we are counting the number of all 
+\begin_inset Formula $p$
+\end_inset
+
+-cycles in 
+\begin_inset Formula $S_{p}$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $X$
+\end_inset
+
+ be the set of all 
+\begin_inset Formula $p$
+\end_inset
+
+-cycles in 
+\begin_inset Formula $S_{p}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $S_{p}$
+\end_inset
+
+ gives rise to an group action on 
+\begin_inset Formula $X$
+\end_inset
+
+ by conjugation: if 
+\begin_inset Formula $\sigma\in S_{p}$
+\end_inset
+
+ and 
+\begin_inset Formula $(a_{1}a_{2}\cdots a_{p})\in X$
+\end_inset
+
+, then
+\begin_inset Formula 
+\[
+\sigma(a_{1}a_{2}\cdots a_{p})\sigma^{-1}=(\sigma(a_{1})\sigma(a_{2})\cdots\sigma(a_{p})).
+\]
+
+\end_inset
+
+Note that the orbit of 
+\begin_inset Formula $(12\cdots p)$
+\end_inset
+
+ under this action is all of 
+\begin_inset Formula $X$
+\end_inset
+
+.
+ Indeed, let 
+\begin_inset Formula $(a_{1}a_{2}\cdots a_{p})\in X$
+\end_inset
+
+ and let 
+\begin_inset Formula $\sigma=(1a_{1})(2a_{2})\cdots(pa_{p})$
+\end_inset
+
+.
+ Then we have
+\begin_inset Formula 
+\[
+\sigma(12\cdots p)\sigma^{-1}=(a_{1}a_{2}\cdots a_{p}).
+\]
+
+\end_inset
+
+Furthermore, we have 
+\begin_inset Formula $\sigma(12\cdots p)\sigma^{-1}=(12\cdots p)$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $\sigma=(12\cdots p)^{k}$
+\end_inset
+
+ for some 
+\begin_inset Formula $1\leq k\leq p$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula 
+\[
+\mathrm{Fix}_{S_{p}}((12\cdots p))=\langle(12\cdots p)\rangle.
+\]
+
+\end_inset
+
+It follows from the orbit-stabilizer theorem that
+\begin_inset Formula 
+\begin{align*}
+|X| & =|\mathrm{Orb}_{S_{p}}((12\cdots p))|\\
+ & =|S_{p}|/|\mathrm{Fix}_{S_{p}}((12\cdots p))|\\
+ & =p!/p\\
+ & =(p-1)!.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+2.
+ Let 
+\begin_inset Formula $n$
+\end_inset
+
+ denote the number of 
+\begin_inset Formula $p$
+\end_inset
+
+-subgroups of 
+\begin_inset Formula $S_{p}$
+\end_inset
+
+ and let 
+\begin_inset Formula $H_{1},\dots,H_{n}$
+\end_inset
+
+ denote the 
+\begin_inset Formula $p$
+\end_inset
+
+-subgroups of 
+\begin_inset Formula $S_{p}$
+\end_inset
+
+.
+ Any group of order 
+\begin_inset Formula $p$
+\end_inset
+
+ is a cyclic group.
+ In particular, each 
+\begin_inset Formula $H_{i}$
+\end_inset
+
+ consists of the identity element together with 
+\begin_inset Formula $p-1$
+\end_inset
+
+ different 
+\begin_inset Formula $p$
+\end_inset
+
+-cycles.
+ Furthemore, for 
+\begin_inset Formula $i\neq j$
+\end_inset
+
+, we have 
+\begin_inset Formula $H_{i}\cap H_{j}=\{1\}$
+\end_inset
+
+.
+ Thus we have
+\begin_inset Formula 
+\begin{align*}
+(p-1)! & =|(H_{1}\backslash\{1\}\cup\cdots\cup H_{n}\backslash\{1\}|\\
+ & =|(H_{1}\backslash\{1\}|+\cdots+|H_{n}\backslash\{1\}|\\
+ & =n(p-1).
+\end{align*}
+
+\end_inset
+
+Therefore 
+\begin_inset Formula $n=(p-2)!$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+3.
+ Let 
+\begin_inset Formula $n_{p}$
+\end_inset
+
+ denote number of 
+\begin_inset Formula $p$
+\end_inset
+
+-Sylow subgroups of 
+\begin_inset Formula $S_{p}$
+\end_inset
+
+.
+ Observe that 
+\begin_inset Formula $|S_{p}|=p!=p(p-1)!$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $p\nmid(p-1)!$
+\end_inset
+
+, it follows that the order of any 
+\begin_inset Formula $p$
+\end_inset
+
+-Sylow subgroup of 
+\begin_inset Formula $S_{p}$
+\end_inset
+
+ is 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ Thus the 
+\begin_inset Formula $p$
+\end_inset
+
+-Sylows subgroups of 
+\begin_inset Formula $S_{p}$
+\end_inset
+
+ are precisely the 
+\begin_inset Formula $p$
+\end_inset
+
+-subgroups.
+ By the previous problem, we have 
+\begin_inset Formula $n_{p}=(p-2)!$
+\end_inset
+
+.
+ Now the Sylow Theorems tells us that
+\begin_inset Formula 
+\[
+n_{p}\equiv1\mod p\qquad\text{and}\qquad n_{p}\mid(p-1)!.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+4.
+ Suppose 
+\begin_inset Formula $S_{p}$
+\end_inset
+
+ has a normal 
+\begin_inset Formula $p$
+\end_inset
+
+-Sylow subgroup.
+ Then necessarily we have 
+\begin_inset Formula $n_{p}=1$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $n_{p}=(p-2)!$
+\end_inset
+
+ (as counted above), this implies 
+\begin_inset Formula $p=2$
+\end_inset
+
+ or 
+\begin_inset Formula $p=3$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+5.
+ Combining the previous results, we have
+\begin_inset Formula 
+\begin{equation}
+(p-2)!=n_{p}\equiv1\mod p.\label{eq:sylowbothsides}
+\end{equation}
+
+\end_inset
+
+Multiplying both sides of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{eq:sylowbothsides})
+\end_layout
+
+\end_inset
+
+ by 
+\begin_inset Formula $p-1$
+\end_inset
+
+ gives us the desired result.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sol}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Problem 2
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{ex}
+\backslash
+label{ex}
+\end_layout
+
+\end_inset
+
+ Consider the ordinary integers 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Show that every subgroup of 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+ is cyclic.
+\end_layout
+
+\begin_layout Enumerate
+Show that every homomorphic image of 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+ is cyclic.
+\end_layout
+
+\begin_layout Enumerate
+Use the previous to show that 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+ is a principal ideal domain.
+\end_layout
+
+\begin_layout Enumerate
+Show that in a principal ideal domain, any two nonzero elements 
+\begin_inset Formula $a$
+\end_inset
+
+ and 
+\begin_inset Formula $b$
+\end_inset
+
+ have a greatest common divisor that is a linear combination of 
+\begin_inset Formula $a$
+\end_inset
+
+ and 
+\begin_inset Formula $b$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Use the previous to show that every finitely generated, nonidentity subgroup
+ of 
+\begin_inset Formula $\mathbb{Q}$
+\end_inset
+
+ is isomorphic to 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{ex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sol}
+\backslash
+label{sol}
+\end_layout
+
+\end_inset
+
+ 1.
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a subgroup of 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+.
+ Choose 
+\begin_inset Formula $a\in A\backslash\{0\}$
+\end_inset
+
+ such that 
+\begin_inset Formula $|a|$
+\end_inset
+
+ is minimal; that is, 
+\begin_inset Formula $b\in A\backslash\{0\}$
+\end_inset
+
+ implies 
+\begin_inset Formula $|a|\leq|b|$
+\end_inset
+
+.
+ We claim that 
+\begin_inset Formula $A=\langle a\rangle$
+\end_inset
+
+.
+ Indeed, let 
+\begin_inset Formula $b\in A$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+ is a Euclidean domain, there exists 
+\begin_inset Formula $r,n\in\mathbb{Z}$
+\end_inset
+
+ such that
+\begin_inset Formula 
+\[
+b=na+r
+\]
+
+\end_inset
+
+where either 
+\begin_inset Formula $r=0$
+\end_inset
+
+ or 
+\begin_inset Formula $0<|r|<|a|$
+\end_inset
+
+.
+ We claim that 
+\begin_inset Formula $r=0$
+\end_inset
+
+ (which will imply 
+\begin_inset Formula $b\in\langle a\rangle$
+\end_inset
+
+).
+ To see this, assume for a contradiction that 
+\begin_inset Formula $r\neq0$
+\end_inset
+
+, so 
+\begin_inset Formula $r<a$
+\end_inset
+
+.
+ Then note that 
+\begin_inset Formula $r=b-na$
+\end_inset
+
+ implies 
+\begin_inset Formula $r\in A$
+\end_inset
+
+.
+ However this contradicts our choice of 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ with 
+\begin_inset Formula $|a|$
+\end_inset
+
+ being minimal.
+ Thus we must have 
+\begin_inset Formula $r=0$
+\end_inset
+
+, which implies 
+\begin_inset Formula $b\in\langle a\rangle$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sol}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

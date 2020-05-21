@@ -1,0 +1,949 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{tikz}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\usetikzlibrary{shapes.geometric}
+\usepackage{tikz-cd}
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem*{cor}{Corollary}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{ex}{Exercise} 
+\newtheorem{example}{Example}[section]
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem{case}{Case}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{tikz-cd}
+\usetikzlibrary{calc,arrows,decorations.pathreplacing}
+\tikzset{mydot/.style={circle,fill,inner sep=1.5pt},
+commutative diagrams/.cd,
+  arrow style=tikz,
+  diagrams={>=latex},
+}
+
+\usepackage{babel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=blue,
+    filecolor=blue,
+    linkcolor=blue,
+    urlcolor=blue
+}
+\usepackage{pgfplots}
+\usetikzlibrary{decorations.markings}
+\pgfplotsset{compat=1.9}
+
+
+\makeatletter
+\newcommand*{\@old@slash}{}\let\@old@slash\slash
+\def\slash{\relax\ifmmode\delimiter"502F30E\mathopen{}\else\@old@slash\fi}
+\makeatother
+
+\def\backslash{\delimiter"526E30F\mathopen{}}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding iso8859-15
+\fontencoding global
+\font_roman "palatino" "default"
+\font_sans "lmss" "default"
+\font_typewriter "lmtt" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf true
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing single
+\use_hyperref false
+\papersize custom
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\paperwidth 30cm
+\paperheight 35cm
+\topmargin 2cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0bp
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Constructing Algebraic Closures
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $K$
+\end_inset
+
+ be a field.
+ The purpose of this note is to construct an algebraic closure of 
+\begin_inset Formula $K$
+\end_inset
+
+.
+ Let us first introduce some notation.
+ For each 
+\begin_inset Formula $i,n\in\mathbb{N}$
+\end_inset
+
+ such that 
+\begin_inset Formula $k\leq n$
+\end_inset
+
+, the 
+\series bold
+
+\begin_inset Formula $k$
+\end_inset
+
+th elementary symmetric polynomial in 
+\begin_inset Formula $n$
+\end_inset
+
+ variables 
+\begin_inset Formula $X_{1},\dots,X_{n}$
+\end_inset
+
+
+\series default
+, denoted 
+\series bold
+
+\begin_inset Formula $e_{k}(X_{1},\dots,X_{n})$
+\end_inset
+
+
+\series default
+, is defined by
+\begin_inset Formula 
+\[
+e_{k}(X_{1},\dots,X_{n})=\begin{cases}
+\sum_{1\leq i_{1}<\cdots<i_{k}\leq n}X_{i_{1}}\cdots X_{i_{k}} & \text{if }i\leq n\\
+0 & \text{if }k>n
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For each nonconstant monic polynomial 
+\begin_inset Formula $f(X)$
+\end_inset
+
+ in 
+\begin_inset Formula $K[X]$
+\end_inset
+
+, write
+\begin_inset Formula 
+\[
+f(X)=X^{n_{f}}+c_{f,1}X^{n_{f}-1}+\cdots+c_{f,i}X^{n_{f}-i}+\cdots+c_{f,n_{f}}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $n_{f}$
+\end_inset
+
+ is the degree of 
+\begin_inset Formula $f$
+\end_inset
+
+ and 
+\begin_inset Formula $c_{f,k}\in K$
+\end_inset
+
+ for all 
+\begin_inset Formula $1\leq k\leq n_{f}$
+\end_inset
+
+, and let 
+\begin_inset Formula $t_{f,1},\dots,t_{f,n_{f}}$
+\end_inset
+
+ be independent variables.
+ Throughout this note, whenever we write 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Formula $t_{f,k}$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+, it is understood that 
+\begin_inset Formula $f$
+\end_inset
+
+ is a nonconstant monic polynomial in 
+\begin_inset Formula $K[X]$
+\end_inset
+
+ and that 
+\begin_inset Formula $1\leq k\leq n_{f}$
+\end_inset
+
+.
+ For each nonconstant monic polynomial 
+\begin_inset Formula $f(X)$
+\end_inset
+
+ in 
+\begin_inset Formula $K[X]$
+\end_inset
+
+, choose roots 
+\begin_inset Formula $\alpha_{f,1},\dots,\alpha_{f,n_{f}}$
+\end_inset
+
+ of 
+\begin_inset Formula $f(X)$
+\end_inset
+
+ in some splitting field of 
+\begin_inset Formula $f(X)$
+\end_inset
+
+.
+ Finally, let 
+\begin_inset Formula $A=K[\{t_{f,k}\}]$
+\end_inset
+
+ be the polynomial ring generated over 
+\begin_inset Formula $K$
+\end_inset
+
+ by indepedent variables doubly indexed by every nonconstant monic 
+\begin_inset Formula $f\in K[X]$
+\end_inset
+
+ and 
+\begin_inset Formula $1\leq k\leq n_{f}$
+\end_inset
+
+, and let 
+\begin_inset Formula $I$
+\end_inset
+
+ be the ideal in 
+\begin_inset Formula $A$
+\end_inset
+
+ generated by the coefficients of all the difference polynomials
+\begin_inset Formula 
+\[
+f(X)-\prod_{i=1}^{n_{f}}(X-t_{f,k})\in A[X].
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In other words, 
+\begin_inset Formula $I=\langle\{u_{f,k}\}\rangle$
+\end_inset
+
+ where
+\begin_inset Formula 
+\[
+u_{f,k}:=c_{f,k}-(-1)^{k}e_{k}(t_{f,1},\dots,t_{f,n_{f}})
+\]
+
+\end_inset
+
+for each nonconstant monic polynomial 
+\begin_inset Formula $f$
+\end_inset
+
+ and for each 
+\begin_inset Formula $1\leq k\leq n_{f}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lemma}
+\backslash
+label{lemma}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $g(X)\in K[X]$
+\end_inset
+
+ be a nonconstant monic polynomial and let 
+\begin_inset Formula $A'=K[t_{g,1},\dots,t_{g,n_{g}}]$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\[
+A'\cap I=\langle u_{g,1},\dots,u_{g,n_{g}}\rangle.
+\]
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lemma}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ The inclusion 
+\begin_inset Formula $\langle u_{g,1},\dots,u_{g,n_{g}}\rangle\subset A'\cap I$
+\end_inset
+
+ is clear, so it suffices to show the reverse direction.
+ Let 
+\begin_inset Formula $v\in A'\cap I$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $v\in I$
+\end_inset
+
+, we can express 
+\begin_inset Formula $v$
+\end_inset
+
+ as 
+\begin_inset Formula 
+\begin{equation}
+v=\sum_{\substack{1\leq r\leq s\\
+f_{r}\neq g
+}
+}v_{r}u_{f_{r},i_{r}}+\sum_{1\leq i\leq n_{g}}w_{i}u_{g,i}\label{eq:A'}
+\end{equation}
+
+\end_inset
+
+for some 
+\begin_inset Formula $v_{r},w_{i}\in A$
+\end_inset
+
+ where 
+\begin_inset Formula $1\leq r\leq s$
+\end_inset
+
+ and 
+\begin_inset Formula $1\leq i\leq n_{g}$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $v\in A'$
+\end_inset
+
+, setting 
+\begin_inset Formula $t_{f,i}=\alpha_{f,i}$
+\end_inset
+
+ to both sides of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{eq:A'})
+\end_layout
+
+\end_inset
+
+ for all nonconstant monic polynomials 
+\begin_inset Formula $f$
+\end_inset
+
+ which are not equal to 
+\begin_inset Formula $g$
+\end_inset
+
+ and for all 
+\begin_inset Formula $1\leq i\leq n_{f}$
+\end_inset
+
+ gives us
+\begin_inset Formula 
+\begin{align*}
+v & =\sum_{1\leq i\leq n_{g}}\widetilde{w}_{i}u_{g,i}.
+\end{align*}
+
+\end_inset
+
+Thus 
+\begin_inset Formula $v\in\langle u_{g,1},\dots,u_{g,n_{g}}\rangle$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\backslash
+label{prop}
+\end_layout
+
+\end_inset
+
+ The ideal 
+\begin_inset Formula $I$
+\end_inset
+
+ defined above is not a maximal ideal.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\backslash
+label{proof}
+\end_layout
+
+\end_inset
+
+ We will show that 
+\begin_inset Formula $I$
+\end_inset
+
+ is not a maximal ideal by showing that 
+\begin_inset Formula $A\slash I$
+\end_inset
+
+ is not a field.
+ To get an idea of how this proof works, we first assume 
+\begin_inset Formula $K$
+\end_inset
+
+ has characteristic 
+\begin_inset Formula $\neq2$
+\end_inset
+
+.
+ Let
+\begin_inset Formula 
+\[
+p(X)=X^{2}-1=(X-1)(X+1).
+\]
+
+\end_inset
+
+Let 
+\begin_inset Formula $A'=K[t_{p,1},t_{p,2}]$
+\end_inset
+
+ and let 
+\begin_inset Formula $I'=I\cap A'=\langle t_{p,1}t_{p,2}+1,t_{p,1}+t_{p,2}\rangle$
+\end_inset
+
+.
+ Denote the inclusion map 
+\begin_inset Formula $A'\hookrightarrow A$
+\end_inset
+
+ as 
+\begin_inset Formula $\iota\colon A'\to A$
+\end_inset
+
+ and let 
+\begin_inset Formula $\overline{\iota}\colon A'\slash I'\to A\slash I$
+\end_inset
+
+ be the induced quotient map given by
+\begin_inset Formula 
+\[
+\overline{\iota}(\overline{f})=\overline{\iota(f)}
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $\overline{f}\in A'\slash I'$
+\end_inset
+
+.Let 
+\begin_inset Formula $ $
+\end_inset
+
+Observe that 
+\begin_inset Formula $\overline{1+t_{p,2}}$
+\end_inset
+
+ is a nonzero zero divisor in 
+\begin_inset Formula $K[t_{p,1},t_{p,2}]\slash\langle t_{p,1}t_{p,2}+1,t_{p,1}+t_{p,2}\rangle$
+\end_inset
+
+.
+ Indeed, we have
+\begin_inset Formula 
+\[
+(t_{p,1}t_{p,2}+1)-t_{p,2}(t_{p,1}+t_{p,2})=(1+t_{p,2})(1-t_{p,2}),
+\]
+
+\end_inset
+
+and so 
+\begin_inset Formula $\overline{1+t_{p,2}}\cdot\overline{1-t_{p,2}}=0$
+\end_inset
+
+ where 
+\begin_inset Formula $\overline{1+t_{p,2}}\neq0$
+\end_inset
+
+ and 
+\begin_inset Formula $\overline{1-t_{p,2}}\neq0$
+\end_inset
+
+.
+ 
+\begin_inset Formula 
+\begin{align*}
+t
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $\overline{g}$
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+When we write 
+\begin_inset Quotes eld
+\end_inset
+
+
+\begin_inset Formula $\overline{g}$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+, it is understood that 
+\begin_inset Formula $g\in A$
+\end_inset
+
+ is a representative of the coset 
+\begin_inset Formula $\overline{g}\in A\slash I$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ be a nonzero element in 
+\begin_inset Formula $A\slash I$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $g$
+\end_inset
+
+ is a polynomial in the indeterminates 
+\begin_inset Formula $\{t_{f,k}\}$
+\end_inset
+
+, it can be expressed in only finitely many indeterminates, say 
+\begin_inset Formula $t_{f_{1},i_{1}},\dots,t_{f_{s},i_{s}}$
+\end_inset
+
+.
+ Let
+\begin_inset Formula 
+\[
+A'=K[\{t_{f_{r},k}\mid1\leq r\leq s\text{ and }1\leq k\leq n_{f_{r}}\}]\quad\text{and}\quad I'=I\cap A'.
+\]
+
+\end_inset
+
+Denote the inclusion map 
+\begin_inset Formula $A'\hookrightarrow A$
+\end_inset
+
+ as 
+\begin_inset Formula $\iota\colon A'\to A$
+\end_inset
+
+ and let 
+\begin_inset Formula $\overline{\iota}\colon A'\slash I'\to A\slash I$
+\end_inset
+
+ be the induced map given by
+\begin_inset Formula 
+\[
+\overline{\iota}(\overline{f})=\overline{\iota(f)}
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $\overline{f}\in A'\slash I'$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $g'$
+\end_inset
+
+ be the unique element in 
+\begin_inset Formula $A'$
+\end_inset
+
+ such that 
+\begin_inset Formula $\iota(g')=g$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\overline{g'}$
+\end_inset
+
+ is the unique element in 
+\begin_inset Formula $A'\slash I'$
+\end_inset
+
+ such that 
+\begin_inset Formula $\overline{\iota}(\overline{g'})=\overline{g}$
+\end_inset
+
+ since 
+\begin_inset Formula $\overline{\iota}$
+\end_inset
+
+ is injective.
+ Now it suffices to show that  
+\begin_inset Formula $\overline{g'}$
+\end_inset
+
+ is a unit in 
+\begin_inset Formula $A'\slash I'$
+\end_inset
+
+, since it will then follow that 
+\begin_inset Formula $\overline{\iota}(\overline{g'})=\overline{g}$
+\end_inset
+
+ is a unit in 
+\begin_inset Formula $A\slash I$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lemma}
+\backslash
+label{lemma}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $f(X)$
+\end_inset
+
+ be a monic irreducible polynomial.
+ Then
+\begin_inset Formula 
+\[
+K[t_{f,1},\dots,t_{f,n_{f}}]\slash\langle u_{f,1},\dots,u_{f,n_{f}}\rangle\cong K(\alpha_{f,1},\dots,\alpha_{f,n_{f}}).
+\]
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lemma}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $\varphi\colon K[t_{f,1},\dots,t_{f,n_{f}}]\to K(\alpha_{f,1},\dots,\alpha_{f,n_{f}})$
+\end_inset
+
+ be the unique surjective 
+\begin_inset Formula $K$
+\end_inset
+
+-algebra homomorphism given by
+\begin_inset Formula 
+\[
+\varphi(t_{f,k})=\alpha_{f,k}
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $1\leq k\leq n_{f}$
+\end_inset
+
+.
+ Since
+\begin_inset Formula 
+\begin{align*}
+\varphi(u_{f,k}) & =\varphi\left(c_{f,k}-(-1)^{k}e_{k}(t_{f,1},\dots,t_{f,n_{f}})\right)\\
+ & =c_{f,k}-(-1)^{k}e_{k}(\alpha_{f,1},\dots,\alpha_{f,n_{f}})\\
+ & =0
+\end{align*}
+
+\end_inset
+
+for all 
+\begin_inset Formula $1\leq k\leq n_{f}$
+\end_inset
+
+, we see that 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ induces a surjective 
+\begin_inset Formula $K$
+\end_inset
+
+-algebra homomorphism 
+\begin_inset Formula $\overline{\varphi}\colon K[t_{f,1},\dots,t_{f,n_{f}}]\slash\langle u_{f,1},\dots,u_{f,n_{f}}\rangle\to K(\alpha_{f,1},\dots,\alpha_{f,n_{f}})$
+\end_inset
+
+ given by
+\begin_inset Formula 
+\[
+\overline{\varphi}(\overline{v})=\overline{\varphi(v)}
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $\overline{v}\in K[t_{f,1},\dots,t_{f,n_{f}}]\slash\langle u_{f,1},\dots,u_{f,n_{f}}\rangle$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

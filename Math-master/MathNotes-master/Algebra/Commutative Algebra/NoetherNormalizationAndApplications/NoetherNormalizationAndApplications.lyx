@@ -1,0 +1,4437 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{tikz}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\usetikzlibrary{shapes.geometric}
+\usepackage{tikz-cd}
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem*{cor}{Corollary}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{ex}{Exercise} 
+\newtheorem{example}{Example}[section]
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem{case}{Case}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{tikz-cd}
+\usetikzlibrary{calc,arrows,decorations.pathreplacing}
+\tikzset{mydot/.style={circle,fill,inner sep=1.5pt},
+commutative diagrams/.cd,
+  arrow style=tikz,
+  diagrams={>=latex},
+}
+
+\usepackage{babel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+\usepackage{pgfplots}
+\usetikzlibrary{decorations.markings}
+\pgfplotsset{compat=1.9}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding iso8859-15
+\fontencoding global
+\font_roman "palatino" "default"
+\font_sans "lmss" "default"
+\font_typewriter "lmtt" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf true
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing single
+\use_hyperref false
+\papersize custom
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\paperwidth 30cm
+\paperheight 35cm
+\topmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0bp
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Noether Normalization and Applications
+\end_layout
+
+\begin_layout Standard
+Throughout these notes, let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a ring.
+\end_layout
+
+\begin_layout Section
+Integral and Finite Extensions
+\end_layout
+
+\begin_layout Standard
+Integral extension of a ring means adjoining roots of monic polynomials
+ over the ring.
+ This is an important tool for studying affine rings, and it is used in
+ many places, for example, in dimension theory, ring normalization and primary
+ decomposition.
+ Integral extensions are closely related to finite maps which, geometrically,
+ can be though of as projections with finite fibres plus some algebraic
+ conditions.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A\subset B$
+\end_inset
+
+ be an extension of rings.
+ 
+\end_layout
+
+\begin_layout Enumerate
+An element 
+\begin_inset Formula $b\in B$
+\end_inset
+
+ is called 
+\series bold
+integral over
+\series default
+ 
+\begin_inset Formula $A$
+\end_inset
+
+ if there is a monic polynomial 
+\begin_inset Formula $f\in A[x]$
+\end_inset
+
+ satisfying 
+\begin_inset Formula $f(b)=0$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $B$
+\end_inset
+
+ is called 
+\series bold
+integral over 
+\series default
+
+\begin_inset Formula $A$
+\end_inset
+
+ or an 
+\series bold
+integral extension of
+\series default
+ 
+\begin_inset Formula $A$
+\end_inset
+
+ if every 
+\begin_inset Formula $b\in B$
+\end_inset
+
+ is integral over 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $B$
+\end_inset
+
+ is called a 
+\series bold
+finite extension 
+\series default
+of 
+\begin_inset Formula $A$
+\end_inset
+
+ if 
+\begin_inset Formula $B$
+\end_inset
+
+ is a finitely generated 
+\begin_inset Formula $A$
+\end_inset
+
+-module.
+ 
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $\varphi\colon A\to B$
+\end_inset
+
+ is a ring map then 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ is called an 
+\series bold
+integral
+\series default
+ (respectively 
+\series bold
+finite
+\series default
+) 
+\series bold
+extension
+\series default
+ if this holds for the subring 
+\begin_inset Formula $\varphi(A)\subset B$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+If there is no doubt about 
+\begin_inset Formula $\varphi$
+\end_inset
+
+, we say also, in this situation, that 
+\begin_inset Formula $B$
+\end_inset
+
+ is integral, respectively finite, over 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $\varphi\colon A\to B$
+\end_inset
+
+ in integral if and only if 
+\begin_inset Formula $\varphi(A)\subset B$
+\end_inset
+
+ is integral, we often we omit 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ in the notation and just assume 
+\begin_inset Formula $A\subset B$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Examples and Nonexamples of Integral Extensions
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\backslash
+label{example}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a ring.
+ Then for any ideal 
+\begin_inset Formula $\mathfrak{a}$
+\end_inset
+
+ in 
+\begin_inset Formula $A$
+\end_inset
+
+, the map 
+\begin_inset Formula $A\to A\slash\mathfrak{a}$
+\end_inset
+
+ is an integral extension.
+ More generally, any surjective ring map 
+\begin_inset Formula $\varphi\colon A\to B$
+\end_inset
+
+ is an integral extension.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\backslash
+label{example}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $K[x,y]\subset K[x,y,z]/\langle x-yz\rangle$
+\end_inset
+
+ is not an integral extension.
+ Indeed, there is no monic polynomial 
+\begin_inset Formula $f\in K[x,y][t]$
+\end_inset
+
+ such that 
+\begin_inset Formula $f(z)=0$
+\end_inset
+
+.
+ To see why, suppose that 
+\begin_inset Formula 
+\begin{equation}
+z^{n}+a_{n-1}z^{n-1}+\cdots+a_{0}=0,\label{eq:1-1}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $a_{0},\dots,a_{n-1}\in K[x,y]$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $z\equiv x/y$
+\end_inset
+
+ in 
+\begin_inset Formula $K[x,y,z]/\langle x-yz\rangle$
+\end_inset
+
+, we can rewrite 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{eq:1-1})
+\end_layout
+
+\end_inset
+
+ as 
+\begin_inset Formula 
+\[
+\frac{x^{n}}{y^{n}}+a_{n-1}\frac{x^{n-1}}{y^{n-1}}+\cdots+a_{0}=0.
+\]
+
+\end_inset
+
+After clearing the denominators and rearranging terms, we obtain 
+\begin_inset Formula 
+\[
+x^{n}=-y(a_{n-1}x^{n-1}+\cdots+a_{0}y^{n-1}).
+\]
+
+\end_inset
+
+This is clearly false since 
+\begin_inset Formula $K[x,y]$
+\end_inset
+
+ is a UFD.
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+On the other hand, 
+\begin_inset Formula $K[y,z]\subset K[x,y,z]/\langle x-yz\rangle$
+\end_inset
+
+ is an integral extension.
+ Indeed, clearly 
+\begin_inset Formula $y$
+\end_inset
+
+ and 
+\begin_inset Formula $z$
+\end_inset
+
+ are integral over 
+\begin_inset Formula $K[y,z]$
+\end_inset
+
+.
+ Also, since 
+\begin_inset Formula $x$
+\end_inset
+
+ satisfies the monic polynomial 
+\begin_inset Formula 
+\[
+f(t)=t-yz\in K[y,z][t],
+\]
+
+\end_inset
+
+
+\begin_inset Formula $x$
+\end_inset
+
+ is integral of 
+\begin_inset Formula $K[y,z]$
+\end_inset
+
+ as well.
+ We will see shortly that the product and sum of integral elements is integral,
+ and thus every element in 
+\begin_inset Formula $K[x,y,z]/\langle x-yz\rangle$
+\end_inset
+
+ is integral over 
+\begin_inset Formula $K[y,z]$
+\end_inset
+
+.
+ In fact, 
+\begin_inset Formula $K[x,y,z]\slash\langle x-yz\rangle\cong K[y,z]$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\backslash
+label{prop}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a ring and let 
+\begin_inset Formula $x\in A$
+\end_inset
+
+ be a nonzerodivisor.
+ Then 
+\begin_inset Formula $A\to A[x^{-1}]$
+\end_inset
+
+ is an integral extension if and only if 
+\begin_inset Formula $x$
+\end_inset
+
+ is a unit.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ If 
+\begin_inset Formula $x$
+\end_inset
+
+ is a unit in 
+\begin_inset Formula $A$
+\end_inset
+
+, then 
+\begin_inset Formula $A[x^{-1}]=A$
+\end_inset
+
+, and so obviously 
+\begin_inset Formula $A\to A[x^{-1}]$
+\end_inset
+
+ is an integral extension.
+ Conversely, suppose 
+\begin_inset Formula $x^{-1}$
+\end_inset
+
+ is integral over 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Then there exists 
+\begin_inset Formula $a_{0},\dots,a_{n-1}\in A$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\begin{equation}
+x^{-n}+a_{n-1}x^{-(n-1)}+\cdots+a_{0}=0.\label{eq:xinverse}
+\end{equation}
+
+\end_inset
+
+Multiplying both sides of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{eq:xinverse})
+\end_layout
+
+\end_inset
+
+ by 
+\begin_inset Formula $x^{n-1}$
+\end_inset
+
+ and rearranging terms, we obtain
+\begin_inset Formula 
+\[
+x^{-1}=-a_{n-1}+a_{n-2}x+\cdots+a_{0}x^{n-1}\in A.
+\]
+
+\end_inset
+
+Thus 
+\begin_inset Formula $x$
+\end_inset
+
+ is a unit.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Properties of Integral Extensions
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\backslash
+label{propfiniteimpliesintegral}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+ be rings.
+ 
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $A\subset B$
+\end_inset
+
+ is a finite extension, then it is an integral extension.
+ More generally, if 
+\begin_inset Formula $\mathfrak{a}$
+\end_inset
+
+ is an ideal in 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $M$
+\end_inset
+
+ is a finitely generated 
+\begin_inset Formula $B$
+\end_inset
+
+-module, then any 
+\begin_inset Formula $b\in B$
+\end_inset
+
+ with 
+\begin_inset Formula $bM\subset\mathfrak{a}M$
+\end_inset
+
+ satisfies a relation 
+\begin_inset Formula 
+\[
+b^{n}+a_{n-1}b^{n-1}+\cdots+a_{0}=0,
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $a_{i}\in\mathfrak{a}^{i}$
+\end_inset
+
+ for all 
+\begin_inset Formula $0\leq i<n$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $B$
+\end_inset
+
+ is a finitely generated 
+\begin_inset Formula $A$
+\end_inset
+
+-algebra of the form 
+\begin_inset Formula $B=A[b_{1},\dots,b_{k}]$
+\end_inset
+
+ with 
+\begin_inset Formula $b_{i}\in B$
+\end_inset
+
+ integral over 
+\begin_inset Formula $A$
+\end_inset
+
+ for all 
+\begin_inset Formula $1\leq i\leq k$
+\end_inset
+
+, then 
+\begin_inset Formula $B$
+\end_inset
+
+ is finite over 
+\begin_inset Formula $A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+1.
+ Multiplication by 
+\begin_inset Formula $b$
+\end_inset
+
+ gives an 
+\begin_inset Formula $A$
+\end_inset
+
+-linear morphism from 
+\begin_inset Formula $B$
+\end_inset
+
+ to 
+\begin_inset Formula $B$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $[m_{b}]$
+\end_inset
+
+ be the matrix representation of this endomorphism.
+ By the Cayley-Hamiltonian Theorem, 
+\begin_inset Formula $[m_{b}]$
+\end_inset
+
+ satisfies it's own characteristic polynomial, which is a monic polynomial
+ 
+\begin_inset Formula $\chi_{[m_{b}]}(T)\in A[T]$
+\end_inset
+
+.
+ Therefore 
+\begin_inset Formula $b$
+\end_inset
+
+ must satisfy this monic polynomial too.
+ In the general case, let 
+\begin_inset Formula $e_{1},\dots,e_{k}$
+\end_inset
+
+ be a system of generators of 
+\begin_inset Formula $M$
+\end_inset
+
+ as an 
+\begin_inset Formula $A$
+\end_inset
+
+-module.
+ Then
+\begin_inset Formula 
+\[
+b\cdot e_{i}=\sum_{j}a_{ji}e_{j}
+\]
+
+\end_inset
+
+ where 
+\begin_inset Formula $a_{ji}\in\mathfrak{a}$
+\end_inset
+
+ for all 
+\begin_inset Formula $i$
+\end_inset
+
+ and 
+\begin_inset Formula $j$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $Q$
+\end_inset
+
+ be the matrix representation of the multiplication by 
+\begin_inset Formula $b$
+\end_inset
+
+ map.
+ Then 
+\begin_inset Formula $Q$
+\end_inset
+
+ has entries in 
+\begin_inset Formula $\mathfrak{a}$
+\end_inset
+
+ and
+\begin_inset Formula 
+\[
+\chi_{Q}(T)=T^{n}-\mbox{Tr}\left(\Lambda^{1}(Q)\right)T^{n-1}+\cdots+(-1)^{n}\mbox{Tr}\left(\Lambda^{n}(Q)\right).
+\]
+
+\end_inset
+
+ The coefficients in 
+\begin_inset Formula $\Lambda^{k}(Q)$
+\end_inset
+
+ have entries in 
+\begin_inset Formula $\mathfrak{a}^{k}$
+\end_inset
+
+, so 
+\begin_inset Formula $\mbox{Tr}\left(\Lambda^{k}(Q)\right)\in\mathfrak{a}^{k}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+2.
+ First observe that 
+\begin_inset Formula $A[b_{1}]$
+\end_inset
+
+ is finite over 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $b_{1}$
+\end_inset
+
+ satisfies a monic polynomial of degree 
+\begin_inset Formula $n$
+\end_inset
+
+ with coefficients in 
+\begin_inset Formula $A$
+\end_inset
+
+, then 
+\begin_inset Formula $\{1,b_{1},\dots,b_{1}^{n-1}\}$
+\end_inset
+
+ form a system of generators of 
+\begin_inset Formula $A[b_{1}]$
+\end_inset
+
+ as an 
+\begin_inset Formula $A$
+\end_inset
+
+-module.
+ By the same reasoning, 
+\begin_inset Formula $A[b_{1},b_{2}]=A[b_{1}][b_{2}]$
+\end_inset
+
+ is finite over 
+\begin_inset Formula $A[b_{1}]$
+\end_inset
+
+, and hence finite over 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ An inductive argument completes the proof.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{cor}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A\subset B$
+\end_inset
+
+ be a ring extension.
+ Then an element 
+\begin_inset Formula $b\in B$
+\end_inset
+
+ is integral over 
+\begin_inset Formula $A$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $A[b]$
+\end_inset
+
+ is a finitely generated 
+\begin_inset Formula $A$
+\end_inset
+
+-module.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{cor}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ If 
+\begin_inset Formula $b$
+\end_inset
+
+ is integral over 
+\begin_inset Formula $A$
+\end_inset
+
+, then there is a monic polynomial 
+\begin_inset Formula $f\in A[x]$
+\end_inset
+
+ satisfying 
+\begin_inset Formula $f(b)=0$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $A[b]\cong A[x]\slash\langle f(x)\rangle$
+\end_inset
+
+ as 
+\begin_inset Formula $A$
+\end_inset
+
+-modules.
+ The converse direction follows from 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Proposition~(
+\backslash
+ref{propfiniteimpliesintegral})
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\backslash
+label{prop}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A\subset B$
+\end_inset
+
+ and 
+\begin_inset Formula $B\subset C$
+\end_inset
+
+ be integral extensions.
+ Then 
+\begin_inset Formula $A\subset C$
+\end_inset
+
+ is an integral extension.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $c\in C$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $c$
+\end_inset
+
+ is integral over 
+\begin_inset Formula $B$
+\end_inset
+
+, there are 
+\begin_inset Formula $b_{0},\dots,b_{n-1}\in B$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\[
+c^{n}+b_{n-1}c^{n-1}+\cdots+b_{0}=0.
+\]
+
+\end_inset
+
+Then 
+\begin_inset Formula $A\subset A[b_{0},\dots,b_{n-1}]\subset A[b_{0},\dots,b_{n-1}][c]$
+\end_inset
+
+ is a composition of finite extensions.
+ Thus, 
+\begin_inset Formula $A\subset A[b_{0},\dots,b_{n-1},c]$
+\end_inset
+
+ is a finite (and hence integral) extension.
+ Therefore 
+\begin_inset Formula $c$
+\end_inset
+
+ is integral over 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lemma}
+\backslash
+label{lemma1}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+ be rings.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Suppose 
+\begin_inset Formula $\varphi\colon A\to B$
+\end_inset
+
+ is a ring homomorphism.
+ If 
+\begin_inset Formula $\mathfrak{q}\subset B$
+\end_inset
+
+ is a prime ideal, then 
+\begin_inset Formula $\varphi^{-1}(\mathfrak{q})\subset A$
+\end_inset
+
+ is a prime ideal.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Suppose 
+\begin_inset Formula $A\subset B$
+\end_inset
+
+ is an integral extension.
+ If 
+\begin_inset Formula $a$
+\end_inset
+
+ is a unit in 
+\begin_inset Formula $B$
+\end_inset
+
+, then 
+\begin_inset Formula $a$
+\end_inset
+
+ is a unit in 
+\begin_inset Formula $A$
+\end_inset
+
+ too.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Suppose 
+\begin_inset Formula $A\subset B$
+\end_inset
+
+ is an integral extension and 
+\begin_inset Formula $B$
+\end_inset
+
+ is an integral domain.
+ Then 
+\begin_inset Formula $B$
+\end_inset
+
+ is a field if and only if 
+\begin_inset Formula $A$
+\end_inset
+
+ is a field.
+\end_layout
+
+\begin_layout Enumerate
+Suppose 
+\begin_inset Formula $A\subset B$
+\end_inset
+
+ is an integral extension and 
+\begin_inset Formula $\mathfrak{m}\subset B$
+\end_inset
+
+ is a maximal ideal.
+ Then 
+\begin_inset Formula $\mathfrak{m}\cap A$
+\end_inset
+
+ is a maximal ideal in 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lemma}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+1.
+ The inverse image of any ideal in 
+\begin_inset Formula $B$
+\end_inset
+
+ is an ideal in 
+\begin_inset Formula $A$
+\end_inset
+
+, so it suffices to show that 
+\begin_inset Formula $\varphi^{-1}(\mathfrak{q})$
+\end_inset
+
+ is prime.
+ Suppose 
+\begin_inset Formula $a,b\in A$
+\end_inset
+
+ such that 
+\begin_inset Formula $ab\in\varphi^{-1}(\mathfrak{q})$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\begin{align*}
+\varphi(a)\varphi(b) & =\varphi(ab)\\
+ & \in\mathfrak{q}
+\end{align*}
+
+\end_inset
+
+implies either 
+\begin_inset Formula $\varphi(a)$
+\end_inset
+
+ or 
+\begin_inset Formula $\varphi(b)$
+\end_inset
+
+ belongs to 
+\begin_inset Formula $\mathfrak{q}$
+\end_inset
+
+ since 
+\begin_inset Formula $\mathfrak{q}$
+\end_inset
+
+ is prime.
+ This implies either 
+\begin_inset Formula $a$
+\end_inset
+
+ or 
+\begin_inset Formula $b$
+\end_inset
+
+ belongs to 
+\begin_inset Formula $\varphi^{-1}(\mathfrak{q})$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $\varphi^{-1}(\mathfrak{q})$
+\end_inset
+
+ is prime in 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+2.
+ Let 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ and suppose 
+\begin_inset Formula $ab=1$
+\end_inset
+
+ for some 
+\begin_inset Formula $b\in B$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $B$
+\end_inset
+
+ is integral over 
+\begin_inset Formula $A$
+\end_inset
+
+, there exists 
+\begin_inset Formula $a_{0},\dots,a_{n-1}\in A$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\[
+b^{n}+a_{n-1}b^{n-1}+\cdots+a_{0}=0.
+\]
+
+\end_inset
+
+Multiplication with 
+\begin_inset Formula $a^{n-1}$
+\end_inset
+
+ on both sides gives 
+\begin_inset Formula 
+\[
+b+a_{n-1}+\cdots+a^{n-1}a_{0}=0.
+\]
+
+\end_inset
+
+In particular, 
+\begin_inset Formula $b\in A$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+3.
+ Assume 
+\begin_inset Formula $B$
+\end_inset
+
+ is a field.
+ Then 
+\begin_inset Formula $A$
+\end_inset
+
+ must be a field too, since every element 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ is a unit in 
+\begin_inset Formula $B$
+\end_inset
+
+, which implies it is a unit in 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Now assume 
+\begin_inset Formula $A$
+\end_inset
+
+ is a field.
+ Let 
+\begin_inset Formula $b$
+\end_inset
+
+ be a nonzero element in 
+\begin_inset Formula $B$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $b$
+\end_inset
+
+ is integral over 
+\begin_inset Formula $A$
+\end_inset
+
+, there exists 
+\begin_inset Formula $a_{0},\dots,a_{n-1}\in A$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\[
+b^{n}+a_{n-1}b^{n-1}+\cdots+a_{0}=0,
+\]
+
+\end_inset
+
+where we may assume that 
+\begin_inset Formula $n$
+\end_inset
+
+ is minimal.
+ Then 
+\begin_inset Formula $a_{0}\neq0$
+\end_inset
+
+ since 
+\begin_inset Formula $n$
+\end_inset
+
+ is minimal and 
+\begin_inset Formula $B$
+\end_inset
+
+ is an integral domain.
+ Thus
+\begin_inset Formula 
+\begin{align*}
+1 & =(-a_{0})^{-1}(b^{n}+a_{n-1}b^{n-1}+\cdots+a_{1}b)\\
+ & =(-a_{0})^{-1}(b^{n-1}+a_{n-1}b^{n-2}+\cdots+a_{1})b
+\end{align*}
+
+\end_inset
+
+implies
+\begin_inset Formula 
+\[
+(-a_{0})^{-1}(b^{n}+a_{n-1}b^{n-1}+\cdots+a_{1})
+\]
+
+\end_inset
+
+is the inverse of 
+\begin_inset Formula $b$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+4.
+ The inverse image of any ideal in 
+\begin_inset Formula $B$
+\end_inset
+
+ is an ideal in 
+\begin_inset Formula $A$
+\end_inset
+
+, so it suffices to show that 
+\begin_inset Formula $A\cap\mathfrak{m}$
+\end_inset
+
+ is maximal.
+ This is a consequence of 3 because the monomorphism 
+\begin_inset Formula $A\slash(A\cap\mathfrak{m})\to B\slash\mathfrak{m}$
+\end_inset
+
+ is again an integral extension.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+More Integral Extension Properties
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\backslash
+label{prop}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A\subset B$
+\end_inset
+
+ be an integral extension.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Let 
+\begin_inset Formula $S$
+\end_inset
+
+ be a multiplicatively closed subset of 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $A_{S}\subset B_{S}$
+\end_inset
+
+ is an integral extension.
+\end_layout
+
+\begin_layout Enumerate
+Let 
+\begin_inset Formula $\mathfrak{b}\subset B$
+\end_inset
+
+ be an ideal.
+ Then 
+\begin_inset Formula $A\slash A\cap\mathfrak{b}\to B\slash\mathfrak{b}$
+\end_inset
+
+ is an integral extension.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Let 
+\begin_inset Formula $\mathfrak{m}\subset A$
+\end_inset
+
+ be a maximal ideal.
+ If 
+\begin_inset Formula $\mathfrak{m}B\neq B$
+\end_inset
+
+, then 
+\begin_inset Formula $A\slash\mathfrak{m}\to B\slash\mathfrak{m}B$
+\end_inset
+
+ is an integral extension.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+1.
+ Let 
+\begin_inset Formula $b/s\in B_{S}$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $b$
+\end_inset
+
+ is integral over 
+\begin_inset Formula $A$
+\end_inset
+
+, there exists 
+\begin_inset Formula $a_{0},\dots a_{n-1}\in A$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\begin{equation}
+b^{n}+a_{n-1}b^{n-1}+\cdots+a_{0}=0.\label{eq:localizationintegral}
+\end{equation}
+
+\end_inset
+
+Multiplying both sides of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{eq:localizationintegral})
+\end_layout
+
+\end_inset
+
+ by 
+\begin_inset Formula $s^{-n}$
+\end_inset
+
+, we obtain 
+\begin_inset Formula 
+\[
+\left(\frac{b}{s}\right)^{n}+\left(\frac{a_{n-1}}{s}\right)\left(\frac{b}{s}\right)^{n-1}+\cdots+\left(\frac{a_{0}}{s^{n}}\right)=0.
+\]
+
+\end_inset
+
+Since 
+\begin_inset Formula $a_{i}/s^{n-i}\in A_{S}$
+\end_inset
+
+ for all 
+\begin_inset Formula $0\leq i<n$
+\end_inset
+
+, we conclude that 
+\begin_inset Formula $b/s$
+\end_inset
+
+ is integral over 
+\begin_inset Formula $A_{S}$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $A_{S}\subset B_{S}$
+\end_inset
+
+ is an integral extension since 
+\begin_inset Formula $b/s$
+\end_inset
+
+ was arbitrary.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+2.
+ The map 
+\begin_inset Formula $\pi\colon A\to B\slash\mathfrak{b}$
+\end_inset
+
+ is a composition of integral extensions, and hence must be an integral
+ extension.
+ Therefore
+\begin_inset Formula 
+\begin{align*}
+A\slash A\cap\mathfrak{b} & =A\slash\ker\pi\\
+ & \cong\mathrm{im}\,\pi\\
+ & \subset B\slash\mathfrak{b}
+\end{align*}
+
+\end_inset
+
+is an integral extension.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+3.
+ The map 
+\begin_inset Formula $\pi\colon A\to B/\mathfrak{m}B$
+\end_inset
+
+ is a composition of integral extensions, and hence must be an integral
+ extension.
+ Therefore
+\begin_inset Formula 
+\begin{align*}
+A\slash(A\cap\mathfrak{m}B) & =A\slash\ker\pi\\
+ & \cong\mathrm{im}\,\pi\\
+ & \subset B\slash\mathfrak{m}B
+\end{align*}
+
+\end_inset
+
+ is an integral extension.
+ Now we claim that 
+\begin_inset Formula $A\cap\mathfrak{m}B=\mathfrak{m}$
+\end_inset
+
+.
+ Indeed, 
+\begin_inset Formula $A\cap\mathfrak{m}B$
+\end_inset
+
+ is an ideal of 
+\begin_inset Formula $A$
+\end_inset
+
+, and since
+\begin_inset Formula 
+\[
+\mathfrak{m}\subseteq A\cap\mathfrak{m}B\subseteq A,
+\]
+
+\end_inset
+
+we must either have 
+\begin_inset Formula $\mathfrak{m}=A\cap\mathfrak{m}B$
+\end_inset
+
+ or 
+\begin_inset Formula $A\cap\mathfrak{m}B=A$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $A\cap\mathfrak{m}B=A$
+\end_inset
+
+, then there exists 
+\begin_inset Formula $a_{1},\dots,a_{n}\in\mathfrak{m}$
+\end_inset
+
+ and 
+\begin_inset Formula $b_{1},\dots,b_{n}\in B$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\[
+1=a_{1}b_{1}+\cdots+a_{n}b_{n}.
+\]
+
+\end_inset
+
+But this also implies that 
+\begin_inset Formula $B=\mathfrak{m}B$
+\end_inset
+
+.
+ Contradiction.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\backslash
+label{example}
+\end_layout
+
+\end_inset
+
+ Let us give another reason why 
+\begin_inset Formula $K[x,y]\subset K[x,y,z]/\langle x-yz\rangle$
+\end_inset
+
+ is not an integral extension.
+ Assuming it was, then
+\begin_inset Formula 
+\begin{align*}
+K & \cong K[x,y]/\langle x,y\rangle\\
+ & \subset K[x,y,z]/\langle x-yz,x,y\rangle\\
+ & \cong K[z]
+\end{align*}
+
+\end_inset
+
+would also be an integral extension.
+ Contradiction.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Lying Over and Going Up Properties for Integral Extensions
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\backslash
+label{prop1}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $\varphi:A\to B$
+\end_inset
+
+ be an integral extension.
+\end_layout
+
+\begin_layout Enumerate
+(Lying over property) If 
+\begin_inset Formula $\mathfrak{p}\subset A$
+\end_inset
+
+ is a prime ideal, then there is a prime ideal 
+\begin_inset Formula $\mathfrak{q}\subset B$
+\end_inset
+
+ such that 
+\begin_inset Formula $\varphi^{-1}(\mathfrak{q})=\mathfrak{p}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+(Going up property) Let 
+\begin_inset Formula $\mathfrak{p}\subset\mathfrak{p}'\subset A$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathfrak{q}\subset B$
+\end_inset
+
+ be prime ideals, with 
+\begin_inset Formula $\varphi^{-1}(\mathfrak{q})=\mathfrak{p}$
+\end_inset
+
+.
+ Then there exists a prime ideal 
+\begin_inset Formula $\mathfrak{q}'\subset B$
+\end_inset
+
+ such that 
+\begin_inset Formula $\mathfrak{q}\subset\mathfrak{q}'$
+\end_inset
+
+ and 
+\begin_inset Formula $\varphi^{-1}(\mathfrak{q}')=\mathfrak{p}'$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Let 
+\begin_inset Formula $S=A\backslash\mathfrak{p}$
+\end_inset
+
+ and consider 
+\begin_inset Formula $\varphi_{\mathfrak{p}}:S^{-1}A=A_{\mathfrak{p}}\to S^{-1}B=\varphi(S)^{-1}B.$
+\end_inset
+
+ First we show that 
+\begin_inset Formula $\varphi_{\mathfrak{p}}$
+\end_inset
+
+ is an integral extension.
+ Suppose 
+\begin_inset Formula $b/s\in$
+\end_inset
+
+ 
+\begin_inset Formula $S^{-1}B$
+\end_inset
+
+, where 
+\begin_inset Formula $s\in A\backslash\mathfrak{p}$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $B$
+\end_inset
+
+ is integral over 
+\begin_inset Formula $A$
+\end_inset
+
+, there exists 
+\begin_inset Formula $a_{0},\dots,a_{n-1}\in A$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\begin{equation}
+b^{n}+a_{n-1}b^{n-1}+\cdots+a_{0}=0.\label{eq:inteq}
+\end{equation}
+
+\end_inset
+
+ Multiply both sides of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{eq:inteq})
+\end_layout
+
+\end_inset
+
+ by 
+\begin_inset Formula $s^{-n}$
+\end_inset
+
+ to obtain
+\begin_inset Formula 
+\begin{equation}
+\left(\frac{b}{s}\right)^{n}+\left(\frac{a_{n-1}}{s}\right)\left(\frac{b}{s}\right)^{n-1}+\cdots+\left(\frac{a_{0}}{s^{n}}\right)=0.\label{eq:inteq3}
+\end{equation}
+
+\end_inset
+
+Since 
+\begin_inset Formula $a_{i}/s^{n-i}\in A_{\mathfrak{p}}$
+\end_inset
+
+, we conclude that 
+\begin_inset Formula $\varphi_{\mathfrak{p}}$
+\end_inset
+
+ is an integral extension.
+ Next, we show that for any maximal ideal 
+\begin_inset Formula $\mathfrak{m}\subset S^{-1}B$
+\end_inset
+
+ we have 
+\begin_inset Formula $\varphi_{\mathfrak{p}}^{-1}(\mathfrak{m})=\mathfrak{p}A_{\mathfrak{p}}$
+\end_inset
+
+.
+ From 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Lemma~(
+\backslash
+ref{lemma1})
+\end_layout
+
+\end_inset
+
+, we know that 
+\begin_inset Formula $\varphi_{\mathfrak{p}}^{-1}(\mathfrak{m})$
+\end_inset
+
+ is a maximal ideal in 
+\begin_inset Formula $A_{\mathfrak{p}}$
+\end_inset
+
+, and since 
+\begin_inset Formula $A_{\mathfrak{p}}$
+\end_inset
+
+ is a local ring, it must me the unique maximal ideal 
+\begin_inset Formula $\mathfrak{p}A_{\mathfrak{p}}$
+\end_inset
+
+.
+ Now 
+\begin_inset Formula $\mathfrak{p}=\varphi_{\mathfrak{p}}^{-1}(\mathfrak{m})\cap A=\varphi^{-1}(\mathfrak{m}\cap B)$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathfrak{q}=\mathfrak{m}\cap B$
+\end_inset
+
+ is prime.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Consider the integral extension 
+\begin_inset Formula $A/\mathfrak{p}:=:\bar{A}\to\bar{B}:=B/\mathfrak{q}$
+\end_inset
+
+.
+ We apply 1 to this extension and the prime ideal 
+\begin_inset Formula $\mathfrak{p}'/\mathfrak{p}:=\bar{\mathfrak{p}}'$
+\end_inset
+
+ to obtain a prime ideal 
+\begin_inset Formula $\mathfrak{q}'/\mathfrak{q}:=\bar{\mathfrak{q}}'$
+\end_inset
+
+ such that 
+\begin_inset Formula $\bar{\mathfrak{q}}'\cap\bar{A}=\bar{\mathfrak{p}}'$
+\end_inset
+
+.
+ We set 
+\begin_inset Formula $\mathfrak{q}':=\{q\in B\mid\bar{q}\in\bar{\mathfrak{q}}'\}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\mathfrak{q}'\subset B$
+\end_inset
+
+ is a prime ideal which has the required properties.
+  
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{cor}
+\backslash
+label{cor}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $\varphi:A\to B$
+\end_inset
+
+ be an integral extension.
+ Then the induced map 
+\begin_inset Formula $\varphi^{\#}:\text{Spec }B\to\text{Spec }A$
+\end_inset
+
+, given by 
+\begin_inset Formula $\mathfrak{q}\mapsto\varphi^{-1}(\mathfrak{q})$
+\end_inset
+
+, is a closed map.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{cor}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ For any ideal 
+\begin_inset Formula $\mathfrak{b}$
+\end_inset
+
+ in 
+\begin_inset Formula $B$
+\end_inset
+
+, we have 
+\begin_inset Formula $\varphi^{\#}(V(\mathfrak{b}))=V(\varphi^{-1}(\mathfrak{b}))$
+\end_inset
+
+.
+ Indeed, if 
+\begin_inset Formula $\mathfrak{p}\supseteq\varphi^{-1}(\mathfrak{b})$
+\end_inset
+
+, then we can find a prime 
+\series bold
+
+\begin_inset Formula $\mathfrak{q}\supseteq\mathfrak{b}$
+\end_inset
+
+ 
+\series default
+such that 
+\begin_inset Formula $\varphi^{-1}(\mathfrak{q})=\mathfrak{p}$
+\end_inset
+
+.
+
+\series bold
+ 
+\series default
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A=\mathbb{Q}[x,y]$
+\end_inset
+
+, 
+\begin_inset Formula $\mathfrak{p}=\langle x\rangle$
+\end_inset
+
+, and 
+\begin_inset Formula $B=\mathbb{Q}[x,y,z]/\langle z^{2}-xz-1\rangle$
+\end_inset
+
+.
+ We want to find a prime ideal 
+\begin_inset Formula $\mathfrak{q}\subset\mathfrak{p}B$
+\end_inset
+
+ such that 
+\begin_inset Formula $\mathfrak{q}\cap A=\mathfrak{p}$
+\end_inset
+
+.
+ We compute a primary decomposition of 
+\begin_inset Formula $\mathfrak{p}B$
+\end_inset
+
+: 
+\begin_inset Formula 
+\[
+\mathfrak{p}B=\langle x,z^{2}-xz-1\rangle=\langle x,z-1\rangle\cap\langle x,z+1\rangle.
+\]
+
+\end_inset
+
+Both prime ideals 
+\begin_inset Formula $\langle x,z-1\rangle$
+\end_inset
+
+ and 
+\begin_inset Formula $\langle x,z+1\rangle$
+\end_inset
+
+ in 
+\begin_inset Formula $B$
+\end_inset
+
+ give as intersection with 
+\begin_inset Formula $A$
+\end_inset
+
+ the ideal 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+.
+  
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $C$
+\end_inset
+
+ be rings, 
+\begin_inset Formula $B$
+\end_inset
+
+ be an integral domain, 
+\begin_inset Formula $\varphi:A\to B$
+\end_inset
+
+ an integral extension.
+ and 
+\begin_inset Formula $\psi:B\to C$
+\end_inset
+
+ a ring homomorphism such that the restriction of 
+\begin_inset Formula $\psi$
+\end_inset
+
+ to 
+\begin_inset Formula $A$
+\end_inset
+
+ is injective.
+ Then 
+\begin_inset Formula $\psi:B\to C$
+\end_inset
+
+ is injective.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Suppose 
+\begin_inset Formula $b\in\mbox{Ker}(\psi)$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $b$
+\end_inset
+
+ is integral over 
+\begin_inset Formula $A$
+\end_inset
+
+, we have 
+\begin_inset Formula 
+\begin{equation}
+b^{n}+a_{n-1}b^{n-1}+\cdots+a_{0}=0\label{eq:inteq2}
+\end{equation}
+
+\end_inset
+
+for some 
+\begin_inset Formula $a_{i}\in A$
+\end_inset
+
+, and where 
+\begin_inset Formula $n$
+\end_inset
+
+ is minimal.
+ Assume 
+\begin_inset Formula $b\neq0$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $a_{0}\neq0$
+\end_inset
+
+, since 
+\begin_inset Formula $B$
+\end_inset
+
+ is an integral domain.
+ Applying 
+\begin_inset Formula $\psi$
+\end_inset
+
+ to 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{eq:inteq2})
+\end_layout
+
+\end_inset
+
+ gives us 
+\begin_inset Formula $\psi(a_{0})=0$
+\end_inset
+
+.
+ Since the restriction of 
+\begin_inset Formula $\psi$
+\end_inset
+
+ to 
+\begin_inset Formula $A$
+\end_inset
+
+ is injective, 
+\begin_inset Formula $a_{0}=0$
+\end_inset
+
+, which is a contradiction.
+ Therefore 
+\begin_inset Formula $b=0$
+\end_inset
+
+, which implies 
+\begin_inset Formula $\psi$
+\end_inset
+
+ is injective.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{rem}
+\end_layout
+
+\end_inset
+
+ For a finite map 
+\begin_inset Formula $\varphi:A\to B$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathfrak{m}\subset A$
+\end_inset
+
+ a maximal ideal, 
+\begin_inset Formula $B/\mathfrak{m}B$
+\end_inset
+
+ is a finite dimensional 
+\begin_inset Formula $(A/\mathfrak{m})$
+\end_inset
+
+-vector space.
+ This implies that the fibres of closed points of the induced map 
+\begin_inset Formula $\phi:\text{Max}(B)\to\text{Max}(A)$
+\end_inset
+
+ are finite sets.
+ To be specific, let 
+\begin_inset Formula $A=K[x_{1},\dots,x_{n}]/I$
+\end_inset
+
+, 
+\begin_inset Formula $B=K[y_{1},\dots,y_{k}]/J$
+\end_inset
+
+, and let 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} 
+\backslash
+mathbb{A}^m 
+\backslash
+supset 
+\backslash
+mathbf{V} (J) 
+\backslash
+arrow[r, "
+\backslash
+phi "] & 
+\backslash
+mathbf{V} (I) 
+\backslash
+subset 
+\backslash
+mathbb{A}^m 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+be the induced map.
+ If 
+\begin_inset Formula $\mathfrak{m}=\langle x_{1}-p_{1},\dots,x_{n}-p_{n}\rangle\subset K[x_{1},\dots,x_{n}]$
+\end_inset
+
+ is the maximal ideal of the point 
+\begin_inset Formula $p=(p_{1},\dots,p_{n})\in\mathbf{V}(I)$
+\end_inset
+
+, then 
+\begin_inset Formula $\mathfrak{m}B=(J+\mathfrak{n})/J$
+\end_inset
+
+ with 
+\begin_inset Formula $\mathfrak{n}:=\langle\varphi(x_{1})-p_{1},\dots,\varphi(x_{n})-p_{n}\rangle\subset K[y_{1},\dots,y_{k}]$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\mathbf{V}(J+N)=\phi^{-1}(p)$
+\end_inset
+
+ is the fibre of 
+\begin_inset Formula $\phi$
+\end_inset
+
+ over 
+\begin_inset Formula $p$
+\end_inset
+
+, which is a finite set, since 
+\begin_inset Formula $\text{dim}_{K}(K[y_{1},\dots,y_{k}]/(J+N))<\infty$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+The converse, however, is not true, not even for local rings.
+ But, if 
+\begin_inset Formula $\varphi:A\to B$
+\end_inset
+
+ is a map between local analytic 
+\begin_inset Formula $K$
+\end_inset
+
+-algebras, then 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ is finite if and only if 
+\begin_inset Formula $\text{dim}_{K}(B/\varphi(\mathfrak{m}_{A})B)<\infty$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{rem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A=K[x,y]$
+\end_inset
+
+, 
+\begin_inset Formula $B=K[x,y,z]/\langle x-yz\rangle$
+\end_inset
+
+, and 
+\begin_inset Formula $\varphi:A\to B$
+\end_inset
+
+ be the ring homomorphism induced by 
+\begin_inset Formula $\varphi(x)=x$
+\end_inset
+
+ and 
+\begin_inset Formula $\varphi(y)=y$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\text{Spec}(A)$
+\end_inset
+
+ corresponds tof the 
+\begin_inset Formula $(x,y)$
+\end_inset
+
+-plane, and 
+\begin_inset Formula $\text{Spec}(B)$
+\end_inset
+
+ corresponds to the 
+\begin_inset Quotes eld
+\end_inset
+
+blown up
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset Formula $(x,y)$
+\end_inset
+
+-plane.
+ The map 
+\begin_inset Formula $\varphi:A\to B$
+\end_inset
+
+, induces a map 
+\begin_inset Formula $\varphi^{\#}:\text{Spec}(B)\to\text{Spec}(A)$
+\end_inset
+
+.
+ We calculate the inverse images of some points 
+\begin_inset Formula $p_{i,j}=\langle x-i,x-j\rangle$
+\end_inset
+
+ in 
+\begin_inset Formula $\text{Max}(A)\subset\text{Spec}(A)$
+\end_inset
+
+: Let 
+\begin_inset Formula $s,t\in K\backslash\{0\}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula 
+\begin{align*}
+\left(\varphi^{\#}\right)^{-1}(p_{0,0}) & =\langle x-yz,x,y\rangle=\langle x,y\rangle\\
+\left(\varphi^{\#}\right)^{-1}(p_{s,0}) & =\langle x-yz,x-s,y\rangle=\langle1\rangle\\
+\left(\varphi^{\#}\right)^{-1}(p_{0,t}) & =\langle x-yz,x,y-t\rangle=\langle x,y-t,z\rangle\\
+\left(\varphi^{\#}\right)^{-1}(p_{s,t}) & =\langle x-yz,x-s,y-t\rangle=\langle x-1,y-1,s-tz\rangle
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So there is one point which maps to 
+\begin_inset Formula $p_{s,t}$
+\end_inset
+
+ and 
+\begin_inset Formula $p_{0,t}$
+\end_inset
+
+, no points which maps 
+\begin_inset Formula $p_{s,0}$
+\end_inset
+
+, and a whole line of points which maps to 
+\begin_inset Formula $p_{0,0}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename 20180210_132406.jpg
+	lyxscale 30
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+On the other hand, if we let 
+\begin_inset Formula $A=K[y,z]$
+\end_inset
+
+ and 
+\begin_inset Formula $\varphi:A\to B$
+\end_inset
+
+ be the map given by 
+\begin_inset Formula $\varphi(y)=y$
+\end_inset
+
+ and 
+\begin_inset Formula $\varphi(z)=z$
+\end_inset
+
+, then it's easy to see 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ is a ring isomorphism, and hence, the induced map 
+\begin_inset Formula $\varphi^{\#}$
+\end_inset
+
+ is a bijection.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Now let us considered the projective version of this map.
+ Let 
+\begin_inset Formula $\widetilde{A}=K[x,y,w]$
+\end_inset
+
+, 
+\begin_inset Formula $\widetilde{B}=K[x,y,z,w]/\langle xw-yz\rangle$
+\end_inset
+
+, and 
+\begin_inset Formula $\widetilde{\varphi}:\widetilde{A}\to\widetilde{B}$
+\end_inset
+
+ be the ring homomorphism induced by 
+\begin_inset Formula $\widetilde{\varphi}(x)=x$
+\end_inset
+
+, 
+\begin_inset Formula $\widetilde{\varphi}(y)=y$
+\end_inset
+
+, and 
+\begin_inset Formula $\widetilde{\varphi}(w)=w$
+\end_inset
+
+.
+ Then in the 
+\begin_inset Formula $w=1$
+\end_inset
+
+ plane, we recover 
+\begin_inset Formula $\varphi:A\to B$
+\end_inset
+
+.
+ We calculate the inverse images of some points 
+\begin_inset Formula $p_{i,j,k}=\langle x-i,x-j,x-k\rangle$
+\end_inset
+
+ in 
+\begin_inset Formula $\text{Max}(\widetilde{A})\subset\text{Spec}(\widetilde{A})$
+\end_inset
+
+: Let 
+\begin_inset Formula $s,t,u\in K\backslash\{0\}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula 
+\begin{align*}
+\left(\varphi^{\#}\right)^{-1}(p_{0,0,0}) & =\langle x,y,w\rangle\\
+\left(\varphi^{\#}\right)^{-1}(p_{s,0,0}) & =\langle x-s,y,w\rangle\\
+\left(\varphi^{\#}\right)^{-1}(p_{0,t,0}) & =\langle x,y-t,w\rangle\\
+\left(\varphi^{\#}\right)^{-1}(p_{0,0,u}) & =\langle x,y,w-u\rangle\\
+\left(\varphi^{\#}\right)^{-1}(p_{0,t,u}) & =\langle x,y-t,w-u\rangle\\
+\left(\varphi^{\#}\right)^{-1}(p_{s,t,0}) & =\langle x-s,y-t,w\rangle\\
+\left(\varphi^{\#}\right)^{-1}(p_{s,0,u}) & =\langle1\rangle\\
+\left(\varphi^{\#}\right)^{-1}(p_{s,t,u}) & =\langle su-tz,x-s,y-t,w-u\rangle
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{rem}
+\backslash
+label{rem}
+\end_layout
+
+\end_inset
+
+ Note that 
+\begin_inset Formula $\langle x-yz,x-s,y-t\rangle$
+\end_inset
+
+ can be considered as an ideal in 
+\begin_inset Formula $K(s,t)[x,y,z]$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{rem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Criterion for Integral Dependence
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Let 
+\begin_inset Formula $K$
+\end_inset
+
+ be a field, 
+\begin_inset Formula $I\subset K[x_{1},\dots,x_{n}]$
+\end_inset
+
+ an ideal and 
+\begin_inset Formula $f_{1},\dots,f_{k}\in K[x_{1},\dots,x_{n}]$
+\end_inset
+
+.
+ The residue classes 
+\begin_inset Formula $\overline{f}_{i}=f_{i}\mbox{ mod }I$
+\end_inset
+
+ generate a subring
+\begin_inset Formula 
+\[
+A:=K[\overline{f}_{1},\dots,\overline{f}_{k}]\subset B:=K[x_{1},\dots,x_{n}]/I.
+\]
+
+\end_inset
+
+ We want to check whether a given 
+\begin_inset Formula $b\in K[x]$
+\end_inset
+
+ is integral over 
+\begin_inset Formula $K[f_{1},\dots,f_{k}]\mbox{ mod }I$
+\end_inset
+
+, that is, whether 
+\begin_inset Formula $\overline{b}$
+\end_inset
+
+ is integral over 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\backslash
+label{integral}
+\end_layout
+
+\end_inset
+
+ (Criterion for integral dependence).
+ Let 
+\begin_inset Formula $b,f_{1},\dots,f_{k}\in K[x_{1},\dots,x_{n}]$
+\end_inset
+
+, 
+\begin_inset Formula $I=\langle g_{1},\dots,g_{s}\rangle\subset K[x_{1},\dots,x_{n}]$
+\end_inset
+
+ an ideal, and 
+\begin_inset Formula $t,y_{1},\dots,y_{k}$
+\end_inset
+
+ new variables.
+ Consider the ideal
+\begin_inset Formula 
+\[
+M:=\langle t-b,y_{1}-f_{1},\dots,y_{k}-f_{k},g_{1},\dots,g_{s}\rangle\subset K[x_{1},\dots,x_{n},t,y_{1},\dots,y_{k}].
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $>$
+\end_inset
+
+ be an ordering on 
+\begin_inset Formula $K[x,t,y]$
+\end_inset
+
+ with 
+\begin_inset Formula $x\gg t\gg y$
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Recall that 
+\begin_inset Formula $\gg$
+\end_inset
+
+ refers to a block ordering where terms in 
+\begin_inset Formula $x=(x_{1},\dots,x_{n})$
+\end_inset
+
+ are always greater than terms in 
+\begin_inset Formula $y=(y_{1},\dots,y_{k})$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+, and 
+\begin_inset Formula $G$
+\end_inset
+
+ be a Groebner basis of 
+\begin_inset Formula $M$
+\end_inset
+
+ with respect to this ordering.
+ Then 
+\begin_inset Formula $b$
+\end_inset
+
+ is integral over 
+\begin_inset Formula $K[f_{1},\dots,f_{k}]\mbox{ mod }I$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $G$
+\end_inset
+
+ contains an element 
+\begin_inset Formula $g$
+\end_inset
+
+ with leading monomial 
+\begin_inset Formula $\mbox{LM}(g)=t^{p}$
+\end_inset
+
+ for some 
+\begin_inset Formula $p>0$
+\end_inset
+
+.
+ Moreover, any such 
+\begin_inset Formula $g$
+\end_inset
+
+ defines an integral relation for 
+\begin_inset Formula $b$
+\end_inset
+
+ over 
+\begin_inset Formula $K[f_{1},\dots,f_{k}]\mbox{ mod }I$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ If 
+\begin_inset Formula $\mbox{LM}(g)=t^{p}$
+\end_inset
+
+ then 
+\begin_inset Formula $g$
+\end_inset
+
+ must have the form
+\begin_inset Formula 
+\[
+g(t,y_{1},\dots,y_{k})=a_{0}t^{p}+a_{1}(y_{1},\dots,y_{k})t^{p-1}+\cdots+a_{p}(y_{1},\dots,y_{k})\in K[t,y_{1},\dots,y_{k}],\qquad a_{0}\in K\setminus\{0\}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We may assume that 
+\begin_inset Formula $a_{0}=1$
+\end_inset
+
+.
+ There is a ring homomorphism 
+\begin_inset Formula $\varphi:K[x_{1},\dots,x_{n},t,y_{1},\dots,y_{k}]\to K[x_{1},\dots,x_{n}]$
+\end_inset
+
+ given by sending 
+\begin_inset Formula $t\mapsto b$
+\end_inset
+
+ and 
+\begin_inset Formula $y_{i}\mapsto f_{i}$
+\end_inset
+
+.
+ The image of 
+\begin_inset Formula $M$
+\end_inset
+
+ under 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ is 
+\begin_inset Formula $I$
+\end_inset
+
+, and since 
+\begin_inset Formula $g\in M$
+\end_inset
+
+ we have 
+\begin_inset Formula $\varphi(g)=g(b,f_{1},\dots,f_{k})\in I$
+\end_inset
+
+.
+ Thus, 
+\begin_inset Formula $g$
+\end_inset
+
+ defines an integral relation for 
+\begin_inset Formula $b$
+\end_inset
+
+ over 
+\begin_inset Formula $K[f_{1},\dots,f_{k}]\mbox{ mod }I$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Conversely, if 
+\begin_inset Formula $b$
+\end_inset
+
+ is integral, then there exists a 
+\begin_inset Formula $g\in K[t,y_{1},\dots,y_{k}]$
+\end_inset
+
+ as above.
+ By Taylor's formula, 
+\begin_inset Formula 
+\[
+g(t,y_{1},\dots,y_{k})=g(b,f_{1},\dots,f_{k})+b_{0}\cdot(t-b)+\sum_{i=1}^{k}b_{i}\cdot(y_{i}-f_{i}),
+\]
+
+\end_inset
+
+for some 
+\begin_inset Formula $b_{i}\in K[t,y_{1},\dots,y_{k}]$
+\end_inset
+
+, 
+\begin_inset Formula $i=0,\dots,k$
+\end_inset
+
+.
+ Hence, 
+\begin_inset Formula $g\in M$
+\end_inset
+
+, and therefore, 
+\begin_inset Formula $t^{p}=\mbox{LM}(g)\in\mbox{LT}(M).$
+\end_inset
+
+ Since 
+\begin_inset Formula $G$
+\end_inset
+
+ is a Groebner basis, 
+\begin_inset Formula $t^{p}$
+\end_inset
+
+ is divisible by the leading monomial of some element of 
+\begin_inset Formula $G$
+\end_inset
+
+ which implies the result.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Criterion for Finiteness
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\end_layout
+
+\end_inset
+
+ (Criterion for finiteness).
+ Let 
+\begin_inset Formula $K$
+\end_inset
+
+ be a field, and let 
+\begin_inset Formula $x=(x_{1},\dots,x_{n})$
+\end_inset
+
+, 
+\begin_inset Formula $y=(y_{1},\dots,y_{m})$
+\end_inset
+
+ be two sets of variables.
+ Moreover, let 
+\begin_inset Formula $I\subset K[x]$
+\end_inset
+
+, 
+\begin_inset Formula $J=\langle h_{1},\dots,h_{s}\rangle\subset K[y]$
+\end_inset
+
+ be ideals and 
+\begin_inset Formula $\varphi:K[x]/I\to K[y]/J$
+\end_inset
+
+ a morphism, defined by 
+\begin_inset Formula $\varphi(x_{i}):=f_{i}$
+\end_inset
+
+.
+ Set 
+\begin_inset Formula 
+\[
+M:=\langle x_{1}-f_{1},\dots,x_{n}-f_{n},h_{1},\dots,h_{s}\rangle\subset K[x,y],
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and let 
+\begin_inset Formula $>$
+\end_inset
+
+ be a block ordering on 
+\begin_inset Formula $K[x,y]$
+\end_inset
+
+ such that 
+\begin_inset Formula $>$
+\end_inset
+
+ is the lexigraphical ordering for 
+\begin_inset Formula $y$
+\end_inset
+
+, 
+\begin_inset Formula $y_{1}>\cdots>y_{m}$
+\end_inset
+
+, and 
+\begin_inset Formula $y\gg x$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $G=\{g_{1},\dots,g_{t}\}$
+\end_inset
+
+ be a standard basis of 
+\begin_inset Formula $M$
+\end_inset
+
+ with respect to this ordering.
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Then 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ is finite if and only if for each 
+\begin_inset Formula $j\in\{1,\dots,m\}$
+\end_inset
+
+ there exists some 
+\begin_inset Formula $g\in G$
+\end_inset
+
+ such that 
+\begin_inset Formula $\mbox{LM}(g)=y_{j}^{\nu_{j}}$
+\end_inset
+
+ for some 
+\begin_inset Formula $\nu_{j}>0$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ If 
+\begin_inset Formula $g_{s_{j}}=y_{j}^{\nu_{j}}+\sum_{\nu=0}^{\nu=v_{j}-1}a_{j\nu}(x,y_{j+1},\dots,y_{m})\cdot y_{j}^{\nu}\in M$
+\end_inset
+
+, then 
+\begin_inset Formula 
+\[
+g_{s_{j\mid x=f}}:=g_{s_{j}}(f_{1}(y),\dots,f_{n}(y),y_{j+1},\dots,y_{m})\in J
+\]
+
+\end_inset
+
+for 
+\begin_inset Formula $j=1,\dots,m$
+\end_inset
+
+.
+ Therefore, 
+\begin_inset Formula $y_{m}\mbox{ mod }J$
+\end_inset
+
+ is integral over 
+\begin_inset Formula $K[x]/I$
+\end_inset
+
+.
+ Using induction and the transitivity of integrality, we obtain that 
+\begin_inset Formula $y_{j}\mbox{ mod }J$
+\end_inset
+
+ is integral over 
+\begin_inset Formula $K[x]/I$
+\end_inset
+
+, hence 
+\begin_inset Formula $K[y]/J$
+\end_inset
+
+ is finite over 
+\begin_inset Formula $K[x]/I$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Conversely, the finiteness of 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ guarantees an integral relation 
+\begin_inset Formula $y_{j}^{\nu_{j}}+\sum_{\nu=0}^{\nu=v_{j}-1}a_{j\nu}(f_{1}(y),\dots,f_{n}(y))\cdot y_{j}^{\nu}\in J$
+\end_inset
+
+ for suitable 
+\begin_inset Formula $a_{j\nu}\in K[x]$
+\end_inset
+
+.
+ Using Taylor's formula, as in the proof of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Proposition~(
+\backslash
+ref{integral})
+\end_layout
+
+\end_inset
+
+, we obtain 
+\begin_inset Formula 
+\[
+y_{j}^{\nu_{j}}+\sum_{\nu=0}^{\nu=v_{j}-1}a_{j\nu}(f_{1}(y),\dots,f_{n}(y))\cdot y_{j}^{\nu}\in M,
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and therefore its leading monomial, 
+\begin_inset Formula $y_{j}^{\nu_{j}}$
+\end_inset
+
+ is an element of 
+\begin_inset Formula $\mbox{LT}(M)$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Integral Closure
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\backslash
+label{defn}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Applications
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\backslash
+label{theorem3.5.2}
+\end_layout
+
+\end_inset
+
+ (Hilbert's Nullstellensatz).
+ Assume that 
+\begin_inset Formula $K=\bar{K}$
+\end_inset
+
+ is an algebraically closed field.
+ Let 
+\begin_inset Formula $I\subset K[x]:=K[x_{1},\dots,x_{n}]$
+\end_inset
+
+ be an ideal.
+ Suppose 
+\begin_inset Formula $g\in K[x]$
+\end_inset
+
+ such that 
+\begin_inset Formula $g(x)=0$
+\end_inset
+
+ for all 
+\begin_inset Formula $x\in\mathbf{V}(I)$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $g\in\sqrt{I}$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ We consider the ideal 
+\begin_inset Formula $J:=IK[x,t]+\langle1-tg\rangle$
+\end_inset
+
+ in the polynomial ring 
+\begin_inset Formula $K[x,t]:=K[x_{1},\dots,x_{n},t]$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $J=K[x,t]$
+\end_inset
+
+, then there exists 
+\begin_inset Formula $g_{1},\dots,g_{s}\in I$
+\end_inset
+
+ and 
+\begin_inset Formula $h,h_{1},\dots,h_{s}\in K[x,t]$
+\end_inset
+
+ such that 
+\begin_inset Formula $1=\sum_{i=1}^{s}g_{i}h_{i}+h(1-tg)$
+\end_inset
+
+.
+ Setting 
+\begin_inset Formula $t:=\frac{1}{g}\in K[x]_{g}$
+\end_inset
+
+, this implies 
+\begin_inset Formula 
+\[
+1=\sum_{i=1}^{s}g_{i}\cdot h_{i}\left(x,\frac{1}{g}\right)\in K[x]_{g}.
+\]
+
+\end_inset
+
+Clearing denominators, we obtain 
+\begin_inset Formula $g^{\rho}=\sum_{i}g_{i}h_{i}'$
+\end_inset
+
+ for some 
+\begin_inset Formula $\rho>0$
+\end_inset
+
+, 
+\begin_inset Formula $h_{i}'\in K[x]$
+\end_inset
+
+.
+ Therefore 
+\begin_inset Formula $g\in\sqrt{I}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Now assume that 
+\begin_inset Formula $J\subset K[x,t]$
+\end_inset
+
+.
+ We choose a maximal ideal 
+\begin_inset Formula $\mathfrak{m}\subset K[x,t]$
+\end_inset
+
+ such that 
+\begin_inset Formula $J\subset\mathfrak{m}$
+\end_inset
+
+.
+ Using Theorem 3.5.1 (5), we know that 
+\begin_inset Formula $K[x,t]/\mathfrak{m}\cong K$
+\end_inset
+
+, and, hence, 
+\begin_inset Formula $\mathfrak{m}=\langle x_{1}-a_{1},\dots,x_{n}-a_{n},t-a\rangle$
+\end_inset
+
+ for some 
+\begin_inset Formula $a_{i},a\in K$
+\end_inset
+
+.
+ Now 
+\begin_inset Formula $J\subset\mathfrak{m}$
+\end_inset
+
+ implies 
+\begin_inset Formula $(a_{1},\dots,a_{n},a)\in\mathbf{V}(J)$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $(a_{1},\dots,a_{n})\in\mathbf{V}(I)$
+\end_inset
+
+, then 
+\begin_inset Formula $g(a_{1},\dots,a_{n})=0$
+\end_inset
+
+.
+ Hence, 
+\begin_inset Formula $1-tg\in J$
+\end_inset
+
+ does not vanish at 
+\begin_inset Formula $(a_{1},\dots,a_{n})$
+\end_inset
+
+, contradicting the assumption 
+\begin_inset Formula $(a_{1},\dots,a_{n},a)\in\mathbf{V}(J)$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $(a_{1},\dots,a_{n})\notin\mathbf{V}(I)$
+\end_inset
+
+, then there is some 
+\begin_inset Formula $h\in I$
+\end_inset
+
+ such that 
+\begin_inset Formula $h(a_{1},\dots,a_{n})\neq0$
+\end_inset
+
+, in particular 
+\begin_inset Formula $h(a_{1},\dots,a_{n},a)\neq0$
+\end_inset
+
+ and therefore 
+\begin_inset Formula $(a_{1},\dots,a_{n},a)\notin\mathbf{V}(J)$
+\end_inset
+
+, again contradicting our assumption.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Section*
+Noether Normalization
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\end_layout
+
+\end_inset
+
+ (Noether normalization).
+ Let 
+\begin_inset Formula $K$
+\end_inset
+
+ be a field and let 
+\begin_inset Formula $I\subset K[x_{1},\dots,x_{n}]$
+\end_inset
+
+ be an ideal.
+ Then there exist an integer 
+\begin_inset Formula $s\leq n$
+\end_inset
+
+ and an isomorphism 
+\begin_inset Formula 
+\[
+\varphi:K[x_{1},\dots,x_{n}]\to A:=K[y_{1},\dots,y_{n}],
+\]
+
+\end_inset
+
+such that 
+\end_layout
+
+\begin_layout Enumerate
+The canonical map 
+\begin_inset Formula $K[y_{s+1},\dots,y_{n}]\to A/\varphi(I)$
+\end_inset
+
+, given by 
+\begin_inset Formula $y_{i}\mapsto\overline{y}_{i}$
+\end_inset
+
+ is injective and finite.
+\end_layout
+
+\begin_layout Enumerate
+Moreover, 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ can be chosen such that for 
+\begin_inset Formula $j=1,\dots,s$
+\end_inset
+
+, there exist polynomials
+\begin_inset Formula 
+\[
+g_{j}=y_{j}^{e_{j}}+\sum_{k=0}^{e_{j}-1}\xi_{j,k}(y_{j+1},\dots,y_{n})\cdot y_{j}^{k}\in\varphi(I)
+\]
+
+\end_inset
+
+satisfying 
+\begin_inset Formula $e_{j}\geq\text{deg}(\xi_{j,k})+k$
+\end_inset
+
+ for 
+\begin_inset Formula $k=0,\dots,e_{j}-1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $I$
+\end_inset
+
+ is homogeneous, then the 
+\begin_inset Formula $g_{j}$
+\end_inset
+
+ can be chosen to be homogeneous too.
+ If 
+\begin_inset Formula $I$
+\end_inset
+
+ is a prime ideal, the 
+\begin_inset Formula $g_{j}$
+\end_inset
+
+ can be chosen to be irreducible.
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $K$
+\end_inset
+
+ is perfect and if 
+\begin_inset Formula $I$
+\end_inset
+
+ is prime, then the morphism 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ can be chosen such that, additionally, 
+\begin_inset Formula $Q(A/\varphi(I))\supset Q(K[y_{s+1},\dots,y_{n}])$
+\end_inset
+
+ is a separable field extension and, moreover, if 
+\begin_inset Formula $K$
+\end_inset
+
+ is infinite then
+\begin_inset Formula 
+\[
+Q(A/\varphi(I))=Q(K[y_{s+1},\dots,y_{n}])[y_{s}]/\langle g_{s}\rangle.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $K$
+\end_inset
+
+ is infinite, then 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ can be chosen to be linear, 
+\begin_inset Formula $\varphi(x_{i})=\sum_{j}m_{ij}y_{j}$
+\end_inset
+
+ with 
+\begin_inset Formula $M=(m_{ij})\in\text{GL}(n,K)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

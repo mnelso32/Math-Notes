@@ -1,0 +1,5023 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{tikz}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\usetikzlibrary{shapes.geometric}
+\usepackage{tikz-cd}
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem*{cor}{Corollary}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{ex}{Exercise} 
+\newtheorem{example}{Example}[section]
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem{case}{Case}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{tikz-cd}
+\usetikzlibrary{calc,arrows,decorations.pathreplacing}
+\tikzset{mydot/.style={circle,fill,inner sep=1.5pt},
+commutative diagrams/.cd,
+  arrow style=tikz,
+  diagrams={>=latex},
+}
+
+\usepackage{babel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+\usepackage{pgfplots}
+\usetikzlibrary{decorations.markings}
+\pgfplotsset{compat=1.9}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding iso8859-15
+\fontencoding global
+\font_roman "palatino" "default"
+\font_sans "lmss" "default"
+\font_typewriter "lmtt" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf true
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing single
+\use_hyperref false
+\papersize custom
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\paperwidth 30cm
+\paperheight 35cm
+\topmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0bp
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Sylow Theorems
+\end_layout
+
+\begin_layout Standard
+In this section, let 
+\begin_inset Formula $p$
+\end_inset
+
+ be a prime and let 
+\begin_inset Formula $G$
+\end_inset
+
+ be a group of order 
+\begin_inset Formula $p^{\alpha}m$
+\end_inset
+
+ where 
+\begin_inset Formula $\alpha\ge0$
+\end_inset
+
+ and 
+\begin_inset Formula $p\not\mid m$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $p$
+\end_inset
+
+ be a prime.
+ A 
+\begin_inset Formula $p$
+\end_inset
+
+-
+\series bold
+group 
+\series default
+is a group of order 
+\begin_inset Formula $p^{m}$
+\end_inset
+
+ for some 
+\begin_inset Formula $m\geq0$
+\end_inset
+
+.
+ A 
+\series bold
+Sylow 
+\series default
+
+\begin_inset Formula $p$
+\end_inset
+
+-
+\series bold
+subgroup 
+\series default
+of 
+\begin_inset Formula $G$
+\end_inset
+
+ is a subgroup 
+\begin_inset Formula $P$
+\end_inset
+
+ of 
+\begin_inset Formula $G$
+\end_inset
+
+ with 
+\begin_inset Formula $|P|=p^{\alpha}$
+\end_inset
+
+.
+ We use the notation 
+\begin_inset Formula $\mbox{Syl}_{p}(G)=\{P\leq G\mid|P|=p^{\alpha}\}$
+\end_inset
+
+ to denote the set of all Sylow 
+\begin_inset Formula $p$
+\end_inset
+
+-subgroups of 
+\begin_inset Formula $G$
+\end_inset
+
+ and we also use the notation 
+\begin_inset Formula $n_{p}=|\mbox{Syl}_{p}(G)|$
+\end_inset
+
+ to denote the number of Sylow 
+\begin_inset Formula $p$
+\end_inset
+
+-subgroups of 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $p$
+\end_inset
+
+ be a prime and let 
+\begin_inset Formula $G$
+\end_inset
+
+ be a group of order 
+\begin_inset Formula $p^{\alpha}m$
+\end_inset
+
+ where 
+\begin_inset Formula $\alpha\ge0$
+\end_inset
+
+ and 
+\begin_inset Formula $p\not\mid m$
+\end_inset
+
+.
+ Then
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\mbox{Syl}_{p}(G)\neq\emptyset.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $Q$
+\end_inset
+
+ is a 
+\begin_inset Formula $p$
+\end_inset
+
+-subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
+ and if 
+\begin_inset Formula $P\in\mbox{Syl}_{p}(G)$
+\end_inset
+
+, then 
+\begin_inset Formula $Q\leq gPg^{-1}$
+\end_inset
+
+ for some 
+\begin_inset Formula $g\in G$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+For all 
+\begin_inset Formula $P\in\mbox{Syl}_{p}(G)$
+\end_inset
+
+, we have 
+\begin_inset Formula $n_{p}\equiv1\mbox{ mod }p$
+\end_inset
+
+, 
+\begin_inset Formula $n_{p}\mid m$
+\end_inset
+
+, and 
+\begin_inset Formula $n_{p}=[G:N_{G}(P)]$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{cor}
+\end_layout
+
+\end_inset
+
+ The following are equivalent.
+ 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $n_{p}=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $P$
+\end_inset
+
+ is a characteristic subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $P\trianglelefteq G$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{cor}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ We show that any group of order 
+\begin_inset Formula $15$
+\end_inset
+
+ is cyclic.
+ Let 
+\begin_inset Formula $G$
+\end_inset
+
+ be a group of order 
+\begin_inset Formula $15$
+\end_inset
+
+.
+ We have 
+\begin_inset Formula $n_{5}\mid3$
+\end_inset
+
+ and 
+\begin_inset Formula $n_{5}\equiv1\mbox{ mod }5$
+\end_inset
+
+, thus 
+\begin_inset Formula $n_{5}=1$
+\end_inset
+
+.
+ Similarly 
+\begin_inset Formula $n_{3}=1$
+\end_inset
+
+.
+ This implies 
+\begin_inset Formula $\mbox{Syl}_{3}(G)=\{P\}$
+\end_inset
+
+ where 
+\begin_inset Formula $|P|=3$
+\end_inset
+
+.
+ Thus, 
+\begin_inset Formula $P=\langle x\rangle$
+\end_inset
+
+ where 
+\begin_inset Formula $\mbox{ord}(x)=3$
+\end_inset
+
+.
+ Similarly 
+\begin_inset Formula $\mbox{Syl}_{5}(G)=\{Q\}$
+\end_inset
+
+ and 
+\begin_inset Formula $Q=\langle y\rangle$
+\end_inset
+
+ where 
+\begin_inset Formula $\mbox{ord}(y)=5$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $P$
+\end_inset
+
+ and 
+\begin_inset Formula $Q$
+\end_inset
+
+ are normal subgroups of 
+\begin_inset Formula $G$
+\end_inset
+
+ and 
+\begin_inset Formula $P\cap Q=\{e\}$
+\end_inset
+
+, we have 
+\begin_inset Formula $xy=y^{k}x$
+\end_inset
+
+ and 
+\begin_inset Formula $xy=yx^{\ell}$
+\end_inset
+
+ for some 
+\begin_inset Formula $k$
+\end_inset
+
+ and 
+\begin_inset Formula $\ell$
+\end_inset
+
+.
+ So 
+\begin_inset Formula $y^{k}x=yx^{\ell}$
+\end_inset
+
+ or 
+\begin_inset Formula $y^{k-1}x^{1-\ell}=1$
+\end_inset
+
+, which implies 
+\begin_inset Formula $k=\ell=1$
+\end_inset
+
+.
+ So 
+\begin_inset Formula $x$
+\end_inset
+
+ commutes with 
+\begin_inset Formula $y$
+\end_inset
+
+ and this implies 
+\begin_inset Formula $\mbox{ord}(xy)=\mbox{ord}(x)\mbox{ord}(y)=15$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lemma}
+\end_layout
+
+\end_inset
+
+ If 
+\begin_inset Formula $Q$
+\end_inset
+
+ is a 
+\begin_inset Formula $p$
+\end_inset
+
+-subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
+ and if 
+\begin_inset Formula $P\in\mbox{Syl}_{p}(G)$
+\end_inset
+
+, then 
+\begin_inset Formula $Q\cap N_{G}(P)=Q\cap P$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lemma}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ We show that any group of order 
+\begin_inset Formula $105$
+\end_inset
+
+ is not simple.
+ Let 
+\begin_inset Formula $G$
+\end_inset
+
+ be a group such that 
+\begin_inset Formula $|G|=105=3\cdot5\cdot7$
+\end_inset
+
+.
+ Suppose 
+\begin_inset Formula $G$
+\end_inset
+
+ is simple.
+ Then 
+\begin_inset Formula $n_{3},n_{5},n_{7}>1$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $n_{p}\mid m$
+\end_inset
+
+, we have 
+\begin_inset Formula $n_{3}\in\{1,5,7,35\}$
+\end_inset
+
+, 
+\begin_inset Formula $n_{5}\in\{1,3,7,21\}$
+\end_inset
+
+, and 
+\begin_inset Formula $n_{7}\in\{1,3,5,15\}$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $n_{p}\equiv1\mbox{ mod }p$
+\end_inset
+
+, we have 
+\begin_inset Formula $n_{3}\in\{1,7\}$
+\end_inset
+
+, 
+\begin_inset Formula $n_{5}\in\{1,21\}$
+\end_inset
+
+, and 
+\begin_inset Formula $n_{7}\in\{1,15\}$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $n_{p}>1$
+\end_inset
+
+, we have 
+\begin_inset Formula $n_{3}=7$
+\end_inset
+
+, 
+\begin_inset Formula $n_{5}=21$
+\end_inset
+
+, and 
+\begin_inset Formula $n_{7}=15$
+\end_inset
+
+.
+ This is a contradiction though because this would imply there are 
+\begin_inset Formula $2\cdot7$
+\end_inset
+
+ elements of order 
+\begin_inset Formula $3$
+\end_inset
+
+, 
+\begin_inset Formula $4\cdot21$
+\end_inset
+
+ elements of order 
+\begin_inset Formula $5$
+\end_inset
+
+, 
+\begin_inset Formula $6\cdot15$
+\end_inset
+
+ elements of order 
+\begin_inset Formula $7$
+\end_inset
+
+, and 
+\begin_inset Formula $2\cdot7+4\cdot21+6\cdot15=188>105$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $G$
+\end_inset
+
+ be a group of order 
+\begin_inset Formula $30=2\cdot3\cdot5$
+\end_inset
+
+.
+ We show that 
+\begin_inset Formula $G$
+\end_inset
+
+ has a normal subgroup of order 
+\begin_inset Formula $15$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $n_{p}\mid m$
+\end_inset
+
+ and 
+\begin_inset Formula $n_{p}\equiv1\mbox{ mod }p$
+\end_inset
+
+, we have 
+\begin_inset Formula $n_{2}\in\{1,3,5,15\}$
+\end_inset
+
+, 
+\begin_inset Formula $n_{3}\in\{1,10\}$
+\end_inset
+
+, 
+\begin_inset Formula $n_{5}\in\{1,6\}$
+\end_inset
+
+.
+ We want to show that one of 
+\begin_inset Formula $n_{3},n_{5}$
+\end_inset
+
+ has to be 
+\begin_inset Formula $1$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $n_{3},n_{5}>1$
+\end_inset
+
+, then 
+\begin_inset Formula $n_{3}=10$
+\end_inset
+
+ and 
+\begin_inset Formula $n_{5}=6$
+\end_inset
+
+.
+ This is a contradiction though since 
+\begin_inset Formula $2\cdot10+4\cdot6=44>30$
+\end_inset
+
+.
+ So either 
+\begin_inset Formula $n_{3}$
+\end_inset
+
+ or 
+\begin_inset Formula $n_{5}$
+\end_inset
+
+ is equal to 
+\begin_inset Formula $1$
+\end_inset
+
+.
+ Assume 
+\begin_inset Formula $n_{3}=1$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $P$
+\end_inset
+
+ be the 
+\begin_inset Formula $3$
+\end_inset
+
+-Sylow Subgroup and let 
+\begin_inset Formula $Q$
+\end_inset
+
+ be a 
+\begin_inset Formula $5$
+\end_inset
+
+-Sylow Subgroup.
+ Then since 
+\begin_inset Formula $P$
+\end_inset
+
+ is normal, 
+\begin_inset Formula $PQ$
+\end_inset
+
+ is a subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $|P\cap Q|=1$
+\end_inset
+
+, 
+\begin_inset Formula $|PQ|=|P|\cdot|Q|$
+\end_inset
+
+.
+ So 
+\begin_inset Formula $PQ$
+\end_inset
+
+ is a group of order 
+\begin_inset Formula $15$
+\end_inset
+
+, hence it is cyclic.
+ So 
+\begin_inset Formula $\mbox{Syl}_{5}(PQ)=\{Q\}$
+\end_inset
+
+ and 
+\begin_inset Formula $Q$
+\end_inset
+
+ is a characteristic subgroup of 
+\begin_inset Formula $PQ$
+\end_inset
+
+, and 
+\begin_inset Formula $PQ\trianglelefteq G$
+\end_inset
+
+ because 
+\begin_inset Formula $[G:PQ]=2$
+\end_inset
+
+, so 
+\begin_inset Formula $Q\trianglelefteq G$
+\end_inset
+
+.
+ The same idea works when 
+\begin_inset Formula $n_{5}=1$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Sylows's Theorem Applications
+\end_layout
+
+\begin_layout Standard
+Recall, if 
+\begin_inset Formula $|G|=15$
+\end_inset
+
+ then 
+\begin_inset Formula $G$
+\end_inset
+
+ is cyclic.
+ In particular, 
+\begin_inset Formula $n_{5}=1$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $|G|=30$
+\end_inset
+
+, then 
+\begin_inset Formula $n_{3}=n_{5}=1$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ If 
+\begin_inset Formula $G$
+\end_inset
+
+ is a group of order 
+\begin_inset Formula $6$
+\end_inset
+
+ then 
+\begin_inset Formula $n_{3}=1$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ If 
+\begin_inset Formula $G$
+\end_inset
+
+ is a group of order 
+\begin_inset Formula $20$
+\end_inset
+
+ then 
+\begin_inset Formula $n_{5}=1$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\end_layout
+
+\end_inset
+
+ Any group of order 
+\begin_inset Formula $12$
+\end_inset
+
+ has either 
+\begin_inset Formula $n_{2}=1$
+\end_inset
+
+ or 
+\begin_inset Formula $n_{3}=1$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $G$
+\end_inset
+
+ be a group of order 
+\begin_inset Formula $12=3\cdot2^{2}$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $n_{3}=1$
+\end_inset
+
+ then we are done.
+ So assume 
+\begin_inset Formula $n_{3}>1$
+\end_inset
+
+.
+ Then by Sylow's Theorems, 
+\begin_inset Formula $n_{3}=4$
+\end_inset
+
+.
+ So 
+\begin_inset Formula $\mbox{Syl}_{3}(G)=\{P_{1},P_{2},P_{3},P_{4}\}$
+\end_inset
+
+ with 
+\begin_inset Formula $|P_{i}|=3$
+\end_inset
+
+.
+ Each 
+\begin_inset Formula $P_{i}$
+\end_inset
+
+ is cyclic of order 
+\begin_inset Formula $3$
+\end_inset
+
+ and 
+\begin_inset Formula $P_{i}\cap P_{j}=\{e\}$
+\end_inset
+
+ for 
+\begin_inset Formula $i\neq j$
+\end_inset
+
+, so there are 
+\begin_inset Formula $8$
+\end_inset
+
+ elements of order 
+\begin_inset Formula $3$
+\end_inset
+
+ in 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ Now 
+\begin_inset Formula $G$
+\end_inset
+
+ acts on 
+\begin_inset Formula $\mbox{Syl}_{3}(G)$
+\end_inset
+
+ by conjugation: 
+\begin_inset Formula $g\cdot P_{i}=gP_{i}g^{-1}$
+\end_inset
+
+.
+ This gives a homomorphism 
+\begin_inset Formula $\varphi:G\to S_{4}$
+\end_inset
+
+ with 
+\begin_inset Formula 
+\[
+\mbox{Ker}\varphi=\{g\in G\mid gP_{i}g^{-1}=P_{i},\quad1\leq i\leq4\}=\bigcap_{i=1,2,3,4}\mbox{N}_{G}(P_{i}).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Since
+\begin_inset Formula 
+\begin{align*}
+4 & =n_{3}\\
+ & =[G:\mbox{N}_{G}(P_{i})]\\
+ & =\frac{|G|}{\mbox{N}_{G}(P_{i})}\\
+ & =\frac{12}{\mbox{N}_{G}(P_{i})}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mbox{N}_{G}(P_{i})=3$
+\end_inset
+
+.
+ So 
+\begin_inset Formula $P_{i}\leq\mbox{N}_{G}(P_{i})$
+\end_inset
+
+ and 
+\begin_inset Formula $|P_{i}|=|\mbox{N}_{G}(P_{i})|$
+\end_inset
+
+ implies 
+\begin_inset Formula $P_{i}=\mbox{N}_{G}(P_{i})$
+\end_inset
+
+.
+ So 
+\begin_inset Formula 
+\[
+\mbox{Ker}\varphi==\bigcap_{i=1,2,3,4}P_{i}=\{e\}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then 
+\begin_inset Formula $G\cong\varphi(G)\leq S_{4}$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $G$
+\end_inset
+
+ has 
+\begin_inset Formula $8$
+\end_inset
+
+ elements of order 
+\begin_inset Formula $3$
+\end_inset
+
+, 
+\begin_inset Formula $\varphi(G)$
+\end_inset
+
+ also has 
+\begin_inset Formula $8$
+\end_inset
+
+ elements of order 
+\begin_inset Formula $3$
+\end_inset
+
+.
+ So 
+\begin_inset Formula $|\varphi(G)\cap A_{4}|\geq8$
+\end_inset
+
+ and 
+\begin_inset Formula $\varphi(G)\cap A_{4}\leq\varphi(G)$
+\end_inset
+
+ implies 
+\begin_inset Formula $|\varphi(G)\cap A_{4}|=12=\varphi(G)$
+\end_inset
+
+.
+ So if 
+\begin_inset Formula $n_{3}=4$
+\end_inset
+
+, then 
+\begin_inset Formula $\varphi(G)\cong A_{4}$
+\end_inset
+
+ and 
+\begin_inset Formula $n_{2}(A_{4})=1$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\end_layout
+
+\end_inset
+
+ If 
+\begin_inset Formula $G$
+\end_inset
+
+ is a group of order 
+\begin_inset Formula $60$
+\end_inset
+
+ and 
+\begin_inset Formula $n_{5}>1$
+\end_inset
+
+, then 
+\begin_inset Formula $G$
+\end_inset
+
+ is simple.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ To obtain a contradiction, suppose 
+\begin_inset Formula $G$
+\end_inset
+
+ is a group of order 
+\begin_inset Formula $60=2^{2}\cdot3\cdot5$
+\end_inset
+
+ such that 
+\begin_inset Formula $G$
+\end_inset
+
+ is not simple.
+ By Sylow's Theorems, we have 
+\begin_inset Formula $n_{5}\in\{1,6\}$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $G$
+\end_inset
+
+ is not simple, we must have 
+\begin_inset Formula $n_{5}=6$
+\end_inset
+
+.
+ So 
+\begin_inset Formula $\mbox{Syl}_{6}(G)=\{P_{1},P_{2},P_{3},P_{4},P_{5},P_{6}\}$
+\end_inset
+
+ with 
+\begin_inset Formula $|P_{i}|=5$
+\end_inset
+
+.
+ Each 
+\begin_inset Formula $P_{i}$
+\end_inset
+
+ is cyclic of order 
+\begin_inset Formula $5$
+\end_inset
+
+ and 
+\begin_inset Formula $P_{i}\cap P_{j}=\{e\}$
+\end_inset
+
+ for 
+\begin_inset Formula $i\neq j$
+\end_inset
+
+, so there are 
+\begin_inset Formula $24$
+\end_inset
+
+ elements of order 
+\begin_inset Formula $5$
+\end_inset
+
+ in 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $G$
+\end_inset
+
+ is not simple, there exists 
+\begin_inset Formula $H\trianglelefteq G$
+\end_inset
+
+ such that 
+\begin_inset Formula $H\neq1,G$
+\end_inset
+
+.
+ Now 
+\begin_inset Formula 
+\[
+|H|\mid60\implies|H|\in\{2,3,4,5,6,10,12,15,20,30\}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $5\mid|H|$
+\end_inset
+
+, then 
+\begin_inset Formula $H$
+\end_inset
+
+ contains a subgroup of order 
+\begin_inset Formula $5$
+\end_inset
+
+.
+ Thus there is some 
+\begin_inset Formula $P_{i}$
+\end_inset
+
+ such that 
+\begin_inset Formula $P_{i}\leq H$
+\end_inset
+
+.
+ For any other 
+\begin_inset Formula $P_{j}\in\mbox{Syl}_{5}(G)$
+\end_inset
+
+, we have 
+\begin_inset Formula $P_{j}=gP_{i}g^{-1}$
+\end_inset
+
+ for some 
+\begin_inset Formula $g\in G$
+\end_inset
+
+.
+ So 
+\begin_inset Formula $P_{j}=gP_{i}g^{-1}\leq gHg^{-1}=H$
+\end_inset
+
+.
+ So 
+\begin_inset Formula $H$
+\end_inset
+
+ contains all the Sylow 
+\begin_inset Formula $5$
+\end_inset
+
+-subgroups of 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $|H|\geq1+24=25$
+\end_inset
+
+, this implies 
+\begin_inset Formula $|H|=30$
+\end_inset
+
+.
+ But if 
+\begin_inset Formula $|H|=30$
+\end_inset
+
+, then 
+\begin_inset Formula $n_{5}(H)=1$
+\end_inset
+
+, which is a contradiction.
+ So 
+\begin_inset Formula 
+\[
+|H|\in\{2,3,4,6,12\}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $|H|\in\{6,12\}$
+\end_inset
+
+, then there exists 
+\begin_inset Formula $K\mbox{ char }H$
+\end_inset
+
+ with 
+\begin_inset Formula $K\in\mbox{Syl}_{3}(H)$
+\end_inset
+
+ or 
+\begin_inset Formula $K\in\mbox{Syl}_{2}(H)$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $K$
+\end_inset
+
+ is characteristic in 
+\begin_inset Formula $H$
+\end_inset
+
+ and 
+\begin_inset Formula $H$
+\end_inset
+
+ is normal in 
+\begin_inset Formula $G$
+\end_inset
+
+, 
+\begin_inset Formula $K$
+\end_inset
+
+ is normal in 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ So there is a normal subgroup 
+\begin_inset Formula $K$
+\end_inset
+
+ of 
+\begin_inset Formula $G$
+\end_inset
+
+ with 
+\begin_inset Formula $|K|\in\{2,3,4\}$
+\end_inset
+
+.
+ So it suffices to assume
+\begin_inset Formula 
+\[
+|H|\in\{2,3,4\}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+leads to a contradiction.
+ Then 
+\begin_inset Formula $|G/H|\in\{30,20,15\}$
+\end_inset
+
+.
+ Now 
+\begin_inset Formula $n_{5}(G/H)=1$
+\end_inset
+
+ implies there exists 
+\begin_inset Formula $H\trianglelefteq T\trianglelefteq G$
+\end_inset
+
+ such that 
+\begin_inset Formula $T/H\trianglelefteq G/H$
+\end_inset
+
+ with 
+\begin_inset Formula $|T/H|=5$
+\end_inset
+
+.
+ So there exists 
+\begin_inset Formula $T\trianglelefteq G$
+\end_inset
+
+ such that 
+\begin_inset Formula $|T|/|H|=5$
+\end_inset
+
+ implies 
+\begin_inset Formula $|T|=5\cdot|H|$
+\end_inset
+
+.
+ But this leads to the first case where 
+\begin_inset Formula $5\mid|T|$
+\end_inset
+
+ and 
+\begin_inset Formula $T$
+\end_inset
+
+ is normal.
+ This leads to a contradiction.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{cor}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $A_{5}$
+\end_inset
+
+ is simple in 
+\begin_inset Formula $S_{5}$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{cor}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ We have 
+\begin_inset Formula $|A_{5}|=60$
+\end_inset
+
+ and 
+\begin_inset Formula $n_{5}>1$
+\end_inset
+
+ since 
+\begin_inset Formula $\langle(1,2,3,4,5)\rangle\neq\langle(2,1,3,4,5)\rangle$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\end_layout
+
+\end_inset
+
+ If 
+\begin_inset Formula $G$
+\end_inset
+
+ is a simple group of order 
+\begin_inset Formula $60$
+\end_inset
+
+ then 
+\begin_inset Formula $G\cong A_{5}$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $A_{n}$
+\end_inset
+
+ is a simple group for all 
+\begin_inset Formula $n\geq5$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $G$
+\end_inset
+
+ be a group of order 
+\begin_inset Formula $231=3\cdot7\cdot11$
+\end_inset
+
+.
+ We will show 
+\begin_inset Formula $Z(G)$
+\end_inset
+
+ contains a Sylow 
+\begin_inset Formula $11$
+\end_inset
+
+-sybgroup and 
+\begin_inset Formula $n_{7}=1$
+\end_inset
+
+.
+ From the Sylow theorems, we obtain 
+\begin_inset Formula $n_{11}=1$
+\end_inset
+
+ and 
+\begin_inset Formula $n_{7}=1$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $P$
+\end_inset
+
+ be the Sylow 11 -subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ Consider the action of 
+\begin_inset Formula $G$
+\end_inset
+
+ on 
+\begin_inset Formula $P$
+\end_inset
+
+ by conjugation 
+\begin_inset Formula $\varphi:G\to\mbox{Aut}(P)$
+\end_inset
+
+, 
+\begin_inset Formula $\varphi(g)=\sigma_{g}$
+\end_inset
+
+ where 
+\begin_inset Formula $\sigma_{g}(x)=gxg^{-1}$
+\end_inset
+
+ for 
+\begin_inset Formula $x\in P$
+\end_inset
+
+.
+ The kernel of 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ is 
+\begin_inset Formula $C_{G}(P)$
+\end_inset
+
+.
+ By the Isomorphism theorems, we have 
+\begin_inset Formula $G/C_{G}(P)\cong\varphi(G)\leq\mbox{Aut}(P)$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $|\mbox{Aut}(P)|=10$
+\end_inset
+
+, we must have 
+\begin_inset Formula $|G/C_{G}(P)|\mid10$
+\end_inset
+
+.
+ The only possibility is when 
+\begin_inset Formula $|G/C_{G}(P)|=1$
+\end_inset
+
+, so 
+\begin_inset Formula $C_{G}(P)=G$
+\end_inset
+
+.
+ That is, 
+\begin_inset Formula $P$
+\end_inset
+
+ is contained in 
+\begin_inset Formula $Z(G)$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $G$
+\end_inset
+
+ be a group of order 
+\begin_inset Formula $105=3\cdot5\cdot7$
+\end_inset
+
+ and suppose 
+\begin_inset Formula $n_{3}=1$
+\end_inset
+
+.
+ We will show 
+\begin_inset Formula $G$
+\end_inset
+
+ is abelian.
+ Let 
+\begin_inset Formula $P$
+\end_inset
+
+ be the Sylow 
+\begin_inset Formula $3$
+\end_inset
+
+-subgroup and consider the action of 
+\begin_inset Formula $G$
+\end_inset
+
+ on 
+\begin_inset Formula $P$
+\end_inset
+
+ by conjugation.
+ Again, we find that 
+\begin_inset Formula $|G/C_{G}(P)|$
+\end_inset
+
+ divides 
+\begin_inset Formula $|\mbox{Aut}(P)|=2$
+\end_inset
+
+.
+ The only possibility is 
+\begin_inset Formula $|G/C_{G}(P)|=1$
+\end_inset
+
+, so 
+\begin_inset Formula $G=C_{G}(P)$
+\end_inset
+
+.
+  
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Sylow Subgroups
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $G$
+\end_inset
+
+ be a finite group and 
+\begin_inset Formula $p$
+\end_inset
+
+ be a prime.
+ Any subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
+ whose order is the highest power of 
+\begin_inset Formula $p$
+\end_inset
+
+ diving 
+\begin_inset Formula $|G|$
+\end_inset
+
+ is called a 
+\begin_inset Formula $p$
+\end_inset
+
+-
+\begin_inset Formula $\textbf{Sylow subgroup}$
+\end_inset
+
+ of 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ A 
+\begin_inset Formula $p$
+\end_inset
+
+-Sylow subgroup for some 
+\begin_inset Formula $p$
+\end_inset
+
+ is called a 
+\begin_inset Formula $\textbf{Sylow subgroup}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ In 
+\begin_inset Formula $\mathbb{Z}/(12)$
+\end_inset
+
+, where 
+\begin_inset Formula $|\mathbb{Z}/(12)|=12=2^{2}\cdot3$
+\end_inset
+
+, The only 
+\begin_inset Formula $2$
+\end_inset
+
+-Sylow subgroup is 
+\begin_inset Formula $\{0,3,6,9\}=\langle3\rangle$
+\end_inset
+
+.
+ The only 
+\begin_inset Formula $3$
+\end_inset
+
+-Sylow subgroup is 
+\begin_inset Formula $\{0,4,8\}=\langle4\rangle$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ In 
+\begin_inset Formula $A_{4}$
+\end_inset
+
+, where 
+\begin_inset Formula $|A_{4}|=12=2^{2}\cdot3$
+\end_inset
+
+.
+ The only 
+\begin_inset Formula $2$
+\end_inset
+
+-Sylow subgroup is 
+\begin_inset Formula $V=\langle(12)(34),(14)(23)\rangle$
+\end_inset
+
+.
+ There are four 
+\begin_inset Formula $3$
+\end_inset
+
+- Sylow subgroups:
+\begin_inset Formula 
+\[
+\langle(123)\rangle\quad\langle(124)\rangle\quad\langle(134)\rangle\quad\langle(234)\rangle
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A_{4}$
+\end_inset
+
+ arises as the Galois group of 
+\begin_inset Formula $f(T)=T^{4}+8T+12=(T-r_{1})(T-r_{2})(T-r_{3})(T-r_{4})$
+\end_inset
+
+ over 
+\begin_inset Formula $\mathbb{Q}$
+\end_inset
+
+.
+ Here's how we know this: The discriminant of 
+\begin_inset Formula $f(T)$
+\end_inset
+
+ is 
+\begin_inset Formula $-3^{3}\cdot8^{4}+4^{4}12^{3}=331776$
+\end_inset
+
+, which is a square, so the Galois group is contained in 
+\begin_inset Formula $A_{4}$
+\end_inset
+
+.
+ Here's how 
+\begin_inset Formula $f(T)$
+\end_inset
+
+ factors modulo different primes:
+\begin_inset Formula 
+\[
+f(T)\equiv(T+1)(T^{3}+4T^{2}+T+2)\mbox{ mod 5}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+f(T)\equiv(T^{2}+4T+7)(T^{2}+13T+9)\mbox{ mod 17}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+From these factorizations, we know there is an element in the Galois group
+ with cycle type 
+\begin_inset Formula $(1,3)$
+\end_inset
+
+ (i.e.
+ a 
+\begin_inset Formula $3$
+\end_inset
+
+-cycle) and an element in the Galois group with cycle type 
+\begin_inset Formula $(2,2)$
+\end_inset
+
+.
+ We can also see from these factorizations that 
+\begin_inset Formula $f(T)$
+\end_inset
+
+ is irreducible over 
+\begin_inset Formula $\mathbb{Q}$
+\end_inset
+
+ (There's no degree 2 factor mod 5, and there's no degree 1 factor mod 17).
+ Since there exists a 
+\begin_inset Formula $3$
+\end_inset
+
+-cycle, we know the Galois group is divisible by 
+\begin_inset Formula $3$
+\end_inset
+
+.
+ Since we know 
+\begin_inset Formula $f(T)$
+\end_inset
+
+ has degree 
+\begin_inset Formula $4$
+\end_inset
+
+ and is irreducible over 
+\begin_inset Formula $\mathbb{Q}$
+\end_inset
+
+, there is a sequence of field extensions 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd}  L 
+\backslash
+
+\backslash
+ 
+\backslash
+mathbb{Q} (r_1)  
+\backslash
+arrow[u,dash,"n"] 
+\backslash
+
+\backslash
+ 
+\backslash
+mathbb{Q} 
+\backslash
+arrow[u,dash,"4"] 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Where 
+\begin_inset Formula $L$
+\end_inset
+
+ is the splitting field of 
+\begin_inset Formula $f(T)$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathbb{Q}(r_{1})$
+\end_inset
+
+ has degree 
+\begin_inset Formula $4$
+\end_inset
+
+ Then as a field extension over 
+\begin_inset Formula $\mathbb{Q}$
+\end_inset
+
+.
+ This information tells us that 
+\begin_inset Formula $|Gal(L/\mathbb{Q})|=[L:\mathbb{Q}]=4n$
+\end_inset
+
+.
+ Since the Galois group is divisible by 
+\begin_inset Formula $3$
+\end_inset
+
+ and 
+\begin_inset Formula $4$
+\end_inset
+
+, and is contained in 
+\begin_inset Formula $A_{4}$
+\end_inset
+
+, it must be isomorphic to 
+\begin_inset Formula $A_{4}$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $|A_{4}|=12$
+\end_inset
+
+, 
+\begin_inset Formula $[L:\mathbb{Q}(r_{1})]=12/4=3$
+\end_inset
+
+.
+ So the set of all automorphisms of 
+\begin_inset Formula $L$
+\end_inset
+
+ that fix 
+\begin_inset Formula $\mathbb{Q}(r_{1})$
+\end_inset
+
+ must be a subgroup of 
+\begin_inset Formula $A_{4}$
+\end_inset
+
+ which has order 
+\begin_inset Formula $3$
+\end_inset
+
+.
+ This subgroup corresponds to one of the four 
+\begin_inset Formula $3$
+\end_inset
+
+-sylow subgroups, in particular, it is 
+\begin_inset Formula $\langle(234)\rangle$
+\end_inset
+
+.
+ Of course, I arbitrarly decided to focus on the field 
+\begin_inset Formula $\mathbb{Q}(r_{1})$
+\end_inset
+
+, but I could have easily focused on 
+\begin_inset Formula $\mathbb{Q}(r_{2})$
+\end_inset
+
+ instead.
+ But this is just a relabeling of indices, and relabeling indices is the
+ same as conjugating in 
+\begin_inset Formula $S_{4}$
+\end_inset
+
+, so the corresponding Galois group for 
+\begin_inset Formula $\mathbb{Q}(r_{2})$
+\end_inset
+
+ is given by conjugating 
+\begin_inset Formula $\langle(234)\rangle$
+\end_inset
+
+ with an element in 
+\begin_inset Formula $A_{4}$
+\end_inset
+
+ that sends 
+\begin_inset Formula $1$
+\end_inset
+
+ to 
+\begin_inset Formula $2$
+\end_inset
+
+, like
+\begin_inset Formula $(12)(34)$
+\end_inset
+
+.
+ The cubic resolvent of 
+\begin_inset Formula $f(T)$
+\end_inset
+
+ is 
+\begin_inset Formula $T^{3}-48T-64=(T-(r_{1}r_{2}+r_{3}r_{4}))(T-(r_{1}r_{3}+r_{2}r_{4}))(T-(r_{1}r_{4}+r_{2}r_{3}))$
+\end_inset
+
+.
+ The cubic resolvent of 
+\begin_inset Formula $f(T)$
+\end_inset
+
+ is irreducible since it is irreducible mod 
+\begin_inset Formula $5$
+\end_inset
+
+.
+ This means there is a sequence of field extensions
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd}  L 
+\backslash
+
+\backslash
+ 
+\backslash
+mathbb{Q} (r_1 r_2 + r_3 r_4 )  
+\backslash
+arrow[u,dash,"n"] 
+\backslash
+
+\backslash
+ 
+\backslash
+mathbb{Q} 
+\backslash
+arrow[u,dash,"4"] 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Again, we arbitrarily focused on the field 
+\begin_inset Formula $\mathbb{Q}(r_{1}r_{2}+r_{3}r_{4})$
+\end_inset
+
+, but notice this time that the subgroup which corresponds to this field
+ extension is normal in 
+\begin_inset Formula $A_{4}$
+\end_inset
+
+, thus we get the nonobvious fact that:
+\begin_inset Formula 
+\[
+\mathbb{Q}(r_{1}r_{2}+r_{3}r_{4})=\mathbb{Q}(r_{1}r_{3}+r_{2}r_{4})=\mathbb{Q}(r_{1}r_{4}+r_{2}r_{3})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Below is the lattice of subgroups of 
+\begin_inset Formula $A_{4}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd}  &&& 
+\backslash
+{ (1) 
+\backslash
+} 
+\backslash
+
+\backslash
+ 
+\backslash
+langle (12)(34) 
+\backslash
+rangle 
+\backslash
+arrow[urrr,dash] & 
+\backslash
+langle (13)(24) 
+\backslash
+rangle 
+\backslash
+arrow[urr,dash] &  
+\backslash
+langle (14)(23) 
+\backslash
+rangle 
+\backslash
+arrow[ur,dash] 
+\backslash
+
+\backslash
+ & V 
+\backslash
+arrow[u,dash] 
+\backslash
+arrow[ul, dash] 
+\backslash
+arrow[ur,dash] & 
+\backslash
+langle (123) 
+\backslash
+rangle 
+\backslash
+arrow[uur,dash] & 
+\backslash
+langle (124) 
+\backslash
+rangle 
+\backslash
+arrow[uu,dash] & 
+\backslash
+langle (134) 
+\backslash
+rangle 
+\backslash
+arrow[uul,dash] & 
+\backslash
+langle (234) 
+\backslash
+rangle 
+\backslash
+arrow[uull,dash] 
+\backslash
+
+\backslash
+ & A_4  
+\backslash
+arrow[u,dash] 
+\backslash
+arrow[ur, dash] 
+\backslash
+arrow[urr,dash] 
+\backslash
+arrow[urrr,dash] 
+\backslash
+arrow[urrrr,dash] 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+And here is the corresponding lattice of fields:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd}  &&& 
+\backslash
+mathbb{Q} ( r_1 
+\backslash
+text{,} r_2 ) 
+\backslash
+
+\backslash
+ 
+\backslash
+mathbb{Q} ( r_1 + r_2 ) 
+\backslash
+arrow[urrr,dash] & 
+\backslash
+mathbb{Q} ( r_1 + r_3 ) 
+\backslash
+arrow[urr,dash] &  
+\backslash
+mathbb{Q} ( r_1 + r_4 ) 
+\backslash
+arrow[ur,dash] 
+\backslash
+
+\backslash
+ & 
+\backslash
+mathbb{Q} ( r_1 r_2 + r_3 r_4) 
+\backslash
+arrow[u,dash] 
+\backslash
+arrow[ul, dash] 
+\backslash
+arrow[ur,dash] & 
+\backslash
+mathbb{Q} ( r_4 ) 
+\backslash
+arrow[uur,dash] & 
+\backslash
+mathbb{Q} ( r_3 ) 
+\backslash
+arrow[uu,dash] & 
+\backslash
+mathbb{Q} ( r_2 ) 
+\backslash
+arrow[uul,dash] & 
+\backslash
+mathbb{Q} ( r_1 ) 
+\backslash
+arrow[uull,dash] 
+\backslash
+
+\backslash
+ & 
+\backslash
+mathbb{Q}  
+\backslash
+arrow[u,dash] 
+\backslash
+arrow[ur, dash] 
+\backslash
+arrow[urr,dash] 
+\backslash
+arrow[urrr,dash] 
+\backslash
+arrow[urrrr,dash] 
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $|D_{6}|=12=2^{2}\cdot3$
+\end_inset
+
+, there are three 
+\begin_inset Formula $2$
+\end_inset
+
+-Sylow subgroups:
+\begin_inset Formula 
+\[
+\{1,r^{3},s,r^{3}s\}=\langle r^{3},s\rangle,\quad\{1,r^{3},rs,r^{4}s\}=\langle r^{3},rs\rangle,\quad\{1,r^{3},r^{2}s,r^{5}s\}=\langle r^{3},r^{2}s\rangle
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The only 
+\begin_inset Formula $3$
+\end_inset
+
+- Sylow subgroup of 
+\begin_inset Formula $D_{6}$
+\end_inset
+
+ is 
+\begin_inset Formula $\{1,r^{2},r^{4}\}=\langle r^{2}\rangle$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $|SL_{2}(\mathbb{Z}/(3)|=\frac{(3^{2}-1)(3^{2}-3)}{2}=2^{3}\cdot3$
+\end_inset
+
+, there is only one 
+\begin_inset Formula $2$
+\end_inset
+
+-Sylow subgroup:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="3" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{pmatrix}1 & 0\\
+0 & 1
+\end{pmatrix}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{pmatrix}0 & -1\\
+1 & 0
+\end{pmatrix}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{pmatrix}1 & 1\\
+1 & -1
+\end{pmatrix}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{pmatrix}-1 & 1\\
+1 & 1
+\end{pmatrix}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{pmatrix}-1 & 0\\
+0 & -1
+\end{pmatrix}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{pmatrix}0 & 1\\
+-1 & 0
+\end{pmatrix}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{pmatrix}-1 & -1\\
+-1 & 1
+\end{pmatrix}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{pmatrix}1 & -1\\
+-1 & -1
+\end{pmatrix}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This is isomorphic to 
+\begin_inset Formula $Q_{8}$
+\end_inset
+
+ by labeling the matrices in the first row as 
+\begin_inset Formula $1,i,j,k$
+\end_inset
+
+.
+ There are four 
+\begin_inset Formula $3$
+\end_inset
+
+-Sylow subgroups:
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\langle\begin{pmatrix}1 & 1\\
+0 & 1
+\end{pmatrix}\rangle$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\langle\begin{pmatrix}1 & 0\\
+1 & 1
+\end{pmatrix}\rangle$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\langle\begin{pmatrix}0 & 1\\
+2 & 2
+\end{pmatrix}\rangle$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\langle\begin{pmatrix}0 & 2\\
+1 & 2
+\end{pmatrix}\rangle$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Proof of Sylow Theories
+\end_layout
+
+\begin_layout Standard
+We begin with a very important theorem called the fixed-point congruence.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $G$
+\end_inset
+
+ be a finite 
+\begin_inset Formula $p$
+\end_inset
+
+-group acting on a finite set 
+\begin_inset Formula $X$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\[
+|X|=\sum_{i=1}^{t}|\mbox{Orb}_{x_{i}}|.
+\]
+
+\end_inset
+
+Since 
+\begin_inset Formula $|\mbox{Orb}_{x_{i}}|=[G:\mbox{Stab}_{x_{i}}]$
+\end_inset
+
+ and 
+\begin_inset Formula $|G|$
+\end_inset
+
+ is a power of 
+\begin_inset Formula $p$
+\end_inset
+
+, 
+\begin_inset Formula $|\mbox{Orb}_{x_{i}}|\equiv0$
+\end_inset
+
+ mod 
+\begin_inset Formula $p$
+\end_inset
+
+ unless 
+\begin_inset Formula $\mbox{Stab}_{x_{i}}=G$
+\end_inset
+
+, in which case 
+\begin_inset Formula $\mbox{Orb}_{x_{i}}$
+\end_inset
+
+ has length 
+\begin_inset Formula $1$
+\end_inset
+
+, i.e.
+ 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+ is a fixed point.
+ Thus, when we reduce both sides of the equation above modulo 
+\begin_inset Formula $p$
+\end_inset
+
+, all terms on the right side vanish except for a contribution of 
+\begin_inset Formula $1$
+\end_inset
+
+ for each fixed point.
+ That implies
+\begin_inset Formula 
+\[
+|X|\equiv\mbox{\#\{fixed points\} mod }p
+\]
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now we state the first Sylow theorem.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\end_layout
+
+\end_inset
+
+ (Sylow I).
+ A finite group 
+\begin_inset Formula $G$
+\end_inset
+
+ has a 
+\begin_inset Formula $p$
+\end_inset
+
+-Sylow subgroup for every prime 
+\begin_inset Formula $p$
+\end_inset
+
+ and any 
+\begin_inset Formula $p$
+\end_inset
+
+-subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
+ lies in a 
+\begin_inset Formula $p$
+\end_inset
+
+-Sylow subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $p^{k}$
+\end_inset
+
+ be the highest power of 
+\begin_inset Formula $p$
+\end_inset
+
+ in 
+\begin_inset Formula $|G|$
+\end_inset
+
+.
+ We can assume 
+\begin_inset Formula $k\geq1$
+\end_inset
+
+, since the result is obvious if 
+\begin_inset Formula $k=0$
+\end_inset
+
+, hence 
+\begin_inset Formula $p||G|$
+\end_inset
+
+.
+ We will prove that there is a subgroup of order 
+\begin_inset Formula $p^{i}$
+\end_inset
+
+ for 
+\begin_inset Formula $0\leq i\leq k$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $|H|=p^{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $i<k$
+\end_inset
+
+, we will show there is a 
+\begin_inset Formula $p$
+\end_inset
+
+-subgroup 
+\begin_inset Formula $H'\supset H$
+\end_inset
+
+ with 
+\begin_inset Formula $[H':H]=p$
+\end_inset
+
+, so 
+\begin_inset Formula $|H'|=p^{i+1}$
+\end_inset
+
+.
+ Then, starting with 
+\begin_inset Formula $H$
+\end_inset
+
+ as the trivial subgroup, we can repeat this process with 
+\begin_inset Formula $H'$
+\end_inset
+
+ in place of 
+\begin_inset Formula $H$
+\end_inset
+
+ to create a rising tower of subgroups
+\begin_inset Formula 
+\[
+\{e\}=H_{0}\subset H_{1}\subset H_{2}\subset\cdots
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $|H_{i}|=p^{i}$
+\end_inset
+
+, and after 
+\begin_inset Formula $k$
+\end_inset
+
+ steps we reach 
+\begin_inset Formula $H_{k}$
+\end_inset
+
+, which is a 
+\begin_inset Formula $p$
+\end_inset
+
+-Sylow subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ Consider the left multiplication action of 
+\begin_inset Formula $H$
+\end_inset
+
+ on the left cosets 
+\begin_inset Formula $G/H$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+h\cdot\overline{g}=\overline{hg}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This is an action of a finite 
+\begin_inset Formula $p$
+\end_inset
+
+-group 
+\begin_inset Formula $H$
+\end_inset
+
+ on the set 
+\begin_inset Formula $G/H$
+\end_inset
+
+, and so by the fixed-point congruence for actions of nontrivial 
+\begin_inset Formula $p$
+\end_inset
+
+-groups
+\begin_inset Formula 
+\begin{equation}
+|G/H|\equiv|\mbox{Fix}_{H}(G/H)|\mbox{ mod }p\label{eq:1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+What does it mean for a coset 
+\begin_inset Formula $\overline{g}$
+\end_inset
+
+ in 
+\begin_inset Formula $G/H$
+\end_inset
+
+ to be a fixed point by the group 
+\begin_inset Formula $H$
+\end_inset
+
+ under left multiplication? For all 
+\begin_inset Formula $h\in H$
+\end_inset
+
+, we need 
+\begin_inset Formula $hg=gh'$
+\end_inset
+
+, for some 
+\begin_inset Formula $h'\in H$
+\end_inset
+
+.
+ This happens if and only if 
+\begin_inset Formula $g\in N(H)$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula 
+\[
+\mbox{Fix}_{H}(G/H)=\{\overline{g}\mid g\in N(H)\}=N(H)/H.
+\]
+
+\end_inset
+
+ So (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{eq:1}
+\end_layout
+
+\end_inset
+
+) becomes
+\begin_inset Formula 
+\begin{equation}
+[G:H]\equiv[N(H):H]\mbox{ mod }p\label{eq:2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Because 
+\begin_inset Formula $H\vartriangleleft N(H)$
+\end_inset
+
+, 
+\begin_inset Formula $N(H)/H$
+\end_inset
+
+ is a group.
+ When 
+\begin_inset Formula $|H|=p^{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $i<k$
+\end_inset
+
+, the index 
+\begin_inset Formula $[G:H]$
+\end_inset
+
+ is divisible by 
+\begin_inset Formula $p$
+\end_inset
+
+, so the congruence 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{eq:2}
+\end_layout
+
+\end_inset
+
+ implies 
+\begin_inset Formula $[N(H):H]$
+\end_inset
+
+ is divisible by 
+\begin_inset Formula $p$
+\end_inset
+
+, so 
+\begin_inset Formula $N(H)/H$
+\end_inset
+
+ is a group with order divisible by 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $N(H)/H$
+\end_inset
+
+ has a subgroup of order 
+\begin_inset Formula $p$
+\end_inset
+
+ by Cauchy's theorem.
+ All subgroups of the quotient group 
+\begin_inset Formula $N(H)/H$
+\end_inset
+
+ have the form 
+\begin_inset Formula $H'/H$
+\end_inset
+
+ where 
+\begin_inset Formula $H'$
+\end_inset
+
+ is a subgroup between 
+\begin_inset Formula $H$
+\end_inset
+
+ and 
+\begin_inset Formula $N(H)$
+\end_inset
+
+.
+ Therefore a subgroup of order 
+\begin_inset Formula $p$
+\end_inset
+
+ in 
+\begin_inset Formula $N(H)/H$
+\end_inset
+
+ is 
+\begin_inset Formula $H'/H$
+\end_inset
+
+ such that 
+\begin_inset Formula $[H':H]=p$
+\end_inset
+
+, so 
+\begin_inset Formula $|H'|=p|H|=p^{i+1}$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\end_layout
+
+\end_inset
+
+ (Sylow II).
+ For each prime 
+\begin_inset Formula $p$
+\end_inset
+
+, the 
+\begin_inset Formula $p$
+\end_inset
+
+-Sylow subgroups of 
+\begin_inset Formula $G$
+\end_inset
+
+ are conjugate.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Pick two 
+\begin_inset Formula $p$
+\end_inset
+
+-Sylow subgroups 
+\begin_inset Formula $P$
+\end_inset
+
+ and 
+\begin_inset Formula $Q$
+\end_inset
+
+.
+ We want to show they are conjugate.
+ Consider the action of 
+\begin_inset Formula $Q$
+\end_inset
+
+ on 
+\begin_inset Formula $G/P$
+\end_inset
+
+ by left multiplication:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+q\cdot\overline{g}=\overline{qg}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A fixed point 
+\begin_inset Formula $\bar{g}$
+\end_inset
+
+ under this action means 
+\begin_inset Formula $\overline{qg}=\bar{g}$
+\end_inset
+
+ for all 
+\begin_inset Formula $q\in Q$
+\end_inset
+
+.
+ This implies for each 
+\begin_inset Formula $q\in Q$
+\end_inset
+
+ there is a 
+\begin_inset Formula $p_{q}\in P$
+\end_inset
+
+ such that 
+\begin_inset Formula $qg=gp_{q}$
+\end_inset
+
+, or in other words, 
+\begin_inset Formula $q=gp_{q}g^{-1}$
+\end_inset
+
+.
+ This implies 
+\begin_inset Formula $Q\subset gPg^{-1}$
+\end_inset
+
+, which further implies 
+\begin_inset Formula $Q=gPg^{-1}$
+\end_inset
+
+ since 
+\begin_inset Formula $Q$
+\end_inset
+
+ and 
+\begin_inset Formula $gPg^{-1}$
+\end_inset
+
+ have the same size.
+ So a fixed point under this action corresponds with an element 
+\begin_inset Formula $g$
+\end_inset
+
+ which conjugates 
+\begin_inset Formula $Q$
+\end_inset
+
+ to 
+\begin_inset Formula $P$
+\end_inset
+
+.
+ So we just need to show that there exists a fixed point in 
+\begin_inset Formula $G/P$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $Q$
+\end_inset
+
+ is a finite 
+\begin_inset Formula $p$
+\end_inset
+
+-group, 
+\begin_inset Formula 
+\[
+|G/P|\equiv|\mbox{Fix}_{Q}(G/P)|\mbox{ mod }p
+\]
+
+\end_inset
+
+The left side is nonzero modulo 
+\begin_inset Formula $p$
+\end_inset
+
+ since 
+\begin_inset Formula $P$
+\end_inset
+
+ is a 
+\begin_inset Formula $p$
+\end_inset
+
+-Sylow subgroup: If 
+\begin_inset Formula $|G|=p^{k}m$
+\end_inset
+
+ and 
+\begin_inset Formula $|P|=p^{k}$
+\end_inset
+
+ then 
+\begin_inset Formula $|G/P|=m$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $|\mbox{Fix}_{Q}(G/P)|$
+\end_inset
+
+ can't be 
+\begin_inset Formula $0$
+\end_inset
+
+, so there is a fixed point in 
+\begin_inset Formula $G/P$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $g$
+\end_inset
+
+ conjugates 
+\begin_inset Formula $P$
+\end_inset
+
+ to 
+\begin_inset Formula $Q$
+\end_inset
+
+, then so too does 
+\begin_inset Formula $gh$
+\end_inset
+
+, for any 
+\begin_inset Formula $h\in N(P)$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+ghPh^{-1}g^{-1}=gPg^{-1}=Q
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+It's natural to wonder if the number of 
+\begin_inset Formula $p$
+\end_inset
+
+-Sylow subgroups of 
+\begin_inset Formula $G$
+\end_inset
+
+ equals 
+\begin_inset Formula $[G:N(P)]$
+\end_inset
+
+.
+ This is indeed true, but before we tackle that, we prove the third Sylow
+ theorem.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\end_layout
+
+\end_inset
+
+ (Sylow III).
+ For each prime 
+\begin_inset Formula $p$
+\end_inset
+
+, let 
+\begin_inset Formula $n_{p}$
+\end_inset
+
+ be the number of 
+\begin_inset Formula $p$
+\end_inset
+
+-Sylow subgroups of 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ Write 
+\begin_inset Formula $|G|=p^{k}m$
+\end_inset
+
+, where 
+\begin_inset Formula $p$
+\end_inset
+
+ doesn't divide 
+\begin_inset Formula $m$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\[
+n_{p}\equiv1\mbox{ mod }p\qquad\mbox{and}\qquad n_{p}|m.
+\]
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ We will prove 
+\begin_inset Formula $n_{p}\equiv1$
+\end_inset
+
+ mod 
+\begin_inset Formula $p$
+\end_inset
+
+ and then 
+\begin_inset Formula $n_{p}|m$
+\end_inset
+
+.
+ To show 
+\begin_inset Formula $n_{p}\equiv1$
+\end_inset
+
+ mod 
+\begin_inset Formula $p$
+\end_inset
+
+, consider the action of 
+\begin_inset Formula $P$
+\end_inset
+
+ on the set 
+\begin_inset Formula $Syl_{p}(G)$
+\end_inset
+
+ by conjugation
+\begin_inset Formula 
+\[
+P\cdot Q=PQP^{-1}.
+\]
+
+\end_inset
+
+The size of 
+\begin_inset Formula $Syl_{p}(G)$
+\end_inset
+
+ is 
+\begin_inset Formula $n_{p}$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $P$
+\end_inset
+
+ is a finite 
+\begin_inset Formula $p$
+\end_inset
+
+-group
+\begin_inset Formula 
+\[
+n_{p}\equiv|\mbox{Fix}_{P}(Syl_{p}(G)|\mbox{ mod }p
+\]
+
+\end_inset
+
+Fixed points for 
+\begin_inset Formula $P$
+\end_inset
+
+ acting by conjugation on 
+\begin_inset Formula $Syl_{p}(G)$
+\end_inset
+
+ are 
+\begin_inset Formula $Q\in Syl_{p}(G)$
+\end_inset
+
+ such that 
+\begin_inset Formula $gQg^{-1}=Q$
+\end_inset
+
+ for all 
+\begin_inset Formula $g\in P$
+\end_inset
+
+.
+ One choice for 
+\begin_inset Formula $Q$
+\end_inset
+
+ is 
+\begin_inset Formula $P$
+\end_inset
+
+.
+ For any such 
+\begin_inset Formula $Q$
+\end_inset
+
+, 
+\begin_inset Formula $P\subset N_{G}(Q)$
+\end_inset
+
+.
+ Also 
+\begin_inset Formula $Q\subset N_{G}(Q)$
+\end_inset
+
+, so 
+\begin_inset Formula $P$
+\end_inset
+
+ and 
+\begin_inset Formula $Q$
+\end_inset
+
+ are 
+\begin_inset Formula $p$
+\end_inset
+
+-Sylow subgroups in 
+\begin_inset Formula $N_{G}(Q)$
+\end_inset
+
+.
+ Applying Sylow II to the group 
+\begin_inset Formula $N_{G}(Q)$
+\end_inset
+
+, 
+\begin_inset Formula $P$
+\end_inset
+
+ and 
+\begin_inset Formula $Q$
+\end_inset
+
+ are conjugate in 
+\begin_inset Formula $N_{G}(Q)$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $Q\vartriangleleft N_{G}(Q)$
+\end_inset
+
+, the only subgroup of 
+\begin_inset Formula $N_{G}(Q)$
+\end_inset
+
+ conjugate to 
+\begin_inset Formula $Q$
+\end_inset
+
+ is 
+\begin_inset Formula $Q$
+\end_inset
+
+, so 
+\begin_inset Formula $P=Q$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $P$
+\end_inset
+
+ is the only fixed point when 
+\begin_inset Formula $P$
+\end_inset
+
+ acts on 
+\begin_inset Formula $Syl_{p}(G)$
+\end_inset
+
+, so 
+\begin_inset Formula $n_{p}\equiv1$
+\end_inset
+
+ mod 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ To show 
+\begin_inset Formula $n_{p}|m$
+\end_inset
+
+, consider the action of 
+\begin_inset Formula $G$
+\end_inset
+
+ by conjugation on 
+\begin_inset Formula $Syl_{p}(G)$
+\end_inset
+
+.
+ Since the 
+\begin_inset Formula $p$
+\end_inset
+
+-Sylow subgroups are conjugate to each other, there is one orbit.
+ A set on which a group acts with one orbit has size dividing the size of
+ the group, so 
+\begin_inset Formula $n_{p}||G|.$
+\end_inset
+
+ From 
+\begin_inset Formula $n_{p}\equiv1$
+\end_inset
+
+ mod 
+\begin_inset Formula $p$
+\end_inset
+
+, the number 
+\begin_inset Formula $n_{p}$
+\end_inset
+
+ is relatively prime to 
+\begin_inset Formula $p$
+\end_inset
+
+, so 
+\begin_inset Formula $n_{p}|m$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\end_layout
+
+\end_inset
+
+ (Sylow III*).
+ For each prime 
+\begin_inset Formula $p$
+\end_inset
+
+, let 
+\begin_inset Formula $n_{p}$
+\end_inset
+
+ be the number of 
+\begin_inset Formula $p$
+\end_inset
+
+-Sylow subgroups of 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $n_{p}=[G:N_{G}(P)]$
+\end_inset
+
+, where 
+\begin_inset Formula $P$
+\end_inset
+
+ is any 
+\begin_inset Formula $p$
+\end_inset
+
+-Sylow subgroup.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $P$
+\end_inset
+
+ be a 
+\begin_inset Formula $p$
+\end_inset
+
+-Sylow subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
+ and let 
+\begin_inset Formula $G$
+\end_inset
+
+ act on 
+\begin_inset Formula $Syl_{p}(G)$
+\end_inset
+
+ by conjugation.
+ By the orbit-stabilizer formula,
+\begin_inset Formula 
+\[
+n_{p}=[G:\mbox{Stab}_{\{P\}}]=[G:N_{G}(P)].
+\]
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Sylow Applications
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\end_layout
+
+\end_inset
+
+ For a prime 
+\begin_inset Formula $p$
+\end_inset
+
+, any element of 
+\begin_inset Formula $GL_{2}(\mathbb{Z}/(p))$
+\end_inset
+
+ with order 
+\begin_inset Formula $p$
+\end_inset
+
+ is conjugate to a strictly upper-triangular matrix 
+\begin_inset Formula $e_{12}(a)$
+\end_inset
+
+.
+ The number of 
+\begin_inset Formula $p$
+\end_inset
+
+-Sylow subgroups is 
+\begin_inset Formula $p+1$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ The size of 
+\begin_inset Formula $GL_{2}(\mathbb{Z}/(p))$
+\end_inset
+
+ is 
+\begin_inset Formula $(p^{2}-1)(p^{2}-p)=p(p-1)(p^{2}-1)$
+\end_inset
+
+.
+ Therefore a 
+\begin_inset Formula $p$
+\end_inset
+
+-Sylow subgroup has size 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ The matrix 
+\begin_inset Formula $e_{12}(1)$
+\end_inset
+
+ has order 
+\begin_inset Formula $p$
+\end_inset
+
+, so it generates a 
+\begin_inset Formula $p$
+\end_inset
+
+-Sylow subgroup 
+\begin_inset Formula $P=\{e_{12}(*)\}$
+\end_inset
+
+.
+ Since all 
+\begin_inset Formula $p$
+\end_inset
+
+-Sylow subgroups are conjugate, any matrix with order 
+\begin_inset Formula $p$
+\end_inset
+
+ is conjugate to some power 
+\begin_inset Formula $e_{12}(1)$
+\end_inset
+
+.
+ The number of 
+\begin_inset Formula $p$
+\end_inset
+
+-Sylow subgroups is 
+\begin_inset Formula 
+\[
+n_{p}=[GL_{2}(\mathbb{Z}/(p)):N(P)]
+\]
+
+\end_inset
+
+ by Sylow III*.
+ For 
+\begin_inset Formula $\left(\begin{smallmatrix}a & b\\
+c & d
+\end{smallmatrix}\right)$
+\end_inset
+
+ to lie in 
+\begin_inset Formula $N(P)$
+\end_inset
+
+ means it conjugates 
+\begin_inset Formula $e_{12}(1)$
+\end_inset
+
+ to some power 
+\begin_inset Formula $e_{12}(*)$
+\end_inset
+
+.
+ Since
+\begin_inset Formula 
+\[
+\begin{pmatrix}a & b\\
+c & d
+\end{pmatrix}\begin{pmatrix}1 & 1\\
+0 & 1
+\end{pmatrix}\begin{pmatrix}a & b\\
+c & d
+\end{pmatrix}^{-1}=\frac{1}{\Delta}\begin{pmatrix}1-ac & a^{2}\\
+-c^{2} & 1+ac
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\Delta=ad-bc\neq0$
+\end_inset
+
+, 
+\begin_inset Formula $\left(\begin{smallmatrix}a & b\\
+c & d
+\end{smallmatrix}\right)\in N(P)$
+\end_inset
+
+ precisely when 
+\begin_inset Formula $c=0.$
+\end_inset
+
+ Therefore 
+\begin_inset Formula $N(P)=\{\left(\begin{smallmatrix}* & *\\
+0 & *
+\end{smallmatrix}\right)\}$
+\end_inset
+
+ in 
+\begin_inset Formula $GL_{2}(\mathbb{Z}/(p))$
+\end_inset
+
+.
+ The size of 
+\begin_inset Formula $N(P)$
+\end_inset
+
+ is 
+\begin_inset Formula $(p-1)^{2}p$
+\end_inset
+
+, thus 
+\begin_inset Formula 
+\[
+n_{p}=[GL_{2}(\mathbb{Z}/(p)):N(P)]=p+1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{cor}
+\end_layout
+
+\end_inset
+
+ The number of elements of order 
+\begin_inset Formula $p$
+\end_inset
+
+ in 
+\begin_inset Formula $GL_{2}(\mathbb{Z}/(p))$
+\end_inset
+
+ is 
+\begin_inset Formula $p^{2}-1$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{cor}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Each 
+\begin_inset Formula $p$
+\end_inset
+
+-Sylow subgroup has 
+\begin_inset Formula $p-1$
+\end_inset
+
+ elements of order 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ Different 
+\begin_inset Formula $p$
+\end_inset
+
+-Sylow subgroups intersect trivially, so the number of elements of order
+ 
+\begin_inset Formula $p$
+\end_inset
+
+ is 
+\begin_inset Formula $(p-1)n_{p}=p^{2}-1$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\end_layout
+
+\end_inset
+
+ There is a unique 
+\begin_inset Formula $p$
+\end_inset
+
+-Sylow subgroup of 
+\begin_inset Formula $Aff(\mathbb{Z}/(p^{2}))$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $Aff(\mathbb{Z}/(p^{2}))$
+\end_inset
+
+ has size 
+\begin_inset Formula $p^{2}\varphi(p^{2})=p^{3}(p-1)$
+\end_inset
+
+, so a 
+\begin_inset Formula $p$
+\end_inset
+
+-Sylow subgroup has order 
+\begin_inset Formula $p^{3}$
+\end_inset
+
+.
+ Letting 
+\begin_inset Formula $n_{p}$
+\end_inset
+
+ be the number of 
+\begin_inset Formula $p$
+\end_inset
+
+-Sylow subgroups, Sylow III says 
+\begin_inset Formula $n_{p}|(p-1)$
+\end_inset
+
+ and 
+\begin_inset Formula $n_{p}\equiv1\mod p$
+\end_inset
+
+.
+ Therefore 
+\begin_inset Formula $n_{p}=1$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\end_layout
+
+\end_inset
+
+ For any prime 
+\begin_inset Formula $p$
+\end_inset
+
+, 
+\begin_inset Formula $Heis(\mathbb{Z}/(p))$
+\end_inset
+
+ is the unique 
+\begin_inset Formula $p$
+\end_inset
+
+-Sylow subgroup of the group of invertible upper-triangular matrices
+\begin_inset Formula 
+\[
+\begin{pmatrix}d_{1} & a & b\\
+0 & d_{2} & c\\
+0 & 0 & d_{3}
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+in 
+\begin_inset Formula $GL_{3}(\mathbb{Z}/(3))$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ This matrix group, call it 
+\begin_inset Formula $U$
+\end_inset
+
+, has size 
+\begin_inset Formula $(p-1)^{3}p^{3}$
+\end_inset
+
+, so 
+\begin_inset Formula $Heis(\mathbb{Z}/(p))$
+\end_inset
+
+ is a 
+\begin_inset Formula $p$
+\end_inset
+
+-Sylow subgroup of 
+\begin_inset Formula $U$
+\end_inset
+
+.
+ Sylow III tells us 
+\begin_inset Formula $n_{p}|(p-1)^{3}$
+\end_inset
+
+ and 
+\begin_inset Formula $n_{p}\equiv1\mod p$
+\end_inset
+
+, but it does not follow from this that 
+\begin_inset Formula $n_{p}$
+\end_inset
+
+ must be 
+\begin_inset Formula $1$
+\end_inset
+
+.
+ Let's prove 
+\begin_inset Formula $Heis(\mathbb{Z}/(p))\vartriangleleft U$
+\end_inset
+
+ by showing it is in the kernel of a map out of 
+\begin_inset Formula $U$
+\end_inset
+
+: Project a matrix in 
+\begin_inset Formula $U$
+\end_inset
+
+ to the 
+\begin_inset Formula $3$
+\end_inset
+
+-fold product 
+\begin_inset Formula $(\mathbb{Z}/(p))^{\times}\times(\mathbb{Z}/(p))^{\times}\times(\mathbb{Z}/(p))^{\times}$
+\end_inset
+
+.
+ 
+\begin_inset Formula 
+\[
+\begin{pmatrix}d_{1} & a & b\\
+0 & d_{2} & c\\
+0 & 0 & d_{3}
+\end{pmatrix}\mapsto(d_{1},d_{2},d_{3})
+\]
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+The kernel of this map is 
+\begin_inset Formula $Heis(\mathbb{Z}/(p))$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

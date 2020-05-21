@@ -1,0 +1,1497 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{tikz}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\usetikzlibrary{shapes.geometric}
+\usepackage{tikz-cd}
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem*{cor}{Corollary}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{ex}{Exercise} 
+\newtheorem{example}{Example}[section]
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem{case}{Case}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{tikz-cd}
+\usetikzlibrary{calc,arrows,decorations.pathreplacing}
+\tikzset{mydot/.style={circle,fill,inner sep=1.5pt},
+commutative diagrams/.cd,
+  arrow style=tikz,
+  diagrams={>=latex},
+}
+
+\usepackage{babel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+\usepackage{pgfplots}
+\usetikzlibrary{decorations.markings}
+\pgfplotsset{compat=1.9}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding iso8859-15
+\fontencoding global
+\font_roman "palatino" "default"
+\font_sans "lmss" "default"
+\font_typewriter "lmtt" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf true
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize custom
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\paperwidth 30cm
+\paperheight 35cm
+\topmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0bp
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Cohen-Macaulay Rings Exercises
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $(1.1.9):$
+\end_inset
+
+ From Proposition 
+\begin_inset Formula $1.1.4.$
+\end_inset
+
+, the short exact sequence 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} 0 
+\backslash
+arrow[r] & U 
+\backslash
+arrow[r, " 
+\backslash
+psi "] & M 
+\backslash
+arrow[r, "
+\backslash
+varphi "] & N 
+\backslash
+arrow[r] & 0   
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+of 
+\begin_inset Formula $R$
+\end_inset
+
+-modules induces a short exact sequence 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} 0 
+\backslash
+arrow[r] & U / (x_1 , 
+\backslash
+dots , x_n) U 
+\backslash
+arrow[r, " 
+\backslash
+overline{ 
+\backslash
+psi }"] & M / (x_1 , 
+\backslash
+dots , x_n) M 
+\backslash
+arrow[r, " 
+\backslash
+overline{ 
+\backslash
+varphi  } " ] & N / (x_1 , 
+\backslash
+dots , x_n) N 
+\backslash
+arrow[r] & 0   
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So it suffices to consider the case where 
+\begin_inset Formula $\mathbf{x}$
+\end_inset
+
+ consists of a single element 
+\begin_inset Formula $x$
+\end_inset
+
+.
+ That is, if 
+\begin_inset Formula $x$
+\end_inset
+
+ is 
+\begin_inset Formula $U$
+\end_inset
+
+-regular and 
+\begin_inset Formula $N$
+\end_inset
+
+-regular, then 
+\begin_inset Formula $x$
+\end_inset
+
+ is 
+\begin_inset Formula $M$
+\end_inset
+
+-regular.
+ If we can show this, then we can proceed by induction to show 
+\begin_inset Formula $\mathbf{x}$
+\end_inset
+
+ is weakly 
+\begin_inset Formula $M$
+\end_inset
+
+-regular for any length.
+ Suppose 
+\begin_inset Formula $xm=0$
+\end_inset
+
+ where 
+\begin_inset Formula $m\in M$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $x\varphi(m)=0$
+\end_inset
+
+ implies 
+\begin_inset Formula $\varphi(m)=0$
+\end_inset
+
+ since 
+\begin_inset Formula $x$
+\end_inset
+
+ is 
+\begin_inset Formula $N$
+\end_inset
+
+-regular.
+ Then 
+\begin_inset Formula $m=\psi(u)$
+\end_inset
+
+ for some 
+\begin_inset Formula $u\in U$
+\end_inset
+
+, by exactness at 
+\begin_inset Formula $M$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\psi(xu)=0$
+\end_inset
+
+ implies 
+\begin_inset Formula $xu=0$
+\end_inset
+
+ since 
+\begin_inset Formula $\psi$
+\end_inset
+
+ is injective.
+ This implies 
+\begin_inset Formula $u=0$
+\end_inset
+
+ since 
+\begin_inset Formula $x$
+\end_inset
+
+ is 
+\begin_inset Formula $U$
+\end_inset
+
+-regular.
+ Therefore 
+\begin_inset Formula $m=\psi(u)=\psi(0)=0$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $(1.1.10.a):$
+\end_inset
+
+ We only need to consider the case 
+\begin_inset Formula $i=1$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $x_{1}M\supset x_{1}x_{1}'M$
+\end_inset
+
+, we have a natural surjective map 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzcd} M / x_1 x_1 ' M 
+\backslash
+arrow[r] & M / x_1 M 
+\backslash
+end{tikzcd}
+\end_layout
+
+\end_inset
+
+ whose kernel is 
+\begin_inset Formula $x_{1}M/x_{1}x_{1}'M$
+\end_inset
+
+.
+ Also, the map 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzcd} M / x_1 ' M 
+\backslash
+arrow[r," 
+\backslash
+cdot x_1 "] & x_1 M / x_1 x_1 ' M 
+\backslash
+end{tikzcd}
+\end_layout
+
+\end_inset
+
+ is an isomorphism since 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzcd} M 
+\backslash
+arrow[r," 
+\backslash
+cdot x_1 "] & M 
+\backslash
+end{tikzcd}
+\end_layout
+
+\end_inset
+
+ is injective.
+ Therefore we have an exact sequence of the form
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} 0 
+\backslash
+arrow[r] & M / x_1 ' M 
+\backslash
+arrow[r, "
+\backslash
+cdot x_1 "] & M / x_1 x_1 ' M 
+\backslash
+arrow[r] & M/ x_1 M 
+\backslash
+arrow[r] & 0   
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now we can apply 
+\begin_inset Formula $(1.1.9)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $(1.1.10.b):$
+\end_inset
+
+ This follows from 
+\begin_inset Formula $(1.1.10.a)$
+\end_inset
+
+: 
+\begin_inset Formula $x_{1},\dots,x_{i}^{2},\dots,x_{n}$
+\end_inset
+
+ is weakly 
+\begin_inset Formula $M$
+\end_inset
+
+-regular since 
+\begin_inset Formula $x_{1},\dots,x_{n}$
+\end_inset
+
+ is weakly 
+\begin_inset Formula $M$
+\end_inset
+
+-regular, 
+\begin_inset Formula $x_{1},\dots,x_{i}^{3},\dots,x_{n}$
+\end_inset
+
+ is weakly 
+\begin_inset Formula $M$
+\end_inset
+
+-regular since 
+\begin_inset Formula $x_{1},\dots,x_{i}^{2},\dots,x_{n}$
+\end_inset
+
+ and 
+\begin_inset Formula $x_{1},\dots,x_{n}$
+\end_inset
+
+ are weakly 
+\begin_inset Formula $M$
+\end_inset
+
+-regular, etc...
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $(1.1.11):$
+\end_inset
+
+ Since multiplication by 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+ is the same operation on 
+\begin_inset Formula $M\otimes N$
+\end_inset
+
+ as multiplication by 
+\begin_inset Formula $\varphi(x_{i})$
+\end_inset
+
+, it suffices to consider 
+\begin_inset Formula $\mathbf{x}$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $\mathbf{x}$
+\end_inset
+
+ is an 
+\begin_inset Formula $M\otimes N$
+\end_inset
+
+-sequence, then the maps 
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="9" columns="1">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzcd} M 
+\backslash
+otimes N 
+\backslash
+arrow[r," 
+\backslash
+cdot x_1 
+\backslash
+otimes 1 "] & M 
+\backslash
+otimes N 
+\backslash
+end{tikzcd}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzcd} (M/x_1 M) 
+\backslash
+otimes N 
+\backslash
+arrow[r," 
+\backslash
+cdot x_2 
+\backslash
+otimes 1 "] & (M/x_1 M )
+\backslash
+otimes N 
+\backslash
+end{tikzcd}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\vdots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzcd} (M/(x_1 , 
+\backslash
+dots , x_{n-1} ) M) 
+\backslash
+otimes N 
+\backslash
+arrow[r," 
+\backslash
+cdot x_n 
+\backslash
+otimes 1 "] & (M/(x_1 , 
+\backslash
+dots , x_{n-1} ) M)
+\backslash
+otimes N  
+\backslash
+end{tikzcd}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+are injective.
+ Since 
+\begin_inset Formula $N$
+\end_inset
+
+ is faithfully flat as an 
+\begin_inset Formula $R$
+\end_inset
+
+-module, the maps 
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="9" columns="1">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzcd} M  
+\backslash
+arrow[r," 
+\backslash
+cdot x_1 "] & M  
+\backslash
+end{tikzcd}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzcd} M/x_1 M  
+\backslash
+arrow[r," 
+\backslash
+cdot x_2  "] & M/x_1 M 
+\backslash
+end{tikzcd}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\vdots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzcd} M/(x_1 , 
+\backslash
+dots , x_{n-1} ) M 
+\backslash
+arrow[r," 
+\backslash
+cdot x_n  "] & M/(x_1 , 
+\backslash
+dots , x_{n-1} ) M  
+\backslash
+end{tikzcd}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+are injective.
+ But this is the same thing as saying 
+\begin_inset Formula $\mathbf{x}$
+\end_inset
+
+ is a weak 
+\begin_inset Formula $M$
+\end_inset
+
+-sequence.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $(1.1.12a):$
+\end_inset
+
+ Let 
+\begin_inset Formula $F_{R}(M)$
+\end_inset
+
+ be the free 
+\begin_inset Formula $R$
+\end_inset
+
+-module generated by the set 
+\begin_inset Formula $M$
+\end_inset
+
+: 
+\begin_inset Formula 
+\[
+F_{R}(M)=\bigoplus_{m\in M}R\delta_{m},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and let 
+\begin_inset Formula $K$
+\end_inset
+
+ denote the kernel of the natural surjective map 
+\begin_inset Formula $F_{R}(M)\to M$
+\end_inset
+
+ given by 
+\begin_inset Formula $r_{1}\delta_{m_{1}}+\cdots+r_{k}\delta_{m_{k}}\mapsto r_{1}m_{1}+\cdots+r_{k}m_{k}$
+\end_inset
+
+.
+ Then we have a short exact sequence of 
+\begin_inset Formula $R$
+\end_inset
+
+-modules 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} 0 
+\backslash
+arrow[r] & K 
+\backslash
+arrow[r] & F_R (M) 
+\backslash
+arrow[r] & M 
+\backslash
+arrow[r] & 0.
+  
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Tensoring this with 
+\begin_inset Formula $R/\mathbf{x}R$
+\end_inset
+
+ gives a long exact sequence 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd}  
+\backslash
+cdots 
+\backslash
+arrow[r] & Tor_{1}^{R} (F_R (M) , R/ (
+\backslash
+mathbf{x} )) 
+\backslash
+arrow[r] & Tor_{1}^{R} (M, R/ (
+\backslash
+mathbf{x} )) 
+\backslash
+arrow[r, "
+\backslash
+cdot 0"] & K / 
+\backslash
+mathbf{x} K 
+\backslash
+arrow[r] & F_R (M) / 
+\backslash
+mathbf{x} F_R (M) 
+\backslash
+arrow[r] & M / 
+\backslash
+mathbf{x} M  
+\backslash
+arrow[r] & 0.
+  
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Where the zero map comes from Proposition 1.1.4.
+ Since 
+\begin_inset Formula $F_{R}(M)$
+\end_inset
+
+ is flat, 
+\begin_inset Formula $\mbox{Tor}_{1}^{R}(F_{R}(M),R/\mathbf{x}R)\cong0$
+\end_inset
+
+.
+ Then exactness at 
+\begin_inset Formula $\mbox{Tor}_{1}^{R}(M,R/\mathbf{x}R)$
+\end_inset
+
+ implies 
+\begin_inset Formula $\mbox{Tor}_{1}^{R}(M,R/\mathbf{x}R)\cong0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $(1.1.12b):$
+\end_inset
+
+ First we want to show that 
+\begin_inset Formula $\mathbf{x}$
+\end_inset
+
+ is a weak 
+\begin_inset Formula $K$
+\end_inset
+
+-sequence.
+ Note that 
+\begin_inset Formula $\mathbf{x}$
+\end_inset
+
+ is a weak 
+\begin_inset Formula $F_{R}(M)$
+\end_inset
+
+-sequence since 
+\begin_inset Formula $\mathbf{x}$
+\end_inset
+
+ is a weak 
+\begin_inset Formula $R$
+\end_inset
+
+-sequence, 
+\begin_inset Formula $F_{R}(M)\cong R\otimes F_{R}(M)$
+\end_inset
+
+, and 
+\begin_inset Formula $F_{R}(M)$
+\end_inset
+
+ is flat.
+ Let 
+\begin_inset Formula $I=\langle x_{1},\dots,x_{i-1}\rangle$
+\end_inset
+
+.
+ From Proposition 
+\begin_inset Formula $1.1.4$
+\end_inset
+
+, we obtain an injective map 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzcd} K/IK 
+\backslash
+arrow[r] & F_R (M) / I F_R (M) 
+\backslash
+end{tikzcd}
+\end_layout
+
+\end_inset
+
+.
+ Then since 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzcd} F_R (M) / I F_R (M) 
+\backslash
+arrow[r, " 
+\backslash
+cdot x_i "] & F_R (M) / I F_R (M) 
+\backslash
+end{tikzcd}
+\end_layout
+
+\end_inset
+
+ is injective, 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzcd} K/IK 
+\backslash
+arrow[r, " 
+\backslash
+cdot x_i "] & K/IK 
+\backslash
+end{tikzcd}
+\end_layout
+
+\end_inset
+
+ must be injective too.
+ This shows 
+\begin_inset Formula $\mathbf{x}$
+\end_inset
+
+ is a weak 
+\begin_inset Formula $K$
+\end_inset
+
+-sequence.
+ Now since 
+\begin_inset Formula $F_{R}(M)$
+\end_inset
+
+ is flat, we have 
+\begin_inset Formula $\mbox{Tor}_{i}^{R}(F_{R}(M),R/\mathbf{x}R)\cong0$
+\end_inset
+
+ for all 
+\begin_inset Formula $i\geq0$
+\end_inset
+
+.
+ This induces isomorphisms 
+\begin_inset Formula $\mbox{Tor}_{i+1}^{R}(M,R/\mathbf{x}R)\cong\mbox{Tor}_{i}^{R}(K,R/\mathbf{x}R)$
+\end_inset
+
+ for all 
+\begin_inset Formula $i\geq1$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $\mathbf{x}$
+\end_inset
+
+ is a weak 
+\begin_inset Formula $K$
+\end_inset
+
+-sequence, we have 
+\begin_inset Formula $\mbox{Tor}_{1}^{R}(K,R/\mathbf{x}R)\cong0$
+\end_inset
+
+, which implies 
+\begin_inset Formula $\mbox{Tor}_{2}^{R}(M,R/\mathbf{x}R)\cong0$
+\end_inset
+
+, which implies 
+\begin_inset Formula $\mbox{Tor}_{2}^{R}(K,R/\mathbf{x}R)\cong0$
+\end_inset
+
+, and so on.
+ Therefore 
+\begin_inset Formula $\mbox{Tor}_{i}^{R}(M,R/\mathbf{x}R)\cong0$
+\end_inset
+
+ for all 
+\begin_inset Formula $i\geq0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $(1.1.13):$
+\end_inset
+
+ The map 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzcd} K[x,y,z] 
+\backslash
+arrow[r, "
+\backslash
+cdot x"] & K[x,y,z] 
+\backslash
+end{tikzcd}
+\end_layout
+
+\end_inset
+
+ is injective since 
+\begin_inset Formula $K[x,y,z]$
+\end_inset
+
+ is an integral domain.
+ The map 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzcd} K[x,y,z]/
+\backslash
+langle x 
+\backslash
+rangle 
+\backslash
+arrow[r, "
+\backslash
+cdot y(1-x)"] & K[x,y,z]/ 
+\backslash
+langle x 
+\backslash
+rangle 
+\backslash
+end{tikzcd}
+\end_layout
+
+\end_inset
+
+ is injective sing 
+\begin_inset Formula $K[x,y,z]/\langle x\rangle\cong K[y,z]$
+\end_inset
+
+ is an integral domain.
+ The map 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzcd} K[x,y,z]/
+\backslash
+langle x,y(1-x) 
+\backslash
+rangle 
+\backslash
+arrow[r, "
+\backslash
+cdot z(1-x)"] & K[x,y,z]/
+\backslash
+langle x,y(1-x) 
+\backslash
+rangle 
+\backslash
+end{tikzcd}
+\end_layout
+
+\end_inset
+
+ is injective since 
+\begin_inset Formula $K[x,y,z]/(x,y(1-x))\cong K[z]$
+\end_inset
+
+ is an integral domain.
+ So the sequence 
+\begin_inset Formula $x,y(1-x),z(1-x)$
+\end_inset
+
+ is an 
+\begin_inset Formula $R$
+\end_inset
+
+-sequence.
+ On the other hand, the sequence 
+\begin_inset Formula $y(1-x),z(1-x),x$
+\end_inset
+
+ is not an 
+\begin_inset Formula $R$
+\end_inset
+
+-sequence since the map 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzcd} K[x,y,z]/
+\backslash
+langle y(1-x) 
+\backslash
+rangle 
+\backslash
+arrow[r, "
+\backslash
+cdot z(1-x)"] & K[x,y,z]/ 
+\backslash
+langle y(1-x) 
+\backslash
+rangle 
+\backslash
+end{tikzcd}
+\end_layout
+
+\end_inset
+
+ is not injective: 
+\begin_inset Formula $z(1-x)\overline{y}=\overline{0}$
+\end_inset
+
+, but 
+\begin_inset Formula $\overline{y}\neq\overline{0}$
+\end_inset
+
+ in 
+\begin_inset Formula $K[x,y,z]/\langle y(1-x)\rangle$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_body
+\end_document

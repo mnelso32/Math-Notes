@@ -1,0 +1,1367 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{tikz}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\usetikzlibrary{shapes.geometric}
+\usepackage{tikz-cd}
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem*{cor}{Corollary}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{ex}{Exercise} 
+\newtheorem{example}{Example}[section]
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem{case}{Case}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{tikz-cd}
+\usetikzlibrary{calc,arrows,decorations.pathreplacing}
+\tikzset{mydot/.style={circle,fill,inner sep=1.5pt},
+commutative diagrams/.cd,
+  arrow style=tikz,
+  diagrams={>=latex},
+}
+
+\usepackage{babel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+\usepackage{pgfplots}
+\usetikzlibrary{decorations.markings}
+\pgfplotsset{compat=1.9}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding iso8859-15
+\fontencoding global
+\font_roman "palatino" "default"
+\font_sans "lmss" "default"
+\font_typewriter "lmtt" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf true
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing single
+\use_hyperref false
+\papersize custom
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\paperwidth 30cm
+\paperheight 35cm
+\topmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0bp
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Symmetric Groups
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\end_layout
+
+\end_inset
+
+Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a nonempty set and let 
+\begin_inset Formula $S_{A}=\{f:A\to A\mid f\mbox{ is a bijection}\}$
+\end_inset
+
+.
+ 
+\begin_inset Formula $(S_{A},\circ)$
+\end_inset
+
+ is a group.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In particular, when 
+\begin_inset Formula $A=\{1,\dots,n\}$
+\end_inset
+
+, then 
+\begin_inset Formula $S_{A}$
+\end_inset
+
+ is denoted 
+\begin_inset Formula $S_{n}$
+\end_inset
+
+ and is called the group of all permutations of degree 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\sigma=(15)(2864937)$
+\end_inset
+
+ and 
+\begin_inset Formula $\tau=(19)(28)(37)(46)$
+\end_inset
+
+, then 
+\begin_inset Formula $\sigma\tau=(15)(2864937)(19)(28)(37)(46)=(15)(32691)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $\sigma\in S_{n}$
+\end_inset
+
+ where 
+\begin_inset Formula $n\geq2$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $\sigma=\tau_{1}\cdots\tau_{k}$
+\end_inset
+
+ is the factorization of 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ as a product of disjoint cycles, then 
+\begin_inset Formula 
+\[
+\mbox{ord}\sigma=\mbox{lcm(ord}\tau_{1},\dots,\mbox{ord}\tau_{k})
+\]
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $m_{i}=\mbox{ord}\tau_{i}$
+\end_inset
+
+, and let 
+\begin_inset Formula $m=\mbox{lcm}(m_{1},\dots,m_{k})$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\sigma^{m}=1$
+\end_inset
+
+ implies 
+\begin_inset Formula $\mbox{ord}\sigma\mid m$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $d=\mbox{ord}\sigma$
+\end_inset
+
+.
+ We are going to show 
+\begin_inset Formula $m_{i}\mid d$
+\end_inset
+
+ for all 
+\begin_inset Formula $1\leq i\leq k$
+\end_inset
+
+, which will imply 
+\begin_inset Formula $m\mid d$
+\end_inset
+
+, and hence 
+\begin_inset Formula $m=d$
+\end_inset
+
+ since 
+\begin_inset Formula $d\mid m$
+\end_inset
+
+.
+ 
+\begin_inset Formula $\sigma^{d}=1$
+\end_inset
+
+ implies
+\begin_inset Formula 
+\[
+\tau_{1}^{d}\cdots\tau_{k}^{d}=1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Multiplying both sides by 
+\begin_inset Formula $\tau_{1}^{-d}$
+\end_inset
+
+ we get 
+\begin_inset Formula 
+\[
+\tau_{2}^{d}\dots\tau_{k}^{d}=\tau_{1}^{-d}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula 
+\[
+\tau_{1}=(a_{11}\cdots a_{1t_{1}})
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\tau_{2}=(a_{21}\cdots a_{2t_{2}})
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\vdots
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\tau_{k}=(a_{k1}\cdots a_{kt_{k}})
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So 
+\begin_inset Formula $\tau_{1}^{-d}=1$
+\end_inset
+
+.
+ So 
+\begin_inset Formula $m_{1}\mid d$
+\end_inset
+
+.
+ We can do the same for all of the others, and so 
+\begin_inset Formula $m_{i}\mid d$
+\end_inset
+
+.
+ This implies 
+\begin_inset Formula $m\mid d$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{rem}
+\end_layout
+
+\end_inset
+
+ This only works when 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ is written as a product of disjoint cycles.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{rem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\end_layout
+
+\end_inset
+
+ Any 
+\begin_inset Formula $\sigma\in S_{n}$
+\end_inset
+
+ can be written as a product of disjoint cycles.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ If 
+\begin_inset Formula $\sigma=1$
+\end_inset
+
+, then 
+\begin_inset Formula $\sigma=(a_{i})$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $\sigma\neq1$
+\end_inset
+
+, then there exists 
+\begin_inset Formula $a_{1}\in\{1,\dots,n\}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\sigma(a_{1})\neq a_{1}$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula 
+\[
+a_{1}=a_{1}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+a_{2}=\sigma(a_{1})
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+a_{3}=\sigma(a_{2})
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\vdots
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Since 
+\begin_inset Formula $a_{i}\in\{1,\dots,n\}$
+\end_inset
+
+, it follows that 
+\begin_inset Formula $\exists t_{1}\in\mathbb{Z}^{+}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\sigma^{t_{1}}(a_{1})=a_{1}$
+\end_inset
+
+.
+ Write 
+\begin_inset Formula $\tau_{1}=(a_{1}\cdots a_{t_{1}-1})$
+\end_inset
+
+.
+ Now do the same procedure for 
+\begin_inset Formula $\{1,\dots,n\}\setminus\{a_{1},\dots,a_{t_{1-1}}\}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $\sigma\in S_{10}$
+\end_inset
+
+ be 
+\begin_inset Formula 
+\[
+\sigma=\begin{pmatrix}1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10\\
+3 & 5 & 7 & 2 & 1 & 8 & 6 & 4 & 10 & 9
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Write 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ as a product of disjoint cycles: 
+\begin_inset Formula $\sigma=(1,3,7,6,8,4,2,5)(9,10)=\tau_{1}\tau_{2}$
+\end_inset
+
+.
+ Now compute the order 
+\begin_inset Formula $\sigma$
+\end_inset
+
+: 
+\begin_inset Formula $\mbox{ord}\sigma=\mbox{lcm}(\mbox{ord}\tau_{1},\mbox{ord}\tau_{2})=8$
+\end_inset
+
+.
+ Now compute 
+\begin_inset Formula $\sigma^{35}$
+\end_inset
+
+: 
+\begin_inset Formula $\sigma^{35}=\sigma^{32}\sigma^{3}=(\sigma^{8})^{4}\sigma^{3}=1\cdot\sigma^{3}=(1,6,2,3,8,5,7,4)$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ A 
+\begin_inset Formula $\textbf{transposition}$
+\end_inset
+
+ is a 
+\begin_inset Formula $2$
+\end_inset
+
+-cycle 
+\begin_inset Formula $(a,b)\in S_{n}$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lemma}
+\end_layout
+
+\end_inset
+
+ Every cycle from 
+\begin_inset Formula $S_{n}$
+\end_inset
+
+ can be written as a product of transpositions.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lemma}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $(a_{1},a_{2},\dots,a_{k})=(a_{1},a_{2})(a_{2},a_{3})\cdots(a_{k-1},a_{k})$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ Write 
+\begin_inset Formula $(1,2,3)\in S_{3}$
+\end_inset
+
+ as a product of transpositions: 
+\begin_inset Formula $(1,2,3)=(1,2)(2,3)=(1,3)(1,2)$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\end_layout
+
+\end_inset
+
+ Every 
+\begin_inset Formula $\sigma\in S_{n}$
+\end_inset
+
+ 
+\begin_inset Formula $(n\geq2)$
+\end_inset
+
+ can be written as a product of transpositions.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Write 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ as a product of disjoint cycles 
+\begin_inset Formula 
+\[
+\sigma=\tau_{1}\cdots\tau_{k}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now write 
+\begin_inset Formula $\tau_{i}$
+\end_inset
+
+ as a product of transpositions for all 
+\begin_inset Formula $1\leq i\leq k$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Conjugacy Classes in 
+\begin_inset Formula $S_{n}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lemma}
+\backslash
+label{lemma}
+\end_layout
+
+\end_inset
+
+ For any cycle 
+\begin_inset Formula $(i_{1},\dots,i_{k})$
+\end_inset
+
+ in 
+\begin_inset Formula $S_{n}$
+\end_inset
+
+ and any 
+\begin_inset Formula $\sigma\in S_{n}$
+\end_inset
+
+, 
+\begin_inset Formula 
+\[
+\sigma(i_{1},\dots,i_{k})\sigma^{-1}=(\sigma(i_{1}),\dots,\sigma(i_{k})).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lemma}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $\pi=\sigma(i_{1},\dots,i_{k})\sigma^{-1}$
+\end_inset
+
+.
+ First we show 
+\begin_inset Formula $\pi$
+\end_inset
+
+ and takes 
+\begin_inset Formula $\sigma(i_{j})$
+\end_inset
+
+ to 
+\begin_inset Formula $\sigma(i_{j+1})$
+\end_inset
+
+ for all 
+\begin_inset Formula $1\leq j\leq k$
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{align*}
+\pi(\sigma(i_{j})) & =(\sigma(i_{1},\dots,i_{k})\sigma^{-1})(\sigma(i_{j}))\\
+ & =(\sigma(i_{1},\dots,i_{k})\sigma^{-1}\sigma)(i_{j})\\
+ & =(\sigma(i_{1},\dots,i_{k}))(i_{j})\\
+ & =\sigma(i_{j+1})
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Next we show 
+\begin_inset Formula $\pi$
+\end_inset
+
+ fixes everything else.
+ So pick 
+\begin_inset Formula $x\in\{1,\dots,n\}\setminus\{\sigma(i_{1}),\dots,\sigma(i_{k})\}$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $x\neq\sigma(i_{j})$
+\end_inset
+
+ for any 
+\begin_inset Formula $1\leq j\leq k$
+\end_inset
+
+, 
+\begin_inset Formula $\sigma^{-1}(x)$
+\end_inset
+
+ is not 
+\begin_inset Formula $i_{j}$
+\end_inset
+
+ for any 
+\begin_inset Formula $1\leq j\leq k$
+\end_inset
+
+.
+ Therefore, the cycle 
+\begin_inset Formula $(i_{1},\dots,i_{k})$
+\end_inset
+
+ does not move 
+\begin_inset Formula $\sigma^{-1}(x)$
+\end_inset
+
+.
+ So we have
+\begin_inset Formula 
+\begin{align*}
+\pi(x) & =(\sigma(i_{1},\dots,i_{k})\sigma^{-1})(x)\\
+ & =\sigma((i_{1},\dots,i_{k}))(\sigma^{-1}(x)))\\
+ & =\sigma(\sigma^{-1}(x))\\
+ & =x
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+We show that all cycles of the same length in 
+\begin_inset Formula $S_{n}$
+\end_inset
+
+ are conjugate.
+ Pick any two 
+\begin_inset Formula $k$
+\end_inset
+
+-cycles, say 
+\begin_inset Formula $(a_{1},\dots,a_{k})$
+\end_inset
+
+ and 
+\begin_inset Formula $(b_{1},\dots,b_{k})$
+\end_inset
+
+.
+ Choose 
+\begin_inset Formula $\sigma\in S_{n}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\sigma(a_{i})=b_{i}$
+\end_inset
+
+ for all 
+\begin_inset Formula $1\leq i\leq k$
+\end_inset
+
+.
+ Then by 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Lemma~(
+\backslash
+ref{lemma})
+\end_layout
+
+\end_inset
+
+, we see that conjugation by 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ carries the first 
+\begin_inset Formula $k$
+\end_inset
+
+-cycle to the second.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $\sigma\in S_{m}$
+\end_inset
+
+.
+ Write 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ as a product of disjoint cycles 
+\begin_inset Formula $\sigma=\pi_{1}\pi_{2}\cdots\pi_{k}$
+\end_inset
+
+.
+ The 
+\series bold
+cycle type 
+\series default
+of 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ is the sequence 
+\begin_inset Formula $(1^{e_{1}},2^{e_{2}},\dots,m^{e_{m}})$
+\end_inset
+
+ where 
+\begin_inset Formula $e_{i}$
+\end_inset
+
+ is the number of 
+\begin_inset Formula $i$
+\end_inset
+
+-cycles in the product factorization of 
+\begin_inset Formula $\sigma$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $\sigma=(1,3,5)(2,7)(9,8,13)(4,6,10,11,12)$
+\end_inset
+
+.
+ Then the cycle type of 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ is 
+\begin_inset Formula $(2,3^{2},5)$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+For 
+\begin_inset Formula $\sigma,\tau\in S_{m}$
+\end_inset
+
+, denote 
+\begin_inset Formula $\sigma^{\tau}=\tau\sigma\tau^{-1}$
+\end_inset
+
+.
+ Now write 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ as a product of disjoint cycles 
+\begin_inset Formula $\sigma=\pi_{1}\pi_{2}\cdots\pi_{k}$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\begin{align*}
+\sigma^{\tau} & =\tau\sigma\tau^{-1}\\
+ & =\tau\pi_{1}\pi_{2}\cdots\pi_{k}\tau^{-1}\\
+ & =\tau\pi_{1}\tau^{-1}\tau\pi_{2}\tau^{-1}\cdots\tau\pi_{k}\tau^{-1}\\
+ & =\pi_{1}^{\tau}\pi_{2}^{\tau}\cdots\pi_{k}^{\tau}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So 
+\begin_inset Formula $\sigma^{\tau}$
+\end_inset
+
+ has the same cycle type as 
+\begin_inset Formula $\sigma$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $\sigma,\tau\in S_{m}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ and 
+\begin_inset Formula $\tau$
+\end_inset
+
+ are conjugate if and only if they have the same cycle type.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

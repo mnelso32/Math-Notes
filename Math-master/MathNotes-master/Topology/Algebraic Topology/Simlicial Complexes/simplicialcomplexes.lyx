@@ -1,0 +1,863 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{tikz}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\usetikzlibrary{shapes.geometric}
+\usepackage{tikz-cd}
+\usepackage{amsthm}
+\usepackage{xparse,etoolbox}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem*{cor}{Corollary}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{ex}{Exercise} 
+\newtheorem{example}{Example}[section]
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem{case}{Case}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{tikz-cd}
+\usetikzlibrary{calc,arrows,decorations.pathreplacing}
+\tikzset{mydot/.style={circle,fill,inner sep=1.5pt},
+commutative diagrams/.cd,
+  arrow style=tikz,
+  diagrams={>=latex},
+}
+
+\usepackage{babel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=blue,
+    filecolor=blue,
+    linkcolor=blue,
+    urlcolor=blue
+}
+\usepackage{pgfplots}
+\usetikzlibrary{decorations.markings}
+\pgfplotsset{compat=1.9}
+
+
+\newcommand{\blocktheorem}[1]{%
+  \csletcs{old#1}{#1}% Store \begin
+  \csletcs{endold#1}{end#1}% Store \end
+  \RenewDocumentEnvironment{#1}{o}
+    {\par\addvspace{1.5ex}
+     \noindent\begin{minipage}{\textwidth}
+     \IfNoValueTF{##1}
+       {\csuse{old#1}}
+       {\csuse{old#1}[##1]}}
+    {\csuse{endold#1}
+     \end{minipage}
+     \par\addvspace{1.5ex}}
+}
+
+\raggedbottom
+
+\blocktheorem{theorem}% Make theo into a block
+\blocktheorem{defn}% Make defi into a block
+\blocktheorem{lemma}% Make lem into a block
+\blocktheorem{rem}% Make rem into a block
+\blocktheorem{cor}% Make col into a block
+\blocktheorem{prop}% Make prop into a block
+
+
+\usepackage[bottom]{footmisc}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding iso8859-15
+\fontencoding global
+\font_roman "palatino" "default"
+\font_sans "lmss" "default"
+\font_typewriter "lmtt" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf true
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing single
+\use_hyperref false
+\papersize custom
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\paperwidth 30cm
+\paperheight 35cm
+\topmargin 2cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0bp
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Abstract Simplicial Complexes
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+A 
+\series bold
+simplicial complex 
+\begin_inset Formula $\Delta$
+\end_inset
+
+ 
+\series default
+on the set 
+\begin_inset Formula $\{x_{1},\dots,x_{n}\}$
+\end_inset
+
+ is a collection of subsets of 
+\begin_inset Formula $\{x_{1},\dots,x_{n}\}$
+\end_inset
+
+ such that
+\end_layout
+
+\begin_layout Enumerate
+The simplicial complex 
+\begin_inset Formula $\Delta$
+\end_inset
+
+ contains all singletons: 
+\begin_inset Formula $\{x_{\lambda}\}\in\Delta$
+\end_inset
+
+ for all 
+\begin_inset Formula $\lambda=1,\dots,n$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+The simplicial complex 
+\begin_inset Formula $\Delta$
+\end_inset
+
+ is closed under containment: if 
+\begin_inset Formula $\sigma\subseteq\{x_{1},\dots,x_{n}\}$
+\end_inset
+
+ and 
+\begin_inset Formula $\tau\supset\sigma$
+\end_inset
+
+, then 
+\begin_inset Formula $\tau\in\Delta$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+An element of a simplicial complex is called a 
+\series bold
+face 
+\series default
+or 
+\series bold
+simplex
+\series default
+, and a simplex of 
+\begin_inset Formula $\Delta$
+\end_inset
+
+ not properly contained in another simplex of 
+\begin_inset Formula $\Delta$
+\end_inset
+
+ is called a 
+\series bold
+facet
+\series default
+.
+ A simplex 
+\begin_inset Formula $\sigma\in\Delta$
+\end_inset
+
+ of cardinality 
+\begin_inset Formula $i+1$
+\end_inset
+
+ is called an 
+\begin_inset Formula $i$
+\end_inset
+
+-dimensional face or an 
+\begin_inset Formula $i$
+\end_inset
+
+-face of 
+\begin_inset Formula $\Delta$
+\end_inset
+
+.
+ The empty set 
+\begin_inset Formula $\emptyset$
+\end_inset
+
+, is the unique face of dimension 
+\begin_inset Formula $-1$
+\end_inset
+
+, as long as 
+\begin_inset Formula $\Delta$
+\end_inset
+
+ is not the 
+\series bold
+void complex 
+\series default
+
+\begin_inset Formula $\{\}$
+\end_inset
+
+ consisting of no subsets of 
+\begin_inset Formula $\{1,\dots,n\}$
+\end_inset
+
+.
+ The 
+\series bold
+dimension 
+\series default
+of 
+\begin_inset Formula $\Delta$
+\end_inset
+
+, denoted 
+\begin_inset Formula $\text{dim}(\Delta)$
+\end_inset
+
+, is defined to be the maximum of the dimensions of its faces (or 
+\begin_inset Formula $-\infty$
+\end_inset
+
+ if 
+\begin_inset Formula $\Delta=\{\}$
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\backslash
+label{examplesimplicialcomplex}
+\end_layout
+
+\end_inset
+
+ The simplicial complex 
+\begin_inset Formula $\Delta$
+\end_inset
+
+ on 
+\begin_inset Formula $\{x_{1},x_{2},x_{3},x_{4},x_{5}\}$
+\end_inset
+
+ consisting of all subsets of 
+\begin_inset Formula $\{x_{1},x_{2},x_{3}\}$
+\end_inset
+
+, 
+\begin_inset Formula $\{x_{2},x_{4}\}$
+\end_inset
+
+, 
+\begin_inset Formula $\{x_{3},x_{4}\}$
+\end_inset
+
+, and 
+\begin_inset Formula $\{x_{4}\}$
+\end_inset
+
+ is pictured below
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw[fill=gray!20] (0,0) -- (2,2) -- (4,0)-- (0,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+draw (2,2) -- (6,2) -- (4,0);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node[circle, fill=black, inner sep=2pt, label=below left:$x_1 $] (a) at
+ (0,0) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node[circle, fill=black, inner sep=2pt, label=above left:$x_3 $] (b) at
+ (2,2) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node[circle, fill=black, inner sep=2pt, label=below right:$x_2 $] (c) at
+ (4,0) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node[circle, fill=black, inner sep=2pt, label=above right:$x_4 $] (c) at
+ (6,2) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node[circle, fill=black, inner sep=2pt, label=below right:$x_5 $] (c) at
+ (8,0) {};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture} 
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Subsection
+Simplicial Homology
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Let 
+\begin_inset Formula $\Delta$
+\end_inset
+
+ be a simplicial complex on 
+\begin_inset Formula $\{x_{1},\dots,x_{n}\}$
+\end_inset
+
+.
+ For 
+\begin_inset Formula $i\in\mathbb{Z}$
+\end_inset
+
+, let 
+\begin_inset Formula 
+\[
+S_{i}(\Delta):=\text{Span}_{K}\left(\sigma\in\Delta\mid\text{dim}(\sigma)=i\right)\quad\text{and}\quad S(\Delta):=\bigoplus_{i\in\mathbb{Z}}S_{i}(\Delta).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Then 
+\begin_inset Formula $S(\Delta)$
+\end_inset
+
+ is a graded 
+\begin_inset Formula $K$
+\end_inset
+
+-module.
+ Let 
+\begin_inset Formula $\partial:S(\Delta)\to S(\Delta)$
+\end_inset
+
+ be the unique graded endomorphism of degree 
+\begin_inset Formula $-1$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\[
+\partial(\sigma)=\sum_{\lambda\in\sigma}\sigma\backslash\{\lambda\}.
+\]
+
+\end_inset
+
+By a direct calculation, we have 
+\begin_inset Formula $\partial^{2}=0$
+\end_inset
+
+, and so 
+\begin_inset Formula $(S(\Delta),\partial)$
+\end_inset
+
+ forms a chain complex over 
+\begin_inset Formula $K$
+\end_inset
+
+; it is called the (
+\series bold
+augmented 
+\series default
+or 
+\series bold
+reduced
+\series default
+) 
+\series bold
+chain complex of
+\series default
+ 
+\begin_inset Formula $\Delta$
+\end_inset
+
+ 
+\series bold
+over 
+\begin_inset Formula $K$
+\end_inset
+
+
+\series default
+.
+ The 
+\begin_inset Formula $i$
+\end_inset
+
+th homology of 
+\begin_inset Formula $(S(\Delta),\partial)$
+\end_inset
+
+ is called the 
+\begin_inset Formula $i$
+\end_inset
+
+
+\series bold
+th reduced homology 
+\series default
+of 
+\begin_inset Formula $\Delta$
+\end_inset
+
+ over 
+\begin_inset Formula $K$
+\end_inset
+
+, and is commonly denoted as 
+\begin_inset Formula $\widetilde{H}_{i}(\Delta,K)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\backslash
+label{example}
+\end_layout
+
+\end_inset
+
+ For 
+\begin_inset Formula $\Delta$
+\end_inset
+
+ as in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Example~(
+\backslash
+ref{examplesimplicialcomplex})
+\end_layout
+
+\end_inset
+
+, we have 
+\begin_inset Formula 
+\begin{align*}
+S_{2}(\Delta) & =\{\{1,2,3\}\}\\
+S_{1}(\Delta) & =\{\{1,2\},\{1,3\},\{2,3\},\{2,4\},\{3,4\}\}\\
+S_{0}(\Delta) & =\{\{1\},\{2\},\{3\},\{4\},\{5\}\}\\
+S_{-1}(\Delta) & =\{\emptyset\}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Choosing bases for the 
+\begin_inset Formula $S_{i}(\Delta)$
+\end_inset
+
+ as suggested by the ordering of the faces listed above, the chain complex
+ for 
+\begin_inset Formula $\Delta$
+\end_inset
+
+ becomes 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd}[ampersand replacement=
+\backslash
+&] 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+0 
+\backslash
+arrow[r] 
+\backslash
+& K 
+\backslash
+arrow[swap]{rr}{
+\backslash
+begin{pmatrix} 1 
+\backslash
+
+\backslash
+ 1 
+\backslash
+
+\backslash
+ 1 
+\backslash
+
+\backslash
+ 0 
+\backslash
+
+\backslash
+ 0 
+\backslash
+end{pmatrix} } 
+\backslash
+& 
+\backslash
+& K^5 
+\backslash
+arrow[swap]{rrrr}{ 
+\backslash
+begin{pmatrix} 1 & 1 & 0 & 0 & 0 
+\backslash
+
+\backslash
+ 1 & 0 & 1 & 1 & 0 
+\backslash
+
+\backslash
+ 0 & 1 & 1 & 0 & 1  
+\backslash
+
+\backslash
+ 0 & 0 & 0 & 1 & 1 
+\backslash
+
+\backslash
+ 0 & 0 & 0 & 0 & 0 
+\backslash
+end{pmatrix} } 
+\backslash
+& 
+\backslash
+& 
+\backslash
+& 
+\backslash
+& K^5 
+\backslash
+arrow[swap]{rrr}{
+\backslash
+begin{pmatrix} 1 & 1 & 1 & 1 & 1 
+\backslash
+end{pmatrix} } 
+\backslash
+& 
+\backslash
+& 
+\backslash
+& K 
+\backslash
+arrow[r] 
+\backslash
+& 0
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For example, 
+\begin_inset Formula $\partial_{2}(e_{\{1,2,3\}})=e_{\{2,3\}}+e_{\{1,3\}}+e_{\{1,2\}}$
+\end_inset
+
+, which we identify with the vector 
+\begin_inset Formula $(1,1,1,0,0)$
+\end_inset
+
+.
+ The mapping 
+\begin_inset Formula $\partial_{1}$
+\end_inset
+
+ has rank 
+\begin_inset Formula $3$
+\end_inset
+
+, so 
+\begin_inset Formula $\widetilde{H}_{0}(\Delta;K)\cong\widetilde{H}_{1}(\Delta;K)\cong K$
+\end_inset
+
+ and the other homology groups are 
+\begin_inset Formula $0$
+\end_inset
+
+.
+ Geometrically, 
+\begin_inset Formula $\widetilde{H}_{0}(\Delta;K)$
+\end_inset
+
+ is nontrivial since 
+\begin_inset Formula $\Delta$
+\end_inset
+
+ is disconnected and 
+\begin_inset Formula $\widetilde{H}_{1}(\Delta;K)$
+\end_inset
+
+ is nontrivial since 
+\begin_inset Formula $\Delta$
+\end_inset
+
+ contains a triangle which is not the boundary of an element of 
+\begin_inset Formula $\Delta$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\end_body
+\end_document

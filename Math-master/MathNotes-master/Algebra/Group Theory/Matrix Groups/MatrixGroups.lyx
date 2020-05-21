@@ -1,0 +1,945 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{tikz}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\usetikzlibrary{shapes.geometric}
+\usepackage{tikz-cd}
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem*{cor}{Corollary}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{ex}{Exercise} 
+\newtheorem{example}{Example}[section]
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem{case}{Case}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{tikz-cd}
+\usetikzlibrary{calc,arrows,decorations.pathreplacing}
+\tikzset{mydot/.style={circle,fill,inner sep=1.5pt},
+commutative diagrams/.cd,
+  arrow style=tikz,
+  diagrams={>=latex},
+}
+
+\usepackage{babel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+\usepackage{pgfplots}
+\usetikzlibrary{decorations.markings}
+\pgfplotsset{compat=1.9}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding iso8859-15
+\fontencoding global
+\font_roman "palatino" "default"
+\font_sans "lmss" "default"
+\font_typewriter "lmtt" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf true
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing single
+\use_hyperref false
+\papersize custom
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\paperwidth 30cm
+\paperheight 35cm
+\topmargin 3cm
+\bottommargin 3cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0bp
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Matrix Groups
+\end_layout
+
+\begin_layout Standard
+Throughout this note, let 
+\begin_inset Formula $F$
+\end_inset
+
+ be a field, 
+\begin_inset Formula $A$
+\end_inset
+
+ be the 
+\begin_inset Formula $n\times n$
+\end_inset
+
+ matrix 
+\begin_inset Formula 
+\[
+A=\begin{pmatrix}a_{11} & \cdots & a_{1n}\\
+\vdots & \ddots & \vdots\\
+a_{n1} & \cdots & a_{nn}
+\end{pmatrix}
+\]
+
+\end_inset
+
+with entries in 
+\begin_inset Formula $F$
+\end_inset
+
+, and let 
+\begin_inset Formula $E_{ij}$
+\end_inset
+
+ be the 
+\begin_inset Formula $n\times n$
+\end_inset
+
+ matrix with entry 
+\begin_inset Formula $1$
+\end_inset
+
+ at the 
+\begin_inset Formula $(i,j)$
+\end_inset
+
+th spot and entry 
+\begin_inset Formula $0$
+\end_inset
+
+ everywhere else.
+ 
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Standard
+In linear algebra, matrices get into row echelon form by the elementary
+ row operations:
+\end_layout
+
+\begin_layout Itemize
+Add a multilple of one row to another.
+\end_layout
+
+\begin_layout Itemize
+Multiply a row by a nonzero scalar.
+\end_layout
+
+\begin_layout Itemize
+Exchange two rows.
+\end_layout
+
+\begin_layout Standard
+Elementary row operations on 
+\begin_inset Formula $A$
+\end_inset
+
+ can be expressed using left multiplication by an 
+\begin_inset Formula $n\times n$
+\end_inset
+
+ matrix called an 
+\series bold
+elementary matrix
+\series default
+.
+ These elementary matrices come in three flavors.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+First we have 
+\begin_inset Formula $e_{ij}(a)=\exp(aE_{ij})=I_{n}+aE_{ij}$
+\end_inset
+
+.
+ The effect of multiplying an 
+\begin_inset Formula $m\times n$
+\end_inset
+
+ matrix 
+\begin_inset Formula $A$
+\end_inset
+
+ by 
+\begin_inset Formula $e_{ij}(a)$
+\end_inset
+
+ on the left is an elementary row operation:
+\begin_inset Formula 
+\[
+e_{ij}(a)A=\begin{pmatrix}a_{11} & \cdots & a_{1n}\\
+\vdots & \ddots & \vdots\\
+a_{i1}+aa_{j1} & \cdots & a_{in}+aa_{jn}\\
+\vdots & \ddots & \vdots\\
+a_{m1} & \cdots & a_{mn}
+\end{pmatrix},
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and the effect of multiplying 
+\begin_inset Formula $A$
+\end_inset
+
+ by 
+\begin_inset Formula $e_{ij}(\lambda)$
+\end_inset
+
+ on the right is an elementary column operation:
+\begin_inset Formula 
+\[
+Ae_{ij}(a)=\begin{pmatrix}a_{11} & \cdots & a_{1j}+aa_{1i} & \cdots & a_{1n}\\
+\vdots & \ddots & \vdots & \ddots & \vdots\\
+a_{m1} & \cdots & a_{mj}+aa_{mi} & \cdots & a_{mn}
+\end{pmatrix}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+These elementary matrices satisfy the following relations, called the 
+\series bold
+Steinberg relations
+\series default
+:
+\begin_inset Formula 
+\begin{align*}
+e_{ij}(a)e_{ij}(b) & =e_{ij}(a+b);\\
+e_{ij}(a)e_{jk}(b) & =e_{ik}(ab)e_{jk}(b)e_{ij}(a),\quad\mbox{for }i\neq k;\\
+e_{ij}(a)e_{kl}(b) & =e_{kl}(b)e_{ij}(a),\quad\mbox{for }i\neq l\mbox{ and }j\neq k.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+It is useful to think of the second relation as, 
+\begin_inset Quotes eld
+\end_inset
+
+you can move 
+\begin_inset Formula $e_{ij}(a)$
+\end_inset
+
+ from the left to the right of 
+\begin_inset Formula $e_{jk}(b)$
+\end_inset
+
+ at the cost of multiplying by an element 
+\begin_inset Formula $e_{ik}(ab)$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+.
+ A similar interpretation can be given for the other relations.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Next we have 
+\begin_inset Formula $d_{i}(a)=aE_{ii}$
+\end_inset
+
+, which has entries 
+\begin_inset Formula $1$
+\end_inset
+
+ on the main diagonal except for a nonzero 
+\begin_inset Formula $a$
+\end_inset
+
+ in the 
+\begin_inset Formula $i$
+\end_inset
+
+th spot along the diagonal.
+ The effect of multiplying an 
+\begin_inset Formula $m\times n$
+\end_inset
+
+ matrix 
+\begin_inset Formula $A$
+\end_inset
+
+ by 
+\begin_inset Formula $d_{i}(a)$
+\end_inset
+
+ on the left is an elementary row operation: multiply the 
+\begin_inset Formula $i$
+\end_inset
+
+th row by 
+\begin_inset Formula $a$
+\end_inset
+
+.
+ The effect of multiplying an 
+\begin_inset Formula $m\times n$
+\end_inset
+
+ matrix 
+\begin_inset Formula $A$
+\end_inset
+
+ by 
+\begin_inset Formula $d_{i}(a)$
+\end_inset
+
+ on the right is an elementary column operation: multiply the 
+\begin_inset Formula $i$
+\end_inset
+
+th column by 
+\begin_inset Formula $a$
+\end_inset
+
+.
+ These matrices together with the 
+\begin_inset Formula $e_{ij}(a)$
+\end_inset
+
+'s satisfy the following relations:
+\begin_inset Formula 
+\[
+G_{3}=\langle d_{1}(1+ap),e_{12}(b)\mid a\in\mathbb{Z}/p\mathbb{Z},\,b\in\mathbb{Z}/p^{2}\mathbb{Z}\}\cong C_{p^{2}}\rtimes C_{p}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $d_{1}(1+ap)$
+\end_inset
+
+ maps 
+\begin_inset Formula $e_{12}(b)$
+\end_inset
+
+ to 
+\begin_inset Formula $e_{12}(b(1+ap))=e_{12}(b)e_{12}(abp)$
+\end_inset
+
+.
+ Also 
+\begin_inset Formula 
+\[
+d_{1}(1+ap)d_{1}(1+bp)=d_{1}(1+(a+b)p+abp^{2})
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+d_{1}(1+ap+bp^{2})d_{1}(1+cp+dp^{2})=d_{1}(1+(a+c)p+(d+ac+b)p^{2}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+G_{4}=\langle d_{1}(1+ap),e_{12}(b)\mid a\in\mathbb{Z}/p\mathbb{Z},\,b\in\mathbb{Z}/p^{3}\mathbb{Z}\}\cong C_{p^{3}}\rtimes C_{p}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+d_{1}(d_{1}(a))e_{12}(e_{12}(b)) & =e_{12}(d_{1}(a)e_{12}(b))d_{1}(d_{1}(a))\\
+ & =e_{12}(e_{12}(ab)d_{1}(a))d_{1}(d_{1}(a))
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+d_{1}(d_{1}(a))d_{1}(d_{1}(a))=d_{1}(d_{1}(a)d_{1}(a))=d_{1}(d_{1}(a^{2}))
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+d_{1}(d_{1}(a)))^{p}=d_{1}(d_{1}(a^{p})))
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+e_{12}(e_{12}(a))^{p}=e_{12}(d_{1}(p)d_{2}(p)e_{12}(a))
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+d_{1}(d_{1}(a))e_{12}(e_{12}(b))=e_{12}(d_{1}(a)e_{12}(b))d_{1}(d_{1}(a))=e_{12}(e_{12}(ab)d_{1}(b))d_{1}(d_{1}(b))
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+[G_{2},G_{2}]=\langle e_{12}(abp)\rangle
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+e_{g}e_{h}=\alpha(g,h)e_{gh}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+d_{1}(1+ap)e_{12}(b)=e_{12}(abp)e_{12}(b)d_{1}(1+ap)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+d_{i}(a)d_{i}(b) & =d_{i}(ab);\\
+d_{i}(a)d_{j}(b) & =d_{j}(b)d_{i}(a);\\
+d_{i}(a)e_{ij}(b) & =e_{ij}(ab)d_{i}(a);\\
+e_{ij}(b)d_{j}(a) & =d_{j}(a)e_{ij}(ab).
+\end{align*}
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+It is useful to think of the third relation as 
+\begin_inset Quotes eld
+\end_inset
+
+you can move 
+\begin_inset Formula $d_{i}(a)$
+\end_inset
+
+ from the left to the right of 
+\begin_inset Formula $e_{ij}(b)$
+\end_inset
+
+ at the cost of replacing 
+\begin_inset Formula $e_{ij}(b)$
+\end_inset
+
+ with 
+\begin_inset Formula $e_{ij}(ab)$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+.
+ A similar interpretation can be given for the other relations.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+The last type of elementary matrix to discuss is 
+\begin_inset Formula $s_{ij}$
+\end_inset
+
+ with 
+\begin_inset Formula $i\neq j$
+\end_inset
+
+, which is the matrix that has entry 
+\begin_inset Formula $1$
+\end_inset
+
+ in positions 
+\begin_inset Formula $(i,j)$
+\end_inset
+
+ and 
+\begin_inset Formula $(j,i)$
+\end_inset
+
+ and also in every diagonal position except the 
+\begin_inset Formula $i$
+\end_inset
+
+th and 
+\begin_inset Formula $j$
+\end_inset
+
+th, and 
+\begin_inset Formula $0$
+\end_inset
+
+'s everywhere else.
+ The effect of multiplying an 
+\begin_inset Formula $m\times n$
+\end_inset
+
+ matrix 
+\begin_inset Formula $A$
+\end_inset
+
+ by 
+\begin_inset Formula $s_{ij}$
+\end_inset
+
+ on the left is an elementary row operation: swap the 
+\begin_inset Formula $i$
+\end_inset
+
+th row and 
+\begin_inset Formula $j$
+\end_inset
+
+th row.
+ The effect of multiplying an 
+\begin_inset Formula $m\times n$
+\end_inset
+
+ matrix 
+\begin_inset Formula $A$
+\end_inset
+
+ by 
+\begin_inset Formula $s_{ij}$
+\end_inset
+
+ on the right is an elementary column operation: swap the 
+\begin_inset Formula $i$
+\end_inset
+
+th column and 
+\begin_inset Formula $j$
+\end_inset
+
+th column.
+ These matrices together with the 
+\begin_inset Formula $d_{i}(a)'s$
+\end_inset
+
+ and 
+\begin_inset Formula $e_{ij}(b)'s$
+\end_inset
+
+ satisfy the following relations
+\begin_inset Formula 
+\begin{align*}
+s_{ij}^{2} & =I;\\
+s_{ij} & =s_{ji};\\
+s_{ij}s_{jk}s_{ij} & =s_{jk}s_{ij}s_{jk};\\
+s_{ij}s_{kl} & =s_{kl}s_{ij},\quad\mbox{for }i\neq k\ne j\mbox{ and }i\ne l\ne j;\\
+s_{ij}e_{kl}(a) & =e_{\sigma(k)\sigma(l)}(a)s_{ij},\quad\sigma=(1,2);\\
+s_{ij}d_{j}(a) & =d_{\sigma(j)}(a)s_{ij},\quad\sigma=(1,2);
+\end{align*}
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\backslash
+label{prop}
+\end_layout
+
+\end_inset
+
+ For 
+\begin_inset Formula $n\geq2$
+\end_inset
+
+, the matrices 
+\begin_inset Formula $e_{ij}(a)$
+\end_inset
+
+ with 
+\begin_inset Formula $a\in F^{\times}$
+\end_inset
+
+ generate 
+\begin_inset Formula $\text{SL}_{n}(F)$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ We prove this by induction on 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ For the base case 
+\begin_inset Formula $n=2$
+\end_inset
+
+, pick 
+\begin_inset Formula $\left(\begin{smallmatrix}a & b\\
+c & d
+\end{smallmatrix}\right)\in\text{SL}_{2}(F)$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $b\neq0$
+\end_inset
+
+, then 
+\begin_inset Formula 
+\[
+\begin{pmatrix}a & b\\
+c & d
+\end{pmatrix}=e_{21}\left(\frac{d-1}{b}\right)e_{12}(b)e_{21}\left(\frac{a-1}{b}\right).
+\]
+
+\end_inset
+
+If 
+\begin_inset Formula $c\neq0$
+\end_inset
+
+, then
+\begin_inset Formula 
+\[
+\begin{pmatrix}a & b\\
+c & d
+\end{pmatrix}=e_{12}\left(\frac{a-1}{c}\right)e_{21}(c)e_{12}\left(\frac{d-1}{c}\right).
+\]
+
+\end_inset
+
+If 
+\begin_inset Formula $b=c=0$
+\end_inset
+
+, then the matrix is 
+\begin_inset Formula $\left(\begin{smallmatrix}a & 0\\
+0 & 1/a
+\end{smallmatrix}\right)$
+\end_inset
+
+, and 
+\begin_inset Formula 
+\[
+\begin{pmatrix}a & 0\\
+0 & \frac{1}{a}
+\end{pmatrix}=e_{21}\left(\frac{1-a}{a}\right)e_{12}(1)e_{21}(a-1)e_{12}\left(\frac{-1}{a}\right).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Now suppose the proposition is true for 
+\begin_inset Formula $n-1>2$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula 
+\[
+A=\begin{pmatrix}a_{11} & \cdots & a_{1n}\\
+\vdots & \ddots & \vdots\\
+a_{n1} & \cdots & a_{nn}
+\end{pmatrix}\in\text{SL}_{n}(F).
+\]
+
+\end_inset
+
+Since 
+\begin_inset Formula $\text{det}(A)\neq0$
+\end_inset
+
+, one of the 
+\begin_inset Formula $M_{n\lambda}$
+\end_inset
+
+ minors for 
+\begin_inset Formula $1\leq\lambda\leq n$
+\end_inset
+
+ must be nonzero.
+ We may assume that 
+\begin_inset Formula $M_{n1}\neq0$
+\end_inset
+
+.
+ In this case, we may assume that our matrix 
+\begin_inset Formula $A$
+\end_inset
+
+ has the form 
+\begin_inset Formula 
+\[
+A=\begin{pmatrix}I_{n-1} & \mathbf{b}\\
+\mathbf{a} & a_{nn}
+\end{pmatrix},
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\mathbf{a},\mathbf{b}\in F^{n-1}$
+\end_inset
+
+.
+ Letting 
+\begin_inset Formula $\mathbf{a}_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathbf{b}_{i}$
+\end_inset
+
+ denote the 
+\begin_inset Formula $i$
+\end_inset
+
+th coordinate of 
+\begin_inset Formula $\mathbf{a}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathbf{b}$
+\end_inset
+
+ respecitvely, we have 
+\begin_inset Formula 
+\[
+e_{n1}\left(-\mathbf{a}_{1}\right)e_{n2}\left(-\mathbf{a}_{2}\right)\cdots e_{n(n-1)}\left(\mathbf{a}_{n-1}\right)A=\begin{pmatrix}I_{n-1} & \mathbf{b}\\
+0 & \text{det}(A)
+\end{pmatrix}.
+\]
+
+\end_inset
+
+Finally, since 
+\begin_inset Formula $\text{det}(A)=1$
+\end_inset
+
+, we have 
+\begin_inset Formula 
+\[
+e_{1n}\left(-\mathbf{b}_{1}\right)e_{2n}\left(-\mathbf{b}_{2}\right)\cdots e_{n(n-1)}\left(\mathbf{b}_{n-1}\right)\begin{pmatrix}I_{n-1} & \mathbf{b}\\
+0 & 1
+\end{pmatrix}=I_{n}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
