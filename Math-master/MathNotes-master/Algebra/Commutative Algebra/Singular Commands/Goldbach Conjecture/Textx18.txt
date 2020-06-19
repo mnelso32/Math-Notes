@@ -3,10 +3,11 @@ TEST x18
 ring A=2,(x3,x5,x6,x7,x8,x10,x11,x12,x13,x14,x16,x17,x18),ds;
 ideal I= x3*x3+x6,x3*x5+x8,x3*x7+x10,x3*x11+x14,x3*x13+x16,
 x5*x5+x10,x5*x7+x12,x5*x11+x16,x5*x13+x18,
-x7*x7+x14,x7*x11+x18;
-std(I);
+x7*x7+x14,x7*x11+x18,x13,x5;
+I=std(I);
 resolution rs=mres(I,12);
 print(betti(rs),"betti");
+dim(I);
 
 
            0     1     2     3     4     5     6     7     8     9    10

@@ -1564,6 +1564,42 @@ end{proof}
 \end_layout
 
 \begin_layout Subsection
+Examples of Compact Spaces
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\backslash
+label{example}
+\end_layout
+
+\end_inset
+
+ Every finite set equipped with any topology is a compact set.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
 Heine-Borel Theorem
 \end_layout
 

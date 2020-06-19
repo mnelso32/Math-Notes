@@ -493,11 +493,11 @@ label{lemmacompactsubspaceofhausdorffspaceisclosed}
 \begin_inset Formula $X$
 \end_inset
 
- be Hausdorff and let 
+ be a Hausdorff space and let 
 \begin_inset Formula $K$
 \end_inset
 
- be a compact subset of 
+ be a compact subspace of 
 \begin_inset Formula $X$
 \end_inset
 
@@ -593,14 +593,6 @@ begin{proof}
 
 , say 
 \begin_inset Formula $\{U_{y_{i}}\cap K\}_{i=1}^{n}$
-\end_inset
-
- where 
-\begin_inset Formula $y_{i}\in K$
-\end_inset
-
- for 
-\begin_inset Formula $i=1,\dots,n$
 \end_inset
 
 .

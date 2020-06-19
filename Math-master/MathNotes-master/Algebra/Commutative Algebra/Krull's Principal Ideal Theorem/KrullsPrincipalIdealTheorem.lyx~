@@ -2449,5 +2449,263 @@ In particular,
  
 \end_layout
 
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{cor}
+\backslash
+label{cor}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $(A,\mathfrak{m})$
+\end_inset
+
+ be local and let 
+\begin_inset Formula $x_{1},\dots,x_{k}$
+\end_inset
+
+ be 
+\begin_inset Formula $k$
+\end_inset
+
+ elements of 
+\begin_inset Formula $\mathfrak{m}$
+\end_inset
+
+.
+ Then the dimension of 
+\begin_inset Formula $A\slash\langle x_{1},\dots,x_{k}\rangle$
+\end_inset
+
+ is at least 
+\begin_inset Formula $\dim A-k$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{cor}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Polynomial and Power Series Extensions
+\end_layout
+
+\begin_layout Standard
+We next want to address the issue of how dimension behaves for Noetherian
+ rings when one adjoins either polynomial or formal power series indeterminates.
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+We first note the following fact:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lemma}
+\backslash
+label{lemma}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $x$
+\end_inset
+
+ be an indeterminate over 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $x$
+\end_inset
+
+ is in every maximal ideal of 
+\begin_inset Formula $A[[x]]$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lemma}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ If 
+\begin_inset Formula $x$
+\end_inset
+
+ is not in the maximal ideal 
+\begin_inset Formula $\mathfrak{m}$
+\end_inset
+
+ it has an inverse mod 
+\begin_inset Formula $\mathfrak{m}$
+\end_inset
+
+, so that we have 
+\begin_inset Formula $xf\equiv1$
+\end_inset
+
+ mod 
+\begin_inset Formula $\mathfrak{m}$
+\end_inset
+
+, i.e.
+ 
+\begin_inset Formula $1-xf\in\mathfrak{m}$
+\end_inset
+
+.
+ Thus, it will suffice to show that 
+\begin_inset Formula $1-xf$
+\end_inset
+
+ is a unit.
+ The idea of the proof is to show that
+\begin_inset Formula 
+\[
+u=1+xf+x^{2}f^{2}+x^{3}f^{3}+\cdots
+\]
+
+\end_inset
+
+is an inverse: the infinite sum makes sense because only finitely many terms
+ involve any given power of 
+\begin_inset Formula $x$
+\end_inset
+
+.
+ Note that
+\begin_inset Formula 
+\[
+u=(1+xf+\cdots+x^{n}f^{n})+x^{n+1}w_{n}
+\]
+
+\end_inset
+
+with 
+\begin_inset Formula 
+\[
+w_{n}=f^{n+1}+xf^{n+2}+x^{2}f^{n+3}+\cdots,
+\]
+
+\end_inset
+
+which again makes sense since any given power of 
+\begin_inset Formula $x$
+\end_inset
+
+ occurs in only finitely many terms.
+ Thus: 
+\begin_inset Formula 
+\[
+u(1-xf)-1=(1+xf+\cdots+x^{n}f^{n})(1-xf)+x^{n+1}w_{n}(1-xf)-1.
+\]
+
+\end_inset
+
+The first of the summands on the right is 
+\begin_inset Formula $1-x^{n+1}f^{n+1}$
+\end_inset
+
+, and so this becomes
+\begin_inset Formula 
+\[
+1-x^{n+1}f^{n+1}+x^{n+1}w_{n}(1-xf)-1=x^{n+1}(-f^{n+1}+w_{n}(1-xf))\in x^{n+1}A[[x]],
+\]
+
+\end_inset
+
+and since the intersection of the ideals 
+\begin_inset Formula $x^{t}A[[x]]$
+\end_inset
+
+ is clearly 
+\begin_inset Formula $0$
+\end_inset
+
+, we have that 
+\begin_inset Formula $u(1-xf)-1=0$
+\end_inset
+
+ as required.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_body
 \end_document
