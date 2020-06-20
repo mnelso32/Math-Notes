@@ -10,6 +10,7 @@
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{prop}{Proposition}[section]
 \newtheorem{cor}{Corollary}
+\newtheorem{conj}{Conjecture}
 \theoremstyle{definition}
 \newtheorem{defn}{Definition}[section]
 \newtheorem{ex}{Exercise}
