@@ -59095,7 +59095,7 @@ label{defn1}
 \end_inset
 
  Let 
-\begin_inset Formula $(A,\mathfrak{m})$
+\begin_inset Formula $(R,\mathfrak{m})$
 \end_inset
 
  be a local ring and let 
@@ -59103,7 +59103,7 @@ label{defn1}
 \end_inset
 
  be a finitely generated 
-\begin_inset Formula $A$
+\begin_inset Formula $R$
 \end_inset
 
 -module.
@@ -59132,7 +59132,7 @@ if
 \end_inset
 
 If 
-\begin_inset Formula $\mathrm{depth}\,M=\mbox{dim}A$
+\begin_inset Formula $\mathrm{depth}\,M=\dim R$
 \end_inset
 
 , then 
@@ -59145,7 +59145,7 @@ maximal Cohen-Macaulay
 \series default
 .
  We say 
-\begin_inset Formula $A$
+\begin_inset Formula $R$
 \end_inset
 
  is a 
@@ -59153,7 +59153,7 @@ maximal Cohen-Macaulay
 Cohen-Macaulay ring 
 \series default
 if it is a Cohen-Macaulay 
-\begin_inset Formula $A$
+\begin_inset Formula $R$
 \end_inset
 
 -module.
