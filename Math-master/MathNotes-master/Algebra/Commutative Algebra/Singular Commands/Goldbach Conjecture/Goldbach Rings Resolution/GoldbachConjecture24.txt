@@ -14,7 +14,7 @@ homog(I);
 option(prot);
 int t=timer;
 system("--ticks-per-sec", 100); // give time in 1/100 sec
-resolution re=mres(I,2);
+resolution re=mres(I,0);
 print(betti(re),"betti");
 
 

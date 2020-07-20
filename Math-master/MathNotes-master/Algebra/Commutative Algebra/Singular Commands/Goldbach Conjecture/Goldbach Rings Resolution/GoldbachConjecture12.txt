@@ -1,5 +1,26 @@
 
 -------------------------------------------------------------------8---------------------------------------------------------
+intvec w=(1,1,2,1,2);
+ring A=0,(x3,x5,x6,x7,x8),wp(w);
+ideal I= x3*x3-x6,x3*x5-x8;
+I=std(I);
+option(prot);
+int t=timer;
+system("--ticks-per-sec", 100); // give time in 1/100 sec
+resolution re=mres(I,0);
+print(betti(re),"betti");
+
+primdecGTZ(I);
+
+           0     1     2
+------------------------
+    0:     1     -     -
+    1:     -     2     -
+    2:     -     -     1
+------------------------
+total:     1     2     1
+
+
 
 
 LIB "primdec.lib";
@@ -62,22 +83,65 @@ total:     1     2     1
 
 
 -------------------------------------------------------------------10---------------------------------------------------------
-
-
-intvec w=(3,5,6,7,8,10);
-ring A=2,(x3,x5,x6,x7,x8,x10),wp(w);
-ideal I= x3*x3+x6,x3*x5+x8,x3*x7+x10,
-x5*x5+x10;
+intvec w=(1,1,2,1,2,2);
+ring A=0,(x3,x5,x6,x7,x8,x10),wp(w);
+ideal I= x3*x3-x6,x3*x5-x8,x3*x7-x10,
+x5*x5-x10;
 std(I);
 option(prot);
 int t=timer;
 system("--ticks-per-sec", 100); // give time in 1/100 sec
 resolution re=mres(I,0);
 print(betti(re),"betti");
-dim(re);
-print(re);
+
+           0     1     2
+------------------------
+    0:     1     -     -
+    1:     -     4     -
+    2:     -     -     6
+------------------------
+total:     1     4     6
 
 
+. re[1];
+_[1]=x3*x7-x10
+_[2]=x5^2-x10
+_[3]=x3*x5-x8
+_[4]=x3^2-x6
+
+> re[2];
+_[1]=x5^2*gen(1)-x3*x7*gen(2)+x10*gen(2)-x10*gen(1)
+_[2]=x3*x5*gen(1)-x3*x7*gen(3)-x8*gen(1)+x10*gen(3)
+_[3]=x3*x5*gen(2)-x5^2*gen(3)-x8*gen(2)+x10*gen(3)
+_[4]=x3^2*gen(1)-x6*gen(1)-x3*x7*gen(4)+x10*gen(4)
+_[5]=x3^2*gen(2)-x5^2*gen(4)-x6*gen(2)+x10*gen(4)
+_[6]=x3^2*gen(3)-x3*x5*gen(4)-x6*gen(3)+x8*gen(4)
+
+> print(re[2]);
+
+x5^2-x10,  x3*x5-x8,  0,        x3^2-x6,   0,        0,
+-x3*x7+x10,0,         x3*x5-x8, 0,         x3^2-x6,  0,
+0,         -x3*x7+x10,-x5^2+x10,0,         0,        x3^2-x6,
+0,         0,         0,        -x3*x7+x10,-x5^2+x10,-x3*x5+x8
+
+
+intvec w=(3,5,6,7,8,10);
+ring A=0,(x3,x5,x6,x7,x8,x10),wp(w);
+ideal I= x3*x3-x6,x3*x5-x8,x3*x7-x10,
+x5*x5-x10;
+std(I);
+option(prot);
+int t=timer;
+system("--ticks-per-sec", 100); // give time in 1/100 sec
+resolution re=mres(I,0);
+print(betti(re),"betti");
+
+print(re[2]);
+
+x3*x5-x8,x3*x7-x10,0,        x5^2-x10,0,        0,
+-x3^2+x6,0,        x3*x7-x10,0,       x5^2-x10, 0,
+0,       -x3^2+x6, -x3*x5+x8,0,       0,        x5^2-x10,
+0,       0,        0,        -x3^2+x6,-x3*x5+x8,-x3*x7+x10
 
 > print(betti(re),"betti");
            0     1     2     3     4

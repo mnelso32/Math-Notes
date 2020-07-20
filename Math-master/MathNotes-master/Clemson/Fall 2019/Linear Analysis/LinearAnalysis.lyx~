@@ -21500,8 +21500,8 @@ Homework Problems and Solutions
 Homework 1
 \end_layout
 
-\begin_layout Section*
-Problem 1
+\begin_layout Subsection
+Polarization Identity
 \end_layout
 
 \begin_layout Standard
@@ -21616,8 +21616,8 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 2
+\begin_layout Subsection
+Parallelogram Identity
 \end_layout
 
 \begin_layout Standard
@@ -21990,8 +21990,8 @@ hfill
 
 \end_layout
 
-\begin_layout Section*
-Problem 3
+\begin_layout Subsection
+Pythagorean Theorem
 \end_layout
 
 \begin_layout Standard
@@ -22094,8 +22094,19 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 4
+\begin_layout Subsection
+\begin_inset Formula $x_{n}\to x$
+\end_inset
+
+ and 
+\begin_inset Formula $y_{n}\to y$
+\end_inset
+
+ implies 
+\begin_inset Formula $\langle x_{n},y_{n}\rangle\to\langle x,y\rangle$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -22358,8 +22369,12 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 5
+\begin_layout Subsection
+Inner-product on 
+\begin_inset Formula $\mathrm{M}_{m\times n}(\mathbb{R})$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -22532,8 +22547,12 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 6a
+\begin_layout Subsection
+Inner-product on 
+\begin_inset Formula $\mathbb{C}^{n}$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -22683,8 +22702,8 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 6b
+\begin_layout Subsection
+Cauchy-Schwarz 
 \end_layout
 
 \begin_layout Standard
@@ -23005,8 +23024,12 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 7a
+\begin_layout Subsection
+Inner-product on 
+\begin_inset Formula $\ell^{2}(\mathbb{N})$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -23306,8 +23329,8 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 7b
+\begin_layout Subsection
+Cauchy-Schwarz Application
 \end_layout
 
 \begin_layout Standard
@@ -23478,8 +23501,8 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 8
+\begin_layout Subsection
+Cauchy-Schwarz Application
 \end_layout
 
 \begin_layout Standard
@@ -23776,8 +23799,8 @@ closed ball centered at
  
 \end_layout
 
-\begin_layout Section*
-Problem 1
+\begin_layout Subsection
+Translating Open Balls
 \end_layout
 
 \begin_layout Standard
@@ -24077,8 +24100,8 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 2
+\begin_layout Subsection
+Closure of Open Balls
 \end_layout
 
 \begin_layout Standard
@@ -24438,8 +24461,8 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 3a
+\begin_layout Subsection
+Closed Set Properties
 \end_layout
 
 \begin_layout Standard
@@ -24909,8 +24932,8 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 4
+\begin_layout Subsection
+Distance Between Point and Set Properties
 \end_layout
 
 \begin_layout Standard
@@ -25159,8 +25182,8 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 5
+\begin_layout Subsection
+Distance is a Norm
 \end_layout
 
 \begin_layout Standard
@@ -25428,8 +25451,12 @@ end{proof}
 Homework 3
 \end_layout
 
-\begin_layout Section*
-Problem 1
+\begin_layout Subsection
+Orthogonal Projection 
+\begin_inset Formula $\mathrm{P}_{\mathcal{K}}$
+\end_inset
+
+ Properties
 \end_layout
 
 \begin_layout Standard
@@ -25694,8 +25721,19 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 2
+\begin_layout Subsection
+\begin_inset Formula $\mathcal{K}_{1}\subseteq\mathcal{K}_{2}$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $\langle\mathrm{P}_{\mathcal{K}_{1}}x,x\rangle\leq\langle\mathrm{P}_{\mathcal{K}_{2}}x,x\rangle$
+\end_inset
+
+ for all 
+\begin_inset Formula $x\in\mathcal{H}$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -25808,10 +25846,10 @@ ref{propproblem1})
  Then
 \begin_inset Formula 
 \begin{align*}
-\|x-\text{P}_{\mathcal{K}_{2}}x\| & =d(x,\mathcal{K}_{2})\\
+\|x-\text{P}_{\mathcal{K}_{2}}x\| & =\mathrm{d}(x,\mathcal{K}_{2})\\
  & =\inf\{\|x-y\|\mid y\in\mathcal{K}_{2}\}\\
  & \leq\inf\{\|x-y\|\mid y\in\mathcal{K}_{1}\}\\
- & =d(x,\mathcal{K}_{1})\\
+ & =\mathrm{d}(x,\mathcal{K}_{1})\\
  & =\|x-\text{P}_{\mathcal{K}_{1}}x\|.
 \end{align*}
 
@@ -25942,8 +25980,15 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 3
+\begin_layout Subsection
+\begin_inset Formula $\|\mathrm{P}_{\mathcal{K}^{\perp}}x\|=\mathrm{d}(x,\mathcal{K})$
+\end_inset
+
+ for all 
+\begin_inset Formula $x\in\mathcal{H}$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -25971,7 +26016,7 @@ label{prop}
 
 .
  Then 
-\begin_inset Formula $\|\text{P}_{\mathcal{K}^{\perp}}x\|=d(x,\mathcal{K})$
+\begin_inset Formula $\|\text{P}_{\mathcal{K}^{\perp}}x\|=\mathrm{d}(x,\mathcal{K})$
 \end_inset
 
  for all 
@@ -26042,7 +26087,7 @@ x=\text{P}_{\mathcal{K}}x+(x-\text{P}_{\mathcal{K}}x),\label{eq:decomp}
 
 \end_inset
 
-for unique
+for unique 
 \begin_inset Formula $\text{P}_{\mathcal{K}}x\in\mathcal{K}$
 \end_inset
 
@@ -26140,7 +26185,7 @@ ref{eq:decomp2})
 In particular, we have
 \begin_inset Formula 
 \begin{align*}
-d(x,\mathcal{K}) & =\|x-\text{P}_{\mathcal{K}}x\|\\
+\mathrm{d}(x,\mathcal{K}) & =\|x-\text{P}_{\mathcal{K}}x\|\\
  & =\|\text{P}_{\mathcal{K}^{\perp}}x\|.
 \end{align*}
 
@@ -26165,8 +26210,11 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 4
+\begin_layout Subsection
+\begin_inset Formula $\mathrm{\mathrm{s}pan}(E)$
+\end_inset
+
+ Properties
 \end_layout
 
 \begin_layout Standard
@@ -26459,8 +26507,11 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 5
+\begin_layout Subsection
+\begin_inset Formula $\overline{\mathrm{Span}}(E)$
+\end_inset
+
+ Properties
 \end_layout
 
 \begin_layout Standard
@@ -26694,8 +26745,11 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 6
+\begin_layout Subsection
+\begin_inset Formula $(E^{\perp})^{\perp}=\overline{\mathrm{Span}}(E)$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -27591,8 +27645,8 @@ end{proof}
 Homework 4
 \end_layout
 
-\begin_layout Section*
-Problem 1
+\begin_layout Subsection
+Equivalent Definitions of Norm of Operator
 \end_layout
 
 \begin_layout Standard
@@ -27821,8 +27875,12 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 2
+\begin_layout Subsection
+Multiplication by 
+\begin_inset Formula $k\in C[a,b]$
+\end_inset
+
+ is Bounded Operator
 \end_layout
 
 \begin_layout Standard
@@ -28159,8 +28217,8 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 3
+\begin_layout Subsection
+Gram_Schmidt Properties
 \end_layout
 
 \begin_layout Standard
@@ -28650,8 +28708,8 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 4
+\begin_layout Subsection
+Gram-Schmidt Example Worked out on Legendre Polynomials
 \end_layout
 
 \begin_layout Standard
@@ -28784,8 +28842,8 @@ end{example}
 
 \end_layout
 
-\begin_layout Section*
-Problem 5
+\begin_layout Subsection
+Minimizing Integral Example
 \end_layout
 
 \begin_layout Standard
@@ -28812,7 +28870,7 @@ label{prop}
  The expression
 \begin_inset Formula 
 \begin{equation}
-\int_{-1}^{1}|x^{3}-a-bx-cx^{2}|^{2}dx.\label{eq:min}
+\int_{-1}^{1}|x^{3}-a-bx-cx^{2}|^{2}\mathrm{d}x.\label{eq:min}
 \end{equation}
 
 \end_inset
@@ -28963,7 +29021,7 @@ ref{propfinsubisclosed})
 \begin_inset Formula 
 \begin{align*}
 \text{P}_{\mathcal{K}}(x^{3}) & =\langle x^{3},e_{1}\rangle e_{1}+\langle x^{3},e_{2}\rangle e_{2}+\langle x^{3},e_{3}\rangle e_{3}\\
- & =\frac{1}{2}\int_{-1}^{1}x^{3}dx+\frac{3}{2}x\int_{-1}^{1}x^{4}dx+\frac{45}{8}\left(x^{2}-\frac{1}{3}\right)\int_{-1}^{1}x^{3}\left(x^{2}-\frac{1}{3}\right)dx\\
+ & =\frac{1}{2}\int_{-1}^{1}x^{3}dx+\frac{3}{2}x\int_{-1}^{1}x^{4}dx+\frac{45}{8}\left(x^{2}-\frac{1}{3}\right)\int_{-1}^{1}x^{3}\left(x^{2}-\frac{1}{3}\right)\mathrm{d}x\\
  & =\frac{3}{5}x.
 \end{align*}
 
@@ -28981,7 +29039,7 @@ where we used the fact that
  Therefore
 \begin_inset Formula 
 \begin{align*}
-\int_{-1}^{1}\left|x^{3}-\frac{3}{5}x\right|^{2}dx & =\|x^{3}-\text{P}_{\mathcal{K}}(x^{3})\|^{2}\\
+\int_{-1}^{1}\left|x^{3}-\frac{3}{5}x\right|^{2}\mathrm{d}x & =\|x^{3}-\text{P}_{\mathcal{K}}(x^{3})\|^{2}\\
  & =\inf\left\{ \|x^{3}-(a+bx+cx^{2})\|^{2}\mid a+bx+cx^{2}\in\mathcal{K}\right\} \\
  & =\inf\left\{ \int_{-1}^{1}|x^{3}-a-bx-cx^{2}|^{2}dx\mid a,b,c\in\mathbb{C}\right\} .
 \end{align*}
@@ -29038,8 +29096,11 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 6
+\begin_layout Subsection
+\begin_inset Formula $\ell^{2}(\mathbb{N})$
+\end_inset
+
+ is a Hilbert Space
 \end_layout
 
 \begin_layout Standard
@@ -29486,8 +29547,11 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 7
+\begin_layout Subsection
+\begin_inset Formula $C[a,b]$
+\end_inset
+
+ is not a Hilbert Space
 \end_layout
 
 \begin_layout Standard
@@ -30963,8 +31027,8 @@ Throughout this homework, let
  
 \end_layout
 
-\begin_layout Section*
-Problem 1
+\begin_layout Subsection
+Map Sending Bounded Operator to its Adjoint Operator is Conjugate-Linear
 \end_layout
 
 \begin_layout Standard
@@ -31095,8 +31159,8 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 2
+\begin_layout Subsection
+Composite of Bounded Operators is Bounded
 \end_layout
 
 \begin_layout Standard
@@ -31303,8 +31367,16 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 3
+\begin_layout Subsection
+The Adjoint Operator of 
+\begin_inset Formula $T_{u,v}$
+\end_inset
+
+ is 
+\begin_inset Formula $T_{v,u}$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -31332,13 +31404,13 @@ label{propnormuv}
 
 \begin_layout Enumerate
 The operator 
-\begin_inset Formula $T\colon\mathcal{H}\to\mathcal{H}$
+\begin_inset Formula $T_{u,v}\colon\mathcal{H}\to\mathcal{H}$
 \end_inset
 
  defined by
 \begin_inset Formula 
 \[
-Tx=\langle x,u\rangle v
+T_{u,v}x=\langle x,u\rangle v
 \]
 
 \end_inset
@@ -31349,7 +31421,7 @@ for all
 
  is bounded.
  Moreover, we have 
-\begin_inset Formula $\|T\|=\|u\|\|v\|$
+\begin_inset Formula $\|T_{u,v}\|=\|u\|\|v\|$
 \end_inset
 
 .
@@ -31357,13 +31429,17 @@ for all
 
 \begin_layout Enumerate
 The adjoint of 
-\begin_inset Formula $T$
+\begin_inset Formula $T_{u,v}$
 \end_inset
 
- is given by
+ is given by 
+\begin_inset Formula $T_{v,u}$
+\end_inset
+
+, that is, 
 \begin_inset Formula 
 \[
-T^{*}y=\langle y,v\rangle u
+(T_{u,v})^{*}y=\langle y,v\rangle u
 \]
 
 \end_inset
@@ -31447,7 +31523,7 @@ hfill
  Then
 \begin_inset Formula 
 \begin{align*}
-\|Tx\| & =\|\langle x,u\rangle v\|\\
+\|T_{u,v}x\| & =\|\langle x,u\rangle v\|\\
  & =|\langle x,u\rangle|\|v\|\\
  & \leq\|x\|\|u\|\|v\|,
 \end{align*}
@@ -31456,7 +31532,7 @@ hfill
 
 where we used Cauchy-Schwarz to get from the second to the third line.
  This implies 
-\begin_inset Formula $\|T\|\leq\|u\|\|v\|$
+\begin_inset Formula $\|T_{u,v}\|\leq\|u\|\|v\|$
 \end_inset
 
 .
@@ -31474,7 +31550,7 @@ where we used Cauchy-Schwarz to get from the second to the third line.
 \end_inset
 
  gives us 
-\begin_inset Formula $\|T\|=\|u\|\|v\|$
+\begin_inset Formula $\|T_{u,v}\|=\|u\|\|v\|$
 \end_inset
 
 .
@@ -31507,7 +31583,7 @@ hfill
  Then
 \begin_inset Formula 
 \begin{align*}
-\langle x,T^{*}y\rangle & =\langle Tx,y\rangle\\
+\langle x,(T_{u,v})^{*}y\rangle & =\langle T_{u,v}x,y\rangle\\
  & =\langle\langle x,u\rangle v,y\rangle\\
  & =\langle x,u\rangle\langle v,y\rangle\\
  & =\langle x,\overline{\langle v,y\rangle}u\rangle\\
@@ -31522,7 +31598,7 @@ for all
 
 .
  This implies 
-\begin_inset Formula $T^{*}y=\langle y,v\rangle u$
+\begin_inset Formula $(T_{u,v})^{*}y=\langle y,v\rangle u$
 \end_inset
 
  for all 
@@ -31546,8 +31622,12 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 4
+\begin_layout Subsection
+Computing Adjoint of Operator from 
+\begin_inset Formula $\ell^{2}(\mathbb{N})$
+\end_inset
+
+ to Itself
 \end_layout
 
 \begin_layout Standard
@@ -31743,8 +31823,12 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 5
+\begin_layout Subsection
+Properties of 
+\begin_inset Formula $T^{*}T$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -32002,8 +32086,15 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 6
+\begin_layout Subsection
+\begin_inset Formula $\ker(T^{*})=(\mathrm{im}\,T)^{\perp}$
+\end_inset
+
+ and 
+\begin_inset Formula $(\ker T)^{\perp}=\overline{\mathrm{im}(T^{*})}$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -32030,14 +32121,14 @@ label{prop}
 \end_layout
 
 \begin_layout Enumerate
-\begin_inset Formula $\text{Ker}(T^{*})=\text{Im}(T)^{\perp}$
+\begin_inset Formula $\ker(T^{*})=(\mathrm{im}\,T)^{\perp}$
 \end_inset
 
 ;
 \end_layout
 
 \begin_layout Enumerate
-\begin_inset Formula $\text{Ker}(T)^{\perp}=\overline{\text{Im}(T^{*})}$
+\begin_inset Formula $(\ker T)^{\perp}=\overline{\mathrm{im}(T^{*})}$
 \end_inset
 
 .
@@ -32107,7 +32198,7 @@ hfill
 \begin_layout Standard
 1.
  Let 
-\begin_inset Formula $x\in\text{Ker}(T^{*})$
+\begin_inset Formula $x\in\ker(T^{*})$
 \end_inset
 
 .
@@ -32122,36 +32213,21 @@ hfill
 \end_inset
 
 for all 
-\begin_inset Formula $Ty\in\text{Im}(T)$
+\begin_inset Formula $Ty\in\mathrm{im}\,T$
 \end_inset
 
 .
  This implies 
-\begin_inset Formula $x\in\text{Im}(T)^{\perp}$
+\begin_inset Formula $x\in(\mathrm{im}\,T)^{\perp}$
 \end_inset
 
  and so 
-\begin_inset Formula $\text{Ker}(T^{*})\subseteq\text{Im}(T)^{\perp}$
+\begin_inset Formula $\ker(T^{*})\subseteq(\mathrm{im}\,T)^{\perp}$
 \end_inset
 
 .
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-For the reverse inclusion, let 
-\begin_inset Formula $x\in\text{Im}(T)^{\perp}$
+ For the reverse inclusion, let 
+\begin_inset Formula $x\in(\mathrm{im}\,T)^{\perp}$
 \end_inset
 
 .
@@ -32169,7 +32245,11 @@ implies
 \end_inset
 
  (by positive-definiteness of inner-product) which implies 
-\begin_inset Formula $x\in\text{Ker}(T^{*})$
+\begin_inset Formula $x\in\ker(T^{*})$
+\end_inset
+
+ and so 
+\begin_inset Formula $\ker(T^{*})\supseteq(\mathrm{im}\,T)^{\perp}$
 \end_inset
 
 .
@@ -32278,8 +32358,15 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 7
+\begin_layout Subsection
+\begin_inset Formula $T$
+\end_inset
+
+ is an Isometry if and only if 
+\begin_inset Formula $T^{*}T=1_{\mathcal{H}}$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -33030,8 +33117,24 @@ Throughout this homework, let
  
 \end_layout
 
-\begin_layout Section*
-Problem 1
+\begin_layout Subsection
+Decomposition of 
+\begin_inset Formula $T$
+\end_inset
+
+ as 
+\begin_inset Formula $T=A+iB$
+\end_inset
+
+ where 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+ are Self-Adjoint
 \end_layout
 
 \begin_layout Standard
@@ -33243,8 +33346,11 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 2
+\begin_layout Subsection
+\begin_inset Formula $S^{*}S$
+\end_inset
+
+ and Orthogonal Projection are Positive Operators
 \end_layout
 
 \begin_layout Standard
@@ -33645,8 +33751,20 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 3
+\begin_layout Subsection
+Another Version of Polarization Identity and 
+\begin_inset Formula $\langle Tx,x\rangle=0$
+\end_inset
+
+ for all 
+\begin_inset Formula $x\in\mathcal{H}$
+\end_inset
+
+ implies 
+\begin_inset Formula $T=0$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection*
@@ -33891,8 +34009,8 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 4
+\begin_layout Subsection
+Twisting Inner-Product by Strictly Positive Self-Adjoint Operator
 \end_layout
 
 \begin_layout Subsection*
@@ -34321,8 +34439,19 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 5
+\begin_layout Subsection
+\begin_inset Formula $T$
+\end_inset
+
+ is Self-Adjoint if and only if 
+\begin_inset Formula $\langle Tx,x\rangle\in\mathbb{R}$
+\end_inset
+
+ for all 
+\begin_inset Formula $x\in\mathcal{H}$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -34492,8 +34621,16 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 6
+\begin_layout Subsection
+If 
+\begin_inset Formula $T$
+\end_inset
+
+ is Self-Adjoint Operator, then 
+\begin_inset Formula $\|T^{n}\|=\|T\|^{n}$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection*
@@ -34829,8 +34966,8 @@ Throughout this homework, let
  
 \end_layout
 
-\begin_layout Section*
-Problem 1
+\begin_layout Subsection
+Weak Convergence Properties
 \end_layout
 
 \begin_layout Subsection*
@@ -35132,8 +35269,8 @@ end{rem}
 
 \end_layout
 
-\begin_layout Section*
-Problem 2
+\begin_layout Subsection
+Weak Convergence and Orthonormal Basis
 \end_layout
 
 \begin_layout Subsection*
@@ -35644,8 +35781,32 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 3
+\begin_layout Subsection
+If 
+\begin_inset Formula $\mathcal{K}$
+\end_inset
+
+ is a Closed Subspace of 
+\begin_inset Formula $\mathcal{H}$
+\end_inset
+
+ and 
+\begin_inset Formula $(x_{n})$
+\end_inset
+
+ is a Sequence in 
+\begin_inset Formula $\mathcal{K}$
+\end_inset
+
+ such that 
+\begin_inset Formula $x_{n}\xrightarrow{w}x$
+\end_inset
+
+, then 
+\begin_inset Formula $x\in\mathcal{K}$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -35810,8 +35971,23 @@ end{rem}
 
 \end_layout
 
-\begin_layout Section*
-Problem 4
+\begin_layout Subsection
+\begin_inset Formula $T$
+\end_inset
+
+ Bounded and 
+\begin_inset Formula $S$
+\end_inset
+
+ Compact Implies 
+\begin_inset Formula $TS$
+\end_inset
+
+ and 
+\begin_inset Formula $ST$
+\end_inset
+
+ Compact
 \end_layout
 
 \begin_layout Standard
@@ -35987,8 +36163,8 @@ end{proof}
  
 \end_layout
 
-\begin_layout Section*
-Problem 5
+\begin_layout Subsection
+Equivalent Definition of Compact Operator
 \end_layout
 
 \begin_layout Standard
@@ -36388,8 +36564,8 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 6
+\begin_layout Subsection
+Finite-Dimensional Spaces, Bounded Sequences, and Compact Operators
 \end_layout
 
 \begin_layout Standard
@@ -37326,8 +37502,8 @@ for the closed ball centered at
 .
 \end_layout
 
-\begin_layout Section*
-Problem 1
+\begin_layout Subsection
+Equivalent Definition of Compact Operator
 \end_layout
 
 \begin_layout Standard
@@ -37551,8 +37727,20 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 2
+\begin_layout Subsection
+Sequence of Compact Operators 
+\begin_inset Formula $(T_{n})$
+\end_inset
+
+ Which Converge in Operator Norm to 
+\begin_inset Formula $T$
+\end_inset
+
+ Implies 
+\begin_inset Formula $T$
+\end_inset
+
+ is Compact 
 \end_layout
 
 \begin_layout Standard
@@ -37723,8 +37911,8 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 3
+\begin_layout Subsection
+Hilbert-Schmidt Operator
 \end_layout
 
 \begin_layout Standard
@@ -37872,8 +38060,8 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 4
+\begin_layout Subsection
+Hilbert-Schmidt Operator
 \end_layout
 
 \begin_layout Standard
@@ -38437,8 +38625,20 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 5
+\begin_layout Subsection
+If 
+\begin_inset Formula $T$
+\end_inset
+
+ is Compact Self-Adjoint and 
+\begin_inset Formula $T^{m}=0$
+\end_inset
+
+, then 
+\begin_inset Formula $T=0$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -38597,8 +38797,9 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 6
+\begin_layout Subsection
+Every Compact Self-Adjoint Operator is Limit of Operators with Finite-Dimensiona
+l Range
 \end_layout
 
 \begin_layout Standard

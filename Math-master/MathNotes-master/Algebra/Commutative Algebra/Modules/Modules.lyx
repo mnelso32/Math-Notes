@@ -61759,22 +61759,34 @@ begin{proof}
 \end_inset
 
 .
- This implies that 
+ Then 
 \begin_inset Formula $\mathfrak{m}$
 \end_inset
 
  consists of zero divisors.
  In particular, 
-\begin_inset Formula $\mathfrak{m}\subset\bigcup_{\mathfrak{p}\in\text{Ass}(\langle0\rangle)}\mathfrak{p}$
+\begin_inset Formula 
+\[
+\mathfrak{m}\subset\bigcup_{\mathfrak{p}\in\text{Ass }R}\mathfrak{p},
+\]
+
 \end_inset
 
-, and since the number of associated primes is finite, we must have 
+and since the number of associated primes of 
+\begin_inset Formula $R$
+\end_inset
+
+ is finite (
+\begin_inset Formula $R$
+\end_inset
+
+ is Noetherian!), we must have 
 \begin_inset Formula $\mathfrak{m}=\mathfrak{p}$
 \end_inset
 
- for some associated prime.
+ for some associated prime by prime avoidance.
  Therefore, there exists a nonzero 
-\begin_inset Formula $x\in A$
+\begin_inset Formula $x\in R$
 \end_inset
 
  such that 
@@ -61782,7 +61794,11 @@ begin{proof}
 \end_inset
 
 .
- Let 
+ Choose such an 
+\begin_inset Formula $x\in R$
+\end_inset
+
+ and let
 \end_layout
 
 \begin_layout Standard
@@ -61832,40 +61848,58 @@ be a minimal free resolution of
 \begin_inset Formula $M$
 \end_inset
 
+ over 
+\begin_inset Formula $R$
+\end_inset
+
 .
  If 
 \begin_inset Formula $n>0$
 \end_inset
 
-, we have 
-\begin_inset Formula $\varphi_{n}(F_{n})\subset\mathfrak{m}F_{n-1}$
+, then by minimality of the resolution, we have
+\begin_inset Formula 
+\begin{align*}
+\varphi_{n}(xF_{n}) & =x\varphi_{n}(F_{n})\\
+ & \subseteq x\mathfrak{m}F_{n-1}\\
+ & =0.
+\end{align*}
+
 \end_inset
 
-, by minimality of the free resolution.
- Then 
-\begin_inset Formula $xF_{n}\hookrightarrow x\mathfrak{m}F_{n-1}=0$
+This implies 
+\begin_inset Formula $xF_{n}\cong0$
 \end_inset
 
-, hence 
-\begin_inset Formula $F_{n}=0$
+ since 
+\begin_inset Formula $\varphi_{n}$
 \end_inset
 
-, by Nakayama's Lemma.
+ is injective, and thus 
+\begin_inset Formula $F_{n}\cong0$
+\end_inset
+
+ since 
+\begin_inset Formula $F_{n}$
+\end_inset
+
+ is free.
  This contradicts the minimality of the resolution.
- Therefore, 
-\begin_inset Formula $\text{pd}_{A}(M)=0$
+ In particular, we must have 
+\begin_inset Formula $n=0$
 \end_inset
 
 , which implies 
-\begin_inset Formula $M$
+\begin_inset Formula $F_{0}\cong M$
 \end_inset
 
- is a free 
-\begin_inset Formula $A$
+.
+ In other words, we have 
+\begin_inset Formula $\mathrm{pd}_{R}\,M=0$
 \end_inset
 
--module, and hence 
-\begin_inset Formula $\text{depth}(M)=\text{depth}(A)$
+ and 
+\begin_inset Formula $\mathrm{depth}\,M=\mathrm{depth}\,R$
 \end_inset
 
 .
@@ -61884,37 +61918,49 @@ be a minimal free resolution of
 \begin_inset space ~
 \end_inset
 
-Now assume 
-\begin_inset Formula $\text{depth}(A)>0$
+Now we assume 
+\begin_inset Formula $\mathrm{depth}\,R>0$
 \end_inset
 
  and 
-\begin_inset Formula $\text{depth}(M)>0$
+\begin_inset Formula $\mathrm{depth}\,M>0$
 \end_inset
 
 .
  Let 
-\begin_inset Formula $f\in\mathfrak{m}$
+\begin_inset Formula $x\in\mathfrak{m}$
 \end_inset
 
- be a nonzerodivisor of 
+ be a nonzerodivisor of both 
 \begin_inset Formula $M$
 \end_inset
 
- and of 
-\begin_inset Formula $A$
+ and 
+\begin_inset Formula $R$
 \end_inset
 
-.
- The projective dimension is constant if we divide by 
+ (such an element exists since both 
+\begin_inset Formula $M$
+\end_inset
+
+ and 
+\begin_inset Formula $R$
+\end_inset
+
+ have positive depth).
+ Then the projective dimension is constant if we divide by 
 \begin_inset Formula $f$
 \end_inset
 
 , that is, 
-\begin_inset Formula $\text{pd}_{A/f}(M/fM)=\text{pd}_{A}(M)$
+\begin_inset Formula 
+\[
+\mathrm{pd}_{R\slash x}(M\slash xM)=\mathrm{pd}_{R}\,M,
+\]
+
 \end_inset
 
-, but the depth drops by one.
+but the depth drops by one.
  This is because the sequence
 \end_layout
 
@@ -61930,13 +61976,13 @@ begin{equation}
 \backslash
 begin{tikzcd} 0 
 \backslash
-arrow[r] & F_{n} / fF_{n} 
+arrow[r] & F_{n} / xF_{n} 
 \backslash
 arrow[r, " 
 \backslash
 overline{ 
 \backslash
-varphi  } _n " ] & F_{n-1} / fF_{n-1} 
+varphi  } _n " ] & F_{n-1} / xF_{n-1} 
 \backslash
 arrow[r, "  
 \backslash
@@ -61946,7 +61992,7 @@ varphi  } _{n-1} "] &
 \backslash
 cdots  
 \backslash
-arrow[r] & F_0 / fF_0 
+arrow[r] & F_0 / xF_0 
 \backslash
 arrow[r, "  
 \backslash
@@ -61964,7 +62010,7 @@ end{equation}
 \end_inset
 
  remains exact as long as 
-\begin_inset Formula $f$
+\begin_inset Formula $x$
 \end_inset
 
  is both 
@@ -61972,16 +62018,36 @@ end{equation}
 \end_inset
 
 -regular and 
-\begin_inset Formula $A$
+\begin_inset Formula $R$
 \end_inset
 
--regular.
+-regular (that is a nonzero divisor of both 
+\begin_inset Formula $M$
+\end_inset
+
+ and 
+\begin_inset Formula $R$
+\end_inset
+
+).
  Moreover, it is a minimal free 
-\begin_inset Formula $(A/f)$
+\begin_inset Formula $M\slash xM$
 \end_inset
 
--resolution since 
-\begin_inset Formula $\overline{\varphi}_{i}(F_{i}/fF_{i})\subset\overline{\mathfrak{m}}(F_{i}/fF_{i})$
+ resolution over 
+\begin_inset Formula $R\slash x$
+\end_inset
+
+ since 
+\begin_inset Formula 
+\[
+\overline{\varphi}_{i}(F_{i}/xF_{i})\subset\overline{\mathfrak{m}}(F_{i}/xF_{i})
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $0\leq i\leq n$
 \end_inset
 
 , where 
@@ -61989,20 +62055,21 @@ end{equation}
 \end_inset
 
  is the maximal ideal in 
-\begin_inset Formula $A/f$
+\begin_inset Formula $R\slash x$
 \end_inset
 
 .
- Moreover, by the induction hypothesis, we have 
+ It follows from the induction hypothesis, that
 \begin_inset Formula 
-\[
-\text{pd}_{A/f}(M/fM)+\text{depth}_{A/f}(M/fM)=\text{depth}(A/f),
-\]
+\begin{align*}
+\mathrm{pd}_{R}\,M+\mathrm{depth}_{R}\,M & =\mathrm{pd}_{R\slash x}(M\slash xM)+\mathrm{depth}_{R\slash x}(M\slash xM)+1\\
+ & =\mathrm{depth}_{R\slash x}(R\slash x)+1\\
+ & =\mathrm{depth}_{R}\,R.
+\end{align*}
 
 \end_inset
 
-hence the statement.
- 
+
 \end_layout
 
 \begin_layout Standard
@@ -62018,27 +62085,27 @@ hence the statement.
 \end_inset
 
 Finally, assume 
-\begin_inset Formula $\text{depth}(A)>0$
+\begin_inset Formula $\mathrm{depth}\,R>0$
 \end_inset
 
  and 
-\begin_inset Formula $\text{depth}(M)=0$
+\begin_inset Formula $\mathrm{depth}\,M=0$
 \end_inset
 
 .
  Then 
-\begin_inset Formula $\text{pd}_{A}(M)>0$
+\begin_inset Formula $\mathrm{pd}_{R}\,M>0$
 \end_inset
 
 , because otherwise 
 \begin_inset Formula $M$
 \end_inset
 
- would be free and 
-\begin_inset Formula $\text{depth}(M)=\text{depth}(A)>0$
+ would be free and we would have 
+\begin_inset Formula $\mathrm{depth}\,M=\mathrm{depth}\,R>0$
 \end_inset
 
-.
+, which is a contradiction.
  Let 
 \end_layout
 
@@ -62054,7 +62121,7 @@ begin{center}
 \backslash
 begin{tikzcd} 0 
 \backslash
-arrow[r] & K 
+arrow[r] & N 
 \backslash
 arrow[r] & F 
 \backslash
@@ -62078,11 +62145,11 @@ be an exact sequence where
 \end_inset
 
  is a finitely generated free 
-\begin_inset Formula $A$
+\begin_inset Formula $R$
 \end_inset
 
 -module and 
-\begin_inset Formula $0\neq K\subset\mathfrak{m}F$
+\begin_inset Formula $0\neq N\subset\mathfrak{m}F$
 \end_inset
 
 .
@@ -62100,28 +62167,20 @@ ref{lemma7.8.9})
 \end_inset
 
  and obtain 
-\begin_inset Formula $\text{depth}(K)=1$
+\begin_inset Formula $\mathrm{depth}\,N=1$
 \end_inset
 
 .
- Using the previous case we obtain 
-\begin_inset Formula $\text{depth}(K)+\text{pd}_{A}(K)=\text{depth}(A)$
+ Therefore by the previous case, we have
+\begin_inset Formula 
+\begin{align*}
+\mathrm{depth}\,M+\mathrm{pd}_{R}\,M & =\mathrm{depth}\,N-1+\mathrm{pd}_{R}\,N+1\\
+ & =\mathrm{depth}\,N+\mathrm{pd}_{R}\,N\\
+ & =\mathrm{depth}\,R.
+\end{align*}
+
 \end_inset
 
-.
- But 
-\begin_inset Formula $\text{pd}_{A}(K)+1=\text{pd}_{A}(M)$
-\end_inset
-
- and 
-\begin_inset Formula $\text{depth}(K)=\text{depth}(M)+1$
-\end_inset
-
- implies 
-\begin_inset Formula $\text{depth}(M)+\text{pd}_{A}(M)=\text{depth}(A)$
-\end_inset
-
-.
  
 \begin_inset ERT
 status open

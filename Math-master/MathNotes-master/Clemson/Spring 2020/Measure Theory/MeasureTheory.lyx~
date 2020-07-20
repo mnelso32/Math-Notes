@@ -7252,11 +7252,42 @@ Our goal in this subsection is to show that
 \end_inset
 
 .
- Before doing this we introduce the limsup and liminf of a sequence of sets.
+ Before doing this, we introduce the limsup and liminf of a sequence of
+ sets.
 \end_layout
 
 \begin_layout Subsubsection
 Limit Supremum and Limit Infimum
+\end_layout
+
+\begin_layout Standard
+Recall that if 
+\begin_inset Formula $(a_{n})$
+\end_inset
+
+ is a sequence of real numbers, we define its limit supremum by the formula
+\begin_inset Formula 
+\[
+\limsup a_{n}=\inf_{N\geq1}\sup_{n\geq N}a_{n}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Similarly, we define its limit infimum by the formula
+\begin_inset Formula 
+\[
+\liminf a_{n}=\sup_{N\geq1}\inf_{n\geq N}a_{n}.
+\]
+
+\end_inset
+
+There is an analagous notion of limit supremum and limit infimum of a sequence
+ of sets.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -12538,25 +12569,24 @@ begin{proof}
 \begin_inset Formula 
 \begin{align*}
 x\in\bigcap_{k=1}^{\infty}\liminf_{n\to\infty}\{f_{n}<c+1/k\} & \iff x\in\liminf_{n\to\infty}\{f_{n}<c+1/k\}\text{ for all }k\\
- & \iff x\in\{f_{\pi_{k}(n)}<c+1/k\}\text{ for all }k\text{ for some subsequence }(\pi_{k}(n))_{n\in\mathbb{N}}\text{ of }(n)_{n\in\mathbb{N}}\\
- & \iff f_{\pi_{k}(n)}(x)<c+1/k\text{ for all }k\text{ for some subsequence }(\pi_{k}(n))_{n\in\mathbb{N}}\text{ of }(n)_{n\in\mathbb{N}}\\
- & \iff f(x)\leq c+1/k\text{ for all }k\\
+ & \iff\text{for all }k\text{ there exists }N_{k}\text{ such that }x\in\{f_{n}<c+1/k\}\text{ for all }n\geq N_{k}\\
+ & \iff\text{for all }k\text{ there exists }N_{k}\text{ such that }f_{n}(x)<c+1/k\text{ for all }n\geq N_{k}\\
  & \iff f(x)\leq c\\
  & \iff x\in\{f\leq c\}
 \end{align*}
 
 \end_inset
 
-where we obtained the fourth line from the third line since a subsequence
- of a convergent sequence must converge to the same limit (so 
-\begin_inset Formula $f_{\pi_{k}(n)}(x)\to f(x)$
+where we obtained the fourth line from the third line from the fact that
+ 
+\begin_inset Formula $f_{n}(x)$
 \end_inset
 
- as 
-\begin_inset Formula $n\to\infty$
+ converges to 
+\begin_inset Formula $f(x)$
 \end_inset
 
-).
+.
  
 \begin_inset ERT
 status open
@@ -12898,7 +12928,7 @@ label{prop}
 \end_inset
 
  are all measurable.
- In particular, of 
+ In particular, if 
 \begin_inset Formula 
 \[
 \lim_{n\to\infty}f_{n}(x)
@@ -12949,36 +12979,47 @@ begin{proof}
  Then we have
 \begin_inset Formula 
 \[
-(\sup f_{n})^{-1}(c,\infty)=\bigcup_{n}f_{n}^{-1}(c,\infty)\in\mathcal{M}.
+\{\sup f_{n}>c\}=\bigcup_{n\geq1}\{f_{n}>c\}.
 \]
 
 \end_inset
 
-Similarly, we have
+This implies 
+\begin_inset Formula $\sup f_{n}$
+\end_inset
+
+ is measurable.
+ Similarly, we have
 \begin_inset Formula 
 \[
-(\inf f_{n})^{-1}(-\infty,c)=\bigcup_{n}f_{n}^{-1}(-\infty,c)\in\mathcal{M}.
+\{\inf f_{n}<c\}=\bigcup_{n\geq1}\{f_{n}<c\}.
 \]
 
 \end_inset
 
-Also we have
+This implies 
+\begin_inset Formula $\inf f_{n}$
+\end_inset
+
+ is measurable.
+ Finally since 
 \begin_inset Formula 
 \[
-\limsup f_{n}=\inf_{k}\sup_{n\geq k}\in\mathcal{M}.
+\limsup f_{n}=\inf_{N\geq1}\sup_{n\geq N}f_{n}\qquad\text{and}\qquad\liminf f_{n}=\sup_{N\geq1}\inf_{n\geq N}f_{n},
 \]
 
 \end_inset
 
-Similarly, we have
-\begin_inset Formula 
-\[
-\liminf f_{n}=\sup_{k}\inf_{n\geq k}f_{n}\in\mathcal{M}
-\]
-
+we see that both 
+\begin_inset Formula $\limsup f_{n}$
 \end_inset
 
+ and 
+\begin_inset Formula $\liminf f_{n}$
+\end_inset
 
+ are measurable.
+ 
 \begin_inset ERT
 status open
 
@@ -19815,7 +19856,7 @@ where we applied the definition of
 \end_inset
 
  is 
-\begin_inset Formula $\mathcal{N}$
+\begin_inset Formula $\nu$
 \end_inset
 
 -integrable almost everywhere.

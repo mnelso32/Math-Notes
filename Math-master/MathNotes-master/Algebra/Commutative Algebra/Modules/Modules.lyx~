@@ -61759,22 +61759,26 @@ begin{proof}
 \end_inset
 
 .
- This implies that 
+ Then 
 \begin_inset Formula $\mathfrak{m}$
 \end_inset
 
  consists of zero divisors.
  In particular, 
-\begin_inset Formula $\mathfrak{m}\subset\bigcup_{\mathfrak{p}\in\text{Ass}(\langle0\rangle)}\mathfrak{p}$
+\begin_inset Formula 
+\[
+\mathfrak{m}\subset\bigcup_{\mathfrak{p}\in\text{Ass}(\langle0\rangle)}\mathfrak{p},
+\]
+
 \end_inset
 
-, and since the number of associated primes is finite, we must have 
+and since the number of associated primes is finite, we must have 
 \begin_inset Formula $\mathfrak{m}=\mathfrak{p}$
 \end_inset
 
- for some associated prime.
+ for some associated prime by prime avoidance.
  Therefore, there exists a nonzero 
-\begin_inset Formula $x\in A$
+\begin_inset Formula $x\in R$
 \end_inset
 
  such that 
@@ -61832,6 +61836,10 @@ be a minimal free resolution of
 \begin_inset Formula $M$
 \end_inset
 
+ over 
+\begin_inset Formula $R$
+\end_inset
+
 .
  If 
 \begin_inset Formula $n>0$
@@ -61870,6 +61878,24 @@ be a minimal free resolution of
 
 .
  
+\begin_inset Formula 
+\begin{align*}
+\varphi_{n}(xF_{n}) & =x\varphi_{n}(F_{n})\\
+ & \subseteq x\mathfrak{m}F_{n-1}\\
+ & =0
+\end{align*}
+
+\end_inset
+
+implies 
+\begin_inset Formula $xF_{n}=0$
+\end_inset
+
+, and hence 
+\begin_inset Formula $F_{n}=0$
+\end_inset
+
+ by Nakayama's Lemma.
 \end_layout
 
 \begin_layout Standard

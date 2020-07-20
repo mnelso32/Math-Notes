@@ -1,5 +1,5 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 508
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
 \begin_document
 \begin_header
 \save_transient_properties true
@@ -17,14 +17,15 @@
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{prop}{Proposition}[section]
-\newtheorem*{cor}{Corollary}
+\newtheorem{cor}{Corollary}
 \theoremstyle{definition}
 \newtheorem{defn}{Definition}[section]
-\newtheorem{ex}{Exercise} 
+\newtheorem{ex}{Exercise}
+\newtheorem{sol}{Solution} 
 \newtheorem{example}{Example}[section]
 \theoremstyle{remark}
-\newtheorem*{rem}{Remark}
-\newtheorem*{note}{Note}
+\newtheorem{rem}{Remark}
+\newtheorem{note}{Note}
 \newtheorem{case}{Case}
 \usepackage{graphicx}
 \usepackage{amssymb}
@@ -40,10 +41,10 @@ commutative diagrams/.cd,
 \usepackage{hyperref}
 \hypersetup{
     colorlinks,
-    citecolor=black,
-    filecolor=black,
-    linkcolor=black,
-    urlcolor=black
+    citecolor=blue,
+    filecolor=blue,
+    linkcolor=blue,
+    urlcolor=blue
 }
 \usepackage{pgfplots}
 \usetikzlibrary{decorations.markings}
@@ -72,6 +73,18 @@ commutative diagrams/.cd,
 \blocktheorem{rem}% Make rem into a block
 \blocktheorem{cor}% Make col into a block
 \blocktheorem{prop}% Make prop into a block
+
+
+\makeatletter
+\newcommand*{\@old@slash}{}\let\@old@slash\slash
+\def\slash{\relax\ifmmode\delimiter"502F30E\mathopen{}\else\@old@slash\fi}
+\makeatother
+
+\def\backslash{\delimiter"526E30F\mathopen{}}
+
+
+
+\usepackage[bottom]{footmisc}
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
@@ -89,6 +102,8 @@ commutative diagrams/.cd,
 \font_osf true
 \font_sf_scale 100 100
 \font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -118,6 +133,7 @@ commutative diagrams/.cd,
 \suppress_date false
 \justification true
 \use_refstyle 1
+\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -130,7 +146,10 @@ commutative diagrams/.cd,
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation 0bp
-\quotes_language english
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -148,22 +167,12 @@ Graded Modules and Hilbert Functions
 \end_layout
 
 \begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 \begin_inset CommandInset toc
 LatexCommand tableofcontents
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
 \begin_inset Newpage pagebreak
 \end_inset
 
@@ -8793,6 +8802,112 @@ label{example}
 \begin_inset Formula 
 \[
 \text{Ker}(\varphi)=\langle v^{2}-(x+1)u^{2},xv-yu,y^{2}-x^{3}-x^{2}\rangle.
+\]
+
+\end_inset
+
+In particular, 
+\begin_inset Formula $B_{Q}(A)$
+\end_inset
+
+ corresponds to an algebraic subset 
+\begin_inset Formula $Z\subset\mathbb{A}^{2}\times\mathbb{P}^{1}$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\backslash
+label{example}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $R=\mathbb{F}_{2}[x,y]/\langle y^{2}+x^{3}+x^{2}\rangle$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathfrak{m}=\langle\overline{x},\overline{y}\rangle\subset R$
+\end_inset
+
+.
+ Then the map 
+\begin_inset Formula $\varphi:\mathbb{F}_{2}[x,y,u,v]\to B_{\mathfrak{m}}(R)$
+\end_inset
+
+, induced by 
+\begin_inset Formula $u\mapsto\overline{x}t$
+\end_inset
+
+, and 
+\begin_inset Formula $v\mapsto\overline{y}t$
+\end_inset
+
+, is a surjective ring homomorphism.
+ The kernel of 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ is an ideal which is homogeneous in the variables 
+\begin_inset Formula $u,v$
+\end_inset
+
+ and is given by 
+\begin_inset Formula $\text{Ker}(\varphi)=\langle f_{1},f_{2},f_{3},f_{4},f_{5}\rangle$
+\end_inset
+
+, where 
+\begin_inset Formula 
+\begin{align*}
+f_{1} & =yu^{3}+u^{2}v+v^{3}\\
+f_{2} & =xu^{2}+u^{2}+v^{2}\\
+f_{3} & =x^{2}u+xu+yv\\
+f_{4} & =xv+yu\\
+f_{5} & =x^{3}+x^{2}+y^{2}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Therefore, 
+\begin_inset Formula $K[x,y,u,v]/\langle f_{1},f_{2},f_{3},f_{4},f_{5}\rangle\cong B_{\mathfrak{m}}(R)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\text{Ker}(\varphi)=\langle yu^{3}+u^{2}v+v^{3},xu^{2}+u^{2}+v^{2},x^{2}u+xu+yv,xv+yu,x^{3}+x^{2}+y^{2}\rangle.
 \]
 
 \end_inset

@@ -1,3 +1,20 @@
+intvec w=(1,3,5,7);
+ring A=0,(t,x3,x5,x7),(C,wp(w));
+ideal I = t^3-x3,t^5-x5,t^7-x7;
+ideal J=eliminate(I,t);
+J;
+
+
+
+option(prot);
+int t=timer;
+system("--ticks-per-sec", 100); // give time in 1/100 sec
+J=std(J);
+dim(J);
+resolution re=mres(J,0);
+print(betti(re),"betti");
+
+
 intvec w=(1,3,5,6,7,8,10,11,12,13,14,16,17,18);
 ring A=0,(t,x3,x5,x6,x7,x8,x10,x11,x12,x13,x14,x16,x17,x18),(C,wp(w));
 ideal I = t^3-x3,t^5-x5,t^6-x6,t^7-x7,t^8-x8,t^10-x10,t^11-x11,t^12-x12,t^13-x13,t^14-x14,t^16-x16,t^17-x17,t^18-x18;
@@ -5,6 +22,9 @@ ideal J=eliminate(I,t);
 option(prot);
 int t=timer;
 system("--ticks-per-sec", 100); // give time in 1/100 sec
+J=std(J);
+dim(J);
+
 resolution re=mres(J,0);
 print(betti(re),"betti");
 

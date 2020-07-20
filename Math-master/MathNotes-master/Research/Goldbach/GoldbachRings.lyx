@@ -216,7 +216,7 @@ Goldbach ring with respect to the triple
 \end_inset
 
 , denoted 
-\begin_inset Formula $G_{(A,B,C)}$
+\begin_inset Formula $G^{(A,B,C)}$
 \end_inset
 
 , to be the 
@@ -226,7 +226,7 @@ Goldbach ring with respect to the triple
 -algebra
 \begin_inset Formula 
 \[
-G_{(A,B,C)}:=R_{(B,C)}\slash I_{(A,C)}.
+G^{(A,B,C)}:=R^{(B,C)}\slash I^{(A,B,C)}.
 \]
 
 \end_inset
@@ -234,7 +234,7 @@ G_{(A,B,C)}:=R_{(B,C)}\slash I_{(A,C)}.
 where 
 \begin_inset Formula 
 \[
-R_{(B,C)}:=K[X_{b}\mid b\in B]\quad\text{and}\quad I_{(A,C)}:=\langle\{X_{a_{1}}X_{a_{2}}-X_{a_{1}+a_{2}}\mid a_{1},a_{2}\in A\text{, }a_{1}+a_{2}\in B\}\rangle.
+R^{(B,C)}:=K[X_{b}\mid b\in B]\quad\text{and}\quad I^{(A,B,C)}:=\langle\{X_{a_{1}}X_{a_{2}}-X_{a_{1}+a_{2}}\mid a_{1},a_{2}\in A\text{, }a_{1}+a_{2}\in B\}\rangle.
 \]
 
 \end_inset
@@ -244,7 +244,7 @@ R_{(B,C)}:=K[X_{b}\mid b\in B]\quad\text{and}\quad I_{(A,C)}:=\langle\{X_{a_{1}}
 
 \begin_layout Standard
 We also give 
-\begin_inset Formula $R_{B}$
+\begin_inset Formula $R^{(B,C)}$
 \end_inset
 
  the unique 
@@ -261,11 +261,11 @@ We also give
 
 .
  In this case, it is easy to see that 
-\begin_inset Formula $I_{A}$
+\begin_inset Formula $I^{(A,B,C)}$
 \end_inset
 
  is homogeneous with respect to this grading, and hence 
-\begin_inset Formula $G_{(A,B)}$
+\begin_inset Formula $G^{(A,B,C)}$
 \end_inset
 
  gets an induced 
@@ -297,11 +297,11 @@ Given the data above, we also fix
 \end_inset
 
 -graded free resolution of 
-\begin_inset Formula $G_{(A,B,C)}$
+\begin_inset Formula $G^{(A,B,C)}$
 \end_inset
 
  over 
-\begin_inset Formula $R_{(B,C)}$
+\begin_inset Formula $R^{(B,C)}$
 \end_inset
 
 .
@@ -349,7 +349,7 @@ where
 
  to be a minimal free resolution (which is unique up to isomorphism) of
  
-\begin_inset Formula $G_{(A,B,C)}$
+\begin_inset Formula $G^{(A,B,C)}$
 \end_inset
 
 .
@@ -397,9 +397,9 @@ If the abelian group
 \begin_inset Formula 
 \begin{align*}
 F^{(A,B)} & =F^{(A,B,C)}\\
-G_{(A,B)} & =G_{(A,B,C)}\\
-R_{B} & =R_{(B,C)}\\
-I_{A} & =I_{(A,C).}
+G^{(A,B)} & =G^{(A,B,C)}\\
+R^{B} & =R^{(B,C)}\\
+I^{(A,B)} & =I^{(A,B,C)}
 \end{align*}
 
 \end_inset
@@ -472,7 +472,7 @@ let
 \end_inset
 
  has the form 
-\begin_inset Formula $G=G_{(A,B,C)}$
+\begin_inset Formula $G=G^{(A,B,C)}$
 \end_inset
 
  for some 
@@ -498,11 +498,11 @@ ref{defngoldbachring})
 
 \begin_layout Enumerate
 We use capital letters to denote the indeterminates in 
-\begin_inset Formula $R_{(B,C)}$
+\begin_inset Formula $R^{(B,C)}$
 \end_inset
 
  and we use lowercase letters are to denote their cosets in 
-\begin_inset Formula $G_{(A,B,C)}$
+\begin_inset Formula $G^{(A,B,C)}$
 \end_inset
 
 .
@@ -511,7 +511,7 @@ We use capital letters to denote the indeterminates in
 \end_inset
 
  in 
-\begin_inset Formula $R_{(B,C)}$
+\begin_inset Formula $R^{(B,C)}$
 \end_inset
 
  is a representative of the coset 
@@ -519,7 +519,7 @@ We use capital letters to denote the indeterminates in
 \end_inset
 
  in 
-\begin_inset Formula $G_{(A,B,C)}$
+\begin_inset Formula $G^{(A,B,C)}$
 \end_inset
 
 .
@@ -569,20 +569,20 @@ There are many Goldbach rings in
 \end_inset
 
 , however we will pay special attention to the ones of the form 
-\begin_inset Formula $G_{(A,B,\mathbb{Z})}$
+\begin_inset Formula $G^{(A,B,\mathbb{Z})}$
 \end_inset
 
  and 
-\begin_inset Formula $G_{(A_{2k},B_{2k},\mathbb{Z})}$
+\begin_inset Formula $G^{(A_{2k},B_{2k},\mathbb{Z})}$
 \end_inset
 
  where
 \begin_inset Formula 
 \begin{align*}
-B & =\{p,2j\mid p\text{ odd prime, }j\in\mathbb{Z}_{\geq3}\}\\
+B & =\{p,2j\mid p\text{ odd prime and }j\in\mathbb{Z}_{\geq3}\}\\
 A & =\{p\mid p\text{ odd prime}\}\\
-B_{2k} & =\{p,2j\mid p\text{ odd prime, }j\in\mathbb{Z}_{\geq3}\text{, }p,2j\leq2k\} &  & k\in\mathbb{Z}_{\geq3}\\
-A_{2k} & =\{p\mid p\text{ odd prime, }p\leq2k\} &  & k\in\mathbb{Z}_{\geq3}
+B_{2k} & =\{p,2j\mid p\text{ odd prime, }j\in\mathbb{Z}_{\geq3}\text{ and }p,2j\leq2k\} &  & k\in\mathbb{Z}_{\geq3}\\
+A_{2k} & =\{p\mid p\text{ odd prime and }p\leq2k\} &  & k\in\mathbb{Z}_{\geq3}
 \end{align*}
 
 \end_inset
@@ -600,9 +600,9 @@ Goldbach ring
 \begin_inset Formula 
 \begin{align*}
 \mathrm{F} & =F^{(A,B,\mathbb{Z})}\\
-\mathrm{G} & =G_{(A,B,\mathbb{Z})}\\
-\mathrm{R} & =R_{(B,\mathbb{Z})}\\
-\mathrm{I} & =I_{(A,\mathbb{Z}),}
+\mathrm{G} & =G^{(A,B,\mathbb{Z})}\\
+\mathrm{R} & =R^{(B,\mathbb{Z})}\\
+\mathrm{I} & =I^{(A,\mathbb{Z})}
 \end{align*}
 
 \end_inset
@@ -615,9 +615,9 @@ and similarly for each
 \begin_inset Formula 
 \begin{align*}
 \mathrm{F}^{2k} & =F^{(A_{2k},B_{2k},\mathbb{Z})}\\
-\mathrm{G}_{2k} & =G_{(A_{2k},B_{2k},\mathbb{Z})}\\
-\mathrm{R}_{2k} & =R_{(B_{2k},\mathbb{Z})}\\
-\mathrm{I}_{2k} & =I_{(A_{2k},\mathbb{Z}),}
+\mathrm{G}^{2k} & =G^{(A_{2k},B_{2k},\mathbb{Z})}\\
+\mathrm{R}^{2k} & =R^{(B_{2k},\mathbb{Z})}\\
+\mathrm{I}^{2k} & =I^{(A_{2k},B_{2k},\mathbb{Z})}
 \end{align*}
 
 \end_inset
@@ -707,6 +707,504 @@ In terms of our notation above, Goldbach's conjecture is equivalent to
  In this article we use tools and methods from commutative algebra in order
  to study this and related conjectures.
  
+\end_layout
+
+\begin_layout Subsubsection
+Elementary Swaps
+\end_layout
+
+\begin_layout Standard
+To find nonzero divisors in 
+\begin_inset Formula $\mathrm{G}_{2k}$
+\end_inset
+
+, we introduce the following relation.
+ Let 
+\begin_inset Formula $n\geq2$
+\end_inset
+
+ and let
+\begin_inset Formula 
+\[
+\{p_{i}\}_{1\leq i\leq n}\quad\text{and}\quad\{q_{i}\}_{1\leq i\leq n}
+\]
+
+\end_inset
+
+be any collection of primes where repeats are allowed.
+ We say 
+\begin_inset Formula $\{p_{i}\}$
+\end_inset
+
+ is related to 
+\begin_inset Formula $\{q_{i}\}$
+\end_inset
+
+ by an 
+\series bold
+elementary 
+\begin_inset Formula $2N$
+\end_inset
+
+-swap
+\series default
+, denoted 
+\begin_inset Formula $\{p_{i}\}\sim_{2N}^{\mathrm{e}}\{q_{i}\}$
+\end_inset
+
+ if, after reordering if necessary, we have
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $p_{1}\neq q_{1},q_{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $p_{2}\neq q_{1},q_{2}$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $p_{i}=q_{i}$
+\end_inset
+
+ for all 
+\begin_inset Formula $i>2$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $p_{1}+p_{2}=2N=q_{1}+q_{2}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+More generally we will write 
+\begin_inset Formula $\{p_{i}\}\sim_{2N}\{q_{i}\}$
+\end_inset
+
+ if there exists a finite sequence of elementary swaps of the form
+\begin_inset Formula 
+\[
+\{p_{i}\}\sim_{2N_{1}}^{\mathrm{e}}\{p_{i}^{(1)}\}\sim_{2N_{2}}^{\mathrm{e}}\{p_{i}^{(2)}\}\sim\cdots\sim\{p_{i}^{(r)}\}\sim_{2N_{r}}^{\mathrm{e}}\{q_{i}\}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $3\leq N_{1},N_{2},\dots,N_{r}\leq N$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Partitions
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\backslash
+label{defn}
+\end_layout
+
+\end_inset
+
+ A 
+\series bold
+composition 
+\series default
+is a function 
+\begin_inset Formula $\lambda\colon\mathbb{N}\to\mathbb{Z}_{\geq0}$
+\end_inset
+
+, denoted 
+\begin_inset Formula $n\mapsto\lambda_{n}$
+\end_inset
+
+, whose 
+\series bold
+support
+\series default
+, defined by
+\begin_inset Formula 
+\[
+\mathrm{supp}\,\lambda=\{n\in\mathbb{N}\mid\lambda_{n}\neq0\},
+\]
+
+\end_inset
+
+is finite.
+ Given a composition 
+\begin_inset Formula $\lambda\colon\mathbb{N}\to\mathbb{Z}_{\geq0}$
+\end_inset
+
+, we define
+\begin_inset Formula 
+\[
+|\lambda|=\sum_{n=1}^{\infty}n\lambda_{n},
+\]
+
+\end_inset
+
+and we say 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ is a 
+\series bold
+composition of 
+\begin_inset Formula $N\in\mathbb{N}$
+\end_inset
+
+
+\series default
+, denoted 
+\begin_inset Formula $\lambda\vdash N$
+\end_inset
+
+, if 
+\begin_inset Formula $|\lambda|=N$
+\end_inset
+
+.
+ We also associate to 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ the monomial in 
+\begin_inset Formula $K[\{X_{n}\}]$
+\end_inset
+
+ given by
+\begin_inset Formula 
+\[
+X^{\lambda}=\prod_{n=1}^{\infty}X_{n}^{\lambda_{n}}.
+\]
+
+\end_inset
+
+Unless otherwise stated, we shall assume that all compositions have support
+ in 
+\begin_inset Formula 
+\[
+B=\{p,2j\mid p\text{ odd prime and }j\in\mathbb{Z}_{\geq3}\}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Finally, two compositions 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ and 
+\begin_inset Formula $\mu$
+\end_inset
+
+ are said to be 
+\series bold
+disjoint 
+\series default
+from another, denoted 
+\begin_inset Formula $\lambda\perp\mu$
+\end_inset
+
+, if 
+\begin_inset Formula 
+\[
+(\mathrm{supp}\,\lambda)\cap(\mathrm{supp}\,\mu)=\emptyset.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As a graded 
+\begin_inset Formula $K$
+\end_inset
+
+-vector space, we have
+\begin_inset Formula 
+\[
+R_{d}\cong\bigoplus_{\substack{\lambda\vdash d}
+}KX^{\lambda}.
+\]
+
+\end_inset
+
+For example,
+\begin_inset Formula 
+\[
+R_{14}=\mathrm{span}_{K}\{X_{3}X_{11},X_{3}^{3}X_{5},X_{3}^{2}X_{8},X_{3}X_{5}X_{6},X_{6}X_{8},X_{7}X_{7}\}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Partition Homomorphism
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\backslash
+label{prop}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $\varphi\colon R\to K[\{T^{p},T^{2j}\}]$
+\end_inset
+
+ be the graded 
+\begin_inset Formula $K$
+\end_inset
+
+-algebra homomorphism defined by
+\begin_inset Formula 
+\[
+\varphi(X_{p})=T^{p}\quad\text{and}\quad\varphi(X_{2j})=T^{2j}
+\]
+
+\end_inset
+
+for all odd primes 
+\begin_inset Formula $p$
+\end_inset
+
+ and for all evens numbers 
+\begin_inset Formula $2j$
+\end_inset
+
+ greater than or equal to 
+\begin_inset Formula $6$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\ker\varphi$
+\end_inset
+
+ is a graded 
+\begin_inset Formula $K$
+\end_inset
+
+-vector space with homogeneous component in degree 
+\begin_inset Formula $d$
+\end_inset
+
+ given by
+\begin_inset Formula 
+\[
+\ker\varphi_{d}=\mathrm{span}_{K}\{X^{\lambda}-X^{\mu}\mid\lambda,\mu\vdash d\}.
+\]
+
+\end_inset
+
+As an ideal in 
+\begin_inset Formula $R$
+\end_inset
+
+, we have
+\begin_inset Formula 
+\[
+\ker\varphi=\langle\{X^{\lambda}-X^{\mu}\mid\lambda,\mu\vdash N\text{ and }\lambda\perp\mu\}\rangle
+\]
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Suppose 
+\begin_inset Formula $a_{1}X^{\lambda_{1}}+\cdots+a_{k}X^{\lambda_{k}}\in\ker\varphi_{d}$
+\end_inset
+
+, where we may assume that 
+\begin_inset Formula $\lambda_{1},\dots,\lambda_{k}\vdash d$
+\end_inset
+
+ since 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ is graded.
+ Then observe that
+\begin_inset Formula 
+\begin{align*}
+0 & =\varphi(a_{1}X^{\lambda_{1}}+\cdots+a_{k}X^{\lambda_{k}})\\
+ & =(a_{1}+\cdots+a_{k})T^{d}
+\end{align*}
+
+\end_inset
+
+implies 
+\begin_inset Formula $a_{1}+\cdots+a_{k}=0$
+\end_inset
+
+.
+ Therefore, we have
+\begin_inset Formula 
+\begin{align*}
+a_{1}X^{\lambda_{1}}+\cdots+a_{k}X^{\lambda_{k}} & =a_{1}(X^{\lambda_{1}}-X^{\lambda_{2}})+(a_{1}+a_{2})(X^{\lambda_{2}}-X^{\lambda_{3}})+\cdots+(a_{1}+\cdots+a_{k-1})(X^{\lambda_{k-1}}-X^{\lambda_{k}})+(a_{1}+\cdots+a_{k})(X^{\lambda_{k}})\\
+ & =a_{1}(X^{\lambda_{1}}-X^{\lambda_{2}})+(a_{1}+a_{2})(X^{\lambda_{2}}-X^{\lambda_{3}})+\cdots+(a_{1}+\cdots+a_{k-1})(X^{\lambda_{k-1}}-X^{\lambda_{k}})\\
+ & \in\mathrm{span}_{K}\{X^{\lambda}-X^{\mu}\mid\lambda,\mu\vdash d\}.
+\end{align*}
+
+\end_inset
+
+The last part follows trivially.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Partition Ideal
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\backslash
+label{defn}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $\mathbb{Q}[\{x_{n}\}]$
+\end_inset
+
+ be the polynomial ring over 
+\begin_inset Formula $\mathbb{Q}$
+\end_inset
+
+ whose indeterminates are indexed over the natural numbers.
+ For each 
+\begin_inset Formula $N\in\mathbb{N}$
+\end_inset
+
+, we define the 
+\begin_inset Formula $N$
+\end_inset
+
+th 
+\series bold
+partition 
+\series default
+ideal
+\begin_inset Formula 
+\[
+I_{N}=\langle\{\underline{x}^{1_{N}}-\underline{x}^{\lambda}\}\mid\lambda\vdash N\rangle.
+\]
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
