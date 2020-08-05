@@ -87,6 +87,9 @@ commutative diagrams/.cd,
 \usepackage[bottom]{footmisc}
 \end_preamble
 \use_default_options true
+\begin_modules
+enumitem
+\end_modules
 \maintain_unincluded_children false
 \language english
 \language_package default
@@ -9265,6 +9268,1675 @@ end{sol}
 \end_layout
 
 \begin_layout Section
+Winter 2019
+\end_layout
+
+\begin_layout Subsection
+Linear Algebra
+\end_layout
+
+\begin_layout Subsubsection
+Problem 1
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{ex}
+\backslash
+label{ex}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $V$
+\end_inset
+
+ be a finite-dimensional complex inner product space.
+ A set of vectors 
+\begin_inset Formula $\{f_{1},\dots,f_{m}\}$
+\end_inset
+
+ is called a 
+\series bold
+Parseval frame 
+\series default
+for 
+\begin_inset Formula $V$
+\end_inset
+
+ if for every 
+\begin_inset Formula $v$
+\end_inset
+
+, we have
+\begin_inset Formula 
+\[
+v=\sum_{i=1}^{m}\langle v,f_{i}\rangle f_{i}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Prove that every orthonormal basis of 
+\begin_inset Formula $V$
+\end_inset
+
+ is a Parseval frame.
+\end_layout
+
+\begin_layout Enumerate
+Prove that there exists a Parseval frame which is not an orthonormal basis.
+\end_layout
+
+\begin_layout Enumerate
+Prove that every linearly independent Parseval frame is an orthonormal basis.
+\end_layout
+
+\begin_layout Enumerate
+Prove that 
+\begin_inset Formula $\{f_{1},\dots,f_{m}\}$
+\end_inset
+
+ is a Parseval frame for 
+\begin_inset Formula $V$
+\end_inset
+
+ if and only if there is a complex inner product space 
+\begin_inset Formula $W$
+\end_inset
+
+ such that the following is true:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $V$
+\end_inset
+
+ is isometrically embedded in 
+\begin_inset Formula $W$
+\end_inset
+
+, that is, there is an injective linear map 
+\begin_inset Formula $\phi\colon V\to W$
+\end_inset
+
+ such that
+\begin_inset Formula 
+\[
+\langle v_{1},v_{2}\rangle_{V}=\langle\phi(v_{1}),\phi(v_{2})\rangle_{W}
+\]
+
+\end_inset
+
+for every 
+\begin_inset Formula $v_{1},v_{2}\in V$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\phi(f_{i})=\mathrm{P}_{\phi(V)}e_{i}$
+\end_inset
+
+ for some orthonormal basis 
+\begin_inset Formula $\{e_{1},\dots,e_{m}\}$
+\end_inset
+
+ of 
+\begin_inset Formula $W$
+\end_inset
+
+, where 
+\begin_inset Formula $\mathrm{P}_{\phi(V)}$
+\end_inset
+
+ is the orthogonal projection onto the subspace 
+\begin_inset Formula $\phi(V)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{ex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sol}
+\backslash
+label{sol}
+\end_layout
+
+\end_inset
+
+ 1.
+ Let 
+\begin_inset Formula $\{v_{1},\dots,v_{n}\}$
+\end_inset
+
+ be an orthonormal basis for 
+\begin_inset Formula $V$
+\end_inset
+
+ and let 
+\begin_inset Formula $v\in V$
+\end_inset
+
+.
+ Then we have
+\begin_inset Formula 
+\begin{equation}
+v=\sum_{i=1}^{n}a_{i}v_{i}\label{eq:parsevalframe1}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $a_{i}\in\mathbb{C}$
+\end_inset
+
+ are unique.
+ Applying 
+\begin_inset Formula $\langle\cdot,v_{i}\rangle$
+\end_inset
+
+ to both sides of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{eq:parsevalframe1})
+\end_layout
+
+\end_inset
+
+ gives us 
+\begin_inset Formula $a_{i}=\langle v,v_{i}\rangle$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $\{v_{1},\dots,v_{n}\}$
+\end_inset
+
+ is a Parseval frame for 
+\begin_inset Formula $V$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+2.
+ Consider the case where 
+\begin_inset Formula $V$
+\end_inset
+
+ is the vector space 
+\begin_inset Formula $\mathbb{C}^{2}$
+\end_inset
+
+ with its standard Euclidean inner product.
+ Set
+\begin_inset Formula 
+\begin{align*}
+v_{1} & =\frac{\sqrt{3}}{2}e_{1}-\frac{1}{2}e_{2}\\
+v_{2} & =-\frac{\sqrt{3}}{2}e_{1}-\frac{1}{2}e_{2}\\
+v_{3} & =e_{2}.
+\end{align*}
+
+\end_inset
+
+A quick calculation shows 
+\begin_inset Formula 
+\begin{align*}
+\langle v,v_{1}\rangle v_{1}+\langle v,v_{2}\rangle v_{2}+\langle v,v_{3}\rangle & =\frac{3}{2}\langle v,e_{2}\rangle e_{2}+\frac{3}{2}\langle v,e_{1}\rangle e_{1}\\
+ & =\frac{3}{2}\left(\langle v,e_{2}\rangle e_{2}+\langle v,e_{1}\rangle e_{1}\right)\\
+ & =\frac{3}{2}v.
+\end{align*}
+
+\end_inset
+
+so 
+\begin_inset Formula $\{v_{1},v_{2},v_{3}\}$
+\end_inset
+
+ almost does the trick.
+ To get a Parseval frame, we just need to rescale: set 
+\begin_inset Formula $w_{i}=\sqrt{2/3}v_{i}$
+\end_inset
+
+ for 
+\begin_inset Formula $i=1,2,3$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\begin{align*}
+\langle v,w_{1}\rangle w_{1}+\langle v,w_{2}\rangle w_{2}+\langle v,w_{3}\rangle w_{3} & =\frac{2}{3}\left(\langle v,v_{1}\rangle v_{1}+\langle v,v_{2}\rangle v_{2}+\langle v,v_{3}\rangle\right)\\
+ & =\frac{2}{3}\left(\frac{3}{2}v\right)\\
+ & =v.
+\end{align*}
+
+\end_inset
+
+Thus 
+\begin_inset Formula $\{w_{1},w_{2},w_{3}\}$
+\end_inset
+
+ is a Parseval frame.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+3.
+ Let 
+\begin_inset Formula $\{v_{1},\dots,v_{m}\}$
+\end_inset
+
+ be a linearly independent Parseval frame for 
+\begin_inset Formula $V$
+\end_inset
+
+.
+ Then it is a basis for 
+\begin_inset Formula $V$
+\end_inset
+
+.
+ Indeed, if spans 
+\begin_inset Formula $V$
+\end_inset
+
+ since it is a Parseval frame for 
+\begin_inset Formula $V$
+\end_inset
+
+: if 
+\begin_inset Formula $v\in V$
+\end_inset
+
+, then
+\begin_inset Formula 
+\[
+v=\sum_{i=1}^{m}\langle v,v_{i}\rangle v_{i}.
+\]
+
+\end_inset
+
+Also it is linearly independent by definition.
+ Thus 
+\begin_inset Formula $\{v_{1},\dots,v_{m}\}$
+\end_inset
+
+ is a basis for 
+\begin_inset Formula $V$
+\end_inset
+
+.
+ To see that it is an orthonormal basis, we must check that 
+\begin_inset Formula $\langle v_{j},v_{i}\rangle=0$
+\end_inset
+
+ whenever 
+\begin_inset Formula $i\neq j$
+\end_inset
+
+ and 
+\begin_inset Formula $\langle v_{j},v_{j}\rangle=1$
+\end_inset
+
+.
+ We have this because we can express 
+\begin_inset Formula $v_{j}$
+\end_inset
+
+ as
+\begin_inset Formula 
+\[
+v_{j}=\sum_{i=1}^{m}\langle v_{j},v_{i}\rangle v_{i},
+\]
+
+\end_inset
+
+and by uniqueness of the coefficients, it follows that 
+\begin_inset Formula $\langle v_{j},v_{i}\rangle=0$
+\end_inset
+
+ whenever 
+\begin_inset Formula $i\neq j$
+\end_inset
+
+ and 
+\begin_inset Formula $\langle v_{j},v_{j}\rangle=1$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+4.
+ To be lexicographically consistent, we will assume that 
+\begin_inset Formula $V$
+\end_inset
+
+ is an 
+\begin_inset Formula $m$
+\end_inset
+
+-dimensional vector space and that 
+\begin_inset Formula $\{f_{1},\dots,f_{n}\}$
+\end_inset
+
+ is a Parseval frame for 
+\begin_inset Formula $V$
+\end_inset
+
+ (so 
+\begin_inset Formula $m\leq n$
+\end_inset
+
+).
+ We may also identify 
+\begin_inset Formula $V$
+\end_inset
+
+ with 
+\begin_inset Formula $\mathbb{C}^{m}$
+\end_inset
+
+ together with its standard Euclidean inner-product space.
+ Let 
+\begin_inset Formula $\{e_{1},\dots,e_{n}\}$
+\end_inset
+
+ be the standard 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Consersely, suppose conditions (a) and (b) are true.
+ Then for every 
+\begin_inset Formula $v\in V$
+\end_inset
+
+, we have
+\begin_inset Formula 
+\begin{align*}
+\phi\left(\sum_{i=1}^{m}\langle v,f_{i}\rangle f_{i}\right) & =\sum_{i=1}^{m}\langle v,f_{i}\rangle\phi(f_{i})\\
+ & =\sum_{i=1}^{m}\langle\phi(v),\phi(f_{i})\rangle\phi(f_{i})\\
+ & =\sum_{i=1}^{m}\langle\phi(v),\phi(f_{i})\rangle\mathrm{P}_{\phi(V)}(e_{i})\\
+ & =\mathrm{P}_{\phi(V)}\left(\sum_{i=1}^{m}\langle\phi(v),\phi(f_{i})\rangle e_{i}\right)\\
+ & =\\
+ & =
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sol}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Problem 2
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{ex}
+\backslash
+label{ex}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $V$
+\end_inset
+
+ be a finite-dimensional vector space over 
+\begin_inset Formula $\mathbb{Q}$
+\end_inset
+
+.
+ Suppose that 
+\begin_inset Formula $A\colon V\to V$
+\end_inset
+
+ is an invertible linear map such that 
+\begin_inset Formula $A^{-1}=\frac{1}{2}A^{2}+A$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Give all possibilities for the minimal and characteristic polynomials of
+ 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Prove that 
+\begin_inset Formula $\dim V$
+\end_inset
+
+ is a multiple of 
+\begin_inset Formula $3$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Give an explicit example of how part (2) can fail if 
+\begin_inset Formula $\mathbb{Q}$
+\end_inset
+
+ is replaced by 
+\begin_inset Formula $\mathbb{C}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Still assuming that 
+\begin_inset Formula $V$
+\end_inset
+
+ is a 
+\begin_inset Formula $\mathbb{C}$
+\end_inset
+
+-vector space, prove that if 
+\begin_inset Formula $\dim V=3$
+\end_inset
+
+, then all such linear maps are similar.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Does part (4) still hold over 
+\begin_inset Formula $\mathbb{Q}$
+\end_inset
+
+? Fully justify your answer.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{ex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sol}
+\backslash
+label{sol}
+\end_layout
+
+\end_inset
+
+ 1.
+ 
+\begin_inset Formula $\chi_{A}$
+\end_inset
+
+ denote the characteristic polynomial of 
+\begin_inset Formula $A$
+\end_inset
+
+ and let 
+\begin_inset Formula $\pi_{A}$
+\end_inset
+
+ denote the minimal polynomial of 
+\begin_inset Formula $A$
+\end_inset
+
+ over 
+\begin_inset Formula $\mathbb{Q}$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula 
+\[
+f(X)=X^{3}+2X^{2}-2.
+\]
+
+\end_inset
+
+From the definining equation of 
+\begin_inset Formula $A$
+\end_inset
+
+, we see that 
+\begin_inset Formula $f(A)=0$
+\end_inset
+
+.
+ It follows that 
+\begin_inset Formula $\pi_{A}\mid f$
+\end_inset
+
+.
+ In other words, we have
+\begin_inset Formula 
+\[
+f=\pi_{A}g
+\]
+
+\end_inset
+
+for some 
+\begin_inset Formula $g\in\mathbb{Q}[X]$
+\end_inset
+
+.
+ Furthermore, 
+\begin_inset Formula $f$
+\end_inset
+
+ is irreducible over 
+\begin_inset Formula $\mathbb{Q}$
+\end_inset
+
+ since it is irreducible over 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+ by Eisenstein's criterion at 
+\begin_inset Formula $2$
+\end_inset
+
+.
+ Since both 
+\begin_inset Formula $f$
+\end_inset
+
+ and 
+\begin_inset Formula $\pi_{A}$
+\end_inset
+
+ are monic, this forces 
+\begin_inset Formula $g=1$
+\end_inset
+
+, so 
+\begin_inset Formula $f=\pi_{A}$
+\end_inset
+
+.
+ Finally, since 
+\begin_inset Formula $\chi_{A}$
+\end_inset
+
+ and 
+\begin_inset Formula $\pi_{A}$
+\end_inset
+
+ share the same irreducible factors over 
+\begin_inset Formula $\mathbb{Q}$
+\end_inset
+
+ and since 
+\begin_inset Formula $\pi_{A}$
+\end_inset
+
+ is irreducible over 
+\begin_inset Formula $\mathbb{Q}$
+\end_inset
+
+, it follows that 
+\begin_inset Formula 
+\[
+\chi_{A}=\pi_{A}^{n}
+\]
+
+\end_inset
+
+for some 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+2.
+ The dimension of 
+\begin_inset Formula $V$
+\end_inset
+
+ is equal to the degree of the characteristic polynomial of 
+\begin_inset Formula $A$
+\end_inset
+
+, so
+\begin_inset Formula 
+\begin{align*}
+\dim V & =\deg\chi_{A}\\
+ & =\deg(\pi_{A}^{n})\\
+ & =n\det\pi_{A}\\
+ & =3n.
+\end{align*}
+
+\end_inset
+
+This implies 
+\begin_inset Formula $\dim V$
+\end_inset
+
+ is a multiple of 
+\begin_inset Formula $3$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+3.
+ If 
+\begin_inset Formula $\mathbb{Q}$
+\end_inset
+
+ is replaced by 
+\begin_inset Formula $\mathbb{C}$
+\end_inset
+
+, then it may still have 
+\begin_inset Formula $\pi_{A}=f$
+\end_inset
+
+, but it may no longer be the case that 
+\begin_inset Formula $\chi_{A}=\pi_{A}^{n}$
+\end_inset
+
+ for some 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+.
+ Indeed, over 
+\begin_inset Formula $\mathbb{C}$
+\end_inset
+
+, the minimal polynomial factors, say as
+\begin_inset Formula 
+\[
+\pi_{A}=(X-\alpha_{1})(X-\alpha_{2})(X-\alpha_{3}),
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\alpha_{i}\neq\alpha_{j}$
+\end_inset
+
+ for 
+\begin_inset Formula $i\neq j$
+\end_inset
+
+ since 
+\begin_inset Formula $\pi_{A}'(X)=X(3X+4)$
+\end_inset
+
+ has roots 
+\begin_inset Formula $X=0$
+\end_inset
+
+ and 
+\begin_inset Formula $X=-4/3$
+\end_inset
+
+ (so 
+\begin_inset Formula $\pi_{A}'(\alpha_{i})\neq0$
+\end_inset
+
+ for any 
+\begin_inset Formula $i=1,2,3$
+\end_inset
+
+).
+ Then it is possible that the characteristic polynomial of 
+\begin_inset Formula $A$
+\end_inset
+
+ has the form
+\begin_inset Formula 
+\[
+\chi_{A}=(X-\alpha_{1})^{2}(X-\alpha_{2})(X-\alpha_{3}).
+\]
+
+\end_inset
+
+Both 
+\begin_inset Formula $\chi_{A}$
+\end_inset
+
+ and 
+\begin_inset Formula $\pi_{A}$
+\end_inset
+
+ share the same irreducible factors over 
+\begin_inset Formula $\mathbb{C}$
+\end_inset
+
+, so there is no contradiction here.
+ The Jordan canonical form for 
+\begin_inset Formula $A$
+\end_inset
+
+ in this case is given by the matrix
+\begin_inset Formula 
+\[
+\begin{pmatrix}\alpha_{1} & 0 & 0 & 0\\
+0 & \alpha_{1} & 0 & 0\\
+0 & 0 & \alpha_{2} & 0\\
+0 & 0 & 0 & \alpha_{3}
+\end{pmatrix}.
+\]
+
+\end_inset
+
+So in this case, we see that 
+\begin_inset Formula $\dim V=4$
+\end_inset
+
+, which is not a multiple of 
+\begin_inset Formula $3$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+4.
+ I don't think we are given enough information here to conclude that all
+ such linear maps are similar.
+ Indeed, the minimal polynomial of 
+\begin_inset Formula $A$
+\end_inset
+
+ simply needs to divide 
+\begin_inset Formula $f$
+\end_inset
+
+.
+ Thus we could have 
+\begin_inset Formula $\pi_{A}=(X-\alpha_{1})$
+\end_inset
+
+ and 
+\begin_inset Formula $\chi_{A}=(X-\alpha_{1})^{3}$
+\end_inset
+
+.
+ In this case, the Jordan canonical form for 
+\begin_inset Formula $A$
+\end_inset
+
+ is
+\begin_inset Formula 
+\[
+\begin{pmatrix}\alpha_{1} & 0 & 0\\
+0 & \alpha_{1} & 0\\
+0 & 0 & \alpha_{1}
+\end{pmatrix}.
+\]
+
+\end_inset
+
+It is easy to check that this matrix satisfies 
+\begin_inset Formula $f$
+\end_inset
+
+.
+ If we make the further assumption that 
+\begin_inset Formula $\pi_{A}=f$
+\end_inset
+
+, then since 
+\begin_inset Formula $\deg\chi_{A}=\dim V=\deg\pi_{A}$
+\end_inset
+
+, and 
+\begin_inset Formula $\pi_{A}\mid\chi_{A}$
+\end_inset
+
+, and 
+\begin_inset Formula $\pi_{A}$
+\end_inset
+
+ and 
+\begin_inset Formula $\chi_{A}$
+\end_inset
+
+ both being monic forces 
+\begin_inset Formula $\pi_{A}=f$
+\end_inset
+
+.
+ In this case, the Jordan canonical form for 
+\begin_inset Formula $A$
+\end_inset
+
+ is
+\begin_inset Formula 
+\[
+\begin{pmatrix}\alpha_{1} & 0 & 0\\
+0 & \alpha_{2} & 0\\
+0 & 0 & \alpha_{3}
+\end{pmatrix}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+5.
+ By part 1, we necessarily have 
+\begin_inset Formula $f=\pi_{A}$
+\end_inset
+
+.
+ Also 
+\begin_inset Formula $\dim V=3$
+\end_inset
+
+ implies 
+\begin_inset Formula $\pi_{A}=\chi_{A}$
+\end_inset
+
+ by the same reasoning as in part 4.
+ So the rational canonical form of 
+\begin_inset Formula $A$
+\end_inset
+
+ is
+\begin_inset Formula 
+\[
+\begin{pmatrix}0 & 0 & 1\\
+1 & 0 & 0\\
+0 & 1 & -2
+\end{pmatrix}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sol}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Abstract Algebra
+\end_layout
+
+\begin_layout Subsubsection
+Problem 1
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{ex}
+\backslash
+label{ex}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $G$
+\end_inset
+
+ be an additive abelian group.
+ For each positive integer 
+\begin_inset Formula $n$
+\end_inset
+
+, set
+\begin_inset Formula 
+\[
+\Gamma_{n}(G)=\{g\in G\mid n^{m}g=0\text{ for some positive integer }m\}.
+\]
+
+\end_inset
+
+Let 
+\begin_inset Formula $\alpha\colon G\to H$
+\end_inset
+
+ and 
+\begin_inset Formula $\beta\colon H\to K$
+\end_inset
+
+ be homomorphisms of additive abelian groups.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Prove that 
+\begin_inset Formula $\Gamma_{n}(G)$
+\end_inset
+
+ is a subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Prove that 
+\begin_inset Formula $\alpha(\Gamma_{n}(G))\subseteq\Gamma_{n}(H)$
+\end_inset
+
+ and that 
+\begin_inset Formula $\Gamma_{n}(\alpha)\colon\Gamma_{n}(G)\to\Gamma_{n}(H)$
+\end_inset
+
+ defined by 
+\begin_inset Formula 
+\[
+\Gamma_{n}(\alpha)(g)=\alpha(g)
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $g\in\Gamma_{n}(G)$
+\end_inset
+
+ is a well-defined group homomorphism.
+\end_layout
+
+\begin_layout Enumerate
+Prove that if 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ is injective, then so is 
+\begin_inset Formula $\Gamma_{n}(\alpha)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Prove or disprove that if 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ is surjective, then so is 
+\begin_inset Formula $\Gamma_{n}(\alpha)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Prove that if 
+\begin_inset Formula $G$
+\end_inset
+
+ is finitely generated, then 
+\begin_inset Formula $\Gamma_{n}(G)$
+\end_inset
+
+ is finite.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{ex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sol}
+\backslash
+label{sol}
+\end_layout
+
+\end_inset
+
+ 1.
+ First note that 
+\begin_inset Formula $\Gamma_{n}(G)$
+\end_inset
+
+ is nonempty since 
+\begin_inset Formula $0\in\Gamma_{n}(G)$
+\end_inset
+
+.
+ Now let 
+\begin_inset Formula $g_{1},g_{2}\in\Gamma_{n}(G)$
+\end_inset
+
+ and choose 
+\begin_inset Formula $m_{1},m_{2}\in\mathbb{Z}$
+\end_inset
+
+ such that 
+\begin_inset Formula $n^{m_{1}}g_{1}=n^{m_{2}}g_{2}=0$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula 
+\begin{align*}
+n^{m_{1}+m_{2}}(g_{1}-g_{2}) & =n^{m_{1}+m_{2}}g_{1}-n^{m_{1}+m_{2}}g_{2}\\
+ & =n^{m_{2}}(n^{m_{1}}g_{1})-n^{m_{1}}(n^{m_{2}}g_{2})\\
+ & =n^{m_{2}}\cdot0-n^{m_{1}}\cdot0\\
+ & =0.
+\end{align*}
+
+\end_inset
+
+implies 
+\begin_inset Formula $g_{1}-g_{2}\in\Gamma_{n}(G)$
+\end_inset
+
+.
+ It follows that 
+\begin_inset Formula $\Gamma_{n}(G)$
+\end_inset
+
+ is a subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+2.
+ Let 
+\begin_inset Formula $g\in\Gamma_{n}(G)$
+\end_inset
+
+ and choose 
+\begin_inset Formula $m\in\mathbb{Z}$
+\end_inset
+
+ such that 
+\begin_inset Formula $n^{m}g=0$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\begin{align*}
+n^{m}\alpha(g) & =\alpha(n^{m}g)\\
+ & =\alpha(0)\\
+ & =0.
+\end{align*}
+
+\end_inset
+
+implies 
+\begin_inset Formula $\alpha(g)\in\Gamma_{n}(H)$
+\end_inset
+
+.
+ It follows that 
+\begin_inset Formula $\alpha(\Gamma_{n}(G))\subseteq\Gamma_{n}(H)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Next we show that 
+\begin_inset Formula $\Gamma_{n}(\alpha)$
+\end_inset
+
+ is a well-defined group homomorphism.
+ First note that 
+\begin_inset Formula $\Gamma_{n}(\alpha)$
+\end_inset
+
+ lands in 
+\begin_inset Formula $\Gamma_{n}(H)$
+\end_inset
+
+ by what we've just shown.
+ It is also a well-defined group homomorphism since it is just the restriction
+ of 
+\begin_inset Formula $\alpha\colon G\to H$
+\end_inset
+
+ to 
+\begin_inset Formula $\Gamma_{n}(G)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+3.
+ This follows from the fact that the restriction of an injective map is
+ injective.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+4.
+ This is false.
+ Consider the case where 
+\begin_inset Formula $G=\mathbb{Z}$
+\end_inset
+
+, 
+\begin_inset Formula $H=\mathbb{Z}\slash2\mathbb{Z}$
+\end_inset
+
+, and 
+\begin_inset Formula $n=2$
+\end_inset
+
+.
+ Here, we have 
+\begin_inset Formula $\Gamma_{2}(\mathbb{Z})=0$
+\end_inset
+
+ and 
+\begin_inset Formula $\Gamma_{2}(\mathbb{Z}\slash2\mathbb{Z})=\mathbb{Z}\slash2\mathbb{Z}$
+\end_inset
+
+.
+ Then the natural quotient map 
+\begin_inset Formula $\pi\colon\mathbb{Z}\to\mathbb{Z}\slash2\mathbb{Z}$
+\end_inset
+
+ is surjective, but the induced map 
+\begin_inset Formula $\Gamma_{n}(\pi)\colon0\to\mathbb{Z}\slash2\mathbb{Z}$
+\end_inset
+
+ clearly cannot be surjective.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+5.
+ First note that if 
+\begin_inset Formula $G_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $G_{2}$
+\end_inset
+
+ are two abelian groups, then we have
+\begin_inset Formula 
+\[
+\Gamma_{n}(G_{1}\oplus G_{2})=\Gamma_{n}(G_{1})\oplus\Gamma_{n}(G_{2}).
+\]
+
+\end_inset
+
+Indeed, if 
+\begin_inset Formula $(g_{1},g_{2})\in\Gamma_{n}(G_{1}\oplus G_{2})$
+\end_inset
+
+, then we choose 
+\begin_inset Formula $m\in\mathbb{Z}$
+\end_inset
+
+ such that 
+\begin_inset Formula $n^{m}(g_{1},g_{2})=0$
+\end_inset
+
+.
+ This implies 
+\begin_inset Formula $n^{m}g_{1}=0$
+\end_inset
+
+ and 
+\begin_inset Formula $n^{m}g_{2}=0$
+\end_inset
+
+ which implies 
+\begin_inset Formula $g_{1}\in\Gamma_{n}(G_{1})$
+\end_inset
+
+ and 
+\begin_inset Formula $g_{2}\in\Gamma_{n}(G_{2})$
+\end_inset
+
+.
+ Conversely, if 
+\begin_inset Formula $g_{1}\in\Gamma_{n}(G_{1})$
+\end_inset
+
+ and 
+\begin_inset Formula $g_{2}\in\Gamma_{n}(G_{2})$
+\end_inset
+
+, then we choose 
+\begin_inset Formula $m_{1},m_{2}\in\mathbb{Z}$
+\end_inset
+
+ such that 
+\begin_inset Formula $n^{m_{1}}g_{1}=0$
+\end_inset
+
+ and 
+\begin_inset Formula $n^{m_{2}}g_{2}=0$
+\end_inset
+
+.
+ This implies
+\begin_inset Formula 
+\begin{align*}
+n^{m_{1}+m_{2}}(g_{1},g_{2}) & =(n^{m_{2}}(n^{m_{1}}g_{1}),n^{m_{1}}(n^{m_{2}}g_{2}))\\
+ & =(0,0)
+\end{align*}
+
+\end_inset
+
+which implies 
+\begin_inset Formula $(g_{1},g_{2})\in\Gamma_{n}(G_{1}\oplus G_{2})$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Now we can prove 5 easily as follows: by the fundamental theorem of finitely
+ generated abelian groups, 
+\begin_inset Formula $G$
+\end_inset
+
+ is isomorphic to
+\begin_inset Formula 
+\[
+\mathbb{Z}^{r}\oplus\mathbb{Z}_{q_{1}}\oplus\cdots\oplus\mathbb{Z}_{q_{s}}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $q_{1},\dots,q_{s}$
+\end_inset
+
+ are powers of (not necessarily distinct) prime numbers and 
+\begin_inset Formula $r\in\mathbb{Z}_{\geq0}$
+\end_inset
+
+.
+ It follows that
+\begin_inset Formula 
+\begin{align*}
+\Gamma_{n}(G) & \cong\Gamma_{n}(\mathbb{Z}^{r}\oplus\mathbb{Z}_{q_{1}}\oplus\cdots\oplus\mathbb{Z}_{q_{s}})\\
+ & =\Gamma_{n}(\mathbb{Z}^{r})\oplus\Gamma_{n}(\mathbb{Z}_{q_{1}})\oplus\cdots\oplus\Gamma_{n}(\mathbb{Z}_{q_{s}})\\
+ & =0\oplus\Gamma_{n}(\mathbb{Z}_{q_{1}})\oplus\cdots\oplus\Gamma_{n}(\mathbb{Z}_{q_{s}}).
+\end{align*}
+
+\end_inset
+
+In particular, we see that 
+\begin_inset Formula $\left|\Gamma_{n}(G)\right|\leq q_{1}\cdots q_{s}$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sol}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 Winter 2018
 \end_layout
 
@@ -11246,6 +12918,566 @@ end{sol}
 
 \end_layout
 
+\begin_layout Subsection
+Problem 5
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{ex}
+\backslash
+label{ex}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $G=\mathrm{GL}_{2}(\mathbb{F}_{5})$
+\end_inset
+
+ and let 
+\begin_inset Formula $H=\mathrm{SL}_{2}(\mathbb{F}_{5})$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Show that 
+\begin_inset Formula $G$
+\end_inset
+
+ acts on 
+\begin_inset Formula $H$
+\end_inset
+
+ by conjugation.
+ Prove any assumptions that you make along the way.
+ You may of course assume properties of matrix multiplication and determinants.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Compute the stabilizers of 
+\begin_inset Formula $\left(\begin{smallmatrix}1 & 1\\
+0 & 1
+\end{smallmatrix}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(\begin{smallmatrix}-1 & 0\\
+0 & 1
+\end{smallmatrix}\right)$
+\end_inset
+
+ under the action described above.
+ What is the kernel of this action?
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{ex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sol}
+\backslash
+label{sol}
+\end_layout
+
+\end_inset
+
+ 1.
+ Let 
+\begin_inset Formula $g\in G$
+\end_inset
+
+ and 
+\begin_inset Formula $h\in H$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula 
+\begin{align*}
+\det(ghg^{-1}) & =\det(g)\det(h)\det(g)^{-1}\\
+ & =\det(g)\det(g)^{-1}\det(h)\\
+ & =\det(h)\\
+ & =1,
+\end{align*}
+
+\end_inset
+
+where we used the fact that 
+\begin_inset Formula $\det\colon\mathrm{GL}_{2}(\mathbb{F}_{5})\to\mathbb{F}_{5}^{\times}$
+\end_inset
+
+ is a group homomorphism.
+ It follows that 
+\begin_inset Formula $ghg^{-1}\in H$
+\end_inset
+
+, and hence 
+\begin_inset Formula $H$
+\end_inset
+
+ is a normal subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Thus we can define a map 
+\begin_inset Formula $\pi\colon G\times H\to H$
+\end_inset
+
+, denoted 
+\begin_inset Formula $\pi(g,h)=g\cdot h$
+\end_inset
+
+, by
+\begin_inset Formula 
+\begin{align}
+g\cdot h & =ghg^{-1}.\label{eq:conjugationactionnormal}
+\end{align}
+
+\end_inset
+
+for all 
+\begin_inset Formula $g\in G$
+\end_inset
+
+ and 
+\begin_inset Formula $h\in H$
+\end_inset
+
+.
+ We claim that 
+\begin_inset Formula $\pi$
+\end_inset
+
+ is an action of 
+\begin_inset Formula $G$
+\end_inset
+
+ on 
+\begin_inset Formula $H$
+\end_inset
+
+.
+ To see this, first note that 
+\begin_inset Formula $\pi$
+\end_inset
+
+ lands in 
+\begin_inset Formula $H$
+\end_inset
+
+ since 
+\begin_inset Formula $H$
+\end_inset
+
+ is a normal in 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ Next, let 
+\begin_inset Formula $g_{1},g_{2}\in G$
+\end_inset
+
+ and let 
+\begin_inset Formula $h\in H$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\begin{align*}
+g_{1}\cdot(g_{2}\cdot h) & =g_{1}\cdot(g_{2}hg_{2}^{-1})\\
+ & =g_{1}(g_{2}hg_{2}^{-1})g_{1}^{-1}\\
+ & =(g_{1}g_{2})h(g_{1}g_{2})^{-1}\\
+ & =(h_{1}h_{2})\cdot h.
+\end{align*}
+
+\end_inset
+
+Also if 
+\begin_inset Formula $e\in G$
+\end_inset
+
+ is the identity, then 
+\begin_inset Formula 
+\begin{align*}
+e\cdot h & =ehe^{-1}\\
+ & =h.
+\end{align*}
+
+\end_inset
+
+It follows that 
+\begin_inset Formula $\pi$
+\end_inset
+
+ is a group action of 
+\begin_inset Formula $G$
+\end_inset
+
+ on 
+\begin_inset Formula $H$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+2.
+ Let 
+\begin_inset Formula $\left(\begin{smallmatrix}a & b\\
+c & d
+\end{smallmatrix}\right)\in\mathrm{SL}_{2}(\mathbb{F}_{5})$
+\end_inset
+
+.
+ We have
+\begin_inset Formula 
+\begin{align*}
+\begin{pmatrix}1 & 1\\
+0 & 1
+\end{pmatrix}\cdot\begin{pmatrix}a & b\\
+c & d
+\end{pmatrix}=\begin{pmatrix}a & b\\
+c & d
+\end{pmatrix} & \iff\begin{pmatrix}1 & 1\\
+0 & 1
+\end{pmatrix}\begin{pmatrix}a & b\\
+c & d
+\end{pmatrix}\begin{pmatrix}1 & 1\\
+0 & 1
+\end{pmatrix}^{-1}=\begin{pmatrix}a & b\\
+c & d
+\end{pmatrix}\\
+ & \iff\begin{pmatrix}1 & 1\\
+0 & 1
+\end{pmatrix}\begin{pmatrix}a & b\\
+c & d
+\end{pmatrix}\begin{pmatrix}1 & -1\\
+0 & 1
+\end{pmatrix}=\begin{pmatrix}a & b\\
+c & d
+\end{pmatrix}\\
+ & \iff\begin{pmatrix}a+c & b+d\\
+c & d
+\end{pmatrix}\begin{pmatrix}1 & -1\\
+0 & 1
+\end{pmatrix}=\begin{pmatrix}a & b\\
+c & d
+\end{pmatrix}\\
+ & \iff\begin{pmatrix}a+c & b+d-a-c\\
+c & d-c
+\end{pmatrix}=\begin{pmatrix}a & b\\
+c & d
+\end{pmatrix}\\
+ & \iff c=0\text{ and }d=a
+\end{align*}
+
+\end_inset
+
+Thus
+\begin_inset Formula 
+\begin{align*}
+\mathrm{Stab}_{G}\left(\begin{pmatrix}1 & 1\\
+0 & 1
+\end{pmatrix}\right) & =\left\{ \begin{pmatrix}a & b\\
+0 & a
+\end{pmatrix}\in\mathrm{SL}_{2}(\mathbb{F}_{5})\right\} \\
+ & =\left\{ \begin{pmatrix}1 & b\\
+0 & 1
+\end{pmatrix}\mid b\in\mathbb{F}_{5}\right\} \cup\left\{ \begin{pmatrix}4 & b\\
+0 & 4
+\end{pmatrix}\mid b\in\mathbb{F}_{5}\right\} .
+\end{align*}
+
+\end_inset
+
+Similarly, we have
+\begin_inset Formula 
+\begin{align*}
+\begin{pmatrix}-1 & 0\\
+0 & 1
+\end{pmatrix}\cdot\begin{pmatrix}a & b\\
+c & d
+\end{pmatrix}=\begin{pmatrix}a & b\\
+c & d
+\end{pmatrix} & \iff\begin{pmatrix}-1 & 0\\
+0 & 1
+\end{pmatrix}\begin{pmatrix}a & b\\
+c & d
+\end{pmatrix}\begin{pmatrix}-1 & 0\\
+0 & 1
+\end{pmatrix}^{-1}=\begin{pmatrix}a & b\\
+c & d
+\end{pmatrix}\\
+ & \iff\begin{pmatrix}-1 & 0\\
+0 & 1
+\end{pmatrix}\begin{pmatrix}a & b\\
+c & d
+\end{pmatrix}\begin{pmatrix}-1 & 0\\
+0 & 1
+\end{pmatrix}=\begin{pmatrix}a & b\\
+c & d
+\end{pmatrix}\\
+ & \iff\begin{pmatrix}-a & -b\\
+c & d
+\end{pmatrix}\begin{pmatrix}-1 & 0\\
+0 & 1
+\end{pmatrix}=\begin{pmatrix}a & b\\
+c & d
+\end{pmatrix}\\
+ & \iff\begin{pmatrix}a & -b\\
+-c & d
+\end{pmatrix}=\begin{pmatrix}a & b\\
+c & d
+\end{pmatrix}\\
+ & \iff b=-b\text{ and }c=-c\\
+ & \iff b=c=0.
+\end{align*}
+
+\end_inset
+
+Thus
+\begin_inset Formula 
+\begin{align*}
+\mathrm{Stab}_{G}\left(\begin{pmatrix}-1 & 0\\
+0 & 1
+\end{pmatrix}\right) & =\left\{ \begin{pmatrix}a & 0\\
+0 & d
+\end{pmatrix}\in\mathrm{SL}_{2}(\mathbb{F}_{5})\right\} \\
+ & =\left\{ \begin{pmatrix}a & 0\\
+0 & a^{-1}
+\end{pmatrix}\mid a\in\mathbb{F}_{5}^{\times}\right\} .
+\end{align*}
+
+\end_inset
+
+The kernel of 
+\begin_inset Formula $\pi$
+\end_inset
+
+ is given by
+\begin_inset Formula 
+\begin{align*}
+\ker_{G}(H) & =\left\{ g\in G\mid ghg^{-1}=h\text{ for all }h\in H\right\} \\
+ & =\left\{ g\in G\mid gh=hg\text{ for all }h\in H\right\} .
+\end{align*}
+
+\end_inset
+
+Thus the kernel of 
+\begin_inset Formula $\pi$
+\end_inset
+
+ is the set of all elements in 
+\begin_inset Formula $G$
+\end_inset
+
+ which commute with every element in 
+\begin_inset Formula $H$
+\end_inset
+
+.
+ Clearly we have
+\begin_inset Formula 
+\begin{align*}
+\mathrm{ker}_{G}(H) & \supseteq\left\{ \begin{pmatrix}a & 0\\
+0 & a
+\end{pmatrix}\mid a\in\mathbb{F}_{5}\right\} .
+\end{align*}
+
+\end_inset
+
+In fact, we claim that the reverse inclusion holds too.
+ Indeed, let 
+\begin_inset Formula $\left(\begin{smallmatrix}a & b\\
+c & d
+\end{smallmatrix}\right)\in G$
+\end_inset
+
+ and let 
+\begin_inset Formula $\left(\begin{smallmatrix}\alpha & \beta\\
+\gamma & \delta
+\end{smallmatrix}\right)\in H$
+\end_inset
+
+.
+ We have
+\begin_inset Formula 
+\[
+\begin{pmatrix}a & b\\
+c & d
+\end{pmatrix}\begin{pmatrix}\alpha & \beta\\
+\gamma & \delta
+\end{pmatrix}=\begin{pmatrix}\alpha & \beta\\
+\gamma & \delta
+\end{pmatrix}\begin{pmatrix}a & b\\
+c & d
+\end{pmatrix}
+\]
+
+\end_inset
+
+if and only if
+\begin_inset Formula 
+\[
+\begin{pmatrix}a\alpha+b\gamma & a\beta+b\delta\\
+c\alpha+d\gamma & c\beta+d\delta
+\end{pmatrix}=\begin{pmatrix}\alpha a+\beta c & \alpha b+\beta d\\
+\gamma a+\delta c & \gamma b+\delta d
+\end{pmatrix}
+\]
+
+\end_inset
+
+if and only if
+\begin_inset Formula 
+\begin{align*}
+b\gamma & =\beta c\\
+a\beta+b\delta & =\alpha b+\beta d\\
+c\alpha+d\gamma & =\gamma a+\delta c.
+\end{align*}
+
+\end_inset
+
+If 
+\begin_inset Formula $\alpha=\beta=\delta=1$
+\end_inset
+
+ and 
+\begin_inset Formula $\gamma=0$
+\end_inset
+
+, then we must have 
+\begin_inset Formula $c=0$
+\end_inset
+
+ and 
+\begin_inset Formula $a=d$
+\end_inset
+
+.
+ Similarly if 
+\begin_inset Formula $\alpha=\gamma=\delta=1$
+\end_inset
+
+ and 
+\begin_inset Formula $\beta=0$
+\end_inset
+
+, then we must have 
+\begin_inset Formula $b=0$
+\end_inset
+
+.
+ It follows that any element in 
+\begin_inset Formula $G$
+\end_inset
+
+ which commutes with all elements in 
+\begin_inset Formula $H$
+\end_inset
+
+ must have the form 
+\begin_inset Formula $\left(\begin{smallmatrix}a & 0\\
+0 & a
+\end{smallmatrix}\right)$
+\end_inset
+
+ for some 
+\begin_inset Formula $a\in\mathbb{F}_{5}$
+\end_inset
+
+.
+ Thus
+\begin_inset Formula 
+\begin{align*}
+\mathrm{ker}_{G}(H) & =\left\{ \begin{pmatrix}a & 0\\
+0 & a
+\end{pmatrix}\mid a\in\mathbb{F}_{5}\right\} .
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sol}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Summer 2018
 \end_layout
@@ -12373,6 +14605,2235 @@ end{sol}
 \end_inset
 
  
+\end_layout
+
+\begin_layout Section
+Winter 2017
+\end_layout
+
+\begin_layout Subsection
+Problem 1
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{ex}
+\backslash
+label{ex}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $F$
+\end_inset
+
+ be a field, let 
+\begin_inset Formula $F^{n\times n}$
+\end_inset
+
+ be the vector space of 
+\begin_inset Formula $n\times n$
+\end_inset
+
+ matrices over 
+\begin_inset Formula $F$
+\end_inset
+
+ and let 
+\begin_inset Formula $\{E_{ij}\mid1\leq i,j\leq n\}$
+\end_inset
+
+ be a basis of 
+\begin_inset Formula $F^{n\times n}$
+\end_inset
+
+ consisting of matrices with an entry 
+\begin_inset Formula $1$
+\end_inset
+
+ in row 
+\begin_inset Formula $i$
+\end_inset
+
+ and column 
+\begin_inset Formula $j$
+\end_inset
+
+ and zero otherwise.
+\end_layout
+
+\begin_layout Enumerate
+Show that the trace function 
+\begin_inset Formula $\mathrm{Tr}\colon F^{n\times n}\to F$
+\end_inset
+
+ is a linear functional such that
+\begin_inset Formula 
+\[
+\mathrm{Tr}(AB)=\mathrm{Tr}(BA)
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $A,B\in F^{n\times n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Let 
+\begin_inset Formula $f\colon F^{n\times n}\to F$
+\end_inset
+
+ be a linear functional such that
+\begin_inset Formula 
+\[
+f(AB)=f(BA)
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $A,B\in F^{n\times n}$
+\end_inset
+
+.
+ Prove that
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $f(E_{ij})=0$
+\end_inset
+
+ for 
+\begin_inset Formula $1\leq i<j\leq n$
+\end_inset
+
+ and
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $f(E_{ii})=f(E_{11})$
+\end_inset
+
+ for all 
+\begin_inset Formula $1\leq i\leq n$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Let 
+\begin_inset Formula $f\colon F^{n\times n}\to F$
+\end_inset
+
+ be a linear functional.
+ Prove that the following conditions on 
+\begin_inset Formula $f$
+\end_inset
+
+ are equivalent:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $f(AB)=f(BA)$
+\end_inset
+
+ for every 
+\begin_inset Formula $A,B\in F^{n\times n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+There is 
+\begin_inset Formula $a\in F$
+\end_inset
+
+ such that 
+\begin_inset Formula $f(C)=a\mathrm{Tr}(C)$
+\end_inset
+
+ for all 
+\begin_inset Formula $C\in F^{n\times n}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{ex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sol}
+\backslash
+label{sol}
+\end_layout
+
+\end_inset
+
+ 1.
+ Let 
+\begin_inset Formula $A,B\in F^{n\times n}$
+\end_inset
+
+ and let 
+\begin_inset Formula $a,b\in F$
+\end_inset
+
+.
+ Express 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+ in matrix notation as
+\begin_inset Formula 
+\[
+A=\begin{pmatrix}a_{11} & \cdots & a_{1n}\\
+\vdots & \ddots & \vdots\\
+a_{n1} & \cdots & a_{nn}
+\end{pmatrix}\quad\text{and}\quad B=\begin{pmatrix}b_{11} & \cdots & b_{1n}\\
+\vdots & \ddots & \vdots\\
+b_{n1} & \cdots & b_{nn}
+\end{pmatrix}.
+\]
+
+\end_inset
+
+Then we have
+\begin_inset Formula 
+\begin{align*}
+\mathrm{Tr}(aA+bB) & =\mathrm{Tr}\left(a\begin{pmatrix}a_{11} & \cdots & a_{1n}\\
+\vdots & \ddots & \vdots\\
+a_{n1} & \cdots & a_{nn}
+\end{pmatrix}+b\begin{pmatrix}b_{11} & \cdots & b_{n1}\\
+\vdots & \ddots & \vdots\\
+b_{n1} & \cdots & b_{nn}
+\end{pmatrix}\right)\\
+ & =\mathrm{Tr}\begin{pmatrix}aa_{11}+bb_{11} & \cdots & aa_{1n}+bb_{1n}\\
+\vdots & \ddots & \vdots\\
+aa_{n1}+bb_{n1} & \cdots & aa_{nn}+bb_{nn}
+\end{pmatrix}\\
+ & =\sum_{i=1}^{n}aa_{ii}+bb_{ii}\\
+ & =a\sum_{i=1}^{n}a_{ii}+b\sum_{i=1}^{n}b_{ii}\\
+ & =a\mathrm{Tr}(A)+b\mathrm{Tr}(B).
+\end{align*}
+
+\end_inset
+
+It follows that 
+\begin_inset Formula $\mathrm{Tr}$
+\end_inset
+
+ is a linear functional.
+ Also, we have
+\begin_inset Formula 
+\begin{align*}
+\mathrm{Tr}(AB) & =\mathrm{Tr}\left(\begin{pmatrix}a_{11} & \cdots & a_{1n}\\
+\vdots & \ddots & \vdots\\
+a_{n1} & \cdots & a_{nn}
+\end{pmatrix}\begin{pmatrix}b_{11} & \cdots & b_{1n}\\
+\vdots & \ddots & \vdots\\
+b_{n1} & \cdots & b_{nn}
+\end{pmatrix}\right)\\
+ & =\mathrm{Tr}\begin{pmatrix}\sum_{i=1}^{n}a_{1i}b_{i1} & \cdots & \sum_{i=1}^{n}a_{1i}b_{in}\\
+\vdots & \ddots & \vdots\\
+\sum_{i=1}^{n}a_{ni}b_{i1} & \cdots & \sum_{i=1}^{n}a_{ni}b_{in}
+\end{pmatrix}\\
+ & =\sum_{j=1}^{n}\sum_{i=1}^{n}a_{ji}b_{ij}\\
+ & =\sum_{j=1}^{n}\sum_{i=1}^{n}b_{ij}a_{ji}\\
+ & =\mathrm{Tr}\begin{pmatrix}\sum_{j=1}^{n}b_{1j}a_{j1} & \cdots & \sum_{i=1}^{n}b_{1j}a_{jn}\\
+\vdots & \ddots & \vdots\\
+\sum_{i=1}^{n}b_{nj}a_{j1} & \cdots & \sum_{i=1}^{n}b_{nj}a_{jn}
+\end{pmatrix}\\
+ & =\mathrm{Tr}\left(\begin{pmatrix}b_{11} & \cdots & b_{1n}\\
+\vdots & \ddots & \vdots\\
+b_{n1} & \cdots & b_{nn}
+\end{pmatrix}\begin{pmatrix}a_{11} & \cdots & a_{1n}\\
+\vdots & \ddots & \vdots\\
+a_{n1} & \cdots & a_{nn}
+\end{pmatrix}\right)\\
+ & =\mathrm{Tr}(AB)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+2.
+ Let 
+\begin_inset Formula $1\leq i<j\leq n$
+\end_inset
+
+.
+ We have
+\begin_inset Formula 
+\begin{align*}
+f(E_{ij}) & =f(E_{ii}E_{ij})\\
+ & =f(E_{ij}E_{ii})\\
+ & =f(0)\\
+ & =0.
+\end{align*}
+
+\end_inset
+
+Similarly, let 
+\begin_inset Formula $1\leq i\leq n$
+\end_inset
+
+.
+ We have
+\begin_inset Formula 
+\begin{align*}
+f(E_{ii}) & =f(E_{i1}E_{1i})\\
+ & =f(E_{1i}E_{i1})\\
+ & =f(E_{11}).
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+3.
+ First suppose that 
+\begin_inset Formula $f(AB)=f(BA)$
+\end_inset
+
+ for every 
+\begin_inset Formula $A,B\in F^{n\times n}$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $C=(c_{ij})\in F^{n\times n}$
+\end_inset
+
+.
+ We have
+\begin_inset Formula 
+\begin{align*}
+f(C) & =f\left(\sum_{1\leq i,j\leq n}c_{ij}E_{ij}\right)\\
+ & =\sum_{1\leq i,j\leq n}c_{ij}f(E_{ij})\\
+ & =\sum_{1\leq i\leq n}c_{ii}f(E_{ii})+\sum_{1\leq i<j\leq n}c_{ij}f(E_{ij})\\
+ & =\sum_{1\leq i\leq n}c_{ii}f(E_{ii})\\
+ & =\sum_{1\leq i\leq n}c_{ii}f(E_{11})\\
+ & =f(E_{11})\mathrm{Tr}(C).
+\end{align*}
+
+\end_inset
+
+Thus, setting 
+\begin_inset Formula $a=f(E_{11})$
+\end_inset
+
+, we see that 
+\begin_inset Formula $f(C)=a\mathrm{Tr}(C)$
+\end_inset
+
+ for all 
+\begin_inset Formula $C\in F^{n\times n}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Conversely, suppose 
+\begin_inset Formula $f(C)=a\mathrm{Tr}(C)$
+\end_inset
+
+ for all 
+\begin_inset Formula $C\in F^{n\times n}$
+\end_inset
+
+ for some 
+\begin_inset Formula $a\in F$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $A,B\in F^{n\times n}$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\begin{align*}
+f(AB) & =a\mathrm{Tr}(AB)\\
+ & =a\mathrm{Tr}(BA)\\
+ & =f(BA).
+\end{align*}
+
+\end_inset
+
+Thus 
+\begin_inset Formula $f(AB)=f(BA)$
+\end_inset
+
+ for all 
+\begin_inset Formula $A,B\in F^{n\times n}$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sol}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Problem 2
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{ex}
+\backslash
+label{ex}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $G$
+\end_inset
+
+ be a group of order 
+\begin_inset Formula $72$
+\end_inset
+
+, let 
+\begin_inset Formula $P_{2}$
+\end_inset
+
+ be a Sylow 
+\begin_inset Formula $2$
+\end_inset
+
+-subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
+, and let 
+\begin_inset Formula $P_{3}$
+\end_inset
+
+ be a Sylow 
+\begin_inset Formula $3$
+\end_inset
+
+-subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Prove that 
+\begin_inset Formula $G$
+\end_inset
+
+ is not simple.
+\end_layout
+
+\begin_layout Enumerate
+Describe all abelian groups of order 
+\begin_inset Formula $72$
+\end_inset
+
+ up to isomorphism.
+\end_layout
+
+\begin_layout Enumerate
+Describe all possibilities for 
+\begin_inset Formula $P_{3}$
+\end_inset
+
+ up to isomorphism.
+\end_layout
+
+\begin_layout Enumerate
+Assume that 
+\begin_inset Formula $P_{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $P_{3}$
+\end_inset
+
+ are cyclic, and describe all possibilities for 
+\begin_inset Formula $G$
+\end_inset
+
+ up to isomorphism in the following cases
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $P_{2}$
+\end_inset
+
+ is a normal subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $P_{3}$
+\end_inset
+
+ is a normal subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{ex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sol}
+\backslash
+label{sol}
+\end_layout
+
+\end_inset
+
+ 1.
+ Let 
+\begin_inset Formula $n_{p}$
+\end_inset
+
+ denote the number of 
+\begin_inset Formula $p$
+\end_inset
+
+-Sylow subgroups of 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ Note that 
+\begin_inset Formula $72=2^{3}\cdot3^{2}$
+\end_inset
+
+, so by the Sylow theorems, we have
+\begin_inset Formula 
+\[
+n_{2}\equiv1\,\,\mathrm{mod}\,2\quad\text{and}\quad n_{2}\mid9.
+\]
+
+\end_inset
+
+Similarly, we have
+\begin_inset Formula 
+\[
+n_{3}\equiv1\,\,\mathrm{mod}\,3\quad\text{and}\quad n_{3}\mid8.
+\]
+
+\end_inset
+
+It follows that 
+\begin_inset Formula $n_{2}\in\{1,3,9\}$
+\end_inset
+
+ and 
+\begin_inset Formula $n_{3}\in\{1,4\}$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $n_{3}=1$
+\end_inset
+
+, then 
+\begin_inset Formula $P_{3}$
+\end_inset
+
+ is a normal subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
+, so assume 
+\begin_inset Formula $n_{3}=4$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $X_{3}$
+\end_inset
+
+ denote the set of 
+\begin_inset Formula $3$
+\end_inset
+
+-Sylow subgroups of 
+\begin_inset Formula $G$
+\end_inset
+
+ and define 
+\begin_inset Formula $\pi\colon G\to\mathrm{Sym}(X_{3})\cong S_{4}$
+\end_inset
+
+ by 
+\begin_inset Formula $g\mapsto\pi_{g}$
+\end_inset
+
+ where
+\begin_inset Formula 
+\[
+\pi_{g}(P)=gPg^{-1}
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $P\in X_{3}$
+\end_inset
+
+.
+ Denote 
+\begin_inset Formula $K=\ker\pi$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $G\slash K$
+\end_inset
+
+ embeds into 
+\begin_inset Formula $S_{4}$
+\end_inset
+
+, which implies 
+\begin_inset Formula $[G:K]\mid24$
+\end_inset
+
+, which implies 
+\begin_inset Formula $3\mid|K|$
+\end_inset
+
+.
+ It follows that 
+\begin_inset Formula $K$
+\end_inset
+
+ is a nontrivial normal subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+2.
+ By the fundamental theorem of finite abelian groups, every abelian group
+ of order 
+\begin_inset Formula $72$
+\end_inset
+
+ is isomorphic to one of the groups listed below:
+\begin_inset Formula 
+\[
+C_{2}^{3}\times C_{3}^{2}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+C_{2}^{3}\times C_{9}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+C_{2}\times C_{3}^{2}\times C_{4}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+C_{2}\times C_{4}\times C_{9}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+C_{8}\times C_{3}^{2}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+C_{8}\times C_{9}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+3.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sol}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Winter 2014
+\end_layout
+
+\begin_layout Subsection
+Abstract Algebra
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{ex}
+\backslash
+label{ex}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $p$
+\end_inset
+
+ be a prime and 
+\begin_inset Formula $\mathbb{F}_{p}$
+\end_inset
+
+ the finite field with 
+\begin_inset Formula $p$
+\end_inset
+
+ elements.
+ Recall 
+\begin_inset Formula $\mathrm{GL}_{n}(\mathbb{F}_{p})$
+\end_inset
+
+ is the group of 
+\begin_inset Formula $n\times n$
+\end_inset
+
+ intvertible matrices with entries in 
+\begin_inset Formula $\mathbb{F}_{p}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Prove that the size of 
+\begin_inset Formula $\mathrm{GL}_{n}(\mathbb{F}_{p})$
+\end_inset
+
+ is given by 
+\begin_inset Formula $\#\mathrm{GL}_{n}(\mathbb{F}_{p})=\prod_{j=0}^{n-1}(p^{n}-p^{j})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+We now consider the case where 
+\begin_inset Formula $n=2$
+\end_inset
+
+.
+ Set 
+\begin_inset Formula $G=\mathrm{GL}_{2}(\mathbb{F}_{p})$
+\end_inset
+
+, 
+\begin_inset Formula $U=\left\{ \left(\begin{smallmatrix}1 & x\\
+0 & 1
+\end{smallmatrix}\right)\in G\right\} $
+\end_inset
+
+, and 
+\begin_inset Formula $B=\left\{ \left(\begin{smallmatrix}a & b\\
+0 & d
+\end{smallmatrix}\right)\in G\right\} $
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument 1
+status open
+
+\begin_layout Plain Layout
+resume
+\end_layout
+
+\end_inset
+
+ Prove that 
+\begin_inset Formula $U$
+\end_inset
+
+ is a 
+\begin_inset Formula $p$
+\end_inset
+
+-Sylow subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ Give another 
+\begin_inset Formula $p$
+\end_inset
+
+-Sylow subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Prove that 
+\begin_inset Formula $B\subseteq\mathrm{N}_{G}(U)$
+\end_inset
+
+ where 
+\begin_inset Formula $\mathrm{N}_{G}(U)$
+\end_inset
+
+ denotes the normalizer of 
+\begin_inset Formula $U$
+\end_inset
+
+ in 
+\begin_inset Formula $G$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Let 
+\begin_inset Formula $n_{p}$
+\end_inset
+
+ be the number of 
+\begin_inset Formula $p$
+\end_inset
+
+-Sylow subgroups of 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ Calculate 
+\begin_inset Formula $n_{p}$
+\end_inset
+
+ and prove your answer is correct.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{ex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sol}
+\backslash
+label{sol}
+\end_layout
+
+\end_inset
+
+ 1.
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a random matrix in 
+\begin_inset Formula $\mathrm{GL}_{n}(\mathbb{F}_{p})$
+\end_inset
+
+ and let 
+\begin_inset Formula $v_{1},\dots,v_{n}$
+\end_inset
+
+ denote the column vectors of 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Note that counting the number of matrices 
+\begin_inset Formula $A$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathrm{GL}_{n}(\mathbb{F}_{p})$
+\end_inset
+
+ is equivalent to counting the number of ordered tuples of linearly independent
+ vectors 
+\begin_inset Formula $(v_{1},\dots,v_{n})$
+\end_inset
+
+.
+ So it suffices to count the latter.
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+There are 
+\begin_inset Formula $p^{n}-1$
+\end_inset
+
+ different possible vectors in 
+\begin_inset Formula $\mathbb{F}_{p}^{n}$
+\end_inset
+
+ for which 
+\begin_inset Formula $v_{1}$
+\end_inset
+
+ can be.
+ The only vector which is not allowed is the zero vector.
+ This is because the vectors 
+\begin_inset Formula $(v_{1},\dots,v_{n})$
+\end_inset
+
+ must be linearly independent, so no zero vectors allowed.
+ Now we fix 
+\begin_inset Formula $v_{1}$
+\end_inset
+
+.
+ Then there are 
+\begin_inset Formula $p^{n}-p$
+\end_inset
+
+ different possible vectors in 
+\begin_inset Formula $\mathbb{F}_{p}^{n}$
+\end_inset
+
+ for which 
+\begin_inset Formula $v_{2}$
+\end_inset
+
+ can be.
+ Indeed, 
+\begin_inset Formula $v_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $v_{2}$
+\end_inset
+
+ must be linearly independent, so 
+\begin_inset Formula $v_{2}$
+\end_inset
+
+ cannot equal to any vectors of the form 
+\begin_inset Formula $av_{1}$
+\end_inset
+
+ where 
+\begin_inset Formula $a\in\mathbb{F}_{p}$
+\end_inset
+
+.
+ If we had fixed 
+\begin_inset Formula $v_{1}$
+\end_inset
+
+ to be a different vector, then the same counting argument would apply,
+ so altogether, the number of pairs of linearly independent vectors 
+\begin_inset Formula $(v_{1},v_{2})$
+\end_inset
+
+ is 
+\begin_inset Formula $(p^{n}-1)(p^{n}-p)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+More generally, for 
+\begin_inset Formula $1\leq j\leq n$
+\end_inset
+
+, if the vectors 
+\begin_inset Formula $v_{1},\dots,v_{j-1}$
+\end_inset
+
+ are fixed, then there are 
+\begin_inset Formula $p^{n}-p^{j-1}$
+\end_inset
+
+ different possible vectors in 
+\begin_inset Formula $\mathbb{F}_{p}^{n}$
+\end_inset
+
+ for which 
+\begin_inset Formula $v_{j}$
+\end_inset
+
+ can be.
+ Again, varying the vectors 
+\begin_inset Formula $v_{1},\dots,v_{j-1}$
+\end_inset
+
+ to a new set of fixed vectors results in the same counting argument, so
+ altogether the number of 
+\begin_inset Formula $j$
+\end_inset
+
+-tuples of linearly independent vectors 
+\begin_inset Formula $(v_{1},v_{2},\dots,v_{j})$
+\end_inset
+
+ is 
+\begin_inset Formula $(p^{n}-1)(p^{n}-p)\cdots(p^{n}-p^{j-1})$
+\end_inset
+
+.
+ In particular, taking 
+\begin_inset Formula $j=n$
+\end_inset
+
+ gives us
+\begin_inset Formula 
+\[
+\#\mathrm{GL}_{n}(\mathbb{F}_{p})=\prod_{j=1}^{n}(p^{n}-p^{j-1})=\prod_{j=0}^{n-1}(p^{n}-p^{j}).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+2.
+ First note that 
+\begin_inset Formula $\#G=(p^{2}-p)(p^{2}-1)=p(p-1)^{2}(p+1)$
+\end_inset
+
+.
+ In particular, the largest power of 
+\begin_inset Formula $p$
+\end_inset
+
+ in 
+\begin_inset Formula $\#G$
+\end_inset
+
+ is simply 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ Thus every 
+\begin_inset Formula $p$
+\end_inset
+
+-Sylow subgroup of 
+\begin_inset Formula $\#G$
+\end_inset
+
+ has size 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ The set 
+\begin_inset Formula $U$
+\end_inset
+
+ certainly has size 
+\begin_inset Formula $p$
+\end_inset
+
+ since every element in 
+\begin_inset Formula $U$
+\end_inset
+
+ has the form 
+\begin_inset Formula $\left(\begin{smallmatrix}1 & x\\
+0 & 1
+\end{smallmatrix}\right)$
+\end_inset
+
+ for some 
+\begin_inset Formula $x\in\mathbb{F}_{p}$
+\end_inset
+
+.
+ To see that it is a 
+\begin_inset Formula $p$
+\end_inset
+
+-Sylow subgroup then, we just need to show that it is a subgroup.
+ It is clearly nonempty.
+ Also, if 
+\begin_inset Formula $\left(\begin{smallmatrix}1 & x\\
+0 & 1
+\end{smallmatrix}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(\begin{smallmatrix}1 & y\\
+0 & 1
+\end{smallmatrix}\right)$
+\end_inset
+
+ are two matrices in 
+\begin_inset Formula $U$
+\end_inset
+
+, then
+\begin_inset Formula 
+\begin{align*}
+\begin{pmatrix}1 & x\\
+0 & 1
+\end{pmatrix}\begin{pmatrix}1 & y\\
+0 & 1
+\end{pmatrix}^{-1} & =\begin{pmatrix}1 & x\\
+0 & 1
+\end{pmatrix}\begin{pmatrix}1 & -y\\
+0 & 1
+\end{pmatrix}\\
+ & =\begin{pmatrix}1 & x-y\\
+0 & 1
+\end{pmatrix}\\
+ & \in U.
+\end{align*}
+
+\end_inset
+
+It follows that 
+\begin_inset Formula $U$
+\end_inset
+
+ is a subgroup, and hence a 
+\begin_inset Formula $p$
+\end_inset
+
+-Sylow subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ In fact, it is a cyclic, generated by 
+\begin_inset Formula $\left(\begin{smallmatrix}1 & 1\\
+0 & 1
+\end{smallmatrix}\right)$
+\end_inset
+
+.
+ Another 
+\begin_inset Formula $p$
+\end_inset
+
+-Sylow subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
+ is obtained by simply taking the transpose of all matrices in 
+\begin_inset Formula $U$
+\end_inset
+
+.
+ Namely we set 
+\begin_inset Formula $U^{\top}=\left\{ \left(\begin{smallmatrix}1 & 0\\
+x & 1
+\end{smallmatrix}\right)\in G\right\} $
+\end_inset
+
+.
+ Again, 
+\begin_inset Formula $U^{\top}$
+\end_inset
+
+ has a size 
+\begin_inset Formula $p$
+\end_inset
+
+ and is a subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
+, so it is a 
+\begin_inset Formula $p$
+\end_inset
+
+-Sylow subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ It is different from 
+\begin_inset Formula $U$
+\end_inset
+
+ becuase, 
+\begin_inset Formula $\left(\begin{smallmatrix}1 & 0\\
+1 & 1
+\end{smallmatrix}\right)\in U^{\top}$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(\begin{smallmatrix}1 & 1\\
+0 & 1
+\end{smallmatrix}\right)\notin U$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+3.
+ Let 
+\begin_inset Formula $\left(\begin{smallmatrix}a & b\\
+0 & d
+\end{smallmatrix}\right)\in B$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(\begin{smallmatrix}1 & x\\
+0 & 1
+\end{smallmatrix}\right)\in U$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\begin{align*}
+\begin{pmatrix}a & b\\
+0 & d
+\end{pmatrix}\begin{pmatrix}1 & x\\
+0 & 1
+\end{pmatrix}\begin{pmatrix}a & b\\
+0 & d
+\end{pmatrix}^{-1} & =\frac{1}{ad}\begin{pmatrix}a & b\\
+0 & d
+\end{pmatrix}\begin{pmatrix}1 & x\\
+0 & 1
+\end{pmatrix}\begin{pmatrix}d & -b\\
+0 & a
+\end{pmatrix}\\
+ & =\frac{1}{ad}\begin{pmatrix}a & b\\
+0 & d
+\end{pmatrix}\begin{pmatrix}d & ax-b\\
+0 & a
+\end{pmatrix}\\
+ & =\frac{1}{ad}\begin{pmatrix}ad & a^{2}x\\
+0 & ad
+\end{pmatrix}\\
+ & =\begin{pmatrix}1 & (a/d)x\\
+0 & 1
+\end{pmatrix}\\
+ & \in U.
+\end{align*}
+
+\end_inset
+
+It follows that 
+\begin_inset Formula $B\subseteq\mathrm{N}_{G}(U)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+4.
+ By the Sylow Theorems, we have 
+\begin_inset Formula $n_{p}=[\mathrm{N}_{G}(U):U]$
+\end_inset
+
+.
+ Also the size of 
+\begin_inset Formula $B$
+\end_inset
+
+ is given by 
+\begin_inset Formula $\#B=(p-1)^{2}p$
+\end_inset
+
+.
+ Thus
+\begin_inset Formula 
+\begin{align*}
+n_{p} & =[\mathrm{N}_{G}(U):U]\\
+ & =[\mathrm{N}_{G}(U):B][B:U]\\
+ & =[\mathrm{N}_{G}(U):B](p-1)^{2}\\
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+n_{p} & =[\mathrm{N}_{G}(U):U]
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We claim that 
+\begin_inset Formula $\mathrm{N}_{G}(U)=B$
+\end_inset
+
+.
+ Indeed, we've already shown that 
+\begin_inset Formula $B\subseteq\mathrm{N}_{G}(U)$
+\end_inset
+
+.
+ Conversely, let 
+\begin_inset Formula $\left(\begin{smallmatrix}a & b\\
+c & d
+\end{smallmatrix}\right)\in G$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(\begin{smallmatrix}1 & x\\
+0 & 1
+\end{smallmatrix}\right)\in U$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\begin{align*}
+\begin{pmatrix}a & b\\
+c & d
+\end{pmatrix}\begin{pmatrix}1 & x\\
+0 & 1
+\end{pmatrix}\begin{pmatrix}a & b\\
+c & d
+\end{pmatrix}^{-1} & =\frac{1}{ad-bc}\begin{pmatrix}a & b\\
+c & d
+\end{pmatrix}\begin{pmatrix}1 & x\\
+0 & 1
+\end{pmatrix}\begin{pmatrix}d & -b\\
+-c & a
+\end{pmatrix}\\
+ & =\frac{1}{ad-bc}\begin{pmatrix}a & b\\
+c & d
+\end{pmatrix}\begin{pmatrix}d-cx & -b+ax\\
+-c & a
+\end{pmatrix}\\
+ & =\frac{1}{\Delta}\begin{pmatrix}\Delta-acx & a^{2}x\\
+c^{2}x & \Delta+acx
+\end{pmatrix}
+\end{align*}
+
+\end_inset
+
+where 
+\begin_inset Formula $\Delta=ad-bc$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $\left(\begin{smallmatrix}a & b\\
+c & d
+\end{smallmatrix}\right)$
+\end_inset
+
+ conjugates 
+\begin_inset Formula $\left(\begin{smallmatrix}1 & x\\
+0 & 1
+\end{smallmatrix}\right)$
+\end_inset
+
+ to another element of 
+\begin_inset Formula $U$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $c=0$
+\end_inset
+
+, that is, if and only if 
+\begin_inset Formula $\left(\begin{smallmatrix}a & b\\
+c & d
+\end{smallmatrix}\right)\in B$
+\end_inset
+
+.
+ It follows that 
+\begin_inset Formula $\mathrm{N}_{G}(U)\subseteq B$
+\end_inset
+
+.
+ Therefore 
+\begin_inset Formula $\mathrm{N}_{G}(U)=B$
+\end_inset
+
+.
+ Finally, the number of matrices in 
+\begin_inset Formula $B$
+\end_inset
+
+ is given by 
+\begin_inset Formula $\#B=(p-1)^{2}p$
+\end_inset
+
+ since for any 
+\begin_inset Formula $\left(\begin{smallmatrix}a & b\\
+c & d
+\end{smallmatrix}\right)\in B$
+\end_inset
+
+, there 
+\begin_inset Formula $p-1$
+\end_inset
+
+ different choices for 
+\begin_inset Formula $a$
+\end_inset
+
+ and 
+\begin_inset Formula $d$
+\end_inset
+
+ and there are 
+\begin_inset Formula $p$
+\end_inset
+
+ different choices 
+\begin_inset Formula $b$
+\end_inset
+
+.
+ It follows from the Sylow Theorems that
+\begin_inset Formula 
+\begin{align*}
+n_{p} & =[G:\mathrm{N}_{G}(U)]\\
+ & =[G:B]\\
+ & =\frac{p(p-1)^{2}(p+1)}{p(p-1)^{2}}\\
+ & =p+1.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sol}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Linear Algebra
+\end_layout
+
+\begin_layout Subsubsection
+Problem 3
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{ex}
+\backslash
+label{ex}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a real 
+\begin_inset Formula $n\times n$
+\end_inset
+
+ matrix.
+\end_layout
+
+\begin_layout Enumerate
+Prove that 
+\begin_inset Formula $\mathrm{rank}(A^{n+1})=\mathrm{rank}(A^{n})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Prove that 
+\begin_inset Formula $\mathrm{rank}(A^{\top}A)=\mathrm{rank}(A)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+We say 
+\begin_inset Formula $A$
+\end_inset
+
+ is a 
+\series bold
+difference of two squares 
+\series default
+if there exists real 
+\begin_inset Formula $n\times n$
+\end_inset
+
+ matrices 
+\begin_inset Formula $B$
+\end_inset
+
+ and 
+\begin_inset Formula $C$
+\end_inset
+
+ such that 
+\begin_inset Formula $BC=CB=0$
+\end_inset
+
+ and 
+\begin_inset Formula $A=B^{2}-C^{2}$
+\end_inset
+
+.
+ Prove that if 
+\begin_inset Formula $A$
+\end_inset
+
+ is symmetric, then 
+\begin_inset Formula $A$
+\end_inset
+
+ is a difference of two squares.
+\end_layout
+
+\begin_layout Enumerate
+Let 
+\begin_inset Formula $A=B^{2}-C^{2}$
+\end_inset
+
+ be a difference of two squares as defined in part 3.
+ Prove that if 
+\begin_inset Formula $B$
+\end_inset
+
+ has a nonzero real eigenvalue, then 
+\begin_inset Formula $A$
+\end_inset
+
+ has a positive real eigenvalue.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{ex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sol}
+\backslash
+label{sol}
+\end_layout
+
+\end_inset
+
+ 1.
+ First note that for any 
+\begin_inset Formula $i\in\mathbb{N}$
+\end_inset
+
+, if 
+\begin_inset Formula $\dim(\mathrm{im}\,A^{i})=\dim(\mathrm{im}\,A^{i+1})$
+\end_inset
+
+, then 
+\begin_inset Formula $\mathrm{im}\,A^{i}=\mathrm{im}\,A^{i+1}$
+\end_inset
+
+.
+ Indeed, this is because 
+\begin_inset Formula $\mathrm{im}\,A^{i+1}$
+\end_inset
+
+ is already a subspace of 
+\begin_inset Formula $\mathrm{im}\,A^{i}$
+\end_inset
+
+, and so having equal dimensions forces equality.
+ Now observe that
+\begin_inset Formula 
+\[
+n\geq\dim(\mathrm{im}\,A)\geq\dim(\mathrm{im}\,A^{2})\geq\cdots\geq\dim(\mathrm{im}\,A^{i})\geq\cdots\geq0.
+\]
+
+\end_inset
+
+By the pigeonhole principle, there must be some 
+\begin_inset Formula $1\leq i\leq n$
+\end_inset
+
+ such that 
+\begin_inset Formula $\dim(\mathrm{im}\,A^{i})=\dim(\mathrm{im}\,A^{i+1})$
+\end_inset
+
+.
+ In this case, it follows that
+\begin_inset Formula 
+\[
+\mathrm{im}\,A^{i}=\mathrm{im}\,A^{i+1}=\cdots=\mathrm{im}\,A^{n+1}.
+\]
+
+\end_inset
+
+In particular, we have 
+\begin_inset Formula $\mathrm{rank}(A^{n+1})=\mathrm{rank}(A^{n})$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+2.
+ We claim that 
+\begin_inset Formula $A^{\top}|_{\mathrm{im}\,A}\colon\mathrm{im}\,A\to\mathrm{im}\,A^{\top}A$
+\end_inset
+
+ is injective.
+ Indeed, let 
+\begin_inset Formula $Av\in\ker A^{\top}$
+\end_inset
+
+.
+ Then observe that
+\begin_inset Formula 
+\begin{align*}
+\|Av\|^{2} & =(Av)^{\top}(Av)\\
+ & =v^{\top}A^{\top}Av\\
+ & =v^{\top}0\\
+ & =0,
+\end{align*}
+
+\end_inset
+
+where 
+\begin_inset Formula $\|\cdot\|$
+\end_inset
+
+ denotes the Euclidean norm on 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $\|\cdot\|$
+\end_inset
+
+ is positive definite, it follows that 
+\begin_inset Formula $Av=0$
+\end_inset
+
+.
+ This implies 
+\begin_inset Formula $A^{\top}|_{\mathrm{im}\,A}$
+\end_inset
+
+ is injective.
+ Therefore
+\begin_inset Formula 
+\begin{align*}
+\mathrm{rank}(A^{\top}A) & =\mathrm{dim}(\mathrm{im}(A^{\top}A))\\
+ & =\mathrm{dim}(\mathrm{im}\,A)\\
+ & =\mathrm{rank}(A).
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+3.
+ Assume that 
+\begin_inset Formula $A$
+\end_inset
+
+ is symmetric.
+ By the real spectral theorem, 
+\begin_inset Formula $A$
+\end_inset
+
+ can be diagonalized by an orthogonal matrix.
+ That is, there is an orthogonal matrix 
+\begin_inset Formula $P$
+\end_inset
+
+ and a diagonal matrix 
+\begin_inset Formula $D$
+\end_inset
+
+ such that 
+\begin_inset Formula $PAP^{\top}=D$
+\end_inset
+
+.
+ The diagonal matrix 
+\begin_inset Formula $D$
+\end_inset
+
+ has the form
+\begin_inset Formula 
+\[
+D=\begin{pmatrix}\lambda_{1} & 0 & 0 & 0 & 0 & 0\\
+0 & \ddots & 0 & 0 & 0 & 0\\
+0 & 0 & \lambda_{k} & 0 & 0 & 0\\
+0 & 0 & 0 & \lambda_{k+1} & 0 & 0\\
+0 & 0 & 0 & 0 & \ddots & 0\\
+0 & 0 & 0 & 0 & 0 & \lambda_{n}
+\end{pmatrix}
+\]
+
+\end_inset
+
+ordered in such a way that first 
+\begin_inset Formula $k$
+\end_inset
+
+ entries along the main diagonal are nonnegative and the remaining entries
+ negative.
+ Note that we can express 
+\begin_inset Formula $D$
+\end_inset
+
+ as 
+\begin_inset Formula $D=D_{+}^{2}-D_{-}^{2}$
+\end_inset
+
+ where
+\begin_inset Formula 
+\[
+D_{+}=\begin{pmatrix}\sqrt{\lambda_{1}} & 0 & 0 & 0 & 0 & 0\\
+0 & \ddots & 0 & 0 & 0 & 0\\
+0 & 0 & \sqrt{\lambda_{k}} & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & \ddots & 0\\
+0 & 0 & 0 & 0 & 0 & 0
+\end{pmatrix}\quad\text{and}\quad D_{-}=\begin{pmatrix}0 & 0 & 0 & 0 & 0 & 0\\
+0 & \ddots & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & \sqrt{-\lambda_{k+1}} & 0 & 0\\
+0 & 0 & 0 & 0 & \ddots & 0\\
+0 & 0 & 0 & 0 & 0 & \sqrt{-\lambda_{n}}
+\end{pmatrix}.
+\]
+
+\end_inset
+
+Furthermore it's easy to see that 
+\begin_inset Formula $D_{+}D_{-}=0=D_{-}D_{+}$
+\end_inset
+
+.
+ Then setting 
+\begin_inset Formula $B=P^{\top}D_{+}P$
+\end_inset
+
+ and 
+\begin_inset Formula $C=P^{\top}D_{-}P$
+\end_inset
+
+, we find that
+\begin_inset Formula 
+\begin{align*}
+A & =P^{\top}DP\\
+ & =P^{\top}(D_{+}^{2}-D_{-}^{2})P\\
+ & =P^{\top}D_{+}^{2}P-P^{\top}D_{-}^{2}P\\
+ & =(P^{\top}D_{+}P)^{2}-(P^{\top}D_{-}P)^{2}\\
+ & =B^{2}-C^{2}.
+\end{align*}
+
+\end_inset
+
+Furthemore we have
+\begin_inset Formula 
+\begin{align*}
+BC & =P^{\top}D_{+}PP^{\top}D_{-}P\\
+ & =P^{\top}D_{+}D_{-}P\\
+ & =P^{\top}0P\\
+ & =0.
+\end{align*}
+
+\end_inset
+
+A similar calculation gives us 
+\begin_inset Formula $CB=0$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+4.
+ Let 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ be a nonzero eigenvalue for 
+\begin_inset Formula $B$
+\end_inset
+
+ and choose an eigenvector 
+\begin_inset Formula $v$
+\end_inset
+
+ corresponding to 
+\begin_inset Formula $\lambda$
+\end_inset
+
+.
+ Observe that
+\begin_inset Formula 
+\begin{align*}
+0 & =CBv\\
+ & =\lambda Cv
+\end{align*}
+
+\end_inset
+
+implies 
+\begin_inset Formula $Cv=0$
+\end_inset
+
+ since 
+\begin_inset Formula $\lambda\neq0$
+\end_inset
+
+.
+ Therefore
+\begin_inset Formula 
+\begin{align*}
+Av & =(B^{2}-C^{2})v\\
+ & =B^{2}v-C^{2}v\\
+ & =B^{2}v\\
+ & =\lambda^{2}v.
+\end{align*}
+
+\end_inset
+
+It follows that 
+\begin_inset Formula $v$
+\end_inset
+
+ is an eigenvector for 
+\begin_inset Formula $A$
+\end_inset
+
+ corresponding to the positive eigenvalue 
+\begin_inset Formula $\lambda^{2}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sol}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_body

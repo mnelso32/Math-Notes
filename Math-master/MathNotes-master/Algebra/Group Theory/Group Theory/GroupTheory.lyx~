@@ -1187,24 +1187,376 @@ Matrix Groups
 \end_layout
 
 \begin_layout Standard
-Another interesting class of groups are groups of matrices.
- Let 
-\begin_inset Formula $n\in\mathbb{N}$
+In linear algebra, matrices get into row echelon form by elementary row
+ operations:
+\end_layout
+
+\begin_layout Itemize
+Add a multilple of one row to another.
+\end_layout
+
+\begin_layout Itemize
+Multiply a row by a nonzero scalar.
+\end_layout
+
+\begin_layout Itemize
+Exchange two rows.
+\end_layout
+
+\begin_layout Standard
+Elementary row operations on an 
+\begin_inset Formula $m\times n$
 \end_inset
 
- and let 
-\begin_inset Formula $K$
+ matrix can be expressed using left multiplication by an 
+\begin_inset Formula $m\times m$
 \end_inset
 
- be a field.
- We define
+ matrix called an 
+\series bold
+elementary matrix
+\series default
+.
+ These elementary matrices come in three flavors.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+First we have 
+\begin_inset Formula $e_{ij}(a)=\exp(aE_{ij})=I_{n}+aE_{ij}$
+\end_inset
+
+.
+ The effect of multiplying an 
+\begin_inset Formula $m\times n$
+\end_inset
+
+ matrix 
+\begin_inset Formula $A$
+\end_inset
+
+ by 
+\begin_inset Formula $e_{ij}(\lambda)$
+\end_inset
+
+ on the left is an elementary row operation:
 \begin_inset Formula 
 \[
-\mathrm{M}_{n}(K)=\left\{ \begin{pmatrix}a_{11} & \cdots & a_{1n}\\
+e_{ij}(a)A=\begin{pmatrix}a_{11} & \cdots & a_{1n}\\
 \vdots & \ddots & \vdots\\
-a_{n1} & \cdots & a_{nn}
-\end{pmatrix}\right\} 
+a_{i1}+aa_{j1} & \cdots & a_{in}+aa_{jn}\\
+\vdots & \ddots & \vdots\\
+a_{m1} & \cdots & a_{mn}
+\end{pmatrix},
 \]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and the effect of multiplying 
+\begin_inset Formula $A$
+\end_inset
+
+ by 
+\begin_inset Formula $e_{ij}(\lambda)$
+\end_inset
+
+ on the right is an elementary column operation:
+\begin_inset Formula 
+\[
+Ae_{ij}(a)=\begin{pmatrix}a_{11} & \cdots & a_{1j}+aa_{1i} & \cdots & a_{1n}\\
+\vdots & \ddots & \vdots & \ddots & \vdots\\
+a_{m1} & \cdots & a_{mj}+aa_{mi} & \cdots & a_{mn}
+\end{pmatrix}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+These elementary matrices satisfy the following relations, called the 
+\series bold
+Steinberg relations
+\series default
+:
+\begin_inset Formula 
+\begin{align*}
+e_{ij}(a)e_{ij}(b) & =e_{ij}(a+b);\\
+e_{ij}(a)e_{jk}(b) & =e_{ik}(ab)e_{jk}(b)e_{ij}(a),\quad\mbox{for }i\neq k;\\
+e_{ij}(a)e_{kl}(b) & =e_{kl}(b)e_{ij}(a),\quad\mbox{for }i\neq l\mbox{ and }j\neq k.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+It is useful to think of the second relation as, 
+\begin_inset Quotes eld
+\end_inset
+
+you can move 
+\begin_inset Formula $e_{ij}(a)$
+\end_inset
+
+ from the left to the right of 
+\begin_inset Formula $e_{jk}(b)$
+\end_inset
+
+ at the cost of multiplying by an element 
+\begin_inset Formula $e_{ik}(ab)$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+.
+ A similar interpretation can be given for the other relations.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Next we have 
+\begin_inset Formula $d_{i}(a)$
+\end_inset
+
+, which has entries 
+\begin_inset Formula $1$
+\end_inset
+
+ on the main diagonal except for a nonzero 
+\begin_inset Formula $a\neq1$
+\end_inset
+
+ in the 
+\begin_inset Formula $i$
+\end_inset
+
+th spot along the diagonal.
+ The effect of multiplying an 
+\begin_inset Formula $m\times n$
+\end_inset
+
+ matrix 
+\begin_inset Formula $A$
+\end_inset
+
+ by 
+\begin_inset Formula $d_{i}(a)$
+\end_inset
+
+ on the left is an elementary row operation: multiply the 
+\begin_inset Formula $i$
+\end_inset
+
+th row by 
+\begin_inset Formula $a$
+\end_inset
+
+.
+ The effect of multiplying an 
+\begin_inset Formula $m\times n$
+\end_inset
+
+ matrix 
+\begin_inset Formula $A$
+\end_inset
+
+ by 
+\begin_inset Formula $d_{i}(a)$
+\end_inset
+
+ on the right is an elementary column operation: multiply the 
+\begin_inset Formula $i$
+\end_inset
+
+th column by 
+\begin_inset Formula $a$
+\end_inset
+
+.
+ These matrices together with the 
+\begin_inset Formula $e_{ij}(a)$
+\end_inset
+
+'s satisfy the following relations:
+\begin_inset Formula 
+\begin{align*}
+d_{i}(a)d_{i}(b) & =d_{i}(ab);\\
+d_{i}(a)d_{j}(b) & =d_{j}(b)d_{i}(a);\\
+d_{i}(a)e_{ij}(b) & =e_{ij}(ab)d_{i}(a);\\
+e_{ij}(b)d_{j}(a) & =d_{j}(a)e_{ij}(ab).
+\end{align*}
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+It is useful to think of the third relation as 
+\begin_inset Quotes eld
+\end_inset
+
+you can move 
+\begin_inset Formula $d_{i}(a)$
+\end_inset
+
+ from the left to the right of 
+\begin_inset Formula $e_{ij}(b)$
+\end_inset
+
+ at the cost of replacing 
+\begin_inset Formula $e_{ij}(b)$
+\end_inset
+
+ with 
+\begin_inset Formula $e_{ij}(ab)$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+.
+ A similar interpretation can be given for the other relations.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+The last type of elementary matrix to discuss is 
+\begin_inset Formula $s_{ij}$
+\end_inset
+
+ with 
+\begin_inset Formula $i\neq j$
+\end_inset
+
+, which is the matrix that has entry 
+\begin_inset Formula $1$
+\end_inset
+
+ in positions 
+\begin_inset Formula $(i,j)$
+\end_inset
+
+ and 
+\begin_inset Formula $(j,i)$
+\end_inset
+
+ and also in every diagonal position except the 
+\begin_inset Formula $i$
+\end_inset
+
+th and 
+\begin_inset Formula $j$
+\end_inset
+
+th, and 
+\begin_inset Formula $0$
+\end_inset
+
+'s everywhere else.
+ The effect of multiplying an 
+\begin_inset Formula $m\times n$
+\end_inset
+
+ matrix 
+\begin_inset Formula $A$
+\end_inset
+
+ by 
+\begin_inset Formula $s_{ij}$
+\end_inset
+
+ on the left is an elementary row operation: swap the 
+\begin_inset Formula $i$
+\end_inset
+
+th row and 
+\begin_inset Formula $j$
+\end_inset
+
+th row.
+ The effect of multiplying an 
+\begin_inset Formula $m\times n$
+\end_inset
+
+ matrix 
+\begin_inset Formula $A$
+\end_inset
+
+ by 
+\begin_inset Formula $s_{ij}$
+\end_inset
+
+ on the right is an elementary column operation: swap the 
+\begin_inset Formula $i$
+\end_inset
+
+th column and 
+\begin_inset Formula $j$
+\end_inset
+
+th column.
+ These matrices together with the 
+\begin_inset Formula $d_{i}(a)'s$
+\end_inset
+
+ and 
+\begin_inset Formula $e_{ij}(b)'s$
+\end_inset
+
+ satisfy the following relations
+\begin_inset Formula 
+\begin{align*}
+s_{ij}^{2} & =I;\\
+s_{ij} & =s_{ji};\\
+s_{ij}s_{jk}s_{ij} & =s_{jk}s_{ij}s_{jk};\\
+s_{ij}s_{kl} & =s_{kl}s_{ij},\quad\mbox{for }i\neq k\ne j\mbox{ and }i\ne l\ne j;\\
+s_{ij}e_{kl}(a) & =e_{\sigma(k)\sigma(l)}(a)s_{ij},\quad\sigma=(1,2);\\
+s_{ij}d_{j}(a) & =d_{\sigma(j)}(a)s_{ij},\quad\sigma=(1,2);
+\end{align*}
 
 \end_inset
 
@@ -17862,8 +18214,26 @@ end{example}
 Group Actions
 \end_layout
 
+\begin_layout Subsection
+Definition of Group Action
+\end_layout
+
 \begin_layout Standard
-Let 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\backslash
+label{defn}
+\end_layout
+
+\end_inset
+
+ Let 
 \begin_inset Formula $G$
 \end_inset
 
@@ -17937,7 +18307,37 @@ We have
 \end_layout
 
 \begin_layout Standard
-In practice, one dispenses with the notation 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{rem}
+\backslash
+label{rem}
+\end_layout
+
+\end_inset
+
+ In practice, one dispenses with the notation 
 \begin_inset Formula $\pi_{g}$
 \end_inset
 
@@ -18016,6 +18416,27 @@ The basic idea in any group action is that the elements of a group are viewed
  as permutations of a set in such a way that composition of the corresponding
  permutations matches multilpication in the original group.
  
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{rem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Examples of Group Actions
+\end_layout
+
+\begin_layout Subsubsection
+Permutation Action
 \end_layout
 
 \begin_layout Standard
@@ -18291,6 +18712,156 @@ begin{example}
 \end_inset
 
 'th position.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Conjugation Action
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\backslash
+label{example}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $G$
+\end_inset
+
+ be a group and let 
+\begin_inset Formula $N$
+\end_inset
+
+ be a normal subgroup.
+ Then 
+\begin_inset Formula $G$
+\end_inset
+
+ acts on 
+\begin_inset Formula $N$
+\end_inset
+
+ by conjugation: let 
+\begin_inset Formula $x\in G$
+\end_inset
+
+ and 
+\begin_inset Formula $y\in N$
+\end_inset
+
+.
+ We set
+\begin_inset Formula 
+\begin{align}
+x\cdot y & =xyx^{-1}.\label{eq:conjugationactionnormal}
+\end{align}
+
+\end_inset
+
+To see that this is in fact an action, first note that 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{eq:conjugationactionnormal})
+\end_layout
+
+\end_inset
+
+ lands in 
+\begin_inset Formula $N$
+\end_inset
+
+ since 
+\begin_inset Formula $N$
+\end_inset
+
+ is normal in 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ Next, let 
+\begin_inset Formula $x_{1},x_{2}\in G$
+\end_inset
+
+ and let 
+\begin_inset Formula $y\in N$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\begin{align*}
+x_{1}\cdot(x_{2}\cdot y) & =x_{1}\cdot(x_{2}yx_{2}^{-1})\\
+ & =x_{1}(x_{2}yx_{2}^{-1})x_{1}^{-1}\\
+ & =(x_{1}x_{2})y(x_{1}x_{2})^{-1}\\
+ & =(x_{1}x_{2})\cdot y.
+\end{align*}
+
+\end_inset
+
+Also if 
+\begin_inset Formula $e\in G$
+\end_inset
+
+ is the identity, then 
+\begin_inset Formula 
+\begin{align*}
+e\cdot y & =eye^{-1}\\
+ & =y.
+\end{align*}
+
+\end_inset
+
+It follows that 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{eq:conjugationactionnormal})
+\end_layout
+
+\end_inset
+
+ gives an action of 
+\begin_inset Formula $G$
+\end_inset
+
+ on 
+\begin_inset Formula $N$
+\end_inset
+
+.
  
 \begin_inset ERT
 status open
@@ -24754,13 +25325,13 @@ label{example}
 -modules: as a set, we have
 \begin_inset Formula 
 \[
-\mathbb{Z}[G^{n}]=\left\{ \sum_{g_{0},\dots,g_{n}\in G}n_{g_{0},\dots,g_{n}}(g_{0},\dots,g_{n})\mid n_{g_{0},\dots,g_{n}}\in\mathbb{Z}\,\text{and }n_{g_{0},\dots,g_{n}}=0\text{ for all but finitely many tuples }(g_{0},\dots,g_{n})\in G^{n}\right\} .
+\mathbb{Z}[G^{n+1}]=\left\{ \sum_{g_{0},\dots,g_{n}\in G}n_{g_{0},\dots,g_{n}}(g_{0},\dots,g_{n})\mid n_{g_{0},\dots,g_{n}}\in\mathbb{Z}\,\text{and }n_{g_{0},\dots,g_{n}}=0\text{ for all but finitely many tuples }(g_{0},\dots,g_{n})\in G^{n}\right\} .
 \]
 
 \end_inset
 
 Addition in 
-\begin_inset Formula $\mathbb{Z}[G^{n}]$
+\begin_inset Formula $\mathbb{Z}[G^{n+1}]$
 \end_inset
 
  is defined pointwise as in 
@@ -24785,23 +25356,93 @@ for all
 
 .
  We write 
-\begin_inset Formula $\mathbb{Z}(G)$
+\begin_inset Formula $\mathbb{Z}[[G]]$
 \end_inset
 
- to be the graded 
+ to be the graded module whose component in degree 
+\begin_inset Formula $n\in\mathbb{Z}$
+\end_inset
+
+ is
+\begin_inset Formula 
+\[
+\mathbb{Z}[[G]]_{n}=\mathbb{Z}[G^{n+1}]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Here, we view 
 \begin_inset Formula $\mathbb{Z}[G]$
 \end_inset
 
--module whose component in degree 
-\begin_inset Formula $n$
+ as a trivially graded ring which sits in the degree 
+\begin_inset Formula $0$
 \end_inset
 
- is 
-\begin_inset Formula $\mathbb{Z}[G^{n}]$
+ component of 
+\begin_inset Formula $\mathbb{Z}[[G]]$
 \end_inset
 
 .
- Thus 
+ In particular, we have
+\begin_inset Formula 
+\[
+\mathbb{Z}[[G]]=\bigoplus_{n\geq0}\mathbb{Z}[G^{n+1}].
+\]
+
+\end_inset
+
+We give 
+\begin_inset Formula $\mathbb{Z}[[G]]$
+\end_inset
+
+ the structure of a 
+\begin_inset Formula $\mathbb{Z}[G]$
+\end_inset
+
+-complex by defining the differential 
+\begin_inset Formula $\mathrm{d}\colon\mathbb{Z}[[G]]\to\mathbb{Z}[[G]]$
+\end_inset
+
+ by
+\begin_inset Formula 
+\[
+\mathrm{d}_{n+1}(g_{0},\dots,g_{n})=\sum_{i=0}^{n}(-1)^{i}(g_{0},\dots,\widehat{g}_{i},\dots,g_{n})
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $n\geq0$
+\end_inset
+
+ and 
+\begin_inset Formula $(g_{0},\dots,g_{n})\in\mathbb{Z}[[G]]$
+\end_inset
+
+, and extending it 
+\begin_inset Formula $\mathbb{Z}[G]$
+\end_inset
+
+-linearly.
+ It is easy to check that 
+\begin_inset Formula $\mathrm{d}$
+\end_inset
+
+ is graded of degree 
+\begin_inset Formula $-1$
+\end_inset
+
+ and satisfies 
+\begin_inset Formula $\mathrm{d}^{2}=0$
+\end_inset
+
+, making it a differential.
+ 
 \begin_inset ERT
 status open
 
@@ -24819,7 +25460,7 @@ end{example}
 
 \begin_layout Subsubsection
 Viewing 
-\begin_inset Formula $\mathbb{Z}[G^{n}]$
+\begin_inset Formula $\mathbb{Z}[G^{n+1}]$
 \end_inset
 
  as a Free 
@@ -24830,8 +25471,8 @@ Viewing
 \end_layout
 
 \begin_layout Standard
-It is easy to see that 
-\begin_inset Formula $\mathbb{Z}[G^{n}]$
+By definition, 
+\begin_inset Formula $\mathbb{Z}[G^{n+1}]$
 \end_inset
 
  is a free 
@@ -24841,13 +25482,13 @@ It is easy to see that
 -module with basis given by 
 \begin_inset Formula 
 \[
-\{g_{0},\dots,g_{n}\mid g_{0},\dots,g_{n}\in G\}.
+\{(g_{0},\dots,g_{n})\mid g_{0},\dots,g_{n}\in G\}.
 \]
 
 \end_inset
 
 In fact, let us now show that 
-\begin_inset Formula $\mathbb{Z}[G^{n}]$
+\begin_inset Formula $\mathbb{Z}[G^{n+1}]$
 \end_inset
 
  is a free 
@@ -24857,12 +25498,21 @@ In fact, let us now show that
 -module, with basis 
 \begin_inset Formula 
 \begin{equation}
-\{(e,g_{1},\dots,g_{n})\mid g_{1},\dots,g_{n}\in G\}\label{eq:zgbasis}
+\{(1,g_{1},\dots,g_{n})\mid g_{1},\dots,g_{n}\in G\}\label{eq:zgbasis}
 \end{equation}
 
 \end_inset
 
+where 
+\begin_inset Formula $1$
+\end_inset
 
+ is the identity in 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -24934,7 +25584,7 @@ begin{proof}
  First note that
 \begin_inset Formula 
 \begin{align*}
-\sum_{g_{0},\dots,g_{n}\in G}n_{g_{0},\dots,g_{n}}(g_{0},\dots,g_{n}) & =\sum_{g_{0},\dots,g_{n}\in G}n_{g_{0},\dots,g_{n}}g_{0}(e,g_{0}^{-1}g_{1}\dots,g_{0}^{-1}g_{n})
+\sum_{g_{0},\dots,g_{n}\in G}n_{g_{0},\dots,g_{n}}(g_{0},\dots,g_{n}) & =\sum_{g_{0},\dots,g_{n}\in G}n_{g_{0},\dots,g_{n}}g_{0}(1,g_{0}^{-1}g_{1}\dots,g_{0}^{-1}g_{n})
 \end{align*}
 
 \end_inset
@@ -24942,13 +25592,13 @@ begin{proof}
 shows 
 \begin_inset Formula 
 \[
-\mathrm{span}_{\mathbb{Z}[G]}\{(e,g_{1},\dots,g_{n})\mid g_{1},\dots,g_{n}\in G\}=\mathbb{Z}[G^{n}].
+\mathrm{span}_{\mathbb{Z}[G]}\{(1,g_{1},\dots,g_{n})\mid g_{1},\dots,g_{n}\in G\}=\mathbb{Z}[G^{n}].
 \]
 
 \end_inset
 
 It remains to show that 
-\begin_inset Formula $\{(e,g_{1},\dots,g_{n})\mid g_{1},\dots,g_{n}\in G\}$
+\begin_inset Formula $\{(1,g_{1},\dots,g_{n})\mid g_{1},\dots,g_{n}\in G\}$
 \end_inset
 
  is linearly independent over 
@@ -24959,7 +25609,7 @@ It remains to show that
  Suppose
 \begin_inset Formula 
 \[
-\sum_{i=1}^{k}\left(\sum_{g\in G}n_{g,i}g\right)(e,g_{1,i},\dots,g_{n,i})=0,
+\sum_{i=1}^{k}\left(\sum_{g\in G}n_{g,i}g\right)(1,g_{1,i},\dots,g_{n,i})=0,
 \]
 
 \end_inset
@@ -24973,7 +25623,7 @@ where
 \end_inset
 
  and 
-\begin_inset Formula $(e,g_{1,i},\dots,g_{n,i})\neq(e,g_{1,j},\dots,g_{n,j})$
+\begin_inset Formula $(1,g_{1,i},\dots,g_{n,i})\neq(1,g_{1,j},\dots,g_{n,j})$
 \end_inset
 
  whenever 
@@ -24992,7 +25642,7 @@ where
  Then
 \begin_inset Formula 
 \begin{align*}
-0 & =\sum_{i=1}^{k}\left(\sum_{g\in G}n_{g,i}g\right)(e,g_{1,i},\dots,g_{n,i})\\
+0 & =\sum_{i=1}^{k}\left(\sum_{g\in G}n_{g,i}g\right)(1,g_{1,i},\dots,g_{n,i})\\
  & =\sum_{i=1}^{k}\sum_{g\in G}n_{g,i}(g,gg_{1,i},\dots,gg_{n,i})\\
  & =\sum_{\substack{g\in G\\
 1\leq i\leq k
@@ -25087,12 +25737,16 @@ end{proof}
 \end_layout
 
 \begin_layout Subsubsection
-Differential
+Differential on 
+\begin_inset Formula $\mathbb{Z}[[G]]$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 We want to give 
-\begin_inset Formula $\mathbb{Z}(G)$
+\begin_inset Formula $\mathbb{Z}[[G]]$
 \end_inset
 
  a 
@@ -25100,18 +25754,224 @@ We want to give
 \end_inset
 
 -complex structure as follows.
- Let 
-\begin_inset Formula $\mathrm{d}\colon\mathbb{Z}(G)\to\mathbb{Z}(G)$
+ We define 
+\begin_inset Formula $\mathrm{d}\colon\mathbb{Z}[[G]]\to\mathbb{Z}[[G]]$
 \end_inset
 
- be the unique differential defined by
+ in terms of the 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+-basis 
+\begin_inset Formula $\{(g_{0},\dots,g_{n})\mid n\in\mathbb{N}\}$
+\end_inset
+
+ and then extend it 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+-linearly.
+ We will then show that it is in fact 
+\begin_inset Formula $\mathbb{Z}[G]$
+\end_inset
+
+-linear.
+ The reason we define it on the 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+-basis first is because it will be easy to show that 
+\begin_inset Formula $\mathrm{d}^{2}=0$
+\end_inset
+
+.
+ So for any 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+-basis element 
+\begin_inset Formula $(g_{0},\dots,g_{n})$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathbb{Z}[[G]]$
+\end_inset
+
+, we set
+\begin_inset Formula 
+\begin{align*}
+\mathrm{d}((g_{0},\dots,g_{n})) & =\sum_{i=0}^{n}(-1)^{i}(g_{0},\dots,\widehat{g}_{i},\dots,g_{n}).
+\end{align*}
+
+\end_inset
+
+It is easy to check that 
+\begin_inset Formula $\mathrm{d}^{2}=0$
+\end_inset
+
+ and is homogeneous of degree 
+\begin_inset Formula $-1$
+\end_inset
+
+.
+ Let us show that 
+\begin_inset Formula $\mathrm{d}$
+\end_inset
+
+ is 
+\begin_inset Formula $\mathbb{Z}[G]$
+\end_inset
+
+-linear.
+ First note that 
+\begin_inset Formula $\mathrm{d}$
+\end_inset
+
+ is additive since it is 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+-linear, so we just need to show that is preserves 
+\begin_inset Formula $\mathbb{Z}[G]$
+\end_inset
+
+-scalar multiplication.
+ Since 
+\begin_inset Formula $\mathrm{d}$
+\end_inset
+
+ is already additive, we just need ot check this on the 
+\begin_inset Formula $\mathbb{Z}[G]$
+\end_inset
+
+-basis elements, so let 
+\begin_inset Formula $g\in G$
+\end_inset
+
+ and let 
+\begin_inset Formula $(1,g_{1}\dots,g_{n})$
+\end_inset
+
+ be any 
+\begin_inset Formula $\mathbb{Z}[G]$
+\end_inset
+
+-basis element.
+ We have
+\begin_inset Formula 
+\begin{align*}
+\mathrm{d}\left(g(1,g_{1}\dots,g_{n})\right) & =\mathrm{d}(g,gg_{1}\dots,gg_{n})\\
+ & =(gg_{1}\dots,gg_{n})+\sum_{i=1}^{n}(-1)^{i}(g,gg_{1},\dots,\widehat{gg_{i}},\dots,gg_{n})\\
+ & =g\left((g_{1}\dots,g_{n})+\sum_{i=1}^{n}(-1)^{i}(1,g_{1},\dots,\widehat{g_{i}},\dots,g_{n})\right)\\
+ & =g\mathrm{d}(1,g_{1}\dots,g_{n}).
+\end{align*}
+
+\end_inset
+
+It follows that 
+\begin_inset Formula $\mathrm{d}$
+\end_inset
+
+ is 
+\begin_inset Formula $\mathbb{Z}[G]$
+\end_inset
+
+-linear, and since already 
+\begin_inset Formula $\mathrm{d}^{2}=0$
+\end_inset
+
+ and is graded of degree 
+\begin_inset Formula $-1$
+\end_inset
+
+, we see that 
+\begin_inset Formula $\mathrm{d}$
+\end_inset
+
+ is a 
+\begin_inset Formula $\mathbb{Z}[G]$
+\end_inset
+
+-differential.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Free Resolution of 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+ Over 
+\begin_inset Formula $\mathbb{Z}[G]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+So far we've shown that 
+\begin_inset Formula $\mathbb{Z}[[G]]$
+\end_inset
+
+ can be given a nice 
+\begin_inset Formula $\mathbb{Z}[G]$
+\end_inset
+
+-complex structure.
+ We will now show that 
+\begin_inset Formula $\mathbb{Z}[[G]]$
+\end_inset
+
+ can be the structure of a free resolution of 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+ over 
+\begin_inset Formula $\mathbb{Z}[G]$
+\end_inset
+
+.
+ In particular, we view 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+ as a trivial 
+\begin_inset Formula $\mathbb{Z}[G]$
+\end_inset
+
+-complex and we define a chain map 
+\begin_inset Formula $\varepsilon\colon\mathbb{Z}[[G]]\to\mathbb{Z}$
+\end_inset
+
+ as follows: in homological degree 
+\begin_inset Formula $i>0$
+\end_inset
+
+ we set 
+\begin_inset Formula $\varepsilon_{i}\colon\mathbb{Z}[G^{i+1}]\to0$
+\end_inset
+
+ to be the zero map, and in homological degree 
+\begin_inset Formula $0$
+\end_inset
+
+ we define 
+\begin_inset Formula $\varepsilon_{0}\colon\mathbb{Z}[G]\to\mathbb{Z}$
+\end_inset
+
+ by
 \begin_inset Formula 
 \[
-\mathrm{d}(g_{0},\dots,g_{n})=\sum_{i=0}^{n}(-1)^{i}(g_{0},\dots,\widehat{g}_{i},\dots,g_{n}).
+\varepsilon_{0}\left(\sum_{g\in G}n_{g}g\right)=\sum_{g\in G}n_{g}.
 \]
 
 \end_inset
 
+for all 
+\begin_inset Formula $\sum_{g\in G}n_{g}g\in\mathbb{Z}[G]$
+\end_inset
+
+.
  
 \end_layout
 
@@ -33321,422 +34181,6 @@ end{example}
 
 \end_layout
 
-\begin_layout Section*
-Matrix Groups
-\end_layout
-
-\begin_layout Standard
-In linear algebra, matrices get into row echelon form by elementary row
- operations:
-\end_layout
-
-\begin_layout Itemize
-Add a multilple of one row to another.
-\end_layout
-
-\begin_layout Itemize
-Multiply a row by a nonzero scalar.
-\end_layout
-
-\begin_layout Itemize
-Exchange two rows.
-\end_layout
-
-\begin_layout Standard
-Elementary row operations on an 
-\begin_inset Formula $m\times n$
-\end_inset
-
- matrix can be expressed using left multiplication by an 
-\begin_inset Formula $m\times m$
-\end_inset
-
- matrix called an 
-\series bold
-elementary matrix
-\series default
-.
- These elementary matrices come in three flavors.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-First we have 
-\begin_inset Formula $e_{ij}(a)=\exp(aE_{ij})=I_{n}+aE_{ij}$
-\end_inset
-
-.
- The effect of multiplying an 
-\begin_inset Formula $m\times n$
-\end_inset
-
- matrix 
-\begin_inset Formula $A$
-\end_inset
-
- by 
-\begin_inset Formula $e_{ij}(\lambda)$
-\end_inset
-
- on the left is an elementary row operation:
-\begin_inset Formula 
-\[
-e_{ij}(a)A=\begin{pmatrix}a_{11} & \cdots & a_{1n}\\
-\vdots & \ddots & \vdots\\
-a_{i1}+aa_{j1} & \cdots & a_{in}+aa_{jn}\\
-\vdots & \ddots & \vdots\\
-a_{m1} & \cdots & a_{mn}
-\end{pmatrix},
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-and the effect of multiplying 
-\begin_inset Formula $A$
-\end_inset
-
- by 
-\begin_inset Formula $e_{ij}(\lambda)$
-\end_inset
-
- on the right is an elementary column operation:
-\begin_inset Formula 
-\[
-Ae_{ij}(a)=\begin{pmatrix}a_{11} & \cdots & a_{1j}+aa_{1i} & \cdots & a_{1n}\\
-\vdots & \ddots & \vdots & \ddots & \vdots\\
-a_{m1} & \cdots & a_{mj}+aa_{mi} & \cdots & a_{mn}
-\end{pmatrix}.
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-These elementary matrices satisfy the following relations, called the 
-\series bold
-Steinberg relations
-\series default
-:
-\begin_inset Formula 
-\begin{align*}
-e_{ij}(a)e_{ij}(b) & =e_{ij}(a+b);\\
-e_{ij}(a)e_{jk}(b) & =e_{ik}(ab)e_{jk}(b)e_{ij}(a),\quad\mbox{for }i\neq k;\\
-e_{ij}(a)e_{kl}(b) & =e_{kl}(b)e_{ij}(a),\quad\mbox{for }i\neq l\mbox{ and }j\neq k.
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-It is useful to think of the second relation as, 
-\begin_inset Quotes eld
-\end_inset
-
-you can move 
-\begin_inset Formula $e_{ij}(a)$
-\end_inset
-
- from the left to the right of 
-\begin_inset Formula $e_{jk}(b)$
-\end_inset
-
- at the cost of multiplying by an element 
-\begin_inset Formula $e_{ik}(ab)$
-\end_inset
-
-
-\begin_inset Quotes erd
-\end_inset
-
-.
- A similar interpretation can be given for the other relations.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-Next we have
-\begin_inset Formula $d_{i}(a)$
-\end_inset
-
-, which has entries 
-\begin_inset Formula $1$
-\end_inset
-
- on the main diagonal except for a nonzero 
-\begin_inset Formula $a\neq1$
-\end_inset
-
- in the 
-\begin_inset Formula $i$
-\end_inset
-
-th spot along the diagonal.
- The effect of multiplying an 
-\begin_inset Formula $m\times n$
-\end_inset
-
- matrix 
-\begin_inset Formula $A$
-\end_inset
-
- by 
-\begin_inset Formula $d_{i}(a)$
-\end_inset
-
- on the left is an elementary row operation: multiply the 
-\begin_inset Formula $i$
-\end_inset
-
-th row by 
-\begin_inset Formula $a$
-\end_inset
-
-.
- The effect of multiplying an 
-\begin_inset Formula $m\times n$
-\end_inset
-
- matrix 
-\begin_inset Formula $A$
-\end_inset
-
- by 
-\begin_inset Formula $d_{i}(a)$
-\end_inset
-
- on the right is an elementary column operation: multiply the 
-\begin_inset Formula $i$
-\end_inset
-
-th column by 
-\begin_inset Formula $a$
-\end_inset
-
-.
- These matrices together with the 
-\begin_inset Formula $e_{ij}(a)$
-\end_inset
-
-'s satisfy the following relations:
-\begin_inset Formula 
-\begin{align*}
-d_{i}(a)d_{i}(b) & =d_{i}(ab);\\
-d_{i}(a)d_{j}(b) & =d_{j}(b)d_{i}(a);\\
-d_{i}(a)e_{ij}(b) & =e_{ij}(ab)d_{i}(a);\\
-e_{ij}(b)d_{j}(a) & =d_{j}(a)e_{ij}(ab).
-\end{align*}
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Standard
-It is useful to think of the third relation as 
-\begin_inset Quotes eld
-\end_inset
-
-you can move 
-\begin_inset Formula $d_{i}(a)$
-\end_inset
-
- from the left to the right of 
-\begin_inset Formula $e_{ij}(b)$
-\end_inset
-
- at the cost of replacing 
-\begin_inset Formula $e_{ij}(b)$
-\end_inset
-
- with 
-\begin_inset Formula $e_{ij}(ab)$
-\end_inset
-
-
-\begin_inset Quotes erd
-\end_inset
-
-.
- A similar interpretation can be given for the other relations.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-The last type of elementary matrix to discuss is 
-\begin_inset Formula $s_{ij}$
-\end_inset
-
- with 
-\begin_inset Formula $i\neq j$
-\end_inset
-
-, which is the matrix that has entry 
-\begin_inset Formula $1$
-\end_inset
-
- in positions 
-\begin_inset Formula $(i,j)$
-\end_inset
-
- and 
-\begin_inset Formula $(j,i)$
-\end_inset
-
- and also in every diagonal position except the 
-\begin_inset Formula $i$
-\end_inset
-
-th and 
-\begin_inset Formula $j$
-\end_inset
-
-th, and 
-\begin_inset Formula $0$
-\end_inset
-
-'s everywhere else.
- The effect of multiplying an 
-\begin_inset Formula $m\times n$
-\end_inset
-
- matrix 
-\begin_inset Formula $A$
-\end_inset
-
- by 
-\begin_inset Formula $s_{ij}$
-\end_inset
-
- on the left is an elementary row operation: swap the 
-\begin_inset Formula $i$
-\end_inset
-
-th row and 
-\begin_inset Formula $j$
-\end_inset
-
-th row.
- The effect of multiplying an 
-\begin_inset Formula $m\times n$
-\end_inset
-
- matrix 
-\begin_inset Formula $A$
-\end_inset
-
- by 
-\begin_inset Formula $s_{ij}$
-\end_inset
-
- on the right is an elementary column operation: swap the 
-\begin_inset Formula $i$
-\end_inset
-
-th column and 
-\begin_inset Formula $j$
-\end_inset
-
-th column.
- These matrices together with the 
-\begin_inset Formula $d_{i}(a)'s$
-\end_inset
-
- and 
-\begin_inset Formula $e_{ij}(b)'s$
-\end_inset
-
- satisfy the following relations
-\begin_inset Formula 
-\begin{align*}
-s_{ij}^{2} & =I;\\
-s_{ij} & =s_{ji};\\
-s_{ij}s_{jk}s_{ij} & =s_{jk}s_{ij}s_{jk};\\
-s_{ij}s_{kl} & =s_{kl}s_{ij},\quad\mbox{for }i\neq k\ne j\mbox{ and }i\ne l\ne j;\\
-s_{ij}e_{kl}(a) & =e_{\sigma(k)\sigma(l)}(a)s_{ij},\quad\sigma=(1,2);\\
-s_{ij}d_{j}(a) & =d_{\sigma(j)}(a)s_{ij},\quad\sigma=(1,2);
-\end{align*}
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-It turns out that 
-\begin_inset Formula $SL_{n}(F)$
-\end_inset
-
- is generated by the elemenatry matrices.
- The idea is to take a 
-\end_layout
-
 \begin_layout Section
 Symmetric Groups
 \end_layout
@@ -37009,36 +37453,711 @@ For each prime
 \begin_inset Formula $p$
 \end_inset
 
- there is one group of order 
-\begin_inset Formula $p$
-\end_inset
-
- up to isomorphism, namely the cyclic group 
-\begin_inset Formula $C_{p}$
-\end_inset
-
-.
- For groups of order 
+, we will show that every group of order 
 \begin_inset Formula $p^{2}$
 \end_inset
 
- there are at least two possibilities, namely 
+ is abelian.
+ In particular, it will then follow from the fundamental theorem of finite
+ abelian groups that every group of order 
+\begin_inset Formula $p^{2}$
+\end_inset
+
+ is isomorphic to one of the two possibilities, namely 
 \begin_inset Formula $C_{p^{2}}$
 \end_inset
 
- and 
+ or 
 \begin_inset Formula $C_{p}\times C_{p}$
 \end_inset
 
 .
- These are not isomorphic since the first group is cyclic and the second
- is not.
- We will show that every group of order 
+ First we begin with an important lemma.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lemma}
+\backslash
+label{lemmapgroupnontrivialcenter}
+\end_layout
+
+\end_inset
+
+ Any 
+\begin_inset Formula $p$
+\end_inset
+
+-group has nontrivial center.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lemma}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Suppose 
+\begin_inset Formula $G$
+\end_inset
+
+ is a 
+\begin_inset Formula $p$
+\end_inset
+
+-group, say 
+\begin_inset Formula $|G|=p^{n}$
+\end_inset
+
+, and assume for a contradiction that 
+\begin_inset Formula $|\mathrm{Z}(G)|=1$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $x_{1},\dots,x_{k}$
+\end_inset
+
+ represent the nontrivial conjugacy classes of 
+\begin_inset Formula $G$
+\end_inset
+
+: so 
+\begin_inset Formula $|\mathrm{K}_{x_{i}}|>1$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathrm{K}_{x_{i}}\cap\mathrm{K}_{x_{j}}$
+\end_inset
+
+ for each 
+\begin_inset Formula $1\leq i<j\leq k$
+\end_inset
+
+ and 
+\begin_inset Formula 
+\[
+G=\mathrm{Z}(G)\cup\mathrm{K}_{x_{1}}\cup\cdots\cup\mathrm{K}_{x_{k}}.
+\]
+
+\end_inset
+
+Then the class equation gives us
+\begin_inset Formula 
+\begin{equation}
+|G|=|\mathrm{Z}(G)|+\sum_{i=1}^{k}[G:\mathrm{Z}(x_{i})].\label{eq:classequationgroup}
+\end{equation}
+
+\end_inset
+
+Note that 
+\begin_inset Formula $p\mid[G:\mathrm{Z}(x_{i})]$
+\end_inset
+
+ for each 
+\begin_inset Formula $1\leq i\leq k$
+\end_inset
+
+.
+ Indeed, 
+\begin_inset Formula $\mathrm{Z}(x_{i})$
+\end_inset
+
+ is a proper subgroup (otherwise 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+ would not represent a nontrivial conjugacy class).
+ Its order must divide the order of 
+\begin_inset Formula $G$
+\end_inset
+
+ by Lagrange's Theorem, thus 
+\begin_inset Formula $|\mathrm{Z}(x_{i})|=p^{m_{i}}$
+\end_inset
+
+ for some 
+\begin_inset Formula $m_{i}<n$
+\end_inset
+
+.
+ It follows that 
+\begin_inset Formula $[G:\mathrm{Z}(x_{i})]=p^{n-m_{i}}$
+\end_inset
+
+.
+ With this understood, we now reduce 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{eq:classequationgroup})
+\end_layout
+
+\end_inset
+
+ modulo 
+\begin_inset Formula $p$
+\end_inset
+
+ to get 
+\begin_inset Formula 
+\[
+0\equiv1\,\,\mathrm{mod}\,p,
+\]
+
+\end_inset
+
+which is a contradiction.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\backslash
+label{prop}
+\end_layout
+
+\end_inset
+
+ Every group of order 
 \begin_inset Formula $p^{2}$
 \end_inset
 
- is isomorphic to one of these two groups.
+ is abelian.
  
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Assume for a contradiction that 
+\begin_inset Formula $G\neq\mathrm{Z}(G)$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $G$
+\end_inset
+
+ is a 
+\begin_inset Formula $p$
+\end_inset
+
+-group, 
+\begin_inset Formula $\mathrm{Z}(G)$
+\end_inset
+
+ must be a nontrivial subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
+ by 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Lemma~(
+\backslash
+ref{lemmapgroupnontrivialcenter})
+\end_layout
+
+\end_inset
+
+.
+ In particular, we must have 
+\begin_inset Formula $|\mathrm{Z}(G)|=p$
+\end_inset
+
+.
+ But then 
+\begin_inset Formula $|G\slash\mathrm{Z}(G)|=p$
+\end_inset
+
+, which implies 
+\begin_inset Formula $G\slash\mathrm{Z}(G)$
+\end_inset
+
+ is cyclic.
+ It follows that 
+\begin_inset Formula $G$
+\end_inset
+
+ is abelian, which implies 
+\begin_inset Formula $G=\mathrm{Z}(G)$
+\end_inset
+
+, a contradiction.
+ So our assumption that 
+\begin_inset Formula $G\neq\mathrm{Z}(G)$
+\end_inset
+
+ leads to a contradiction, which means we must in fact have 
+\begin_inset Formula $G=\mathrm{Z}(G)$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Groups of Order 
+\begin_inset Formula $p^{3}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $p$
+\end_inset
+
+ be a prime.
+ In this subsection, we classify all groups of order 
+\begin_inset Formula $p^{3}$
+\end_inset
+
+.
+ From the cyclic decomposition of finite abelian groups, there are three
+ abelian groups of order 
+\begin_inset Formula $p^{3}$
+\end_inset
+
+ up to isomorphism, namely 
+\begin_inset Formula $C_{p^{3}}$
+\end_inset
+
+, 
+\begin_inset Formula $C_{p}\times C_{p^{2}}$
+\end_inset
+
+, and 
+\begin_inset Formula $C_{p}^{3}$
+\end_inset
+
+.
+ These are nonisomorphic since they have different maximal orders for their
+ elements: 
+\begin_inset Formula $p^{3}$
+\end_inset
+
+, 
+\begin_inset Formula $p^{2}$
+\end_inset
+
+, and 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ We will show that there are two nonabelian groups of order 
+\begin_inset Formula $p^{3}$
+\end_inset
+
+ up to isomorphism.
+ The descriptions of these two groups will be different for 
+\begin_inset Formula $p=2$
+\end_inset
+
+ and 
+\begin_inset Formula $p\neq2$
+\end_inset
+
+, so we will treat these cases separately.
+ First we need a lemma.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lemma}
+\backslash
+label{lemmanonaborderp3}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $G$
+\end_inset
+
+ be a nonabelian group of order 
+\begin_inset Formula $p^{3}$
+\end_inset
+
+.
+ Then 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $|\mathrm{Z}(G)|=p$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $G\slash\mathrm{Z}(G)\cong C_{p}\times C_{p}$
+\end_inset
+
+ and; 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $[G,G]=\mathrm{Z}(G)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lemma}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ 1.
+ Since 
+\begin_inset Formula $G$
+\end_inset
+
+ is a 
+\begin_inset Formula $p$
+\end_inset
+
+-group, 
+\begin_inset Formula $\mathrm{Z}(G)$
+\end_inset
+
+ must be a nontrivial subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
+ by 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Lemma~(
+\backslash
+ref{lemmapgroupnontrivialcenter})
+\end_layout
+
+\end_inset
+
+.
+ Also since 
+\begin_inset Formula $G$
+\end_inset
+
+ is nonabelian, 
+\begin_inset Formula $\mathrm{Z}(G)$
+\end_inset
+
+ must be a proper subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ It follows that 
+\begin_inset Formula $|\mathrm{Z}(G)|=p$
+\end_inset
+
+ or 
+\begin_inset Formula $|\mathrm{Z}(G)|=p^{2}$
+\end_inset
+
+.
+ Assume for a contradiction that 
+\begin_inset Formula $|\mathrm{Z}(G)|=p^{2}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $|G\slash\mathrm{Z}(G)|=p$
+\end_inset
+
+, which implies 
+\begin_inset Formula $G\slash\mathrm{Z}(G)$
+\end_inset
+
+ is cyclic, which is implies 
+\begin_inset Formula $G$
+\end_inset
+
+ is abelian, a contradiction.
+ Thus 
+\begin_inset Formula $|\mathrm{Z}(G)|=p$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+2.
+ Since 
+\begin_inset Formula $|\mathrm{Z}(G)|=p$
+\end_inset
+
+, we have 
+\begin_inset Formula $|G\slash\mathrm{Z}(G)|=p^{2}$
+\end_inset
+
+.
+ From the classification of groups of order 
+\begin_inset Formula $p^{2}$
+\end_inset
+
+, we see that either 
+\begin_inset Formula $G\slash\mathrm{Z}(G)\cong C_{p^{2}}$
+\end_inset
+
+ or 
+\begin_inset Formula $G\slash\mathrm{Z}(G)\cong C_{p}\times C_{p}$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $G\slash\mathrm{Z}(G)\cong C_{p^{2}}$
+\end_inset
+
+, then 
+\begin_inset Formula $G\slash\mathrm{Z}(G)$
+\end_inset
+
+ is cyclic, which implies 
+\begin_inset Formula $G$
+\end_inset
+
+ is abelian, a contradiction.
+ Thus 
+\begin_inset Formula $G\slash\mathrm{Z}(G)\cong C_{p}\times C_{p}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+3.
+ Since 
+\begin_inset Formula $G\slash\mathrm{Z}(G)$
+\end_inset
+
+ is abelian, we see that 
+\begin_inset Formula $\mathrm{Z}(G)\supseteq[G,G]$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $|[G,G]|\mid p$
+\end_inset
+
+, which means either 
+\begin_inset Formula $|[G,G]|=1$
+\end_inset
+
+ or 
+\begin_inset Formula $|[G,G]|=p$
+\end_inset
+
+.
+ We cannot have 
+\begin_inset Formula $|[G,G]|=1$
+\end_inset
+
+ since 
+\begin_inset Formula $G$
+\end_inset
+
+ is nonabelian, and so 
+\begin_inset Formula $|[G,G]|=p$
+\end_inset
+
+.
+ Thus we have 
+\begin_inset Formula $\mathrm{Z}(G)\supseteq[G,G]$
+\end_inset
+
+ and 
+\begin_inset Formula $|\mathrm{Z}(G)|=|[G,G]|$
+\end_inset
+
+ which implies This implies 
+\begin_inset Formula $\mathrm{Z}(G)=[G,G]$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Case 
+\begin_inset Formula $p=2$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -37056,15 +38175,19 @@ label{theorem}
 
 \end_inset
 
- For prime 
-\begin_inset Formula $p$
+ A nonabelian group of order 
+\begin_inset Formula $8$
 \end_inset
 
-, every group of order 
-\begin_inset Formula $p^{2}$
+ is isomorphic to 
+\begin_inset Formula $D_{4}$
 \end_inset
 
- is abelian.
+ or 
+\begin_inset Formula $Q_{8}$
+\end_inset
+
+.
  
 \begin_inset ERT
 status open
@@ -37098,64 +38221,68 @@ begin{proof}
 \begin_inset Formula $G$
 \end_inset
 
- be a group of order 
-\begin_inset Formula $p^{2}$
+ be a nonabelian group of order 
+\begin_inset Formula $8$
+\end_inset
+
+.
+ The nonidentity elements in 
+\begin_inset Formula $G$
+\end_inset
+
+ have order 
+\begin_inset Formula $2$
+\end_inset
+
+ or 
+\begin_inset Formula $4$
 \end_inset
 
 .
  If 
+\begin_inset Formula $g^{2}=1$
+\end_inset
+
+ for all 
+\begin_inset Formula $g\in G$
+\end_inset
+
+, then 
 \begin_inset Formula $G$
 \end_inset
 
- is cyclic, then it is abelian, so we may assume that 
-\begin_inset Formula $G$
+ is abelian, so some 
+\begin_inset Formula $x\in G$
 \end_inset
 
- is not cyclic.
- Choose 
-\begin_inset Formula $x\in G\backslash\{e\}$
+ must have order 
+\begin_inset Formula $4$
 \end_inset
 
 .
- Since 
-\begin_inset Formula $G\neq\langle x\rangle$
-\end_inset
-
-, we can also choose 
+ Let 
 \begin_inset Formula $y\in G\backslash\langle x\rangle$
 \end_inset
 
 .
- Since the order of each element of 
-\begin_inset Formula $G$
+ The subgroup 
+\begin_inset Formula $\langle x,y\rangle$
 \end_inset
 
- divides 
-\begin_inset Formula $p^{2}$
+ properly contains 
+\begin_inset Formula $\langle x\rangle$
 \end_inset
 
- and no element of 
-\begin_inset Formula $G$
-\end_inset
-
- has order 
-\begin_inset Formula $p^{2}$
-\end_inset
-
- (otherwise 
-\begin_inset Formula $G$
-\end_inset
-
- would be cyclic), each non-identity element of 
-\begin_inset Formula $G$
-\end_inset
-
- must have order 
-\begin_inset Formula $p$
+, so 
+\begin_inset Formula $\langle x,y\rangle=G$
 \end_inset
 
 .
- Thus 
+ Since 
+\begin_inset Formula $G$
+\end_inset
+
+ is nonabelian, 
 \begin_inset Formula $x$
 \end_inset
 
@@ -37163,600 +38290,65 @@ begin{proof}
 \begin_inset Formula $y$
 \end_inset
 
- each have order 
-\begin_inset Formula $p$
+ do not commute.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
 \end_inset
 
-.
- Since 
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Since 
 \begin_inset Formula $\langle x\rangle$
 \end_inset
 
- and 
-\begin_inset Formula $\langle y\rangle$
+ has index 
+\begin_inset Formula $2$
 \end_inset
 
- are subgroups of 
+ in 
 \begin_inset Formula $G$
 \end_inset
 
- with prime order 
-\begin_inset Formula $p$
+, it is a normal subgroup.
+ Therefore 
+\begin_inset Formula $yxy^{-1}\in\langle x\rangle$
 \end_inset
 
- and they are different subgroups, their intersection is trivial: 
-\begin_inset Formula $\langle x\rangle\cap\langle y\rangle=\{e\}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-In the list of products 
-\begin_inset Formula $\{x^{i}y^{j}\mid0\leq i,j\leq p-1\}$
-\end_inset
-
- we will show that there are no duplicates.
- If 
-\begin_inset Formula $x^{i}y^{j}=x^{i'}y^{j'}$
-\end_inset
-
-, then 
-\begin_inset Formula $x^{-i'+i}=y^{j'-j}$
-\end_inset
-
-, which belongs to 
-\begin_inset Formula $\langle x\rangle\cap\langle y\rangle$
-\end_inset
-
-, so 
-\begin_inset Formula $x^{-i'+i}=e$
-\end_inset
-
- and 
-\begin_inset Formula $y^{j'-j}=e$
-\end_inset
-
-.
- Since 
-\begin_inset Formula $x$
-\end_inset
-
- and 
-\begin_inset Formula $y$
-\end_inset
-
- have order 
-\begin_inset Formula $p$
-\end_inset
-
-, we have 
-\begin_inset Formula $i'\equiv i\,\mathrm{mod}\,\,p$
-\end_inset
-
- and 
-\begin_inset Formula $j'\equiv j\,\,\mathrm{mod}\,p$
-\end_inset
-
-.
- The exponents are in 
-\begin_inset Formula $\{0,1,\dots,p-1\}$
-\end_inset
-
-, so being congruent mod 
-\begin_inset Formula $p$
-\end_inset
-
- forces equality: 
-\begin_inset Formula $i=i'$
-\end_inset
-
- and 
-\begin_inset Formula $j'=j$
-\end_inset
-
-.
- Thus the number of different elements of 
-\begin_inset Formula $G$
-\end_inset
-
- in 
-\begin_inset Formula $\{x^{i}y^{j}\mid0\leq i,j\leq p-1\}$
-\end_inset
-
- is 
-\begin_inset Formula $p^{2}$
-\end_inset
-
-, which matches 
-\begin_inset Formula $|G|$
-\end_inset
-
-, so 
-\begin_inset Formula $G=\{x^{i}y^{j}\mid0\leq i,j\leq p-1\}$
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-Now consider the product 
-\begin_inset Formula $yx$
-\end_inset
-
-.
- It has to be some 
-\begin_inset Formula $x^{i_{1}}y^{j_{1}}$
-\end_inset
-
-.
- Similarly, 
-\begin_inset Formula $y^{2}x,\dots,y^{p-1}x$
-\end_inset
-
- all have a similar form:
-\begin_inset Formula 
-\begin{align*}
-yx & =x^{i_{1}}y^{j_{1}}\\
-y^{2}x & =x^{i_{2}}y^{j_{2}}\\
- & \vdots\\
-y^{p-1}x & =x^{i_{p-1}}y^{j_{p-1}}
-\end{align*}
-
-\end_inset
-
-where 
-\begin_inset Formula $0\leq i_{k},j_{k}\leq p-1$
-\end_inset
-
-.
- Each 
-\begin_inset Formula $i_{k}$
-\end_inset
-
- is not 
-\begin_inset Formula $0$
-\end_inset
-
-, since otherwise 
-\begin_inset Formula $y^{k}x=y^{i_{k}}$
-\end_inset
-
-, so 
-\begin_inset Formula $x=y^{i_{k}-k}\in\langle y\rangle$
-\end_inset
-
-, but 
-\begin_inset Formula $\langle x\rangle$
-\end_inset
-
- and 
-\begin_inset Formula $\langle y\rangle$
-\end_inset
-
- intersect trivially.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-hfill
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Claim: 
-\series default
-there are 
-\begin_inset Formula $m,n\not\equiv0\,\,\mathrm{mod}\,p$
-\end_inset
-
- such that 
-\begin_inset Formula $xy^{m}x^{-1}=y^{n}$
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-hfill
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Case 1: 
-\series default
-Two of the products among 
-\begin_inset Formula $yx,y^{2}x,\dots,y^{p-1}x$
-\end_inset
-
- have the same power of 
-\begin_inset Formula $x$
-\end_inset
-
- written as 
-\begin_inset Formula $x^{i}y^{j}$
-\end_inset
-
-.
- This implies there are 
-\begin_inset Formula $k\neq k'$
-\end_inset
-
- in 
-\begin_inset Formula $\{1,\dots,p-1\}$
-\end_inset
-
- such that 
-\begin_inset Formula $y^{k}x=x^{i}y^{j_{k}}$
-\end_inset
-
- and 
-\begin_inset Formula $y^{k'}x=x^{i}y^{j_{k'}}$
-\end_inset
-
- for a common 
-\begin_inset Formula $i$
-\end_inset
-
-.
- Then 
-\begin_inset Formula $j_{k}\neq j_{k'}$
-\end_inset
-
- in 
-\begin_inset Formula $\{0,\dots,p-1\}$
-\end_inset
-
- (otherwise 
-\begin_inset Formula $y^{k}x=y^{k'}x$
-\end_inset
-
-, so 
-\begin_inset Formula $k\equiv k'\,\,\mathrm{mod}\,p$
-\end_inset
-
-, but 
-\begin_inset Formula $k$
-\end_inset
-
- and 
-\begin_inset Formula $k'$
-\end_inset
-
- are distinct in 
-\begin_inset Formula $\{1,\dots,p-1\}$
-\end_inset
-
-).
- Solving for 
-\begin_inset Formula $x^{i}$
-\end_inset
-
- in both equations, we get
+, that is
 \begin_inset Formula 
 \[
-y^{k}xy^{-j_{k}}=x^{i}=y^{k'}xy^{-j_{k'}},
+yxy^{-1}\in\{1,x,x^{2},x^{3}\}.
 \]
 
 \end_inset
 
-so 
-\begin_inset Formula $y^{k-k'}x=xy^{j_{k}-j_{k'}}$
-\end_inset
-
-, or equivalently 
-\begin_inset Formula $xy^{j_{k}-j_{k'}}x^{-1}=y^{k-k'}$
-\end_inset
-
-.
- The exponents on 
-\begin_inset Formula $y$
-\end_inset
-
- on both sides are nonzero mod 
-\begin_inset Formula $p$
-\end_inset
-
- since each is a difference of unequal numbers in 
-\begin_inset Formula $\{0,\dots,p-1\}$
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-hfill
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\series bold
-Case 2: 
-\series default
-ALl of the products among 
-\begin_inset Formula $yx,y^{2}x,\dots,y^{p-1}x$
-\end_inset
-
- have different powers of 
-\begin_inset Formula $x$
-\end_inset
-
- when written as 
-\begin_inset Formula $x^{i}y^{j}$
-\end_inset
-
-.
- This means one of these 
-\begin_inset Formula $p$
-\end_inset
-
- terms has 
-\begin_inset Formula $i=1$
-\end_inset
-
-, that is, 
-\begin_inset Formula $y^{k}x=xy^{j}$
-\end_inset
-
- for some 
-\begin_inset Formula $k$
-\end_inset
-
- in 
-\begin_inset Formula $\{1,\dots,p-1\}$
-\end_inset
-
- and some 
-\begin_inset Formula $j$
-\end_inset
-
-.
- Rewrite that equation as 
-\begin_inset Formula $xy^{j}x^{-1}=y^{k}$
-\end_inset
-
-.
- We have 
-\begin_inset Formula $j\neq0\,\,\mathrm{mod}\,p$
-\end_inset
-
-, since otherwise 
-\begin_inset Formula $y^{k}=xex^{-1}=e$
-\end_inset
-
- , but that is not true since 
-\begin_inset Formula $y$
+Since 
+\begin_inset Formula $yxy^{-1}$
 \end_inset
 
  has order 
-\begin_inset Formula $p$
+\begin_inset Formula $4$
 \end_inset
 
- and 
-\begin_inset Formula $k$
+, we must have 
+\begin_inset Formula $yxy^{-1}=x$
 \end_inset
 
- is not divisible by 
-\begin_inset Formula $p$
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-hfill
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-From the claim, raise both sides of 
-\begin_inset Formula $xy^{m}x^{-1}=y^{n}$
-\end_inset
-
- to the 
-\begin_inset Formula $\ell$
-\end_inset
-
-th power for 
-\begin_inset Formula $\ell\in\mathbb{Z}$
-\end_inset
-
-, getting 
-\begin_inset Formula $(xy^{m}x^{-1})^{\ell}=y^{n\ell}$
-\end_inset
-
-, so 
-\begin_inset Formula $xy^{m\ell}x^{-1}=y^{n\ell}$
-\end_inset
-
-.
- Use for 
-\begin_inset Formula $\ell$
-\end_inset
-
- a multiplicative inverse of 
-\begin_inset Formula $m\,\,\mathrm{mod}\,p$
-\end_inset
-
-, so 
-\begin_inset Formula $y^{m\ell}=y$
-\end_inset
-
- and thus 
-\begin_inset Formula $xyx^{-1}=y^{N}$
-\end_inset
-
- where 
-\begin_inset Formula $N=n\ell$
-\end_inset
-
-.
- In words, this says the conjugate of 
-\begin_inset Formula $y$
-\end_inset
-
- by 
-\begin_inset Formula $x$
-\end_inset
-
- is 
-\begin_inset Formula $y^{N}$
-\end_inset
-
-.
- Let's conjugate 
-\begin_inset Formula $y$
-\end_inset
-
- by 
-\begin_inset Formula $x^{2}$
-\end_inset
-
-:
-\begin_inset Formula 
-\begin{align*}
-x^{2}yx^{-2} & =x(xyx^{-1})x^{-1}\\
- & =xy^{N}x^{-1}\\
- & =(xyx^{-1})^{N}\\
- & =(y^{N})^{N}\\
- & =y^{N^{2}}.
-\end{align*}
-
-\end_inset
-
-By similar reasoning and induction, 
-\begin_inset Formula $x^{r}yx^{-r}=y^{N^{r}}$
-\end_inset
-
- for all 
-\begin_inset Formula $r\geq1$
-\end_inset
-
-.
- Taking 
-\begin_inset Formula $r=p$
-\end_inset
-
-, so 
-\begin_inset Formula $x^{r}=e$
-\end_inset
-
-, we get 
-\begin_inset Formula $y=y^{N^{p}}$
+ or 
+\begin_inset Formula $yxy^{-1}=x^{3}=x^{-1}$
 \end_inset
 
 .
  Since 
-\begin_inset Formula $y$
-\end_inset
-
- has order 
-\begin_inset Formula $p$
-\end_inset
-
-, the exponents are congruent mod 
-\begin_inset Formula $p$
-\end_inset
-
-: 
-\begin_inset Formula $1\equiv N^{p}\,\,\mathrm{mod}\,p$
-\end_inset
-
-.
- By Fermat's little theorem we have 
-\begin_inset Formula $N^{p}\equiv N\,\,\mathrm{mod}\,p$
-\end_inset
-
-, so 
-\begin_inset Formula $1\equiv N\,\,\mathrm{mod}\,p$
-\end_inset
-
-, and that means 
-\begin_inset Formula $y^{N}=y$
-\end_inset
-
-, so 
-\begin_inset Formula $xyx^{-1}=y^{N}=y$
-\end_inset
-
-, or equivalently 
-\begin_inset Formula $xy=yx$
-\end_inset
-
-, that is, 
 \begin_inset Formula $x$
 \end_inset
 
@@ -37764,7 +38356,265 @@ By similar reasoning and induction,
 \begin_inset Formula $y$
 \end_inset
 
- commute.
+ do not commute, we cannot have 
+\begin_inset Formula $yxy^{-1}=x$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula 
+\[
+yxy^{-1}=x^{-1}.
+\]
+
+\end_inset
+
+The group 
+\begin_inset Formula $G\slash\langle x\rangle$
+\end_inset
+
+ has order 
+\begin_inset Formula $2$
+\end_inset
+
+.
+ Therefore 
+\begin_inset Formula $y^{2}\in\langle x\rangle$
+\end_inset
+
+, that is
+\begin_inset Formula 
+\[
+y^{2}\in\{1,x,x^{2},x^{3}\}.
+\]
+
+\end_inset
+
+Since 
+\begin_inset Formula $y$
+\end_inset
+
+ has order 
+\begin_inset Formula $2$
+\end_inset
+
+ or 
+\begin_inset Formula $4$
+\end_inset
+
+, we see that 
+\begin_inset Formula $y^{2}$
+\end_inset
+
+ has order 
+\begin_inset Formula $1$
+\end_inset
+
+ or 
+\begin_inset Formula $2$
+\end_inset
+
+.
+ Thus either 
+\begin_inset Formula $y^{2}=1$
+\end_inset
+
+ or 
+\begin_inset Formula $y^{2}=x^{2}$
+\end_inset
+
+.
+ Combining everything together, we see that either
+\begin_inset Formula 
+\[
+G=\langle x,y\mid x^{4}=1,y^{2}=1,yxy^{-1}=x^{-1}\rangle
+\]
+
+\end_inset
+
+in which case 
+\begin_inset Formula $G\cong D_{4}$
+\end_inset
+
+, or 
+\begin_inset Formula 
+\[
+G=\langle x,y\mid x^{4}=1,y^{2}=x^{2},yxy^{-1}=x^{-1}\rangle
+\]
+
+\end_inset
+
+in which case 
+\begin_inset Formula $G\cong Q_{8}$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Case 
+\begin_inset Formula $p\neq2$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now assume 
+\begin_inset Formula $p\ne2$
+\end_inset
+
+.
+ The two nonabelian groups of order 
+\begin_inset Formula $p^{3}$
+\end_inset
+
+, up to isomorphism, will turn out to be
+\begin_inset Formula 
+\[
+\mathrm{Heis}(\mathbb{Z}\slash\langle p\rangle)=\left\{ \begin{pmatrix}1 & a & b\\
+0 & 1 & c\\
+0 & 0 & 1
+\end{pmatrix}\mid a,b,c\in\mathbb{Z}\slash\langle p\rangle\right\} \quad\text{and}\quad G_{p}=\left\{ \begin{pmatrix}a & b\\
+0 & 1
+\end{pmatrix}\mid a,b\in\mathbb{Z}\slash\langle p^{2}\rangle,\,a\equiv1\,\,\mathrm{mod}\,p\right\} .
+\]
+
+\end_inset
+
+These two constructions make sense if 
+\begin_inset Formula $p=2$
+\end_inset
+
+, but they turn out to be isomorphic to each other in that case.
+ If 
+\begin_inset Formula $p\neq2$
+\end_inset
+
+, we can distinguish 
+\begin_inset Formula $\mathrm{Heis}(\mathbb{Z}\slash\langle p\rangle)$
+\end_inset
+
+ from 
+\begin_inset Formula $G_{p}$
+\end_inset
+
+ by counting elements of order 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ In 
+\begin_inset Formula $\mathrm{Heis}(\mathbb{Z}\slash\langle p\rangle)$
+\end_inset
+
+, we have
+\begin_inset Formula 
+\begin{align*}
+\begin{pmatrix}1 & a & b\\
+0 & 1 & c\\
+0 & 0 & 1
+\end{pmatrix}^{p} & =\begin{pmatrix}1 & na & nb+\frac{p(p-1)}{2}ac\\
+0 & 1 & nc\\
+0 & 0 & 1
+\end{pmatrix}\\
+ & =\begin{pmatrix}1 & 0 & \frac{p(p-1)}{2}ac\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{pmatrix}\\
+ & =\begin{pmatrix}1 & 0 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{pmatrix}
+\end{align*}
+
+\end_inset
+
+where the last equality follows since 
+\begin_inset Formula $p\neq2$
+\end_inset
+
+.
+ Thus every nonidentity element in 
+\begin_inset Formula $\mathrm{Heis}(\mathbb{Z}\slash\langle p\rangle)$
+\end_inset
+
+ has order 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ On the other hand, 
+\begin_inset Formula $\left(\begin{smallmatrix}1 & 1\\
+0 & 1
+\end{smallmatrix}\right)\in G_{p}$
+\end_inset
+
+ has order 
+\begin_inset Formula $p^{2}$
+\end_inset
+
+ since 
+\begin_inset Formula $\left(\begin{smallmatrix}1 & 1\\
+0 & 1
+\end{smallmatrix}\right)^{n}=\left(\begin{smallmatrix}1 & n\\
+0 & 1
+\end{smallmatrix}\right)$
+\end_inset
+
+ for all 
+\begin_inset Formula $n\in\mathbb{Z}$
+\end_inset
+
+.
+ So 
+\begin_inset Formula $G_{p}\neq\mathrm{Heis}(\mathbb{Z}\slash\langle p\rangle)$
+\end_inset
+
+.
+ At the prime 
+\begin_inset Formula $p=2$
+\end_inset
+
+, 
+\begin_inset Formula $\mathrm{Heis}(\mathbb{Z}\slash\langle p\rangle)$
+\end_inset
+
+ and 
+\begin_inset Formula $G_{2}$
+\end_inset
+
+ each contain more than one element of order 
+\begin_inset Formula $2$
+\end_inset
+
+, so both 
+\begin_inset Formula $\mathrm{Heis}(\mathbb{Z}\slash\langle p\rangle)$
+\end_inset
+
+ and 
+\begin_inset Formula $G_{2}$
+\end_inset
+
+ are isomorphic to 
+\begin_inset Formula $D_{4}$
+\end_inset
+
+.
  
 \end_layout
 
@@ -37780,41 +38630,454 @@ By similar reasoning and induction,
 \begin_inset space ~
 \end_inset
 
-Since every element of 
-\begin_inset Formula $G$
+Let's perform some calculations.
+ First we see what matrix multiplication in 
+\begin_inset Formula $\mathrm{Heis}(\mathbb{Z}\slash\langle p\rangle)$
 \end_inset
 
- has the form 
-\begin_inset Formula $x^{i}y^{j}$
+ looks like.
+ We have
+\begin_inset Formula 
+\[
+\begin{pmatrix}1 & a & b\\
+0 & 1 & c\\
+0 & 0 & 1
+\end{pmatrix}\begin{pmatrix}1 & a' & b'\\
+0 & 1 & c'\\
+0 & 0 & 1
+\end{pmatrix}=\begin{pmatrix}1 & a+a' & b+b'+ac'\\
+0 & 1 & c+c'\\
+0 & 0 & 1
+\end{pmatrix}
+\]
+
 \end_inset
 
- and 
-\begin_inset Formula $x$
+We can decompose any matrix in 
+\begin_inset Formula $\mathrm{Heis}(\mathbb{Z}\slash\langle p\rangle)$
 \end_inset
 
- and 
-\begin_inset Formula $y$
+ as
+\begin_inset Formula 
+\[
+\begin{pmatrix}1 & a & b\\
+0 & 1 & c\\
+0 & 0 & 1
+\end{pmatrix}=\begin{pmatrix}1 & 0 & 0\\
+0 & 1 & 1\\
+0 & 0 & 1
+\end{pmatrix}^{c}\begin{pmatrix}1 & 1 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{pmatrix}^{a}\begin{pmatrix}1 & 0 & 1\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{pmatrix}^{b}
+\]
+
 \end_inset
 
- commute, all powers of 
-\begin_inset Formula $x$
+and a particular commutator is
+\begin_inset Formula 
+\[
+\left[\begin{pmatrix}1 & 1 & 0\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{pmatrix},\begin{pmatrix}1 & 0 & 0\\
+0 & 1 & 1\\
+0 & 0 & 1
+\end{pmatrix}\right]=\begin{pmatrix}1 & 0 & 1\\
+0 & 1 & 0\\
+0 & 0 & 1
+\end{pmatrix}.
+\]
+
 \end_inset
 
- commute with all powers of 
-\begin_inset Formula $y$
+Thus we have
+\begin_inset Formula 
+\[
+\begin{pmatrix}1 & a & b\\
+0 & 1 & c\\
+0 & 0 & 1
+\end{pmatrix}=e_{23}^{c}e_{12}^{a}[e_{12},e_{23}]^{b}
+\]
+
 \end_inset
 
- and thus all elements of 
-\begin_inset Formula $G$
+where 
+\begin_inset Formula $e_{ij}$
 \end_inset
 
- commute with each other.
- In particular, 
-\begin_inset Formula $G\cong C_{p}\times C_{p}$
+ denotes the matrix with 
+\begin_inset Formula $1$
+\end_inset
+
+ along the diagonal and at the 
+\begin_inset Formula $(i,j)$
+\end_inset
+
+th spot and zero everywhere else where 
+\begin_inset Formula $1\leq i<j\leq3$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Matrix multiplication in 
+\begin_inset Formula $G_{p}$
+\end_inset
+
+ looks like
+\begin_inset Formula 
+\[
+\begin{pmatrix}1+pm & b\\
+0 & 1
+\end{pmatrix}\begin{pmatrix}1+pm' & b'\\
+0 & 1
+\end{pmatrix}=\begin{pmatrix}1+p(m+m') & b+b'+pmb'\\
+0 & 1
+\end{pmatrix}.
+\]
+
+\end_inset
+
+We can decompose any matrix in 
+\begin_inset Formula $G_{p}$
+\end_inset
+
+ as
+\begin_inset Formula 
+\[
+\begin{pmatrix}1+pm & b\\
+0 & 1
+\end{pmatrix}=\begin{pmatrix}1 & 1\\
+0 & 1
+\end{pmatrix}^{b}\begin{pmatrix}1+p & 0\\
+0 & 1
+\end{pmatrix}^{m}
+\]
+
+\end_inset
+
+and a particular commutator is
+\begin_inset Formula 
+\[
+\left[\begin{pmatrix}1+p & 0\\
+0 & 1
+\end{pmatrix},\begin{pmatrix}1 & 1\\
+0 & 1
+\end{pmatrix}\right]=\begin{pmatrix}1 & 1\\
+0 & 1
+\end{pmatrix}^{p}.
+\]
+
+\end_inset
+
+Thus we have
+\begin_inset Formula 
+\[
+\begin{pmatrix}1+pm & b\\
+0 & 1
+\end{pmatrix}=e_{12}^{p}x^{m}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $x=\left(\begin{smallmatrix}1+p & 0\\
+0 & 1
+\end{smallmatrix}\right)$
 \end_inset
 
 .
  
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lemma}
+\backslash
+label{lemmacommutatorcommuteident}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $G$
+\end_inset
+
+ be a group and let 
+\begin_inset Formula $g,h\in G$
+\end_inset
+
+.
+ Suppose 
+\begin_inset Formula $g$
+\end_inset
+
+ and 
+\begin_inset Formula $h$
+\end_inset
+
+ commute with 
+\begin_inset Formula $[g,h]$
+\end_inset
+
+.
+ Then for all 
+\begin_inset Formula $m$
+\end_inset
+
+ and 
+\begin_inset Formula $n$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+, we have 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $[g^{m},h^{n}]=[g,h]^{mn}$
+\end_inset
+
+ and; 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $g^{n}h^{n}=(gh)^{n}[g,h]^{{n \choose 2}}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lemma}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ 1.
+ We just need to show that for all 
+\begin_inset Formula $k\in\mathbb{N}$
+\end_inset
+
+, we have 
+\begin_inset Formula 
+\begin{equation}
+[g,h]^{k}=[g^{k},h]=[g,h^{k}].\label{eq:lemmaghcommutecommut}
+\end{equation}
+
+\end_inset
+
+We shall prove this by induction on 
+\begin_inset Formula $k$
+\end_inset
+
+.
+ The base case 
+\begin_inset Formula $k=1$
+\end_inset
+
+ is trivial, so assume that we have shown 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{eq:lemmaghcommutecommut})
+\end_layout
+
+\end_inset
+
+ for all 
+\begin_inset Formula $k<n$
+\end_inset
+
+ for some 
+\begin_inset Formula $n\in\mathbb{Z}_{>1}$
+\end_inset
+
+.
+ Then we have
+\begin_inset Formula 
+\begin{align*}
+[g,h]^{n} & =(ghg^{-1}h^{-1})^{n}\\
+ & =(ghg^{-1}h^{-1})(ghg^{-1}h^{-1})[g,h]^{n-2}\\
+ & =(g^{2}hg^{-1}h^{-1})(hg^{-1}h^{-1})[g,h]^{n-2}\\
+ & =(g^{2}hg^{-2}h^{-1})[g,h]^{n-2}\\
+ & =(g^{2}hg^{-2}h^{-1})[g^{n-2},h]\\
+ & =(g^{2}hg^{-2}h^{-1})(g^{n-2}hg^{-(n-2)}h^{-1})\\
+ & =(g^{n}hg^{-2}h^{-1})(hg^{-(n-2)}h^{-1})\\
+ & =g^{n}hg^{-n}h^{-1}\\
+ & =[g^{n},h],
+\end{align*}
+
+\end_inset
+
+where we used the fact that 
+\begin_inset Formula $g^{n-2}$
+\end_inset
+
+ commutes with 
+\begin_inset Formula $[g,h]$
+\end_inset
+
+ (which follows since 
+\begin_inset Formula $g$
+\end_inset
+
+ commutes with 
+\begin_inset Formula $[g,h]$
+\end_inset
+
+).
+ A similar computation also shows 
+\begin_inset Formula $[g,h]^{n}=[g,h^{n}]$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+2.
+ We prove 
+\begin_inset Formula 
+\begin{equation}
+g^{k}h^{k}=(gh)^{k}[g,h]^{{k \choose 2}}\label{eq:secondlemmacommutecommgh}
+\end{equation}
+
+\end_inset
+
+by induction on 
+\begin_inset Formula $k\in\mathbb{Z}_{\geq2}$
+\end_inset
+
+.
+ Let us first work out the base case 
+\begin_inset Formula $k=2$
+\end_inset
+
+.
+ We have
+\begin_inset Formula 
+\begin{align*}
+g^{2}h^{2} & =gghh\\
+ & =ggh(g^{-1}h^{-1}hg)h\\
+ & =g[g,h]hgh\\
+ & =(gh)^{2}[g,h].
+\end{align*}
+
+\end_inset
+
+Now assume that we have shown 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{eq:secondlemmacommute})
+\end_layout
+
+\end_inset
+
+ for all 
+\begin_inset Formula $k<n$
+\end_inset
+
+ for some 
+\begin_inset Formula $n\in\mathbb{Z}_{>2}$
+\end_inset
+
+.
+ We have
+\begin_inset Formula 
+\begin{align*}
+(gh)^{n}[g,h]^{{n \choose 2}} & =(gh)^{n}[g,h]^{{n-1 \choose 2}}[g,h]^{n-1}\\
+ & =gh(gh)^{n-1}[g,h]^{{n-1 \choose 2}}[g,h]^{n-1}\\
+ & =gh(g^{n-1}h^{n-1})[g,h]^{n-1}\\
+ & =gh[g,h]^{n-1}g^{n-1}h^{n-1}\\
+ & =[g,h]hg[g,h]^{n-1}g^{n-1}h^{n-1}\\
+ & =[g,h]^{n}hg^{n}h^{n-1}\\
+ & =[g^{n},h]hg^{n}h^{n-1}\\
+ & =g^{n}hg^{-n}h^{-1}hg^{n}h^{n-1}\\
+ & =g^{n}hg^{-n}g^{n}h^{n-1}\\
+ & =g^{n}hh^{n-1}\\
+ & =g^{n}h^{n}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset ERT
 status open
 
@@ -37838,30 +39101,73 @@ status open
 
 
 \backslash
+begin{theorem}
+\backslash
+label{theorem}
+\end_layout
+
+\end_inset
+
+ For primes 
+\begin_inset Formula $p\neq2$
+\end_inset
+
+, a nonabelian group of order 
+\begin_inset Formula $p^{3}$
+\end_inset
+
+ is isomorphic to 
+\begin_inset Formula $\mathrm{Heis}(\mathbb{Z}\slash\langle p\rangle)$
+\end_inset
+
+ or 
+\begin_inset Formula $G_{p}$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
 begin{proof}
 \end_layout
 
 \end_inset
 
- Here's an alternative proof.
  Let 
 \begin_inset Formula $G$
 \end_inset
 
- be a group whose order is 
-\begin_inset Formula $p^{2}$
-\end_inset
-
- and let 
-\begin_inset Formula $X=\{\text{subgroups of }G\}$
+ be a nonabelian group of order 
+\begin_inset Formula $p^{3}$
 \end_inset
 
 .
- We may assume that 
-\begin_inset Formula $G$
+ Each 
+\begin_inset Formula $g\neq1$
 \end_inset
 
- is not cyclic (so every non-identity element in 
+ in 
 \begin_inset Formula $G$
 \end_inset
 
@@ -37869,164 +39175,926 @@ begin{proof}
 \begin_inset Formula $p$
 \end_inset
 
-).
- Note that 
+ or 
+\begin_inset Formula $p^{2}$
+\end_inset
+
+.
+ By 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Lemma~(
+\backslash
+ref{lemmanonaborderp3})
+\end_layout
+
+\end_inset
+
+, we can write 
+\begin_inset Formula $G\slash\mathrm{Z}(G)=\langle\overline{x},\overline{y}\rangle$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathrm{Z}(G)=\langle z\rangle$
+\end_inset
+
+.
+ For 
+\begin_inset Formula $g\in G$
+\end_inset
+
+, we have 
+\begin_inset Formula $g\equiv x^{i}y^{j}\,\,\mathrm{mod}\,\mathrm{Z}(G)$
+\end_inset
+
+ for some integers 
+\begin_inset Formula $i$
+\end_inset
+
+ and 
+\begin_inset Formula $j$
+\end_inset
+
+, so
+\begin_inset Formula 
+\begin{align*}
+g & =x^{i}y^{j}z^{k}\\
+ & =z^{k}x^{i}y^{j}
+\end{align*}
+
+\end_inset
+
+for some 
+\begin_inset Formula $k\in\mathbb{Z}$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $x$
+\end_inset
+
+ and 
+\begin_inset Formula $y$
+\end_inset
+
+ commute, then 
 \begin_inset Formula $G$
 \end_inset
 
- acts on 
-\begin_inset Formula $X$
+ is abelian, which is a contradiction.
+ Thus 
+\begin_inset Formula $x$
 \end_inset
 
- via conjugation: we define
+ and 
+\begin_inset Formula $y$
+\end_inset
+
+ do not commute.
+ Therefore 
+\begin_inset Formula $[x,y]=xyx^{-1}y^{-1}\in\mathrm{Z}(G)$
+\end_inset
+
+ is nontrivial, so 
+\begin_inset Formula $\mathrm{Z}(G)=\langle[x,y]\rangle$
+\end_inset
+
+.
+ Therefore we can use 
+\begin_inset Formula $[x,y]$
+\end_inset
+
+ for 
+\begin_inset Formula $z$
+\end_inset
+
+, showing 
+\begin_inset Formula $G=\langle x,y\rangle$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Let's see what the product of two elements of 
+\begin_inset Formula $G$
+\end_inset
+
+ looks like.
+ Using 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Lemma~(
+\backslash
+ref{lemmacommutatorcommuteident})
+\end_layout
+
+\end_inset
+
+, we have
 \begin_inset Formula 
 \[
-g\cdot H=gHg^{-1}
+x^{i}y^{j}=y^{j}x^{i}[x,y]^{ij}\quad\text{and}\quad y^{j}x^{i}=x^{i}y^{j}[x,y]^{-ij}.
 \]
 
 \end_inset
 
-for all 
-\begin_inset Formula $g\in G$
+This shows we can move every power of 
+\begin_inset Formula $y$
 \end_inset
 
- and 
-\begin_inset Formula $H\in X$
+ past every power of 
+\begin_inset Formula $x$
+\end_inset
+
+ on either side, at the cost of introducing a (commuting) power of 
+\begin_inset Formula $[x,y]$
 \end_inset
 
 .
- The fixed points in 
-\begin_inset Formula $X$
+ So every element of 
+\begin_inset Formula $G=\langle x,y\rangle$
 \end_inset
 
- under this action are precisely the normal subgroups of 
+ has the form 
+\begin_inset Formula $y^{j}x^{i}[x,y]^{k}$
+\end_inset
+
+.
+ A product of two such terms is
+\begin_inset Formula 
+\begin{align*}
+y^{c}x^{a}[x,y]^{b}\cdot y^{c'}x^{a'}[x,y]^{b'} & =y^{c}(x^{a}y^{c'})x^{a'}[x,y]^{b+b'}\\
+ & =y^{c}(y^{c'}x^{a}[x,y]^{ac'})x^{a'}[x,y]^{b+b'}\\
+ & =y^{c+c'}x^{a+a'}[x,y]^{b+b'+ac'}.
+\end{align*}
+
+\end_inset
+
+Here the exponents are all integers.
+ It appears that we have a homomorphism 
+\begin_inset Formula $\mathrm{Heis}(\mathbb{Z}\slash\langle p\rangle)\to G$
+\end_inset
+
+ by
+\begin_inset Formula 
+\begin{equation}
+\begin{pmatrix}1 & a & b\\
+0 & 1 & c\\
+0 & 0 & 1
+\end{pmatrix}\mapsto y^{c}x^{a}[x,y]^{b}.\label{eq:heiswelldef}
+\end{equation}
+
+\end_inset
+
+After all, we just showed multiplication of such triples 
+\begin_inset Formula $y^{c}x^{a}[x,y]^{b}$
+\end_inset
+
+ behaves like multiplication in 
+\begin_inset Formula $\mathrm{Heis}(\mathbb{Z}\slash\langle p\rangle)$
+\end_inset
+
+.
+ But there is a catch: the matrix entries 
+\begin_inset Formula $a,b,$
+\end_inset
+
+ and 
+\begin_inset Formula $c$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathrm{Heis}(\mathbb{Z}\slash\langle p\rangle)$
+\end_inset
+
+ are integers modulo 
+\begin_inset Formula $p$
+\end_inset
+
+, so the 
+\begin_inset Quotes eld
+\end_inset
+
+function
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{eq:heiswelldef})
+\end_layout
+
+\end_inset
+
+ from 
+\begin_inset Formula $\mathrm{Heis}(\mathbb{Z}\slash\langle p\rangle)$
+\end_inset
+
+ to 
 \begin_inset Formula $G$
+\end_inset
+
+ is only well-defined if 
+\begin_inset Formula $x$
+\end_inset
+
+, 
+\begin_inset Formula $y$
+\end_inset
+
+, and 
+\begin_inset Formula $[x,y]$
+\end_inset
+
+ all have 
+\begin_inset Formula $p$
+\end_inset
+
+th power 
+\begin_inset Formula $1$
+\end_inset
+
+ (so exponents on them only matter modulo 
+\begin_inset Formula $p$
+\end_inset
+
+).
+ Since 
+\begin_inset Formula $[x,y]$
+\end_inset
+
+ is in the center of 
+\begin_inset Formula $G$
+\end_inset
+
+, a subgroup of order 
+\begin_inset Formula $p$
+\end_inset
+
+, its exponents only matter modulo 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ But maybe 
+\begin_inset Formula $x$
+\end_inset
+
+ or 
+\begin_inset Formula $y$
+\end_inset
+
+ could have order 
+\begin_inset Formula $p^{2}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Well if 
+\begin_inset Formula $x$
+\end_inset
+
+ and 
+\begin_inset Formula $y$
+\end_inset
+
+ have both order 
+\begin_inset Formula $p$
+\end_inset
+
+, then there is no problem with 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{eq:heiswelldef})
+\end_layout
+
+\end_inset
+
+.
+ It is a well-defined function from 
+\begin_inset Formula $\mathrm{Heis}(\mathbb{Z}\slash\langle p\rangle)$
+\end_inset
+
+ to 
+\begin_inset Formula $G$
+\end_inset
+
+ that is a homomorphism.
+ Since its image contains 
+\begin_inset Formula $x$
+\end_inset
+
+ and 
+\begin_inset Formula $y$
+\end_inset
+
+, the image contains 
+\begin_inset Formula $\langle x,y\rangle=G$
+\end_inset
+
+, so the function is onto.
+ Both 
+\begin_inset Formula $\mathrm{Heis}(\mathbb{Z}\slash\langle p\rangle)$
+\end_inset
+
+ and 
+\begin_inset Formula $G$
+\end_inset
+
+ have order 
+\begin_inset Formula $p^{3}$
+\end_inset
+
+, so our surjective homomorphism is an isomorphism: 
+\begin_inset Formula $G\cong\mathrm{Heis}(\mathbb{Z}\slash\langle p\rangle)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+What happens if 
+\begin_inset Formula $x$
+\end_inset
+
+ or 
+\begin_inset Formula $y$
+\end_inset
+
+ has order 
+\begin_inset Formula $p^{2}$
+\end_inset
+
+? In this case we anticipate that 
+\begin_inset Formula $G\cong G_{p}$
+\end_inset
+
+.
+ In 
+\begin_inset Formula $G_{p}$
+\end_inset
+
+ two generators are 
+\begin_inset Formula $g=\left(\begin{smallmatrix}1+p & 0\\
+0 & 1
+\end{smallmatrix}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $h=\left(\begin{smallmatrix}1 & 1\\
+0 & 1
+\end{smallmatrix}\right)$
+\end_inset
+
+, where 
+\begin_inset Formula $g$
+\end_inset
+
+ has order 
+\begin_inset Formula $p$
+\end_inset
+
+, 
+\begin_inset Formula $h$
+\end_inset
+
+ has order 
+\begin_inset Formula $p^{2}$
+\end_inset
+
+, and 
+\begin_inset Formula $[g,h]=h^{p}$
+\end_inset
+
+.
+ We want to show our abstract 
+\begin_inset Formula $G$
+\end_inset
+
+ also has a pair of generators like this.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Starting with 
+\begin_inset Formula $G=\langle x,y\rangle$
+\end_inset
+
+ where 
+\begin_inset Formula $x$
+\end_inset
+
+ or 
+\begin_inset Formula $y$
+\end_inset
+
+ has order 
+\begin_inset Formula $p^{2}$
+\end_inset
+
+, without loss of generality let 
+\begin_inset Formula $y$
+\end_inset
+
+ have order 
+\begin_inset Formula $p^{2}$
+\end_inset
+
+.
+ It may or may not be the case that 
+\begin_inset Formula $x$
+\end_inset
+
+ has order 
+\begin_inset Formula $p$
+\end_inset
+
+.
+ To show we can change generators to make 
+\begin_inset Formula $x$
+\end_inset
+
+ have order 
+\begin_inset Formula $p$
+\end_inset
+
+, we will look at the 
+\begin_inset Formula $p$
+\end_inset
+
+th power function on 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ For all 
+\begin_inset Formula $g\in G$
+\end_inset
+
+, we have 
+\begin_inset Formula $g^{p}\in\mathrm{Z}(G)$
+\end_inset
+
+ since 
+\begin_inset Formula $G\slash\mathrm{Z}(G)\cong C_{p}^{2}$
+\end_inset
+
+.
+ Moreover, the 
+\begin_inset Formula $p$
+\end_inset
+
+th power function on 
+\begin_inset Formula $G$
+\end_inset
+
+ is a homomorphism: by 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Lemma~(
+\backslash
+ref{lemmacommutatorcommuteident})
+\end_layout
+
+\end_inset
+
+, we have 
+\begin_inset Formula $(gh)^{p}=g^{p}h^{p}[g,h]^{p(p-1)/2}$
+\end_inset
+
+ and 
+\begin_inset Formula $[g,h]^{p}=1$
+\end_inset
+
+ since 
+\begin_inset Formula $[G,G]=\mathrm{Z}(G)$
+\end_inset
+
+ has order 
+\begin_inset Formula $p$
+\end_inset
+
+, so
+\begin_inset Formula 
+\[
+(gh)^{p}=g^{p}h^{p}.
+\]
+
+\end_inset
+
+Since 
+\begin_inset Formula $y^{p}$
+\end_inset
+
+ has order 
+\begin_inset Formula $p$
+\end_inset
+
+ and 
+\begin_inset Formula $y^{p}\in\mathrm{Z}(G)$
+\end_inset
+
+, we have 
+\begin_inset Formula $\mathrm{Z}(G)=\langle y^{p}\rangle$
+\end_inset
+
+.
+ Therefore 
+\begin_inset Formula $x^{p}=(y^{p})^{r}$
+\end_inset
+
+ for some 
+\begin_inset Formula $r\in\mathbb{Z}$
+\end_inset
+
+ and since the 
+\begin_inset Formula $p$
+\end_inset
+
+th power function on 
+\begin_inset Formula $G$
+\end_inset
+
+ is a homomorphism we get 
+\begin_inset Formula $(xy^{-r})^{p}=1$
+\end_inset
+
+ with 
+\begin_inset Formula $xy^{-r}\neq1$
+\end_inset
+
+ since 
+\begin_inset Formula $x\notin\langle y\rangle$
+\end_inset
+
+.
+ So 
+\begin_inset Formula $xy^{-r}$
+\end_inset
+
+ has order 
+\begin_inset Formula $p$
+\end_inset
+
+ and 
+\begin_inset Formula $G=\langle x,y\rangle=\langle xy^{-r},y\rangle$
+\end_inset
+
+.
+ We now rename 
+\begin_inset Formula $xy^{-r}$
+\end_inset
+
+ as 
+\begin_inset Formula $x$
+\end_inset
+
+, so 
+\begin_inset Formula $G=\langle x,y\rangle$
+\end_inset
+
+ where 
+\begin_inset Formula $x$
+\end_inset
+
+ has order 
+\begin_inset Formula $p$
+\end_inset
+
+ and 
+\begin_inset Formula $y$
+\end_inset
+
+ has order 
+\begin_inset Formula $p^{2}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+We are not guaranteed that 
+\begin_inset Formula $[x,y]=y^{p}$
+\end_inset
+
+, which is one of the relations for the two generators of 
+\begin_inset Formula $G_{p}$
+\end_inset
+
+.
+ How can we force this relation to occur? Well, since 
+\begin_inset Formula $[x,y]$
+\end_inset
+
+ is a nontrivial element of 
+\begin_inset Formula $[G,G]=\mathrm{Z}(G)$
+\end_inset
+
+, we have 
+\begin_inset Formula $\mathrm{Z}(G)=\langle[x,y]\rangle=\langle y^{p}\rangle$
+\end_inset
+
+, so
+\begin_inset Formula 
+\begin{equation}
+[x,y]=(y^{p})^{k}\label{eq:bothsidesraisejfklsdjlkfsd}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $k\not\equiv0\,\,\mathrm{mod}\,p$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\ell$
+\end_inset
+
+ be a multiplicative inverse for 
+\begin_inset Formula $k$
+\end_inset
+
+ mod 
+\begin_inset Formula $p$
+\end_inset
+
+ and raise both sides of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{eq:bothsidesraisejfklsdjlkfsd})
+\end_layout
+
+\end_inset
+
+ to the 
+\begin_inset Formula $\ell$
+\end_inset
+
+th power: using 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Lemma~(
+\backslash
+ref{lemmacommutatorcommuteident})
+\end_layout
+
+\end_inset
+
+, 
+\begin_inset Formula $[x,y]^{\ell}=(y^{pk})^{\ell}$
+\end_inset
+
+ implies 
+\begin_inset Formula $[x^{\ell},y]=y^{p}$
 \end_inset
 
 .
  Since 
-\begin_inset Formula $G$
+\begin_inset Formula $\ell\not\equiv0\,\,\mathrm{mod}\,p$
 \end_inset
 
- is a 
+, we have 
+\begin_inset Formula $\langle x\rangle=\langle x^{\ell}\rangle$
+\end_inset
+
+, so we can rename 
+\begin_inset Formula $x^{\ell}$
+\end_inset
+
+ as 
+\begin_inset Formula $x$
+\end_inset
+
+: now 
+\begin_inset Formula $G=\langle x,y\rangle$
+\end_inset
+
+ where 
+\begin_inset Formula $x$
+\end_inset
+
+ has order 
 \begin_inset Formula $p$
 \end_inset
 
--group, we have by the fixed-point congruence
+, 
+\begin_inset Formula $y$
+\end_inset
+
+ has order 
+\begin_inset Formula $p^{2}$
+\end_inset
+
+, and 
+\begin_inset Formula $[x,y]=y^{p}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Because 
+\begin_inset Formula $[x,y]$
+\end_inset
+
+ commutes with 
+\begin_inset Formula $x$
+\end_inset
+
+ and 
+\begin_inset Formula $y$
+\end_inset
+
+ and 
+\begin_inset Formula $G=\langle x,y\rangle$
+\end_inset
+
+, every element of 
+\begin_inset Formula $G$
+\end_inset
+
+ has the form
 \begin_inset Formula 
 \[
-\mathrm{Fix}_{G}(X)\equiv1\,\,\mathrm{mod}\,p.
+y^{j}x^{i}[x,y]^{k}=[x,y]^{k}y^{j}x^{i}=y^{pk+j}x^{i}.
 \]
 
 \end_inset
 
-Now 
-\begin_inset Formula $G$
-\end_inset
-
- and 
-\begin_inset Formula $\langle e\rangle$
-\end_inset
-
- are both normal subgroups of 
-\begin_inset Formula $G$
-\end_inset
-
-.
- Thus 
-\begin_inset Formula $\mathrm{Fix}_{G}(X)\geq p+1$
-\end_inset
-
-.
- In particular, there exists at least one normal subgroup of 
-\begin_inset Formula $G$
-\end_inset
-
- whose order is 
-\begin_inset Formula $p$
-\end_inset
-
-, say 
-\begin_inset Formula $N$
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Standard
-Let 
-\begin_inset Formula $H_{1},\dots,H_{k}$
-\end_inset
-
- be the normal subgroups of 
-\begin_inset Formula $G$
-\end_inset
-
- each having order 
-\begin_inset Formula $p$
-\end_inset
-
-.
- Then observe that
+Let's see how such products multiply:
 \begin_inset Formula 
 \begin{align*}
-p^{2} & =|G|\\
- & \geq|\{e\}|+|H_{1}\backslash\{e\}|+\cdots+|H_{k}\backslash\{e\}|\\
- & =1+k(p-1).
+y^{b}x^{m}\cdot y^{b'}x^{m'} & =y^{b}(x^{m}y^{b'})x^{m'}\\
+ & =y^{b}(y^{b'}x^{m}[x,y]^{mb'})x^{m'}\\
+ & =y^{b+b'}x^{m}(y^{p})^{mb'}x^{m'}\\
+ & =y^{b+b'+pmb'}x^{m+m'}.
 \end{align*}
 
 \end_inset
 
-This implies 
-\begin_inset Formula $p^{2}-1\geq k(p-1)$
+So we get a homomorphism 
+\begin_inset Formula $G_{p}\to G$
 \end_inset
 
-, which implies 
-\begin_inset Formula $p+1\geq k$
-\end_inset
-
-.
- Thus
+ by
 \begin_inset Formula 
-\begin{align*}
-p+1 & \leq\mathrm{Fix}_{G}(X)\\
- & =k+2\\
- & \leq p+3
-\end{align*}
+\[
+\begin{pmatrix}1+pm & b\\
+0 & 1
+\end{pmatrix}\mapsto y^{b}x^{m}.
+\]
 
 \end_inset
 
- 
-\end_layout
-
-\begin_layout Standard
-Furthermore, if 
-\begin_inset Formula $H$
+This function is well-defined since on the left side 
+\begin_inset Formula $m$
 \end_inset
 
- and 
-\begin_inset Formula $H'$
-\end_inset
-
- are two distinct normal subgroups of 
-\begin_inset Formula $G$
-\end_inset
-
- each having order 
+ matters modulo 
 \begin_inset Formula $p$
 \end_inset
 
-, then 
-\begin_inset Formula $H\cap H'=\langle e\rangle$
+ and 
+\begin_inset Formula $b$
+\end_inset
+
+ matters modulo 
+\begin_inset Formula $p^{2}$
+\end_inset
+
+ which 
+\begin_inset Formula $x^{p}=1$
+\end_inset
+
+ and 
+\begin_inset Formula $y^{p^{2}}=1$
 \end_inset
 
 .
- Moreover, the number of such subgroups must be less than or equal to 
-\begin_inset Formula $p+1$
+ This homomorphism is onto since 
+\begin_inset Formula $x$
 \end_inset
 
-: if there are 
+ and 
+\begin_inset Formula $y$
+\end_inset
+
+ are in the image, so it is an isomorphism since 
+\begin_inset Formula $G_{p}$
+\end_inset
+
+ and 
+\begin_inset Formula $G$
+\end_inset
+
+ have equal order: 
+\begin_inset Formula $G\cong G_{p}$
+\end_inset
+
+.
+ 
 \begin_inset ERT
 status open
 
@@ -38133,10 +40201,14 @@ begin{proof}
 \end_inset
 
 , where 
-\begin_inset Formula $\ell_{g}(\overline{x})=\overline{gx}$
+\begin_inset Formula 
+\[
+\ell_{g}(\overline{x})=\overline{gx}
+\]
+
 \end_inset
 
- for all 
+for all 
 \begin_inset Formula $\overline{x}\in G\slash P$
 \end_inset
 
