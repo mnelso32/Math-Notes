@@ -165,7 +165,11 @@ Throughout this note, let
 \begin_inset Formula $K$
 \end_inset
 
- be a field and let 
+ be a field of characteristic 
+\begin_inset Formula $2$
+\end_inset
+
+ and let 
 \begin_inset Formula $S$
 \end_inset
 
@@ -1577,7 +1581,7 @@ f_{i,j}=x_{i}x_{j}-\sum_{k}c_{i,j}^{k}x_{k}.
 \end_inset
 
 It follows from the the fact that 
-\begin_inset Formula $A$
+\begin_inset Formula $\star$
 \end_inset
 
  is associative and 

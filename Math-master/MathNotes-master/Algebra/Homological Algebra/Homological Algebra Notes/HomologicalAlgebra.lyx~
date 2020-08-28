@@ -27057,6 +27057,119 @@ end{proof}
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\backslash
+label{prop}
+\end_layout
+
+\end_inset
+
+ Suppose 
+\begin_inset Formula $(R,\mathfrak{m})$
+\end_inset
+
+ is a regular local ring of dimension 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ Then the global dimension of 
+\begin_inset Formula $R$
+\end_inset
+
+ is 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $x_{1},\dots,x_{n}$
+\end_inset
+
+ generate the maximal ideal 
+\begin_inset Formula $\mathfrak{m}$
+\end_inset
+
+ of 
+\begin_inset Formula $R$
+\end_inset
+
+.
+ Then the Koszul complex 
+\begin_inset Formula $\mathcal{K}(x_{1},\dots,x_{n})$
+\end_inset
+
+ is a minimal free resolution of 
+\begin_inset Formula $R\slash\mathfrak{m}$
+\end_inset
+
+ over 
+\begin_inset Formula $R$
+\end_inset
+
+.
+ It follows that 
+\begin_inset Formula $n=\mathrm{pd}_{R}(R\slash\mathfrak{m})$
+\end_inset
+
+ is equal to the global dimension of 
+\begin_inset Formula $R$
+\end_inset
+
+.
+  
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsubsection
 Minimal Projective Resolutions over a Noetherian Local Ring
 \end_layout

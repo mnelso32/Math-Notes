@@ -84,6 +84,15 @@ commutative diagrams/.cd,
 \blocktheorem{prop}% Make prop into a block
 
 
+\makeatletter
+\newcommand*{\@old@slash}{}\let\@old@slash\slash
+\def\slash{\relax\ifmmode\delimiter"502F30E\mathopen{}\else\@old@slash\fi}
+\makeatother
+
+\def\backslash{\delimiter"526E30F\mathopen{}}
+
+
+
 \usepackage[bottom]{footmisc}
 
 \makeatother
@@ -215,7 +224,7 @@ can give $\text{M}_{m\times n}(\mathbb{C})$ the structure of an inner-product
 space by equipping it with the inner-product described in the previous
 example. In more detail, let $E_{ij}$ be the standard matrix in $\text{M}_{m\times n}(\mathbb{C})$
 whose entry in the $(i,j)$-th component is $1$ and whose entry everywhere
-else is $0$, let $e_{k}$ denote the standard basis vector in $\mathbb{C}^{mn}$
+else is $0$, let $e_{k}$ be the standard basis vector in $\mathbb{C}^{mn}$
 whose entry in the $k$-th compenent is $1$ and whose entry everywhere
 else is $0$, and let $\varphi\colon\text{M}_{m\times n}(\mathbb{C})\to\mathbb{C}^{mn}$
 be the isomorphism such that 
@@ -239,19 +248,25 @@ a_{mn}
 \]
 
 Using this isomorphism, we give $\text{M}_{m\times n}(\mathbb{C})$
-the structure of an inner-product space by definining $\langle\cdot,\cdot\rangle\colon\text{M}_{m\times n}(\mathbb{C})\times\text{M}_{m\times n}(\mathbb{C})\to\mathbb{C}$
+the structure of an inner-product space by defining 
+\[
+\langle\cdot,\cdot\rangle\colon\text{M}_{m\times n}(\mathbb{C})\times\text{M}_{m\times n}(\mathbb{C})\to\mathbb{C}
+\]
 by the formula
 \[
-\langle A,B\rangle:=\text{Tr}(B^{*}A)=\sum_{j=1}^{n}\sum_{i=1}^{m}a_{ij}\overline{b}_{ij}=\langle a,b\rangle
+\langle A,B\rangle:=\text{Tr}(AB^{*})=\sum_{j=1}^{n}\sum_{i=1}^{m}a_{ij}\overline{b}_{ij}=\langle a,b\rangle
 \]
 where 
 \[
 A=\begin{pmatrix}a_{11} & \cdots & a_{1n}\\
 \vdots & \ddots & \vdots\\
 a_{m1} & \cdots & a_{mn}
-\end{pmatrix}\quad\text{and}\quad B=\begin{pmatrix}b_{11} & \cdots & b_{1n}\\
+\end{pmatrix}\quad,B=\begin{pmatrix}b_{11} & \cdots & b_{1n}\\
 \vdots & \ddots & \vdots\\
 b_{m1} & \cdots & b_{mn}
+\end{pmatrix},\quad\text{and}\quad B^{*}=\begin{pmatrix}\overline{b}_{11} & \cdots & \overline{b}_{m1}\\
+\vdots & \ddots & \vdots\\
+\overline{b}_{1n} & \cdots & \overline{b}_{nm}
 \end{pmatrix}.
 \]
 
@@ -663,28 +678,45 @@ since the square root function is continuous on $\mathbb{R}_{\geq0}$.
 \end{enumerate}
 \end{proof}
 
-\begin{defn}\label{defn} Let $\|\cdot\|_{a}$ and $\|\cdot\|_{b}$
-be two norms on a vector space $V$. We say $\|\cdot\|_{a}$ is \textbf{stronger
-}than $\|\cdot\|_{b}$ if there exists a constant $C>0$ such that
+\begin{defn}\label{defn} Let $\|\cdot\|_{1}$ and $\|\cdot\|_{2}$
+be two norms on a vector space $V$. We say $\|\cdot\|_{1}$ is \textbf{stronger
+}than $\|\cdot\|_{2}$ (or $\|\cdot\|_{2}$ is \textbf{weaker }than
+$\|\cdot\|_{1}$) if there exists a constant $C>0$ such that 
 \[
-\|x\|_{b}\leq C\|x\|_{a}
+\|x\|_{2}\leq C\|x\|_{1}
 \]
 for all $x\in V$. \end{defn}
 
 \begin{rem}\label{rem} Observe if a sequence $(x_{n})$ in $V$ converges
-to $x$ in the metric spaced induced by the $\|\cdot\|_{a}$ norm,
-then it also converges in the metric space induced by the $\|\cdot\|_{b}$
+to $x$ in the metric spaced induced by the $\|\cdot\|_{1}$ norm,
+then it also converges in the metric space induced by the $\|\cdot\|_{2}$
 norm. Indeed, let $\varepsilon>0$. Choose $N\in\mathbb{N}$ such
-that $n\geq N$ implies $\|x_{n}-x\|_{a}<\varepsilon/C$. Then $n\geq N$
+that $n\geq N$ implies $\|x_{n}-x\|_{1}<\varepsilon/C$. Then $n\geq N$
 implies
 \begin{align*}
-\|x_{n}-x\|_{b} & \leq C\|x_{n}-x\|_{a}\\
+\|x_{n}-x\|_{2} & \leq C\|x_{n}-x\|_{1}\\
  & <\varepsilon.
 \end{align*}
 
-Thus a sequence $(x_{n})$ converging in the $\|\cdot\|_{a}$ norm
+Thus a sequence $(x_{n})$ converging in the $\|\cdot\|_{1}$ norm
 is a \emph{stronger }condition than\emph{ }the sequence $(x_{n})$
-converging in the $\|\cdot\|_{b}$ norm. \end{rem}
+converging in the $\|\cdot\|_{2}$ norm. An alternative way of thinking
+about this is that the topology induced by the $\|\cdot\|_{1}$ norm
+is \emph{finer }than the topology induced by the $\|\cdot\|_{2}$
+norm. Indeed, if $B_{r}^{2}(0)$ is the open ball of radius $r$ centered
+at $0$ in the $\|\cdot\|_{2}$ norm and $B_{r/C}^{1}(0)$ is the
+open ball of radius $r/C$ in the $\|\cdot\|_{1}$ norm, then we have
+\[
+B_{r}^{2}(0)\subseteq B_{r/C}^{1}(0).
+\]
+More generally, if $a\in V$, then
+\begin{align*}
+B_{r}^{2}(a) & =a+B_{r}^{2}(0)\\
+ & \subseteq a+B_{r/C}^{1}(0)\\
+ & =B_{r/C}^{1}(a).
+\end{align*}
+This implies the topology induced by $\|\cdot\|_{1}$ is finer than
+the topology induced by $\|\cdot\|_{2}$. \end{rem}
 
 \subsection{Closure}
 
@@ -702,7 +734,7 @@ and is denoted $\overline{A}$. \end{defn}
 \begin{rem}\label{rem} If every open neighborhood of a point $x\in\mathcal{V}$
 meets $A$, then we can find a sequence $(x_{n})$ of points in $A$
 such that $x_{n}\to x$. Conversely, if $(x_{n})$ is a sequence of
-points in $A$ such that $x_{n}\to x$, then very open neighborhood
+points in $A$ such that $x_{n}\to x$, then every open neighborhood
 of $x$ meets $A$. Thus, an equivalent condition for $x$ to be a
 closure point of $A$ is that there exists a sequence $(x_{n})$ of
 points in $A$ such that $x_{n}\to x$. We will prove this in a moment.
@@ -826,18 +858,22 @@ is a subspace of $\mathscr{V}$. \end{proof}
 
 \section{Hilbert Spaces}
 
-Recall that a sequence $(x_{n})\in\mathcal{V}$ is said to be a \textbf{Cauchy
-sequence }if for all $\varepsilon>0$ there exists $N\in\mathbb{N}$
-such that 
+Let $\mathcal{V}$ be an inner-product space. A sequence $(x_{n})\in\mathcal{V}$
+is said to be a \textbf{Cauchy sequence }if for all $\varepsilon>0$
+there exists $N\in\mathbb{N}$ such that 
 \[
 n,m\geq N\text{ implies }\|x_{n}-x_{m}\|<\varepsilon.
 \]
+Every convergent sequence in $\mathcal{V}$ is a Cauchy sequence.
+Indeed:
 
-\begin{prop}\label{prop} If $x_{n}\to x$, then $(x_{n})$ is a Cauchy
-sequence. \end{prop}
+\begin{prop}\label{prop} Let $\mathcal{V}$ be an inner-product space
+and let $(x_{n})$ be a convergent sequence in $\mathcal{V}$. Then
+$(x_{n})$ is a Cauchy sequence. \end{prop}
 
-\begin{proof}\label{proof} Let $\varepsilon>0$. Choose $N\in\mathbb{N}$
-such that $n\geq N$ implies $\|x_{n}-x\|<\varepsilon/2$. Then $m,n\geq N$
+\begin{proof}\label{proof} Let $x\in\mathcal{V}$ be the limit of
+$(x_{n})$ and let $\varepsilon>0$. Choose $N\in\mathbb{N}$ such
+that $n\geq N$ implies $\|x_{n}-x\|<\varepsilon/2$. Then $m,n\geq N$
 implies 
 \begin{align*}
 \|x_{n}-x_{m}\| & =\|x_{n}-x+x-x_{m}\|\\
@@ -845,29 +881,73 @@ implies
  & <\varepsilon/2+\varepsilon/2\\
  & =\varepsilon.
 \end{align*}
-\end{proof}
+It follows that $(x_{n})$ is Cauchy. \end{proof}
 
-\begin{defn}\label{defn} We say $\mathcal{V}$ is a \textbf{Hilbert
-space }if every Cauchy sequence in $\mathcal{V}$ is convergent. \end{defn}
+~~~Though every convergent sequence is Cauchy, the converse need
+not hold. For instance, in $\mathbb{Q}$, we can construct a sequence
+of rational numbers which gets closer and closer to $\pi$. Namely,
+such a sequence starts out as
+\begin{equation}
+(3,3.1,3.14,3.141,\dots).\label{eq:sequenceconvtopi}
+\end{equation}
+It's easy to see that such a sequence is in fact a Cauchy sequence.
+However, by construction, this sequence converges to $\pi$, which
+is not a rational number. On the other hand, since $\pi$ is a real
+number, the Cauchy sequence (\ref{eq:sequenceconvtopi}) of real numbers
+converges to a real number. Is every Cauchy sequence in $\mathbb{R}$
+convergent? It turns out that the answer to this is, yes! We give
+a special name to inner-product spaces which share this property with
+$\mathbb{R}$. 
+
+\begin{defn}\label{defn} Let $\mathcal{V}$ be an inner-product space.
+We say $\mathcal{V}$ is a \textbf{Hilbert space }if every Cauchy
+sequence in $\mathcal{V}$ converges to a limit in $\mathcal{V}$.
+\end{defn}
 
 ~~~The most basic examples with Hilbert spaces are $\mathbb{R}$,
 $\mathbb{R}^{n}$, and $\mathbb{C}^{n}$ (with their usual inner-product).
 We will show later on that $\ell^{2}(\mathbb{N})$ is also a Hilbert
 space. Nonexamples of Hilbert spaces include $\mathbb{Q}$ and $C[a,b]$.
-Hilbert spaces are usually denoted $\mathcal{H}$ and $\mathcal{K}$.
+Hilbert spaces are usually denoted by $\mathcal{H}$ and $\mathcal{K}$.
 
 \subsection{Distances}
 
-\begin{defn}\label{defn} Let $A\subseteq\mathcal{V}$ and $x\in\mathcal{V}$.
-We define the \textbf{distance from $x$ to $A$}, denoted $d(x,A)$,
+\begin{defn}\label{defndistance} Let $\mathcal{V}$ be an inner-product
+space, let $A,B\subseteq\mathcal{V}$, and let $x\in\mathcal{V}$.
+We define the \textbf{distance from $x$ to $A$}, denoted $\mathrm{d}(x,A)$,
 by
 \[
-d(x,A):=\inf\{\|x-a\|\mid a\in A\}.
+\mathrm{d}(x,A):=\inf\{\|x-a\|\mid a\in A\}.
+\]
+More generally, we defined the \textbf{distance from $A$ to $B$},
+denoted $\mathrm{d}(A,B)$, by
+\[
+\mathrm{d}(A,B):=\inf\{\|a-b\|\mid a\in A\quad\text{and}\quad b\in B\}.
 \]
 \end{defn}
 
-\begin{prop}\label{prop} $d(x,A)=0$ if and only if $x\in\overline{A}$.
-\end{prop}
+\begin{prop}\label{prop} With the notation as in Definition~(\ref{defndistance}),
+we have $\mathrm{d}(x,A)=0$ if and only if $x\in\overline{A}$. \end{prop}
+
+\begin{proof} Suppose $\mathrm{d}(x,A)=0$. Then for each $n\in\mathbb{N}$
+we can choose $a_{n}\in A$ such that
+\[
+\mathrm{d}(x,A)\leq\|x-a_{n}\|<\mathrm{d}(x,A)+\frac{1}{n}.
+\]
+In other words, since $\mathrm{d}(x,A)=0$, we can find a sequence
+$(a_{n})$ in $A$ such that
+\[
+\|x-a_{n}\|<\frac{1}{n}
+\]
+for all $n\in\mathbb{N}$. This implies $x\in\overline{A}$. 
+
+~~~Conversely, suppose $x\in\overline{A}$. Then we can find a
+sequence $(a_{n})$ in $A$ such that
+\[
+\mathrm{d}(x,A)\leq\|x-a_{n}\|<\frac{1}{n}
+\]
+for all $n\in\mathbb{N}$. Taking $n\to\infty$ gives us $\mathrm{d}(x,A)=0$.
+\end{proof}
 
 \begin{rem}\label{rem} A common technique that we do is we choose
 a sequence $(a_{n})$ of elements in $A$ such that
@@ -948,115 +1028,240 @@ d(x+y,\mathcal{A}) & \leq\|(x+y)-(w_{n}+z_{n})\|\\
 for all $n\in\mathbb{N}$. In particular, this implies $d(x+y,\mathcal{A})\leq d(x,\mathcal{A})+d(y,\mathcal{A})$.
 \end{proof}
 
-\subsection{The Orthogonal Projection}
+\subsection{Orthogonal Projection}
 
-\begin{theorem}\label{theorem} Let $\mathcal{H}$ be a Hilbert space
-and let $\mathcal{K}$ be a closed subspace of $\mathcal{H}$. Suppose
-$x\in\mathcal{H}\backslash\mathcal{K}$. Then there exists a unique
-$a\in\mathcal{K}$ such that $d(x,\mathcal{K})=\|x-a\|$. \end{theorem}
+Let $K$ be a $2$-dimensional subspace in $\mathbb{R}^{3}$. Such
+a subspace corresponds to a plane in $\mathbb{R}^{3}$ which passes
+through the origin. One of the main tools that we use in this setting
+is the concept of projecting onto $K$. For instance, if $K$ corresponds
+to the plane $\{z=0\}$ in $\mathbb{R}^{3}$, then the projection
+of the vector $(1,2,1)^{\top}$ onto $K$ gives the vector $(1,2,0)^{\top}$.
+In fact, $(1,2,0)^{\top}$ is the \emph{closest }vector to $(1,2,1)^{\top}$
+which belongs to $K$. In other words, if $(a,b,0)^{\top}\in K$,
+then
+\begin{align*}
+\sqrt{(1-a)^{2}+(2-b)^{2}+1} & =\|(1,2,1)^{\top}-(a,b,0)^{\top}\|\\
+ & \geq\|(1,2,1)^{\top}-(1,2,0)^{\top}\|\\
+ & =1.
+\end{align*}
+We wish to generalize these concepts from $\mathbb{R}^{3}$ to an
+arbitrary Hilbert space. 
 
-\begin{proof}\label{proof} Choose a sequence $(y_{n})$ of elements
+\begin{theorem}\label{theoremorthogonalprojectionexist} Let $\mathcal{H}$
+be a Hilbert space and let $\mathcal{K}$ be a closed subspace of
+$\mathcal{H}$. Suppose $x\in\mathcal{H}\backslash\mathcal{K}$. Then
+there exists a unique $a\in\mathcal{K}$ such that $\mathrm{d}(x,\mathcal{K})=\|x-a\|$.
+\end{theorem}
+
+\begin{proof}\label{proof} Choose a sequence $(a_{n})$ of elements
 in $\mathcal{K}$ such that
 \begin{equation}
-d(x,\mathcal{K})\leq\|x-y_{n}\|<d(x,\mathcal{K})+1/n.\label{eq:inequalityinf}
+\mathrm{d}(x,\mathcal{K})\leq\|x-a_{n}\|<\mathrm{d}(x,\mathcal{K})+1/n.\label{eq:inequalityinf}
 \end{equation}
-for all $n\in\mathbb{N}$. By using the parallelogram identity we
-obtain 
+for all $n\in\mathbb{N}$. We claim that $(a_{n})$ is a Cauchy sequence.
+The key to showing this is to use the parallelogram identity, which
+says 
+\begin{equation}
+\|y-z\|^{2}+\|y+z\|^{2}=2\|y\|^{2}+2\|z\|^{2}\label{eq:paralleltoprove}
+\end{equation}
+for all $y,z\in\mathcal{H}$. Setting $y=x-a_{m}$ and $z=x-a_{n}$
+in (\ref{eq:paralleltoprove}) and rearranging terms, we have
+
 \begin{align*}
-\|y_{m}-y_{n}\|^{2} & =2\|x-y_{n}\|^{2}+2\|x-y_{m}\|^{2}-\|(x-y_{n})+(x-y_{m})\|^{2}\\
- & <2(d(x,\mathscr{K})+1/n)^{2}+2(d(x,\mathscr{K})+1/m)^{2}-\|(2(x-(y_{n}-y_{m})/2)\|^{2}\\
- & =4d(x,\mathscr{K)}^{2}+(4/n+4/m)d(x,\mathscr{K})+2/n^{2}+2/m^{2}-4\|(x-(y_{n}-y_{m})/2\|^{2}\\
- & \leq4d(x,\mathscr{K})^{2}+(4/n+4/m)d(x,\mathscr{K})+2/n^{2}+2/m^{2}-4d(x,\mathscr{K})^{2}\\
- & =(4/n+4/m)d(x,\mathscr{K})+2/n^{2}+2/m^{2}.
+\|a_{m}-a_{n}\|^{2} & =2\|x-a_{m}\|^{2}+2\|x-a_{n}\|^{2}-\|(x-a_{m})+(x-a_{n})\|^{2}\\
+ & <2(\mathrm{d}(x,\mathcal{K})+1/m)^{2}+2(\mathrm{d}(x,\mathcal{K})+1/n)^{2}-\|(2(x-(a_{n}-a_{m})/2)\|^{2}\\
+ & =4\mathrm{d}(x,\mathcal{K})^{2}+(4/m+4/n)\mathrm{d}(x,\mathcal{K})+2/m^{2}+2/n^{2}-4\|(x-(a_{n}-a_{m})/2\|^{2}\\
+ & \leq4\mathrm{d}(x,\mathcal{K})^{2}+(4/m+4/n)\mathrm{d}(x,\mathcal{K})+2/m^{2}+2/n^{2}-4\mathrm{d}(x,\mathcal{K})^{2}\\
+ & =(4/n+4/m)\mathrm{d}(x,\mathcal{K})+2/n^{2}+2/m^{2}.
 \end{align*}
-Thus if $\varepsilon>0$, we choose $N$ such that $n,m\geq N$ implies
+Thus if $\varepsilon>0$, then we choose $N\in\mathbb{N}$ such that
+$n,m\geq N$ implies
 \[
-(4/n+4/m)d(x,\mathscr{K})+2/n^{2}+2/m^{2}<\varepsilon^{2}.
+(4/n+4/m)\mathrm{d}(x,\mathcal{K})+2/n^{2}+2/m^{2}<\varepsilon^{2}.
 \]
-Then $n,m\geq N$ implies $\|y_{m}-y_{n}\|<\varepsilon$. Therefore
-the sequence $(y_{n})$ is a Cauchy sequence, and since we are in
-a Hilbert space, $(y_{n})$ must be convergent, say $y_{n}\to a$.
-Then taking the limit of (\ref{eq:inequalityinf}) as $n\to\infty$
-gives us $d(x,\mathcal{K})=\|x-a\|$.
+which implies $\|a_{m}-a_{n}\|<\varepsilon$. Therefore the sequence
+$(a_{n})$ is a Cauchy sequence, and since we are in a Hilbert space,
+$(a_{n})$ must be convergent, say $a_{n}\to a$, with $a\in\mathcal{K}$
+since $\mathcal{K}$ is closed. Then taking the limit of (\ref{eq:inequalityinf})
+as $n\to\infty$ gives us $\mathrm{d}(x,\mathcal{K})=\|x-a\|$.
 
 ~~~To see uniqueness of $a$, let $b$ be another point in $\mathcal{K}$
-such that $b\neq a$ and $\|x-b\|=d(x,\mathcal{K})$. Using the parallelogram
-identity again, we have 
+such that $\|x-b\|=\mathrm{d}(x,\mathcal{K})$. We again use the parallelogram
+identity. We have
 \begin{align*}
 \|b-a\|^{2} & =\|(x-a)-(x-b)\|^{2}\\
  & =2\|x-a\|^{2}+2\|x-b\|^{2}-\|(x-a)+(x-b)\|^{2}\\
- & =4d(x,\mathcal{K})^{2}-\|2x-(a+b)\|^{2}\\
- & =4d(x,\mathcal{K})^{2}-4\|x-(a+b)/2\|^{2}\\
- & \leq0.
+ & =4\mathrm{d}(x,\mathcal{K})^{2}-\|2x-(a+b)\|^{2}\\
+ & =4\mathrm{d}(x,\mathcal{K})^{2}-4\|x-(a+b)/2\|^{2}\\
+ & \leq0,
 \end{align*}
 which implies $a=b$. \end{proof}
 
-\begin{defn}\label{defn}The unique point $a$ in the previous theorem
-is called the \textbf{orthogonal projection }of the point $x$ onto
-the subspace $\mathcal{K}$ and is denoted by $\text{P}_{\mathcal{K}}x$.
-\end{defn}
-
-The name orthogonal projection is justified by the following proposition. 
-
-\begin{prop}\label{propuniqueorthproj} Let $\mathcal{H}$ be a Hilbert
-space, let $\mathcal{K}$ be a closed subspace of $\mathcal{H}$,
-and let $x\in\mathcal{H}$. There exists a unique point $b\in\mathcal{K}$
-such that
+\begin{theorem}\label{theoremuniqueorthproj} Let $\mathcal{H}$ be
+a Hilbert space, let $\mathcal{K}$ be a closed subspace of $\mathcal{H}$,
+and let $x\in\mathcal{H}$. Then $\mathrm{P}_{\mathcal{K}}x$ is the
+unique point in $\mathcal{K}$ such that
 \[
-\langle x-b,y\rangle=0
+\langle x-\mathrm{P}_{\mathcal{K}}x,y\rangle=0
 \]
-for all $y\in\mathcal{K}$. \end{prop}
+for all $y\in\mathcal{K}$. \end{theorem}
 
 \begin{proof}\label{proof} Let $y\in\mathcal{K}$. Define a function
 $f\colon\mathbb{R}\to\mathbb{R}$ by
 \[
-f(t)=\|x-\text{P}_{\mathcal{K}}x+ty\|^{2}
+f(t)=\|x-\mathrm{P}_{\mathcal{K}}x+ty\|^{2}
 \]
-for all $t\in\mathbb{R}$. Then $f(0)=d(x,\mathcal{K})^{2}$ and $f(t)>d(x,\mathcal{K})^{2}$
-for all $t\neq0$. So $f$ has a global minimum at $t=0$ which implies
-$f'(t)=0$. So 
+for all $t\in\mathbb{R}$. Then $f(0)=\mathrm{d}(x,\mathcal{K})^{2}$
+and $f(t)>\mathrm{d}(x,\mathcal{K})^{2}$ for all $t\neq0$ (note
+we have a \emph{strict }inequality here by uniqueness of $\mathrm{P}_{\mathcal{K}}x$).
+For each $t\in\mathbb{R}$, we have
 \begin{align*}
-f(t) & =\|x-\text{P}_{\mathcal{K}}x+ty\|^{2}\\
- & =\langle x-\text{P}_{\mathcal{K}}x+ty,x-\text{P}_{\mathcal{K}}x+ty\rangle\\
- & =\|x-\text{P}_{\mathcal{K}}x\|^{2}+2\text{Re}(\langle x-\text{P}_{\mathcal{K}}x,ty\rangle)+\|ty\|^{2}\\
- & =d(x,\mathcal{K})^{2}+2t\text{Re}(\langle x-\text{P}_{\mathcal{K}}x,y\rangle)+t^{2}\|y\|^{2}.
+f(t) & =\|x-\mathrm{P}_{\mathcal{K}}x+ty\|^{2}\\
+ & =\langle x-\mathrm{P}_{\mathcal{K}}x+ty,x-\mathrm{P}_{\mathcal{K}}x+ty\rangle\\
+ & =\|x-\mathrm{P}_{\mathcal{K}}x\|^{2}+2\mathrm{Re}(\langle x-\mathrm{P}_{\mathcal{K}}x,ty\rangle)+\|ty\|^{2}\\
+ & =\mathrm{d}(x,\mathcal{K})^{2}+2t\mathrm{Re}(\langle x-\mathrm{P}_{\mathcal{K}}x,y\rangle)+t^{2}\|y\|^{2}.
 \end{align*}
-Thus, $f$ is a quadratic in $t$. So 
+So the function $f$ is just a quadratic function in $t$. In particular,
+it is differentiable at $t=0$, and since it has a global minimum
+at $t=0$, we have
 \begin{align*}
-f'(t) & =2t\|y\|^{2}+2\text{Re}(\langle x-\text{P}_{\mathcal{K}}x,y\rangle,
+0 & =f'(t)\Big|_{t=0}\\
+ & =\left(2\mathrm{Re}(\langle x-\mathrm{P}_{\mathcal{K}}x,y\rangle)+2t\|y\|^{2}\right)\Big|_{t=0}\\
+ & =2\mathrm{Re}(\langle x-\mathrm{P}_{\mathcal{K}}x,y\rangle).
 \end{align*}
-which implies $0=f'(0)=2\text{Re}(\langle x-\text{P}_{\mathcal{K}}x,y\rangle)$.
-Therefore $\text{Re}\langle x-\text{P}_{\mathcal{K}}x,y\rangle=0$
+Therefore $\mathrm{Re}\langle x-\mathrm{P}_{\mathcal{K}}x,y\rangle=0$
 for all $y\in\mathcal{K}$. Note that this also implies
 \begin{align*}
-\text{Im}(\langle x-\text{P}_{\mathcal{K}}x,y\rangle) & =-\text{Re}(i\langle x-\text{P}_{\mathcal{K}}x,y\rangle)\\
- & =-\text{Re}(\langle x-\text{P}_{\mathcal{K}}x,-iy\rangle)\\
+\mathrm{Im}(\langle x-\mathrm{P}_{\mathcal{K}}x,y\rangle) & =-\mathrm{Re}(i\langle x-\mathrm{P}_{\mathcal{K}}x,y\rangle)\\
+ & =-\mathrm{Re}(\langle x-\text{P}_{\mathcal{K}}x,-iy\rangle)\\
  & =0
 \end{align*}
-for all $y\in\mathcal{K}$. Combining these we have $\langle x-\text{P}_{\mathcal{K}}x,y\rangle=0$.
+for all $y\in\mathcal{K}$. Combining these together gives us $\langle x-\mathrm{P}_{\mathcal{K}}x,y\rangle=0$
+for all $y\in\mathcal{K}$. 
 
-~~~This proves that $b=\text{P}_{\mathcal{K}}x$ satisfies the
-condition in our proposition. To prove uniqueness, let $c\in\mathcal{K}$
-such that $\langle x-c,y\rangle=0$ for all $y\in\mathcal{K}$. Then
-\[
-\langle x-\text{P}_{\mathcal{K}}x+\text{P}_{\mathcal{K}}x-c,y\rangle=0
-\]
-for all $y\in\mathcal{K}$. Then $\langle\text{P}_{\mathcal{K}}x-c,y\rangle=0$
-for all $y\in\mathcal{K}$. This impies $\text{P}_{\mathcal{K}}x=c$.
+~~~This proves existence. To prove uniqueness, let $a\in\mathcal{K}$
+such that $\langle x-a,y\rangle=0$ for all $y\in\mathcal{K}$. Then
+\begin{align*}
+0 & =\langle x-a,y\rangle\\
+ & =\langle x-\mathrm{P}_{\mathcal{K}}x+\mathrm{P}_{\mathcal{K}}x-a,y\rangle\\
+ & =\langle x-\mathrm{P}_{\mathcal{K}}x,y\rangle+\langle\mathrm{P}_{\mathcal{K}}x-a,y\rangle\\
+ & =\langle\mathrm{P}_{\mathcal{K}}x-a,y\rangle
+\end{align*}
+for all $y\in\mathcal{K}$. In particular, setting $y=\mathrm{P}_{\mathcal{K}}-a$
+gives us $\|\mathrm{P}_{\mathcal{K}}x-a\|^{2}=0$, which implies $\mathrm{P}_{\mathcal{K}}x=a$.
 \end{proof}
+
+\subsubsection{The Orthogonal Projection Map}
+
+The unique point $a$ in Theorem~(\ref{theoremorthogonalprojectionexist})
+is called the \textbf{orthogonal projection }$x$ onto the subspace
+$\mathcal{K}$ and is denoted by $\mathrm{P}_{\mathcal{K}}x$. More
+generally, we define the map $\mathrm{P}_{\mathcal{K}}\colon\mathcal{H}\to\mathcal{K}$
+by $x\mapsto\mathrm{P}_{\mathcal{K}}x$ for all $x\in\mathcal{H}$.
+The map $\mathrm{P}_{\mathcal{K}}$ is called the \textbf{orthogonal
+projection }with respect to $\mathcal{K}$. Actually in linear analysis,
+the words ``orthogonal projection'' describe a certain class of
+linear maps:
+
+\begin{defn}\label{defnorthogonalprojection} Let $\mathcal{V}$ be
+an inner-product space and let $P\colon\mathcal{V}\to\mathcal{V}$
+be a linear map. We say $P$ is a \textbf{projection }if $P^{2}=P$.
+We say $P$ is an \textbf{orthogonal projection }if it is a projection
+and it satisfies
+\[
+\langle Px,y\rangle=\langle x,Py\rangle
+\]
+for all $x,y\in V$. \end{defn}
+
+~~~We need to make sure that our terminology is not contradictory.
+So we need to justify that $\mathrm{P}_{\mathcal{K}}$ really is an
+orthononal projection in the sense of Definition~(\ref{defnorthogonalprojection}).
+This will be established in the next proposition.
+
+\begin{prop}\label{prop} Let $\mathcal{H}$ be a Hilbert space and
+let $\mathcal{K}$ be a closed subspace of $\mathcal{H}$. Then
+\begin{enumerate}
+\item $\mathrm{P}_{\mathcal{K}}$ is $\mathbb{C}$-linear, that is, $\mathrm{P}_{\mathcal{K}}(\lambda x+\mu y)=\lambda\mathrm{P}_{\mathcal{K}}x+\mu\mathrm{P}_{\mathcal{K}}y$
+for all $x,y\in\mathcal{H}$ and $\lambda,\mu\in\mathbb{C}$.
+\item $\|\mathrm{P}_{\mathcal{K}}x\|\leq\|x\|$ for all $x\in\mathcal{H}$.
+\item Let $x\in\mathcal{H}$. Then $\mathrm{P}_{\mathcal{K}}x=x$ if and
+only if $x\in\mathcal{K}$.
+\item $\mathrm{P}_{\mathcal{K}}$ is an orthogonal projection, that is,
+$\mathrm{P}_{\mathcal{K}}(\mathrm{P}_{\mathcal{K}}x)=\mathrm{P}_{\mathcal{K}}x$
+and $\langle\mathrm{P}_{\mathcal{K}}x,y\rangle=\langle x,\mathrm{P}_{\mathcal{K}}y\rangle$
+for all $x,y\in\mathcal{H}$.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}\label{proof} 1. Let $x,y\in\mathcal{H}$ and $\lambda,\mu\in\mathbb{C}$.
+Then for all $z\in\mathcal{K}$, we have
+\begin{align*}
+\langle\lambda x+\mu y-\lambda\mathrm{P}_{\mathcal{K}}x-\mu\mathrm{P}_{\mathcal{K}}y,z\rangle & =\langle\lambda x-\lambda\mathrm{P}_{\mathcal{K}}x,z\rangle+\langle\mu y-\mu\mathrm{P}_{\mathcal{K}}y,z\rangle\\
+ & =\lambda\langle x-\mathrm{P}_{\mathcal{K}}x,z\rangle+\mu\langle y-\mathrm{P}_{\mathcal{K}}y,z\rangle\\
+ & =\lambda\cdot0+\mu\cdot0\\
+ & =0.
+\end{align*}
+In particular, this implies 
+\[
+\lambda\mathrm{P}_{\mathcal{K}}x+\mu\mathrm{P}_{\mathcal{K}}y=\mathrm{P}_{\mathcal{K}}(\lambda x+\mu y)
+\]
+by Proposition~(\ref{theoremuniqueorthproj}).
+
+\hfill
+
+2. Let $x\in\mathcal{H}$. By the Pythagorean theorem, we have 
+\begin{align*}
+\|x\|^{2} & =\|\mathrm{P}_{\mathcal{K}}x\|^{2}+\|\mathrm{P}_{\mathcal{K}}x-x\|^{2}\\
+ & \geq\|\mathrm{P}_{\mathcal{K}}x\|^{2},
+\end{align*}
+which implies $\|\mathrm{P}_{\mathcal{K}}x\|\leq\|x\|$.
+
+\hfill
+
+3. Suppose $\mathrm{P}_{\mathcal{K}}x=x$. Then $x\in\mathcal{K}$
+since $\mathrm{P}_{\mathcal{K}}x\in\mathcal{K}$. Conversely, suppose
+$x\in\mathcal{K}$. Then
+\begin{align*}
+0 & =\|x-x\|\\
+ & \geq\mathrm{d}(x,\mathcal{K})\\
+ & =\|x-\mathrm{P}_{\mathcal{K}}x\|\\
+ & \geq0.
+\end{align*}
+It follows that $\|x-\mathrm{P}_{\mathcal{K}}x\|=0$, which implies
+$x=\mathrm{P}_{\mathcal{K}}x$. 
+
+\hfill
+
+4. We first show $\mathrm{P}_{\mathcal{K}}$ is a projection. Let
+$x\in\mathcal{H}$. Then since $\mathrm{P}_{\mathcal{K}}x\in\mathcal{K}$,
+we have $\mathrm{P}_{\mathcal{K}}(\mathrm{P}_{\mathcal{K}}x)=\mathrm{P}_{\mathcal{K}}x$
+by part 3. Thus $\mathrm{P}_{\mathcal{K}}$ is a projection. Now we
+show it is an orthogonal projection. Let $x,y\in\mathcal{H}$. Then
+\begin{align*}
+0 & =\langle x-\mathrm{P}_{\mathcal{K}}x,\mathrm{P}_{\mathcal{K}}y\rangle\\
+ & =\langle x,\mathrm{P}_{\mathcal{K}}y\rangle-\langle\mathrm{P}_{\mathcal{K}}x,\mathrm{P}_{\mathcal{K}}y\rangle\\
+ & =\langle x,\mathrm{P}_{\mathcal{K}}y\rangle-\langle\mathrm{P}_{\mathcal{K}}x,(\mathrm{P}_{\mathcal{K}}y-y)+y\rangle\\
+ & =\langle x,\mathrm{P}_{\mathcal{K}}y\rangle-\langle\mathrm{P}_{\mathcal{K}}x,\mathrm{P}_{\mathcal{K}}y-y\rangle-\langle\mathrm{P}_{\mathcal{K}}x,y\rangle\\
+ & =\langle x,\mathrm{P}_{\mathcal{K}}y\rangle-\langle\mathrm{P}_{\mathcal{K}}x,y\rangle,
+\end{align*}
+which implies $\langle x,\mathrm{P}_{\mathcal{K}}y\rangle=\langle\mathrm{P}_{\mathcal{K}}x,y\rangle$.
+Thus $\mathrm{P}_{\mathcal{K}}$ is an orthogonal projection. \end{proof}
 
 \subsubsection{Orthogonal Complements}
 
-\begin{defn}\label{defn} Two vectors $x,y\in\mathcal{V}$ and $E\subseteq\mathcal{V}$.
+\begin{defn}\label{defn} Let $\mathcal{V}$ be an inner-product space,
+$x,y\in\mathcal{V}$, and let $A,B\subseteq\mathcal{V}$.
 \begin{enumerate}
 \item We say $x$ is \textbf{orthonal to} $y$, denoted $x\perp y$, if
 $\langle x,y\rangle=0$.
-\item We say $x$ is \textbf{orthogonal to} $E$, denoted $x\perp E$, if
-$\langle x,y\rangle=0$ for all $y\in E$.
-\item The \textbf{orthogonal complement of $E$}, denoted $E^{\perp}$,
+\item We say $x$ is \textbf{orthogonal to} $A$, denoted $x\perp A$, if
+$\langle x,a\rangle=0$ for all $a\in A$.
+\item We say $A$ is \textbf{orthogonal to $B$}, denoted $A\perp B$, if
+$\langle a,b\rangle=0$ for all $a\in A$ and $b\in B$.
+\item The \textbf{orthogonal complement of $A$}, denoted $A^{\perp}$,
 is defined to be
 \[
-E^{\perp}:=\{x\in\mathcal{V}\mid x\perp E\}.
+A^{\perp}:=\{z\in\mathcal{V}\mid z\perp A\}.
 \]
 \end{enumerate}
 \end{defn}
@@ -1075,16 +1280,17 @@ In other words, we have $\mathcal{H}=\mathcal{K}\oplus\mathcal{K}^{\perp}$.
 \end{enumerate}
 \end{theorem}
 
-\begin{proof}\label{proof} \hfill
-\begin{enumerate}
-\item We have 
+\begin{proof}\label{proof} 1. We have 
 \begin{align*}
 x\in\mathcal{L}^{\perp} & \implies\langle x,y\rangle=0\text{ for all }y\in\mathcal{L}\\
  & \implies\langle x,y\rangle=0\text{ for all }y\in\mathcal{K}\\
  & \implies x\in\mathcal{K}^{\perp}.
 \end{align*}
 Thus $\mathcal{K}^{\perp}\supseteq\mathcal{L}^{\perp}$.
-\item First we show that $\mathcal{K}^{\perp}$ is a subspace of $\mathcal{V}$.
+
+\hfill
+
+2. First we show that $\mathcal{K}^{\perp}$ is a subspace of $\mathcal{V}$.
 Let $x,z\in\mathcal{K}^{\perp}$ and $\lambda\in\mathbb{C}$. Then
 \begin{align*}
 \langle x+\lambda z,y\rangle & =\langle x,y\rangle+\lambda\langle z,y\rangle\\
@@ -1102,98 +1308,51 @@ for all $n\in\mathbb{N}$ and $y\in\mathcal{K}$, we have
 \end{align*}
  for all $y\in\mathcal{K}$. Therefore $x\in\mathcal{K}^{\perp}$,
 which implies $\mathcal{K}^{\perp}$ is closed.
-\item Let $x\in\mathcal{H}$. Then $x=\text{P}_{\mathcal{K}}x+x-\text{P}_{\mathcal{K}}x$
-where $\text{P}_{\mathcal{K}}x\in\mathcal{K}$ and $x-\text{P}_{\mathcal{K}}x\in\mathcal{K}^{\perp}$.
-This establishes existence. For uniqueness, first note that $\mathcal{K}\cap\mathcal{K}^{\perp}=\{0\}$.
+
+\hfill
+
+3. Let $x\in\mathcal{H}$. Then 
+\[
+x=\mathrm{P}_{\mathcal{K}}x+(x-\mathrm{P}_{\mathcal{K}}x),
+\]
+where $\mathrm{P}_{\mathcal{K}}x\in\mathcal{K}$ and where $x-\mathrm{P}_{\mathcal{K}}x\in\mathcal{K}^{\perp}$
+by Theorem~(\ref{theoremuniqueorthproj}). This establishes existence.
+For uniqueness, first note that $\mathcal{K}\cap\mathcal{K}^{\perp}=\{0\}$.
 Indeed, if $y\in\mathcal{K}\cap\mathcal{K}^{\perp}$, then we must
 have $\langle y,y\rangle=0$, which implies $y=0$. Now suppose that
-$x=y+z$ is another decomposition of $x$ where $y\in\mathcal{K}$
-and $z\in\mathcal{K}^{\perp}$. Then we have 
 \[
-(\text{P}_{\mathcal{K}}x)+(x-\text{P}_{\mathcal{K}}x)=x=y+z
+x=y+z
 \]
-implies $\text{P}_{\mathcal{K}}x-y=(x-\text{P}_{\mathcal{K}}x)-z$
-which implies $\text{P}_{\mathcal{K}}x-y\in\mathcal{K}\cap\mathcal{K}^{\perp}=\{0\}$
-and $(x-\text{P}_{\mathcal{K}}x)-z\in\mathcal{K}\cap\mathcal{K}^{\perp}=\{0\}$.
-\item Let $x\in\mathcal{K}$. Then $\langle x,y\rangle=0$ for all $y\in\mathcal{K}^{\perp}$.
+is another decomposition of $x$ where $y\in\mathcal{K}$ and $z\in\mathcal{K}^{\perp}$.
+Then we have
+\[
+\mathrm{P}_{\mathcal{K}}x+(x-\mathrm{P}_{\mathcal{K}}x)=x=y+z,
+\]
+which implies 
+\[
+\mathrm{P}_{\mathcal{K}}x-y=(x-\mathrm{P}_{\mathcal{K}}x)-z.
+\]
+In particular, we see that
+\[
+\mathrm{P}_{\mathcal{K}}x-y\in\mathcal{K}\cap\mathcal{K}^{\perp}=\{0\}\quad\text{and}\quad(x-\mathrm{P}_{\mathcal{K}}x)-z\in\mathcal{K}\cap\mathcal{K}^{\perp}=\{0\}.
+\]
+So $\mathrm{P}_{\mathcal{K}}x=y$ and $(x-\mathrm{P}_{\mathcal{K}}x)=z$.
+This establishes uniqueness. 
+
+\hfill
+
+4. Let $x\in\mathcal{K}$. Then $\langle x,y\rangle=0$ for all $y\in\mathcal{K}^{\perp}$.
 Thus $x\in(\mathcal{K}^{\perp})^{\perp}$, and so $\mathcal{K}\subseteq(\mathcal{K}^{\perp})^{\perp}$.
 Conversely, let $x\in(\mathcal{K}^{\perp})^{\perp}$. Then $\langle x,y\rangle=0$
 for all $y\in\mathcal{K}^{\perp}$. In particular, we have
 \begin{align*}
-\|x-\text{P}_{\mathcal{K}}x\|^{2} & =\langle x-\text{P}_{\mathcal{K}}x,x-\text{P}_{\mathcal{K}}x\rangle\\
- & =\langle x,x-\text{P}_{\mathcal{K}}x\rangle-\langle\text{P}_{\mathcal{K}}x,x-\text{P}_{\mathcal{K}}x\rangle\\
+\|x-\mathrm{P}_{\mathcal{K}}x\|^{2} & =\langle x-\mathrm{P}_{\mathcal{K}}x,x-\mathrm{P}_{\mathcal{K}}x\rangle\\
+ & =\langle x,x-\mathrm{P}_{\mathcal{K}}x\rangle-\langle\mathrm{P}_{\mathcal{K}}x,x-\mathrm{P}_{\mathcal{K}}x\rangle\\
  & =0-0\\
  & =0,
 \end{align*}
-which implies $x=\text{P}_{\mathcal{K}}x$. This implies $x\in\mathcal{K}$,
-and hence $(\mathcal{K}^{\perp})^{\perp}\subseteq\mathcal{K}$. 
-\end{enumerate}
-\end{proof}
-
-\subsubsection{The Orthogonal Projection Map}
-
-\begin{defn}\label{defn} We define a map $\text{P}_{\mathcal{K}}\colon\mathcal{H}\to\mathcal{H}$
-by $\text{P}_{\mathcal{K}}(x)=\text{P}_{\mathcal{K}}x$ for all $x\in\mathcal{H}$.
-We call $\text{P}_{\mathcal{K}}$ the \textbf{orthogonal projection
-map}. \end{defn}
-
-\begin{prop}\label{prop} Let $\mathcal{H}$ be a Hilbert space and
-let $\mathcal{K}$ be a closed subspace of $\mathcal{H}$. Then
-\begin{enumerate}
-\item $\text{P}_{\mathcal{K}}(\lambda x+\mu y)=\lambda\text{P}_{\mathcal{K}}(x)+\mu\text{P}_{\mathcal{K}}(y)$
-for all $x,y\in\mathcal{H}$ and $\lambda,\mu\in\mathbb{C}$.
-\item $\|\text{P}_{\mathcal{K}}x\|\leq\|x\|$ for all $x\in\mathcal{H}$.
-\item Let $x\in\mathcal{H}$. Then $\text{P}_{\mathcal{K}}x=x$ if and only
-if $x\in\mathcal{K}$.
-\item $\text{P}_{\mathcal{K}}(\text{P}_{\mathcal{K}}(x))=\text{P}_{\mathcal{K}}(x)$
-for all $x\in\mathcal{H}$.
-\item $\langle\text{P}_{\mathcal{K}}x,y\rangle=\langle x,\text{P}_{\mathcal{K}}y\rangle$
-for all $x,y\in\mathcal{H}$.
-\end{enumerate}
-\end{prop}
-
-\begin{proof}\label{proof}\hfill
-\begin{enumerate}
-\item Let $x,y\in\mathcal{H}$ and $\lambda,\mu\in\mathbb{C}$. Note that
-\begin{align*}
-\langle\lambda x+\mu y-\lambda\text{P}_{\mathcal{K}}x-\mu\text{P}_{\mathcal{K}}y,z\rangle & =\langle\lambda x-\lambda\text{P}_{\mathcal{K}}x,z\rangle+\langle\mu y-\mu\text{P}_{\mathcal{K}}y,z\rangle\\
- & =\lambda\langle x-\text{P}_{\mathcal{K}}x,z\rangle+\mu\langle y-\text{P}_{\mathcal{K}}y,z\rangle\\
- & =\lambda\cdot0+\mu\cdot0\\
- & =0
-\end{align*}
-for all $z\in\mathcal{K}$. In particular, this implies 
-\[
-\lambda\text{P}_{\mathcal{K}}x+\mu\text{P}_{\mathcal{K}}y=\text{P}_{\mathcal{K}}(\lambda x+\mu y)
-\]
-by Proposition~(\ref{propuniqueorthproj}).
-\item Let $x\in\mathcal{H}$. By the Pythagorean theorem, we have 
-\begin{align*}
-\|x\|^{2} & =\|\text{P}_{\mathcal{K}}x\|^{2}+\|\text{P}_{\mathcal{K}}x-x\|^{2}\\
- & \geq\|\text{P}_{\mathcal{K}}x\|^{2},
-\end{align*}
-which implies $\|\text{P}_{\mathcal{K}}x\|\leq\|x\|$.
-\item If $\text{P}_{\mathcal{K}}x=x$, then it is clear that $x\in\mathcal{K}$
-since $\text{P}_{\mathcal{K}}x\in\mathcal{K}$, so suppose $x\in\mathcal{K}$.
-Then
-\begin{align*}
-0 & =\|x-x\|\\
- & \geq d(x,\mathcal{K})\\
- & =\|x-\text{P}_{\mathcal{K}}x\|\\
- & \geq0
-\end{align*}
-implies $\|x-x\|=d(x,\mathcal{K})$ and $\|x-\text{P}_{\mathcal{K}}x\|=d(x,\mathcal{K})$,
-and so by uniqueness of $\text{P}_{\mathcal{K}}x$, we must have $x=\text{P}_{\mathcal{K}}x$.
-\item This follows from 3.
-\item Let $x,y\in\mathcal{H}$. Then 
-\begin{align*}
-0 & =\langle x-\text{P}_{\mathcal{K}}x,\text{P}_{\mathcal{K}}y\rangle\\
- & =\langle x,\text{P}_{\mathcal{K}}y\rangle-\langle\text{P}_{\mathcal{K}}x,\text{P}_{\mathcal{K}}y\rangle\\
- & =\langle x,\text{P}_{\mathcal{K}}y\rangle-\langle\text{P}_{\mathcal{K}}x,(\text{P}_{\mathcal{K}}y-y)+y\rangle\\
- & =\langle x,\text{P}_{\mathcal{K}}y\rangle-\langle\text{P}_{\mathcal{K}}x,y\rangle,
-\end{align*}
-which implies $\langle x,\text{P}_{\mathcal{K}}y\rangle=\langle\text{P}_{\mathcal{K}}x,y\rangle$.
-\end{enumerate}
-\end{proof}
+which implies $x=\mathrm{P}_{\mathcal{K}}x$. This implies $x\in\mathcal{K}$,
+and hence $(\mathcal{K}^{\perp})^{\perp}\subseteq\mathcal{K}$. \end{proof}
 
 \subsection{Separable Hilbert Spaces}
 
@@ -1211,7 +1370,7 @@ and let $\mathcal{H}$ be a Hilbert space.
 \item A sequence $(x_{n})$ of vectors in $\mathcal{H}$ is said to be \textbf{complete
 }if 
 \[
-\overline{\text{span}}(\{x_{n}\mid n\in\mathbb{N}\})=\mathcal{H}.
+\overline{\mathrm{span}}(\{x_{n}\mid n\in\mathbb{N}\})=\mathcal{H}.
 \]
 \item A sequence $(e_{n})$ of vectors in $\mathcal{H}$ is said to be an
 \textbf{orthonormal basis }if it is both orthonormal and complete.
@@ -1261,20 +1420,18 @@ sums $(s_{N})$ converges in $\mathcal{H}$. To do this, we will show
 $(s_{N})$ is Cauchy. Let $\varepsilon>0$. Since the sequence of
 partial sums $(t_{N})$ converges, where $t_{N}=\sum_{n=1}^{N}|a_{n}|^{2}$,
 there exists $N_{0}\in\mathbb{N}$ such that $M,N\geq N_{0}$ (with
-$M\leq N$) implies $|t_{N}-t_{M}|<\varepsilon^{2}$. Choose such
+$M\leq N$) implies $|t_{N}-t_{M}|^{2}<\varepsilon$. Choose such
 an $N_{0}$. Then $M,N\geq N_{0}$ (with $M\leq N)$ implies
 \begin{align*}
 \left\Vert s_{N}-s_{M}\right\Vert ^{2} & =\left\Vert \sum_{n=M}^{N}a_{n}e_{n}\right\Vert ^{2}\\
  & =\sum_{n=M}^{N}|a_{n}|\left\Vert e_{n}\right\Vert ^{2}\\
  & =\sum_{n=M}^{N}|a_{n}|^{2}\\
- & =|t_{N}-t_{M}|\\
- & <\varepsilon^{2},
+ & =|t_{N}-t_{M}|^{2}\\
+ & <\varepsilon,
 \end{align*}
 where we used the Pythagorean Theorem to get from the first line to
-the second line. Thus, $M,N\geq N_{0}$ implies $\left\Vert s_{N}-s_{M}\right\Vert <\varepsilon$.
-Hence $(s_{N})$ is a Cauchy sequence.
-
-~~~To show (\ref{eq:ortheq-1}), write
+the second line. This implies $(s_{N})$ is a Cauchy sequence. To
+show (\ref{eq:ortheq-1}), write
 \begin{align*}
 \left\Vert \sum_{n=1}^{\infty}a_{n}e_{n}\right\Vert ^{2} & =\left\Vert \lim_{N\to\infty}\sum_{n=1}^{N}a_{n}e_{n}\right\Vert ^{2}\\
  & =\lim_{N\to\infty}\left\Vert \sum_{n=1}^{N}a_{n}e_{n}\right\Vert ^{2}\\
@@ -1294,9 +1451,7 @@ we have
 \end{enumerate}
 \end{prop}
 
-\begin{proof}\label{proof} \hfill
-\begin{enumerate}
-\item For each $N\in\mathbb{N}$, we have
+\begin{proof}\label{proof} 1. For each $N\in\mathbb{N}$, we have
 \begin{align*}
 0 & \leq\left\Vert x-\sum_{n=1}^{N}\langle x,e_{n}\rangle e_{n}\right\Vert ^{2}\\
  & =\left\langle x-\sum_{n=1}^{N}\langle x,e_{n}\rangle e_{n},x-\sum_{n=1}^{N}\langle x,e_{n}\rangle e_{n}\right\rangle \\
@@ -1306,13 +1461,23 @@ we have
  & =\|x\|^{2}-\sum_{n=1}^{N}|\langle x,e_{n}\rangle|^{2},
 \end{align*}
 where we applied the Pythagorean Theorem to get to the fourth line
-from the third line. Since this holds for all $N\in\mathbb{N}$, we
-have $\sum_{n=1}^{\infty}|\langle x,e_{n}\rangle|^{2}\leq\|x\|^{2}$.
-\item This follows from 1 and Proposition~(\ref{proporthconv}) with $(a_{n})=(\langle x,x_{n}\rangle)$.
-\end{enumerate}
+from the third line. Since this holds for all $N\in\mathbb{N}$, this
+gives us Bessel's inequality 
+\[
+\sum_{n=1}^{\infty}|\langle x,e_{n}\rangle|^{2}\leq\|x\|^{2}.
+\]
+
+\hfill
+
+2. This follows from 1 and Proposition~(\ref{proporthconv}) with
+$(a_{n})=(\langle x,x_{n}\rangle)$.
+
 \end{proof}
 
 \subsubsection{Complete Sequences}
+
+Here is a criterion to determine if a sequence in a Hilbert space
+is complete.
 
 \begin{prop}\label{propcompletecrit} A sequence $(x_{n})$ in a Hilbert
 space $\mathcal{H}$ is complete if and only if the only $x\in\mathcal{H}$
@@ -1320,23 +1485,25 @@ with the property $\langle x,x_{n}\rangle=0$ for all $n\in\mathbb{N}$
 is $x=0$. \end{prop}
 
 \begin{proof}\label{proof} Let $E=\{x_{n}\mid n\in\mathbb{N}\}$.
-We have $\langle x,x_{n}\rangle=0$ for all $n\in\mathbb{N}$ if and
-only if $x\in\text{span}(E)^{\perp}$ if and only if $x\in\overline{\text{span}}(E)^{\perp}$.
-Thus we are trying to show $\mathcal{H}=\overline{\text{span}}(E)$
-if and only if $\overline{\text{span}}(E)^{\perp}=0$.
-
-~~~If $\mathcal{H}=\overline{\text{span}}(E)$, then 
+We first observe that
+\begin{align*}
+\langle x,x_{n}\rangle=0\text{ for all }n\in\mathbb{N} & \iff x\in\mathrm{span}(E)^{\perp}\\
+ & \iff x\in\overline{\mathrm{span}}(E)^{\perp}.
+\end{align*}
+Thus we are trying to show that $\mathcal{H}=\overline{\mathrm{span}}(E)$
+if and only if $\overline{\mathrm{span}}(E)^{\perp}=0$. If $\mathcal{H}=\overline{\mathrm{span}}(E)$,
+then 
 \begin{align*}
 0 & =\mathcal{H}^{\perp}\\
- & =\overline{\text{span}}(E).
+ & =\overline{\mathrm{span}}(E).
 \end{align*}
-Conversely, if $\overline{\text{span}}(E)^{\perp}=0$, then
+Conversely, if $\overline{\mathrm{span}}(E)^{\perp}=0$, then
 \begin{align*}
 \mathcal{H} & =0^{\perp}\\
- & =(\overline{\text{span}}(E)^{\perp})^{\perp}\\
- & =\overline{\text{span}}(E),
+ & =(\overline{\mathrm{span}}(E)^{\perp})^{\perp}\\
+ & =\overline{\mathrm{span}}(E),
 \end{align*}
-where the last equality follows from the fact that $\overline{\text{span}}(E)$
+where the last equality follows from the fact that $\overline{\mathrm{span}}(E)$
 is a closed subspace. \end{proof}
 
 \subsubsection{Unique Representations of Vectors in a Separable Hilbert Spaces}
@@ -1490,10 +1657,10 @@ is complete. \end{proof}
 \section{Operators}
 
 In linear analysis, an \textbf{operator }is just another word for
-a linear map. From now on, we will stick to tradition and refer to
-linear maps as operators.
+a linear map. We will stick to tradition and often refer to linear
+maps as operators.
 
-\subsection{Unitary}
+\subsection{Unitary Operators}
 
 \begin{defn}\label{defn} An operator $U\colon\mathcal{V}_{1}\to\mathcal{V}_{2}$
 between inner-product spaces $\mathcal{V}_{1}$ and $\mathcal{V}_{2}$
@@ -1591,7 +1758,8 @@ for all $y\in\mathcal{K}$, which implies the proposition. \end{proof}
 
 \subsection{Bounded Operators}
 
-\begin{defn}\label{defn} A \textbf{bounded operator $T\colon\mathcal{U}\to\mathcal{V}$
+\begin{defn}\label{defn} Let $\mathcal{U}$ and $\mathcal{V}$ be
+normed linear spaces. A \textbf{bounded operator $T\colon\mathcal{U}\to\mathcal{V}$
 }is a linear map such that
 \[
 \sup\left\{ \|Tx\|\mid x\in\mathcal{U}\text{ and }\|x\|\leq1\right\} <\infty.
@@ -1601,6 +1769,40 @@ In this case we define
 \|T\|:=\sup\left\{ \|Tx\|\mid x\in\mathcal{U}\text{ and }\|x\|\leq1\right\} 
 \]
 and call it the \textbf{operator norm }of $T$. \end{defn}
+
+\subsubsection{Composition of Bounded Operators is Bounded}
+
+\begin{prop}\label{propcomp} Let $T\colon\mathcal{H}_{1}\to\mathcal{H}_{2}$
+and $S\colon\mathcal{H}\to\mathcal{H}$ be two bounded operators.
+Then $ST$ is bounded
+\begin{enumerate}
+\item $TS$ is bounded and $\|TS\|\leq\|T\|\|S\|$;
+\item $(TS)^{*}=S^{*}T^{*}$.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}\hfill
+
+\hfill
+
+1. Let $x\in\mathcal{H}$ such that $\|x\|=1$. Then
+\begin{align*}
+\|TSx\| & \leq\|T\|\|Sx\|\\
+ & \leq\|T\|\|S\|\|x\|\\
+ & =\|T\|\|S\|.
+\end{align*}
+Thus $TS$ is bounded and $\|TS\|\leq\|T\|\|S\|$.
+
+\hfill
+
+2. Let $y\in\mathcal{H}$. Then for all $x\in\mathcal{H}$, we have
+\begin{align*}
+\langle x,(TS)^{*}y\rangle & =\langle TSx,y\rangle\\
+ & =\langle Sx,T^{*}y\rangle\\
+ & =\langle x,S^{*}T^{*}y\rangle.
+\end{align*}
+In particular, this implies $(TS)^{*}y=S^{*}T^{*}y$ for all $y\in\mathcal{H}$,
+which implies $(TS)^{*}=S^{*}T^{*}$. \end{proof}
 
 \begin{prop}\label{propnormtnormx} Let $T\colon\mathcal{U}\to\mathcal{V}$
 be a bounded operator. Then
@@ -1750,32 +1952,21 @@ be a linear operator. Then the following are equivalent.
 \end{enumerate}
 \end{theorem}
 
-\begin{proof}\label{proof}\hfill
-
-\hfill
-
-(1$\implies$2) Clear.
-
-\hfill
-
-(2$\implies$3) Let $\varepsilon=1$. Choose $\delta>0$ such that
-$\|x\|<\delta$ implies $\|Tx\|<1$. Let $y\in\mathcal{U}$ such that
-$\|y\|\leq1$. Then 
+\begin{proof}\label{proof} We may assume that $T\neq0$ since the
+theorem is obvious in this case. That 1 implies 2 is clear. Let us
+show that 2 implies 3. Assume $T$ is continous at $0$. Choose $\delta>0$
+such that $\|x\|<\delta$ implies $\|Tx\|<1$ (we can do this since
+$T$ is continuous at $0$). Then for any nonzero $y\in\mathcal{U}$
+such that $\|y\|\leq1$, we have
 \begin{align*}
-\left\Vert \frac{\delta}{2}y\right\Vert  & =\frac{\delta}{2}\|y\|\\
- & <\delta
+\|Ty\| & =\frac{2\delta}{2\delta}\|Ty\|\\
+ & =\frac{2}{\delta}\|T(\delta y/2)\|\\
+ & <\frac{2}{\delta}.
 \end{align*}
-implies 
-\begin{align*}
-\frac{\delta}{2}\|Ty\| & =\left\Vert T\left(\frac{\delta}{2}y\right)\right\Vert \\
- & <1
-\end{align*}
-which implies $\|Ty\|<2/\delta$. Thus $T$ is bounded. 
+It follows that $\|T\|<2/\delta$ which implies $T$ is bounded. 
 
-\hfill
-
-(3$\implies$1) If $T=0$ then it is obvious that $T$ is uniformly
-continuous, so assume $T\neq0$. Let $\varepsilon>0$. Choose $\delta=\varepsilon/\|T\|$.
+~~~To finish the proof, we just need to show 3 implies 1. Assume
+$T$ is bounded. Let $\varepsilon>0$ and choose $\delta=\varepsilon/\|T\|$.
 Then $\|x-y\|<\delta$ implies
 \begin{align*}
 \|Tx-Ty\| & =\|T(x-y)\|\\
@@ -1783,8 +1974,7 @@ Then $\|x-y\|<\delta$ implies
  & <\|T\|\frac{\varepsilon}{\|T\|}\\
  & =\varepsilon.
 \end{align*}
-
-\end{proof}
+It follows that $T$ is uniformly continuous. \end{proof}
 
 \begin{prop}\label{prop} Let $T\colon\mathcal{U}\to\mathcal{V}$
 be a bounded linear operator. Then $\text{Ker}(T)$ is a closed linear
@@ -1817,24 +2007,76 @@ in $\mathcal{U}$. \end{proof}
 \begin{rem}\label{rem} Note that $\text{Im}(T)$ is not always closed.
 \end{rem}
 
-\subsubsection{Orthogonal Projections are Bounded}
+\subsection{Examples of Bounded Operators}
 
-\begin{example}\label{example} For any $\mathcal{K}$ closed subspace
-of a Hilbert space $\mathcal{H}$. The orthogonal projection $\text{P}_{\mathcal{K}}\colon\mathcal{H}\to\mathcal{H}$
-is a bounded operator. This is because $\text{P}_{\mathcal{K}}$ is
-a linear map and $\|\text{P}_{\mathcal{K}}x\|\leq\|x\|$ for all $x\in\mathcal{H}$.
-If $\mathcal{K}\neq0$, then $\|\text{P}_{\mathcal{K}}\|=1$. Indeed,
-first note that 
+\subsubsection{Multiplication by Continuous Function is Bounded Operator}
+
+\begin{prop}\label{prop} Let $k\in C[a,b]$. Then the operator $T\colon C[a,b]\to C[a,b]$
+defined by
 \[
-\|\text{P}_{\mathcal{K}}\|=\sup\{\|\text{P}_{\mathcal{K}}x\|\mid\|x\|\leq1\}\leq1.
+Tf=kf
 \]
-To see that $\|\text{P}_{\mathcal{K}}\|=1$, let $x\in\mathcal{K}\backslash\{0\}$.
+for all $f\in C[a,b]$ is bounded. It's norm will be explicitly computed
+in the proof below. \end{prop}
+
+\begin{proof}\label{proof} We first show it is linear. Let $f,g\in C[a,b]$
+and let $\lambda,\mu\in\mathbb{C}$. Then we have
+\begin{align*}
+T(\lambda f+\mu g) & =k(\lambda f+\mu g)\\
+ & =\lambda kf+\mu kg\\
+ & =\lambda T(f)+\mu T(g).
+\end{align*}
+Thus, $T$ is linear.
+
+~~~Next we show it is bounded. If $k=0$, then $\|T\|=0$, so assume
+$k\neq0$. Since $k$ is continuous on the compact interval $[a,b]$,
+there exists $c\in[a,b]$ such that $|k(x)|\leq|k(c)|$ for all $x\in[a,b]$.
+Choose such a $c\in[a,b]$ and let $f\in C[a,b]$ such that $\|f\|\leq1$.
 Then
 \begin{align*}
-\|\text{P}_{\mathcal{K}}(x/\|x\|)\| & =\|x/\|x\|\|\\
- & =1
+\|Tf\| & =\|kf\|\\
+ & =\sqrt{\int_{a}^{b}|k(x)|^{2}|f(x)|^{2}dx}\\
+ & \leq|k(c)|\sqrt{\int_{a}^{b}|f(x)|^{2}dx}\\
+ & \leq|k(c)|.
 \end{align*}
-implies $\|\text{P}_{\mathcal{K}}x\|=\|x\|$. \end{example}
+implies $\|T\|\leq|k(c)|$, and hence $T$ is bounded. 
+
+~~~To find the norm of $T$, let $\varepsilon>0$ such that $\varepsilon<|k(c)|$.
+Without loss of generality, assume that $c<b$ (if $c=b$, then we
+swap the role of $b$ with $a$ in the argument which follows). Choose
+$c'\in(c,b)$ such that $|k(x)|\geq|k(c)|-\varepsilon$ for all $x\in(c,c')$
+(such a $c'$ must exist since $k$ is continuous) and choose $f$
+to be a nonzero continuous function in $C[a,b]$ which vanishes outside
+the interval $(c,c')$. Then
+\[
+|k(x)||f(x)|\geq(|k(c)|-\varepsilon)|f(x)|
+\]
+for all $x\in(a,b)$. In particular, this implies
+\begin{align*}
+\|Tf\| & =\|kf\|\\
+ & =\sqrt{\int_{a}^{b}|k(x)f(x)|^{2}dx}\\
+ & \geq\sqrt{\int_{a}^{b}(|k(c)|-\varepsilon)|f(x)|^{2}dx}\\
+ & =(|k(c)|-\varepsilon)\sqrt{\int_{a}^{b}|f(x)|^{2}dx}\\
+ & =(|k(c)|-\varepsilon)\|f\|.
+\end{align*}
+Therefore $\|T(f/\|f\|)\|\geq|k(c)|-\varepsilon$, and this implies
+\begin{equation}
+\|T\|\geq|k(c)|-\varepsilon\label{ini-1}
+\end{equation}
+Since (\ref{ini}) holds for all $\varepsilon>0$, we must have $\|T\|\geq|k(c)|$.
+Thus $\|T\|=|k(c)|$. \end{proof}
+
+\subsubsection{Orthogonal Projections are Bounded}
+
+\begin{example}\label{example} Let $\mathcal{H}$ be a Hilbert space
+and let $\mathcal{K}$ be a closed subspace of $\mathcal{H}$. Then
+the orthogonal projection map $\mathrm{P}_{\mathcal{K}}\colon\mathcal{H}\to\mathcal{K}$
+is a bounded operator. This is because $\mathrm{P}_{\mathcal{K}}$
+is a linear map and $\|\mathrm{P}_{\mathcal{K}}x\|\leq\|x\|$ for
+all $x\in\mathcal{H}$. In particular, If $\mathcal{K}\neq0$, then
+$\|\mathrm{P}_{\mathcal{K}}\|\leq1$. In fact, we have equality here:
+choose any nonzero $x\in\mathcal{K}$ such that $\|x\|=1$. Then $\|\mathrm{P}_{\mathcal{K}}x\|=1$.
+\end{example}
 
 \subsubsection{Unitary Operators are Bounded}
 
@@ -1910,66 +2152,64 @@ $\|T\|=1$.
 
 \subsection{Riesz Representation Theorem}
 
-The above example can be generalized as follows:
-
-\begin{example}\label{exampleriesz} Let $\mathcal{H}$ be a Hilbert
-space and let $y\in\mathcal{H}$. Define $\ell_{y}\colon\mathcal{H}\to\mathbb{C}$
-by
-\[
-\ell_{y}(x)=\langle x,y\rangle
-\]
-for all $x\in\mathcal{H}$. It is straightforward to check that $\ell_{y}$
-is linear. To see that $\ell_{y}$ is bounded, let $x\in\overline{B}_{0}(1)$.
-Then
-\begin{align*}
-\|\ell_{y}(x)\| & =|\langle x,y\rangle|\\
- & \leq\|x\|\|y\|\\
- & \leq\|y\|.
-\end{align*}
-Thus $\|\ell_{y}\|\leq\|y\|$. Setting $x=y/\|y\|$ implies
-\begin{align*}
-\left\Vert \ell_{y}\left(\frac{y}{\|y\|}\right)\right\Vert  & =\left|\left\langle \frac{y}{\|y\|},y\right\rangle \right|\\
- & =\frac{1}{\|y\|}\langle y,y\rangle\\
- & =\|y\|,
-\end{align*}
-and this implies $\|\ell_{y}\|=\|y\|$. \end{example}
-
 \begin{theorem}\label{theorem} (Riesz representation theorem) Let
 $\mathcal{H}$ be a Hilbert space and let $\ell\colon\mathcal{H}\to\mathbb{C}$
 be a bounded operator. Then there exists a unique vector $y\in\mathcal{H}$
-such that $\ell=\ell_{y}$, i.e. 
+such that $\ell=\ell_{y}$. In other words, we have
 \[
 \ell(x)=\langle x,y\rangle
 \]
 for all $x\in\mathcal{H}$. Moreover, we have $\|\ell\|=\|y\|$. \end{theorem}
 
-\begin{proof}\label{proof} We proved the moreover part in the previous
-example. For uniqueness, assume there are $y_{1}\neq y_{2}$ such
-that 
-\[
-\ell(x)=\langle x,y_{1}\rangle=\langle x,y_{2}\rangle
-\]
-for all $x\in\mathcal{H}$. Then $y_{1}=y_{2}$ since $\langle\cdot,\cdot\rangle$
-is positive-definite. Contradiction. For existence, let $\mathcal{K}=\text{Ker}(\ell)$.
-Then $\mathcal{K}$ is a closed subspace. Let $z\in\mathcal{K}^{\perp}\backslash\{0\}$.
-Then $\ell(z)\neq0$ since $\mathcal{K}\cap\mathcal{K}^{\perp}=\{0\}$.
-For any $x\in\mathcal{H}$ we have 
+\begin{proof}\label{proof} If $\ell=0$ then the theorem is clear,
+so assume $\ell\neq0$. Denote $\mathcal{K}=\ker\ell$. Then $\mathcal{K}$
+is a closed proper subspace of $\mathcal{H}$. Choose a nonzero vector
+$z$ in $\mathcal{K}^{\perp}$. Note that $\ell(z)\neq0$ since $\mathcal{K}\cap\mathcal{K}^{\perp}=\{0\}$.
+Now for any $x\in\mathcal{H}$, we can express it as
 \begin{align}
-x & =\left(x-\frac{\ell(x)}{\ell(z)}\cdot z\right)+\frac{\ell(x)}{\ell(z)}\cdot z\label{eq:riesz}
+x & =\left(x-\frac{\ell(x)}{\ell(z)}z\right)+\frac{\ell(x)}{\ell(z)}z\label{eq:riesz-1}
 \end{align}
-where $x-\frac{\ell(x)}{\ell(z)}\cdot z\in\mathcal{K}$ and $\frac{\ell(x)}{\ell(z)}\cdot z\in\mathcal{K}^{\perp}$.
-By taking the inner product of both sides of (\ref{eq:riesz}) with
-$z$, we obtain 
+where $x-(\ell(x)/\ell(z))z\in\mathcal{K}$ and where $(\ell(x)/\ell(z))z\in\mathcal{K}^{\perp}$.
+Applying $\langle\cdot,z\rangle$ to both sides of (\ref{eq:riesz})
+gives us
 \begin{align*}
-\langle x,z\rangle & =\left\langle x-\frac{\ell(x)}{\ell(z)}\cdot z,z\right\rangle +\left\langle \frac{\ell(x)}{\ell(z)}\cdot z,z\right\rangle \\
- & =0+\frac{\ell(x)}{\ell(z)}\|z\|^{2}
+\langle x,z\rangle & =\left\langle x-\frac{\ell(x)}{\ell(z)}z,z\right\rangle +\left\langle \frac{\ell(x)}{\ell(z)}z,z\right\rangle \\
+ & =\left\langle \frac{\ell(x)}{\ell(z)}z,z\right\rangle \\
+ & =\frac{\ell(x)}{\ell(z)}\|z\|^{2}.
 \end{align*}
-implies 
+In particular, we see that
+\begin{align*}
+\ell(x) & =\frac{\ell(z)}{\|z\|^{2}}\langle x,z\rangle\\
+ & =\left\langle x,\frac{\overline{\ell(z)}}{\|z\|^{2}}z\right\rangle .
+\end{align*}
+So setting $y=(\overline{\ell(z)}/\|z\|^{2})z$, it follows that that
+$\ell=\ell_{y}$. 
+
+~~~This proves the existence of $y\in\mathcal{H}$. To show uniqueness,
+suppose $y'\in\mathcal{H}$ such that $\ell_{y}=\ell=\ell_{y'}$.
+Then
 \[
-\ell(x)=\frac{\ell(z)}{\|z\|^{2}}\langle x,z\rangle=\left\langle x,\frac{\overline{\ell(z)}}{\|z\|^{2}}z\right\rangle 
+\langle x,y\rangle=\ell(x)=\langle x,y'\rangle
 \]
-Setting $y=\frac{\overline{\ell(z)}}{\|z\|^{2}}z$ gives us our desired
-theorem. \end{proof}
+for all $x\in\mathcal{H}$. However since $\langle\cdot,\cdot\rangle$
+is positive-definite, this implies $y=y'$. 
+
+~~~Finally, we need to check that $\|\ell\|=\|y\|$. Let $x\in\mathcal{H}$
+such that $\|x\|\leq1$. Then
+\begin{align*}
+|\ell(x)| & =|\langle x,y\rangle|\\
+ & \leq\|x\|\|y\|\\
+ & =\|y\|.
+\end{align*}
+Thus $\|\ell\|\leq\|y\|$. To see that equality is achieved, consider
+$x=y/\|y\|$. In this case, we have
+\begin{align*}
+\left|\ell\left(\frac{y}{\|y\|}\right)\right| & =\frac{1}{\|y\|}|\ell(y)|\\
+ & =\frac{1}{\|y\|}|\langle y,y\rangle|\\
+ & =\frac{1}{\|y\|}\|y\|^{2}\\
+ & =\|y\|.
+\end{align*}
+It follows that $\|\ell\|=\|y\|$. \end{proof}
 
 \subsubsection{Schur's test for boundedness}
 
@@ -2024,45 +2264,50 @@ such that
 \]
 for all $x\in\mathcal{H}_{1}$ and $y\in\mathcal{H}_{2}$. \end{theorem}
 
-\begin{proof}\label{proof} Let $y\in\mathcal{H}_{2}$. Define $\ell_{y}\colon\mathcal{H}_{2}\to\mathbb{C}$
-by
+\begin{proof}\label{proof} We define $T^{*}\colon\mathcal{H}_{2}\to\mathcal{H}_{1}$
+as follows: Let $z\in\mathcal{H}_{2}$ and set $\ell=\ell_{z}\circ T$.
+Thus $\ell\colon\mathcal{H}_{2}\to\mathbb{C}$ is defined by
 \[
-\ell_{y}(x)=\langle Tx,y\rangle_{\mathcal{H}_{2}}
+\ell(x)=\langle Tx,z\rangle_{\mathcal{H}_{2}}
 \]
-for all $x\in\mathcal{H}_{1}$. Clearly $\ell_{y}$ is linear. Also
-\begin{align*}
-|\ell_{y}(x)| & =|\langle Tx,y\rangle|\\
- & \leq\|Tx\|\|y\|\\
- & \leq\|T\|\|x\|\|y\|,
-\end{align*}
-so $\ell_{y}$ is bounded and $\|\ell_{y}\|\leq\|T\|\|y\|$. By the
-Riesz representation theorem, there exists a unique $z_{y}\in\mathcal{H}_{1}$
-such that 
+for all $x\in\mathcal{H}_{1}$. Since $\ell$ is a composition of
+bounded operators, it must also be a bounded operator with 
 \[
-\ell_{y}(x)=\langle x,z_{y}\rangle\quad\text{and}\quad\|\ell_{y}\|=\|z_{y}\|.
+\|\ell\|\leq\|T\|\|\ell_{z}\|=\|T\|\|z\|.
 \]
-Now define $T^{*}y=z_{y}$.
+By the Riesz representation theorem, there exists a unique $y\in\mathcal{H}_{1}$
+such that $\ell=\ell_{y}$. We set
+\[
+T^{*}z=y.
+\]
 
-~~~We first show $T^{*}$ is linear. Let $\alpha,\beta\in\mathbb{C}$
-and $y,z\in\mathcal{H}_{2}$. Then
-\begin{align*}
-\langle x,T^{*}(\alpha y+\beta z)\rangle & =\langle Tx,\alpha y+\beta z\rangle\\
- & =\overline{\alpha}\langle Tx,y\rangle+\overline{\beta}\langle Tx,z\rangle\\
- & =\overline{\alpha}\langle x,T^{*}y\rangle+\overline{\beta}\langle x,T^{*}z\rangle\\
- & =\langle x,\alpha T^{*}y+\beta T^{*}z\rangle
-\end{align*}
-for all $x\in\mathcal{H}_{1}$. Thus $T^{*}(\alpha y+\beta z)=\alpha T^{*}y+\beta T^{*}z$.
+Observe that $T^{*}$ is well-defined because of the uniqueness part
+of the Riesz representation theorem!
 
-~~~Next we show $T^{*}$ is bounded. Let $y\in\mathcal{H}_{2}$.
-Then 
+~~~Let us show that $T^{*}$ is $\mathbb{C}$-linear. Let $\alpha,\alpha'\in\mathbb{C}$
+and let $z,z'\in\mathcal{H}_{2}$. Then we have
 \begin{align*}
-\|T^{*}y\|^{2} & =\langle T^{*}y,T^{*}y\rangle\\
- & =\langle TT^{*}y,y\rangle\\
- & \leq\|T(T^{*}y)\|\|y\|\\
- & \leq\|T\|\|T^{*}y\|\|y\|.
+\langle x,T^{*}(\alpha z+\alpha'z')\rangle & =\langle Tx,\alpha z+\alpha'z'\rangle\\
+ & =\overline{\alpha}\langle Tx,z\rangle+\overline{\alpha}'\langle Tx,z'\rangle\\
+ & =\overline{\alpha}\langle x,T^{*}z\rangle+\overline{\alpha}'\langle x,T^{*}z'\rangle\\
+ & =\langle x,\alpha T^{*}z+\alpha'T^{*}z'\rangle
 \end{align*}
-Therefore $\|T^{*}y\|\leq\|T\|\|y\|$. So $T^{\star}$ is bounded
-and $\|T^{*}\|\leq\|T\|$.\end{proof}
+for all $x\in\mathcal{H}_{1}$. It follows that 
+\[
+T^{*}(\alpha z+\alpha'z')=\alpha T^{*}z+\alpha'T^{*}z',
+\]
+which implies $T^{*}$ is $\mathbb{C}$-linear. 
+
+~~~Next let us show that $T^{*}$ is bounded. For any $z\in\mathcal{H}_{2}$,
+we have
+\begin{align*}
+\|T^{*}z\|^{2} & =\langle T^{*}z,T^{*}z\rangle\\
+ & =\langle TT^{*}z,z\rangle\\
+ & \leq\|T(T^{*}z)\|\|z\|\\
+ & \leq\|T\|\|T^{*}z\|\|z\|.
+\end{align*}
+It follows that $\|T^{*}z\|\leq\|T\|\|z\|$ which implies $T^{*}$
+is bounded with $\|T^{*}\|\leq\|T\|$.\end{proof}
 
 \begin{defn}\label{defn} The operator $T^{*}$ given in Theorem~(\ref{theoremadjoint})
 is called the \textbf{adjoint }of $T$. \end{defn}
@@ -2212,30 +2457,173 @@ Thus $\|T\|\leq M$. \end{proof}
 
 \section{Compactness}
 
+In topology, one studies a class of spaces called \textbf{compact
+}spaces. Recall that a toplogical space $X$ is said to be compact
+if it satisfies the following property: every open cover of $X$ contains
+a finite subcover of $X$. In other words, $X$ is compact if for
+all open covers $\{U_{i}\}_{i\in I}$ of $X$, where by an open cover
+we mean each $U_{i}$ is an open subset of $X$ and
+\[
+X=\bigcup_{i\in I}U_{i},
+\]
+then there exists $U_{i_{1}},\dots,U_{i_{n}}\in\{U_{i}\}_{i\in I}$
+such that $\{U_{i_{1}},\dots,U_{i_{n}}\}$ is an open cover of $X$,
+that is
+\[
+X=U_{i_{1}}\cup\cdots\cup U_{i_{n}}.
+\]
+
+There is an analagous notion of compactness called \textbf{sequential
+compactness}. Recall that a topological space $X$ is said to be sequentially
+compact if every sequence of points in $X$ has a convergent subsequence
+converging to a point in $X$. It turns out that for metric space,
+compactness and sequintial compactness are equivalent. Since we are
+always talking about sequences in linear analysis, it makes sense
+for us to study compact spaces as sequentially compact spaces. In
+particular, we make the following definitions:
+
+\begin{defn}\label{defn} Let $\mathcal{V}$ be an inner-product space
+and let $K\subseteq\mathcal{V}$.
+\begin{enumerate}
+\item We say $K$ is \textbf{precompact }if every sequence in $K$ has a
+convergent sequence.
+\item We say $K$ is \textbf{compact }if every sequence in $K$ has a convergent
+sequence with a limit in $K$. 
+\end{enumerate}
+\end{defn}
+
+~~~Precompactness can be thought of as ``almost'' compact. In
+fact, we have the following proposition.
+
+\begin{prop}\label{propprecompactclos} Let $\mathcal{H}$ be an inner-product
+space and let $A\subseteq\mathcal{H}$. Then $A$ is precompact if
+and only if $\overline{A}$ is compact. \end{prop}
+
+\begin{proof}\label{proof} Suppose $A$ is precompact. Let $(a_{n})$
+be a sequence in $\overline{A}$. For each $n\in\mathbb{N}$ choose
+$b_{n}\in A$ such that 
+\[
+\|a_{n}-b_{n}\|<\frac{1}{n}.
+\]
+
+Since $A$ is precompact, there exists a convergent subsequence of
+$(b_{n})$, say $(b_{\pi(n)})$. We claim that the subsequence $(a_{\pi(n)})$
+of $(a_{n})$ is Cauchy. Indeed, let $\varepsilon>0$. Choose $N\in\mathbb{N}$
+such that $\pi(n)\geq\pi(m)\geq N$ implies
+\begin{align*}
+\|b_{\pi(n)}-b_{\pi(m)}\| & <\frac{\varepsilon}{3}\quad\text{and}\quad\frac{1}{\pi(m)}<\frac{\varepsilon}{3}.
+\end{align*}
+Then $\pi(n)\geq\pi(m)\geq N$ implies
+\begin{align*}
+\|a_{\pi(n)}-a_{\pi(m)}\| & =\|a_{\pi(n)}-b_{\pi(n)}+b_{\pi(n)}-b_{\pi(m)}+b_{\pi(m)}-a_{\pi(m)}\|\\
+ & \leq\|a_{\pi(n)}-b_{\pi(n)}\|+\|b_{\pi(n)}-b_{\pi(m)}\|+\|b_{\pi(m)}-a_{\pi(m)}\|\\
+ & <\frac{1}{\pi(n)}+\frac{\varepsilon}{3}+\frac{1}{\pi(m)}\\
+ & \leq\frac{\varepsilon}{3}+\frac{\varepsilon}{3}+\frac{\varepsilon}{3}\\
+ & =\varepsilon.
+\end{align*}
+This implies $(a_{\pi(n)})$ is Cauchy. Finally, since $(a_{\pi(n)})$
+is Cauchy and since $\mathcal{H}$ is a Hilbert space, we must have
+$a_{\pi(n)}\to a$ for some $a\in\overline{A}$. This implies $\overline{A}$
+is compact.
+
+~~~Conversely, suppose $\overline{A}$ is compact. Let $(a_{n})$
+be a sequence in $A$. Then $(a_{n})$ is a sequence in $\overline{A}$.
+Since $\overline{A}$ is compact, the sequence $(a_{n})$ has a convergent
+subsequence. This implies $A$ is precompact. \end{proof}
+
+\subsubsection{Compactness = Sequential Compactness in Metric Spaces}
+
+As we mentioned before, sequential compactness and compactness are
+equivalent notions when it comes to metric spaces. It takes some work
+to show that sequential compactness implies compactness, so we will
+save that for later. On the other hand, we can prove that compactness
+implies sequential compactness relatively easily:
+
+\begin{prop}\label{prop} Let $K$ be a compact subspace of $\mathcal{V}$.
+Then $K$ is sequentially compact. \end{prop}
+
+\begin{proof} Let $(x_{n})$ be a sequence in $K$. Assume for a
+contradiction that $(x_{n})$ does not have a convergent subsequence
+with a limit in $K$. We claim that for each $x\in K$, we can find
+an open neighborhood $U_{x}$ of $x$ such that only finitely many
+elements in the sequence $(x_{n})$ belongs to $U_{x}$. Indeed, assume
+for a contradiction that every open neighborhood of $x$ contains
+infinitely many terms of $(x_{n})$. Then for each $n\in\mathbb{N}$,
+we can choose an $x_{\pi(n)}$ such that $x_{\pi(n)}\in B_{1/n}(x).$
+Then the subsequence $(x_{\pi(n)})$ is a Cauchy sequence which converges
+to $x$, and this contradicts our first assumption.
+
+~~~Thus for each $x\in X$ we may choose an open neighborhood $U_{x}$
+of $x$ such that only finitely many elements in the sequence $(x_{n})$
+belongs to $U_{x}$. Since $K$ is compact, the open cover $\{U_{x}\}_{x\in X}$
+of $K$ has a finite subcover, say $\{U_{x_{1}},\dots,U_{x_{k}}\}$.
+But then each $U_{x_{i}}$ contains only finitely many elements in
+the sequence $(x_{n})$, so the sequence only contains finitely many
+distinct elements. Such a sequence clearly has a convergent subsequence
+with a limit in $K$. This gives us our desired contradiction. \end{proof}
+
+\subsubsection{Failure of Heine-Borel Theorem in the Infinite-Dimensional Setting}
+
+As we've mentioned before, sequential compactness and compactness
+are equivalent notions when it comes to metric spaces. It turns out
+that there is another description of compactness when it comes to
+spaces like $\mathbb{R}$, $\mathbb{C}$, $\mathbb{R}^{n}$, and $\mathbb{C}^{n}$.
+More generally, if $\mathcal{H}$ is a finite-dimensional Hilbert
+space and $K$ is a subset of $\mathcal{H}$, then $K$ is compact
+if and only if it is closed and bounded. This is essentially the content
+of the Heine-Borel Theorem. On the other hand, closed and bound subspaces
+of infinite-dimensional Hilbert spaces need not be compact subspaces.
+To see what goes wrong, consider the closed unit ball $\mathrm{B}_{1}[0]$
+(centered at $0$ and of radius $1$) in $\ell^{2}(\mathbb{N})$.
+Clearly, $\mathrm{B}_{1}[0]$ is closed and bounded. However it is
+not compact. Indeed, the sequence $(\mathbf{e}_{n})$ of standard
+coordinate vectors in $\mathrm{B}_{1}[0]$ cannot have a convergent
+subsequence. Indeed, the distance between any two standard coordinate
+vectors $\mathbf{e}_{n}$ and $\mathbf{e}_{m}$ is $\sqrt{2}$. Thus,
+any subsequence of $(\mathbf{e}_{n})$ will fail to be Cauchy, and
+hence will not converge. 
+
+~~~Even though closed and bound subspaces of infinite-dimensional
+Hilbert spaces need not be compact subspaces, the converse still holds.
+In other words, being closed and bounded is a necessary condition
+for a subspace to be compact, though it is not sufficient. 
+
+\begin{prop}\label{prop} Let $\mathcal{H}$ be a Hilbert space and
+let $A\subseteq\mathcal{H}$ be a compact subspace. Then $A$ is closed
+and bounded. \end{prop}
+
+\begin{proof} In any Hausdorff space $X$ (for example a metric space),
+a compact subspace $K\subseteq X$ is necessarily a closed subset
+of $X$. We leave the proof of this as an exercise for the reason.
+Let us prove that $A$ is a bounded. Assume for a contradiction that
+$A$ is not bounded. For each $a\in A$, let $U_{a}=\mathrm{B}_{1}(a)$
+be the open ball of radius $1$ centered at $a$. Then $\{U_{a}\}_{a\in A}$
+forms an open cover of $A$. Since $A$ is compact, there exists a
+finite subcover of $\{U_{a}\}$, say $\{U_{a_{1}},\dots,U_{a_{n}}\}$.
+For each $1\leq i,j\leq n$, set
+\[
+L_{ij}=\mathrm{d}(U_{a_{i}},U_{a_{j}})=\sup\left\{ \|x_{i}-x_{j}\|\mid x_{i}\in U_{a_{i}}\text{ and }x_{j}\in U_{a_{j}}\right\} 
+\]
+Clearly $L_{ij}$ is finite since $L_{ij}\leq\|a_{i}-a_{j}\|+2$.
+Setting $L=\max_{1\leq i,j\leq n}\{L_{ij}\}$, we see that for all
+$x,x'\in A$, we must have $\|x-x'\|\leq L$. Thus, $A$ is bounded.
+\end{proof}
+
 \subsection{Weak Convergence}
 
-\begin{defn}\label{defn} A set $K$ in an inner-product space $\mathcal{V}$
-is said to be \textbf{compact }any sequence in $K$ has a convergent
-subsequence with a limit in $K$. \end{defn}
+As we've seen, the sequence $(\mathbf{e}_{n})$ in $\ell^{2}(\mathbb{N})$
+has not convergent subsequences, so obviously the sequence $(\mathbf{e}_{n})$
+doesn't converge. On the other hand, there is a weaker notion of convergence
+in which the sequence $(\mathbf{e}_{n})$ does converge. Let us discuss
+this weakened version of convergence now. 
 
-~~~In $\mathbb{R}$, $\mathbb{C}$, $\mathbb{R}^{n}$, and $\mathbb{C}^{n}$,
-a set is compact if and only if it is closed and bounded. However
-in infinite dimensional spaces, this is no longer true. To see what
-goes wrong, consider the closed unit ball $\overline{B}_{1}(0)$ (centered
-at $0$ and of radius $1$) in $\ell^{2}(\mathbb{N})$. Then the sequence
-$(e^{n})$ of standard coordinate vectors in $\overline{B}_{1}(0)$
-cannot have a convergent subsequence. Indeed, the distance between
-any two standard coordinate vectors $e^{m}$ and $e^{n}$ is $\sqrt{2}$.
-Thus, any subsequence of $(e^{n})$ will fail to be Cauchy, and hence
-will not converge.
-
-\begin{defn}\label{defn} A sequence $(x_{n})$ in an inner-product
-space $\mathcal{V}$ is said to be \textbf{weakly convergent }to a
-limit $x\in\mathcal{V}$ if
-\[
-\langle x_{n},y\rangle\to\langle x,y\rangle
-\]
-for all $y\in\mathcal{V}$. We denote this by $x_{n}\xrightarrow{w}x$.
+\begin{defn}\label{defn} Let $\mathcal{V}$ be an inner-product space
+and let $(x_{n})$ be a sequence in $\mathcal{V}$. We say $(x_{n})$
+\textbf{converges weakly }to an element $x\in\mathcal{V}$, which
+we denote by $x_{n}\xrightarrow{w}x$, if the sequence of complex
+numbers $(\langle x_{n},y)\rangle$ converges (in the usual sense)
+to $\langle x,y\rangle\in\mathbb{C}$ for all $y\in\mathcal{V}$.
+In this case, we call $x$ the \textbf{weak limit }of $(x_{n})$.
 \end{defn}
 
 \begin{rem}\label{rem} If $\langle x_{n},y\rangle\to\langle x,y\rangle$,
@@ -2259,25 +2647,23 @@ then $\langle x,y\rangle=\langle x',y\rangle$ for all $y\in\mathcal{V}$,
 which implies $x=x'$ by positive-definiteness of the inner-product.
 \end{rem}
 
-\begin{example}\label{example} Let $\mathcal{H}$ be an (infinite-dimensional)
+\begin{example}\label{example} Let $\mathcal{H}$ be an infinite-dimensional
 separable Hilbert space and let $(e_{n})$ be an orthonormal sequence
 in $\mathcal{H}$. We claim that $e_{n}\xrightarrow{w}0$. Indeed,
-let $y\in\mathcal{H}$. Then since 
+let $y\in\mathcal{H}$. Then since $\sum_{n=1}^{\infty}\langle y,e_{n}\rangle e_{n}$
+is convergent, we must in particular have
 \[
-\sum_{n=1}^{\infty}\langle y,e_{n}\rangle e_{n}
+\lim_{n\to\infty}\langle y,e_{n}\rangle=0=\langle y,0\rangle.
 \]
-is convergent, we must in particular have 
-\begin{align*}
-\lim_{n\to\infty}\langle y,e_{n}\rangle & =0\\
- & =\langle y,0\rangle.
-\end{align*}
-\end{example}
+Note that we need \end{example}
 
 \begin{rem}\label{rem} Any orthonormal sequence is weakly convergent
 to $0$. \end{rem}
 
 ~~~We will prove that any bounded sequence in an infinite dimensional
 Hilbert space has a weakly convergent subsequence.
+
+\subsubsection{Weak Convergence Properties}
 
 \begin{prop}\label{propstrongconv} Let $\mathcal{H}$ be an infinite
 dimensional Hilbert space. Then $x_{n}\to x$ implies $x_{n}\xrightarrow{w}x$.
@@ -2287,26 +2673,24 @@ then $x_{n}\to x$. \end{prop}
 \begin{rem}\label{rem} In finite dimensional spaces we have $x_{n}\to x$
 if and only if $x_{n}\xrightarrow{w}x$. \end{rem}
 
-\begin{proof}\label{proof} Suppose $x_{n}\to x$. Let $y\in\mathcal{H}$.
-Then
+\begin{proof}\label{proof} Suppose $x_{n}\to x$. Then for all $y\in\mathcal{H}$,
+we have
 \begin{align*}
 |\langle x_{n},y\rangle-\langle x,y\rangle| & =|\langle x_{n}-x,y\rangle|\\
  & \leq\|x_{n}-x\|\|y\|\\
  & \to0
 \end{align*}
-as $n\to\infty$. Thus $x_{n}\xrightarrow{w}x$ weakly.
+as $n\to\infty$. It follows that $x_{n}\xrightarrow{w}x$.
 
 ~~~Converesely, suppose $x_{n}\xrightarrow{w}x$ and $\|x_{n}\|\to\|x\|$.
-Since $x_{n}\xrightarrow{w}x$, we have $\langle x_{n},x\rangle\to\langle x,x\rangle$.
-Similarly, we have $\langle x,x_{n}\rangle\to\langle x,x\rangle$.
-Thus
+Since $x_{n}\xrightarrow{w}x$, we have in particular $\langle x_{n},x\rangle\to\langle x,x\rangle$
+and $\langle x,x_{n}\rangle\to\langle x,x\rangle$. Thus
 \begin{align*}
 \|x_{n}-x\|^{2} & =\langle x_{n},x_{n}\rangle-\langle x_{n},x\rangle-\langle x,x_{n}\rangle+\langle x,x\rangle\\
  & \to\|x\|^{2}-\langle x,x\rangle-\langle x,x\rangle+\langle x,x\rangle\\
  & =0.
 \end{align*}
-
-\end{proof}
+It follows that $x_{n}\to x$. \end{proof}
 
 ~~~Note that we really do need both $x_{n}\xrightarrow{w}x$ \emph{and
 }$\|x_{n}\|\to\|x\|$ for the converse to be true. Indeed, let $(x_{n})$
@@ -2373,24 +2757,22 @@ that $n\geq N$ implies $|\langle x_{n}-x,y\rangle|<\varepsilon/3$
 
 \end{proof} 
 
-\subsubsection{Weak Convergence vs Strong Convergence}
-
 \subsection{Baby Version of the Uniform Boundedness Principle and its Consequences}
 
 \subsubsection{Baby Version of the Uniform Boundedness Principle}
 
 \begin{lemma}\label{lemmasequencebounded} Let $(x_{n})$ be a sequence
 in $\mathcal{H}$. Assume there exists an $M>0$ and a closed ball
-$\overline{B}_{r}(a)\subseteq\mathcal{H}$ such that
+$\mathrm{B}_{r}[a]\subseteq\mathcal{H}$ such that
 \[
 |\langle x_{n},y\rangle|\leq M
 \]
-for all $n\in\mathbb{N}$ and for all $y\in\overline{B}_{r}(a)$.
-Then the sequence $(x_{n})$ is bounded. \end{lemma}
+for all $n\in\mathbb{N}$ and for all $y\in\mathrm{B}_{r}[a]$. Then
+the sequence $(x_{n})$ is bounded. \end{lemma}
 
 \begin{proof}\label{proof} The key is to translate everything from
-the closed ball $\overline{B}_{r}(a)$ to the closed ball $\overline{B}_{1}(0)$.
-Let $z\in\overline{B}_{1}(0)$. Then
+the closed ball $\mathrm{B}_{r}[a]$ to the closed ball $\mathrm{B}_{1}[0]$.
+Let $z\in\mathrm{B}_{1}[0]$. Then
 \begin{align*}
 |\langle x_{n},z\rangle| & =\frac{1}{r}|\langle x_{n},rz\rangle|\\
  & =\frac{1}{r}|\langle x_{n},rz+a-a\rangle|\\
@@ -2414,43 +2796,51 @@ for all $n\in\mathbb{N}$. Then the sequence $(x_{n})$ is bounded.
 \end{theorem}
 
 \begin{proof}\label{proof} We claim that there exists $M>0$ and
-a closed ball $\overline{B}_{r}(a)\subseteq\mathcal{H}$ such that
+a closed ball $\mathrm{B}_{r}[a]\subseteq\mathcal{H}$ such that 
 \[
 |\langle x_{n},y\rangle|\leq M
 \]
-for all $n\in\mathbb{N}$ and for all $y\in\overline{B}_{r}(a)$.
-This will imply $(x_{n})$ is bounded by Lemma~(\ref{lemmasequencebounded}).
+for all $n\in\mathbb{N}$ and for all $y\in\mathrm{B}_{r}[a]$. This
+will imply $(x_{n})$ is bounded by Lemma~(\ref{lemmasequencebounded}).
 
-~~~For each $m\in\mathbb{N}$, define
+~~~For each $m\in\mathbb{N}$, we set
 \[
-E_{m}:=\{y\in\mathcal{H}\mid|\langle x_{n},y\rangle|\leq m\text{ for all }n\in\mathbb{N}\}.
+E_{m}=\{y\in\mathcal{H}\mid|\langle x_{n},y\rangle|\leq m\text{ for all }n\in\mathbb{N}\}.
 \]
-It's easy to see that $(E_{m})$ is an increasing sequence of closed
-sets (view it as an infinite intersection of closed sets). Moreover,
-for any $y\in\mathcal{H}$, (\ref{eq:ybounded2}) implies $y\in\bigcup_{m=1}^{\infty}E_{m}$.
-Thus
+Observe that $(E_{m})$ is an ascending sequence of closed sets. Indeed,
+it is clearly ascending, to see that $E_{m}$ is closed, view it as
+an infinite intersection of closed sets, namely
+\[
+E_{m}=\bigcap_{n=1}^{\infty}\left\{ y\in\mathcal{H}\mid|\langle x_{n},y\rangle|\leq m\right\} .
+\]
+Moreover, for any $y\in\mathcal{H}$, (\ref{eq:ybounded2}) implies
+$y\in\bigcup_{m=1}^{\infty}E_{m}$. Thus
 \[
 \mathcal{H}=\bigcup_{m=1}^{\infty}E_{m}.
 \]
 
 ~~~Now to prove the claim, it suffices to show that one of the
-$E_{m}$'s contains an open ball of the form $B_{r}(a)$ (the closure
-$\overline{B}_{r}(a)$ will then also belong to $E_{m})$. Let $B_{r_{1}}(a_{1})$
-be any open ball. If $B_{r_{1}}(a_{1})\subseteq E_{1}$, then we are
-done. So assume $B_{r_{1}}(a_{1})\cap E_{1}^{c}\neq\emptyset$. Choose
-$a_{2}\in\mathcal{H}$ and $r_{2}>0$ such that $r_{2}<r_{1}/2$ and
-$\overline{B}_{r_{2}}(a_{2})\subseteq B_{r_{1}}(a_{1})\cap E_{1}^{c}$
-(we can find an open ball $B_{r_{2}}(a_{2})$ which is contained in
-$B_{r_{1}}(a_{1})\cap E_{1}^{c}$ since the intersection is nonempty,
-and by replacing $r_{2}$ by a smaller positive number if necessary,
-we may assume that $\overline{B}_{r_{2}}(a_{2})$ is contained in
-$B_{r_{1}}(a_{1})\cap E_{1}^{c}$). Continuing this process, we will
-either stop after finitely many iterations (and we'd be done!) or
-we can construct a sequence $(a_{n})$ in $\mathcal{H}$ such that
-$r_{n+1}<r_{n}/2<\cdots<r_{1}/2^{n}$ and $\overline{B}_{r_{n+1}}(a_{n+1})\subseteq B_{r_{n}}(a_{n})\cap E_{n}^{c}$
+$E_{m}$'s contains an open ball of the form $\mathrm{B}_{r}(a)$
+(the closure $\mathrm{B}_{r}[a]$ will then also belong to $E_{m}$
+since $E_{m}$ is itself closed). Let $\mathrm{B}_{r_{1}}(a_{1})$
+be any open ball. If $\mathrm{B}_{r_{1}}(a_{1})\subseteq E_{1}$,
+then we are done, so assume $\mathrm{B}_{r_{1}}(a_{1})\cap E_{1}^{c}\neq\emptyset$.
+Choose $a_{2}\in\mathcal{H}$ and $r_{2}>0$ such that $r_{2}<r_{1}/2$
+and $\mathrm{B}_{r_{2}}[a_{2}]\subseteq\mathrm{B}_{r_{1}}(a_{1})\cap E_{1}^{c}$:
+we can find an open ball $\mathrm{B}_{r_{2}}(a_{2})$ which is contained
+in $\mathrm{B}_{r_{1}}(a_{1})\cap E_{1}^{c}$ since the intersection
+is a nonempty open set, and by replacing $r_{2}$ by a smaller positive
+number if necessary, we may assume that $\mathrm{B}_{r_{2}}[a_{2}]$
+is contained in $\mathrm{B}_{r_{2}}[a_{2}]\cap E_{1}^{c}$). Continuing
+this process, we will either stop after finitely many iterations (and
+we'd be done!) or we can construct a sequence $(a_{n})$ in $\mathcal{H}$
+and a sequence $(r_{n})\in\mathbb{R}$ such that 
+\[
+r_{n+1}<r_{n}/2<\cdots<r_{1}/2^{n}\quad\text{and}\quad\mathrm{B}_{r_{n+1}}[a_{n+1}]\subseteq\mathrm{B}_{r_{n}}(a_{n})\cap E_{n}^{c}
+\]
 for all $n\in\mathbb{N}$.
 
-~~~Assume (for a contradiction) that such a sequence has been constructed.
+~~~Assume for a contradiction that such a sequence has been constructed.
 We claim that $(a_{n})$ is a Cauchy sequence. Indeed, let $\varepsilon>0$.
 Since $r_{n}\to0$, there exists $N\in\mathbb{N}$ such that $n\geq N$
 implies $2r_{n}<\varepsilon$. Then $n,m\geq N$ implies
@@ -2460,16 +2850,15 @@ implies $2r_{n}<\varepsilon$. Then $n,m\geq N$ implies
  & =2r_{N}\\
  & <\varepsilon.
 \end{align*}
-since $a_{n},a_{m}\in\overline{B}_{r_{N}}(a_{N})$ for all $n,m\geq N$.
+since $a_{n},a_{m}\in\mathrm{B}_{r_{N}}[a_{N}]$ for all $n,m\geq N$.
 Thus $(a_{n})$ is a Cauchy sequence and hence converges (since we
 are in a Hilbert space) say to $a\in\mathcal{H}$. Now observe that
-for any $m\in\mathbb{N}$, we have $a\in\overline{B}_{r_{m}}(a_{m})\subseteq E_{m-1}^{c}$.
+for any $m\in\mathbb{N}$, we have $a\in\mathrm{B}_{r_{m}}[a_{m}]\subseteq E_{m-1}^{c}$.
 In particular
 \begin{align*}
-a & =\bigcap_{m=1}^{\infty}E_{m}^{c}\\
- & =\bigcap_{m=1}^{\infty}(\mathcal{H}\backslash E_{m})\\
- & =\mathcal{H}\backslash\left(\bigcup_{m=1}^{\infty}E_{m}\right)\\
- & =\mathcal{H}\backslash\mathcal{H}\\
+a & \in\bigcap_{m=1}^{\infty}E_{m}^{c}\\
+ & =\left(\bigcup_{m=1}^{\infty}E_{m}\right)^{c}\\
+ & =\mathcal{H}^{c}\\
  & =\emptyset,
 \end{align*}
 which is a contradiction. \end{proof}
@@ -2805,7 +3194,7 @@ which implies $\lambda$ is real. Therefore $\Lambda\subseteq\mathbb{R}$.
 \subsubsection{Eigenspaces of Compact Self-Adjoint Operators}
 
 \begin{prop}\label{prop} Let $T\colon\mathcal{H}\to\mathcal{H}$
-be a self-adjoint compact operator. Assume that $\Lambda$ is infinite.
+be a compact self-adjoint operator. Assume that $\Lambda$ is infinite.
 Then $0$ is an accumulation point of $\Lambda$. Moreover, the set
 of all accumulation points of $\Lambda$ is $\Lambda\cup\{0\}$. In
 other words, the closure of $\Lambda$ (as a subset of $\mathbb{C}$)
@@ -2872,7 +3261,7 @@ $\langle Tx_{n},x_{n}\rangle\to\lambda_{0}$. Since the sequence $(x_{n})$
 is bounded, it has a weakly convergent subsequence, say $(x_{\pi(n)})$
 where $x_{\pi(n)}\xrightarrow{w}x_{0}$ for some $x_{0}\in\mathcal{H}$.
 Since $T$ is compact, we will have $Tx_{\pi(n)}\to Tx_{0}$, and
-this implies $\langle Tx_{\pi(n)},x_{\pi(n)}\rangle\to\langle Tx_{0},Tx_{0}\rangle$
+this implies $\langle Tx_{\pi(n)},x_{\pi(n)}\rangle\to\langle Tx_{0},x_{0}\rangle$
 by Proposition~(\ref{propweakplusstrong}). Since every subsequence
 of a convergence subsequence is convergent and moreover converges
 to the same limit, we have $\langle Tx_{0},x_{0}\rangle=\lambda_{0}$.
@@ -2881,7 +3270,7 @@ Finally, since
 \|x_{0}\| & \leq\liminf_{n\to\infty}\|x_{\pi(n)}\|\\
  & \leq1,
 \end{align*}
-our claim is prove. In fact, we must have $\|x_{0}\|=1$, since if
+our claim is proved. In fact, we must have $\|x_{0}\|=1$, since if
 $\|x_{0}\|<1$, then 
 \begin{align*}
 \left\langle T\left(\frac{x_{0}}{\|x_{0}\|}\right),\frac{x_{0}}{\|x_{0}\|}\right\rangle  & =\frac{1}{\|x_{0}\|}\langle Tx_{0},x_{0}\rangle\\
@@ -3300,11 +3689,386 @@ at $0$ if and only if $T$ is uniformly continuous. \end{prop}
 \begin{prop}\label{prop} If $T$ is bounded then $\|Tx\|\leq\|T\|\|x\|$
 for all $x\in\mathcal{X}$. \end{prop}
 
+\subsection{Dual Spaces}
+
+\begin{defn}\label{defn} Given a normed linear space $X$, the \textbf{dual
+space }of $X$, denoted by $X^{*}$, is the vector space which consists
+of all bounded linear functionals on $X$ equipped with the operator
+norm. In other words,
+\[
+X^{*}=\{\ell\colon X\to\mathbb{C}\mid\ell\text{ is bounded and linear.}\}
+\]
+\end{defn}
+
+\subsubsection{Hahn-Banach Theorem and its Consequences}
+
+\begin{theorem}\label{theorem} (Hahn-Banach Theorem) Let $X$ be
+a normed linear space and let $Y$ be a subspace of $X$. Then every
+bounded linear functional $\psi\colon Y\to\mathbb{C}$ can be extended
+to $X$ with the same norm. More precisely, there exists a bounded
+linear functional $\widetilde{\psi}\colon X\to\mathbb{C}$ such that
+$\widetilde{\psi}|_{Y}=\psi$ and moreover $\|\widetilde{\psi}\|=\|\psi\|$.
+\end{theorem}
+
+\begin{rem}\label{rem} Note that $\|\widetilde{\psi}\|\leq\|\psi\|$
+is the nontrivial direction. \end{rem}
+
+\begin{prop}\label{proplinearfunctionalx} For any nonzero vector
+$x_{0}\in X$ there exists $\ell\in X^{*}$ with $\|\ell\|=1$ such
+that $\ell(x_{0})=\|x_{0}\|$. \end{prop}
+
+\begin{proof} Let $Y=\text{span}(\{x_{0}\})$. Define $\psi\colon Y\to\mathbb{C}$
+by
+\[
+\psi(\lambda x_{0})=\lambda\|x_{0}\|
+\]
+for all $\lambda x_{0}\in\text{span}(\{x_{0}\})$. It is easy to check
+that $\psi$ is linear and bounded with $\psi(x_{0})=\|x_{0}\|$ and
+$\|\psi\|=1$. By the Hahn-Banach Theorem, we can extend $\psi$ to
+a bounded linear functional $\ell\colon X\to\mathbb{C}$ such that
+$\|\ell\|=\|\psi\|=1$ and such that $\ell(x_{0})=\psi(x_{0})=\|x_{0}\|$.
+This completes the proof. \end{proof}
+
+\begin{prop}\label{prop} For any $x\in X$, we have
+\[
+\|x\|=\max\{|\ell(x)|\mid\ell\in X^{*}\text{ and }\|\ell\|\leq1\}.
+\]
+\end{prop}
+
+\begin{proof} First note that for any $\ell\in X^{*}$ such that
+$\|\ell\|\leq1$ we always have 
+\begin{align*}
+|\ell(x)| & \leq\|\ell\|\|x\|\\
+ & \leq\|x\|.
+\end{align*}
+For the reverse inequality, choose an $\ell\in X^{*}$ such that $\|\ell\|=1$
+and such that $\ell(x)=\|x\|$ (such a choice exists by Proposition~(\ref{proplinearfunctionalx})).
+This gives us the reverse direction. \end{proof}
+
+\begin{prop}\label{prop} $X^{*}$ is always a Banach space. \end{prop}
+
+\begin{proof} It suffices to show $X^{*}$ is complete. Let $(\ell_{n})$
+be a Cauchy sequence in $X^{*}$. Let $x\in X$ and let $\varepsilon>0$.
+Choose $N\in\mathbb{N}$ such that $m,n\geq N$ implies
+\[
+\|\ell_{n}-\ell_{m}\|<\frac{\varepsilon}{\|x\|}.
+\]
+Then $n,m\geq N$ implies
+\begin{align*}
+|\ell_{n}(x)-\ell_{m}(x)| & =|(\ell_{n}-\ell_{m})(x)|\\
+ & \leq\|\ell_{n}-\ell_{m}\|\|x\|\\
+ & <\frac{\varepsilon}{\|x\|}\|x\|\\
+ & =\varepsilon.
+\end{align*}
+In particular, $(\ell_{n}(x))$ is a Cauchy sequence of complex numbers
+for all $x\in X$. Since $\mathbb{C}$ is complete, we may define
+$\ell\colon X\to\mathbb{C}$ by
+\[
+\ell(x)=\lim_{n\to\infty}\ell_{n}(x)
+\]
+for all $x\in X$. 
+
+~~~We claim that $\ell\in X^{*}$ and $\ell_{n}\to\ell$ as $n\to\infty$.
+Linearity of $\ell$ follows from linearity of $\ell_{n}$ and linearity
+of the limit operator. To see that $\ell$ is bounded, we consider
+the inequality 
+\[
+|\ell_{n}(x)-\ell_{m}(x)|<\varepsilon\|x\|.
+\]
+Then for $\|x\|\leq1$ and setting $m\to\infty$, we find that $n\geq N$
+implies
+\[
+|\ell_{n}(x)-\ell(x)|\leq\varepsilon.
+\]
+Therefore $\ell_{n}-\ell$ is bounded. In particular, $\ell=(\ell_{n}-\ell)+\ell_{n}$
+is bounded since $X^{*}$ is a vector space. This also implies $\|\ell_{n}\|\to\|\ell\|$.
+\end{proof}
+
+\begin{defn}\label{defn} Two normed linear spaces $(X_{1},\|\cdot\|_{1})$
+and $(X_{2},\|\cdot\|_{2})$ are said to be \textbf{isometricaly isomorphic
+}if there exists a bijective linear map $T\colon X_{1}\to X_{2}$
+such that $\|Tx\|_{2}=\|x\|_{1}$ for all $x\in X_{1}$. In this case,
+we write $X\cong Y$. If $T$ is not necessarily surjective, then
+we say $(X_{1},\|\cdot\|_{1})$ is \textbf{isometrically embedded
+}in $(X_{2},\|\cdot\|_{2})$ and we call such $T$ an (\textbf{isometrical})
+\textbf{embedding}. \end{defn}
+
+\begin{prop}\label{prop} Suppose $1\leq p<\infty$ and $q$ is the
+conjugate of $p$ (i.e. $1/p+1/q=1$). The dual space of $\ell^{p}(\mathbb{N})$
+is isometrically isomorphic to $\ell^{q}(\mathbb{N})$. \end{prop}
+
+\begin{defn}\label{defn} Let $\mathcal{X}$ be a normed linear space
+and let $A$ be a subset of $\mathcal{X}$. The \textbf{annihilator
+of} $A$ \textbf{in} $\mathcal{X}$ is defined to be the set of all
+bounded linear functionals $\ell\colon\mathcal{X}\to\mathbb{C}$ that
+annihilate $A$, i.e. $\ell(a)=0$ for all $a\in A$. We denote the
+annihilator of $A$ by $A^{\perp}$. \end{defn}
+
+\begin{prop}\label{prop} For any $A\subseteq\mathcal{X}$ we have
+$A^{\perp}$ is a closed subspace of $\mathcal{X}^{*}$.\end{prop}
+
+Just like in Hilbert spaces, we define
+\[
+d(x,A)=\inf\{\|x-a\|\mid a\in A\}
+\]
+to be the distance from $x$ to $A$. 
+
+\begin{theorem}\label{theorem} Let $\mathcal{X}$ be a normed linear
+space and let $\mathcal{Y}$ be a subspace of $\mathcal{X}$. Then
+\[
+d(x,\mathcal{Y})=\max\{|\ell(x)|\mid\ell\in\mathcal{Y}^{\perp}\text{ and }\|\ell\|\leq1\}.
+\]
+\end{theorem}
+
+\begin{proof} Let $x\in\mathcal{X}$ and let $\ell\in\mathcal{Y}^{\perp}$
+with $\|\ell\|\leq1$. Then 
+\begin{align*}
+|\ell(x)| & =|\ell(x-y)|\\
+ & \leq\|\ell\|\|x-y\|\\
+ & \leq\|x-y\|
+\end{align*}
+for all $y\in\mathcal{Y}$. Therefore
+\begin{align*}
+d(x,\mathcal{Y}) & \geq\inf_{y\in\mathcal{Y}}\|x-y\|\\
+ & \geq\inf_{y\in\mathcal{Y}}|\ell(x)|\\
+ & =|\ell(x)|.
+\end{align*}
+This implies 
+\[
+\sup\{|\ell(x)|\mid\ell\in\mathcal{Y}^{\perp}\text{ and }\|\ell\|\leq1\}\leq d(x,\mathcal{Y}).
+\]
+
+Now we want to show that the supremum is actually a maximum. If $x\in\mathcal{Y}$
+then it is obvious, so assume $x\notin\mathcal{Y}$. Define $\mathcal{Z}=\text{span}\{x,\mathcal{Y}\}$
+and define $\psi\colon\mathcal{Z}\to\mathbb{C}$ by
+\[
+\psi(\lambda x+y)=\lambda d(x,\mathcal{Y})
+\]
+for all $\lambda x+y\in\mathcal{Z}$. Note that any element in $\mathcal{Z}$
+can be uniquely expressed as $\lambda x+y$ for some $\lambda\in\mathbb{C}$
+and $y\in\mathcal{Y}$ and hence $\psi$ is well-defined. It is easy
+to show that $\psi$ is a linear functional. Also $\psi(y)=0$ for
+all $y\in\mathcal{Y}$ and $\psi(x)=d(x,\mathcal{Y})$. Let $z\in\mathcal{Z}$.
+If $z\in\mathcal{Y}$, then $|\psi(z)|\leq\|z\|$, otherwise let $z=\lambda x+y$
+with $\lambda\neq0$. Then
+\begin{align*}
+|\psi(z)| & =|\lambda|d(x,\mathcal{Y})\\
+ & =\frac{|\lambda|\|z\|}{\|z\|}d(x,\mathcal{Y})\\
+ & =\frac{|\lambda|\|z\|}{\|\lambda x+y\|}d(x,\mathcal{Y})\\
+ & =\frac{|\lambda|\|z\|}{\|\lambda(x+\lambda^{-1}y)\|}d(x,\mathcal{Y})\\
+ & =\frac{\|z\|}{\|(x+\lambda^{-1}y)\|}d(x,\mathcal{Y})\\
+ & \leq\|z\|
+\end{align*}
+So for any $z\in\mathcal{Z}$, we have $|\psi(z)|\leq\|z\|$. By the
+Hahn-Banach Theorem there exists $\ell\in\mathcal{X}^{*}$ such that
+$\ell(z)=\psi(z)$ for all $z\in\mathcal{Z}$ and $\|\ell\|=\|\psi\|\leq1$.
+Then $\ell(y)=\psi(y)=0$ for all $y\in\mathcal{Y}$. In otherwords,
+$\ell\in\mathcal{Y}^{\perp}$. Also $\ell(x)=\psi(x)=d(x,\mathcal{Y})$.
+Therefore the supremum is a maximum. \end{proof}
+
+\subsection{Reflexivity}
+
+Any $x\in\mathcal{X}$ defines a natural linear functional $x^{**}\colon\mathcal{X}^{*}\to\mathbb{C}$
+by 
+\[
+x^{**}(\ell)=\ell(x)
+\]
+for all $\ell\in\mathcal{X}^{*}$. Indeed, for linearity let $\alpha_{1},\alpha_{2}\in\mathbb{C}$
+and $\ell_{1},\ell_{2}\in\mathcal{X}^{*}$. Then
+\begin{align*}
+x^{**}(\alpha_{1}\ell_{1}+\alpha_{2}\ell_{2}) & =(\alpha_{1}\ell_{1}+\alpha_{2}\ell_{2})(x)\\
+ & =\alpha_{1}\ell_{1}(x)+\alpha_{2}\ell_{2}(x)\\
+ & =\alpha_{1}x^{**}(\ell)+\alpha_{2}x^{**}(\ell).
+\end{align*}
+Moreover $x^{**}$ is bounded above by $\|x\|$ since 
+\begin{align*}
+|x^{**}(\ell)| & =|\ell(x)|\\
+ & \leq\|\ell\|\|x\|
+\end{align*}
+for all $\ell\in\mathcal{X}^{*}$. In fact $\|x^{**}\|=\|x\|$.
+
+\begin{prop}\label{prop} Define $\Phi\colon\mathcal{X}\to\mathcal{X}^{**}$
+by 
+\[
+\Phi(x)=x^{**}
+\]
+for all $x\in\mathcal{X}$. Then $\Phi$ is an isometrically embedding.
+\end{prop}
+
+\begin{proof} For linearity, let $\alpha,\beta\in\mathbb{C}$ and
+$x,y\in\mathcal{X}$ and let $\ell\in\mathcal{X}^{*}$. Then
+\begin{align*}
+(\alpha x+\beta y)^{**}(\ell) & =\ell(\alpha x+\beta y)\\
+ & =\alpha\ell(x)+\beta\ell(y)\\
+ & =\alpha x^{**}(\ell)+\beta y^{**}(\ell)\\
+ & =(\alpha x^{**}+\beta y^{**})(\ell).
+\end{align*}
+Therefore $(\alpha x+\beta y)^{**}=\alpha x^{**}+\beta y^{**}$, and
+so $\Phi$ is linear. Also we proved 
+\begin{align*}
+\|\Phi(x)\| & =\|x^{**}\|\\
+ & =\|x\|.
+\end{align*}
+In other words $\Phi$ is an isometry. \end{proof}
+
+\begin{defn}\label{defn} A normed linear space $\mathcal{X}$ is
+said to be \textbf{reflexive }if the natural embedding $\Phi$ is
+surjective, i.e. $\mathcal{X}\cong\mathcal{X}^{**}$. \end{defn}
+
+\subsubsection{Examples of Reflexive Banach Spaces}
+
+\begin{example}\label{example} Let $1<p<\infty$. Then $\ell^{p}(\mathbb{N})$
+is reflexive. On the other hand, $\ell^{1}(\mathbb{N})$, $\ell^{\infty}(\mathbb{N})$,
+and $(C[a,b],\|\cdot\|_{\sup})$ are not reflexive.  \end{example}
+
+\begin{lemma}\label{lemma} Let $\mathcal{Y}$ be a closed subspace
+of a normed linear space $\mathcal{X}$. Then there exists $z\in\mathcal{X}$
+with $\|z\|=1$ such that $d(z,\mathcal{Y})\geq1/2$.\end{lemma}
+
+\begin{proof} Let $x\notin\mathcal{Y}$. Since $\mathcal{Y}$ is
+closed we must have $d(x,\mathcal{Y})>0$. Choose $y_{0}\in\mathcal{Y}$
+such that 
+\[
+\|x-y_{0}\|<d(x,\mathcal{Y})+d(x,\mathcal{Y}).
+\]
+
+Let $z'=x-y_{0}$. Then 
+\begin{align*}
+\|z'-y\| & =\|x-y_{0}-y\|\\
+ & =\|x-(y+y_{0})\|\\
+ & \geq d(x,\mathcal{Y})
+\end{align*}
+for all $y\in\mathcal{Y}$. Now set $z=z'/\|z'\|$. Then $\|z\|=1$
+and
+\begin{align*}
+\|z-y\| & =\left\Vert \frac{z'}{\|z'\|}-y\right\Vert \\
+ & \frac{\|z'-\|z'\|\cdot y\|}{\|z'\|}\\
+ & >\frac{d(x,\mathcal{Y})}{\|x-y_{0}\|}\\
+ & \geq\frac{d(x,\mathcal{Y})}{2d(x,\mathcal{Y})}\\
+ & =\frac{1}{2}.
+\end{align*}
+\end{proof}
+
+\begin{theorem}\label{theorem} The closed (unit) ball in any infinite-dimensional
+normed linear space is not compact. \end{theorem}
+
+\begin{proof} Let $y_{1}$ with $\|y_{1}\|=1$ be arbitrary. Set
+$\mathcal{Y}_{1}=\text{span}\{y_{1}\}$. Then $\mathcal{Y}_{1}$ is
+a closed proper subspace of $\mathcal{X}$. Therefore by the lemma,
+there exists $y_{2}$ with $\|y_{2}\|=1$ such that $d(y_{2},\mathcal{Y}_{1})\geq1/2$.
+Choose such $y_{2}$. Then clearly
+\[
+\|y_{2}-y_{1}\|\geq\frac{1}{2}.
+\]
+Next set $\mathcal{Y}_{2}=\text{span}\{y_{1},y_{2}\}$. Again, $\mathcal{Y}_{2}$
+is a proper closed subspace of $\mathcal{X}$. Choose $y_{3}$ with
+$\|y_{3}\|=1$ such that $d(y_{3},\mathcal{Y}_{2})\geq1/2$. In particular,
+we have 
+\[
+\|y_{3}-y_{2}\|\geq\frac{1}{2}\quad\text{and}\quad\|y_{3}-y_{1}\|\geq\frac{1}{2}.
+\]
+Continuing in this manner, we construct a sequence $(y_{n})$ such
+that 
+\[
+\|y_{n}-y_{m}\|\geq\frac{1}{2}
+\]
+for all $n\geq m\geq1$. Clearly this sequence doesn't have a convergent
+subsequence. \end{proof}
+
+~~~Recall that in a Hilbert space $\mathcal{H}$, a sequence $(x_{n})$
+converges weakly to $x$ if 
+\[
+\langle x_{n},y\rangle\to\langle x,y\rangle
+\]
+for all $y\in\mathcal{H}$. We do not have inner-products in a normed
+linear space, however there is still an analogue of weak convergence
+in normed linear spaces:
+
+\begin{defn}\label{defn} A sequence $(x_{n})$ in a normed linear
+space $\mathcal{X}$ is said to\textbf{ }be \textbf{weakly convergent
+}if there exists $x\in\mathcal{X}$ such that 
+\[
+\ell(x_{n})\to\ell(x)
+\]
+for all $\ell\in\mathcal{X}^{*}$. If such $x$ exists it is unique
+in this case we write $x_{n}\xrightarrow{w}x$. \end{defn}
+
+\begin{theorem}\label{theorem} Every weakly convergent sequence in
+a normed linear space is bounded. Moreover, if $x_{n}\xrightarrow{w}x$,
+then
+\[
+\|x\|\leq\liminf_{n\to\infty}\|x_{n}\|.
+\]
+\end{theorem}
+
+\begin{proof} The proof relies on the uniform boundedness principle
+just as in the Hilbert space case. \end{proof}
+
+\begin{theorem}\label{theorem} Every bounded sequence in a (separable)
+reflexive Banach space has a weakly convergent subsequence. \end{theorem}
+
+\begin{rem} The separable assumption can be dropped but the reflexive
+assumption cannot be dropped. \end{rem}
+
+\begin{proof} Diagonal argument. We need to use reflexivity in the
+last step in place of the Riesz Representation Theorem. \end{proof}
+
+\begin{prop}\label{prop} Let $\mathcal{Y}$ be a closed subspace
+of a normed linear space $\mathcal{X}$. If $(x_{n})$ is a sequence
+in $\mathcal{Y}$ and $x_{n}\xrightarrow{w}x$, then $x\in\mathcal{Y}$.
+\end{prop}
+
+\begin{proof} Similar to the Hilbert space case. We need to use 
+\[
+d(x,\mathcal{Y})=\sup\{|\ell(x)|\mid\ell\in\mathcal{Y}^{\perp}\text{ and }\|\ell\|\leq1\}.
+\]
+\end{proof}
+
+\begin{theorem}\label{theorem} Let $\mathcal{X}$ be a reflexive
+Banach space and let $\mathcal{Y}$ be a closed subspace of $\mathcal{X}$.
+Then for any $x\in\mathcal{X}$ there exists $y_{0}\in\mathcal{Y}$
+such that 
+\[
+\|x-y_{0}\|=d(x,\mathcal{Y}).
+\]
+\end{theorem}
+
+\begin{rem} Note that $y_{0}$ is not necessarily unique. \end{rem}
+
+\begin{proof} For each $n\in\mathbb{N}$, there exists $y_{n}\in\mathcal{Y}$
+such that 
+\[
+d(x,\mathcal{Y})\leq\|x-y_{n}\|<d(x,\mathcal{Y})+\frac{1}{n}.
+\]
+
+Then 
+\begin{align*}
+\|y_{n}\| & \leq\|y_{n}-x\|+\|x\|\\
+ & <d(x,\mathcal{Y})+\frac{1}{n}+\|x\|\\
+ & \leq d(x,\mathcal{Y})+1+\|x\|
+\end{align*}
+for all $n\in\mathbb{N}$. Therefore $(y_{n})$ is a bounded sequence
+and hence contains a weakly convergent subsequence, say $(y_{\pi(n)})$
+with $y_{\pi(n)}\xrightarrow{w}y_{0}$. Since $(y_{\pi(n)})\subseteq\mathcal{Y}$,
+the weak limit $y_{0}$ is also in $\mathcal{Y}$. Then $x-y_{\pi(n)}\xrightarrow{w}x-y_{0}$,
+and hence 
+\[
+\|x-y_{0}\|\leq\liminf_{n\to\infty}\|x-y_{\pi(n)}\|.
+\]
+Therefore
+\begin{align*}
+d(x,\mathcal{Y}) & \leq\|x-y_{0}\|\\
+ & \leq\liminf_{n\to\infty}\|x-y_{\pi(n)}\|\\
+ & \leq\liminf_{n\to\infty}\left(d(x,\mathcal{Y})+\frac{1}{\pi(n)}\right)\\
+ & =d(x,\mathcal{Y}),
+\end{align*}
+which implies $\|x-y_{0}\|=d(x,\mathcal{Y})$. \end{proof}
+
 \part{Homework Problems and Solutions}
 
 \section{Homework 1}
 
-\section*{Problem 1}
+\subsection{Polarization Identity}
 
 \begin{prop}\label{prop} (Polarization Identity) For $x,y\in\mathscr{V}$
 we have
@@ -3338,7 +4102,7 @@ and
 \end{align*}
 Adding these together gives us our desired result. \end{proof}
 
-\section*{Problem 2}
+\subsection{Parallelogram Identity}
 
 \begin{prop}\label{propparallelogram} (Parallelogram Identity) For
 $x,y\in\mathscr{V}$ we have
@@ -3396,7 +4160,7 @@ in the case where $\mathscr{V}=\mathbb{R}^{3}$ can be seen below:
 
 \hfill
 
-\section*{Problem 3}
+\subsection{Pythagorean Theorem}
 
 \begin{prop}\label{prop} (Pythagorean Theorem) Let $x$ and $y$
 be nonzero vectors in $\mathscr{V}$ such that $\langle x,y\rangle=0$
@@ -3415,7 +4179,7 @@ be nonzero vectors in $\mathscr{V}$ such that $\langle x,y\rangle=0$
 \end{align*}
 \end{proof}
 
-\section*{Problem 4}
+\subsection{$x_{n}\to x$ and $y_{n}\to y$ implies $\langle x_{n},y_{n}\rangle\to\langle x,y\rangle$}
 
 \begin{prop}\label{prop} Let $(x_{n})$ and $(y_{n})$ be two sequences
 in $\mathscr{V}$. Then the following statements hold:
@@ -3460,7 +4224,7 @@ since the square root function is continuous on $\mathbb{R}_{\geq0}$.
 \end{enumerate}
 \end{proof}
 
-\section*{Problem 5}
+\subsection{Inner-product on $\mathrm{M}_{m\times n}(\mathbb{R})$}
 
 \begin{prop}\label{prop} Let $\langle\cdot,\cdot\rangle\colon\text{M}_{m\times n}(\mathbb{R})\times\text{M}_{m\times n}(\mathbb{R})\to\mathbb{R}$
 be given by
@@ -3514,7 +4278,7 @@ a_{m1} & \cdots & a_{mn}
 is a sum of its entries squared. This implies positive-definiteness.
 \end{proof}
 
-\section*{Problem 6a}
+\subsection{Inner-product on $\mathbb{C}^{n}$}
 
 \begin{prop}\label{prop} Let $\langle\cdot,\cdot\rangle\colon\mathbb{C}^{n}\times\mathbb{C}^{n}\to\mathbb{C}$
 be given by
@@ -3550,7 +4314,7 @@ Then
 is a sum of its components absolute squared. This implies positive-definiteness.
 \end{proof}
 
-\section*{Problem 6b}
+\subsection{Cauchy-Schwarz }
 
 This follows from an easy application of Cauchy-Schwarz, but here's
 another method (which turns out to be equivalent to Cauchy-Schwarz).
@@ -3597,7 +4361,7 @@ applied to $a_{i}b_{j}$ and $a_{j}b_{i}$. \end{proof}
 both sides and applying Lemma~(\ref{lemmainequality2}) since the
 $|x_{i}|$ and $|y_{i}|$ are nonnegative real numbers. \end{proof}
 
-\section*{Problem 7a}
+\subsection{Inner-product on $\ell^{2}(\mathbb{N})$}
 
 \begin{prop}\label{prop} Let $\ell^{2}(\mathbb{N})$ be the set of
 all sequence $(x_{n})$ in $\mathbb{C}$ such that 
@@ -3663,7 +4427,7 @@ let $(x_{n})\in\ell^{2}(\mathbb{N})$. Then
 If $\sum_{n=1}^{\infty}|x_{n}|^{2}=0$, then clearly we must have
 $x_{n}=0$ for all $n$. \end{proof}
 
-\section*{Problem 7b}
+\subsection{Cauchy-Schwarz Application}
 
 \begin{prop}\label{prop} Let $(x_{n})\in\ell^{2}(\mathbb{N})$ such
 that $\sum_{n=1}^{\infty}|x_{n}|^{2}=1$. Then 
@@ -3698,7 +4462,7 @@ Thus, any $\lambda\in\mathbb{C}$ such that $|\lambda|=\sqrt{3}$
 works. (Actually, we must have $\lambda=\sqrt{3}$ since $\lambda=|x_{n}|2^{n}$
 is positive). \end{proof}
 
-\section*{Problem 8}
+\subsection{Cauchy-Schwarz Application}
 
 \begin{prop}\label{prop} Let $f\in C[0,1]$ such that $\int_{0}^{1}|f(x)|^{2}dx=1$.
 Then 
@@ -3758,7 +4522,7 @@ B_{r}[x]:=\{y\in\mathscr{V}\mid\|y-x\|\leq r\}
 \]
 to be the \textbf{closed ball centered at $x$ and of radius $r$}. 
 
-\section*{Problem 1}
+\subsection{Translating Open Balls}
 
 \begin{prop}\label{prop} Let $a\in\mathscr{V}$ and $r>0$. Then
 \[
@@ -3806,7 +4570,7 @@ $\|y\|<1$. Then since $r>0$, we have
 In other words, $ry\in B_{1}(0)$. Therefore $rB_{1}(0)\subseteq B_{r}(0)$.
 \end{proof}
 
-\section*{Problem 2}
+\subsection{Closure of Open Balls}
 
 \begin{lemma}\label{lemmasequence1overn} Let $x\in\mathscr{V}$ and
 for each $n\in\mathbb{N}$ let $x_{n}\in\mathscr{V}$ such that $\|x_{n}-x\|<1/n$.
@@ -3858,7 +4622,7 @@ such that $x+t_{n}(a-x)\to x$ (by Lemma~(\ref{lemmasequence1overn})),
 hence $x\in\overline{B_{r}(a)}$. Thus $B_{r}[a]\subseteq\overline{B_{r}(a)}$.
 \end{proof}
 
-\section*{Problem 3a}
+\subsection{Closed Set Properties}
 
 \begin{lemma}\label{lemma} Let $A\subseteq\mathscr{V}$. \end{lemma}
 
@@ -3919,7 +4683,7 @@ is not closed in $\mathbb{R}$.
 \end{enumerate}
 \end{proof}
 
-\section*{Problem 4}
+\subsection{Distance Between Point and Set Properties}
 
 \begin{prop}\label{prop} Let $E\subseteq\mathscr{V}$ and let $x,y\in\mathscr{V}$.
 Then 
@@ -3956,7 +4720,7 @@ Taking $n\to\infty$ gives us our desired result.
 \end{enumerate}
 \end{proof}
 
-\section*{Problem 5}
+\subsection{Distance is a Norm}
 
 \begin{prop}\label{prop} Let $\mathscr{H}$ be a Hilbert space of
 $\mathbb{C}$, let $\mathscr{K}$ be a closed subspace of $\mathscr{H}$,
@@ -4009,7 +4773,7 @@ d(x+y,\mathscr{K}) & \leq\|x+y-(a+b)\|\\
 
 \section{Homework 3}
 
-\section*{Problem 1}
+\subsection{Orthogonal Projection $\mathrm{P}_{\mathcal{K}}$ Properties}
 
 \begin{prop}\label{propproblem1} Let $\mathcal{K}$ be a closed subspace
 of a Hilbert space $\mathcal{H}$ and let $x\in\mathcal{H}$. Then
@@ -4057,7 +4821,8 @@ $\langle\text{P}_{\mathcal{K}}x,x\rangle=\|\text{P}_{\mathcal{K}}x\|^{2}$.
 \end{enumerate}
 \end{proof}
 
-\section*{Problem 2}
+\subsection{$\mathcal{K}_{1}\subseteq\mathcal{K}_{2}$ if and only if $\langle\mathrm{P}_{\mathcal{K}_{1}}x,x\rangle\protect\leq\langle\mathrm{P}_{\mathcal{K}_{2}}x,x\rangle$
+for all $x\in\mathcal{H}$}
 
 \begin{prop}\label{prop} Let $\mathcal{K}_{1}$ and $\mathcal{K}_{2}$
 be closed subspaces of a Hilbert space $\mathcal{H}$. Then $\mathcal{K}_{1}\subseteq\mathcal{K}_{2}$
@@ -4070,10 +4835,10 @@ for all $x\in\mathcal{H}$ with $\|\text{P}_{\mathcal{K}_{1}}x\|^{2}\leq\|\text{P
 for all $x\in\mathcal{H}$. Suppose $\mathcal{K}_{1}\subseteq\mathcal{K}_{2}$.
 Then
 \begin{align*}
-\|x-\text{P}_{\mathcal{K}_{2}}x\| & =d(x,\mathcal{K}_{2})\\
+\|x-\text{P}_{\mathcal{K}_{2}}x\| & =\mathrm{d}(x,\mathcal{K}_{2})\\
  & =\inf\{\|x-y\|\mid y\in\mathcal{K}_{2}\}\\
  & \leq\inf\{\|x-y\|\mid y\in\mathcal{K}_{1}\}\\
- & =d(x,\mathcal{K}_{1})\\
+ & =\mathrm{d}(x,\mathcal{K}_{1})\\
  & =\|x-\text{P}_{\mathcal{K}_{1}}x\|.
 \end{align*}
 Therefore by the Pythagorean Theorem, we have
@@ -4104,10 +4869,11 @@ positive definite. Applying Proposition~(\ref{propproblem1}) again,
 we see that $x\in\mathcal{K}_{2}$, and hence $\mathcal{K}_{1}\subseteq\mathcal{K}_{2}$.
 \end{proof}
 
-\section*{Problem 3}
+\subsection{$\|\mathrm{P}_{\mathcal{K}^{\perp}}x\|=\mathrm{d}(x,\mathcal{K})$
+for all $x\in\mathcal{H}$}
 
 \begin{prop}\label{prop} Let $\mathcal{K}$ be a closed subspace
-of a Hilbert space $\mathcal{H}$. Then $\|\text{P}_{\mathcal{K}^{\perp}}x\|=d(x,\mathcal{K})$
+of a Hilbert space $\mathcal{H}$. Then $\|\text{P}_{\mathcal{K}^{\perp}}x\|=\mathrm{d}(x,\mathcal{K})$
 for all $x\in\mathcal{H}$. \end{prop}
 
 \begin{proof} From a theorem\footnote{Theorem~(\ref{theoremorthprop}) in the Appendix.}
@@ -4115,7 +4881,7 @@ we proved in class, we know that $x$ can be uniquely decomposed as
 \begin{equation}
 x=\text{P}_{\mathcal{K}}x+(x-\text{P}_{\mathcal{K}}x),\label{eq:decomp}
 \end{equation}
-for unique$\text{P}_{\mathcal{K}}x\in\mathcal{K}$ and unique $x-\text{P}_{\mathcal{K}}x\in\mathcal{K}^{\perp}$.
+for unique $\text{P}_{\mathcal{K}}x\in\mathcal{K}$ and unique $x-\text{P}_{\mathcal{K}}x\in\mathcal{K}^{\perp}$.
 Since $\mathcal{K}^{\perp}$ is another closed subspace\footnote{This was also shown in class and is given in Theorem~(\ref{theoremorthprop})
 in the Appendix} of $\mathcal{H}$, we can uniquely decompose $x$ as
 \begin{equation}
@@ -4130,13 +4896,13 @@ that
 \]
 In particular, we have
 \begin{align*}
-d(x,\mathcal{K}) & =\|x-\text{P}_{\mathcal{K}}x\|\\
+\mathrm{d}(x,\mathcal{K}) & =\|x-\text{P}_{\mathcal{K}}x\|\\
  & =\|\text{P}_{\mathcal{K}^{\perp}}x\|.
 \end{align*}
 
 \end{proof}
 
-\section*{Problem 4}
+\subsection{$\mathrm{\mathrm{s}pan}(E)$ Properties}
 
 \begin{prop}\label{propspan} Let $\mathcal{V}$ be an inner-product
 space and let $E\subseteq V$. Define
@@ -4179,7 +4945,7 @@ that $v\in\mathcal{U}$. Thus $\text{Span}(E)\subseteq\mathcal{U}$.
 \end{enumerate}
 \end{proof}
 
-\section*{Problem 5}
+\subsection{$\overline{\mathrm{Span}}(E)$ Properties}
 
 \begin{prop}\label{propspanbar} Let $\mathcal{V}$ be an inner-product
 space and let $E\subseteq V$. Define the closed span of $E$, denoted
@@ -4211,7 +4977,7 @@ closed (this was proved in the second homework).
 \end{enumerate}
 \end{proof}
 
-\section*{Problem 6}
+\subsection{$(E^{\perp})^{\perp}=\overline{\mathrm{Span}}(E)$}
 
 \begin{prop}\label{prop} Let $\mathcal{H}$ be a Hilbert space and
 let $E\subseteq\mathcal{H}$. Then
@@ -4336,7 +5102,7 @@ and hence $(\mathcal{K}^{\perp})^{\perp}\subseteq\mathcal{K}$.
 
 \section{Homework 4}
 
-\section*{Problem 1}
+\subsection{Equivalent Definitions of Norm of Operator}
 
 \begin{prop}\label{prop} Let $\mathcal{H}$ be a Hilbert space and
 let $T\colon\mathcal{H\to\mathcal{H}}$ be a bounded operator. Then
@@ -4381,7 +5147,7 @@ and this contradicts (\ref{eq:contra-1}).
 \end{align*}
 where the last equality follows from 1. \end{proof}
 
-\section*{Problem 2}
+\subsection{Multiplication by $k\in C[a,b]$ is Bounded Operator}
 
 \begin{prop}\label{prop} Let $k\in C[a,b]$. Then the operator $T\colon C[a,b]\to C[a,b]$
 defined by
@@ -4438,7 +5204,7 @@ Therefore $\|T(f/\|f\|)\|\geq|k(c)|-\varepsilon$, and this implies
 Since (\ref{ini}) holds for all $\varepsilon>0$, we must have $\|T\|\geq|k(c)|$.
 Thus $\|T\|=|k(c)|$. \end{proof}
 
-\section*{Problem 3}
+\subsection{Gram\_Schmidt Properties}
 
 \begin{prop}\label{prop} Let $\{x_{n}\mid n\in\mathbb{N}\}$ be a
 linearly independent set of vectors in a Hilbert space $\mathcal{H}$.
@@ -4533,7 +5299,7 @@ for all $n\in\mathbb{N}$. Since $\{x_{n}\mid n\in\mathbb{N}\}$ is
 complete, this implies $x=0$. Therefore $\{e_{n}\mid n\in\mathbb{N}\}$
 is complete. \end{proof}
 
-\section*{Problem 4}
+\subsection{Gram-Schmidt Example Worked out on Legendre Polynomials}
 
 \begin{example}\label{example} The first three Legendre polynomials
 are
@@ -4581,14 +5347,14 @@ P_{3}(x) & =\sqrt{\frac{2}{5}}e_{3}(x)
 
 \end{example}
 
-\section*{Problem 5}
+\subsection{Minimizing Integral Example}
 
 For this problem, we needed to establish some basic results which
 we proved in the Appendix. 
 
 \begin{prop}\label{prop} The expression
 \begin{equation}
-\int_{-1}^{1}|x^{3}-a-bx-cx^{2}|^{2}dx.\label{eq:min}
+\int_{-1}^{1}|x^{3}-a-bx-cx^{2}|^{2}\mathrm{d}x.\label{eq:min}
 \end{equation}
 is minimized in $a,b,c\in\mathbb{C}$ if and only if $a=0$, $b=3/5$,
 and $c=0$. \end{prop}
@@ -4608,13 +5374,13 @@ be the orthonormal basis computed in problem 4. A proposition proved
 in class implies
 \begin{align*}
 \text{P}_{\mathcal{K}}(x^{3}) & =\langle x^{3},e_{1}\rangle e_{1}+\langle x^{3},e_{2}\rangle e_{2}+\langle x^{3},e_{3}\rangle e_{3}\\
- & =\frac{1}{2}\int_{-1}^{1}x^{3}dx+\frac{3}{2}x\int_{-1}^{1}x^{4}dx+\frac{45}{8}\left(x^{2}-\frac{1}{3}\right)\int_{-1}^{1}x^{3}\left(x^{2}-\frac{1}{3}\right)dx\\
+ & =\frac{1}{2}\int_{-1}^{1}x^{3}dx+\frac{3}{2}x\int_{-1}^{1}x^{4}dx+\frac{45}{8}\left(x^{2}-\frac{1}{3}\right)\int_{-1}^{1}x^{3}\left(x^{2}-\frac{1}{3}\right)\mathrm{d}x\\
  & =\frac{3}{5}x.
 \end{align*}
 where we used the fact that $x^{3}(x^{2}-1/3)$ is an odd function
 to get $\int_{-1}^{1}x^{3}(x^{2}-1/3)dx=0$. Therefore
 \begin{align*}
-\int_{-1}^{1}\left|x^{3}-\frac{3}{5}x\right|^{2}dx & =\|x^{3}-\text{P}_{\mathcal{K}}(x^{3})\|^{2}\\
+\int_{-1}^{1}\left|x^{3}-\frac{3}{5}x\right|^{2}\mathrm{d}x & =\|x^{3}-\text{P}_{\mathcal{K}}(x^{3})\|^{2}\\
  & =\inf\left\{ \|x^{3}-(a+bx+cx^{2})\|^{2}\mid a+bx+cx^{2}\in\mathcal{K}\right\} \\
  & =\inf\left\{ \int_{-1}^{1}|x^{3}-a-bx-cx^{2}|^{2}dx\mid a,b,c\in\mathbb{C}\right\} .
 \end{align*}
@@ -4622,7 +5388,7 @@ By uniqueness of $\text{P}_{\mathcal{K}}x^{3}$, (\ref{eq:min}) is
 minimized in $a,b,c\in\mathbb{C}$ if and only if $a=0$, $b=3/5$,
 and $c=0$. \end{proof}
 
-\section*{Problem 6}
+\subsection{$\ell^{2}(\mathbb{N})$ is a Hilbert Space}
 
 \begin{prop}\label{prop} $\ell^{2}(\mathbb{N})$ is a Hilbert space.
 \end{prop}
@@ -4701,7 +5467,7 @@ gives us
 \]
 for all $n\geq N$. It follows that $a^{n}\to a$. \end{proof}
 
-\section*{Problem 7}
+\subsection{$C[a,b]$ is not a Hilbert Space}
 
 \begin{prop}\label{prop} $C[a,b]$ is not a Hilbert space. \end{prop}
 
@@ -4951,7 +5717,7 @@ for all $n\in\mathbb{N}$. In particular, this implies $d(x+y,\mathcal{A})\leq d(
 
 Throughout this homework, let $\mathcal{H}$ be a Hilbert space. 
 
-\section*{Problem 1}
+\subsection{Map Sending Bounded Operator to its Adjoint Operator is Conjugate-Linear}
 
 \begin{prop}\label{prop} Let $T\colon\mathcal{H}\to\mathcal{H}$
 and $S\colon\mathcal{H}\to\mathcal{H}$ be two bounded operators.
@@ -4973,7 +5739,7 @@ In particular, this implies $(\alpha T+\beta S)^{*}y=(\overline{\alpha}T^{*}+\ov
 for all $y\in\mathcal{H}$ (by positive-definiteness of the inner-product)
 which implies (\ref{eq:adjointeq}). \end{proof}
 
-\section*{Problem 2}
+\subsection{Composite of Bounded Operators is Bounded}
 
 \begin{prop}\label{propcomp} Let $T\colon\mathcal{H}\to\mathcal{H}$
 and $S\colon\mathcal{H}\to\mathcal{H}$ be two bounded operators.
@@ -5007,19 +5773,19 @@ Thus $TS$ is bounded and $\|TS\|\leq\|T\|\|S\|$.
 In particular, this implies $(TS)^{*}y=S^{*}T^{*}y$ for all $y\in\mathcal{H}$,
 which implies $(TS)^{*}=S^{*}T^{*}$. \end{proof}
 
-\section*{Problem 3}
+\subsection{The Adjoint Operator of $T_{u,v}$ is $T_{v,u}$}
 
 \begin{prop}\label{propnormuv} Let $u,v\in\mathcal{H}$ be fixed
 vectors. 
 \begin{enumerate}
-\item The operator $T\colon\mathcal{H}\to\mathcal{H}$ defined by
+\item The operator $T_{u,v}\colon\mathcal{H}\to\mathcal{H}$ defined by
 \[
-Tx=\langle x,u\rangle v
+T_{u,v}x=\langle x,u\rangle v
 \]
-for all $x\in\mathcal{H}$ is bounded. Moreover, we have $\|T\|=\|u\|\|v\|$.
-\item The adjoint of $T$ is given by
+for all $x\in\mathcal{H}$ is bounded. Moreover, we have $\|T_{u,v}\|=\|u\|\|v\|$.
+\item The adjoint of $T_{u,v}$ is given by $T_{v,u}$, that is, 
 \[
-T^{*}y=\langle y,v\rangle u
+(T_{u,v})^{*}y=\langle y,v\rangle u
 \]
 for all $y\in\mathcal{H}$. 
 \end{enumerate}
@@ -5031,29 +5797,29 @@ for all $y\in\mathcal{H}$.
 
 1. Let $x\in\mathcal{H}$. Then
 \begin{align*}
-\|Tx\| & =\|\langle x,u\rangle v\|\\
+\|T_{u,v}x\| & =\|\langle x,u\rangle v\|\\
  & =|\langle x,u\rangle|\|v\|\\
  & \leq\|x\|\|u\|\|v\|,
 \end{align*}
 where we used Cauchy-Schwarz to get from the second to the third line.
-This implies $\|T\|\leq\|u\|\|v\|$. We have equality at the Cauchy-Schwarz
-step if and only if $x=\lambda u$ for some $\lambda\in\mathbb{C}$.
-In particular, setting $x=u/\|u\|$ gives us $\|T\|=\|u\|\|v\|$. 
+This implies $\|T_{u,v}\|\leq\|u\|\|v\|$. We have equality at the
+Cauchy-Schwarz step if and only if $x=\lambda u$ for some $\lambda\in\mathbb{C}$.
+In particular, setting $x=u/\|u\|$ gives us $\|T_{u,v}\|=\|u\|\|v\|$. 
 
 \hfill
 
 2. Let $y\in\mathcal{H}$. Then
 \begin{align*}
-\langle x,T^{*}y\rangle & =\langle Tx,y\rangle\\
+\langle x,(T_{u,v})^{*}y\rangle & =\langle T_{u,v}x,y\rangle\\
  & =\langle\langle x,u\rangle v,y\rangle\\
  & =\langle x,u\rangle\langle v,y\rangle\\
  & =\langle x,\overline{\langle v,y\rangle}u\rangle\\
  & =\langle x,\langle y,v\rangle u\rangle
 \end{align*}
-for all $x\in\mathcal{H}$. This implies $T^{*}y=\langle y,v\rangle u$
+for all $x\in\mathcal{H}$. This implies $(T_{u,v})^{*}y=\langle y,v\rangle u$
 for all $y\in\mathcal{H}$. \end{proof}
 
-\section*{Problem 4}
+\subsection{Computing Adjoint of Operator from $\ell^{2}(\mathbb{N})$ to Itself}
 
 \begin{cor}\label{cor} Let $T\colon\ell^{2}(\mathbb{N})\to\ell^{2}(\mathbb{N})$
 be operator defined by
@@ -5094,7 +5860,7 @@ T^{*}(y)_{n} & =\langle y,v\rangle u_{n}\\
 \end{align*}
 for all $y\in\mathcal{H}$. \end{proof}
 
-\section*{Problem 5}
+\subsection{Properties of $T^{*}T$}
 
 \begin{prop}\label{prop} Let $T\colon\mathcal{H}\to\mathcal{H}$
 be a bounded operator. Then
@@ -5146,13 +5912,13 @@ implies $Tx=0$ (by positive-definiteness of inner-product) which
 implies $x\in\text{Ker}(T)$. Therefore $\text{Ker}(T)\supseteq\text{Ker}(T^{*}T)$.
 \end{proof}
 
-\section*{Problem 6}
+\subsection{$\ker(T^{*})=(\mathrm{im}\,T)^{\perp}$ and $(\ker T)^{\perp}=\overline{\mathrm{im}(T^{*})}$}
 
 \begin{prop}\label{prop} Let $T\colon\mathcal{H}\to\mathcal{H}$
 be a bounded operator. Then
 \begin{enumerate}
-\item $\text{Ker}(T^{*})=\text{Im}(T)^{\perp}$;
-\item $\text{Ker}(T)^{\perp}=\overline{\text{Im}(T^{*})}$.
+\item $\ker(T^{*})=(\mathrm{im}\,T)^{\perp}$;
+\item $(\ker T)^{\perp}=\overline{\mathrm{im}(T^{*})}$.
 \end{enumerate}
 \end{prop}
 
@@ -5160,48 +5926,45 @@ be a bounded operator. Then
 
 \hfill
 
-1. Let $x\in\text{Ker}(T^{*})$. Then
+1. Let $x\in\ker(T^{*})$. Then
 \begin{align*}
 \langle Ty,x\rangle & =\langle y,T^{*}x\rangle\\
  & =\langle y,0\rangle\\
  & =0
 \end{align*}
-for all $Ty\in\text{Im}(T)$. This implies $x\in\text{Im}(T)^{\perp}$
-and so $\text{Ker}(T^{*})\subseteq\text{Im}(T)^{\perp}$. 
-
-~~~For the reverse inclusion, let $x\in\text{Im}(T)^{\perp}$.
-Then
+for all $Ty\in\mathrm{im}\,T$. This implies $x\in(\mathrm{im}\,T)^{\perp}$
+and so $\ker(T^{*})\subseteq(\mathrm{im}\,T)^{\perp}$. For the reverse
+inclusion, let $x\in(\mathrm{im}\,T)^{\perp}$. Then
 \begin{align*}
 0 & =\langle x,TT^{*}x\rangle\\
  & =\langle T^{*}x,T^{*}x\rangle
 \end{align*}
 implies $T^{*}x=0$ (by positive-definiteness of inner-product) which
-implies $x\in\text{Ker}(T^{*})$.
+implies $x\in\ker(T^{*})$ and so $\ker(T^{*})\supseteq(\mathrm{im}\,T)^{\perp}$.
 
 \hfill
 
-2. Let us first show that $\text{Ker}(T)^{\perp}$ contains $\text{Im}(T^{*})$.
-Let $T^{*}y\in\text{Im}(T^{*})$. Then for all $x\in\text{Ker}(T)$,
+2. Let $T^{*}y\in\mathrm{im}(T^{*})$. Then for all $x\in\ker T$,
 we have
 \begin{align*}
 \langle x,T^{*}y\rangle & =\langle Tx,y\rangle\\
  & =\langle0,y\rangle\\
  & =0.
 \end{align*}
-In particular, this implies $\overline{\text{Im}(T^{*})}\subseteq\text{Ker}(T)^{\perp}$
-(as $\text{Ker}(T)^{\perp}$ is a closed subspace which contains $\text{Im}(T^{*})$). 
-
-~~~For the reverse inclusion, we have
+In particular, this implies $\mathrm{im}(T^{*})\subseteq(\ker T)^{\perp}$
+which implies $\overline{\mathrm{im}(T^{*})}\subseteq(\ker T)^{\perp}$
+(as $(\ker T)^{\perp}$ is a closed subspace which contains $\mathrm{im}(T^{*})$).
+For the reverse inclusion, we have
 \begin{align*}
-\text{Ker}(T)^{\perp} & =\text{Ker}((T^{*})^{*})^{\perp}\\
- & =(\text{Im}(T^{*})^{\perp})^{\perp}\\
- & =(\overline{\text{Im}(T^{*})}{}^{\perp})^{\perp}\\
- & =\overline{\text{Im}(T^{*})},
+(\ker T)^{\perp} & =\ker((T^{*})^{*})^{\perp}\\
+ & =(\mathrm{im}(T^{*})^{\perp})^{\perp}\\
+ & \subseteq((\overline{\mathrm{im}(T^{*}})^{\perp})^{\perp}\\
+ & =\overline{\mathrm{im}(T^{*})},
 \end{align*}
 where we used part 1 of this proposition to get from the first line
 to the second line. \end{proof}
 
-\section*{Problem 7}
+\subsection{$T$ is an Isometry if and only if $T^{*}T=1_{\mathcal{H}}$}
 
 \begin{defn}\label{defn} An \textbf{isometry} between normed vector
 spaces $\mathcal{V}_{1}$ and $\mathcal{V}_{2}$ is an operator $T\colon\mathcal{V}_{1}\to\mathcal{V}_{2}$
@@ -5355,7 +6118,7 @@ gives us a contradiction. \end{proof}
 
 Throughout this homework, let $\mathcal{H}$ be a Hilbert space. 
 
-\section*{Problem 1}
+\subsection{Decomposition of $T$ as $T=A+iB$ where $A$ and $B$ are Self-Adjoint}
 
 \begin{prop}\label{prop} Let $T\colon\mathcal{H}\to\mathcal{H}$
 be a bounded operator. There exists unique self-adjoint operators
@@ -5413,7 +6176,7 @@ A-iB & =A'-iB'.
 Adding these together gives us $2A=2A'$, and hence $A=A'$. Similarly,
 subtracting these gives us $2iB=2iB'$, and hence $B=B'$. \end{proof}
 
-\section*{Problem 2}
+\subsection{$S^{*}S$ and Orthogonal Projection are Positive Operators}
 
 \begin{defn}\label{defn} A self-adjoint operator $T\colon\mathcal{H}\to\mathcal{H}$
 is said to be \textbf{positive }if $\langle Tx,x\rangle\geq0$ for
@@ -5467,7 +6230,8 @@ It follows that $\langle x,\text{P}_{\mathcal{K}}x\rangle=\|\text{P}_{\mathcal{K
 which implies $\text{P}_{\mathcal{K}}$ is positive by Remark~(\ref{rempositive}).
 \end{proof}
 
-\section*{Problem 3}
+\subsection{Another Version of Polarization Identity and $\langle Tx,x\rangle=0$
+for all $x\in\mathcal{H}$ implies $T=0$}
 
 \subsection*{Problem 3.a}
 
@@ -5521,7 +6285,7 @@ for all $y\in\mathcal{H}$. This implies $Tx=0$ by positive-definiteness
 of the inner-product. Since $x$ was arbitrary, this implies $T=0$.
 \end{proof}
 
-\section*{Problem 4}
+\subsection{Twisting Inner-Product by Strictly Positive Self-Adjoint Operator}
 
 \subsection*{Problem 4.a}
 
@@ -5598,7 +6362,8 @@ where we used (\ref{eq:psaoin}) to get from the first line to the
 second line. Now dividing both sides by $\|Tx\|^{2}$\footnote{If $Tx=0$, then we clearly have (\ref{4cin}), thus we assume $Tx\neq0$.},
 we obtain $\|Tx\|^{2}\leq\langle Tx,x\rangle\|T\|$. \end{proof}
 
-\section*{Problem 5}
+\subsection{$T$ is Self-Adjoint if and only if $\langle Tx,x\rangle\in\mathbb{R}$
+for all $x\in\mathcal{H}$}
 
 \begin{prop}\label{prop} Let $T\colon\mathcal{H}\to\mathcal{H}$
 be a bounded operator. Then $T$ is self-adjoint if and only if $\langle Tx,x\rangle\in\mathbb{R}$
@@ -5624,7 +6389,7 @@ for all $x\in\mathcal{H}$. Then
 for all $x\in\mathcal{H}$. Therefore by Proposition~(\ref{proptestfor0}),
 we see that $T-T^{*}=0$, i.e. $T=T^{*}$. \end{proof}
 
-\section*{Problem 6}
+\subsection{If $T$ is Self-Adjoint Operator, then $\|T^{n}\|=\|T\|^{n}$}
 
 \subsection*{Problem 6.a}
 
@@ -5684,7 +6449,7 @@ fifth line. It follows that $\|T^{n+1}\|\leq\|T\|^{n+1}$. \end{proof}
 
 Throughout this homework, let $\mathcal{H}$ be a Hilbert space. 
 
-\section*{Problem 1}
+\subsection{Weak Convergence Properties}
 
 \subsection*{Problem 1.a}
 
@@ -5732,7 +6497,7 @@ orthonormal sequence in $\mathcal{H}$ and let $T\colon\mathcal{H}\to\mathcal{H}$
 be the identity map. Then $e_{n}\xrightarrow{w}0$ but $Te_{n}=e_{n}\not\to0$.
 In fact $(Te_{n})$ doesn't even converge. \end{rem}
 
-\section*{Problem 2}
+\subsection{Weak Convergence and Orthonormal Basis}
 
 \subsection*{Problem 2.a}
 
@@ -5808,7 +6573,9 @@ is equivalent to saying
 for all $m\in\mathbb{N}$. Thus Lemma~(\ref{lemmaweakconvcriterion})
 implies $x^{n}\xrightarrow{w}x$. \end{proof}
 
-\section*{Problem 3}
+\subsection{If $\mathcal{K}$ is a Closed Subspace of $\mathcal{H}$ and $(x_{n})$
+is a Sequence in $\mathcal{K}$ such that $x_{n}\xrightarrow{w}x$,
+then $x\in\mathcal{K}$}
 
 \begin{prop}\label{prop} Let $\mathcal{K}$ be a closed subspace
 of $\mathcal{H}$. If $(x_{n})$ is a sequence of elements in $\mathcal{K}$
@@ -5827,7 +6594,7 @@ of $\mathcal{H}$ and $(x_{n})$ is a sequence of elements in $A$
 and $x_{n}\xrightarrow{w}x$, then $x\in\overline{\text{span}}(A)$.
 \end{rem}
 
-\section*{Problem 4}
+\subsection{$T$ Bounded and $S$ Compact Implies $TS$ and $ST$ Compact}
 
 \begin{prop}\label{prop} Let $T\colon\mathcal{H}\to\mathcal{H}$
 be a bounded operator and let $S\colon\mathcal{H}\to\mathcal{H}$
@@ -5844,7 +6611,7 @@ $x_{n}\xrightarrow{w}x$. Since $S$ is compact, we have $Sx_{n}\to Sx$.
 Since $T$ is bounded (and in particular continuous) we have $T(Sx_{n})\to T(Sx)$.
 Thus, $TS$ is compact. \end{proof} 
 
-\section*{Problem 5}
+\subsection{Equivalent Definition of Compact Operator}
 
 \begin{lemma}\label{lemmasubseqofweak} Let $(x_{n})$ be a sequence
 in $\mathcal{H}$ such that $x_{n}\xrightarrow{w}x$ and let $(x_{\pi(n)})$
@@ -5872,7 +6639,7 @@ $(x_{n})$ in $\mathcal{H}$, the sequence $(Tx_{n})$ has a convergent
 subsequence. Then $T$ is compact. \end{prop}
 
 \begin{proof} Let $(x_{n})$ be a sequence in $\mathcal{H}$ such
-that $x_{n}\xrightarrow{w}x$. Assume (for a contradiction) that $Tx_{n}\not\to Tx$.
+that $x_{n}\xrightarrow{w}x$. Assume for a contradiction that $Tx_{n}\not\to Tx$.
 Choose $\varepsilon>0$ and choose a subsequence $(Tx_{\pi(n)})$
 of $(Tx_{n})$ such that $\|Tx_{\pi(n)}-Tx\|>\varepsilon$ for all
 $n\in\mathbb{N}$. By the (baby version) of the uniform boundedness
@@ -5890,7 +6657,7 @@ is a subsequence of $(Tx_{\pi(n)})$, we have $\|Tx_{\rho(n)}-Tx\|>\varepsilon$
 for all $n\in\mathbb{N}$, and so $Tx_{\rho(n)}\not\to Tx$. This
 is a contradiction. \end{proof}
 
-\section*{Problem 6}
+\subsection{Finite-Dimensional Spaces, Bounded Sequences, and Compact Operators}
 
 Let $\mathcal{K}$ be a Hilbert space. 
 
@@ -6041,7 +6808,7 @@ B_{r}[x]:=\{y\in\mathcal{H}\mid\|y-x\|\leq r\}
 \]
 for the closed ball centered at $x$ and of radius $r$.
 
-\section*{Problem 1}
+\subsection{Equivalent Definition of Compact Operator}
 
 \begin{prop}\label{prop} Let $T\colon\mathcal{H}\to\mathcal{H}$
 be a bounded linear operator. Then $T$ is compact if and only if
@@ -6064,7 +6831,8 @@ have a convergent subsequence, say $(T(x_{\pi(n)}/M))$. This impies
 $(T(x_{\pi(n)}))$ is a convergent subsequence $(T(x_{n}))$. Thus,
 $T$ is compact (again by homework 7 probem 5). \end{proof}
 
-\section*{Problem 2}
+\subsection{Sequence of Compact Operators $(T_{n})$ Which Converge in Operator
+Norm to $T$ Implies $T$ is Compact }
 
 \begin{prop}\label{propseqcompactop} Let $(T_{n}\colon\mathcal{H}\to\mathcal{H})$
 be a sequence of compact operators that converges in the operator
@@ -6090,7 +6858,7 @@ Choose such a $K\in\mathbb{N}$. Then $j,k\geq K$ implies
 Thus $(Tx_{k})$ is a Cauchy sequence. It follows that $T$ is compact.
 \end{proof}
 
-\section*{Problem 3}
+\subsection{Hilbert-Schmidt Operator}
 
 \begin{prop}\label{prop} Let $T\colon\mathcal{H}\to\mathcal{H}$
 be a bounded operator and let $(e_{n})$ and $(f_{m})$ be any two
@@ -6119,7 +6887,7 @@ By swapping the roles of $T$ with $T^{*}$ in the proof above, we
 see that the quantity $\sum_{n=1}^{\infty}\|Te_{n}\|^{2}$ doesn't
 depend on the choice of the orthonormal basis $(e_{n})$. \end{proof}
 
-\section*{Problem 4}
+\subsection{Hilbert-Schmidt Operator}
 
 \begin{defn}\label{defn} An operator $T\colon\mathcal{H}\to\mathcal{H}$
 is said to be a \textbf{Hilbert-Schmidt }operator if if 
@@ -6216,7 +6984,7 @@ In particular this implies
 where the first line is justified in the Appendix. Thus $\|T\|=\|T\|_{\text{HS}}$.
 \end{proof}
 
-\section*{Problem 5}
+\subsection{If $T$ is Compact Self-Adjoint and $T^{m}=0$, then $T=0$}
 
 \begin{prop}\label{prop} Let $T\colon\mathcal{H}\to\mathcal{H}$
 be a compact self-adjoint operator. Suppose $T^{m}=0$ for some $m\in\mathbb{N}$.
@@ -6242,7 +7010,8 @@ Tx & =\sum_{n=1}^{\infty}\lambda_{n}\langle x,e_{n}\rangle e_{n}\\
 \end{align*}
 \end{proof}
 
-\section*{Problem 6}
+\subsection{Every Compact Self-Adjoint Operator is Limit of Operators with Finite-Dimensional
+Range}
 
 \begin{prop}\label{prop} Let $\mathcal{H}$ be a separable Hilbert
 space and let $T\colon\mathcal{H}\to\mathcal{H}$ be a compact self-adjoint
@@ -6265,18 +7034,19 @@ Indeed, let $\varepsilon>0$ and let $\Lambda$ denote the set of
 all eigenvalues of $T$. If $\Lambda$ is finite, then the claim is
 clear by the spectral theorem for compact self-adjoint operators,
 so assume $\Lambda$ is infinite. Then $0$ must be an accumulation
-point of $\Lambda$. In particular, $|\lambda_{n}|\to0$ as $n\to\infty$.
-Choose $N\in\mathbb{N}$ such that $n\geq N$ implies $|\lambda_{n}|<\varepsilon$.
-Then for all $x\in B_{1}[0]$, we have
+point of $\Lambda$. In particular, $|\lambda_{m}|\to0$ as $m\to\infty$.
+Choose $M\in\mathbb{N}$ such that $m\geq M$ implies $|\lambda_{m}|<\varepsilon$.
+Then $m\geq M$ implies
 \begin{align*}
 \|Tx-T_{m}x\|^{2} & =\left\Vert \sum_{n=1}^{\infty}\lambda_{n}\langle x,e_{n}\rangle e_{n}-\sum_{n=1}^{m}\lambda_{n}\langle x,e_{n}\rangle e_{n}\right\Vert ^{2}\\
  & =\left\Vert \sum_{n=m+1}^{\infty}\lambda_{n}\langle x,e_{n}\rangle e_{n}\right\Vert ^{2}\\
  & =\sum_{n=m+1}^{\infty}|\lambda_{n}\langle x,e_{n}\rangle|^{2}\\
- & \leq|\lambda_{N}|^{2}\sum_{n=m+1}^{\infty}|\langle x,e_{n}\rangle|^{2}\\
- & \leq|\lambda_{N}|^{2}\|x\|^{2}\\
+ & \leq|\lambda_{M}|^{2}\sum_{n=m+1}^{\infty}|\langle x,e_{n}\rangle|^{2}\\
+ & \leq|\lambda_{M}|^{2}\|x\|^{2}\\
  & <\varepsilon^{2}.
 \end{align*}
-This implies $\|T-T_{m}\|\to0$ and $m\to\infty$. \end{proof}
+for all $x\in B_{1}[0]$. This implies $\|T-T_{m}\|\to0$ and $m\to\infty$.
+\end{proof}
 
 \section*{Appendix}
 
@@ -6412,7 +7182,8 @@ gives us a contradiction. \end{proof}
 Throughout this homework, let $\mathcal{H}$ be a separable Hilbert
 space. 
 
-\section*{Problem 1}
+\subsection{Singular Values and Eigenvalues of Compact Positive Self-Adjoint
+Operator Coincide}
 
 \begin{prop}\label{prop} Let $T\colon\mathcal{H}\to\mathcal{H}$
 be a compact positive self-adjoint operator. Then $T=|T|$, and consequently
@@ -6434,7 +7205,7 @@ $n\in\mathbb{N}$ (since $T$ is positive and self-adjoint), we have
 for all $x\in\mathcal{H}$. It follows that $T=|T|$, and consequently
 $s_{n}=\lambda_{n}$ for all $n\in\mathbb{N}$. \end{proof}
 
-\section*{Problem 2}
+\subsection{Compact Operator that is not Hilbert-Schmidt}
 
 \begin{prop}\label{prop} Let $(e_{n})$ be an orthonormal basis for
 $\mathcal{H}$. Define $T\colon\mathcal{H}\to\mathcal{H}$ by
@@ -6477,9 +7248,8 @@ $k\to\infty$. Therefore $T$ is compact.
 \end{align*}
 is the harmonic series which does not converge. \end{proof}
 
-\section*{Problem 3}
-
-\subsection*{Problem 3.a}
+\subsection{Eigenvalue for Self-Adjoint Operator is less than or equal to the
+Operator Norm}
 
 \begin{prop}\label{propeigenvaluebound} Let $T\colon\mathcal{H}\to\mathcal{H}$
 be a self-adjoint operator and let $\lambda$ be an eigenvalue of
@@ -6495,7 +7265,7 @@ $\lambda$. By scaling if necessary, we may assume $\|x\|=1$. Then
 \end{align*}
 \end{proof}
 
-\subsection*{Problem 3.b}
+\subsection*{If $T$ is Compact, then $\||T|\|=\|T\|$}
 
 \begin{lemma}\label{lemmanormmodulus} Let $T\colon\mathcal{H}\to\mathcal{H}$
 be a compact operator. Then $\||T|\|=\|T\|$. \end{lemma}
@@ -6523,7 +7293,8 @@ gives us
 \end{align*}
 \end{proof}
 
-\subsection*{Problem 3.c}
+\subsection{The Square of Hilbert-Schmidt Norm of Compact Operator equals sum
+of Singular Values Squared}
 
 \begin{prop}\label{prop} Let $T\colon\mathcal{H}\to\mathcal{H}$
 be a compact operator. Let $(s_{n})$ be the sequence of singular
@@ -6541,7 +7312,7 @@ Then
 \end{align*}
 \end{proof}
 
-\section*{Problem 4}
+\subsection{Compact Self-Adjoint Operator which is not Zero}
 
 \begin{prop}\label{prop} Let $T\colon\mathcal{H}\to\mathcal{H}$
 be a compact self-adjoint operator. Then $T^{2}+T+1$ cannot be the
@@ -6560,7 +7331,7 @@ Therefore $\lambda_{n}=\pm e^{2\pi i/3}$ for all $n\in\mathbb{N}$,
 but this contradicts the fact that the $\lambda_{n}$ must be real.
 \end{proof}
 
-\section*{Problem 5}
+\subsection{Compact Operator is Limit of Operators with Finite-Dimensional Range}
 
 \begin{prop}\label{prop} Let $T\colon\mathcal{H}\to\mathcal{H}$
 be a compact operator. Then there exists a sequence $T_{n}\colon\mathcal{H}\to\mathcal{H}$
@@ -6579,10 +7350,774 @@ implies
 \begin{align*}
 \|T-T_{n}\| & =\|U|T|-US_{n}\|\\
  & =\|U(|T|-S_{n})\|\\
- & =\|U\|\||T|-S_{n}|\|\\
+ & \leq\|U\|\||T|-S_{n}|\|\\
  & <\|U\|\frac{\varepsilon}{\|U\|}\\
  & =\varepsilon.
 \end{align*}
+
+\end{proof}
+
+\section{Homework 10}
+
+\subsection{$(C[a,b],\|\cdot\|_{\infty})$ is a Banach Space}
+
+\begin{prop}\label{prop} Let $\|\cdot\|_{\infty}\colon C[a,b]\times C[a,b]\to\mathbb{R}$
+be given by
+\begin{equation}
+\|f\|_{\infty}=\sup\{|f(x)|\mid x\in[a,b]\}\label{eq:supnorm}
+\end{equation}
+for all $f\in C[a,b]$. Then $\|\cdot\|_{\infty}$ is a norm. Moreover,
+the pair $(C[a,b],\|\cdot\|_{\infty})$ forms a Banach space. \end{prop}
+
+\begin{proof} Let us first show $\|\cdot\|_{\infty}$ is a norm.
+First note that the set $\{|f(x)|\mid x\in[a,b]\}$ is non-empty and
+bounded above (since $f$ is continuous on a compact interval and
+hence attains a maximum). Therefore the supremum (\ref{eq:supnorm})
+exists. 
+
+~~~For positive-definiteness, let $f\in C[a,b]$. Then
+\begin{align*}
+\|f\|_{\infty} & =\sup\{|f(x)|\mid x\in[a,b]\}\\
+ & \geq\sup\{0\mid x\in[a,b]\}\\
+ & =0.
+\end{align*}
+We have equality if and only if $|f(x)|=0$ for all $x\in[a,b]$,
+and since $|\cdot|$ is positive-definite, this is equivalent to $f$
+being the zero function.
+
+~~~For absolute-homogeneity, let $f\in C[a,b]$ and $\alpha\in\mathbb{C}$.
+Then 
+\begin{align*}
+\|\alpha f\|_{\infty} & =\sup\{|\alpha f(x)|\mid x\in[a,b]\}\\
+ & =\sup\{|\alpha||f(x)|\mid x\in[a,b]\}\\
+ & =|\alpha|\sup\{|f(x)|\mid x\in[a,b]\}\\
+ & =|\alpha|\|f\|_{\infty},
+\end{align*}
+where the equality at the third line is justified by Proposition~(\ref{propsuplinearpositive})
+(stated and proved in the Appendix).
+
+~~~For subadditivity, let $f,g\in C[a,b]$. Then
+\begin{align*}
+\|f+g\|_{\infty} & =\sup\{|f(x)+g(x)|\mid x\in[a,b]\}\\
+ & \leq\sup\{|f(x)|+|g(x)|\mid x\in[a,b]\}\\
+ & =\sup\{|f(x)|\mid x\in[a,b]\}+\sup\{|g(x)|\mid x\in[a,b]\}\\
+ & =\|f\|_{\infty}+\|g\|_{\infty},
+\end{align*}
+where the equality at the third line is justified by Proposition~(\ref{propsuplinearpositive2})
+(stated and proved in the Appendix).
+
+~~~Finally, to show that $(C[a,b],\|\cdot\|_{\infty})$ forms a
+Banach space, we need to show that every Cauchy sequence in $(C[a,b],\|\cdot\|_{\infty})$
+is convegent. Throughout the rest of the proof, we drop the notation
+$(C[a,b],\|\cdot\|_{\infty})$ and simply write $C[a,b]$ instead.
+Let $(f_{n})$ be a Cauchy sequence in $C[a,b]$. We first make the
+observation that for each $x\in[a,b]$, the sequence $(f_{n}(x))$
+forms a Cauchy sequence of complex numbers. Indeed, let $\varepsilon>0$.
+Choose $N\in\mathbb{N}$ such that $m,n\geq N$ implies $\|f_{n}-f_{m}\|_{\infty}<\varepsilon$.
+In other words, $m,n\geq N$ implies
+\[
+\sup\{|f_{n}(x)-f_{m}(x)|\mid x\in[a,b]\}<\varepsilon.
+\]
+In particular $m,n\geq N$ implies
+\begin{equation}
+|f_{n}(x)-f_{m}(x)|<\varepsilon\label{eq:mtoinf}
+\end{equation}
+for all $x\in[a,b]$. This proves our claim. 
+
+~~~Since $\mathbb{C}$ is complete, we are justified in defining
+$f\colon[a,b]\to\mathbb{C}$ by
+\[
+f(x):=\lim_{n\to\infty}f_{n}(x)
+\]
+for all $x\in[a,b]$. By taking $m\to\infty$ in (\ref{eq:mtoinf}),
+we see that $(f_{n})$ converges \emph{uniformly }to $f$. In particular,
+this implies $f$ is continuous (by the usual $\varepsilon/3$ trick).
+Thus $f\in C[a,b]$. Finally, we note that convergence in $\|\cdot\|_{\infty}$
+is equivalent to uniform convergence. Thus the Cauchy sequence $(f_{n})$
+converges in the $\|\cdot\|_{\infty}$ norm to $f$. \end{proof}
+
+\subsection{Normed Linear Space + Parallelogram Law = Inner-Product Space}
+
+\begin{prop}\label{prop} Let $(V,\|\cdot\|)$ be a normed linear
+space over $\mathbb{C}$ which satisfies the parallelogram law. Then
+the map $\langle\cdot,\cdot\rangle\colon V\times V\to\mathbb{C}$
+defined by
+\begin{equation}
+\langle x,y\rangle=\frac{1}{4}\left(\|x+y\|^{2}+i\|x+iy\|^{2}-\|x-y\|^{2}-i\|x-iy\|^{2}\right)\label{eq:innerfromnorm-1}
+\end{equation}
+for all $x,y\in V$ is an inner-product. Moreover, the norm induced
+by this inner-product is precisely $\|\cdot\|$. In other words, we
+have
+\[
+\langle x,x\rangle=\|x\|^{2}
+\]
+for all $x\in V$. \end{prop}
+
+\begin{proof} The most difficult part of this proof is showing that
+(\ref{eq:innerfromnorm-1}) is linear in the first argument. Before
+we do this, let us show that (\ref{eq:innerfromnorm}) is positive-definite
+and conjugate-symmetric. 
+
+~~~For positive-definiteness, let $x\in V$. Then
+\begin{align*}
+\langle x,x\rangle & =\frac{1}{4}\left(\|2x\|^{2}+i\|x+ix\|^{2}-i\|x-ix\|^{2}\right)\\
+ & =\frac{1}{4}\left(\|2x\|^{2}+i((|1+i|^{2}-|1-i|^{2})\|x\|^{2})\right)\\
+ & =\|x\|^{2}\\
+ & \geq0,
+\end{align*}
+with equality if and only if $x=0$. Note that this also gives us
+$\langle x,x\rangle=\|x\|^{2}$ for all $x\in V$.
+
+~~~For conjugate-symmetry, let $x,y\in V$. Then
+\begin{align*}
+\overline{\langle y,x\rangle} & =\frac{1}{4}\overline{\left(\|y+x\|^{2}+i\|y+ix\|^{2}-\|y-x\|^{2}-i\|y-ix\|^{2}\right)}\\
+ & =\frac{1}{4}\left(\|y+x\|^{2}-i\|y+ix\|^{2}-\|y-x\|^{2}+i\|y-ix\|^{2}\right)\\
+ & =\frac{1}{4}\left(\|x+y\|^{2}-i\|i(x-iy)\|^{2}-\|x-y\|^{2}+i\|i(x+iy)\|^{2}\right)\\
+ & =\frac{1}{4}\left(\|x+y\|^{2}-i\|x-iy\|^{2}-\|x-y\|^{2}+i\|x+iy\|^{2}\right)\\
+ & =\frac{1}{4}\left(\|x+y\|^{2}+i\|x+iy\|^{2}-\|x-y\|^{2}-i\|x-iy\|^{2}\right)\\
+ & =\langle x,y\rangle
+\end{align*}
+
+~~~Now we come to the difficult part, namely showing that (\ref{eq:innerfromnorm})
+is linear in the first argument. We do this in several steps:
+
+\hfill
+
+\textbf{Step 1: }We show that (\ref{eq:innerfromnorm}) is additive
+in the first argument (i.e. $\langle x+z,y\rangle=\langle x,y\rangle+\langle z,y\rangle$
+for all $x,y,z\in V$). Let $x,y,z\in V$. First note that by the
+parallelogram law, we have
+\begin{align*}
+\|x+z+y\|^{2}-\|x+z-y\|^{2} & =2\|x+y\|^{2}+2\|z\|^{2}-\|x+y-z\|^{2}-2\|x-y\|^{2}-2\|z\|^{2}+\|x-y-z\|^{2}\\
+ & =2\|x+y\|^{2}-2\|x-y\|^{2}-\|z-y-x\|^{2}+\|z+y-x\|^{2}\\
+ & =2\|x+y\|^{2}-2\|x-y\|^{2}-2\|z-y\|^{2}-2\|x\|^{2}+\|z-y+x\|^{2}+2\|z+y\|^{2}+2\|x\|^{2}-\|z+y+x\|^{2}\\
+ & =2\|x+y\|^{2}-2\|x-y\|^{2}+2\|z+y\|^{2}-2\|z-y\|^{2}+\|x+z-y\|^{2}-\|x+z+y\|^{2}.
+\end{align*}
+Adding $\|x+z-y\|^{2}-\|x+z+y\|^{2}$ to both sides gives us
+\begin{align*}
+2(\|x+z+y\|^{2}-\|x+z-y\|^{2}) & =2(\|x+y\|^{2}-\|x-y\|^{2}+\|z+y\|^{2}-\|z-y\|^{2}),
+\end{align*}
+and after cancelling $2$ from both sides, we obtain
+\begin{align*}
+\|x+z+y\|^{2}-\|x+z-y\|^{2} & =\|x+y\|^{2}-\|x-y\|^{2}+\|z+y\|^{2}-\|z-y\|^{2}.
+\end{align*}
+Therefore
+\begin{align*}
+\langle x+z,y\rangle & =\frac{1}{4}\left(\|x+z+y\|^{2}+i\|x+z+iy\|^{2}-\|x+z-y\|^{2}-i\|x+z-iy\|^{2}\right)\\
+ & =\frac{1}{4}\left(\|x+z+y\|^{2}-\|x+z-y\|^{2}+i(\|x+z+iy\|^{2}-\|x+z-iy\|^{2})\right)\\
+ & =\frac{1}{4}\left(\|x+y\|^{2}-\|x-y\|^{2}+\|z+y\|^{2}-\|z-y\|^{2}+i(\|x+iy\|^{2}-\|x-iy\|^{2}+\|z+iy\|^{2}-\|z-iy\|^{2})\right)\\
+ & =\frac{1}{4}\left(\|x+y\|^{2}-\|x-y\|^{2}+\|z+y\|^{2}-\|z-y\|^{2}+i(\|x+iy\|^{2}-\|x-iy\|^{2}+\|z+iy\|^{2}-\|z-iy\|^{2})\right)\\
+ & =\frac{1}{4}\left(\|x+y\|^{2}+i\|x+iy\|^{2}-\|x-y\|^{2}-i\|x-iy\|^{2}+\|z+y\|^{2}+i\|z+iy\|^{2}-\|z-y\|^{2}-i\|z-iy\|^{2}\right)\\
+ & =\langle x,y\rangle+\langle z,y\rangle.
+\end{align*}
+Thus we have additivity in the first argument.
+
+\hfill
+
+\textbf{Step 2: }We show that (\ref{eq:innerfromnorm}) respects $\mathbb{Z}$-scaling
+in the first argument (i.e. $m\langle x,y\rangle=\langle mx,y\rangle$
+for all integers $m\in\mathbb{Z}$ and for all $x,y\in V$). It suffices
+to show that (\ref{eq:innerfromnorm}) respects $\mathbb{N}$-scaling
+in the first argument since additivity implies 
+\begin{align*}
+0 & =\langle0,y\rangle\\
+ & =\langle x-x,y\rangle\\
+ & =\langle x,y\rangle+\langle-x,y\rangle,
+\end{align*}
+which implies $\langle-x,y\rangle=-\langle x,y\rangle$ for all $x,y\in V$.
+We prove (\ref{eq:innerfromnorm}) respects $\mathbb{N}$-scaling
+in the first argument using induction on $m\geq2$. The base case
+$m=2$ follows from Step 1. Now assume that for some $m\geq2$ and
+for all $x,y\in V$, we have $\langle mx,y\rangle=m\langle x,y\rangle.$
+Then we have
+\begin{align*}
+\langle(m+1)x,y\rangle & =\langle mx+x,y\rangle\\
+ & =\langle mx,y\rangle+\langle x,y\rangle\\
+ & =m\langle x,y\rangle+\langle x,y\rangle\\
+ & =(m+1)\langle x,y\rangle,
+\end{align*}
+where we applied the induction step at the third line.
+
+\hfill
+
+\textbf{Step 3: }We show that (\ref{eq:innerfromnorm}) respects $\mathbb{Q}$-scaling
+in the first argument. Let $\frac{m}{n}\in\mathbb{Q}$ and let $x,y\in V$.
+Then since (\ref{eq:innerfromnorm}) is additive in the first argument
+and since $V$ is a $\mathbb{C}$-vector space, we have
+\begin{align*}
+\frac{m}{n}\langle x,y\rangle & =\frac{m}{n}\left\langle \frac{n}{n}x,y\right\rangle \\
+ & =\frac{mn}{n}\left\langle \frac{1}{n}x,y\right\rangle \\
+ & =m\left\langle \frac{1}{n}x,y\right\rangle \\
+ & =\left\langle \frac{m}{n}x,y\right\rangle .
+\end{align*}
+Therefore (\ref{eq:innerfromnorm}) respects $\mathbb{Q}$-scaling
+in the first argument.
+
+\hfill
+
+\textbf{Step 4: }We show that (\ref{eq:innerfromnorm}) respects $\mathbb{R}$-scaling
+in the first argument. First note that for each $y\in V$, the map
+$\langle\cdot,y\rangle\colon V\to\mathbb{C}$ is continuous since
+the norm is continuous. Let $x,y\in V$ and let $r\in\mathbb{R}$.
+Choose a sequence $(r_{n})$ of rational numbers such that $r_{n}\to r$
+(we can do this since $\mathbb{Q}$ is dense in $\mathbb{R}$). Then
+we have
+\begin{align*}
+\langle rx,y\rangle & =\lim_{n\to\infty}\langle r_{n}x,y\rangle\\
+ & =\lim_{n\to\infty}r_{n}\langle x,y\rangle\\
+ & =r\langle x,y\rangle.
+\end{align*}
+Therefore (\ref{eq:innerfromnorm}) respects $\mathbb{R}$-scaling
+in the first component.
+
+\hfill
+
+\textbf{Step 5: }We show that (\ref{eq:innerfromnorm}) respects $\mathbb{C}$-scaling
+in the first component. We first show that $\langle ix,y\rangle=i\langle x,y\rangle$
+for all $x,y\in V$. 
+
+~~~Let $x,y\in V$. Then we have
+\begin{align*}
+\langle ix,y\rangle & =\frac{1}{4}\left(\|ix+y\|^{2}+i\|ix+iy\|^{2}-\|ix-y\|^{2}-i\|ix-iy\|^{2}\right)\\
+ & =\frac{1}{4}\left(\|x-iy\|^{2}+i\|x+y\|^{2}-\|x+iy\|^{2}-i\|x-y\|^{2}\right)\\
+ & =\frac{1}{4}\left(i\|x+y\|^{2}-\|x+iy\|^{2}-i\|x-y\|^{2}+\|x-iy\|^{2}\right)\\
+ & =\frac{i}{4}\left(\|x+y\|^{2}+i\|x+iy\|^{2}-\|x-y\|^{2}-i\|x-iy\|^{2}\right)\\
+ & =i\langle x,y\rangle.
+\end{align*}
+
+Now let $\lambda=r+is\in\mathbb{C}$. Then we have
+\begin{align*}
+\langle\lambda x,y\rangle & =\langle(r+is)x,y\rangle\\
+ & =\langle rx+isx,y\rangle\\
+ & =\langle rx,y\rangle+\langle isx,y\rangle\\
+ & =r\langle x,y\rangle+s\langle ix,y\rangle\\
+ & =r\langle x,y\rangle+is\langle x,y\rangle\\
+ & =(r+is)\langle x,y\rangle\\
+ & =\lambda\langle x,y\rangle
+\end{align*}
+for all $x,y\in V$. Therefore (\ref{eq:innerfromnorm}) respects
+$\mathbb{C}$-scaling in the first component. \end{proof}
+
+\subsection{Example of Bounded Operator in $(C[0,1],\|\cdot\|_{\infty})$}
+
+\begin{prop}\label{prop} Consider $C[0,1]$ equipped with the supremum
+norm. Let $T\colon C[0,1]\to C[0,1]$ be the linear operator defined
+by
+\[
+(Tf)(x)=\int_{0}^{x}f(y)\mathrm{d}y
+\]
+for all $x\in[0,1]$. Then $T$ is bounded with $\|T\|=1$. \end{prop}
+
+\begin{proof} Let $f\in C[0,1]$ such that $\|f\|_{\infty}\leq1$.
+Then
+\begin{align*}
+\|Tf\|_{\infty} & =\sup\{|(Tf)(x)|\mid x\in[0,1]\}\\
+ & =\sup\left\{ \left|\int_{0}^{x}f(y)\mathrm{d}y\right|\mid x\in[0,1]\right\} \\
+ & \leq\sup\left\{ \int_{0}^{x}|f(y)|\mathrm{d}y\mid x\in[0,1]\right\} \\
+ & \leq\sup\left\{ \int_{0}^{x}\mathrm{d}y\mid x\in[0,1]\right\} \\
+ & =\sup\left\{ x\mid x\in[0,1]\right\} \\
+ & =1.
+\end{align*}
+Thus $\|T\|\leq1$. To see that $\|T\|=1$, let $f\colon[0,1]\to\mathbb{C}$
+be the constant function $f=1$. Then $\|f\|_{\infty}=1$ and
+\begin{align*}
+\|Tf\|_{\infty} & =\sup\{|(Tf)(x)|\mid x\in[0,1]\}\\
+ & =\sup\left\{ \left|\int_{0}^{x}\mathrm{d}y\right|\mid x\in[0,1]\right\} \\
+ & =\sup\left\{ \left|x\right|\mid x\in[0,1]\right\} \\
+ & =\sup\left\{ x\mid x\in[0,1]\right\} \\
+ & =1.
+\end{align*}
+
+\end{proof}
+
+\subsection{Example of Linear Functional in $(C[a,b],\|\cdot\|_{\infty})$}
+
+\begin{prop}\label{prop} Consider $C[a,b]$ equipped with the supremum
+norm. Define a linear functional $\ell\colon C[a,b]\to\mathbb{R}$
+by
+\[
+\ell(f):=f(a)-f(b).
+\]
+for all $f\in C[a,b]$. Then $\ell$ is bounded. Moreover the set
+\[
+\{f\in C[a,b]\mid f(a)=f(b)\}
+\]
+is a closed subspace of $C[a,b]$. \end{prop}
+
+\begin{proof} Let $f\in C[a,b]$ such that $\|f\|_{\infty}\leq1$.
+Then
+\begin{align*}
+|\ell(f)| & =|f(a)-f(b)|\\
+ & \leq|f(a)|+|f(b)|\\
+ & \leq1+1\\
+ & =2.
+\end{align*}
+Thus $\|\ell\|\leq2$. To see that $\|\ell\|=2$, let $f\colon[a,b]\to\mathbb{C}$
+be given by
+\[
+f(x)=\frac{2}{b-a}(x-a)-1
+\]
+for all $x\in[a,b].$ So the graph of $f$ is just the line segment
+from $(a,-1)$ to $(b,1)$. In particular, $\|f\|_{\infty}=1$ and
+\begin{align*}
+|\ell(f)| & =|f(a)-f(b)|\\
+ & =|-1-1|\\
+ & =2.
+\end{align*}
+The last part of the proposition follows from
+\[
+\text{ker}\ell=\{f\in C[a,b]\mid f(a)=f(b)\},
+\]
+and $\ker\ell$ is a closed subspace since $\ell$ is a bounded linear
+operator. \end{proof}
+
+\subsection{Example of Linear Functional in $(C[a,b],\|\cdot\|_{\infty})$ and
+Closed Subspace}
+
+\begin{lemma}\label{lemmaintegrationfunctional} Consider $C[a,b]$
+equipped with the supremum norm. Let $[c,d]\subseteq[a,b]$ and define
+$\ell_{c,d}\colon C[a,b]\to\mathbb{C}$ by
+\[
+\ell_{c,d}(f)=\int_{c}^{d}f(t)\mathrm{d}t
+\]
+for all $f\in C[a,b]$. Then $\ell_{c,d}$ is a bounded linear functional
+with $\|\ell_{c,d}\|=d-c$. \end{lemma}
+
+\begin{proof} Linearity of $\ell_{c,d}$ follows from linearity of
+integration. So it suffices to check that $\ell_{c,d}$ is bounded.
+Let $f\in C[a,b]$ such that $\|f\|_{\infty}\leq1$. Then
+\begin{align*}
+|\ell_{c,d}(f)| & =\left|\int_{c}^{d}f(t)\mathrm{d}t\right|\\
+ & \leq\int_{c}^{d}|f(t)|\mathrm{d}t\\
+ & \leq\int_{c}^{d}\mathrm{d}t\\
+ & =d-c.
+\end{align*}
+Thus $\|\ell\|\leq d-c$. To see that $\|\ell\|=d-c$, let $f\colon[a,b]\to\mathbb{C}$
+be the constant function $f=1$. Then $\|f\|_{\infty}=1$ and
+\begin{align*}
+|\ell_{c,d}(f)| & =\left|\int_{c}^{d}f(t)\mathrm{d}t\right|\\
+ & =\left|\int_{c}^{d}\mathrm{d}t\right|\\
+ & =|d-c|\\
+ & =d-c.
+\end{align*}
+
+\end{proof}
+
+\begin{prop}\label{propclosedsubspaceyofc-11} Consider $C[-1,1]$
+equipped with the supremum norm. Let $\mathcal{Y}$ be the subset
+of $C[-1,1]$ consisting of all functions $g\in C[-1,1]$ such that
+\[
+\int_{-1}^{0}g(x)\mathrm{d}x=\int_{0}^{1}g(x)\mathrm{d}x=0.
+\]
+
+Then $\mathcal{Y}$ is a closed subspace. \end{prop}
+
+\begin{proof} Note that $\mathcal{Y}=\text{ker}\ell_{-1,0}\cap\text{ker}\ell_{0,1}$
+is an intersection of two closed subspaces (since $\ell_{-1,0}$ and
+$\ell_{0,1}$ are bounded linear functionals by Lemma~(\ref{lemmaintegrationfunctional})).
+Thus $\mathcal{Y}$ is a closed subspace. \end{proof}
+
+\begin{prop}\label{prop} With the notation as in Proposition~(\ref{propclosedsubspaceyofc-11})
+above, let $h\in C[-1,1]$ be given by
+\[
+h(x)=2x
+\]
+for all $x\in[-1,1]$. Then there does not exist a $g\in\mathcal{Y}$
+such that $\|g-h\|_{\infty}=d(h,\mathcal{Y})$. \end{prop} 
+
+\begin{proof} \hfill
+
+\hfill
+
+\textbf{Step 1: }We will first show that $d(h,\mathcal{Y})=1$. To
+prove $d(h,\mathcal{Y})\geq1$, assume for a contradiction that $d(h,\mathcal{Y})<1$.
+Choose $\varepsilon>0$ and $g\in\mathcal{Y}$ such that 
+\[
+\|g-h\|_{\infty}<1-\varepsilon.
+\]
+Write $g$ in terms of its real and imaginary parts, say $g=u+iv$.
+Then
+\begin{align*}
+0 & =\int_{-1}^{0}g(x)\mathrm{d}x\\
+ & =\int_{-1}^{0}u(x)\mathrm{d}x+i\int_{-1}^{0}v(x)\mathrm{d}x
+\end{align*}
+implies $\int_{-1}^{0}u(x)\mathrm{d}x=0$ and $\int_{-1}^{0}v(x)\mathrm{d}x=0$.
+Similarly, 
+\begin{align*}
+0 & =\int_{0}^{1}g(x)\mathrm{d}x\\
+ & =\int_{0}^{1}u(x)\mathrm{d}x+i\int_{0}^{1}v(x)\mathrm{d}x
+\end{align*}
+implies $\int_{0}^{1}u(x)\mathrm{d}x=0$ and $\int_{0}^{1}v(x)\mathrm{d}x=0$.
+Moreover, we have
+\begin{align*}
+1-\varepsilon & >\|g-h\|_{\infty}\\
+ & =\sup_{x\in[-1,1]}\sqrt{(u(x)-h(x))^{2}+v(x)^{2}}\\
+ & \geq\sup_{x\in[-1,1]}\sqrt{(u(x)-h(x))^{2}}\\
+ & =\|u-h\|_{\infty}.
+\end{align*}
+Therefore $u\in\mathcal{Y}$, $\|u-h\|_{\infty}<1-\varepsilon$, and
+$u$ is a real-valued function. Since $\|u-h\|_{\infty}<1-\varepsilon$,
+$h(x)=2x$ for all $x\in[-1,0]$, and both $u$ and $h$ are real-valued
+functions, we have 
+\[
+u(x)\leq2x+1-\varepsilon
+\]
+for all $x\in[-1,0]$. This implies
+\begin{align*}
+0 & =\int_{-1}^{0}u(x)\mathrm{d}x\\
+ & \leq\int_{-1}^{0}(2x+1-\varepsilon)\mathrm{d}x\\
+ & =(x^{2}+x-\varepsilon x)|_{-1}^{0}\\
+ & =\varepsilon\\
+ & >0,
+\end{align*}
+which gives us our desired contradiction. Therefore $d(h,\mathcal{Y})\geq1$. 
+
+~~~Now we will show that $d(h,\mathcal{Y})\leq1$. Let $t\in(0,1]$
+and define $g_{t}\colon[-1,0]\to\mathbb{R}$ by the formula
+\[
+g_{t}(x)=\begin{cases}
+2x+1+t & \text{if }-1\leq x\leq\frac{-2t}{1+t}\\
+-\frac{(t-1)^{2}}{2t}x & \text{if }\frac{-2t}{1+t}\leq x\leq0.
+\end{cases}
+\]
+Extend $g_{t}$ to all of $[-1,1]$ by the formula
+\[
+g_{t}(x)=g_{t}(-x)
+\]
+for all $x\in[0,1]$. So $g_{t}$ is an odd function. Moreover $g_{t}$
+is continous since each segment of $g_{t}$ is linear and since they
+agree on their boundaries:
+\begin{align*}
+2\left(\frac{-2t}{1+t}\right)+1+t & =\frac{-4t}{1+t}+\frac{(1+t)^{2}}{1+t}\\
+ & =\frac{t^{2}-2t+1}{1+t}\\
+ & =\frac{(t-1)^{2}}{1+t}\\
+ & =-\frac{(t-1)^{2}}{2t}\left(\frac{-2t}{1+t}\right)
+\end{align*}
+and
+\begin{align*}
+-\frac{(t-1)^{2}}{2t}\cdot0 & =0\\
+ & =\frac{(t-1)^{2}}{2t}\cdot0.
+\end{align*}
+The image below gives the graphs for $h$, $g_{1/2}$, and $g_{1/10}$:
+
+\begin{center}\begin{tikzpicture}\begin{axis}[axis lines = middle, 
+xmin=-1,xmax=1,
+ymin=-2,ymax=3,     
+xtick={-1,0,1},     
+ytick={-2,-1,1,2,3},
+legend pos= north west,]
+
+
+\addplot [domain=-1:1,samples=100,color=black,thick] ({x}, {2*x});
+\addplot [domain=-1:-0.666,samples=100,color=red,thick] ({x}, {2*x+1+0.5});
+\addplot [domain=-1:-0.1818,samples=100,color=blue,thick] ({x}, {2*x+1+0.1});
+\addplot [domain=-1:-0.095,samples=100,color=green,thick] ({x}, {2*x+1+0.05});
+\addplot [domain=-0.666:0.666,samples=100,color=red,thick] ({x}, {-0.25*x});
+\addplot [domain=0.666:1,samples=100,color=red,thick] ({x}, {2*x+1-2.5});
+\addplot [domain=-0.1818:0.1818,samples=100,color=blue,thick] ({x}, {-4.05*x});
+\addplot [domain=0.1818:1,samples=100,color=blue,thick] ({x}, {2*x+1-2.1});
+\addplot [domain=-1:-0.095,samples=100,color=green,thick] ({x}, {2*x+1+0.05});
+\addplot [domain=-0.095:0.095,samples=100,color=green,thick] ({x}, {-9.025*x});
+\addplot [domain=0.095:1,samples=100,color=green,thick] ({x}, {2*x+1-2.05});
+
+
+\addlegendentry{$ h $} 
+\addlegendentry{$ g_{1/2}$}
+\addlegendentry{$ g_{1/10}$} 
+\addlegendentry{$ g_{1/20}$}
+
+\end{axis}\end{tikzpicture}\end{center}
+
+Now observe that
+\begin{align*}
+\int_{-1}^{0}g_{t}(x)\mathrm{d}x & =\int_{-1}^{\frac{-2t}{1+t}}(2x+1+t)\mathrm{d}x+\int_{\frac{-2t}{1+t}}^{0}-\frac{(t-1)^{2}}{2t}x\mathrm{d}x\\
+ & =(x^{2}+x+tx)|_{-1}^{\frac{-2t}{1+t}}+\left(\frac{-(t-1)^{2}}{4t}x^{2}\right)|_{\frac{-2t}{1+t}}^{0}\\
+ & =\left(\frac{2t}{1+t}\right)^{2}+\left(\frac{-2t}{1+t}\right)+t\left(\frac{-2t}{1+t}\right)-\left(1-1-t\right)+\frac{(t-1)^{2}}{4t}\left(\frac{2t}{1+t}\right)^{2}\\
+ & =\left(\frac{(t-1)^{2}}{4t}+1\right)\left(\frac{2t}{1+t}\right)^{2}+(1+t)\left(\frac{-2t}{1+t}\right)+t\\
+ & =\frac{(t+1)^{2}}{4t}\frac{4t^{2}}{(1+t)^{2}}-t\\
+ & =t-t\\
+ & =0.
+\end{align*}
+Therefore $g_{t}\in\mathcal{Y}$ for all $t\in(0,1]$. Moreover, by
+construction we have 
+\[
+\|g_{t}-h\|_{\infty}=1+t
+\]
+for all $t\in(0,1]$. This implies $d(h,\mathcal{Y})\leq1$. 
+
+\hfill
+
+\textbf{Step 2: }We claim that there does not exist a $g\in\mathcal{Y}$
+such that $\|g-h\|_{\infty}=1$. Indeed, assume for a contradiction
+there does exist a $g\in\mathcal{Y}$ such that $\|g-h\|_{\infty}=1$.
+Choose such a $g\in\mathcal{Y}$. We may assume that $g$ is real-valued:
+if $g$ is not real-valued, then we pass to its real-valued part $u$
+and as argued above we obtain $u\in\mathcal{Y}$ and 
+\begin{align*}
+1 & =\|g-h\|_{\infty}\\
+ & =\|u-h\|_{\infty}\\
+ & \geq1.
+\end{align*}
+
+Since $g$ is real-valued and $\|g-h\|_{\infty}=1$, we have
+\[
+2x-1\leq g(x)\leq2x+1
+\]
+for all $x\in[-1,1]$. Since $g$ is continous, we cannot have 
+\[
+g(x)=\begin{cases}
+2x+1 & \text{for all }x\in(-1,0)\\
+2x-1 & \text{for all }x\in(0,1).
+\end{cases}
+\]
+Assume $g(x)\neq2x-1$ on the interval $(0,1)$. Choose $c\in(0,1)$
+such that $g(c)\neq2c-1$. Since $g$ is continuous and since $g(c)>2c-1$,
+there exists $\varepsilon>0$ and $\delta>0$ such that 
+\[
+g(x)>2x-1+\varepsilon
+\]
+for all $x\in(c-\delta,c+\delta)$. Choose such $\varepsilon$ and
+$\delta$ so that $(c-\delta,c+\delta)\subset(0,1)$. Then
+\begin{align*}
+0 & =\int_{0}^{1}g(x)\mathrm{d}x\\
+ & =\int_{0}^{1}g(x)\mathrm{d}x+\int_{c-\delta}^{c+\delta}g(x)\mathrm{d}x+\int_{c+\delta}^{1}g(x)\mathrm{d}x\\
+ & >\int_{0}^{c-\delta}(2x-1)\mathrm{d}x+\int_{c-\delta}^{c+\delta}(2x-1+\varepsilon)\mathrm{d}x+\int_{c+\delta}^{1}(2x-1)\mathrm{d}x\\
+ & =\int_{0}^{1}(2x-1)\mathrm{d}x+\int_{c-\delta}^{c+\delta}\varepsilon\mathrm{d}x\\
+ & =(x^{2}-x)|_{0}^{1}+\varepsilon x|_{c-\delta}^{c+\delta}\\
+ & =2\varepsilon\delta\\
+ & >0
+\end{align*}
+gives us a contradiction.
+
+~~~Thus $g(x)\neq2x+1$ on the interval $(-1,0)$. Choose $c\in(-1,0)$
+such that $g(c)\neq2c+1$. Then by a similar argument as above, we
+have
+\begin{align*}
+0 & =\int_{-1}^{0}g(x)\mathrm{d}x\\
+ & <\int_{-1}^{0}(2x+1)\mathrm{d}x-\int_{c-\delta}^{c+\delta}\varepsilon\mathrm{d}x\\
+ & =-2\varepsilon\delta\\
+ & <0,
+\end{align*}
+which also gives us a contradiction. Therefore there does not exist
+a $g\in\mathcal{Y}$ such that $\|g-h\|_{\infty}=1$. \end{proof}
+
+\subsection{Closed Subspaces of $\mathcal{X}^{*}$ and $\mathcal{X}$}
+
+\begin{defn}\label{defn} Let $\mathcal{X}$ be a normed linear space.
+For a set $A\subseteq\mathcal{X}$ we define $A^{\perp}$ to be the
+subset of $\mathcal{X}^{*}$ consisting of all $\ell\in\mathcal{X}^{*}$
+such that $\ell(a)=0$ for all $a\in A$. Similarly, for a set $M\subseteq\mathcal{X}^{*}$
+we define $M_{\perp}$ to be the subset of $\mathcal{X}$ consisting
+of all vectors $x\in\mathcal{X}$ such that $\ell(x)=0$ for all $\ell\in M$.
+\end{defn}
+
+\begin{prop}\label{propclosedsubspacesperpantiperp} Let $\mathcal{X}$
+be a normed linear space, let $A$ be a subset of $\mathcal{X}$,
+and let $M$ be a subset of $\mathcal{X}^{*}$. Then $A^{\perp}$
+and $M_{\perp}$ are closed subspaces of $\mathcal{X}^{*}$ and $\mathcal{X}$
+respectively. \end{prop}
+
+\begin{proof} Let $x\in\mathcal{X}$. Define $\widehat{x}\colon\mathcal{X}^{*}\to\mathbb{C}$
+by
+\[
+\widehat{x}(\ell)=\ell(x)
+\]
+for all $\ell\in\mathcal{X}^{*}$. We claim that $\widehat{x}$ is
+a bounded linear functional. To see that $\widehat{x}$ is linear,
+let $\ell,\ell'\in\mathcal{X}^{*}$ and let $\lambda,\lambda'\in\mathbb{C}$.
+Then
+\begin{align*}
+\widehat{x}(\lambda\ell+\lambda'\ell') & =(\lambda\ell+\lambda'\ell')(x)\\
+ & =\lambda\ell(x)+\lambda'\ell'(x)\\
+ & =\lambda\widehat{x}(\ell)+\lambda'\widehat{x}(\ell').
+\end{align*}
+To see that $\widehat{x}$ is bounded, let $\ell\in\mathcal{X}^{*}$.
+Then
+\begin{align*}
+|\widehat{x}(\ell)| & =|\ell(x)|\\
+ & \leq\|x\|\|\ell\|.
+\end{align*}
+Therefore $\widehat{x}$ is a bounded linear functional. In particular
+$\text{ker}\widehat{x}$ is a closed subspace. Thus
+\[
+A^{\perp}=\bigcap_{a\in A}\text{ker}\widehat{a}\quad\text{and}\quad M_{\perp}=\bigcap_{\ell\in M}\text{ker}\ell
+\]
+are closed subspaces since an arbitrary intersection of closed subspaces
+is a closed subspace. \end{proof}
+
+\begin{prop}\label{prop} Let $\mathcal{X}$ be a normed linear space,
+let $A$ be a subset of $\mathcal{X}$, and let $M$ be a subset of
+$\mathcal{X}^{*}$. Then $\overline{\text{span}}(A)\subseteq(A^{\perp})_{\perp}$
+and $\overline{\text{span}}(M)\subseteq(M_{\perp})^{\perp}$. \end{prop}
+
+\begin{proof} Proposition~(\ref{propclosedsubspacesperpantiperp})
+implies $(A^{\perp})_{\perp}$ and $(M_{\perp})^{\perp}$ are closed
+subspace. Thus, it suffices to show
+\[
+\text{span}(A)\subseteq(A^{\perp})_{\perp}\quad\text{and}\quad\text{span}(M)\subseteq(M_{\perp})^{\perp}.
+\]
+~~~First we show the former. Let $\lambda_{1}a_{1}+\cdots+\lambda_{n}a_{n}\in\text{span}(A)$
+and let $\ell\in A^{\perp}$. Then since $\ell(a)=0$ for all $a\in A$,
+we have
+\begin{align*}
+\ell(\lambda_{1}a_{1}+\cdots+\lambda_{n}a_{n}) & =\lambda_{1}\ell(a_{1})+\cdots+\lambda_{n}\ell(a_{n})\\
+ & =\lambda_{1}\cdot0+\cdots+\lambda_{n}\cdot0\\
+ & =0.
+\end{align*}
+Since $\ell$ was arbitrary, this implies $\lambda_{1}a_{1}+\cdots+\lambda_{n}a_{n}\in(A^{\perp})_{\perp}$,
+and hence $\text{span}(A)\subseteq(A^{\perp})_{\perp}$. 
+
+~~~Now we show the latter. Let $\lambda_{1}\ell_{1}+\cdots+\lambda_{n}\ell_{n}\in\text{span}(M)$
+and let $x\in M_{\perp}$. Then since $\ell(x)=0$ for all $\ell\in M$,
+we have
+\begin{align*}
+(\lambda_{1}\ell_{1}+\cdots+\lambda_{n}\ell_{n})(x) & =\lambda_{1}\ell_{1}(x)+\cdots+\lambda_{n}\ell_{n}(x)\\
+ & =\lambda_{1}\cdot0+\cdots+\lambda_{n}\cdot0\\
+ & =0.
+\end{align*}
+Since $x$ was arbitrary, this implies $\lambda_{1}\ell_{1}+\cdots+\lambda_{n}\ell_{n}\in(M_{\perp})^{\perp}$,
+and hence $\text{span}(M)\subseteq(M_{\perp})^{\perp}$. \end{proof}
+
+\subsection{$(\ell^{1})^{*}$ is isometrically isomorphic to $\ell^{\infty}$.}
+
+\begin{prop}\label{prop} $(\ell^{1})^{*}$ is isometrically isomorphic
+to $\ell^{\infty}$. \end{prop}
+
+\begin{proof} For each $n\in\mathbb{N}$, let $e^{n}$ denote the
+sequence with entry $1$ in the $n$th component and entry $0$ everywhere
+else. Define $\Phi\colon(\ell^{1})^{*}\to\ell^{\infty}$ by
+\[
+\Phi(\psi)=(\psi(e^{n}))
+\]
+for all $\psi\in(\ell^{1})^{*}$. Note that for any $\psi\in(\ell^{1})^{*}$,
+we have $|(\psi(e^{n}))|\leq\|\psi\|$, and therefore $(\psi(e^{n}))\in\ell^{\infty}$.
+We claim that $\|\psi\|=\|\Phi(\psi)\|_{\infty}$. Indeed,
+\begin{align*}
+\|\Phi(\psi)\|_{\infty} & =\sup\{|\psi(e^{n})|\mid n\in\mathbb{N}\}\\
+ & \leq\sup\left\{ \left|\psi\left(\sum_{n=1}^{\infty}a_{n}e^{n}\right)\right|\mid\sum_{n=1}^{\infty}|a_{n}|\leq1\right\} \\
+ & =\|\psi\|.
+\end{align*}
+To prove the reverse inequality assume for a contradiction that $\|\psi\|>\|\Phi(\psi)\|_{\infty}$.
+Choose $\varepsilon>0$ and $\sum_{n=1}^{\infty}a_{n}e^{n}\in\ell^{1}$
+such that $\sum_{n=1}^{\infty}|a_{n}|\leq1$ and
+\begin{equation}
+\left|\psi\left(\sum_{n=1}^{\infty}a_{n}e^{n}\right)\right|>\|\Phi(\psi)\|_{\infty}+\varepsilon.\label{eq:strictineq1}
+\end{equation}
+Choose $N\in\mathbb{N}$ such that $\sum_{n=N}^{\infty}|a_{n}|<\varepsilon/\|\psi\|$
+(we can find such an $N$ since $\sum_{n=1}^{\infty}|a_{n}|<\infty$).
+Then
+\begin{align*}
+\left|\psi\left(\sum_{n=1}^{\infty}a_{n}e^{n}\right)\right| & =\left|\psi\left(\sum_{n=1}^{N}a_{n}e^{n}+\sum_{n=N+1}^{\infty}a_{n}e^{n}\right)\right|\\
+ & =\left|\psi\left(\sum_{n=1}^{N}a_{n}e^{n}\right)+\psi\left(\sum_{n=N+1}^{\infty}a_{n}e^{n}\right)\right|\\
+ & =\left|\sum_{n=1}^{N}a_{n}\psi(e^{n})+\psi\left(\sum_{n=N+1}^{\infty}a_{n}e^{n}\right)\right|\\
+ & \leq\left|\sum_{n=1}^{N}a_{n}\psi(e^{n})\right|+\left|\psi\left(\sum_{n=N+1}^{\infty}a_{n}e^{n}\right)\right|\\
+ & \leq\sum_{n=1}^{N}|a_{n}||\psi(e^{n})|+\|\psi\|\sum_{n=N+1}^{\infty}|a_{n}|\\
+ & <\|\Phi(\psi)\|_{\infty}\sum_{n=1}^{N}|a_{n}|+\|\psi\|\cdot\frac{\varepsilon}{\|\psi\|}\\
+ & \leq\|\Phi(\psi)\|_{\infty}+\varepsilon.
+\end{align*}
+This contradicts (\ref{eq:strictneq1}).
+
+~~~Next we show $\Phi$ is linear. Let $\varphi,\psi\in(\ell^{1})^{*}$
+and let $\lambda,\mu\in\mathbb{C}$. Then
+\begin{align*}
+\Phi(\lambda\varphi+\mu\psi) & =((\lambda\varphi+\mu\psi)(e^{n}))\\
+ & =\lambda(\varphi(e^{n}))+\mu(\psi(e^{n}))\\
+ & =\lambda\Phi(\varphi)+\mu\Phi(\psi).
+\end{align*}
+
+Therefore $\Phi$ is an isometric embedding. 
+
+~~~Now show that $\Phi$ is surjective, and hence an isometric
+isomorphism. Let $(a_{n})\in\ell^{\infty}$, let $M=\sup\{|a_{n}|\}$,
+and let $E=\text{span}\{e^{n}\mid n\in\mathbb{N}\}$. Define $\varphi\colon E\to\mathbb{C}$
+to be the unique linear map such that
+\[
+\varphi(e^{n})=a_{n}
+\]
+ for all $n\in\mathbb{N}$. Let $x=x_{n_{1}}e^{n_{1}}+\cdots+x_{n_{k}}e^{n_{k}}\in E$
+such that $|x_{n_{1}}|+\cdots+|x_{n_{k}}|\leq1$. Then
+\begin{align*}
+|\varphi(x_{n_{1}}e^{n_{1}}+\cdots+x_{n_{k}}e^{n_{k}})| & =|x_{n_{1}}\varphi(e^{n_{1}})+\cdots+x_{n_{k}}\varphi(e^{n_{k}})|\\
+ & =|x_{n_{1}}a_{n_{1}}+\cdots+x_{n_{k}}a_{n_{k}}|\\
+ & \leq|x_{n_{1}}||a_{n_{1}}|+\cdots+|x_{n_{k}}||a_{n_{k}}|\\
+ & \leq|x_{n_{1}}|M+\cdots+|x_{n_{k}}||M\\
+ & =(|x_{n_{1}}|+\cdots+|x_{n_{k}}||)M\\
+ & \leq M
+\end{align*}
+It follows that $\varphi$ is bounded. By the Hahn-Banach Theorem,
+there exists a bounded linear functional $\widetilde{\varphi}$ defined
+on all of $\ell^{1}$ such that $\widetilde{\varphi}|_{E}=\varphi$
+and $\|\widetilde{\varphi}\|=\|\varphi\|$. Choose such a $\widetilde{\varphi}\in(\ell^{1})^{*}$.
+Then clearly $\Phi(\widetilde{\varphi})=(a_{n})$. Therefore $\Phi$
+is surjective, and hence an isometric isomorphism. \end{proof}
+
+\section*{Appendix}
+
+\subsection*{Problem 1}
+
+\begin{prop}\label{propsuplinearpositive} Let $A$ be a non-emtpy
+set of real numbers which is bounded above and let $\lambda$ be any
+non-negative real number. Then
+\begin{equation}
+\sup(\lambda A)=\lambda\sup(A).\label{eq:sup}
+\end{equation}
+
+\end{prop}
+
+\begin{proof} If $\lambda=0$, then (\ref{eq:sup}) is obvious, so
+assume $\lambda>0$. Let $\alpha$ denote $\sup(A)$. Choose any element
+in $\lambda A$, say $\lambda a$ where $a\in A$. Then since $a\leq\alpha$
+and $\lambda$ is non-negative, we have $\lambda a\leq\lambda\alpha$.
+This implies
+\[
+\sup(\lambda A)\leq\lambda\sup(A).
+\]
+For the reverse direction, observe that
+\begin{align*}
+\sup(A) & =\sup(\lambda^{-1}\lambda A)\\
+ & \leq\lambda^{-1}\sup(\lambda A),
+\end{align*}
+and this implies 
+\[
+\sup(\lambda A)\geq\lambda\sup(A).
+\]
+
+\end{proof}
+
+\begin{prop}\label{propsuplinearpositive2} Let $A$ and $B$ be non-empty
+sets of non-negative real numbers both of which are bounded above.
+Then
+\begin{equation}
+\sup(A+B)=\sup(A)+\sup(B).\label{eq:sup-1}
+\end{equation}
+
+\end{prop}
+
+\begin{proof} Let $\alpha$ denote $\sup(A)$, let $\beta$ denote
+$\sup(B)$, and let $a+b$ be an arbitrary element in $A+B$. Then
+$a\leq\alpha$ and $b\leq\beta$ implies $a+b\leq\alpha+\beta$. Therefore
+\begin{equation}
+\sup(A+B)\leq\sup(A)+\sup(B).\label{eq:ineqsupadd}
+\end{equation}
+To show the reverse inequality, we assume (for a contradiction) that
+the inequality (\ref{eq:ineqsupadd}) is strict
+\[
+\sup(A+B)<\sup(A)+\sup(B).
+\]
+Choose $\varepsilon>0$ such that 
+\begin{equation}
+\sup(A+B)<\sup(A)+\sup(B)-\varepsilon.\label{supstrictin}
+\end{equation}
+Choose $a\in A$ and $b\in B$ such that $a>\alpha-\varepsilon/2$
+and $b>\beta-\varepsilon/2$. Then
+\begin{align*}
+a+b & >\alpha-\frac{\varepsilon}{2}+\beta-\frac{\varepsilon}{2}\\
+ & =\alpha+\beta-\varepsilon.
+\end{align*}
+But this contradicts (\ref{supstrictin}). Therefore 
+\[
+\sup(A+B)\geq\sup(A)+\sup(B).
+\]
 
 \end{proof}
 

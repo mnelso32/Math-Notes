@@ -2750,7 +2750,7 @@ label{prop}
 \begin_inset Formula $f\colon X\to Y$
 \end_inset
 
- be a continuous function and assume that 
+ be a function and assume that 
 \begin_inset Formula $X$
 \end_inset
 
@@ -2831,11 +2831,11 @@ begin{proof}
 \end_inset
 
 .
- Choose an open neighborhood 
+ Let 
 \begin_inset Formula $V$
 \end_inset
 
- of 
+ be an open neighborhood of 
 \begin_inset Formula $f(x)$
 \end_inset
 

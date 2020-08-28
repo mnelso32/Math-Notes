@@ -17,15 +17,14 @@
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{prop}{Proposition}[section]
-\newtheorem{cor}{Corollary}
+\newtheorem*{cor}{Corollary}
 \theoremstyle{definition}
 \newtheorem{defn}{Definition}[section]
-\newtheorem{ex}{Exercise}
-\newtheorem{sol}{Solution} 
+\newtheorem{ex}{Exercise} 
 \newtheorem{example}{Example}[section]
 \theoremstyle{remark}
-\newtheorem{rem}{Remark}
-\newtheorem{note}{Note}
+\newtheorem*{rem}{Remark}
+\newtheorem*{note}{Note}
 \newtheorem{case}{Case}
 \usepackage{graphicx}
 \usepackage{amssymb}
@@ -75,15 +74,6 @@ commutative diagrams/.cd,
 \blocktheorem{prop}% Make prop into a block
 
 
-\makeatletter
-\newcommand*{\@old@slash}{}\let\@old@slash\slash
-\def\slash{\relax\ifmmode\delimiter"502F30E\mathopen{}\else\@old@slash\fi}
-\makeatother
-
-\def\backslash{\delimiter"526E30F\mathopen{}}
-
-
-
 \usepackage[bottom]{footmisc}
 \end_preamble
 \use_default_options true
@@ -130,7 +120,7 @@ commutative diagrams/.cd,
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
-\suppress_date true
+\suppress_date false
 \justification true
 \use_refstyle 1
 \use_minted 0
@@ -163,15 +153,11 @@ commutative diagrams/.cd,
 \begin_body
 
 \begin_layout Title
-Measure Theory Extra Problems
+Commutative Algebra Homework 1
 \end_layout
 
 \begin_layout Author
 Michael Nelson
-\end_layout
-
-\begin_layout Section*
-Problem 3
 \end_layout
 
 \begin_layout Standard
@@ -182,39 +168,27 @@ status open
 
 
 \backslash
-begin{prop}
+begin{theorem}
 \backslash
-label{prop}
+label{theorem}
 \end_layout
 
 \end_inset
 
  Let 
-\begin_inset Formula $(X,\mathcal{M},\mu)$
+\begin_inset Formula $S\subseteq R$
 \end_inset
 
- be a measure space, let 
-\begin_inset Formula $f\colon X\to\mathbb{R}$
+ be a subset.
+ Then 
+\begin_inset Formula $S$
 \end_inset
 
- be a measurable function such that 
-\begin_inset Formula $\mu(\{f>1\})<\infty$
+ is saturated and multiplicatively closed if and only if 
+\begin_inset Formula $S$
 \end_inset
 
-, and let 
-\begin_inset Formula $\varepsilon>0$
-\end_inset
-
-.
- Then there exists a bounded measurable function 
-\begin_inset Formula $g\colon X\to\mathbb{R}$
-\end_inset
-
- such that 
-\begin_inset Formula $\mu(\{f\neq g\})<\varepsilon$
-\end_inset
-
-.
+ is the complement of a set-theoretic union of prime ideals.
  
 \begin_inset ERT
 status open
@@ -223,7 +197,46 @@ status open
 
 
 \backslash
-end{prop}
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\backslash
+label{example}
+\end_layout
+
+\end_inset
+
+ In 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+, the set 
+\begin_inset Formula $\{\pm2^{n}\}_{n=0}^{\infty}$
+\end_inset
+
+ is the complement of the union of all odd prime ideals.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
 \end_layout
 
 \end_inset
@@ -244,153 +257,101 @@ begin{proof}
 
 \end_inset
 
- We may assume 
-\begin_inset Formula $f$
+ Suppose 
+\begin_inset Formula $S$
 \end_inset
 
- is nonnegative (otherwise break 
-\begin_inset Formula $f$
-\end_inset
-
- up into its positive and negative part 
-\begin_inset Formula $f=f^{+}-f^{-}$
-\end_inset
-
-, approximate both 
-\begin_inset Formula $f^{+}$
-\end_inset
-
- and 
-\begin_inset Formula $f^{-}$
-\end_inset
-
- by a bounded measurable function, and then combine these together).
- For each 
-\begin_inset Formula $n\in\mathbb{N}$
-\end_inset
-
-, let 
-\begin_inset Formula $E_{n}=\{f>n\}$
+ is multiplicatively closed and saturated.
+ Let 
+\begin_inset Formula $x\in S^{c}$
 \end_inset
 
 .
- Observe that
-\begin_inset Formula 
-\begin{equation}
-\bigcap_{n=1}^{\infty}E_{n}=\emptyset.\label{eq:intfgreatern}
-\end{equation}
-
+ Then 
+\begin_inset Formula $\langle x\rangle\cap S=\emptyset$
 \end_inset
 
-Indeed, for any 
-\begin_inset Formula $x\in X$
+ since 
+\begin_inset Formula $S$
 \end_inset
 
-, there must exist some 
-\begin_inset Formula $n_{x}\in\mathbb{N}$
+ is saturated.
+ Choose a prime ideal 
+\begin_inset Formula $\mathfrak{p}_{x}$
 \end_inset
 
  such that 
-\begin_inset Formula $f(x)\leq n_{x}$
+\begin_inset Formula $x\in\mathfrak{p}_{x}$
 \end_inset
 
- (as 
-\begin_inset Formula $f(x)<\infty$
-\end_inset
-
-).
- Thus 
-\begin_inset Formula $x\notin\bigcap_{n=1}^{\infty}E_{n}$
+ and 
+\begin_inset Formula $\mathfrak{p}_{x}\cap S=\emptyset$
 \end_inset
 
 .
- Since 
-\begin_inset Formula $x$
-\end_inset
-
- is arbitrary, this implies 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-(
-\backslash
-ref{eq:intfgreatern})
-\end_layout
-
-\end_inset
-
-.
- Therefore 
-\begin_inset Formula 
-\begin{align*}
-0 & =\mu(\emptyset)\\
- & =\mu\left(\bigcap_{n=1}^{\infty}E_{n}\right)\\
- & =\lim_{n\to\infty}\mu(E_{n}),
-\end{align*}
-
-\end_inset
-
-where we obtained the third line from the second line from the fact that
- 
-\begin_inset Formula $\mu(E_{1})<\infty$
-\end_inset
-
-.
- In particular, we can choose 
-\begin_inset Formula $N\in\mathbb{N}$
-\end_inset
-
- such that
+ Then observe that
 \begin_inset Formula 
 \[
-\mu(E_{N})<\varepsilon.
+S^{c}=\bigcup_{x\notin S}\langle x\rangle=\bigcup_{x\notin S}\mathfrak{p}_{x}.
 \]
 
 \end_inset
 
-Now we define 
-\begin_inset Formula $g\colon X\to\mathbb{R}$
+Conversely, suppose 
+\begin_inset Formula $S$
 \end_inset
 
- by 
-\begin_inset Formula $g=\min\{f,N1_{E_{N}^{c}}\}$
+ is the complement of a set-theoretic union of prime ideals.
+ Let 
+\begin_inset Formula $s,t\in S$
 \end_inset
 
 .
- Note that since 
-\begin_inset Formula $f$
+ Then 
+\begin_inset Formula $s$
 \end_inset
 
- is nonnegative, we have
-\begin_inset Formula 
-\begin{align*}
-g(x) & =\begin{cases}
-f(x) & \text{if }x\notin E_{N}\\
-N & \text{if }x\in E_{N}
-\end{cases}
-\end{align*}
-
+ and 
+\begin_inset Formula $t$
 \end_inset
 
-In particular, 
-\begin_inset Formula $g$
+ are in any primes in the complement of 
+\begin_inset Formula $S$
 \end_inset
 
- is clearly bounded and measurable, and moreover
-\begin_inset Formula 
-\begin{align*}
-\mu(\{g\neq f\}) & \subseteq\mu(E_{N})\\
- & <\varepsilon.
-\end{align*}
-
+ and so neither is 
+\begin_inset Formula $st$
 \end_inset
 
+.
+ So 
+\begin_inset Formula $S$
+\end_inset
 
-\end_layout
+ is multiplicatively closed.
+ Also if 
+\begin_inset Formula $xy\in S$
+\end_inset
 
-\begin_layout Standard
+, then neither 
+\begin_inset Formula $x$
+\end_inset
+
+ nor 
+\begin_inset Formula $y$
+\end_inset
+
+ can be in any of the ideals in 
+\begin_inset Formula $S^{c}$
+\end_inset
+
+.
+ So 
+\begin_inset Formula $S$
+\end_inset
+
+ is saturated.
+ 
 \begin_inset ERT
 status open
 
@@ -406,8 +367,119 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 13
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\backslash
+label{defn}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $R$
+\end_inset
+
+ be an integral domain.
+ We say 
+\begin_inset Formula $R$
+\end_inset
+
+ is 
+\series bold
+atomic 
+\series default
+if every nonzero nonunit is a product of atoms (irreducibles).
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\backslash
+label{defn}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $R$
+\end_inset
+
+ be an atomic domain.
+ We say 
+\begin_inset Formula $R$
+\end_inset
+
+ is a unique factorization domain if given irreducible factorizations in
+ 
+\begin_inset Formula $R$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\alpha_{1}\alpha_{2}\cdots\alpha_{n}=\beta_{1}\beta_{2}\cdots\beta_{m}
+\]
+
+\end_inset
+
+we have 
+\begin_inset Formula $n=m$
+\end_inset
+
+ and there exists a 
+\begin_inset Formula $\sigma\in S_{n}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\alpha_{i}=u_{i}\beta_{\sigma(i)}$
+\end_inset
+
+ where 
+\begin_inset Formula $u_{i}$
+\end_inset
+
+ is a unit.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -425,44 +497,16 @@ label{prop}
 
 \end_inset
 
- Let 
-\begin_inset Formula $(X,\mathcal{M},\mu)$
+ If 
+\begin_inset Formula $R$
 \end_inset
 
- be measure space and let 
-\begin_inset Formula $g\colon X\to\mathbb{R}$
+ is a domain and 
+\begin_inset Formula $x\in R$
 \end_inset
 
- be a nonnegative measurable function.
- Recall that the function 
-\begin_inset Formula $\nu\colon\mathcal{M}\to[0,\infty]$
-\end_inset
-
- given by
-\begin_inset Formula 
-\[
-\nu(E)=\int g1_{E}\mathrm{d}\mu
-\]
-
-\end_inset
-
-is a measure on 
-\begin_inset Formula $\mathcal{M}$
-\end_inset
-
-.
- For any nonnegative measurable function 
-\begin_inset Formula $f\colon X\to\mathbb{R}$
-\end_inset
-
-, we have
-\begin_inset Formula 
-\[
-\int_{X}f\mathrm{d}\nu=\int_{X}fg\mathrm{d}\mu.
-\]
-
-\end_inset
-
+ can be represented as a product of primes then the representation is unique
+ up to ordering and units.
  
 \begin_inset ERT
 status open
@@ -492,78 +536,7 @@ begin{proof}
 
 \end_inset
 
- First note that for any nonnegative simple function 
-\begin_inset Formula $\varphi\colon X\to\mathbb{R}$
-\end_inset
-
- such that 
-\begin_inset Formula $\varphi\leq f$
-\end_inset
-
-, we have
-\begin_inset Formula 
-\begin{align*}
-\int_{X}\varphi\mathrm{d}\nu & =\int_{X}\varphi g\mathrm{d}\mu.
-\end{align*}
-
-\end_inset
-
-Indeed, write 
-\begin_inset Formula $\varphi$
-\end_inset
-
- in terms of its canonical representation, say 
-\begin_inset Formula $\varphi=\sum_{i=1}^{n}a_{i}1_{A_{i}}$
-\end_inset
-
-, then
-\begin_inset Formula 
-\begin{align*}
-\int_{X}\varphi\mathrm{d}\nu & =\sum_{i=1}^{n}a_{i}\nu(A_{i})\\
- & =\sum_{i=1}^{n}a_{i}\int_{X}g1_{A_{i}}\mathrm{d}\mu\\
- & =\int_{X}\left(\sum_{i=1}^{n}a_{i}1_{A_{i}}\right)g\mathrm{d}\mu\\
- & =\int_{X}g\mathrm{d}\mu.
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Now choose an increasing sequence 
-\begin_inset Formula $(\varphi_{n}\colon X\to\mathbb{R})$
-\end_inset
-
- of nonnegative simple functions which converges pointwise to 
-\begin_inset Formula $f$
-\end_inset
-
-.
- Then 
-\begin_inset Formula $(\varphi_{n}g)$
-\end_inset
-
- is an increasing sequence of nonnegative measurable functions which converges
- pointwise to 
-\begin_inset Formula $fg$
-\end_inset
-
-.
- It follows from MCT that
-\begin_inset Formula 
-\begin{align*}
-\int_{X}f\mathrm{d}\nu & =\lim_{n\to\infty}\int_{X}\varphi_{n}\mathrm{d}\nu\\
- & =\lim_{n\to\infty}\int_{X}\varphi_{n}g\mathrm{d}\mu\\
- & =\int_{X}fg\mathrm{d}\mu.
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
+ 
 \begin_inset ERT
 status open
 

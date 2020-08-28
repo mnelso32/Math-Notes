@@ -1716,6 +1716,89 @@ Problem 3
 \end_layout
 
 \begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{ex}
+\backslash
+label{ex}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $f\colon V\to V$
+\end_inset
+
+ be any linear map of vector spaces over a field 
+\begin_inset Formula $K$
+\end_inset
+
+.
+ Define an action of 
+\begin_inset Formula $K[X]$
+\end_inset
+
+ on 
+\begin_inset Formula $V$
+\end_inset
+
+ as follows: for any polynomial 
+\begin_inset Formula $p(X)$
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{ex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sol}
+\backslash
+label{sol}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sol}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 We give 
 \begin_inset Formula $V$
 \end_inset
@@ -11070,7 +11153,65 @@ label{sol}
 \end_inset
 
  1.
- Here, we can appeal to the fact that 
+ Let 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ be an eigenvalue of 
+\begin_inset Formula $A$
+\end_inset
+
+ and let 
+\begin_inset Formula $\mathbf{v}$
+\end_inset
+
+ be a corresponding eigenvector.
+ Then we have
+\begin_inset Formula 
+\begin{align*}
+\lambda\mathbf{v}^{\top}\mathbf{v} & =(\lambda\mathbf{v})^{\top}\mathbf{v}\\
+ & =(A\mathbf{v})^{\top}\mathbf{v}\\
+ & =\mathbf{v}^{\top}A^{\top}\mathbf{v}\\
+ & =\mathbf{v}^{\top}A\mathbf{v}\\
+ & =\mathbf{v}^{\top}\lambda\mathbf{v}\\
+ & =\lambda\mathbf{v}^{\top}\mathbf{v}
+\end{align*}
+
+\end_inset
+
+Any eigenvector 
+\begin_inset Formula $v$
+\end_inset
+
+ of a symmetric matrix 
+\begin_inset Formula $B$
+\end_inset
+
+ mustObserve that if 
+\begin_inset Formula $v$
+\end_inset
+
+ is an eigenvector of 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Here, we can appeal to the fact that 
 \begin_inset Formula $A$
 \end_inset
 
@@ -15469,12 +15610,3518 @@ end{sol}
 
 \end_layout
 
+\begin_layout Subsection
+Problem 4
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{ex}
+\backslash
+label{ex}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $G$
+\end_inset
+
+ be a finite multiplicative group of 
+\begin_inset Formula $2\times2$
+\end_inset
+
+ integer matrices.
+\end_layout
+
+\begin_layout Enumerate
+Given 
+\begin_inset Formula $A\in G$
+\end_inset
+
+, what can one prove about:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\det A$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathrm{tr}\,A$
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Enumerate
+the characteristic polynomial of 
+\begin_inset Formula $A$
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Enumerate
+the eigenvalues of 
+\begin_inset Formula $A$
+\end_inset
+
+? (Hint: don't forget to consider the non-real cases).
+\end_layout
+
+\begin_layout Enumerate
+the Jordan canonical form of 
+\begin_inset Formula $A$
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Enumerate
+the order of 
+\begin_inset Formula $A$
+\end_inset
+
+?
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Is 
+\begin_inset Formula $A$
+\end_inset
+
+ necessarily diagonalizable? Why or why not?
+\end_layout
+
+\begin_layout Enumerate
+Find all possible groups 
+\begin_inset Formula $G$
+\end_inset
+
+ up to isomorphism.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{ex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sol}
+\backslash
+label{sol}
+\end_layout
+
+\end_inset
+
+ 1.
+ First we note that 
+\begin_inset Formula $G$
+\end_inset
+
+ is a finite subgroup of 
+\begin_inset Formula $\mathrm{GL}_{2}(\mathbb{Q})$
+\end_inset
+
+.
+ In particular, if 
+\begin_inset Formula $C\in\mathrm{GL}_{2}(\mathbb{Q})$
+\end_inset
+
+, then
+\begin_inset Formula 
+\[
+CGC^{-1}=\left\{ CAC^{-1}\mid A\in G\right\} 
+\]
+
+\end_inset
+
+is a conjugate subgroup of 
+\begin_inset Formula $\mathrm{GL}_{2}(\mathbb{Q})$
+\end_inset
+
+, which itself is isomorphic to 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ Furthermore, the characteristic polynomial of 
+\begin_inset Formula $A$
+\end_inset
+
+, the determinant of 
+\begin_inset Formula $A$
+\end_inset
+
+, the eigenvalues of 
+\begin_inset Formula $A$
+\end_inset
+
+, the trace of 
+\begin_inset Formula $A$
+\end_inset
+
+, and the order of 
+\begin_inset Formula $A$
+\end_inset
+
+ are invariant under conjugation.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Now let 
+\begin_inset Formula $\pi_{A}(X)$
+\end_inset
+
+ denote the minimal polynomial of 
+\begin_inset Formula $A$
+\end_inset
+
+ over 
+\begin_inset Formula $\mathbb{\mathbb{C}}$
+\end_inset
+
+ and let 
+\begin_inset Formula $\chi_{A}(X)$
+\end_inset
+
+ denote the characteristic polynomial of 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $A$
+\end_inset
+
+ satisfies 
+\begin_inset Formula $A^{n}-I=0$
+\end_inset
+
+, it follows that 
+\begin_inset Formula $\pi_{A}\mid X^{n}-1$
+\end_inset
+
+.
+ The irreducible factors of 
+\begin_inset Formula $X^{n}-1$
+\end_inset
+
+ are the cyclotomic polynomials 
+\begin_inset Formula $\Phi_{d}(X)$
+\end_inset
+
+ where 
+\begin_inset Formula $d\mid n$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $\pi_{A}$
+\end_inset
+
+ is not a unit, it follows that the irreducible factoriation of 
+\begin_inset Formula $\pi_{A}$
+\end_inset
+
+ consists of 
+\begin_inset Formula $\Phi_{d}$
+\end_inset
+
+ for some of the 
+\begin_inset Formula $d$
+\end_inset
+
+'s which divide 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ In particular, since 
+\begin_inset Formula $\pi_{A}\mid\chi_{A}$
+\end_inset
+
+, we have 
+\begin_inset Formula $\deg\pi_{A}\leq2$
+\end_inset
+
+.
+ The cyclotomic polynomials with degree 
+\begin_inset Formula $\leq2$
+\end_inset
+
+ are given below
+\begin_inset Formula 
+\begin{align*}
+\Phi_{1}(X) & =X-1\\
+\Phi_{2}(X) & =X+1\\
+\Phi_{3}(X) & =X^{2}+X+1\\
+\Phi_{4}(X) & =X^{2}+1\\
+\Phi_{6}(X) & =X^{2}-X+1.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In the the table below, we describe all possible cases for 
+\begin_inset Formula $\pi_{A}$
+\end_inset
+
+ together with the relevant data such as the rational canonical form of
+ 
+\begin_inset Formula $A$
+\end_inset
+
+, denoted 
+\begin_inset Formula $A_{\mathrm{rat}}$
+\end_inset
+
+, and the Jordan canonical form of 
+\begin_inset Formula $A$
+\end_inset
+
+, denoted 
+\begin_inset Formula $A_{\mathrm{jor}}$
+\end_inset
+
+.
+ After the table, we will also describe why the remaining cases for 
+\begin_inset Formula $\pi_{A}$
+\end_inset
+
+ do not work.
+ 
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="8">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\pi_{A}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\chi_{A}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\det A$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\mathrm{tr}\,A$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+eigenvalues
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\mathrm{ord}\,A$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $A_{\mathrm{rat}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $A_{\mathrm{jor}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $X-1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $(X-1)^{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{pmatrix}1 & 0\\
+0 & 1
+\end{pmatrix}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{pmatrix}1 & 0\\
+0 & 1
+\end{pmatrix}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $X+1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $(X+1)^{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $-2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $-1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{pmatrix}-1 & 0\\
+0 & -1
+\end{pmatrix}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{pmatrix}-1 & 0\\
+0 & -1
+\end{pmatrix}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $(X-1)(X+1)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $(X-1)(X+1)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $-1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1,-1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{pmatrix}1 & 0\\
+0 & -1
+\end{pmatrix}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{pmatrix}1 & 0\\
+0 & -1
+\end{pmatrix}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $X^{2}+X+1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $X^{2}+X+1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $-1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\zeta_{3},\zeta_{3}^{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $3$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{pmatrix}0 & -1\\
+1 & -1
+\end{pmatrix}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{pmatrix}\zeta_{3} & 0\\
+0 & \zeta_{3}^{2}
+\end{pmatrix}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $X^{2}+1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $X^{2}+1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $i,-i$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $4$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{pmatrix}0 & -1\\
+1 & 0
+\end{pmatrix}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{pmatrix}i & 0\\
+0 & -i
+\end{pmatrix}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $X^{2}-X+1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $X^{2}-X+1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\zeta_{6},\zeta_{6}^{5}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $6$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{pmatrix}0 & -1\\
+1 & 1
+\end{pmatrix}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\begin{pmatrix}\zeta_{6} & 0\\
+0 & \zeta_{6}^{5}
+\end{pmatrix}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that 
+\begin_inset Formula $\pi_{A}\neq(X-1)^{2}$
+\end_inset
+
+, since in this case
+\begin_inset Formula 
+\[
+A_{\mathrm{jor}}=\begin{pmatrix}1 & 1\\
+0 & 1
+\end{pmatrix}
+\]
+
+\end_inset
+
+which has infinite order.
+ Similarly, 
+\begin_inset Formula $\pi_{A}\neq(X+1)^{2}$
+\end_inset
+
+, since in this case 
+\begin_inset Formula $A$
+\end_inset
+
+ has the form
+\begin_inset Formula 
+\[
+A_{\mathrm{jor}}=\begin{pmatrix}-1 & 1\\
+0 & -1
+\end{pmatrix}
+\]
+
+\end_inset
+
+which again has infinite order.
+ Finally, note that in each case in the table above, 
+\begin_inset Formula $A_{\mathrm{rat}}$
+\end_inset
+
+ has integer entries.
+ Thus there is always a multiplicative group of 
+\begin_inset Formula $2\times2$
+\end_inset
+
+ entries have 
+\begin_inset Formula $A_{\mathrm{rat}}$
+\end_inset
+
+ as one of its elements, namely the cyclic group generated by 
+\begin_inset Formula $A_{\mathrm{rat}}$
+\end_inset
+
+.
+ Thus all possibilities listed in the table above are realized.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Now let 
+\begin_inset Formula $N$
+\end_inset
+
+ denote the kernel of the determinant map (which is a homomorphism).
+ So we have the following short exact sequence of groups
+\begin_inset Formula 
+\[
+1\to N\to G\xrightarrow{\det}\{\pm1\}\to1
+\]
+
+\end_inset
+
+To understand 
+\begin_inset Formula $G$
+\end_inset
+
+, we first describe 
+\begin_inset Formula $N$
+\end_inset
+
+.
+ First note that 
+\begin_inset Formula $N$
+\end_inset
+
+ is a multiplicative subgroup of 
+\begin_inset Formula $\mathrm{SL}_{2}(\mathbb{Z})$
+\end_inset
+
+.
+ In particular, there is a natural homomorphism 
+\begin_inset Formula $\varphi\colon N\to\mathrm{SL}_{2}(\mathbb{Z}/3\mathbb{Z})$
+\end_inset
+
+ given by reducing matrix entries mod 
+\begin_inset Formula $3$
+\end_inset
+
+.
+ We claim that 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ is injective.
+ Indeed, let 
+\begin_inset Formula $A\in\ker\varphi$
+\end_inset
+
+.
+ To show that 
+\begin_inset Formula $A$
+\end_inset
+
+ is identity matrix, we just need to show that 
+\begin_inset Formula $\mathrm{tr}\,A=2$
+\end_inset
+
+.
+ Indeed, we already know that 
+\begin_inset Formula $\det A=1$
+\end_inset
+
+ since 
+\begin_inset Formula $A\in N$
+\end_inset
+
+, and the identity matrix is the only matrix of with finite order in 
+\begin_inset Formula $\mathrm{GL}_{2}(\mathbb{Z})$
+\end_inset
+
+ which has determinant 
+\begin_inset Formula $1$
+\end_inset
+
+ and trace 
+\begin_inset Formula $2$
+\end_inset
+
+.
+ Now since 
+\begin_inset Formula $A\in\ker\varphi$
+\end_inset
+
+, it must have the form
+\begin_inset Formula 
+\[
+A=\begin{pmatrix}1+3a & 3b\\
+3c & 1+3d
+\end{pmatrix}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $a,b,c,d\in\mathbb{Z}$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $\det A=1$
+\end_inset
+
+, we must have
+\begin_inset Formula 
+\begin{align*}
+1 & =(1+3a)(1+3d)-9bc\\
+ & =1+3d+3a+9ad-9bc\\
+ & =1+3(a+d)+9(ad-bc),
+\end{align*}
+
+\end_inset
+
+which implies 
+\begin_inset Formula $a+d=3(bc-ad)$
+\end_inset
+
+.
+ Therefore
+\begin_inset Formula 
+\begin{align*}
+\mathrm{tr}\,A & =2+3(a+d)\\
+ & =2+9(bc-ad).
+\end{align*}
+
+\end_inset
+
+In other words, 
+\begin_inset Formula $\mathrm{tr}\,A\equiv2\,\,\mathrm{mod}\,9$
+\end_inset
+
+.
+ Since the only possibilities for 
+\begin_inset Formula $\mathrm{tr}\,A$
+\end_inset
+
+ are 
+\begin_inset Formula $\{-2,-1,0,1,2\}$
+\end_inset
+
+, it follows that 
+\begin_inset Formula $\mathrm{tr}\,A=2$
+\end_inset
+
+, hence 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ is injective.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+In particular, 
+\begin_inset Formula $N$
+\end_inset
+
+ is isomorphic to a subgroup of 
+\begin_inset Formula $\mathrm{SL}_{2}(\mathbb{Z}\slash3\mathbb{Z})$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sol}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Winter 2016
+\end_layout
+
+\begin_layout Subsection
+Problem 1
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{ex}
+\backslash
+label{ex}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $V$
+\end_inset
+
+ be a finite-dimensional real vector space.
+ Let 
+\begin_inset Formula $W_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $W_{2}$
+\end_inset
+
+ be subspaces of 
+\begin_inset Formula $V$
+\end_inset
+
+.
+ We defined the following operations
+\begin_inset Formula 
+\[
+(w_{1},w_{2})+(w_{1}',w_{2}'):=(w_{1}+w_{1}',w_{2}+w_{2}')\quad\text{and}\quad\alpha(w_{1},w_{2}):=(\alpha w_{1},\alpha w_{2})
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $\alpha\in\mathbb{R}$
+\end_inset
+
+, 
+\begin_inset Formula $w_{1}\in W_{1}$
+\end_inset
+
+, and 
+\begin_inset Formula $w_{2}\in W_{2}$
+\end_inset
+
+.
+ The set 
+\begin_inset Formula $W_{1}\times W_{2}$
+\end_inset
+
+ is a vector space with respect to these operations.
+\end_layout
+
+\begin_layout Enumerate
+Let 
+\begin_inset Formula $U=\{(u,-u)\mid u\in W_{1}\cap W_{2}\}$
+\end_inset
+
+.
+ Prove that 
+\begin_inset Formula $U$
+\end_inset
+
+ is a subspace of 
+\begin_inset Formula $W_{1}\times W_{2}$
+\end_inset
+
+ isomorphic to 
+\begin_inset Formula $W_{1}\cap W_{2}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Define the map 
+\begin_inset Formula $T\colon W_{1}\times W_{2}\to W_{1}+W_{2}$
+\end_inset
+
+ by 
+\begin_inset Formula $T(w_{1},w_{2})=w_{1}+w_{2}$
+\end_inset
+
+.
+ Prove that 
+\begin_inset Formula $T$
+\end_inset
+
+ is a linear transformation.
+\end_layout
+
+\begin_layout Enumerate
+Use the above to prove that
+\begin_inset Formula 
+\[
+\dim(W_{1}+W_{2})+\dim(W_{1}\cap W_{2})=\dim W_{1}+\dim W_{2}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{ex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sol}
+\backslash
+label{sol}
+\end_layout
+
+\end_inset
+
+ 1.
+ We first show 
+\begin_inset Formula $U$
+\end_inset
+
+ is a subspace of 
+\begin_inset Formula $W_{1}\times W_{2}$
+\end_inset
+
+.
+ It is nonempty since 
+\begin_inset Formula $(0,0)\in U$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\alpha,\alpha'\in\mathbb{R}$
+\end_inset
+
+ and let 
+\begin_inset Formula $(u,-u),(u',-u')\in U$
+\end_inset
+
+.
+ Then observe that
+\begin_inset Formula 
+\begin{align*}
+\alpha(u,-u)+\alpha'(u',-u') & =(\alpha u+\alpha'u',-\alpha u-\alpha'u')\\
+ & =(\alpha u+\alpha'u',-(\alpha u+\alpha'u'))\\
+ & \in U,
+\end{align*}
+
+\end_inset
+
+where the last part follows from the fact that 
+\begin_inset Formula $\alpha u+\alpha'u'\in W_{1}\cap W_{2}$
+\end_inset
+
+ since 
+\begin_inset Formula $W_{1}\cap W_{2}$
+\end_inset
+
+ is a subspace of 
+\begin_inset Formula $V$
+\end_inset
+
+.
+ It follows that 
+\begin_inset Formula $U$
+\end_inset
+
+ is a subspace of 
+\begin_inset Formula $W_{1}\times W_{2}$
+\end_inset
+
+.
+ Let us now show that it is isomorphic to 
+\begin_inset Formula $W_{1}\cap W_{2}$
+\end_inset
+
+.
+ Define 
+\begin_inset Formula $\varphi\colon U\to W_{1}\cap W_{2}$
+\end_inset
+
+ by 
+\begin_inset Formula 
+\[
+\varphi(u,-u)=u
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $(u,-u)\in U$
+\end_inset
+
+.
+ Clearly 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ is a bijection and a linear map, hence it is an isomorphism.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+2.
+ Let 
+\begin_inset Formula $\alpha,\alpha'\in\mathbb{R}$
+\end_inset
+
+ and let 
+\begin_inset Formula $(w_{1},w_{2}),(w_{1}',w_{2}')\in W_{1}\times W_{2}$
+\end_inset
+
+.
+ Then we have
+\begin_inset Formula 
+\begin{align*}
+T(\alpha(w_{1},w_{2})+\alpha'(w_{1}',w_{2}')) & =T((\alpha w_{1}+\alpha'w_{1}',\alpha w_{2}+\alpha'w_{2}'))\\
+ & =\alpha w_{1}+\alpha'w_{1}'+\alpha w_{2}+\alpha'w_{2}'\\
+ & =\alpha(w_{1}+w_{2})+\alpha'(w_{1}'+w_{2}')\\
+ & =\alpha T(w_{1},w_{2})+\alpha'T(w_{1}',w_{2}').
+\end{align*}
+
+\end_inset
+
+It follows that 
+\begin_inset Formula $T$
+\end_inset
+
+ is a linear map.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+3.
+ First note that 
+\begin_inset Formula $\ker T=U$
+\end_inset
+
+.
+ Indeed, we have
+\begin_inset Formula 
+\begin{align*}
+T(w_{1},w_{2})=0 & \iff w_{1}+w_{2}=0\\
+ & \iff w_{1}=-w_{2}\\
+ & \iff(w_{1},w_{2})\in U.
+\end{align*}
+
+\end_inset
+
+Next we note that 
+\begin_inset Formula $\mathrm{im}\,T=W_{1}+W_{2}$
+\end_inset
+
+.
+ Thus by the rank nullity theorem, we have
+\begin_inset Formula 
+\begin{align*}
+\dim W_{1}+\dim W_{2} & =\dim(W_{1}\times W_{2})\\
+ & =\dim(\ker T)+\dim(\mathrm{im}\,T)\\
+ & =\dim U+\dim(W_{1}+W_{2})\\
+ & =\dim(W_{1}\cap W_{2})+\dim(W_{1}+W_{2}).
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sol}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Problem 2
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{ex}
+\backslash
+label{ex}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+ be two real symmetric matrices.
+ Show that they commute if and only if they are diagonalizable in a common
+ orthonormal basis using the following path:
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+ are diagonalizable in a common orthonormal basis, then 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+ commute.
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+ commute, and if 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ is an eigenvalue of 
+\begin_inset Formula $A$
+\end_inset
+
+, then the eigenspace 
+\begin_inset Formula $E_{\lambda}$
+\end_inset
+
+ of 
+\begin_inset Formula $A$
+\end_inset
+
+ that is associated to the eigenvalue 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ is invariant under 
+\begin_inset Formula $B$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+ commute, then 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+ have at least one common eigenvector.
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+ commute, then 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+ are diagonalizable in a common orthonormal basis.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{ex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sol}
+\backslash
+label{sol}
+\end_layout
+
+\end_inset
+
+ 1.
+ Suppose 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+ are diagonalizable in a common orthonormal basis, say
+\begin_inset Formula 
+\[
+PAP^{\top}=D_{1}\quad\text{and}\quad PBP^{\top}=D_{2}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $P$
+\end_inset
+
+ is an orthonormal matrix whose column vectors correspond to a common eigenbasis.
+ In particular 
+\begin_inset Formula $P^{\top}=P^{-1}$
+\end_inset
+
+.
+ Then we have
+\begin_inset Formula 
+\begin{align*}
+AB & =P^{\top}D_{1}PP^{\top}D_{2}P\\
+ & =P^{\top}D_{1}D_{2}P\\
+ & =P^{\top}D_{2}D_{1}P\\
+ & =P^{\top}D_{2}PP^{\top}D_{1}P\\
+ & =BA.
+\end{align*}
+
+\end_inset
+
+Thus 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+ commute.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+2.
+ Suppose 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+ commute and let 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ be an eigenvalue of 
+\begin_inset Formula $A$
+\end_inset
+
+ with corresponding eigenspace 
+\begin_inset Formula $E_{\lambda}$
+\end_inset
+
+.
+ Then for any eigenvector 
+\begin_inset Formula $v\in E_{\lambda}$
+\end_inset
+
+ corresponding to the eigenvalue 
+\begin_inset Formula $\lambda$
+\end_inset
+
+, we have
+\begin_inset Formula 
+\begin{align*}
+ABv & =BAv\\
+ & =B\lambda v\\
+ & =\lambda Bv.
+\end{align*}
+
+\end_inset
+
+It follows that 
+\begin_inset Formula $Bv$
+\end_inset
+
+ is also an eigenvector corresponding to the eigenvalue 
+\begin_inset Formula $\lambda$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $E_{\lambda}$
+\end_inset
+
+ is invariant under 
+\begin_inset Formula $B$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+3.
+ Suppose 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+ commute.
+ Since 
+\begin_inset Formula $B\neq0$
+\end_inset
+
+, we must have 
+\begin_inset Formula $B|_{E_{\lambda}}\neq0$
+\end_inset
+
+ for some eigenvalue 
+\begin_inset Formula $\lambda$
+\end_inset
+
+ of 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Applying the real spectral theorem to 
+\begin_inset Formula $B|_{E_{\lambda}}$
+\end_inset
+
+, we see that there exists an eigenvector 
+\begin_inset Formula $v\in E_{\lambda}$
+\end_inset
+
+ for 
+\begin_inset Formula $B|_{E_{\lambda}}$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $B|_{E_{\lambda}}$
+\end_inset
+
+ is just the restriction of 
+\begin_inset Formula $B$
+\end_inset
+
+ to 
+\begin_inset Formula $E_{\lambda}$
+\end_inset
+
+, we see that 
+\begin_inset Formula $v$
+\end_inset
+
+ is an eigenvector for 
+\begin_inset Formula $B$
+\end_inset
+
+, and since 
+\begin_inset Formula $v\in E_{\lambda}$
+\end_inset
+
+, we see that 
+\begin_inset Formula $v$
+\end_inset
+
+ is an eigenvector for 
+\begin_inset Formula $A$
+\end_inset
+
+ too.
+ Thus 
+\begin_inset Formula $v$
+\end_inset
+
+ is a common eigenvector of 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+4.
+ It is easier to prove this in the setting where 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+ are linear transformations from a finite dimensional Hilbert-space 
+\begin_inset Formula $(V,\langle\cdot,\cdot\rangle)$
+\end_inset
+
+ to itself.
+ In this case, 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+ being symmetric in the old settting translates to 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+ being self-adjoint in the new setting: that is
+\begin_inset Formula 
+\[
+\langle Av,w\rangle=\langle v,Bw\rangle\quad\text{and}\quad\langle Bv,w\rangle=\langle v,Bw\rangle
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $v,w\in V$
+\end_inset
+
+.
+ So assuming 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+ commute, let us show that they are diagonalizable and have a common orthonormal
+ basis.
+ We will do this by induction on the dimension of 
+\begin_inset Formula $V$
+\end_inset
+
+.
+ The base case 
+\begin_inset Formula $n=1$
+\end_inset
+
+ is trivial.
+ Assume that we have shown the proposition to be true for all self-adjoint
+ commuting linear maps 
+\begin_inset Formula $A,B\colon V\to V$
+\end_inset
+
+ for all finite-dimensional Hilbert spaces 
+\begin_inset Formula $V$
+\end_inset
+
+ where 
+\begin_inset Formula $\dim V<n$
+\end_inset
+
+ for some 
+\begin_inset Formula $n>1$
+\end_inset
+
+.
+ Now suppose 
+\begin_inset Formula $A,B\colon V\to V$
+\end_inset
+
+ are self-adjoint linear maps and suppose 
+\begin_inset Formula $\dim V=n$
+\end_inset
+
+.
+ By part 3, 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+ both have a common eigenvector, say 
+\begin_inset Formula $v$
+\end_inset
+
+ (necessarily 
+\begin_inset Formula $v\neq0$
+\end_inset
+
+).
+ By rescaling if necessary, we choose 
+\begin_inset Formula $v$
+\end_inset
+
+ such that 
+\begin_inset Formula $\|v\|=1$
+\end_inset
+
+.
+ Consider the subspace 
+\begin_inset Formula $W$
+\end_inset
+
+ of 
+\begin_inset Formula $V$
+\end_inset
+
+ defined by
+\begin_inset Formula 
+\[
+W=\{w\in V\mid\langle w,v\rangle=0\}.
+\]
+
+\end_inset
+
+Since the inner-product is positive-definite, we have 
+\begin_inset Formula $\langle v,v\rangle\neq0$
+\end_inset
+
+.
+ Thus the map 
+\begin_inset Formula $\langle\cdot,v\rangle\colon V\to\mathbb{R}$
+\end_inset
+
+ is onto, and since 
+\begin_inset Formula $\ker(\langle\cdot,v\rangle)=W$
+\end_inset
+
+, we see that 
+\begin_inset Formula $\dim W=n-1$
+\end_inset
+
+.
+ Now observe that 
+\begin_inset Formula $A|_{W}$
+\end_inset
+
+ and 
+\begin_inset Formula $B|_{W}$
+\end_inset
+
+ are self-adjoint commuting linear maps which act on a finite-dimensional
+ Hilbert space of dimension 
+\begin_inset Formula $<n$
+\end_inset
+
+.
+ By induction, 
+\begin_inset Formula $A|_{W}$
+\end_inset
+
+ and 
+\begin_inset Formula $B|_{W}$
+\end_inset
+
+ share a common orthonormal eigenbasis, say 
+\begin_inset Formula $w_{1},\dots,w_{n-1}\in W$
+\end_inset
+
+.
+ We claim that 
+\begin_inset Formula $\{v,w_{1},\dots,w_{n-1}\}$
+\end_inset
+
+ is a common orthonormal eigenbasis for both 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+.
+ Indeed, it suffices to show that they form an orthonormal eigenbasis since
+ 
+\begin_inset Formula $v$
+\end_inset
+
+ and 
+\begin_inset Formula $w_{i}$
+\end_inset
+
+ were chosen to be eigenvectors for both 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+.
+ This follows immediately from the fact that 
+\begin_inset Formula $\langle v,w_{i}\rangle=0$
+\end_inset
+
+ for all 
+\begin_inset Formula $1\leq i\leq n-1$
+\end_inset
+
+ since each 
+\begin_inset Formula $w_{i}\in W$
+\end_inset
+
+.
+ Also 
+\begin_inset Formula $\|v\|=\|w_{i}\|=1$
+\end_inset
+
+ for all 
+\begin_inset Formula $1\leq i\leq n-1$
+\end_inset
+
+ by construction.
+ Thus 
+\begin_inset Formula $\{v,w_{1},\dots,w_{n-1}\}$
+\end_inset
+
+ is a common orthonormal eigenbasis for both 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sol}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Problem 3
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{ex}
+\backslash
+label{ex}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $G$
+\end_inset
+
+ be a finite group.
+\end_layout
+
+\begin_layout Enumerate
+Show that if 
+\begin_inset Formula $|G|=2n$
+\end_inset
+
+ with 
+\begin_inset Formula $n\geq3$
+\end_inset
+
+ then there is a nonabelian group of order 
+\begin_inset Formula $2n$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Show that if 
+\begin_inset Formula $|G|=p$
+\end_inset
+
+ with 
+\begin_inset Formula $p>0$
+\end_inset
+
+ a prime integer, then 
+\begin_inset Formula $G$
+\end_inset
+
+ is abelian.
+\end_layout
+
+\begin_layout Enumerate
+Show that if 
+\begin_inset Formula $|G|=p^{2}$
+\end_inset
+
+ with 
+\begin_inset Formula $p>0$
+\end_inset
+
+ a prime integer, then 
+\begin_inset Formula $G$
+\end_inset
+
+ is abelian.
+\end_layout
+
+\begin_layout Enumerate
+Find the smallest odd integer 
+\begin_inset Formula $n$
+\end_inset
+
+ such that there is a nonabelian group of order 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ Give generators and relations for such a group.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{ex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sol}
+\backslash
+label{sol}
+\end_layout
+
+\end_inset
+
+ 1.
+ Consider the Dihedral group 
+\begin_inset Formula $D_{n}$
+\end_inset
+
+, given in terms of generators and relations by
+\begin_inset Formula 
+\[
+D_{n}=\langle r,s\mid r^{n}=1,s^{n}=1,srs=r^{-1}\rangle.
+\]
+
+\end_inset
+
+Every element in 
+\begin_inset Formula $D_{n}$
+\end_inset
+
+ can be expressed in the form 
+\begin_inset Formula $r^{i}s^{j}$
+\end_inset
+
+ for unique 
+\begin_inset Formula $0\leq i\leq n-1$
+\end_inset
+
+ and 
+\begin_inset Formula $0\leq j\leq1$
+\end_inset
+
+.
+ In particular, 
+\begin_inset Formula $\#D_{n}=2n$
+\end_inset
+
+ (one can also see this from the isomorphism 
+\begin_inset Formula $D_{n}\cong C_{2}\rtimes C_{n}$
+\end_inset
+
+).
+ Finally, we observe that 
+\begin_inset Formula $D_{n}$
+\end_inset
+
+ is nonabelian since in 
+\begin_inset Formula $D_{n}$
+\end_inset
+
+ we have 
+\begin_inset Formula $rs=r^{-1}s$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $r$
+\end_inset
+
+ and 
+\begin_inset Formula $s$
+\end_inset
+
+ do not commute (if 
+\begin_inset Formula $rs=rs$
+\end_inset
+
+, then we'd have 
+\begin_inset Formula $r=r^{-1}$
+\end_inset
+
+ which is impossible since 
+\begin_inset Formula $r$
+\end_inset
+
+ has order 
+\begin_inset Formula $>2$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+2.
+ Suppose 
+\begin_inset Formula $\#G=p$
+\end_inset
+
+.
+ Choose any nonidentity element 
+\begin_inset Formula $g\in G$
+\end_inset
+
+.
+ Then by Lagrange's Theorem, we must have 
+\begin_inset Formula $\mathrm{ord}\,g\mid p$
+\end_inset
+
+.
+ This implies 
+\begin_inset Formula $\mathrm{ord}\,g=p$
+\end_inset
+
+ since 
+\begin_inset Formula $g$
+\end_inset
+
+ is not the identity element and since 
+\begin_inset Formula $p$
+\end_inset
+
+ is prime.
+ In particular, we see that 
+\begin_inset Formula $G$
+\end_inset
+
+ is a cyclic group (which is certainly abelian!).
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+3.
+ To prove this, we use the following lemma:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lemma}
+\backslash
+label{lemmapgroupnontrivialcenter}
+\end_layout
+
+\end_inset
+
+ Any 
+\begin_inset Formula $p$
+\end_inset
+
+-group has nontrivial center.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lemma}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Suppose 
+\begin_inset Formula $G$
+\end_inset
+
+ is a 
+\begin_inset Formula $p$
+\end_inset
+
+-group, say 
+\begin_inset Formula $|G|=p^{n}$
+\end_inset
+
+, and assume for a contradiction that 
+\begin_inset Formula $|\mathrm{Z}(G)|=1$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $x_{1},\dots,x_{k}$
+\end_inset
+
+ represent the nontrivial conjugacy classes of 
+\begin_inset Formula $G$
+\end_inset
+
+: so 
+\begin_inset Formula $|\mathrm{K}_{x_{i}}|>1$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathrm{K}_{x_{i}}\cap\mathrm{K}_{x_{j}}$
+\end_inset
+
+ for each 
+\begin_inset Formula $1\leq i<j\leq k$
+\end_inset
+
+ and 
+\begin_inset Formula 
+\[
+G=\mathrm{Z}(G)\cup\mathrm{K}_{x_{1}}\cup\cdots\cup\mathrm{K}_{x_{k}}.
+\]
+
+\end_inset
+
+Then the class equation gives us
+\begin_inset Formula 
+\begin{equation}
+|G|=|\mathrm{Z}(G)|+\sum_{i=1}^{k}[G:\mathrm{Z}(x_{i})].\label{eq:classequationgroup-1}
+\end{equation}
+
+\end_inset
+
+Note that 
+\begin_inset Formula $p\mid[G:\mathrm{Z}(x_{i})]$
+\end_inset
+
+ for each 
+\begin_inset Formula $1\leq i\leq k$
+\end_inset
+
+.
+ Indeed, 
+\begin_inset Formula $\mathrm{Z}(x_{i})$
+\end_inset
+
+ is a proper subgroup (otherwise 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+ would not represent a nontrivial conjugacy class).
+ Its order must divide the order of 
+\begin_inset Formula $G$
+\end_inset
+
+ by Lagrange's Theorem, thus 
+\begin_inset Formula $|\mathrm{Z}(x_{i})|=p^{m_{i}}$
+\end_inset
+
+ for some 
+\begin_inset Formula $m_{i}<n$
+\end_inset
+
+.
+ It follows that 
+\begin_inset Formula $[G:\mathrm{Z}(x_{i})]=p^{n-m_{i}}$
+\end_inset
+
+.
+ With this understood, we now reduce 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{eq:classequationgroup-1})
+\end_layout
+
+\end_inset
+
+ modulo 
+\begin_inset Formula $p$
+\end_inset
+
+ to get 
+\begin_inset Formula 
+\[
+0\equiv1\,\,\mathrm{mod}\,p,
+\]
+
+\end_inset
+
+which is a contradiction.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now we proceed with the problem at hand.
+ Suppose 
+\begin_inset Formula $\#G=p^{2}$
+\end_inset
+
+ and assume for a contradiction that 
+\begin_inset Formula $G\neq\mathrm{Z}(G)$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $G$
+\end_inset
+
+ is a 
+\begin_inset Formula $p$
+\end_inset
+
+-group, 
+\begin_inset Formula $\mathrm{Z}(G)$
+\end_inset
+
+ must be a nontrivial subgroup of 
+\begin_inset Formula $G$
+\end_inset
+
+ by 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Lemma~(
+\backslash
+ref{lemmapgroupnontrivialcenter})
+\end_layout
+
+\end_inset
+
+.
+ In particular, we must have 
+\begin_inset Formula $|\mathrm{Z}(G)|=p$
+\end_inset
+
+.
+ But then 
+\begin_inset Formula $|G\slash\mathrm{Z}(G)|=p$
+\end_inset
+
+, which implies 
+\begin_inset Formula $G\slash\mathrm{Z}(G)$
+\end_inset
+
+ is cyclic.
+ It follows that 
+\begin_inset Formula $G$
+\end_inset
+
+ is abelian, which implies 
+\begin_inset Formula $G=\mathrm{Z}(G)$
+\end_inset
+
+, a contradiction.
+ So our assumption that 
+\begin_inset Formula $G\neq\mathrm{Z}(G)$
+\end_inset
+
+ leads to a contradiction, which means we must in fact have 
+\begin_inset Formula $G=\mathrm{Z}(G)$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sol}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Problem 4
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\backslash
+label{prop}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be a domain and let 
+\begin_inset Formula $K$
+\end_inset
+
+ be its quotient field.
+ The following conditions are equivalent
+\end_layout
+
+\begin_layout Enumerate
+For all nonzero 
+\begin_inset Formula $a,b\in A$
+\end_inset
+
+, either 
+\begin_inset Formula $a\mid b$
+\end_inset
+
+ or 
+\begin_inset Formula $b\mid a$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Enumerate
+For all nonzero 
+\begin_inset Formula $x\in K$
+\end_inset
+
+, either 
+\begin_inset Formula $x$
+\end_inset
+
+ or 
+\begin_inset Formula $x^{-1}$
+\end_inset
+
+ is in 
+\begin_inset Formula $A$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Enumerate
+There is a valuation 
+\begin_inset Formula $v$
+\end_inset
+
+ on 
+\begin_inset Formula $K$
+\end_inset
+
+ such that 
+\begin_inset Formula $A=\{x\in K\mid v(x)\geq0\}\cup\{0\}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ (1
+\begin_inset Formula $\implies$
+\end_inset
+
+2): Let 
+\begin_inset Formula $x\in K^{\times}$
+\end_inset
+
+.
+ Write 
+\begin_inset Formula $x=a/b$
+\end_inset
+
+ where 
+\begin_inset Formula $a,b\in A\backslash\{0\}$
+\end_inset
+
+.
+ Then either 
+\begin_inset Formula $a\mid b$
+\end_inset
+
+ or 
+\begin_inset Formula $b\mid a$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $b\mid a$
+\end_inset
+
+, then we can write 
+\begin_inset Formula $a=bc$
+\end_inset
+
+ for some nonzero 
+\begin_inset Formula $c\in A$
+\end_inset
+
+.
+ In this case, we have
+\begin_inset Formula 
+\begin{align*}
+x & =a/b\\
+ & =bc/b\\
+ & =c,
+\end{align*}
+
+\end_inset
+
+and hence 
+\begin_inset Formula $x\in A$
+\end_inset
+
+.
+ On the other hand, if 
+\begin_inset Formula $a\mid b$
+\end_inset
+
+, then we can write 
+\begin_inset Formula $b=ad$
+\end_inset
+
+ for some nonzero 
+\begin_inset Formula $d\in A$
+\end_inset
+
+.
+ In this case, we have
+\begin_inset Formula 
+\begin{align*}
+x^{-1} & =b/a\\
+ & =ad/a\\
+ & =d,
+\end{align*}
+
+\end_inset
+
+and hence 
+\begin_inset Formula $x^{-1}\in A$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+(2
+\begin_inset Formula $\implies$
+\end_inset
+
+3): Let 
+\begin_inset Formula $\Gamma=K^{\times}\slash A^{\times}$
+\end_inset
+
+.
+ We define a total ordering on 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+ as follows: Let 
+\begin_inset Formula $\overline{x},\overline{y}\in\Gamma$
+\end_inset
+
+.
+ We say
+\begin_inset Formula 
+\begin{equation}
+\overline{x}\geq\overline{y}\text{ if and only if }xy^{-1}\in A.\label{eq:welldefinedtotalordering}
+\end{equation}
+
+\end_inset
+
+Let us check that 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{eq:welldefinedtotalordering})
+\end_layout
+
+\end_inset
+
+ is well-defined.
+ Suppose 
+\begin_inset Formula $xa$
+\end_inset
+
+ and 
+\begin_inset Formula $yb$
+\end_inset
+
+ are two different representatives of the cosets 
+\begin_inset Formula $\overline{x}$
+\end_inset
+
+ and 
+\begin_inset Formula $\overline{y}$
+\end_inset
+
+ respectively, where 
+\begin_inset Formula $a,b\in A^{\times}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula 
+\begin{align*}
+(xa)(yb)^{-1} & =(xa)(b^{-1}y^{-1})\\
+ & =(xy^{-1})(ab^{-1})\\
+ & \in A
+\end{align*}
+
+\end_inset
+
+implies 
+\begin_inset Formula $\overline{xa}\geq\overline{yb}$
+\end_inset
+
+.
+ Thus 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{eq:welldefinedtotalordering})
+\end_layout
+
+\end_inset
+
+ is well-defined.
+ Next, observe that the relation given in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{eq:welldefinedtotalordering})
+\end_layout
+
+\end_inset
+
+ is antisymmetric: if 
+\begin_inset Formula $\overline{x}\geq\overline{y}$
+\end_inset
+
+ and 
+\begin_inset Formula $\overline{y}\geq\overline{x}$
+\end_inset
+
+, then 
+\begin_inset Formula $xy^{-1}\in A$
+\end_inset
+
+ and 
+\begin_inset Formula $yx^{-1}\in A$
+\end_inset
+
+, which implies 
+\begin_inset Formula $xy^{-1}\in A^{\times}$
+\end_inset
+
+, and hence 
+\begin_inset Formula 
+\begin{align*}
+\overline{x} & =\overline{x(yy^{-1})}\\
+ & =\overline{(xy^{-1})y}\\
+ & =\overline{y}.
+\end{align*}
+
+\end_inset
+
+It is also transitive: if 
+\begin_inset Formula $\overline{x}\geq\overline{y}$
+\end_inset
+
+ and 
+\begin_inset Formula $\overline{y}\geq\overline{z}$
+\end_inset
+
+, then
+\begin_inset Formula 
+\begin{align*}
+xz^{-1} & =x(y^{-1}y)z^{-1}\\
+ & =(xy^{-1})(yz^{-1})\\
+ & \in A,
+\end{align*}
+
+\end_inset
+
+which implies 
+\begin_inset Formula $\overline{x}\geq\overline{z}$
+\end_inset
+
+.
+ It is also a total relation since either 
+\begin_inset Formula $\overline{x}\geq\overline{y}$
+\end_inset
+
+ or 
+\begin_inset Formula $\overline{y}\geq\overline{x}$
+\end_inset
+
+ (since either 
+\begin_inset Formula $xy^{-1}\in A$
+\end_inset
+
+ or 
+\begin_inset Formula $yx^{-1}\in A$
+\end_inset
+
+ by our assumption).
+ Thus 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{eq:welldefinedtotalordering})
+\end_layout
+
+\end_inset
+
+ gives us a total ordering on 
+\begin_inset Formula $\Gamma$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Now we define 
+\begin_inset Formula $v\colon K^{\times}\to\Gamma$
+\end_inset
+
+ to be the natural quotient map.
+ Clearly 
+\begin_inset Formula $v$
+\end_inset
+
+ is a surjective homomorphism.
+ We also have
+\begin_inset Formula 
+\[
+v(x+y)\geq\min\{v(x),v(y)\}\text{ with equality if }v(x)\neq v(y).
+\]
+
+\end_inset
+
+Indeed, assume without loss of generality that 
+\begin_inset Formula $v(y)\geq v(x)$
+\end_inset
+
+, so 
+\begin_inset Formula $v(x)=\min\{v(x),v(y)\}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $(x+y)x^{-1}=1+yx^{-1}\in A$
+\end_inset
+
+ implies 
+\begin_inset Formula $v(x+y)\geq v(x)$
+\end_inset
+
+.
+ Now assume 
+\begin_inset Formula $v(x)\neq v(y)$
+\end_inset
+
+, so 
+\begin_inset Formula $yx^{-1}\not\in A$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $x^{-1}(x+y)=1+yx^{-1}\notin A$
+\end_inset
+
+.
+ This implies 
+\begin_inset Formula $x(x+y)^{-1}\in A$
+\end_inset
+
+ (by our assumption).
+ Thus 
+\begin_inset Formula $v(x)\geq v(x+y)$
+\end_inset
+
+, which implies 
+\begin_inset Formula $v(x)=v(x+y)$
+\end_inset
+
+ by antisymmetry of 
+\begin_inset Formula $\geq$
+\end_inset
+
+.
+ Finally, we observe that
+\begin_inset Formula 
+\[
+A^{\times}=\{x\in K\mid v(x)=0\}
+\]
+
+\end_inset
+
+by construction.
+ Moreover, we have
+\begin_inset Formula 
+\[
+A=\{x\in K\mid v(x)\geq0\}\cup\{0\},
+\]
+
+\end_inset
+
+since 
+\begin_inset Formula $v(x)\geq0$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $v(x)\geq v(1)$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $x\in A$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+(3
+\begin_inset Formula $\implies$
+\end_inset
+
+1): Let 
+\begin_inset Formula $(\Gamma,\geq)$
+\end_inset
+
+ be a totally ordered abelian group and let 
+\begin_inset Formula $v\colon K^{\times}\to\Gamma$
+\end_inset
+
+ be such a valuation.
+ Suppose 
+\begin_inset Formula $a,b\in A\backslash\{0\}$
+\end_inset
+
+, and without loss of generality, assume that 
+\begin_inset Formula $v(b)\geq v(a)$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\begin{align*}
+v(ba^{-1}) & =v(b)-v(a)\\
+ & \geq0
+\end{align*}
+
+\end_inset
+
+implies 
+\begin_inset Formula $ba^{-1}\in A$
+\end_inset
+
+.
+ In particular, this implies 
+\begin_inset Formula $a\mid b$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Winter 2014
 \end_layout
 
 \begin_layout Subsection
 Abstract Algebra
+\end_layout
+
+\begin_layout Subsubsection
+Problem 1
 \end_layout
 
 \begin_layout Standard
@@ -15847,7 +19494,7 @@ More generally, for
  gives us
 \begin_inset Formula 
 \[
-\mathrm{GL}_{n}(\mathbb{F}_{p})=\prod_{j=1}^{n}(p^{n}-p^{j-1})=\prod_{j=0}^{n-1}(p^{n}-p^{j}).
+\#\mathrm{GL}_{n}(\mathbb{F}_{p})=\prod_{j=1}^{n}(p^{n}-p^{j-1})=\prod_{j=0}^{n-1}(p^{n}-p^{j}).
 \]
 
 \end_inset
@@ -16318,6 +19965,1470 @@ n_{p} & =[G:\mathrm{N}_{G}(U)]\\
 \end_layout
 
 \begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sol}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Problem 2
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{ex}
+\backslash
+label{ex}
+\end_layout
+
+\end_inset
+
+ As usual, let 
+\begin_inset Formula $S_{n}$
+\end_inset
+
+ denote the set of bijections from the set 
+\begin_inset Formula $[n]=\{1,\dots,n\}$
+\end_inset
+
+ to itself.
+\end_layout
+
+\begin_layout Enumerate
+Show that as a group 
+\begin_inset Formula $S_{n}$
+\end_inset
+
+ is generated by transpositions.
+ Be sure to prove 
+\emph on
+all 
+\emph default
+your assertions.
+\end_layout
+
+\begin_layout Enumerate
+Cayley's Theorem states that any group is isomorphic to a permutation group.
+ Prove from first principles that any group of order 
+\begin_inset Formula $n$
+\end_inset
+
+ is isomorphic to a subgroup of 
+\begin_inset Formula $S_{n}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Considering what you know about 
+\begin_inset Formula $n\times n$
+\end_inset
+
+ elementary matrices action on 
+\begin_inset Formula $\mathrm{GL}_{n}$
+\end_inset
+
+, show that any group of order 
+\begin_inset Formula $n$
+\end_inset
+
+ can be realized as a subgroup of 
+\begin_inset Formula $\mathrm{GL}_{n}(\mathbb{F}_{2})$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{ex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sol}
+\backslash
+label{sol}
+\end_layout
+
+\end_inset
+
+ 1.
+ We shall prove this in two steps.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Step 1: 
+\series default
+First we show that any element in 
+\begin_inset Formula $S_{n}$
+\end_inset
+
+ can be expressed as a product of disjoint cycles.
+ Let 
+\begin_inset Formula $\sigma\in S_{n}$
+\end_inset
+
+.
+ We shall describe an algorithm which expresses 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ as a product of disjoint cycles.
+ In the first step of the algorithm, choose any 
+\begin_inset Formula $a_{1,1}\in[n]$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $k_{1}$
+\end_inset
+
+ be the least nonnegative integer such that 
+\begin_inset Formula $\sigma^{k_{1}}(a_{1,1})=a_{1,1}$
+\end_inset
+
+.
+ We denote 
+\begin_inset Formula $a_{1,i_{1}}=\sigma^{i_{1}-1}(a_{1,1})$
+\end_inset
+
+ for each 
+\begin_inset Formula $1\leq i_{1}\leq k_{1}$
+\end_inset
+
+.
+ Observe that 
+\begin_inset Formula $1\leq k_{1}\leq n$
+\end_inset
+
+ by the pigeonhole principle.
+ Also observe that 
+\begin_inset Formula $a_{1,i_{1}}\neq a_{1,i_{1}'}$
+\end_inset
+
+ whenever 
+\begin_inset Formula $i_{1}\neq i_{1}'$
+\end_inset
+
+.
+ Indeed, if 
+\begin_inset Formula $a_{1,i_{1}}=a_{1,i_{1}'}$
+\end_inset
+
+ for some 
+\begin_inset Formula $1\leq i_{1}<i_{1}'\leq k_{1}$
+\end_inset
+
+, then
+\begin_inset Formula 
+\begin{align*}
+\sigma^{i_{1}'-i_{1}}(a_{1,1}) & =\sigma^{i_{1}'}\sigma^{-i_{1}}(a_{1,1})\\
+ & =\sigma^{-i_{1}}\sigma^{i_{1}'}(a_{1,1})\\
+ & =\sigma^{-i_{1}}(a_{1,i_{1}'})\\
+ & =\sigma^{-i_{1}}(a_{1,i_{1}})\\
+ & =a_{1,1},
+\end{align*}
+
+\end_inset
+
+which would contradict the minimality of 
+\begin_inset Formula $k_{1}$
+\end_inset
+
+ since 
+\begin_inset Formula $i_{1}'-i_{1}<k_{1}$
+\end_inset
+
+.
+ So if we denote 
+\begin_inset Formula $\tau_{1}=(a_{1,1}\cdots a_{1,k_{1}})$
+\end_inset
+
+ and 
+\begin_inset Formula $\sigma_{1}=\tau_{1}^{-1}\sigma$
+\end_inset
+
+, then we can express 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ as
+\begin_inset Formula 
+\[
+\sigma=\tau_{1}\sigma_{1}.
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\tau_{1}$
+\end_inset
+
+ is a cycle of length 
+\begin_inset Formula $k_{1}$
+\end_inset
+
+ and where 
+\begin_inset Formula $\sigma_{1}$
+\end_inset
+
+ fixes 
+\begin_inset Formula $\{a_{1,i_{1}}\mid1\leq i_{1}\leq k_{1}\}$
+\end_inset
+
+.
+ Indeed, we have
+\begin_inset Formula 
+\begin{align*}
+\sigma_{1}(a_{1,i}) & =\tau_{1}^{-1}\sigma(a_{1,i_{1}})\\
+ & =\tau_{1}^{-1}(a_{1,i_{1}+1})\\
+ & =a_{1,i_{1}},
+\end{align*}
+
+\end_inset
+
+where 
+\begin_inset Formula $a_{1,i_{1}+1}$
+\end_inset
+
+ is understood to be 
+\begin_inset Formula $a_{1,1}$
+\end_inset
+
+ if 
+\begin_inset Formula $i_{1}=k_{1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Now we proceed to the second step of the algorithm.
+ If 
+\begin_inset Formula $\{a_{1,i_{1}}\mid1\leq i_{1}\leq k_{1}\}=[n]$
+\end_inset
+
+, then the algorithm terminates and we are done.
+ Indeed, in this case, 
+\begin_inset Formula $\sigma_{1}$
+\end_inset
+
+ is the identity element since it fixes all of 
+\begin_inset Formula $[n]$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\sigma=\tau_{1}$
+\end_inset
+
+ shows that 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ is a cycle itself.
+ If 
+\begin_inset Formula $\{a_{1,i_{1}}\mid1\leq i_{1}\leq k_{1}\}\subset n$
+\end_inset
+
+, where the inclusion is proper, then we choose any 
+\begin_inset Formula $a_{2,1}\in[n]\backslash\{a_{1,i_{1}}\mid1\leq i_{1}\leq k_{1}\}$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $k_{2}$
+\end_inset
+
+ be the least nonnegative integer such that 
+\begin_inset Formula $\sigma^{k_{2}}(a_{2,1})=a_{2,1}$
+\end_inset
+
+.
+ We denote 
+\begin_inset Formula $a_{2,i_{2}}=\sigma^{i_{2}-1}(a_{2,1})$
+\end_inset
+
+ for each 
+\begin_inset Formula $1\leq i_{2}\leq k_{2}$
+\end_inset
+
+.
+ As in the case of the first step of the algorithm, we observe that 
+\begin_inset Formula $1\leq k_{2}\leq n-k_{1}$
+\end_inset
+
+ and we also observe that 
+\begin_inset Formula $a_{2,i_{2}}\neq a_{2,i_{2}'}$
+\end_inset
+
+ whenever 
+\begin_inset Formula $i_{2}\neq i_{2}'$
+\end_inset
+
+.
+ The proof for these two observations is nearly identical to the ones we
+ did above.
+ We denote 
+\begin_inset Formula $\tau_{2}=(a_{2,1}\cdots a_{2,k_{2}})$
+\end_inset
+
+ and 
+\begin_inset Formula $\sigma_{2}=\tau_{2}^{-1}\sigma_{1}$
+\end_inset
+
+.
+ Then we can express 
+\begin_inset Formula $\sigma_{1}$
+\end_inset
+
+ as
+\begin_inset Formula 
+\[
+\sigma_{1}=\tau_{2}\sigma_{2},
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\tau_{2}$
+\end_inset
+
+ is a cycle of length 
+\begin_inset Formula $k_{2}$
+\end_inset
+
+ and where 
+\begin_inset Formula $\sigma_{2}$
+\end_inset
+
+ fixes 
+\begin_inset Formula $\{a_{1,i_{1}},a_{1,i_{2}}\mid1\leq i_{1}\leq k_{1}\text{ and }1\leq i_{2}\leq k_{2}\}$
+\end_inset
+
+.
+ Indeed, the proof that 
+\begin_inset Formula $\sigma_{2}$
+\end_inset
+
+ fixes 
+\begin_inset Formula $a_{1,i_{2}}$
+\end_inset
+
+ is nearly identical to the proof that 
+\begin_inset Formula $\sigma_{1}$
+\end_inset
+
+ fixes 
+\begin_inset Formula $a_{1,i_{1}}$
+\end_inset
+
+, and the reason that 
+\begin_inset Formula $\sigma_{2}$
+\end_inset
+
+ fixes 
+\begin_inset Formula $a_{1,i_{1}}$
+\end_inset
+
+ is because both 
+\begin_inset Formula $\tau_{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $\sigma_{1}$
+\end_inset
+
+ fix 
+\begin_inset Formula $a_{1,i_{1}}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Now we describe the algorithm at the 
+\begin_inset Formula $s$
+\end_inset
+
+th step where 
+\begin_inset Formula $s\geq2$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $\{a_{1,i_{r}}\mid1\leq r<s\text{ and }1\leq i_{r}\leq k_{r}\}=[n]$
+\end_inset
+
+, then the algorithm terminates and we are done.
+ Indeed, in this case, 
+\begin_inset Formula $\sigma_{s-1}$
+\end_inset
+
+ is the identity element since it fixes all of 
+\begin_inset Formula $[n]$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\begin{align*}
+\sigma & =\tau_{1}\sigma_{1}\\
+ & =\tau_{1}\tau_{2}\sigma_{2}\\
+ & \vdots\\
+ & =\tau_{1}\tau_{2}\cdots\tau_{s-1}\sigma_{s-1}\\
+ & =\tau_{1}\tau_{2}\cdots\tau_{s-1}
+\end{align*}
+
+\end_inset
+
+shows that 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ is a product of distinct cycles.
+ If 
+\begin_inset Formula $\{a_{1,i_{r}}\mid1\leq r<s\text{ and }1\leq i_{r}\leq k_{r}\}\subset[n]$
+\end_inset
+
+, where the inclusion is proper, then we choose any 
+\begin_inset Formula $a_{s,1}\in[n]\backslash\{a_{1,i_{r}}\mid1\leq r<s\text{ and }1\leq i_{r}\leq k_{r}\}$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $k_{s}$
+\end_inset
+
+ be the least nonnegative integer such that 
+\begin_inset Formula $\sigma^{k_{s}}(a_{s,1})=a_{s,1}$
+\end_inset
+
+.
+ We denote 
+\begin_inset Formula $a_{s,i_{s}}=\sigma^{i_{s}-1}(a_{s,1})$
+\end_inset
+
+ for each 
+\begin_inset Formula $1\leq i_{s}\leq k_{s}$
+\end_inset
+
+.
+ As in the case of the first and second step of the algorithm, we observe
+ that 
+\begin_inset Formula $1\leq k_{s}\leq n-k_{1}-\cdots-k_{s-1}$
+\end_inset
+
+ and we also observe that that 
+\begin_inset Formula $a_{s,i_{s}}\neq a_{s,i_{s}'}$
+\end_inset
+
+ whenever 
+\begin_inset Formula $i_{s}\neq i_{s}'$
+\end_inset
+
+.
+ We denote 
+\begin_inset Formula $\tau_{s}=(a_{s,1}\cdots a_{s,k_{s}})$
+\end_inset
+
+ and 
+\begin_inset Formula $\sigma_{s}=\tau_{s}^{-1}\sigma_{s-1}$
+\end_inset
+
+.
+ Then we can express 
+\begin_inset Formula $\sigma_{s-1}$
+\end_inset
+
+ as
+\begin_inset Formula 
+\[
+\sigma_{s-1}=\tau_{s}\sigma_{s},
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\tau_{s}$
+\end_inset
+
+ is a cycle of length 
+\begin_inset Formula $k_{s}$
+\end_inset
+
+ and where 
+\begin_inset Formula $\sigma_{s}$
+\end_inset
+
+ fixes 
+\begin_inset Formula $\{a_{1,i_{r}}\mid1\leq r<s\text{ and }1\leq i_{r}\leq k_{r}\}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+This algorithm must terminate since 
+\begin_inset Formula $[n]$
+\end_inset
+
+ is finite and since after the 
+\begin_inset Formula $s$
+\end_inset
+
+th step, we produce a strictly increasing sequence of sets
+\begin_inset Formula 
+\[
+(\{a_{1,i_{r}}\mid1\leq r<s\text{ and }1\leq i_{r}\leq k_{r}\})
+\]
+
+\end_inset
+
+each of which is contianed in 
+\begin_inset Formula $[n]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Step 2: 
+\series default
+Now we show that any cycle in 
+\begin_inset Formula $S_{n}$
+\end_inset
+
+ can be expressed as a product of transposition.
+ Let 
+\begin_inset Formula $(a_{1}a_{2}\cdots a_{k})$
+\end_inset
+
+ be any in 
+\begin_inset Formula $S_{n}$
+\end_inset
+
+.
+ We claim that
+\begin_inset Formula 
+\begin{align}
+(a_{1}a_{2}\cdots a_{k}) & =\prod_{i=1}^{k-1}(a_{i}a_{i+1}).\label{eq:cycleisprodoftrans}
+\end{align}
+
+\end_inset
+
+Indeed, let 
+\begin_inset Formula $a\in[n]$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $a\neq a_{j}$
+\end_inset
+
+ for any 
+\begin_inset Formula $1\leq j\leq k$
+\end_inset
+
+, then applying 
+\begin_inset Formula $a$
+\end_inset
+
+ to both 
+\begin_inset Formula $(a_{1}a_{2}\cdots a_{k})$
+\end_inset
+
+ and 
+\begin_inset Formula $\prod_{i=1}^{k-1}(a_{i}a_{i+1})$
+\end_inset
+
+ results in 
+\begin_inset Formula $a$
+\end_inset
+
+ again.
+ In other words, both 
+\begin_inset Formula $(a_{1}a_{2}\cdots a_{k})$
+\end_inset
+
+ and 
+\begin_inset Formula $\prod_{i=1}^{k-1}(a_{i}a_{i+1})$
+\end_inset
+
+ fix 
+\begin_inset Formula $a$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $a=a_{j}$
+\end_inset
+
+ for some 
+\begin_inset Formula $1\leq j\leq k$
+\end_inset
+
+, then applying 
+\begin_inset Formula $a_{j}$
+\end_inset
+
+ to 
+\begin_inset Formula $(a_{1}a_{2}\cdots a_{k})$
+\end_inset
+
+ results in 
+\begin_inset Formula $a_{j+1}$
+\end_inset
+
+, where 
+\begin_inset Formula $a_{j+1}$
+\end_inset
+
+ is understood to be 
+\begin_inset Formula $a_{1}$
+\end_inset
+
+ if 
+\begin_inset Formula $j=k$
+\end_inset
+
+.
+ Applying 
+\begin_inset Formula $a_{j}$
+\end_inset
+
+ to 
+\begin_inset Formula $\prod_{i=1}^{k-1}(a_{i}a_{i+1})$
+\end_inset
+
+ also results in 
+\begin_inset Formula $a_{j+1}$
+\end_inset
+
+, where 
+\begin_inset Formula $a_{j+1}$
+\end_inset
+
+ is understood to be 
+\begin_inset Formula $a_{1}$
+\end_inset
+
+ if 
+\begin_inset Formula $j=k$
+\end_inset
+
+.
+ Indeed,
+\begin_inset Formula 
+\begin{align*}
+\prod_{i=1}^{k-1}(a_{i}a_{i+1})(a_{j}) & =(a_{1}a_{2})\cdots(a_{j-1}a_{j})(a_{j}a_{j+1})\cdots(a_{k}a_{k-1})(a_{j})\\
+ & =(a_{1}a_{2})\cdots(a_{j-1}a_{j})(a_{j}a_{j+1})(a_{j})\\
+ & =(a_{1}a_{2})\cdots(a_{j-1}a_{j})(a_{j+1})\\
+ & =a_{j+1}.
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Combining step 1 with step 2 shows that any permutation can be expressed
+ as a product of transpositions.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+2.
+ We state and prove Cayley's Theorem:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\backslash
+label{theorem}
+\end_layout
+
+\end_inset
+
+ (Cayley's Theorem) Let 
+\begin_inset Formula $G$
+\end_inset
+
+ be a finite group of order 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $G$
+\end_inset
+
+ is isomorphic to a subgroup of 
+\begin_inset Formula $S_{n}$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ We write 
+\begin_inset Formula $S_{G}$
+\end_inset
+
+ for the group of all permutations of 
+\begin_inset Formula $G$
+\end_inset
+
+ as a set.
+ We have 
+\begin_inset Formula $S_{G}\cong S_{n}$
+\end_inset
+
+, so we just need to show that 
+\begin_inset Formula $G$
+\end_inset
+
+ is isomorphic to a subgroup of 
+\begin_inset Formula $S_{G}$
+\end_inset
+
+.
+ Define a map 
+\begin_inset Formula $\pi\colon G\to S_{G}$
+\end_inset
+
+, denoted 
+\begin_inset Formula $\pi\mapsto\pi_{g}$
+\end_inset
+
+, where 
+\begin_inset Formula $\pi_{g}\colon G\to G$
+\end_inset
+
+ is given by
+\begin_inset Formula 
+\[
+\pi_{g}(x)=gx
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $x\in G$
+\end_inset
+
+.
+ We claim that 
+\begin_inset Formula $\pi$
+\end_inset
+
+ is an injective group homomorphism.
+ Indeed, first let us show that it is a group homomorphism.
+ Let 
+\begin_inset Formula $g_{1},g_{2}\in G$
+\end_inset
+
+.
+ Then observe that
+\begin_inset Formula 
+\begin{align*}
+\pi_{g_{1}g_{2}}(x) & =g_{1}g_{2}x\\
+ & =\pi_{g_{1}}(g_{2}x)\\
+ & =\pi_{g_{1}}\pi_{g_{2}}(x)
+\end{align*}
+
+\end_inset
+
+for all 
+\begin_inset Formula $x\in G$
+\end_inset
+
+.
+ It follows that 
+\begin_inset Formula $\pi_{g_{1}g_{2}}=\pi_{g_{1}}\pi_{g_{2}}$
+\end_inset
+
+, and hence 
+\begin_inset Formula $\pi$
+\end_inset
+
+ is a group homomorphism.
+ Now let us show that it is injective.
+ Suppose 
+\begin_inset Formula $g\in\ker\pi$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $gx=x$
+\end_inset
+
+ for all 
+\begin_inset Formula $x\in G$
+\end_inset
+
+.
+ In particular, 
+\begin_inset Formula $g^{2}=g$
+\end_inset
+
+.
+ Multiplying both sides by 
+\begin_inset Formula $g^{-1}$
+\end_inset
+
+ implies 
+\begin_inset Formula $g=1$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $\ker\pi=\{1\}$
+\end_inset
+
+, which implies 
+\begin_inset Formula $\pi$
+\end_inset
+
+ is injective.
+ Finally, by the first isomorphism theorem for groups, we find that 
+\begin_inset Formula $\mathrm{im}\,\pi$
+\end_inset
+
+ is a subgroup of 
+\begin_inset Formula $S_{G}$
+\end_inset
+
+, and moreover, 
+\begin_inset Formula 
+\[
+\mathrm{im}\,\pi\cong G\slash\ker\pi\cong G.
+\]
+
+\end_inset
+
+It follows that 
+\begin_inset Formula $G$
+\end_inset
+
+ is isomorphic to a subgroup of 
+\begin_inset Formula $S_{G}$
+\end_inset
+
+ which implies 
+\begin_inset Formula $G$
+\end_inset
+
+ is isomorphic to a subgroup of 
+\begin_inset Formula $S_{n}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+3.
+ It suffices to show that 
+\begin_inset Formula $S_{n}$
+\end_inset
+
+ can be realized as a subgroup of 
+\begin_inset Formula $\mathrm{GL}_{n}(\mathbb{F}_{2})$
+\end_inset
+
+ since 
+\begin_inset Formula $G$
+\end_inset
+
+ can be realized as a subgroup of 
+\begin_inset Formula $S_{n}$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $S_{n}$
+\end_inset
+
+ is generated by transpositions, we can define a group homomorphism out
+ of 
+\begin_inset Formula $S_{n}$
+\end_inset
+
+ by describing how it acts on transpositions, however we need to be sure
+ that this map respects any relations involving these transpositions.
+ For each 
+\begin_inset Formula $1\leq i<j\leq n$
+\end_inset
+
+, let 
+\begin_inset Formula $s_{ij}$
+\end_inset
+
+ be the matrix in 
+\begin_inset Formula $\mathrm{GL}_{n}(\mathbb{F}_{2})$
+\end_inset
+
+ obtained by swapping the 
+\begin_inset Formula $i$
+\end_inset
+
+th row with the 
+\begin_inset Formula $j$
+\end_inset
+
+th row in the identity matrix.
+ For any matrix 
+\begin_inset Formula $A$
+\end_inset
+
+, multiplying 
+\begin_inset Formula $s_{ij}$
+\end_inset
+
+ to left of 
+\begin_inset Formula $A$
+\end_inset
+
+ results in the same matrix obtained by swapping the 
+\begin_inset Formula $i$
+\end_inset
+
+th and 
+\begin_inset Formula $j$
+\end_inset
+
+th row of 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Thus we can view 
+\begin_inset Formula $s_{ij}$
+\end_inset
+
+ as a transposition of the rows of 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Thus we have the relations
+\begin_inset Formula 
+\[
+s_{ij}s_{kl}=\begin{cases}
+s_{kl}s_{ij} & \text{if }i\neq k\text{ and }j\neq l\\
+s_{kl}s_{il} & \text{if }j=k\\
+s_{kl}s_{jl} & \text{if }i=k\text{ and }j\neq l\\
+1 & \text{if }i=k\text{ and }j=l
+\end{cases}
+\]
+
+\end_inset
+
+In particular, we can define an injective group homomorphism 
+\begin_inset Formula $\varphi\colon S_{n}\to\mathrm{GL}_{n}(\mathbb{F}_{2})$
+\end_inset
+
+ as follows: let 
+\begin_inset Formula $\sigma\in S_{n}$
+\end_inset
+
+ and express it as a product of transpositions, say 
+\begin_inset Formula $\sigma=(i_{1}j_{1})\cdots(i_{k}j_{k})$
+\end_inset
+
+.
+ Then we set
+\begin_inset Formula 
+\[
+\varphi(\sigma)=s_{i_{1}j_{1}}\cdots s_{i_{k}j_{k}}.
+\]
+
+\end_inset
+
+Note that 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ is a well-defined group homomorphism since the 
+\begin_inset Formula $s_{ij}$
+\end_inset
+
+ satisfy the relations described above.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{sol}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Problem 3
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{ex}
+\backslash
+label{ex}
+\end_layout
+
+\end_inset
+
+ Suppose that 
+\begin_inset Formula $p$
+\end_inset
+
+ is a prime and that 
+\begin_inset Formula $R$
+\end_inset
+
+ is a characteristic 
+\begin_inset Formula $p$
+\end_inset
+
+ ring which identity.
+ Let
+\begin_inset Formula 
+\begin{equation}
+R\{X\}=\left\{ \sum_{i=0}^{n}a_{i}X^{p^{i}}\mid a_{i}\in R\right\} \label{eq:charpringdef}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that the polynomials in 
+\begin_inset Formula $R\{X\}$
+\end_inset
+
+ have no constant term.
+\end_layout
+
+\begin_layout Enumerate
+Show that 
+\begin_inset Formula $R\{X\}$
+\end_inset
+
+ is a ring under the operations of polynomial addition and composition of
+ functions.
+\end_layout
+
+\begin_layout Enumerate
+Suppose that 
+\begin_inset Formula $F$
+\end_inset
+
+ is a characteristic 
+\begin_inset Formula $p$
+\end_inset
+
+ field.
+ Then we can consider the ring 
+\begin_inset Formula $F\{X\}$
+\end_inset
+
+ defined as in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{eq:charpringdef})
+\end_layout
+
+\end_inset
+
+.
+ It is a fact (which you do not need to prove) that 
+\begin_inset Formula $F\{X\}$
+\end_inset
+
+ is not commutative.
+ Show that 
+\begin_inset Formula $F\{X\}$
+\end_inset
+
+ has a right division algorithm, that is, show that for 
+\begin_inset Formula $a(X),b(X)\in R\{X\}$
+\end_inset
+
+ with 
+\begin_inset Formula $b(X)\neq0$
+\end_inset
+
+, there exists 
+\begin_inset Formula $q(X),r(X)\in F\{X\}$
+\end_inset
+
+ with 
+\begin_inset Formula $r(X)=0$
+\end_inset
+
+ or 
+\begin_inset Formula $\deg(r(X))<\deg(b(X))$
+\end_inset
+
+ and 
+\begin_inset Formula $a(X)=q(X)b(X)+r(X)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Again suppose that 
+\begin_inset Formula $F$
+\end_inset
+
+ is a characteristic 
+\begin_inset Formula $p$
+\end_inset
+
+ field and consider the ring 
+\begin_inset Formula $F\{X\}$
+\end_inset
+
+ defined as in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{eq:charpringdef})
+\end_layout
+
+\end_inset
+
+.
+ Show that every left ideal of 
+\begin_inset Formula $F\{X\}$
+\end_inset
+
+ is principal.
+ You may use the result from part (3b).
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{ex}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{sol}
+\backslash
+label{sol}
+\end_layout
+
+\end_inset
+
+ 1.
+ Let 
+\begin_inset Formula $f,g,h\in R\{X\}$
+\end_inset
+
+ and express them as
+\begin_inset Formula 
+\[
+f(X)=\sum_{i\geq0}a_{i}X^{p^{i}},\quad g(X)=\sum_{i\geq0}b_{i}X^{p^{i}},\quad\text{and}\quad\sum_{i\geq0}c_{i}X^{p^{i}}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $a_{i},b_{i},c_{i}\in R$
+\end_inset
+
+ such that 
+\begin_inset Formula $a_{i}=b_{i}=c_{i}=0$
+\end_inset
+
+ for 
+\begin_inset Formula $i\gg0$
+\end_inset
+
+.
+ We have
+\begin_inset Formula 
+\begin{align*}
+f\circ g & =\sum_{i\geq0}a_{i}\left(\sum_{j\geq0}b_{j}X^{p^{j}}\right)^{p^{i}}\\
+ & =\sum_{i\geq0}a_{i}\sum_{j\geq0}b_{j}^{p^{i}}X^{p^{i+j}}\\
+ & =\\
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+(f+g)\circ h & =\left(\sum_{i\geq0}a_{i}X^{p^{i}}+\sum_{i\geq0}b_{i}X^{p^{i}}\right)\sum_{i\geq0}c_{i}X^{p^{i}}\\
+ & =\sum_{i\geq0}(a_{i}+b_{i})X^{p^{i}}\sum_{i\geq0}c_{i}X^{p^{i}}\\
+\end{align*}
+
+\end_inset
+
+ 
 \begin_inset ERT
 status open
 

@@ -4470,7 +4470,12 @@ Hilbert Spaces
 \end_layout
 
 \begin_layout Standard
-Recall that a sequence 
+Let 
+\begin_inset Formula $\mathcal{V}$
+\end_inset
+
+ be an inner-product space.
+ A sequence 
 \begin_inset Formula $(x_{n})\in\mathcal{V}$
 \end_inset
 
@@ -4494,7 +4499,12 @@ n,m\geq N\text{ implies }\|x_{n}-x_{m}\|<\varepsilon.
 
 \end_inset
 
+Every convergent sequence in 
+\begin_inset Formula $\mathcal{V}$
+\end_inset
 
+ is a Cauchy sequence.
+ Indeed:
 \end_layout
 
 \begin_layout Standard
@@ -4512,11 +4522,20 @@ label{prop}
 
 \end_inset
 
- If 
-\begin_inset Formula $x_{n}\to x$
+ Let 
+\begin_inset Formula $\mathcal{V}$
 \end_inset
 
-, then 
+ be an inner-product space and let 
+\begin_inset Formula $(x_{n})$
+\end_inset
+
+ be a convergent sequence in 
+\begin_inset Formula $\mathcal{V}$
+\end_inset
+
+.
+ Then 
 \begin_inset Formula $(x_{n})$
 \end_inset
 
@@ -4553,6 +4572,14 @@ label{proof}
 \end_inset
 
  Let 
+\begin_inset Formula $x\in\mathcal{V}$
+\end_inset
+
+ be the limit of 
+\begin_inset Formula $(x_{n})$
+\end_inset
+
+ and let 
 \begin_inset Formula $\varepsilon>0$
 \end_inset
 
@@ -4585,7 +4612,12 @@ label{proof}
 
 \end_inset
 
+It follows that 
+\begin_inset Formula $(x_{n})$
+\end_inset
 
+ is Cauchy.
+ 
 \begin_inset ERT
 status open
 
@@ -4599,6 +4631,74 @@ end{proof}
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Though every convergent sequence is Cauchy, the converse need not hold.
+ For instance, in 
+\begin_inset Formula $\mathbb{Q}$
+\end_inset
+
+, we can construct a sequence of rational numbers which gets closer and
+ closer to 
+\begin_inset Formula $\pi$
+\end_inset
+
+.
+ Namely, such a sequence starts out as
+\begin_inset Formula 
+\begin{equation}
+(3,3.1,3.14,3.141,\dots).\label{eq:sequenceconvtopi}
+\end{equation}
+
+\end_inset
+
+It's easy to see that such a sequence is in fact a Cauchy sequence.
+ However, by construction, this sequence converges to 
+\begin_inset Formula $\pi$
+\end_inset
+
+, which is not a rational number.
+ On the other hand, since 
+\begin_inset Formula $\pi$
+\end_inset
+
+ is a real number, the Cauchy sequence 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{eq:sequenceconvtopi})
+\end_layout
+
+\end_inset
+
+ of real numbers converges to a real number.
+ Is every Cauchy sequence in 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+ convergent? It turns out that the answer to this is, yes! We give a special
+ name to inner-product spaces which share this property with 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -4616,6 +4716,11 @@ label{defn}
 
 \end_inset
 
+ Let 
+\begin_inset Formula $\mathcal{V}$
+\end_inset
+
+ be an inner-product space.
  We say 
 \begin_inset Formula $\mathcal{V}$
 \end_inset
@@ -4628,7 +4733,11 @@ if every Cauchy sequence in
 \begin_inset Formula $\mathcal{V}$
 \end_inset
 
- is convergent.
+ converges to a limit in 
+\begin_inset Formula $\mathcal{V}$
+\end_inset
+
+.
  
 \begin_inset ERT
 status open
@@ -4684,7 +4793,7 @@ The most basic examples with Hilbert spaces are
 \end_inset
 
 .
- Hilbert spaces are usually denoted 
+ Hilbert spaces are usually denoted by 
 \begin_inset Formula $\mathcal{H}$
 \end_inset
 
@@ -4709,16 +4818,20 @@ status open
 \backslash
 begin{defn}
 \backslash
-label{defn}
+label{defndistance}
 \end_layout
 
 \end_inset
 
  Let 
-\begin_inset Formula $A\subseteq\mathcal{V}$
+\begin_inset Formula $\mathcal{V}$
 \end_inset
 
- and 
+ be an inner-product space, let 
+\begin_inset Formula $A,B\subseteq\mathcal{V}$
+\end_inset
+
+, and let 
 \begin_inset Formula $x\in\mathcal{V}$
 \end_inset
 
@@ -4736,13 +4849,37 @@ distance from
 
 \series default
 , denoted 
-\begin_inset Formula $d(x,A)$
+\begin_inset Formula $\mathrm{d}(x,A)$
 \end_inset
 
 , by
 \begin_inset Formula 
 \[
-d(x,A):=\inf\{\|x-a\|\mid a\in A\}.
+\mathrm{d}(x,A):=\inf\{\|x-a\|\mid a\in A\}.
+\]
+
+\end_inset
+
+More generally, we defined the 
+\series bold
+distance from 
+\begin_inset Formula $A$
+\end_inset
+
+ to 
+\begin_inset Formula $B$
+\end_inset
+
+
+\series default
+, denoted 
+\begin_inset Formula $\mathrm{d}(A,B)$
+\end_inset
+
+, by
+\begin_inset Formula 
+\[
+\mathrm{d}(A,B):=\inf\{\|a-b\|\mid a\in A\quad\text{and}\quad b\in B\}.
 \]
 
 \end_inset
@@ -4778,8 +4915,21 @@ label{prop}
 
 \end_inset
 
- 
-\begin_inset Formula $d(x,A)=0$
+ With the notation as in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Definition~(
+\backslash
+ref{defndistance})
+\end_layout
+
+\end_inset
+
+, we have 
+\begin_inset Formula $\mathrm{d}(x,A)=0$
 \end_inset
 
  if and only if 
@@ -4796,6 +4946,136 @@ status open
 
 \backslash
 end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Suppose 
+\begin_inset Formula $\mathrm{d}(x,A)=0$
+\end_inset
+
+.
+ Then for each 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ we can choose 
+\begin_inset Formula $a_{n}\in A$
+\end_inset
+
+ such that
+\begin_inset Formula 
+\[
+\mathrm{d}(x,A)\leq\|x-a_{n}\|<\mathrm{d}(x,A)+\frac{1}{n}.
+\]
+
+\end_inset
+
+In other words, since 
+\begin_inset Formula $\mathrm{d}(x,A)=0$
+\end_inset
+
+, we can find a sequence 
+\begin_inset Formula $(a_{n})$
+\end_inset
+
+ in 
+\begin_inset Formula $A$
+\end_inset
+
+ such that
+\begin_inset Formula 
+\[
+\|x-a_{n}\|<\frac{1}{n}
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+.
+ This implies 
+\begin_inset Formula $x\in\overline{A}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Conversely, suppose 
+\begin_inset Formula $x\in\overline{A}$
+\end_inset
+
+.
+ Then we can find a sequence 
+\begin_inset Formula $(a_{n})$
+\end_inset
+
+ in 
+\begin_inset Formula $A$
+\end_inset
+
+ such that
+\begin_inset Formula 
+\[
+\mathrm{d}(x,A)\leq\|x-a_{n}\|<\frac{1}{n}
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+.
+ Taking 
+\begin_inset Formula $n\to\infty$
+\end_inset
+
+ gives us 
+\begin_inset Formula $\mathrm{d}(x,A)=0$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
 \end_layout
 
 \end_inset
@@ -5214,7 +5494,96 @@ end{proof}
 \end_layout
 
 \begin_layout Subsection
-The Orthogonal Projection
+Orthogonal Projection
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $K$
+\end_inset
+
+ be a 
+\begin_inset Formula $2$
+\end_inset
+
+-dimensional subspace in 
+\begin_inset Formula $\mathbb{R}^{3}$
+\end_inset
+
+.
+ Such a subspace corresponds to a plane in 
+\begin_inset Formula $\mathbb{R}^{3}$
+\end_inset
+
+ which passes through the origin.
+ One of the main tools that we use in this setting is the concept of projecting
+ onto 
+\begin_inset Formula $K$
+\end_inset
+
+.
+ For instance, if 
+\begin_inset Formula $K$
+\end_inset
+
+ corresponds to the plane 
+\begin_inset Formula $\{z=0\}$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathbb{R}^{3}$
+\end_inset
+
+, then the projection of the vector 
+\begin_inset Formula $(1,2,1)^{\top}$
+\end_inset
+
+ onto 
+\begin_inset Formula $K$
+\end_inset
+
+ gives the vector 
+\begin_inset Formula $(1,2,0)^{\top}$
+\end_inset
+
+.
+ In fact, 
+\begin_inset Formula $(1,2,0)^{\top}$
+\end_inset
+
+ is the 
+\emph on
+closest 
+\emph default
+vector to 
+\begin_inset Formula $(1,2,1)^{\top}$
+\end_inset
+
+ which belongs to 
+\begin_inset Formula $K$
+\end_inset
+
+.
+ In other words, if 
+\begin_inset Formula $(a,b,0)^{\top}\in K$
+\end_inset
+
+, then
+\begin_inset Formula 
+\begin{align*}
+\sqrt{(1-a)^{2}+(2-b)^{2}+1} & =\|(1,2,1)^{\top}-(a,b,0)^{\top}\|\\
+ & \geq\|(1,2,1)^{\top}-(1,2,0)^{\top}\|\\
+ & =1.
+\end{align*}
+
+\end_inset
+
+We wish to generalize these concepts from 
+\begin_inset Formula $\mathbb{R}^{3}$
+\end_inset
+
+ to an arbitrary Hilbert space.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -5227,7 +5596,7 @@ status open
 \backslash
 begin{theorem}
 \backslash
-label{theorem}
+label{theoremorthogonalprojectionexist}
 \end_layout
 
 \end_inset
@@ -5255,7 +5624,7 @@ label{theorem}
 \end_inset
 
  such that 
-\begin_inset Formula $d(x,\mathcal{K})=\|x-a\|$
+\begin_inset Formula $\mathrm{d}(x,\mathcal{K})=\|x-a\|$
 \end_inset
 
 .
@@ -5291,7 +5660,7 @@ label{proof}
 \end_inset
 
  Choose a sequence 
-\begin_inset Formula $(y_{n})$
+\begin_inset Formula $(a_{n})$
 \end_inset
 
  of elements in 
@@ -5301,7 +5670,7 @@ label{proof}
  such that
 \begin_inset Formula 
 \begin{equation}
-d(x,\mathcal{K})\leq\|x-y_{n}\|<d(x,\mathcal{K})+1/n.\label{eq:inequalityinf}
+\mathrm{d}(x,\mathcal{K})\leq\|x-a_{n}\|<\mathrm{d}(x,\mathcal{K})+1/n.\label{eq:inequalityinf}
 \end{equation}
 
 \end_inset
@@ -5311,14 +5680,57 @@ for all
 \end_inset
 
 .
- By using the parallelogram identity we obtain 
+ We claim that 
+\begin_inset Formula $(a_{n})$
+\end_inset
+
+ is a Cauchy sequence.
+ The key to showing this is to use the parallelogram identity, which says
+ 
+\begin_inset Formula 
+\begin{equation}
+\|y-z\|^{2}+\|y+z\|^{2}=2\|y\|^{2}+2\|z\|^{2}\label{eq:paralleltoprove}
+\end{equation}
+
+\end_inset
+
+for all 
+\begin_inset Formula $y,z\in\mathcal{H}$
+\end_inset
+
+.
+ Setting 
+\begin_inset Formula $y=x-a_{m}$
+\end_inset
+
+ and 
+\begin_inset Formula $z=x-a_{n}$
+\end_inset
+
+ in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{eq:paralleltoprove})
+\end_layout
+
+\end_inset
+
+ and rearranging terms, we have
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \begin{align*}
-\|y_{m}-y_{n}\|^{2} & =2\|x-y_{n}\|^{2}+2\|x-y_{m}\|^{2}-\|(x-y_{n})+(x-y_{m})\|^{2}\\
- & <2(d(x,\mathscr{K})+1/n)^{2}+2(d(x,\mathscr{K})+1/m)^{2}-\|(2(x-(y_{n}-y_{m})/2)\|^{2}\\
- & =4d(x,\mathscr{K)}^{2}+(4/n+4/m)d(x,\mathscr{K})+2/n^{2}+2/m^{2}-4\|(x-(y_{n}-y_{m})/2\|^{2}\\
- & \leq4d(x,\mathscr{K})^{2}+(4/n+4/m)d(x,\mathscr{K})+2/n^{2}+2/m^{2}-4d(x,\mathscr{K})^{2}\\
- & =(4/n+4/m)d(x,\mathscr{K})+2/n^{2}+2/m^{2}.
+\|a_{m}-a_{n}\|^{2} & =2\|x-a_{m}\|^{2}+2\|x-a_{n}\|^{2}-\|(x-a_{m})+(x-a_{n})\|^{2}\\
+ & <2(\mathrm{d}(x,\mathcal{K})+1/m)^{2}+2(\mathrm{d}(x,\mathcal{K})+1/n)^{2}-\|(2(x-(a_{n}-a_{m})/2)\|^{2}\\
+ & =4\mathrm{d}(x,\mathcal{K})^{2}+(4/m+4/n)\mathrm{d}(x,\mathcal{K})+2/m^{2}+2/n^{2}-4\|(x-(a_{n}-a_{m})/2\|^{2}\\
+ & \leq4\mathrm{d}(x,\mathcal{K})^{2}+(4/m+4/n)\mathrm{d}(x,\mathcal{K})+2/m^{2}+2/n^{2}-4\mathrm{d}(x,\mathcal{K})^{2}\\
+ & =(4/n+4/m)\mathrm{d}(x,\mathcal{K})+2/n^{2}+2/m^{2}.
 \end{align*}
 
 \end_inset
@@ -5327,8 +5739,8 @@ Thus if
 \begin_inset Formula $\varepsilon>0$
 \end_inset
 
-, we choose 
-\begin_inset Formula $N$
+, then we choose 
+\begin_inset Formula $N\in\mathbb{N}$
 \end_inset
 
  such that 
@@ -5338,33 +5750,37 @@ Thus if
  implies
 \begin_inset Formula 
 \[
-(4/n+4/m)d(x,\mathscr{K})+2/n^{2}+2/m^{2}<\varepsilon^{2}.
+(4/n+4/m)\mathrm{d}(x,\mathcal{K})+2/n^{2}+2/m^{2}<\varepsilon^{2}.
 \]
 
 \end_inset
 
-Then 
-\begin_inset Formula $n,m\geq N$
-\end_inset
-
- implies 
-\begin_inset Formula $\|y_{m}-y_{n}\|<\varepsilon$
+which implies 
+\begin_inset Formula $\|a_{m}-a_{n}\|<\varepsilon$
 \end_inset
 
 .
  Therefore the sequence 
-\begin_inset Formula $(y_{n})$
+\begin_inset Formula $(a_{n})$
 \end_inset
 
  is a Cauchy sequence, and since we are in a Hilbert space, 
-\begin_inset Formula $(y_{n})$
+\begin_inset Formula $(a_{n})$
 \end_inset
 
  must be convergent, say 
-\begin_inset Formula $y_{n}\to a$
+\begin_inset Formula $a_{n}\to a$
 \end_inset
 
-.
+, with 
+\begin_inset Formula $a\in\mathcal{K}$
+\end_inset
+
+ since 
+\begin_inset Formula $\mathcal{K}$
+\end_inset
+
+ is closed.
  Then taking the limit of 
 \begin_inset ERT
 status open
@@ -5383,7 +5799,7 @@ ref{eq:inequalityinf})
 \end_inset
 
  gives us 
-\begin_inset Formula $d(x,\mathcal{K})=\|x-a\|$
+\begin_inset Formula $\mathrm{d}(x,\mathcal{K})=\|x-a\|$
 \end_inset
 
 .
@@ -5414,22 +5830,19 @@ To see uniqueness of
 \end_inset
 
  such that 
-\begin_inset Formula $b\neq a$
-\end_inset
-
- and 
-\begin_inset Formula $\|x-b\|=d(x,\mathcal{K})$
+\begin_inset Formula $\|x-b\|=\mathrm{d}(x,\mathcal{K})$
 \end_inset
 
 .
- Using the parallelogram identity again, we have 
+ We again use the parallelogram identity.
+ We have
 \begin_inset Formula 
 \begin{align*}
 \|b-a\|^{2} & =\|(x-a)-(x-b)\|^{2}\\
  & =2\|x-a\|^{2}+2\|x-b\|^{2}-\|(x-a)+(x-b)\|^{2}\\
- & =4d(x,\mathcal{K})^{2}-\|2x-(a+b)\|^{2}\\
- & =4d(x,\mathcal{K})^{2}-4\|x-(a+b)/2\|^{2}\\
- & \leq0.
+ & =4\mathrm{d}(x,\mathcal{K})^{2}-\|2x-(a+b)\|^{2}\\
+ & =4\mathrm{d}(x,\mathcal{K})^{2}-4\|x-(a+b)/2\|^{2}\\
+ & \leq0,
 \end{align*}
 
 \end_inset
@@ -5463,66 +5876,9 @@ status open
 
 
 \backslash
-begin{defn}
+begin{theorem}
 \backslash
-label{defn}
-\end_layout
-
-\end_inset
-
-The unique point 
-\begin_inset Formula $a$
-\end_inset
-
- in the previous theorem is called the 
-\series bold
-orthogonal projection 
-\series default
-of the point 
-\begin_inset Formula $x$
-\end_inset
-
- onto the subspace 
-\begin_inset Formula $\mathcal{K}$
-\end_inset
-
- and is denoted by 
-\begin_inset Formula $\text{P}_{\mathcal{K}}x$
-\end_inset
-
-.
- 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{defn}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-The name orthogonal projection is justified by the following proposition.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{prop}
-\backslash
-label{propuniqueorthproj}
+label{theoremuniqueorthproj}
 \end_layout
 
 \end_inset
@@ -5544,14 +5900,18 @@ label{propuniqueorthproj}
 \end_inset
 
 .
- There exists a unique point 
-\begin_inset Formula $b\in\mathcal{K}$
+ Then 
+\begin_inset Formula $\mathrm{P}_{\mathcal{K}}x$
+\end_inset
+
+ is the unique point in 
+\begin_inset Formula $\mathcal{K}$
 \end_inset
 
  such that
 \begin_inset Formula 
 \[
-\langle x-b,y\rangle=0
+\langle x-\mathrm{P}_{\mathcal{K}}x,y\rangle=0
 \]
 
 \end_inset
@@ -5569,7 +5929,7 @@ status open
 
 
 \backslash
-end{prop}
+end{theorem}
 \end_layout
 
 \end_inset
@@ -5604,7 +5964,7 @@ label{proof}
  by
 \begin_inset Formula 
 \[
-f(t)=\|x-\text{P}_{\mathcal{K}}x+ty\|^{2}
+f(t)=\|x-\mathrm{P}_{\mathcal{K}}x+ty\|^{2}
 \]
 
 \end_inset
@@ -5615,66 +5975,70 @@ for all
 
 .
  Then 
-\begin_inset Formula $f(0)=d(x,\mathcal{K})^{2}$
+\begin_inset Formula $f(0)=\mathrm{d}(x,\mathcal{K})^{2}$
 \end_inset
 
  and 
-\begin_inset Formula $f(t)>d(x,\mathcal{K})^{2}$
+\begin_inset Formula $f(t)>\mathrm{d}(x,\mathcal{K})^{2}$
 \end_inset
 
  for all 
 \begin_inset Formula $t\neq0$
 \end_inset
 
-.
- So 
-\begin_inset Formula $f$
+ (note we have a 
+\emph on
+strict 
+\emph default
+inequality here by uniqueness of 
+\begin_inset Formula $\mathrm{P}_{\mathcal{K}}x$
 \end_inset
 
- has a global minimum at 
-\begin_inset Formula $t=0$
+).
+ For each 
+\begin_inset Formula $t\in\mathbb{R}$
 \end_inset
 
- which implies 
-\begin_inset Formula $f'(t)=0$
-\end_inset
-
-.
- So 
+, we have
 \begin_inset Formula 
 \begin{align*}
-f(t) & =\|x-\text{P}_{\mathcal{K}}x+ty\|^{2}\\
- & =\langle x-\text{P}_{\mathcal{K}}x+ty,x-\text{P}_{\mathcal{K}}x+ty\rangle\\
- & =\|x-\text{P}_{\mathcal{K}}x\|^{2}+2\text{Re}(\langle x-\text{P}_{\mathcal{K}}x,ty\rangle)+\|ty\|^{2}\\
- & =d(x,\mathcal{K})^{2}+2t\text{Re}(\langle x-\text{P}_{\mathcal{K}}x,y\rangle)+t^{2}\|y\|^{2}.
+f(t) & =\|x-\mathrm{P}_{\mathcal{K}}x+ty\|^{2}\\
+ & =\langle x-\mathrm{P}_{\mathcal{K}}x+ty,x-\mathrm{P}_{\mathcal{K}}x+ty\rangle\\
+ & =\|x-\mathrm{P}_{\mathcal{K}}x\|^{2}+2\mathrm{Re}(\langle x-\mathrm{P}_{\mathcal{K}}x,ty\rangle)+\|ty\|^{2}\\
+ & =\mathrm{d}(x,\mathcal{K})^{2}+2t\mathrm{Re}(\langle x-\mathrm{P}_{\mathcal{K}}x,y\rangle)+t^{2}\|y\|^{2}.
 \end{align*}
 
 \end_inset
 
-Thus, 
+So the function 
 \begin_inset Formula $f$
 \end_inset
 
- is a quadratic in 
+ is just a quadratic function in 
 \begin_inset Formula $t$
 \end_inset
 
 .
- So 
+ In particular, it is differentiable at 
+\begin_inset Formula $t=0$
+\end_inset
+
+, and since it has a global minimum at 
+\begin_inset Formula $t=0$
+\end_inset
+
+, we have
 \begin_inset Formula 
 \begin{align*}
-f'(t) & =2t\|y\|^{2}+2\text{Re}(\langle x-\text{P}_{\mathcal{K}}x,y\rangle,
+0 & =f'(t)\Big|_{t=0}\\
+ & =\left(2\mathrm{Re}(\langle x-\mathrm{P}_{\mathcal{K}}x,y\rangle)+2t\|y\|^{2}\right)\Big|_{t=0}\\
+ & =2\mathrm{Re}(\langle x-\mathrm{P}_{\mathcal{K}}x,y\rangle).
 \end{align*}
 
 \end_inset
 
-which implies 
-\begin_inset Formula $0=f'(0)=2\text{Re}(\langle x-\text{P}_{\mathcal{K}}x,y\rangle)$
-\end_inset
-
-.
- Therefore 
-\begin_inset Formula $\text{Re}\langle x-\text{P}_{\mathcal{K}}x,y\rangle=0$
+Therefore 
+\begin_inset Formula $\mathrm{Re}\langle x-\mathrm{P}_{\mathcal{K}}x,y\rangle=0$
 \end_inset
 
  for all 
@@ -5685,8 +6049,8 @@ which implies
  Note that this also implies
 \begin_inset Formula 
 \begin{align*}
-\text{Im}(\langle x-\text{P}_{\mathcal{K}}x,y\rangle) & =-\text{Re}(i\langle x-\text{P}_{\mathcal{K}}x,y\rangle)\\
- & =-\text{Re}(\langle x-\text{P}_{\mathcal{K}}x,-iy\rangle)\\
+\mathrm{Im}(\langle x-\mathrm{P}_{\mathcal{K}}x,y\rangle) & =-\mathrm{Re}(i\langle x-\mathrm{P}_{\mathcal{K}}x,y\rangle)\\
+ & =-\mathrm{Re}(\langle x-\text{P}_{\mathcal{K}}x,-iy\rangle)\\
  & =0
 \end{align*}
 
@@ -5697,11 +6061,16 @@ for all
 \end_inset
 
 .
- Combining these we have 
-\begin_inset Formula $\langle x-\text{P}_{\mathcal{K}}x,y\rangle=0$
+ Combining these together gives us 
+\begin_inset Formula $\langle x-\mathrm{P}_{\mathcal{K}}x,y\rangle=0$
+\end_inset
+
+ for all 
+\begin_inset Formula $y\in\mathcal{K}$
 \end_inset
 
 .
+ 
 \end_layout
 
 \begin_layout Standard
@@ -5716,17 +6085,13 @@ for all
 \begin_inset space ~
 \end_inset
 
-This proves that 
-\begin_inset Formula $b=\text{P}_{\mathcal{K}}x$
-\end_inset
-
- satisfies the condition in our proposition.
+This proves existence.
  To prove uniqueness, let 
-\begin_inset Formula $c\in\mathcal{K}$
+\begin_inset Formula $a\in\mathcal{K}$
 \end_inset
 
  such that 
-\begin_inset Formula $\langle x-c,y\rangle=0$
+\begin_inset Formula $\langle x-a,y\rangle=0$
 \end_inset
 
  for all 
@@ -5734,11 +6099,14 @@ This proves that
 \end_inset
 
 .
- Then 
+ Then
 \begin_inset Formula 
-\[
-\langle x-\text{P}_{\mathcal{K}}x+\text{P}_{\mathcal{K}}x-c,y\rangle=0
-\]
+\begin{align*}
+0 & =\langle x-a,y\rangle\\
+ & =\langle x-\mathrm{P}_{\mathcal{K}}x+\mathrm{P}_{\mathcal{K}}x-a,y\rangle\\
+ & =\langle x-\mathrm{P}_{\mathcal{K}}x,y\rangle+\langle\mathrm{P}_{\mathcal{K}}x-a,y\rangle\\
+ & =\langle\mathrm{P}_{\mathcal{K}}x-a,y\rangle
+\end{align*}
 
 \end_inset
 
@@ -5747,20 +6115,569 @@ for all
 \end_inset
 
 .
- Then 
-\begin_inset Formula $\langle\text{P}_{\mathcal{K}}x-c,y\rangle=0$
+ In particular, setting 
+\begin_inset Formula $y=\mathrm{P}_{\mathcal{K}}-a$
+\end_inset
+
+ gives us 
+\begin_inset Formula $\|\mathrm{P}_{\mathcal{K}}x-a\|^{2}=0$
+\end_inset
+
+, which implies 
+\begin_inset Formula $\mathrm{P}_{\mathcal{K}}x=a$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+The Orthogonal Projection Map
+\end_layout
+
+\begin_layout Standard
+The unique point 
+\begin_inset Formula $a$
+\end_inset
+
+ in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Theorem~(
+\backslash
+ref{theoremorthogonalprojectionexist})
+\end_layout
+
+\end_inset
+
+ is called the 
+\series bold
+orthogonal projection 
+\series default
+
+\begin_inset Formula $x$
+\end_inset
+
+ onto the subspace 
+\begin_inset Formula $\mathcal{K}$
+\end_inset
+
+ and is denoted by 
+\begin_inset Formula $\mathrm{P}_{\mathcal{K}}x$
+\end_inset
+
+.
+ More generally, we define the map 
+\begin_inset Formula $\mathrm{P}_{\mathcal{K}}\colon\mathcal{H}\to\mathcal{K}$
+\end_inset
+
+ by 
+\begin_inset Formula $x\mapsto\mathrm{P}_{\mathcal{K}}x$
 \end_inset
 
  for all 
-\begin_inset Formula $y\in\mathcal{K}$
+\begin_inset Formula $x\in\mathcal{H}$
 \end_inset
 
 .
- This impies 
-\begin_inset Formula $\text{P}_{\mathcal{K}}x=c$
+ The map 
+\begin_inset Formula $\mathrm{P}_{\mathcal{K}}$
+\end_inset
+
+ is called the 
+\series bold
+orthogonal projection 
+\series default
+with respect to 
+\begin_inset Formula $\mathcal{K}$
 \end_inset
 
 .
+ Actually in linear analysis, the words 
+\begin_inset Quotes eld
+\end_inset
+
+orthogonal projection
+\begin_inset Quotes erd
+\end_inset
+
+ describe a certain class of linear maps:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\backslash
+label{defnorthogonalprojection}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $\mathcal{V}$
+\end_inset
+
+ be an inner-product space and let 
+\begin_inset Formula $P\colon\mathcal{V}\to\mathcal{V}$
+\end_inset
+
+ be a linear map.
+ We say 
+\begin_inset Formula $P$
+\end_inset
+
+ is a 
+\series bold
+projection 
+\series default
+if 
+\begin_inset Formula $P^{2}=P$
+\end_inset
+
+.
+ We say 
+\begin_inset Formula $P$
+\end_inset
+
+ is an 
+\series bold
+orthogonal projection 
+\series default
+if it is a projection and it satisfies
+\begin_inset Formula 
+\[
+\langle Px,y\rangle=\langle x,Py\rangle
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $x,y\in V$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+We need to make sure that our terminology is not contradictory.
+ So we need to justify that 
+\begin_inset Formula $\mathrm{P}_{\mathcal{K}}$
+\end_inset
+
+ really is an orthononal projection in the sense of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Definition~(
+\backslash
+ref{defnorthogonalprojection})
+\end_layout
+
+\end_inset
+
+.
+ This will be established in the next proposition.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\backslash
+label{prop}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $\mathcal{H}$
+\end_inset
+
+ be a Hilbert space and let 
+\begin_inset Formula $\mathcal{K}$
+\end_inset
+
+ be a closed subspace of 
+\begin_inset Formula $\mathcal{H}$
+\end_inset
+
+.
+ Then
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\mathrm{P}_{\mathcal{K}}$
+\end_inset
+
+ is 
+\begin_inset Formula $\mathbb{C}$
+\end_inset
+
+-linear, that is, 
+\begin_inset Formula $\mathrm{P}_{\mathcal{K}}(\lambda x+\mu y)=\lambda\mathrm{P}_{\mathcal{K}}x+\mu\mathrm{P}_{\mathcal{K}}y$
+\end_inset
+
+ for all 
+\begin_inset Formula $x,y\in\mathcal{H}$
+\end_inset
+
+ and 
+\begin_inset Formula $\lambda,\mu\in\mathbb{C}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\|\mathrm{P}_{\mathcal{K}}x\|\leq\|x\|$
+\end_inset
+
+ for all 
+\begin_inset Formula $x\in\mathcal{H}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Let 
+\begin_inset Formula $x\in\mathcal{H}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\mathrm{P}_{\mathcal{K}}x=x$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $x\in\mathcal{K}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\mathrm{P}_{\mathcal{K}}$
+\end_inset
+
+ is an orthogonal projection, that is, 
+\begin_inset Formula $\mathrm{P}_{\mathcal{K}}(\mathrm{P}_{\mathcal{K}}x)=\mathrm{P}_{\mathcal{K}}x$
+\end_inset
+
+ and 
+\begin_inset Formula $\langle\mathrm{P}_{\mathcal{K}}x,y\rangle=\langle x,\mathrm{P}_{\mathcal{K}}y\rangle$
+\end_inset
+
+ for all 
+\begin_inset Formula $x,y\in\mathcal{H}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\backslash
+label{proof}
+\end_layout
+
+\end_inset
+
+ 1.
+ Let 
+\begin_inset Formula $x,y\in\mathcal{H}$
+\end_inset
+
+ and 
+\begin_inset Formula $\lambda,\mu\in\mathbb{C}$
+\end_inset
+
+.
+ Then for all 
+\begin_inset Formula $z\in\mathcal{K}$
+\end_inset
+
+, we have
+\begin_inset Formula 
+\begin{align*}
+\langle\lambda x+\mu y-\lambda\mathrm{P}_{\mathcal{K}}x-\mu\mathrm{P}_{\mathcal{K}}y,z\rangle & =\langle\lambda x-\lambda\mathrm{P}_{\mathcal{K}}x,z\rangle+\langle\mu y-\mu\mathrm{P}_{\mathcal{K}}y,z\rangle\\
+ & =\lambda\langle x-\mathrm{P}_{\mathcal{K}}x,z\rangle+\mu\langle y-\mathrm{P}_{\mathcal{K}}y,z\rangle\\
+ & =\lambda\cdot0+\mu\cdot0\\
+ & =0.
+\end{align*}
+
+\end_inset
+
+In particular, this implies 
+\begin_inset Formula 
+\[
+\lambda\mathrm{P}_{\mathcal{K}}x+\mu\mathrm{P}_{\mathcal{K}}y=\mathrm{P}_{\mathcal{K}}(\lambda x+\mu y)
+\]
+
+\end_inset
+
+by 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Proposition~(
+\backslash
+ref{theoremuniqueorthproj})
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+2.
+ Let 
+\begin_inset Formula $x\in\mathcal{H}$
+\end_inset
+
+.
+ By the Pythagorean theorem, we have 
+\begin_inset Formula 
+\begin{align*}
+\|x\|^{2} & =\|\mathrm{P}_{\mathcal{K}}x\|^{2}+\|\mathrm{P}_{\mathcal{K}}x-x\|^{2}\\
+ & \geq\|\mathrm{P}_{\mathcal{K}}x\|^{2},
+\end{align*}
+
+\end_inset
+
+which implies 
+\begin_inset Formula $\|\mathrm{P}_{\mathcal{K}}x\|\leq\|x\|$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+3.
+ Suppose 
+\begin_inset Formula $\mathrm{P}_{\mathcal{K}}x=x$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $x\in\mathcal{K}$
+\end_inset
+
+ since 
+\begin_inset Formula $\mathrm{P}_{\mathcal{K}}x\in\mathcal{K}$
+\end_inset
+
+.
+ Conversely, suppose 
+\begin_inset Formula $x\in\mathcal{K}$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\begin{align*}
+0 & =\|x-x\|\\
+ & \geq\mathrm{d}(x,\mathcal{K})\\
+ & =\|x-\mathrm{P}_{\mathcal{K}}x\|\\
+ & \geq0.
+\end{align*}
+
+\end_inset
+
+It follows that 
+\begin_inset Formula $\|x-\mathrm{P}_{\mathcal{K}}x\|=0$
+\end_inset
+
+, which implies 
+\begin_inset Formula $x=\mathrm{P}_{\mathcal{K}}x$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+4.
+ We first show 
+\begin_inset Formula $\mathrm{P}_{\mathcal{K}}$
+\end_inset
+
+ is a projection.
+ Let 
+\begin_inset Formula $x\in\mathcal{H}$
+\end_inset
+
+.
+ Then since 
+\begin_inset Formula $\mathrm{P}_{\mathcal{K}}x\in\mathcal{K}$
+\end_inset
+
+, we have 
+\begin_inset Formula $\mathrm{P}_{\mathcal{K}}(\mathrm{P}_{\mathcal{K}}x)=\mathrm{P}_{\mathcal{K}}x$
+\end_inset
+
+ by part 3.
+ Thus 
+\begin_inset Formula $\mathrm{P}_{\mathcal{K}}$
+\end_inset
+
+ is a projection.
+ Now we show it is an orthogonal projection.
+ Let 
+\begin_inset Formula $x,y\in\mathcal{H}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula 
+\begin{align*}
+0 & =\langle x-\mathrm{P}_{\mathcal{K}}x,\mathrm{P}_{\mathcal{K}}y\rangle\\
+ & =\langle x,\mathrm{P}_{\mathcal{K}}y\rangle-\langle\mathrm{P}_{\mathcal{K}}x,\mathrm{P}_{\mathcal{K}}y\rangle\\
+ & =\langle x,\mathrm{P}_{\mathcal{K}}y\rangle-\langle\mathrm{P}_{\mathcal{K}}x,(\mathrm{P}_{\mathcal{K}}y-y)+y\rangle\\
+ & =\langle x,\mathrm{P}_{\mathcal{K}}y\rangle-\langle\mathrm{P}_{\mathcal{K}}x,\mathrm{P}_{\mathcal{K}}y-y\rangle-\langle\mathrm{P}_{\mathcal{K}}x,y\rangle\\
+ & =\langle x,\mathrm{P}_{\mathcal{K}}y\rangle-\langle\mathrm{P}_{\mathcal{K}}x,y\rangle,
+\end{align*}
+
+\end_inset
+
+which implies 
+\begin_inset Formula $\langle x,\mathrm{P}_{\mathcal{K}}y\rangle=\langle\mathrm{P}_{\mathcal{K}}x,y\rangle$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $\mathrm{P}_{\mathcal{K}}$
+\end_inset
+
+ is an orthogonal projection.
  
 \begin_inset ERT
 status open
@@ -5796,12 +6713,16 @@ label{defn}
 
 \end_inset
 
- Two vectors 
+ Let 
+\begin_inset Formula $\mathcal{V}$
+\end_inset
+
+ be an inner-product space, 
 \begin_inset Formula $x,y\in\mathcal{V}$
 \end_inset
 
- and 
-\begin_inset Formula $E\subseteq\mathcal{V}$
+, and let 
+\begin_inset Formula $A,B\subseteq\mathcal{V}$
 \end_inset
 
 .
@@ -5841,19 +6762,51 @@ We say
 orthogonal to
 \series default
  
-\begin_inset Formula $E$
+\begin_inset Formula $A$
 \end_inset
 
 , denoted 
-\begin_inset Formula $x\perp E$
+\begin_inset Formula $x\perp A$
 \end_inset
 
 , if 
-\begin_inset Formula $\langle x,y\rangle=0$
+\begin_inset Formula $\langle x,a\rangle=0$
 \end_inset
 
  for all 
-\begin_inset Formula $y\in E$
+\begin_inset Formula $a\in A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+We say 
+\begin_inset Formula $A$
+\end_inset
+
+ is 
+\series bold
+orthogonal to 
+\begin_inset Formula $B$
+\end_inset
+
+
+\series default
+, denoted 
+\begin_inset Formula $A\perp B$
+\end_inset
+
+, if 
+\begin_inset Formula $\langle a,b\rangle=0$
+\end_inset
+
+ for all 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ and 
+\begin_inset Formula $b\in B$
 \end_inset
 
 .
@@ -5863,19 +6816,19 @@ orthogonal to
 The 
 \series bold
 orthogonal complement of 
-\begin_inset Formula $E$
+\begin_inset Formula $A$
 \end_inset
 
 
 \series default
 , denoted 
-\begin_inset Formula $E^{\perp}$
+\begin_inset Formula $A^{\perp}$
 \end_inset
 
 , is defined to be
 \begin_inset Formula 
 \[
-E^{\perp}:=\{x\in\mathcal{V}\mid x\perp E\}.
+A^{\perp}:=\{z\in\mathcal{V}\mid z\perp A\}.
 \]
 
 \end_inset
@@ -6025,24 +6978,8 @@ label{proof}
 
 \end_inset
 
- 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-hfill
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-We have 
+ 1.
+ We have 
 \begin_inset Formula 
 \begin{align*}
 x\in\mathcal{L}^{\perp} & \implies\langle x,y\rangle=0\text{ for all }y\in\mathcal{L}\\
@@ -6059,8 +6996,25 @@ Thus
 .
 \end_layout
 
-\begin_layout Enumerate
-First we show that 
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+2.
+ First we show that 
 \begin_inset Formula $\mathcal{K}^{\perp}$
 \end_inset
 
@@ -6161,22 +7115,56 @@ for all
  is closed.
 \end_layout
 
-\begin_layout Enumerate
-Let 
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+3.
+ Let 
 \begin_inset Formula $x\in\mathcal{H}$
 \end_inset
 
 .
  Then 
-\begin_inset Formula $x=\text{P}_{\mathcal{K}}x+x-\text{P}_{\mathcal{K}}x$
+\begin_inset Formula 
+\[
+x=\mathrm{P}_{\mathcal{K}}x+(x-\mathrm{P}_{\mathcal{K}}x),
+\]
+
 \end_inset
 
- where 
-\begin_inset Formula $\text{P}_{\mathcal{K}}x\in\mathcal{K}$
+where 
+\begin_inset Formula $\mathrm{P}_{\mathcal{K}}x\in\mathcal{K}$
 \end_inset
 
- and 
-\begin_inset Formula $x-\text{P}_{\mathcal{K}}x\in\mathcal{K}^{\perp}$
+ and where 
+\begin_inset Formula $x-\mathrm{P}_{\mathcal{K}}x\in\mathcal{K}^{\perp}$
+\end_inset
+
+ by 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Theorem~(
+\backslash
+ref{theoremuniqueorthproj})
+\end_layout
+
 \end_inset
 
 .
@@ -6200,10 +7188,14 @@ Let
 
 .
  Now suppose that 
-\begin_inset Formula $x=y+z$
+\begin_inset Formula 
+\[
+x=y+z
+\]
+
 \end_inset
 
- is another decomposition of 
+is another decomposition of 
 \begin_inset Formula $x$
 \end_inset
 
@@ -6216,31 +7208,62 @@ Let
 \end_inset
 
 .
- Then we have 
+ Then we have
 \begin_inset Formula 
 \[
-(\text{P}_{\mathcal{K}}x)+(x-\text{P}_{\mathcal{K}}x)=x=y+z
+\mathrm{P}_{\mathcal{K}}x+(x-\mathrm{P}_{\mathcal{K}}x)=x=y+z,
 \]
 
 \end_inset
 
-implies 
-\begin_inset Formula $\text{P}_{\mathcal{K}}x-y=(x-\text{P}_{\mathcal{K}}x)-z$
+which implies 
+\begin_inset Formula 
+\[
+\mathrm{P}_{\mathcal{K}}x-y=(x-\mathrm{P}_{\mathcal{K}}x)-z.
+\]
+
 \end_inset
 
- which implies 
-\begin_inset Formula $\text{P}_{\mathcal{K}}x-y\in\mathcal{K}\cap\mathcal{K}^{\perp}=\{0\}$
+In particular, we see that
+\begin_inset Formula 
+\[
+\mathrm{P}_{\mathcal{K}}x-y\in\mathcal{K}\cap\mathcal{K}^{\perp}=\{0\}\quad\text{and}\quad(x-\mathrm{P}_{\mathcal{K}}x)-z\in\mathcal{K}\cap\mathcal{K}^{\perp}=\{0\}.
+\]
+
+\end_inset
+
+So 
+\begin_inset Formula $\mathrm{P}_{\mathcal{K}}x=y$
 \end_inset
 
  and 
-\begin_inset Formula $(x-\text{P}_{\mathcal{K}}x)-z\in\mathcal{K}\cap\mathcal{K}^{\perp}=\{0\}$
+\begin_inset Formula $(x-\mathrm{P}_{\mathcal{K}}x)=z$
 \end_inset
 
 .
+ This establishes uniqueness.
+ 
 \end_layout
 
-\begin_layout Enumerate
-Let 
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+4.
+ Let 
 \begin_inset Formula $x\in\mathcal{K}$
 \end_inset
 
@@ -6280,8 +7303,8 @@ Let
  In particular, we have
 \begin_inset Formula 
 \begin{align*}
-\|x-\text{P}_{\mathcal{K}}x\|^{2} & =\langle x-\text{P}_{\mathcal{K}}x,x-\text{P}_{\mathcal{K}}x\rangle\\
- & =\langle x,x-\text{P}_{\mathcal{K}}x\rangle-\langle\text{P}_{\mathcal{K}}x,x-\text{P}_{\mathcal{K}}x\rangle\\
+\|x-\mathrm{P}_{\mathcal{K}}x\|^{2} & =\langle x-\mathrm{P}_{\mathcal{K}}x,x-\mathrm{P}_{\mathcal{K}}x\rangle\\
+ & =\langle x,x-\mathrm{P}_{\mathcal{K}}x\rangle-\langle\mathrm{P}_{\mathcal{K}}x,x-\mathrm{P}_{\mathcal{K}}x\rangle\\
  & =0-0\\
  & =0,
 \end{align*}
@@ -6289,7 +7312,7 @@ Let
 \end_inset
 
 which implies 
-\begin_inset Formula $x=\text{P}_{\mathcal{K}}x$
+\begin_inset Formula $x=\mathrm{P}_{\mathcal{K}}x$
 \end_inset
 
 .
@@ -6303,373 +7326,6 @@ which implies
 
 .
  
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{proof}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection
-The Orthogonal Projection Map
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{defn}
-\backslash
-label{defn}
-\end_layout
-
-\end_inset
-
- We define a map 
-\begin_inset Formula $\mathrm{P}_{\mathcal{K}}\colon\mathcal{H}\to\mathcal{H}$
-\end_inset
-
- by 
-\begin_inset Formula $\text{P}_{\mathcal{K}}(x)=\text{P}_{\mathcal{K}}x$
-\end_inset
-
- for all 
-\begin_inset Formula $x\in\mathcal{H}$
-\end_inset
-
-.
- We call 
-\begin_inset Formula $\text{P}_{\mathcal{K}}$
-\end_inset
-
- the 
-\series bold
-orthogonal projection map
-\series default
-.
- 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{defn}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{prop}
-\backslash
-label{prop}
-\end_layout
-
-\end_inset
-
- Let 
-\begin_inset Formula $\mathcal{H}$
-\end_inset
-
- be a Hilbert space and let 
-\begin_inset Formula $\mathcal{K}$
-\end_inset
-
- be a closed subspace of 
-\begin_inset Formula $\mathcal{H}$
-\end_inset
-
-.
- Then
-\end_layout
-
-\begin_layout Enumerate
-\begin_inset Formula $\text{P}_{\mathcal{K}}(\lambda x+\mu y)=\lambda\text{P}_{\mathcal{K}}(x)+\mu\text{P}_{\mathcal{K}}(y)$
-\end_inset
-
- for all 
-\begin_inset Formula $x,y\in\mathcal{H}$
-\end_inset
-
- and 
-\begin_inset Formula $\lambda,\mu\in\mathbb{C}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-\begin_inset Formula $\|\text{P}_{\mathcal{K}}x\|\leq\|x\|$
-\end_inset
-
- for all 
-\begin_inset Formula $x\in\mathcal{H}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-Let 
-\begin_inset Formula $x\in\mathcal{H}$
-\end_inset
-
-.
- Then 
-\begin_inset Formula $\text{P}_{\mathcal{K}}x=x$
-\end_inset
-
- if and only if 
-\begin_inset Formula $x\in\mathcal{K}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-\begin_inset Formula $\text{P}_{\mathcal{K}}(\text{P}_{\mathcal{K}}(x))=\text{P}_{\mathcal{K}}(x)$
-\end_inset
-
- for all 
-\begin_inset Formula $x\in\mathcal{H}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-\begin_inset Formula $\langle\text{P}_{\mathcal{K}}x,y\rangle=\langle x,\text{P}_{\mathcal{K}}y\rangle$
-\end_inset
-
- for all 
-\begin_inset Formula $x,y\in\mathcal{H}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{prop}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{proof}
-\backslash
-label{proof}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-hfill
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Let 
-\begin_inset Formula $x,y\in\mathcal{H}$
-\end_inset
-
- and 
-\begin_inset Formula $\lambda,\mu\in\mathbb{C}$
-\end_inset
-
-.
- Note that 
-\begin_inset Formula 
-\begin{align*}
-\langle\lambda x+\mu y-\lambda\text{P}_{\mathcal{K}}x-\mu\text{P}_{\mathcal{K}}y,z\rangle & =\langle\lambda x-\lambda\text{P}_{\mathcal{K}}x,z\rangle+\langle\mu y-\mu\text{P}_{\mathcal{K}}y,z\rangle\\
- & =\lambda\langle x-\text{P}_{\mathcal{K}}x,z\rangle+\mu\langle y-\text{P}_{\mathcal{K}}y,z\rangle\\
- & =\lambda\cdot0+\mu\cdot0\\
- & =0
-\end{align*}
-
-\end_inset
-
-for all 
-\begin_inset Formula $z\in\mathcal{K}$
-\end_inset
-
-.
- In particular, this implies 
-\begin_inset Formula 
-\[
-\lambda\text{P}_{\mathcal{K}}x+\mu\text{P}_{\mathcal{K}}y=\text{P}_{\mathcal{K}}(\lambda x+\mu y)
-\]
-
-\end_inset
-
-by 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-Proposition~(
-\backslash
-ref{propuniqueorthproj})
-\end_layout
-
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-Let 
-\begin_inset Formula $x\in\mathcal{H}$
-\end_inset
-
-.
- By the Pythagorean theorem, we have 
-\begin_inset Formula 
-\begin{align*}
-\|x\|^{2} & =\|\text{P}_{\mathcal{K}}x\|^{2}+\|\text{P}_{\mathcal{K}}x-x\|^{2}\\
- & \geq\|\text{P}_{\mathcal{K}}x\|^{2},
-\end{align*}
-
-\end_inset
-
-which implies 
-\begin_inset Formula $\|\text{P}_{\mathcal{K}}x\|\leq\|x\|$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-If 
-\begin_inset Formula $\text{P}_{\mathcal{K}}x=x$
-\end_inset
-
-, then it is clear that 
-\begin_inset Formula $x\in\mathcal{K}$
-\end_inset
-
- since 
-\begin_inset Formula $\text{P}_{\mathcal{K}}x\in\mathcal{K}$
-\end_inset
-
-, so suppose 
-\begin_inset Formula $x\in\mathcal{K}$
-\end_inset
-
-.
- Then
-\begin_inset Formula 
-\begin{align*}
-0 & =\|x-x\|\\
- & \geq d(x,\mathcal{K})\\
- & =\|x-\text{P}_{\mathcal{K}}x\|\\
- & \geq0
-\end{align*}
-
-\end_inset
-
-implies 
-\begin_inset Formula $\|x-x\|=d(x,\mathcal{K})$
-\end_inset
-
- and 
-\begin_inset Formula $\|x-\text{P}_{\mathcal{K}}x\|=d(x,\mathcal{K})$
-\end_inset
-
-, and so by uniqueness of 
-\begin_inset Formula $\text{P}_{\mathcal{K}}x$
-\end_inset
-
-, we must have 
-\begin_inset Formula $x=\text{P}_{\mathcal{K}}x$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-This follows from 3.
-\end_layout
-
-\begin_layout Enumerate
-Let 
-\begin_inset Formula $x,y\in\mathcal{H}$
-\end_inset
-
-.
- Then 
-\begin_inset Formula 
-\begin{align*}
-0 & =\langle x-\text{P}_{\mathcal{K}}x,\text{P}_{\mathcal{K}}y\rangle\\
- & =\langle x,\text{P}_{\mathcal{K}}y\rangle-\langle\text{P}_{\mathcal{K}}x,\text{P}_{\mathcal{K}}y\rangle\\
- & =\langle x,\text{P}_{\mathcal{K}}y\rangle-\langle\text{P}_{\mathcal{K}}x,(\text{P}_{\mathcal{K}}y-y)+y\rangle\\
- & =\langle x,\text{P}_{\mathcal{K}}y\rangle-\langle\text{P}_{\mathcal{K}}x,y\rangle,
-\end{align*}
-
-\end_inset
-
-which implies 
-\begin_inset Formula $\langle x,\text{P}_{\mathcal{K}}y\rangle=\langle\text{P}_{\mathcal{K}}x,y\rangle$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
 \begin_inset ERT
 status open
 
@@ -8858,6 +9514,15 @@ label{defn}
 
 \end_inset
 
+ Let 
+\begin_inset Formula $\mathcal{U}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{V}$
+\end_inset
+
+ be normed linear spaces.
  A 
 \series bold
 bounded operator 
@@ -8900,6 +9565,218 @@ status open
 
 \backslash
 end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Composition of Bounded Operators is Bounded
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\backslash
+label{propcomp}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $T\colon\mathcal{H}_{1}\to\mathcal{H}_{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $S\colon\mathcal{H}\to\mathcal{H}$
+\end_inset
+
+ be two bounded operators.
+ Then 
+\begin_inset Formula $ST$
+\end_inset
+
+ is bounded
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $TS$
+\end_inset
+
+ is bounded and 
+\begin_inset Formula $\|TS\|\leq\|T\|\|S\|$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $(TS)^{*}=S^{*}T^{*}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+1.
+ Let 
+\begin_inset Formula $x\in\mathcal{H}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\|x\|=1$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\begin{align*}
+\|TSx\| & \leq\|T\|\|Sx\|\\
+ & \leq\|T\|\|S\|\|x\|\\
+ & =\|T\|\|S\|.
+\end{align*}
+
+\end_inset
+
+Thus 
+\begin_inset Formula $TS$
+\end_inset
+
+ is bounded and 
+\begin_inset Formula $\|TS\|\leq\|T\|\|S\|$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+2.
+ Let 
+\begin_inset Formula $y\in\mathcal{H}$
+\end_inset
+
+.
+ Then for all 
+\begin_inset Formula $x\in\mathcal{H}$
+\end_inset
+
+, we have
+\begin_inset Formula 
+\begin{align*}
+\langle x,(TS)^{*}y\rangle & =\langle TSx,y\rangle\\
+ & =\langle Sx,T^{*}y\rangle\\
+ & =\langle x,S^{*}T^{*}y\rangle.
+\end{align*}
+
+\end_inset
+
+In particular, this implies 
+\begin_inset Formula $(TS)^{*}y=S^{*}T^{*}y$
+\end_inset
+
+ for all 
+\begin_inset Formula $y\in\mathcal{H}$
+\end_inset
+
+, which implies 
+\begin_inset Formula $(TS)^{*}=S^{*}T^{*}$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
 \end_layout
 
 \end_inset
@@ -9820,69 +10697,19 @@ label{proof}
 
 \end_inset
 
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-hfill
-\end_layout
-
+ We may assume that 
+\begin_inset Formula $T\neq0$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-hfill
-\end_layout
-
+ since the theorem is obvious in this case.
+ That 1 implies 2 is clear.
+ Let us show that 2 implies 3.
+ Assume 
+\begin_inset Formula $T$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-(1
-\begin_inset Formula $\implies$
-\end_inset
-
-2) Clear.
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-hfill
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-(2
-\begin_inset Formula $\implies$
-\end_inset
-
-3) Let 
-\begin_inset Formula $\varepsilon=1$
+ is continous at 
+\begin_inset Formula $0$
 \end_inset
 
 .
@@ -9898,8 +10725,16 @@ hfill
 \begin_inset Formula $\|Tx\|<1$
 \end_inset
 
-.
- Let 
+ (we can do this since 
+\begin_inset Formula $T$
+\end_inset
+
+ is continuous at 
+\begin_inset Formula $0$
+\end_inset
+
+).
+ Then for any nonzero 
 \begin_inset Formula $y\in\mathcal{U}$
 \end_inset
 
@@ -9907,31 +10742,21 @@ hfill
 \begin_inset Formula $\|y\|\leq1$
 \end_inset
 
-.
- Then 
+, we have
 \begin_inset Formula 
 \begin{align*}
-\left\Vert \frac{\delta}{2}y\right\Vert  & =\frac{\delta}{2}\|y\|\\
- & <\delta
+\|Ty\| & =\frac{2\delta}{2\delta}\|Ty\|\\
+ & =\frac{2}{\delta}\|T(\delta y/2)\|\\
+ & <\frac{2}{\delta}.
 \end{align*}
 
 \end_inset
 
-implies 
-\begin_inset Formula 
-\begin{align*}
-\frac{\delta}{2}\|Ty\| & =\left\Vert T\left(\frac{\delta}{2}y\right)\right\Vert \\
- & <1
-\end{align*}
-
+It follows that 
+\begin_inset Formula $\|T\|<2/\delta$
 \end_inset
 
-which implies 
-\begin_inset Formula $\|Ty\|<2/\delta$
-\end_inset
-
-.
- Thus 
+ which implies 
 \begin_inset Formula $T$
 \end_inset
 
@@ -9940,45 +10765,28 @@ which implies
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-hfill
-\end_layout
-
+\begin_inset space ~
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-(3
-\begin_inset Formula $\implies$
+\begin_inset space ~
 \end_inset
 
-1) If 
-\begin_inset Formula $T=0$
+
+\begin_inset space ~
 \end_inset
 
- then it is obvious that 
+To finish the proof, we just need to show 3 implies 1.
+ Assume 
 \begin_inset Formula $T$
 \end_inset
 
- is uniformly continuous, so assume 
-\begin_inset Formula $T\neq0$
-\end_inset
-
-.
+ is bounded.
  Let 
 \begin_inset Formula $\varepsilon>0$
 \end_inset
 
-.
- Choose 
+ and choose 
 \begin_inset Formula $\delta=\varepsilon/\|T\|$
 \end_inset
 
@@ -9998,10 +10806,12 @@ hfill
 
 \end_inset
 
+It follows that 
+\begin_inset Formula $T$
+\end_inset
 
-\end_layout
-
-\begin_layout Standard
+ is uniformly continuous.
+ 
 \begin_inset ERT
 status open
 
@@ -10242,6 +11052,348 @@ end{rem}
 
 \end_layout
 
+\begin_layout Subsection
+Examples of Bounded Operators
+\end_layout
+
+\begin_layout Subsubsection
+Multiplication by Continuous Function is Bounded Operator
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\backslash
+label{prop}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $k\in C[a,b]$
+\end_inset
+
+.
+ Then the operator 
+\begin_inset Formula $T\colon C[a,b]\to C[a,b]$
+\end_inset
+
+ defined by
+\begin_inset Formula 
+\[
+Tf=kf
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $f\in C[a,b]$
+\end_inset
+
+ is bounded.
+ It's norm will be explicitly computed in the proof below.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\backslash
+label{proof}
+\end_layout
+
+\end_inset
+
+ We first show it is linear.
+ Let 
+\begin_inset Formula $f,g\in C[a,b]$
+\end_inset
+
+ and let 
+\begin_inset Formula $\lambda,\mu\in\mathbb{C}$
+\end_inset
+
+.
+ Then we have
+\begin_inset Formula 
+\begin{align*}
+T(\lambda f+\mu g) & =k(\lambda f+\mu g)\\
+ & =\lambda kf+\mu kg\\
+ & =\lambda T(f)+\mu T(g).
+\end{align*}
+
+\end_inset
+
+Thus, 
+\begin_inset Formula $T$
+\end_inset
+
+ is linear.
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Next we show it is bounded.
+ If 
+\begin_inset Formula $k=0$
+\end_inset
+
+, then 
+\begin_inset Formula $\|T\|=0$
+\end_inset
+
+, so assume 
+\begin_inset Formula $k\neq0$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $k$
+\end_inset
+
+ is continuous on the compact interval 
+\begin_inset Formula $[a,b]$
+\end_inset
+
+, there exists 
+\begin_inset Formula $c\in[a,b]$
+\end_inset
+
+ such that 
+\begin_inset Formula $|k(x)|\leq|k(c)|$
+\end_inset
+
+ for all 
+\begin_inset Formula $x\in[a,b]$
+\end_inset
+
+.
+ Choose such a 
+\begin_inset Formula $c\in[a,b]$
+\end_inset
+
+ and let 
+\begin_inset Formula $f\in C[a,b]$
+\end_inset
+
+ such that 
+\begin_inset Formula $\|f\|\leq1$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\begin{align*}
+\|Tf\| & =\|kf\|\\
+ & =\sqrt{\int_{a}^{b}|k(x)|^{2}|f(x)|^{2}dx}\\
+ & \leq|k(c)|\sqrt{\int_{a}^{b}|f(x)|^{2}dx}\\
+ & \leq|k(c)|.
+\end{align*}
+
+\end_inset
+
+implies 
+\begin_inset Formula $\|T\|\leq|k(c)|$
+\end_inset
+
+, and hence 
+\begin_inset Formula $T$
+\end_inset
+
+ is bounded.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+To find the norm of 
+\begin_inset Formula $T$
+\end_inset
+
+, let 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ such that 
+\begin_inset Formula $\varepsilon<|k(c)|$
+\end_inset
+
+.
+ Without loss of generality, assume that 
+\begin_inset Formula $c<b$
+\end_inset
+
+ (if 
+\begin_inset Formula $c=b$
+\end_inset
+
+, then we swap the role of 
+\begin_inset Formula $b$
+\end_inset
+
+ with 
+\begin_inset Formula $a$
+\end_inset
+
+ in the argument which follows).
+ Choose 
+\begin_inset Formula $c'\in(c,b)$
+\end_inset
+
+ such that 
+\begin_inset Formula $|k(x)|\geq|k(c)|-\varepsilon$
+\end_inset
+
+ for all 
+\begin_inset Formula $x\in(c,c')$
+\end_inset
+
+ (such a 
+\begin_inset Formula $c'$
+\end_inset
+
+ must exist since 
+\begin_inset Formula $k$
+\end_inset
+
+ is continuous) and choose 
+\begin_inset Formula $f$
+\end_inset
+
+ to be a nonzero continuous function in 
+\begin_inset Formula $C[a,b]$
+\end_inset
+
+ which vanishes outside the interval 
+\begin_inset Formula $(c,c')$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\[
+|k(x)||f(x)|\geq(|k(c)|-\varepsilon)|f(x)|
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $x\in(a,b)$
+\end_inset
+
+.
+ In particular, this implies
+\begin_inset Formula 
+\begin{align*}
+\|Tf\| & =\|kf\|\\
+ & =\sqrt{\int_{a}^{b}|k(x)f(x)|^{2}dx}\\
+ & \geq\sqrt{\int_{a}^{b}(|k(c)|-\varepsilon)|f(x)|^{2}dx}\\
+ & =(|k(c)|-\varepsilon)\sqrt{\int_{a}^{b}|f(x)|^{2}dx}\\
+ & =(|k(c)|-\varepsilon)\|f\|.
+\end{align*}
+
+\end_inset
+
+Therefore 
+\begin_inset Formula $\|T(f/\|f\|)\|\geq|k(c)|-\varepsilon$
+\end_inset
+
+, and this implies
+\begin_inset Formula 
+\begin{equation}
+\|T\|\geq|k(c)|-\varepsilon\label{ini-1}
+\end{equation}
+
+\end_inset
+
+Since 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{ini})
+\end_layout
+
+\end_inset
+
+ holds for all 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+, we must have 
+\begin_inset Formula $\|T\|\geq|k(c)|$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $\|T\|=|k(c)|$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsubsection
 Orthogonal Projections are Bounded
 \end_layout
@@ -10261,26 +11413,30 @@ label{example}
 
 \end_inset
 
- For any 
+ Let 
+\begin_inset Formula $\mathcal{H}$
+\end_inset
+
+ be a Hilbert space and let 
 \begin_inset Formula $\mathcal{K}$
 \end_inset
 
- closed subspace of a Hilbert space 
+ be a closed subspace of 
 \begin_inset Formula $\mathcal{H}$
 \end_inset
 
 .
- The orthogonal projection 
-\begin_inset Formula $\text{P}_{\mathcal{K}}\colon\mathcal{H}\to\mathcal{H}$
+ Then the orthogonal projection map 
+\begin_inset Formula $\mathrm{P}_{\mathcal{K}}\colon\mathcal{H}\to\mathcal{K}$
 \end_inset
 
  is a bounded operator.
  This is because 
-\begin_inset Formula $\text{P}_{\mathcal{K}}$
+\begin_inset Formula $\mathrm{P}_{\mathcal{K}}$
 \end_inset
 
  is a linear map and 
-\begin_inset Formula $\|\text{P}_{\mathcal{K}}x\|\leq\|x\|$
+\begin_inset Formula $\|\mathrm{P}_{\mathcal{K}}x\|\leq\|x\|$
 \end_inset
 
  for all 
@@ -10288,43 +11444,26 @@ label{example}
 \end_inset
 
 .
- If 
+ In particular, If 
 \begin_inset Formula $\mathcal{K}\neq0$
 \end_inset
 
 , then 
-\begin_inset Formula $\|\text{P}_{\mathcal{K}}\|=1$
+\begin_inset Formula $\|\mathrm{P}_{\mathcal{K}}\|\leq1$
 \end_inset
 
 .
- Indeed, first note that 
-\begin_inset Formula 
-\[
-\|\text{P}_{\mathcal{K}}\|=\sup\{\|\text{P}_{\mathcal{K}}x\|\mid\|x\|\leq1\}\leq1.
-\]
-
+ In fact, we have equality here: choose any nonzero 
+\begin_inset Formula $x\in\mathcal{K}$
 \end_inset
 
-To see that 
-\begin_inset Formula $\|\text{P}_{\mathcal{K}}\|=1$
-\end_inset
-
-, let 
-\begin_inset Formula $x\in\mathcal{K}\backslash\{0\}$
+ such that 
+\begin_inset Formula $\|x\|=1$
 \end_inset
 
 .
- Then
-\begin_inset Formula 
-\begin{align*}
-\|\text{P}_{\mathcal{K}}(x/\|x\|)\| & =\|x/\|x\|\|\\
- & =1
-\end{align*}
-
-\end_inset
-
-implies 
-\begin_inset Formula $\|\text{P}_{\mathcal{K}}x\|=\|x\|$
+ Then 
+\begin_inset Formula $\|\mathrm{P}_{\mathcal{K}}x\|=1$
 \end_inset
 
 .
@@ -10658,115 +11797,6 @@ Riesz Representation Theorem
 \end_layout
 
 \begin_layout Standard
-The above example can be generalized as follows:
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{example}
-\backslash
-label{exampleriesz}
-\end_layout
-
-\end_inset
-
- Let 
-\begin_inset Formula $\mathcal{H}$
-\end_inset
-
- be a Hilbert space and let 
-\begin_inset Formula $y\in\mathcal{H}$
-\end_inset
-
-.
- Define 
-\begin_inset Formula $\ell_{y}\colon\mathcal{H}\to\mathbb{C}$
-\end_inset
-
- by
-\begin_inset Formula 
-\[
-\ell_{y}(x)=\langle x,y\rangle
-\]
-
-\end_inset
-
-for all 
-\begin_inset Formula $x\in\mathcal{H}$
-\end_inset
-
-.
- It is straightforward to check that 
-\begin_inset Formula $\ell_{y}$
-\end_inset
-
- is linear.
- To see that 
-\begin_inset Formula $\ell_{y}$
-\end_inset
-
- is bounded, let 
-\begin_inset Formula $x\in\overline{B}_{0}(1)$
-\end_inset
-
-.
- Then
-\begin_inset Formula 
-\begin{align*}
-\|\ell_{y}(x)\| & =|\langle x,y\rangle|\\
- & \leq\|x\|\|y\|\\
- & \leq\|y\|.
-\end{align*}
-
-\end_inset
-
-Thus 
-\begin_inset Formula $\|\ell_{y}\|\leq\|y\|$
-\end_inset
-
-.
- Setting 
-\begin_inset Formula $x=y/\|y\|$
-\end_inset
-
- implies
-\begin_inset Formula 
-\begin{align*}
-\left\Vert \ell_{y}\left(\frac{y}{\|y\|}\right)\right\Vert  & =\left|\left\langle \frac{y}{\|y\|},y\right\rangle \right|\\
- & =\frac{1}{\|y\|}\langle y,y\rangle\\
- & =\|y\|,
-\end{align*}
-
-\end_inset
-
-and this implies 
-\begin_inset Formula $\|\ell_{y}\|=\|y\|$
-\end_inset
-
-.
- 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{example}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 \begin_inset ERT
 status open
 
@@ -10798,8 +11828,8 @@ label{theorem}
 \begin_inset Formula $\ell=\ell_{y}$
 \end_inset
 
-, i.e.
- 
+.
+ In other words, we have
 \begin_inset Formula 
 \[
 \ell(x)=\langle x,y\rangle
@@ -10848,36 +11878,17 @@ label{proof}
 
 \end_inset
 
- We proved the moreover part in the previous example.
- For uniqueness, assume there are 
-\begin_inset Formula $y_{1}\neq y_{2}$
+ If 
+\begin_inset Formula $\ell=0$
 \end_inset
 
- such that 
-\begin_inset Formula 
-\[
-\ell(x)=\langle x,y_{1}\rangle=\langle x,y_{2}\rangle
-\]
-
-\end_inset
-
-for all 
-\begin_inset Formula $x\in\mathcal{H}$
+ then the theorem is clear, so assume 
+\begin_inset Formula $\ell\neq0$
 \end_inset
 
 .
- Then 
-\begin_inset Formula $y_{1}=y_{2}$
-\end_inset
-
- since 
-\begin_inset Formula $\langle\cdot,\cdot\rangle$
-\end_inset
-
- is positive-definite.
- Contradiction.
- For existence, let 
-\begin_inset Formula $\mathcal{K}=\text{Ker}(\ell)$
+ Denote 
+\begin_inset Formula $\mathcal{K}=\ker\ell$
 \end_inset
 
 .
@@ -10885,13 +11896,21 @@ for all
 \begin_inset Formula $\mathcal{K}$
 \end_inset
 
- is a closed subspace.
- Let 
-\begin_inset Formula $z\in\mathcal{K}^{\perp}\backslash\{0\}$
+ is a closed proper subspace of 
+\begin_inset Formula $\mathcal{H}$
 \end_inset
 
 .
- Then 
+ Choose a nonzero vector 
+\begin_inset Formula $z$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathcal{K}^{\perp}$
+\end_inset
+
+.
+ Note that 
 \begin_inset Formula $\ell(z)\neq0$
 \end_inset
 
@@ -10900,28 +11919,32 @@ for all
 \end_inset
 
 .
- For any 
+ Now for any 
 \begin_inset Formula $x\in\mathcal{H}$
 \end_inset
 
- we have 
+, we can express it as
 \begin_inset Formula 
 \begin{align}
-x & =\left(x-\frac{\ell(x)}{\ell(z)}\cdot z\right)+\frac{\ell(x)}{\ell(z)}\cdot z\label{eq:riesz}
+x & =\left(x-\frac{\ell(x)}{\ell(z)}z\right)+\frac{\ell(x)}{\ell(z)}z\label{eq:riesz-1}
 \end{align}
 
 \end_inset
 
 where 
-\begin_inset Formula $x-\frac{\ell(x)}{\ell(z)}\cdot z\in\mathcal{K}$
+\begin_inset Formula $x-(\ell(x)/\ell(z))z\in\mathcal{K}$
 \end_inset
 
- and 
-\begin_inset Formula $\frac{\ell(x)}{\ell(z)}\cdot z\in\mathcal{K}^{\perp}$
+ and where 
+\begin_inset Formula $(\ell(x)/\ell(z))z\in\mathcal{K}^{\perp}$
 \end_inset
 
 .
- By taking the inner product of both sides of 
+ Applying 
+\begin_inset Formula $\langle\cdot,z\rangle$
+\end_inset
+
+ to both sides of 
 \begin_inset ERT
 status open
 
@@ -10934,32 +11957,150 @@ ref{eq:riesz})
 
 \end_inset
 
- with 
-\begin_inset Formula $z$
-\end_inset
-
-, we obtain 
+ gives us
 \begin_inset Formula 
 \begin{align*}
-\langle x,z\rangle & =\left\langle x-\frac{\ell(x)}{\ell(z)}\cdot z,z\right\rangle +\left\langle \frac{\ell(x)}{\ell(z)}\cdot z,z\right\rangle \\
- & =0+\frac{\ell(x)}{\ell(z)}\|z\|^{2}
+\langle x,z\rangle & =\left\langle x-\frac{\ell(x)}{\ell(z)}z,z\right\rangle +\left\langle \frac{\ell(x)}{\ell(z)}z,z\right\rangle \\
+ & =\left\langle \frac{\ell(x)}{\ell(z)}z,z\right\rangle \\
+ & =\frac{\ell(x)}{\ell(z)}\|z\|^{2}.
 \end{align*}
 
 \end_inset
 
-implies 
+In particular, we see that
+\begin_inset Formula 
+\begin{align*}
+\ell(x) & =\frac{\ell(z)}{\|z\|^{2}}\langle x,z\rangle\\
+ & =\left\langle x,\frac{\overline{\ell(z)}}{\|z\|^{2}}z\right\rangle .
+\end{align*}
+
+\end_inset
+
+So setting 
+\begin_inset Formula $y=(\overline{\ell(z)}/\|z\|^{2})z$
+\end_inset
+
+, it follows that that 
+\begin_inset Formula $\ell=\ell_{y}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+This proves the existence of 
+\begin_inset Formula $y\in\mathcal{H}$
+\end_inset
+
+.
+ To show uniqueness, suppose 
+\begin_inset Formula $y'\in\mathcal{H}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\ell_{y}=\ell=\ell_{y'}$
+\end_inset
+
+.
+ Then
 \begin_inset Formula 
 \[
-\ell(x)=\frac{\ell(z)}{\|z\|^{2}}\langle x,z\rangle=\left\langle x,\frac{\overline{\ell(z)}}{\|z\|^{2}}z\right\rangle 
+\langle x,y\rangle=\ell(x)=\langle x,y'\rangle
 \]
 
 \end_inset
 
-Setting 
-\begin_inset Formula $y=\frac{\overline{\ell(z)}}{\|z\|^{2}}z$
+for all 
+\begin_inset Formula $x\in\mathcal{H}$
 \end_inset
 
- gives us our desired theorem.
+.
+ However since 
+\begin_inset Formula $\langle\cdot,\cdot\rangle$
+\end_inset
+
+ is positive-definite, this implies 
+\begin_inset Formula $y=y'$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Finally, we need to check that 
+\begin_inset Formula $\|\ell\|=\|y\|$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $x\in\mathcal{H}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\|x\|\leq1$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\begin{align*}
+|\ell(x)| & =|\langle x,y\rangle|\\
+ & \leq\|x\|\|y\|\\
+ & =\|y\|.
+\end{align*}
+
+\end_inset
+
+Thus 
+\begin_inset Formula $\|\ell\|\leq\|y\|$
+\end_inset
+
+.
+ To see that equality is achieved, consider 
+\begin_inset Formula $x=y/\|y\|$
+\end_inset
+
+.
+ In this case, we have
+\begin_inset Formula 
+\begin{align*}
+\left|\ell\left(\frac{y}{\|y\|}\right)\right| & =\frac{1}{\|y\|}|\ell(y)|\\
+ & =\frac{1}{\|y\|}|\langle y,y\rangle|\\
+ & =\frac{1}{\|y\|}\|y\|^{2}\\
+ & =\|y\|.
+\end{align*}
+
+\end_inset
+
+It follows that 
+\begin_inset Formula $\|\ell\|=\|y\|$
+\end_inset
+
+.
  
 \begin_inset ERT
 status open
@@ -11183,118 +12324,76 @@ label{proof}
 
 \end_inset
 
- Let 
-\begin_inset Formula $y\in\mathcal{H}_{2}$
+ We define 
+\begin_inset Formula $T^{*}\colon\mathcal{H}_{2}\to\mathcal{H}_{1}$
 \end_inset
 
-.
- Define 
-\begin_inset Formula $\ell_{y}\colon\mathcal{H}_{2}\to\mathbb{C}$
+ as follows: Let 
+\begin_inset Formula $z\in\mathcal{H}_{2}$
 \end_inset
 
- by
-\begin_inset Formula 
-\[
-\ell_{y}(x)=\langle Tx,y\rangle_{\mathcal{H}_{2}}
-\]
-
-\end_inset
-
-for all 
-\begin_inset Formula $x\in\mathcal{H}_{1}$
-\end_inset
-
-.
- Clearly 
-\begin_inset Formula $\ell_{y}$
-\end_inset
-
- is linear.
- Also
-\begin_inset Formula 
-\begin{align*}
-|\ell_{y}(x)| & =|\langle Tx,y\rangle|\\
- & \leq\|Tx\|\|y\|\\
- & \leq\|T\|\|x\|\|y\|,
-\end{align*}
-
-\end_inset
-
-so 
-\begin_inset Formula $\ell_{y}$
-\end_inset
-
- is bounded and 
-\begin_inset Formula $\|\ell_{y}\|\leq\|T\|\|y\|$
-\end_inset
-
-.
- By the Riesz representation theorem, there exists a unique 
-\begin_inset Formula $z_{y}\in\mathcal{H}_{1}$
-\end_inset
-
- such that 
-\begin_inset Formula 
-\[
-\ell_{y}(x)=\langle x,z_{y}\rangle\quad\text{and}\quad\|\ell_{y}\|=\|z_{y}\|.
-\]
-
-\end_inset
-
-Now define 
-\begin_inset Formula $T^{*}y=z_{y}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-We first show 
-\begin_inset Formula $T^{*}$
-\end_inset
-
- is linear.
- Let 
-\begin_inset Formula $\alpha,\beta\in\mathbb{C}$
-\end_inset
-
- and 
-\begin_inset Formula $y,z\in\mathcal{H}_{2}$
-\end_inset
-
-.
- Then
-\begin_inset Formula 
-\begin{align*}
-\langle x,T^{*}(\alpha y+\beta z)\rangle & =\langle Tx,\alpha y+\beta z\rangle\\
- & =\overline{\alpha}\langle Tx,y\rangle+\overline{\beta}\langle Tx,z\rangle\\
- & =\overline{\alpha}\langle x,T^{*}y\rangle+\overline{\beta}\langle x,T^{*}z\rangle\\
- & =\langle x,\alpha T^{*}y+\beta T^{*}z\rangle
-\end{align*}
-
-\end_inset
-
-for all 
-\begin_inset Formula $x\in\mathcal{H}_{1}$
+ and set 
+\begin_inset Formula $\ell=\ell_{z}\circ T$
 \end_inset
 
 .
  Thus 
-\begin_inset Formula $T^{*}(\alpha y+\beta z)=\alpha T^{*}y+\beta T^{*}z$
+\begin_inset Formula $\ell\colon\mathcal{H}_{2}\to\mathbb{C}$
+\end_inset
+
+ is defined by
+\begin_inset Formula 
+\[
+\ell(x)=\langle Tx,z\rangle_{\mathcal{H}_{2}}
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $x\in\mathcal{H}_{1}$
 \end_inset
 
 .
+ Since 
+\begin_inset Formula $\ell$
+\end_inset
+
+ is a composition of bounded operators, it must also be a bounded operator
+ with 
+\begin_inset Formula 
+\[
+\|\ell\|\leq\|T\|\|\ell_{z}\|=\|T\|\|z\|.
+\]
+
+\end_inset
+
+By the Riesz representation theorem, there exists a unique 
+\begin_inset Formula $y\in\mathcal{H}_{1}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\ell=\ell_{y}$
+\end_inset
+
+.
+ We set
+\begin_inset Formula 
+\[
+T^{*}z=y.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Observe that 
+\begin_inset Formula $T^{*}$
+\end_inset
+
+ is well-defined because of the uniqueness part of the Riesz representation
+ theorem!
 \end_layout
 
 \begin_layout Standard
@@ -11309,37 +12408,101 @@ for all
 \begin_inset space ~
 \end_inset
 
-Next we show 
+Let us show that 
 \begin_inset Formula $T^{*}$
 \end_inset
 
- is bounded.
+ is 
+\begin_inset Formula $\mathbb{C}$
+\end_inset
+
+-linear.
  Let 
-\begin_inset Formula $y\in\mathcal{H}_{2}$
+\begin_inset Formula $\alpha,\alpha'\in\mathbb{C}$
+\end_inset
+
+ and let 
+\begin_inset Formula $z,z'\in\mathcal{H}_{2}$
 \end_inset
 
 .
- Then 
+ Then we have
 \begin_inset Formula 
 \begin{align*}
-\|T^{*}y\|^{2} & =\langle T^{*}y,T^{*}y\rangle\\
- & =\langle TT^{*}y,y\rangle\\
- & \leq\|T(T^{*}y)\|\|y\|\\
- & \leq\|T\|\|T^{*}y\|\|y\|.
+\langle x,T^{*}(\alpha z+\alpha'z')\rangle & =\langle Tx,\alpha z+\alpha'z'\rangle\\
+ & =\overline{\alpha}\langle Tx,z\rangle+\overline{\alpha}'\langle Tx,z'\rangle\\
+ & =\overline{\alpha}\langle x,T^{*}z\rangle+\overline{\alpha}'\langle x,T^{*}z'\rangle\\
+ & =\langle x,\alpha T^{*}z+\alpha'T^{*}z'\rangle
 \end{align*}
 
 \end_inset
 
-Therefore 
-\begin_inset Formula $\|T^{*}y\|\leq\|T\|\|y\|$
+for all 
+\begin_inset Formula $x\in\mathcal{H}_{1}$
 \end_inset
 
 .
- So 
-\begin_inset Formula $T^{\star}$
+ It follows that 
+\begin_inset Formula 
+\[
+T^{*}(\alpha z+\alpha'z')=\alpha T^{*}z+\alpha'T^{*}z',
+\]
+
 \end_inset
 
- is bounded and 
+which implies 
+\begin_inset Formula $T^{*}$
+\end_inset
+
+ is 
+\begin_inset Formula $\mathbb{C}$
+\end_inset
+
+-linear.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Next let us show that 
+\begin_inset Formula $T^{*}$
+\end_inset
+
+ is bounded.
+ For any 
+\begin_inset Formula $z\in\mathcal{H}_{2}$
+\end_inset
+
+, we have
+\begin_inset Formula 
+\begin{align*}
+\|T^{*}z\|^{2} & =\langle T^{*}z,T^{*}z\rangle\\
+ & =\langle TT^{*}z,z\rangle\\
+ & \leq\|T(T^{*}z)\|\|z\|\\
+ & \leq\|T\|\|T^{*}z\|\|z\|.
+\end{align*}
+
+\end_inset
+
+It follows that 
+\begin_inset Formula $\|T^{*}z\|\leq\|T\|\|z\|$
+\end_inset
+
+ which implies 
+\begin_inset Formula $T^{*}$
+\end_inset
+
+ is bounded with 
 \begin_inset Formula $\|T^{*}\|\leq\|T\|$
 \end_inset
 
@@ -12123,6 +13286,470 @@ Compactness
 \end_layout
 
 \begin_layout Standard
+In topology, one studies a class of spaces called 
+\series bold
+compact 
+\series default
+spaces.
+ Recall that a toplogical space 
+\begin_inset Formula $X$
+\end_inset
+
+ is said to be compact if it satisfies the following property: every open
+ cover of 
+\begin_inset Formula $X$
+\end_inset
+
+ contains a finite subcover of 
+\begin_inset Formula $X$
+\end_inset
+
+.
+ In other words, 
+\begin_inset Formula $X$
+\end_inset
+
+ is compact if for all open covers 
+\begin_inset Formula $\{U_{i}\}_{i\in I}$
+\end_inset
+
+ of 
+\begin_inset Formula $X$
+\end_inset
+
+, where by an open cover we mean each 
+\begin_inset Formula $U_{i}$
+\end_inset
+
+ is an open subset of 
+\begin_inset Formula $X$
+\end_inset
+
+ and
+\begin_inset Formula 
+\[
+X=\bigcup_{i\in I}U_{i},
+\]
+
+\end_inset
+
+then there exists 
+\begin_inset Formula $U_{i_{1}},\dots,U_{i_{n}}\in\{U_{i}\}_{i\in I}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\{U_{i_{1}},\dots,U_{i_{n}}\}$
+\end_inset
+
+ is an open cover of 
+\begin_inset Formula $X$
+\end_inset
+
+, that is
+\begin_inset Formula 
+\[
+X=U_{i_{1}}\cup\cdots\cup U_{i_{n}}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+There is an analagous notion of compactness called 
+\series bold
+sequential compactness
+\series default
+.
+ Recall that a topological space 
+\begin_inset Formula $X$
+\end_inset
+
+ is said to be sequentially compact if every sequence of points in 
+\begin_inset Formula $X$
+\end_inset
+
+ has a convergent subsequence converging to a point in 
+\begin_inset Formula $X$
+\end_inset
+
+.
+ It turns out that for metric space, compactness and sequintial compactness
+ are equivalent.
+ Since we are always talking about sequences in linear analysis, it makes
+ sense for us to study compact spaces as sequentially compact spaces.
+ In particular, we make the following definitions:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\backslash
+label{defn}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $\mathcal{V}$
+\end_inset
+
+ be an inner-product space and let 
+\begin_inset Formula $K\subseteq\mathcal{V}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+We say 
+\begin_inset Formula $K$
+\end_inset
+
+ is 
+\series bold
+precompact 
+\series default
+if every sequence in 
+\begin_inset Formula $K$
+\end_inset
+
+ has a convergent sequence.
+\end_layout
+
+\begin_layout Enumerate
+We say 
+\begin_inset Formula $K$
+\end_inset
+
+ is 
+\series bold
+compact 
+\series default
+if every sequence in 
+\begin_inset Formula $K$
+\end_inset
+
+ has a convergent sequence with a limit in 
+\begin_inset Formula $K$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Precompactness can be thought of as 
+\begin_inset Quotes eld
+\end_inset
+
+almost
+\begin_inset Quotes erd
+\end_inset
+
+ compact.
+ In fact, we have the following proposition.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\backslash
+label{propprecompactclos}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $\mathcal{H}$
+\end_inset
+
+ be an inner-product space and let 
+\begin_inset Formula $A\subseteq\mathcal{H}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $A$
+\end_inset
+
+ is precompact if and only if 
+\begin_inset Formula $\overline{A}$
+\end_inset
+
+ is compact.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\backslash
+label{proof}
+\end_layout
+
+\end_inset
+
+ Suppose 
+\begin_inset Formula $A$
+\end_inset
+
+ is precompact.
+ Let 
+\begin_inset Formula $(a_{n})$
+\end_inset
+
+ be a sequence in 
+\begin_inset Formula $\overline{A}$
+\end_inset
+
+.
+ For each 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ choose 
+\begin_inset Formula $b_{n}\in A$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\[
+\|a_{n}-b_{n}\|<\frac{1}{n}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Since 
+\begin_inset Formula $A$
+\end_inset
+
+ is precompact, there exists a convergent subsequence of 
+\begin_inset Formula $(b_{n})$
+\end_inset
+
+, say 
+\begin_inset Formula $(b_{\pi(n)})$
+\end_inset
+
+.
+ We claim that the subsequence 
+\begin_inset Formula $(a_{\pi(n)})$
+\end_inset
+
+ of 
+\begin_inset Formula $(a_{n})$
+\end_inset
+
+ is Cauchy.
+ Indeed, let 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+.
+ Choose 
+\begin_inset Formula $N\in\mathbb{N}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\pi(n)\geq\pi(m)\geq N$
+\end_inset
+
+ implies
+\begin_inset Formula 
+\begin{align*}
+\|b_{\pi(n)}-b_{\pi(m)}\| & <\frac{\varepsilon}{3}\quad\text{and}\quad\frac{1}{\pi(m)}<\frac{\varepsilon}{3}.
+\end{align*}
+
+\end_inset
+
+Then 
+\begin_inset Formula $\pi(n)\geq\pi(m)\geq N$
+\end_inset
+
+ implies
+\begin_inset Formula 
+\begin{align*}
+\|a_{\pi(n)}-a_{\pi(m)}\| & =\|a_{\pi(n)}-b_{\pi(n)}+b_{\pi(n)}-b_{\pi(m)}+b_{\pi(m)}-a_{\pi(m)}\|\\
+ & \leq\|a_{\pi(n)}-b_{\pi(n)}\|+\|b_{\pi(n)}-b_{\pi(m)}\|+\|b_{\pi(m)}-a_{\pi(m)}\|\\
+ & <\frac{1}{\pi(n)}+\frac{\varepsilon}{3}+\frac{1}{\pi(m)}\\
+ & \leq\frac{\varepsilon}{3}+\frac{\varepsilon}{3}+\frac{\varepsilon}{3}\\
+ & =\varepsilon.
+\end{align*}
+
+\end_inset
+
+This implies 
+\begin_inset Formula $(a_{\pi(n)})$
+\end_inset
+
+ is Cauchy.
+ Finally, since 
+\begin_inset Formula $(a_{\pi(n)})$
+\end_inset
+
+ is Cauchy and since 
+\begin_inset Formula $\mathcal{H}$
+\end_inset
+
+ is a Hilbert space, we must have 
+\begin_inset Formula $a_{\pi(n)}\to a$
+\end_inset
+
+ for some 
+\begin_inset Formula $a\in\overline{A}$
+\end_inset
+
+.
+ This implies 
+\begin_inset Formula $\overline{A}$
+\end_inset
+
+ is compact.
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Conversely, suppose 
+\begin_inset Formula $\overline{A}$
+\end_inset
+
+ is compact.
+ Let 
+\begin_inset Formula $(a_{n})$
+\end_inset
+
+ be a sequence in 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $(a_{n})$
+\end_inset
+
+ is a sequence in 
+\begin_inset Formula $\overline{A}$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $\overline{A}$
+\end_inset
+
+ is compact, the sequence 
+\begin_inset Formula $(a_{n})$
+\end_inset
+
+ has a convergent subsequence.
+ This implies 
+\begin_inset Formula $A$
+\end_inset
+
+ is precompact.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Compactness = Sequential Compactness in Metric Spaces
+\end_layout
+
+\begin_layout Standard
+As we mentioned before, sequential compactness and compactness are equivalent
+ notions when it comes to metric spaces.
+ It takes some work to show that sequential compactness implies compactness,
+ so we will save that for later.
+ On the other hand, we can prove that compactness implies sequential compactness
+ relatively easily:
+\end_layout
+
+\begin_layout Standard
 \begin_inset ERT
 status open
 
@@ -12332,75 +13959,15 @@ end{proof}
 
 \end_layout
 
-\begin_layout Subsection
-Weak Convergence
+\begin_layout Subsubsection
+Failure of Heine-Borel Theorem in the Infinite-Dimensional Setting
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{defn}
-\backslash
-label{defn}
-\end_layout
-
-\end_inset
-
- A set 
-\begin_inset Formula $K$
-\end_inset
-
- in an inner-product space 
-\begin_inset Formula $\mathcal{V}$
-\end_inset
-
- is said to be 
-\series bold
-compact 
-\series default
-any sequence in 
-\begin_inset Formula $K$
-\end_inset
-
- has a convergent subsequence with a limit in 
-\begin_inset Formula $K$
-\end_inset
-
-.
- 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{defn}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-In 
+As we've mentioned before, sequential compactness and compactness are equivalent
+ notions when it comes to metric spaces.
+ It turns out that there is another description of compactness when it comes
+ to spaces like 
 \begin_inset Formula $\mathbb{R}$
 \end_inset
 
@@ -12416,10 +13983,29 @@ In
 \begin_inset Formula $\mathbb{C}^{n}$
 \end_inset
 
-, a set is compact if and only if it is closed and bounded.
- However in infinite dimensional spaces, this is no longer true.
+.
+ More generally, if 
+\begin_inset Formula $\mathcal{H}$
+\end_inset
+
+ is a finite-dimensional Hilbert space and 
+\begin_inset Formula $K$
+\end_inset
+
+ is a subset of 
+\begin_inset Formula $\mathcal{H}$
+\end_inset
+
+, then 
+\begin_inset Formula $K$
+\end_inset
+
+ is compact if and only if it is closed and bounded.
+ This is essentially the content of the Heine-Borel Theorem.
+ On the other hand, closed and bound subspaces of infinite-dimensional Hilbert
+ spaces need not be compact subspaces.
  To see what goes wrong, consider the closed unit ball 
-\begin_inset Formula $\overline{B}_{1}(0)$
+\begin_inset Formula $\mathrm{B}_{1}[0]$
 \end_inset
 
  (centered at 
@@ -12435,21 +14021,27 @@ In
 \end_inset
 
 .
- Then the sequence 
-\begin_inset Formula $(e^{n})$
+ Clearly, 
+\begin_inset Formula $\mathrm{B}_{1}[0]$
+\end_inset
+
+ is closed and bounded.
+ However it is not compact.
+ Indeed, the sequence 
+\begin_inset Formula $(\mathbf{e}_{n})$
 \end_inset
 
  of standard coordinate vectors in 
-\begin_inset Formula $\overline{B}_{1}(0)$
+\begin_inset Formula $\mathrm{B}_{1}[0]$
 \end_inset
 
  cannot have a convergent subsequence.
  Indeed, the distance between any two standard coordinate vectors 
-\begin_inset Formula $e^{m}$
+\begin_inset Formula $\mathbf{e}_{n}$
 \end_inset
 
  and 
-\begin_inset Formula $e^{n}$
+\begin_inset Formula $\mathbf{e}_{m}$
 \end_inset
 
  is 
@@ -12458,10 +14050,234 @@ In
 
 .
  Thus, any subsequence of 
-\begin_inset Formula $(e^{n})$
+\begin_inset Formula $(\mathbf{e}_{n})$
 \end_inset
 
  will fail to be Cauchy, and hence will not converge.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Even though closed and bound subspaces of infinite-dimensional Hilbert spaces
+ need not be compact subspaces, the converse still holds.
+ In other words, being closed and bounded is a necessary condition for a
+ subspace to be compact, though it is not sufficient.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\backslash
+label{prop}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $\mathcal{H}$
+\end_inset
+
+ be a Hilbert space and let 
+\begin_inset Formula $A\subseteq\mathcal{H}$
+\end_inset
+
+ be a compact subspace.
+ Then 
+\begin_inset Formula $A$
+\end_inset
+
+ is closed and bounded.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ In any Hausdorff space 
+\begin_inset Formula $X$
+\end_inset
+
+ (for example a metric space), a compact subspace 
+\begin_inset Formula $K\subseteq X$
+\end_inset
+
+ is necessarily a closed subset of 
+\begin_inset Formula $X$
+\end_inset
+
+.
+ We leave the proof of this as an exercise for the reason.
+ Let us prove that 
+\begin_inset Formula $A$
+\end_inset
+
+ is a bounded.
+ Assume for a contradiction that 
+\begin_inset Formula $A$
+\end_inset
+
+ is not bounded.
+ For each 
+\begin_inset Formula $a\in A$
+\end_inset
+
+, let 
+\begin_inset Formula $U_{a}=\mathrm{B}_{1}(a)$
+\end_inset
+
+ be the open ball of radius 
+\begin_inset Formula $1$
+\end_inset
+
+ centered at 
+\begin_inset Formula $a$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\{U_{a}\}_{a\in A}$
+\end_inset
+
+ forms an open cover of 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $A$
+\end_inset
+
+ is compact, there exists a finite subcover of 
+\begin_inset Formula $\{U_{a}\}$
+\end_inset
+
+, say 
+\begin_inset Formula $\{U_{a_{1}},\dots,U_{a_{n}}\}$
+\end_inset
+
+.
+ For each 
+\begin_inset Formula $1\leq i,j\leq n$
+\end_inset
+
+, set
+\begin_inset Formula 
+\[
+L_{ij}=\mathrm{d}(U_{a_{i}},U_{a_{j}})=\sup\left\{ \|x_{i}-x_{j}\|\mid x_{i}\in U_{a_{i}}\text{ and }x_{j}\in U_{a_{j}}\right\} 
+\]
+
+\end_inset
+
+Clearly 
+\begin_inset Formula $L_{ij}$
+\end_inset
+
+ is finite since 
+\begin_inset Formula $L_{ij}\leq\|a_{i}-a_{j}\|+2$
+\end_inset
+
+.
+ Setting 
+\begin_inset Formula $L=\max_{1\leq i,j\leq n}\{L_{ij}\}$
+\end_inset
+
+, we see that for all 
+\begin_inset Formula $x,x'\in A$
+\end_inset
+
+, we must have 
+\begin_inset Formula $\|x-x'\|\leq L$
+\end_inset
+
+.
+ Thus, 
+\begin_inset Formula $A$
+\end_inset
+
+ is bounded.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Weak Convergence
+\end_layout
+
+\begin_layout Standard
+As we've seen, the sequence 
+\begin_inset Formula $(\mathbf{e}_{n})$
+\end_inset
+
+ in 
+\begin_inset Formula $\ell^{2}(\mathbb{N})$
+\end_inset
+
+ has not convergent subsequences, so obviously the sequence 
+\begin_inset Formula $(\mathbf{e}_{n})$
+\end_inset
+
+ doesn't converge.
+ On the other hand, there is a weaker notion of convergence in which the
+ sequence 
+\begin_inset Formula $(\mathbf{e}_{n})$
+\end_inset
+
+ does converge.
+ Let us discuss this weakened version of convergence now.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -12479,37 +14295,58 @@ label{defn}
 
 \end_inset
 
- A sequence 
-\begin_inset Formula $(x_{n})$
-\end_inset
-
- in an inner-product space 
+ Let 
 \begin_inset Formula $\mathcal{V}$
 \end_inset
 
- is said to be 
+ be an inner-product space and let 
+\begin_inset Formula $(x_{n})$
+\end_inset
+
+ be a sequence in 
+\begin_inset Formula $\mathcal{V}$
+\end_inset
+
+.
+ We say 
+\begin_inset Formula $(x_{n})$
+\end_inset
+
+ 
 \series bold
-weakly convergent 
+converges weakly 
 \series default
-to a limit 
+to an element 
 \begin_inset Formula $x\in\mathcal{V}$
 \end_inset
 
- if
-\begin_inset Formula 
-\[
-\langle x_{n},y\rangle\to\langle x,y\rangle
-\]
-
+, which we denote by 
+\begin_inset Formula $x_{n}\xrightarrow{w}x$
 \end_inset
 
-for all 
+, if the sequence of complex numbers 
+\begin_inset Formula $(\langle x_{n},y)\rangle$
+\end_inset
+
+ converges (in the usual sense) to 
+\begin_inset Formula $\langle x,y\rangle\in\mathbb{C}$
+\end_inset
+
+ for all 
 \begin_inset Formula $y\in\mathcal{V}$
 \end_inset
 
 .
- We denote this by 
-\begin_inset Formula $x_{n}\xrightarrow{w}x$
+ In this case, we call 
+\begin_inset Formula $x$
+\end_inset
+
+ the 
+\series bold
+weak limit 
+\series default
+of 
+\begin_inset Formula $(x_{n})$
 \end_inset
 
 .
@@ -12676,7 +14513,7 @@ label{example}
 \begin_inset Formula $\mathcal{H}$
 \end_inset
 
- be an (infinite-dimensional) separable Hilbert space and let 
+ be an infinite-dimensional separable Hilbert space and let 
 \begin_inset Formula $(e_{n})$
 \end_inset
 
@@ -12696,23 +14533,18 @@ label{example}
 
 .
  Then since 
+\begin_inset Formula $\sum_{n=1}^{\infty}\langle y,e_{n}\rangle e_{n}$
+\end_inset
+
+ is convergent, we must in particular have
 \begin_inset Formula 
 \[
-\sum_{n=1}^{\infty}\langle y,e_{n}\rangle e_{n}
+\lim_{n\to\infty}\langle y,e_{n}\rangle=0=\langle y,0\rangle.
 \]
 
 \end_inset
 
-is convergent, we must in particular have 
-\begin_inset Formula 
-\begin{align*}
-\lim_{n\to\infty}\langle y,e_{n}\rangle & =0\\
- & =\langle y,0\rangle.
-\end{align*}
-
-\end_inset
-
-
+Note that we need 
 \begin_inset ERT
 status open
 
@@ -12778,6 +14610,10 @@ end{rem}
 
 We will prove that any bounded sequence in an infinite dimensional Hilbert
  space has a weakly convergent subsequence.
+\end_layout
+
+\begin_layout Subsubsection
+Weak Convergence Properties
 \end_layout
 
 \begin_layout Standard
@@ -12898,12 +14734,11 @@ label{proof}
 \end_inset
 
 .
- Let 
+ Then for all 
 \begin_inset Formula $y\in\mathcal{H}$
 \end_inset
 
-.
- Then
+, we have
 \begin_inset Formula 
 \begin{align*}
 |\langle x_{n},y\rangle-\langle x,y\rangle| & =|\langle x_{n}-x,y\rangle|\\
@@ -12918,11 +14753,11 @@ as
 \end_inset
 
 .
- Thus 
+ It follows that 
 \begin_inset Formula $x_{n}\xrightarrow{w}x$
 \end_inset
 
- weakly.
+.
 \end_layout
 
 \begin_layout Standard
@@ -12950,12 +14785,11 @@ Converesely, suppose
 \begin_inset Formula $x_{n}\xrightarrow{w}x$
 \end_inset
 
-, we have 
+, we have in particular 
 \begin_inset Formula $\langle x_{n},x\rangle\to\langle x,x\rangle$
 \end_inset
 
-.
- Similarly, we have 
+ and 
 \begin_inset Formula $\langle x,x_{n}\rangle\to\langle x,x\rangle$
 \end_inset
 
@@ -12970,10 +14804,12 @@ Converesely, suppose
 
 \end_inset
 
+It follows that 
+\begin_inset Formula $x_{n}\to x$
+\end_inset
 
-\end_layout
-
-\begin_layout Standard
+.
+ 
 \begin_inset ERT
 status open
 
@@ -13368,10 +15204,6 @@ end{proof}
  
 \end_layout
 
-\begin_layout Subsubsection
-Weak Convergence vs Strong Convergence
-\end_layout
-
 \begin_layout Subsection
 Baby Version of the Uniform Boundedness Principle and its Consequences
 \end_layout
@@ -13409,7 +15241,7 @@ label{lemmasequencebounded}
 \end_inset
 
  and a closed ball 
-\begin_inset Formula $\overline{B}_{r}(a)\subseteq\mathcal{H}$
+\begin_inset Formula $\mathrm{B}_{r}[a]\subseteq\mathcal{H}$
 \end_inset
 
  such that
@@ -13425,7 +15257,7 @@ for all
 \end_inset
 
  and for all 
-\begin_inset Formula $y\in\overline{B}_{r}(a)$
+\begin_inset Formula $y\in\mathrm{B}_{r}[a]$
 \end_inset
 
 .
@@ -13466,16 +15298,16 @@ label{proof}
 \end_inset
 
  The key is to translate everything from the closed ball 
-\begin_inset Formula $\overline{B}_{r}(a)$
+\begin_inset Formula $\mathrm{B}_{r}[a]$
 \end_inset
 
  to the closed ball 
-\begin_inset Formula $\overline{B}_{1}(0)$
+\begin_inset Formula $\mathrm{B}_{1}[0]$
 \end_inset
 
 .
  Let 
-\begin_inset Formula $z\in\overline{B}_{1}(0)$
+\begin_inset Formula $z\in\mathrm{B}_{1}[0]$
 \end_inset
 
 .
@@ -13628,7 +15460,7 @@ label{proof}
 \end_inset
 
  and a closed ball 
-\begin_inset Formula $\overline{B}_{r}(a)\subseteq\mathcal{H}$
+\begin_inset Formula $\mathrm{B}_{r}[a]\subseteq\mathcal{H}$
 \end_inset
 
  such that 
@@ -13644,7 +15476,7 @@ for all
 \end_inset
 
  and for all 
-\begin_inset Formula $y\in\overline{B}_{r}(a)$
+\begin_inset Formula $y\in\mathrm{B}_{r}[a]$
 \end_inset
 
 .
@@ -13684,21 +15516,32 @@ For each
 \begin_inset Formula $m\in\mathbb{N}$
 \end_inset
 
-, define
+, we set
 \begin_inset Formula 
 \[
-E_{m}:=\{y\in\mathcal{H}\mid|\langle x_{n},y\rangle|\leq m\text{ for all }n\in\mathbb{N}\}.
+E_{m}=\{y\in\mathcal{H}\mid|\langle x_{n},y\rangle|\leq m\text{ for all }n\in\mathbb{N}\}.
 \]
 
 \end_inset
 
-It's easy to see that 
+Observe that 
 \begin_inset Formula $(E_{m})$
 \end_inset
 
- is an increasing sequence of closed sets (view it as an infinite intersection
- of closed sets).
- Moreover, for any 
+ is an ascending sequence of closed sets.
+ Indeed, it is clearly ascending, to see that 
+\begin_inset Formula $E_{m}$
+\end_inset
+
+ is closed, view it as an infinite intersection of closed sets, namely
+\begin_inset Formula 
+\[
+E_{m}=\bigcap_{n=1}^{\infty}\left\{ y\in\mathcal{H}\mid|\langle x_{n},y\rangle|\leq m\right\} .
+\]
+
+\end_inset
+
+Moreover, for any 
 \begin_inset Formula $y\in\mathcal{H}$
 \end_inset
 
@@ -13748,30 +15591,33 @@ Now to prove the claim, it suffices to show that one of the
 \end_inset
 
 's contains an open ball of the form 
-\begin_inset Formula $B_{r}(a)$
+\begin_inset Formula $\mathrm{B}_{r}(a)$
 \end_inset
 
  (the closure 
-\begin_inset Formula $\overline{B}_{r}(a)$
+\begin_inset Formula $\mathrm{B}_{r}[a]$
 \end_inset
 
  will then also belong to 
-\begin_inset Formula $E_{m})$
+\begin_inset Formula $E_{m}$
 \end_inset
 
-.
+ since 
+\begin_inset Formula $E_{m}$
+\end_inset
+
+ is itself closed).
  Let 
-\begin_inset Formula $B_{r_{1}}(a_{1})$
+\begin_inset Formula $\mathrm{B}_{r_{1}}(a_{1})$
 \end_inset
 
  be any open ball.
  If 
-\begin_inset Formula $B_{r_{1}}(a_{1})\subseteq E_{1}$
+\begin_inset Formula $\mathrm{B}_{r_{1}}(a_{1})\subseteq E_{1}$
 \end_inset
 
-, then we are done.
- So assume 
-\begin_inset Formula $B_{r_{1}}(a_{1})\cap E_{1}^{c}\neq\emptyset$
+, then we are done, so assume 
+\begin_inset Formula $\mathrm{B}_{r_{1}}(a_{1})\cap E_{1}^{c}\neq\emptyset$
 \end_inset
 
 .
@@ -13788,27 +15634,27 @@ Now to prove the claim, it suffices to show that one of the
 \end_inset
 
  and 
-\begin_inset Formula $\overline{B}_{r_{2}}(a_{2})\subseteq B_{r_{1}}(a_{1})\cap E_{1}^{c}$
+\begin_inset Formula $\mathrm{B}_{r_{2}}[a_{2}]\subseteq\mathrm{B}_{r_{1}}(a_{1})\cap E_{1}^{c}$
 \end_inset
 
- (we can find an open ball 
-\begin_inset Formula $B_{r_{2}}(a_{2})$
+: we can find an open ball 
+\begin_inset Formula $\mathrm{B}_{r_{2}}(a_{2})$
 \end_inset
 
  which is contained in 
-\begin_inset Formula $B_{r_{1}}(a_{1})\cap E_{1}^{c}$
+\begin_inset Formula $\mathrm{B}_{r_{1}}(a_{1})\cap E_{1}^{c}$
 \end_inset
 
- since the intersection is nonempty, and by replacing 
+ since the intersection is a nonempty open set, and by replacing 
 \begin_inset Formula $r_{2}$
 \end_inset
 
  by a smaller positive number if necessary, we may assume that 
-\begin_inset Formula $\overline{B}_{r_{2}}(a_{2})$
+\begin_inset Formula $\mathrm{B}_{r_{2}}[a_{2}]$
 \end_inset
 
  is contained in 
-\begin_inset Formula $B_{r_{1}}(a_{1})\cap E_{1}^{c}$
+\begin_inset Formula $\mathrm{B}_{r_{2}}[a_{2}]\cap E_{1}^{c}$
 \end_inset
 
 ).
@@ -13821,15 +15667,19 @@ Now to prove the claim, it suffices to show that one of the
 \begin_inset Formula $\mathcal{H}$
 \end_inset
 
+ and a sequence 
+\begin_inset Formula $(r_{n})\in\mathbb{R}$
+\end_inset
+
  such that 
-\begin_inset Formula $r_{n+1}<r_{n}/2<\cdots<r_{1}/2^{n}$
+\begin_inset Formula 
+\[
+r_{n+1}<r_{n}/2<\cdots<r_{1}/2^{n}\quad\text{and}\quad\mathrm{B}_{r_{n+1}}[a_{n+1}]\subseteq\mathrm{B}_{r_{n}}(a_{n})\cap E_{n}^{c}
+\]
+
 \end_inset
 
- and 
-\begin_inset Formula $\overline{B}_{r_{n+1}}(a_{n+1})\subseteq B_{r_{n}}(a_{n})\cap E_{n}^{c}$
-\end_inset
-
- for all 
+for all 
 \begin_inset Formula $n\in\mathbb{N}$
 \end_inset
 
@@ -13848,7 +15698,7 @@ Now to prove the claim, it suffices to show that one of the
 \begin_inset space ~
 \end_inset
 
-Assume (for a contradiction) that such a sequence has been constructed.
+Assume for a contradiction that such a sequence has been constructed.
  We claim that 
 \begin_inset Formula $(a_{n})$
 \end_inset
@@ -13892,7 +15742,7 @@ Assume (for a contradiction) that such a sequence has been constructed.
 \end_inset
 
 since 
-\begin_inset Formula $a_{n},a_{m}\in\overline{B}_{r_{N}}(a_{N})$
+\begin_inset Formula $a_{n},a_{m}\in\mathrm{B}_{r_{N}}[a_{N}]$
 \end_inset
 
  for all 
@@ -13915,17 +15765,16 @@ since
 \end_inset
 
 , we have 
-\begin_inset Formula $a\in\overline{B}_{r_{m}}(a_{m})\subseteq E_{m-1}^{c}$
+\begin_inset Formula $a\in\mathrm{B}_{r_{m}}[a_{m}]\subseteq E_{m-1}^{c}$
 \end_inset
 
 .
  In particular
 \begin_inset Formula 
 \begin{align*}
-a & =\bigcap_{m=1}^{\infty}E_{m}^{c}\\
- & =\bigcap_{m=1}^{\infty}(\mathcal{H}\backslash E_{m})\\
- & =\mathcal{H}\backslash\left(\bigcup_{m=1}^{\infty}E_{m}\right)\\
- & =\mathcal{H}\backslash\mathcal{H}\\
+a & \in\bigcap_{m=1}^{\infty}E_{m}^{c}\\
+ & =\left(\bigcup_{m=1}^{\infty}E_{m}\right)^{c}\\
+ & =\mathcal{H}^{c}\\
  & =\emptyset,
 \end{align*}
 
@@ -16798,7 +18647,7 @@ A nonzero eigenvalue of
 \end_inset
 
 , and this implies 
-\begin_inset Formula $\langle Tx_{\pi(n)},x_{\pi(n)}\rangle\to\langle Tx_{0},Tx_{0}\rangle$
+\begin_inset Formula $\langle Tx_{\pi(n)},x_{\pi(n)}\rangle\to\langle Tx_{0},x_{0}\rangle$
 \end_inset
 
  by 
@@ -16830,7 +18679,7 @@ ref{propweakplusstrong})
 
 \end_inset
 
-our claim is prove.
+our claim is proved.
  In fact, we must have 
 \begin_inset Formula $\|x_{0}\|=1$
 \end_inset
@@ -36356,7 +38205,7 @@ begin{proof}
 \end_inset
 
 .
- Assume (for a contradiction) that 
+ Assume for a contradiction that 
 \begin_inset Formula $Tx_{n}\not\to Tx$
 \end_inset
 
@@ -39667,8 +41516,9 @@ Throughout this homework, let
  
 \end_layout
 
-\begin_layout Section*
-Problem 1
+\begin_layout Subsection
+Singular Values and Eigenvalues of Compact Positive Self-Adjoint Operator
+ Coincide
 \end_layout
 
 \begin_layout Standard
@@ -39828,8 +41678,8 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 2
+\begin_layout Subsection
+Compact Operator that is not Hilbert-Schmidt
 \end_layout
 
 \begin_layout Standard
@@ -40096,12 +41946,9 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 3
-\end_layout
-
-\begin_layout Subsection*
-Problem 3.a
+\begin_layout Subsection
+Eigenvalue for Self-Adjoint Operator is less than or equal to the Operator
+ Norm
 \end_layout
 
 \begin_layout Standard
@@ -40208,7 +42055,15 @@ end{proof}
 \end_layout
 
 \begin_layout Subsection*
-Problem 3.b
+If 
+\begin_inset Formula $T$
+\end_inset
+
+ is Compact, then 
+\begin_inset Formula $\||T|\|=\|T\|$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -40414,8 +42269,9 @@ end{proof}
 
 \end_layout
 
-\begin_layout Subsection*
-Problem 3.c
+\begin_layout Subsection
+The Square of Hilbert-Schmidt Norm of Compact Operator equals sum of Singular
+ Values Squared
 \end_layout
 
 \begin_layout Standard
@@ -40518,8 +42374,8 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 4
+\begin_layout Subsection
+Compact Self-Adjoint Operator which is not Zero
 \end_layout
 
 \begin_layout Standard
@@ -40646,8 +42502,8 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 5
+\begin_layout Subsection
+Compact Operator is Limit of Operators with Finite-Dimensional Range
 \end_layout
 
 \begin_layout Standard
@@ -40813,8 +42669,11 @@ end{proof}
 Homework 10
 \end_layout
 
-\begin_layout Section*
-Problem 1
+\begin_layout Subsection
+\begin_inset Formula $(C[a,b],\|\cdot\|_{\infty})$
+\end_inset
+
+ is a Banach Space
 \end_layout
 
 \begin_layout Standard
@@ -41267,8 +43126,8 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 2
+\begin_layout Subsection
+Normed Linear Space + Parallelogram Law = Inner-Product Space
 \end_layout
 
 \begin_layout Standard
@@ -42083,8 +43942,12 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 3
+\begin_layout Subsection
+Example of Bounded Operator in 
+\begin_inset Formula $(C[0,1],\|\cdot\|_{\infty})$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -42237,8 +44100,12 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 4
+\begin_layout Subsection
+Example of Linear Functional in 
+\begin_inset Formula $(C[a,b],\|\cdot\|_{\infty})$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -42430,8 +44297,12 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 5
+\begin_layout Subsection
+Example of Linear Functional in 
+\begin_inset Formula $(C[a,b],\|\cdot\|_{\infty})$
+\end_inset
+
+ and Closed Subspace
 \end_layout
 
 \begin_layout Standard
@@ -43578,8 +45449,16 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 6
+\begin_layout Subsection
+Closed Subspaces of 
+\begin_inset Formula $\mathcal{X}^{*}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{X}$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -44083,8 +45962,15 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
-Problem 7
+\begin_layout Subsection
+\begin_inset Formula $(\ell^{1})^{*}$
+\end_inset
+
+ is isometrically isomorphic to 
+\begin_inset Formula $\ell^{\infty}$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard

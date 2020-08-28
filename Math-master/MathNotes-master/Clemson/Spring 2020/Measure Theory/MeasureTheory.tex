@@ -1161,45 +1161,41 @@ Taking $\varepsilon\to0$ gives us our desired result. \end{proof}
 
 \section{Extending Finite Premeasures}
 
-We want to show that any finite premeasure defined on some algebra
-$\mathcal{A}$ can be uniquely extended to a measure on $\sigma(\mathcal{A})$.
-Let us state this as a theorem up front.
+Throughout this section, let $(X,\mathcal{A},\mu)$ be a finite premeasure
+space. Our goal in this section is to show that $\mu$ can be \emph{uniquely
+}extended to a measure on $\sigma(\mathcal{A})$. In other words,
+there exists a measure $\widetilde{\mu}$ on $\mathcal{\sigma}(\mathcal{A})$
+such that $\widetilde{\mu}|_{\mathcal{A}}=\mu$. Furthermore, if $\nu$
+is any other measure on $\sigma(\mathcal{A})$ such that $\nu|_{\mathcal{A}}=\mu$,
+then $\widetilde{\mu}=\nu$. Let us state this as a theorem up front.
 
 \begin{theorem}\label{theoremchkextension} (Caratheodory, Hahn, Kolmogorov)
-Let $\mu$ be a finite premeasure defined on an algebra $\mathcal{A}$
-of subsets of $X$. Then $\mu$ has a unique extension to a measure
-on $\sigma(\mathcal{A})$. \end{theorem}
+Let $(X,\mathcal{A},\mu)$ be a finite premeasure space. Then $\mu$
+has a unique extension to a measure on $\sigma(\mathcal{A})$. \end{theorem}
 
-~~~The proof of this result is quite long and we will need to develop
-it in steps.
+Our proof of Theorem~(\ref{theoremchkextension}) will involve Topology,
+where much is known about unique extensions of continuous functions.
+In particular, we will realize $\mathcal{A}$ as a topological space
+and we will realize $\mu\colon\mathcal{A}\to[0,\infty)$ as a continuous
+function defined on $\mathcal{A}$. In this setting, it will be easy
+to show that $\mu$ can be uniquely extended to a continuous function
+on the larger space $\sigma(\mathcal{A})$.
 
 \subsection{Defining a Pseudometric on $\mathcal{P}(X)$}
 
-In $(C[a,b],\|\cdot\|)$, we define
-\[
-\mathrm{d}(f,g)=\|f-g\|
-\]
-for all $f,g\in C[a,b]$. If $A,B\in\sigma(\mathcal{A})$, then
-\begin{align*}
-\|1_{A}-1_{B}\| & =\int_{a}^{b}|1_{A}(x)-1_{B}(x)|\mathrm{d}x\\
- & =\int_{a}^{b}1_{A\Delta B}(x)\mathrm{d}x\\
- & =\mathrm{m}(A\Delta B).
-\end{align*}
-However we don't know what $\mathrm{m}(A\Delta B)$ is yet. This suggests
-that the following pseudometric\footnote{See Appendix for important details on pseudometrics}
-on $\sigma(\mathcal{A})$ might be useful. 
-
-\begin{prop}\label{prop} Let $(X,\mathcal{A},\mu)$ be a premeasure
-space. Define $\mathrm{d}_{\mu}\colon\mathcal{P}(X)\times\mathcal{P}(X)\to[0,\infty]$
+The first step is to construct a pseudometric on $\mathcal{P}(X)$.\footnote{See the Appendix for more details on pseudometric spaces.}
+In particular, we define $\mathrm{d}_{\mu}\colon\mathcal{P}(X)\times\mathcal{P}(X)\to[0,\infty]$
 by
 \[
 \mathrm{d}_{\mu}(A,B)=\mu^{*}(A\Delta B)
 \]
-for all $A,B\in\mathcal{P}(X)$. Then $\mathrm{d}_{\mu}$ is a pseudometric
-on $\mathcal{P}(X)$. \end{prop}
+for all $A,B\in\mathcal{P}(X)$. 
+
+\begin{prop}\label{propdmuispseudometric} $\mathrm{d}_{\mu}$ is
+a pseudometric on $\mathcal{P}(X)$. \end{prop}
 
 \begin{proof} We first check reflexivity of $\mathrm{d}_{\mu}$.
-Let $X\in\mathcal{P}(X)$, then have
+Let $A\in\mathcal{P}(X)$, then have
 \begin{align*}
 \mathrm{d}_{\mu}(A,A) & =\mu^{*}(A\Delta A)\\
  & =\mu^{*}(\emptyset)\\
@@ -1227,15 +1223,15 @@ line by finite subadditivity of $\mu^{*}$. \end{proof}
 
 \subsubsection{Metric Space Induced by Pseudometric Space}
 
-Thus $(\mathcal{P}(X),\mathrm{d}_{\mu})$ is a pseudometric space.
-The reason $\mathrm{d}_{\mu}$ is a pseudometric and not a metric
-is because we not have identity of indiscernibles: we may have $\mu^{*}(A\Delta B)=0$
-with $A\neq B$. All is not lost however as every pseudometric space
-induces a metric space in a natural way. Let us briefly describe the
-metric space induced by the pseudometric space $(\mathcal{P}(X),\mathrm{d}_{\mu})$.
-More details can be found in the Appendix. We introduce an equivalence
-relation $\sim$ on $\mathcal{P}(X)$ as follows: let $A,B\in\mathcal{P}(X)$.
-Then
+Proposition~(\ref{propdmuispseudometric}) tells us that $(\mathcal{P}(X),\mathrm{d}_{\mu})$
+is a pseudometric space. The reason $\mathrm{d}_{\mu}$ is a pseudometric
+and not a metric is because we not have identity of indiscernibles:
+we may have $\mu^{*}(A\Delta B)=0$ with $A\neq B$. All is not lost
+however as every pseudometric space induces a metric space in a natural
+way. Let us briefly describe the metric space induced by the pseudometric
+space $(\mathcal{P}(X),\mathrm{d}_{\mu})$. More details can be found
+in the Appendix. We introduce an equivalence relation $\sim$ on $\mathcal{P}(X)$
+as follows: let $A,B\in\mathcal{P}(X)$. Then
 \[
 A\sim B\text{ if and only if }\mathrm{d}_{\mu}(A,B)=0.
 \]
@@ -1282,9 +1278,9 @@ function $\nu\colon[\mathcal{P}(X)]\to Y$ such that $\nu\circ\pi=\eta$.
 ~~~There many other properties which are both shared by $(\mathcal{P}(X),\mathrm{d}_{\mu})$
 and $([\mathcal{P}(X)],[\mathrm{d}_{\mu}])$. For instance, $(\mathcal{P}(X),\mathrm{d}_{\mu})$
 is complete if and only if $([\mathcal{P}(X)],[\mathrm{d}_{\mu}])$
-complete. For this reason and many other reasons, we choose to work
-in the pseudometric space $(\mathcal{P}(X),\mathrm{d}_{\mu})$ rather
-than the metric space $([\mathcal{P}(X)],[\mathrm{d}_{\mu}])$. 
+complete. For this and many other reasons, we choose to work in the
+pseudometric space $(\mathcal{P}(X),\mathrm{d}_{\mu})$ rather than
+the metric space $([\mathcal{P}(X)],[\mathrm{d}_{\mu}])$. 
 
 \subsubsection{Complement Map is Isometry}
 
@@ -1320,7 +1316,7 @@ defined by
 \[
 \cup(A,B)=A\cup B
 \]
-for all $(A,B)\in\mathcal{P}(X)$, is continuous on $[\mathcal{P}(X)]$.
+for all $(A,B)\in\mathcal{P}(X)$, is continuous on $[\mathcal{P}(X)]\times[\mathcal{P}(X)]$.
 \end{prop}
 
 \begin{proof} We first check that the union map is constant on equivalence
@@ -1348,7 +1344,7 @@ Then $n\geq N$ implies
  & <\frac{\varepsilon}{2}+\frac{\varepsilon}{2}\\
  & =\varepsilon.
 \end{align*}
-It follows that the union map is continuous on $[\mathcal{P}(X)]$.
+It follows that the union map is continuous on $[\mathcal{P}(X)]\times[\mathcal{P}(X)]$.
 \end{proof}
 
 \begin{prop}\label{prop} The intersection map $\cap\colon\mathcal{P}(X)\times\mathcal{P}(X)\to\mathcal{P}(X)$,
@@ -1365,8 +1361,8 @@ and hence must be continuous. \end{proof}
 
 \subsubsection{Uniform Continuity of $\mu^{*}$}
 
-\begin{prop}\label{prop} The function $\mu^{*}\colon\mathcal{P}(X)\to[0,\infty]$
-is Lipschitz continuous and is constant on equivalence classes. \end{prop}
+\begin{prop}\label{propmustarisextensionofmu} The function $\mu^{*}\colon\mathcal{P}(X)\to[0,\infty]$
+is Lipschitz continuous on $[\mathcal{P}(X)]$. \end{prop}
 
 \begin{proof} Let $A,B\in\mathcal{P}(X)$. Then
 \begin{align*}
@@ -1375,9 +1371,11 @@ is Lipschitz continuous and is constant on equivalence classes. \end{prop}
  & =\mu^{*}(A\Delta B)\\
  & =\mathrm{d}_{\mu}(A,B).
 \end{align*}
-It follows that $\mu^{*}$ is Lipschitz continuous. Let us check that
-it is constant on equivalence classes. Let $A,A'\in\mathcal{P}(X)$
-such that $A\sim A'$ (so $\mu^{*}(A\Delta A')=0$). Then
+It follows that $\mu^{*}$ is Lipschitz continuous on $\mathcal{P}(X)$.
+To see that it is Lipschitz continuous on $[\mathcal{P}(X)]$, we
+just need to check that it is constant on equivalence classes. Let
+$A,A'\in\mathcal{P}(X)$ such that $A\sim A'$ (so $\mu^{*}(A\Delta A')=0$).
+Then
 \begin{align*}
 \mu^{*}(A') & =\mu^{*}((A\Delta A)\Delta A')\\
  & =\mu^{*}(A\Delta(A\Delta A'))\\
@@ -1387,6 +1385,10 @@ such that $A\sim A'$ (so $\mu^{*}(A\Delta A')=0$). Then
 \end{align*}
 By a similar argument, we also have $\mu^{*}(A)\geq\mu^{*}(A')$.
 Thus $\mu^{*}$ is constant on equivalence classes. \end{proof}
+
+\begin{rem}\label{rem} Since $\mu^{*}|_{\mathcal{A}}=\mu$, we have
+also shown that $\mu$ is continuous on $[\mathcal{A}]$ and that
+$\mu^{*}$ is a continuous extension of $\mu$. \end{rem}
 
 \subsection{Completion of $(\mathcal{A},\mathrm{d}_{\mu})$}
 
@@ -1403,11 +1405,24 @@ spaces
 \]
 Our goal in this subsection is to show that $(\mathcal{A},\mathrm{d}_{\mu})$
 is dense in $(\sigma(\mathcal{A}),\mathrm{d}_{\mu})$ and that $(\sigma(\mathcal{A}),\mathrm{d}_{\mu})$
-is complete. Thus $(\sigma(\mathcal{A}),\mathrm{d}_{\mu})$ is a completion
-of $(\mathcal{A},\mathrm{d}_{\mu})$. Before doing this we introduce
-the limsup and liminf of a sequence of sets.
+is complete. Thus $(\sigma(\mathcal{A}),\mathrm{d}_{\mu})$ is the
+completion of $(\mathcal{A},\mathrm{d}_{\mu})$. Before doing this,
+we introduce the limsup and liminf of a sequence of sets.
 
 \subsubsection{Limit Supremum and Limit Infimum}
+
+Recall that if $(a_{n})$ is a sequence of real numbers, we define
+its limit supremum by the formula
+\[
+\limsup a_{n}=\inf_{N\geq1}\sup_{n\geq N}a_{n}.
+\]
+
+Similarly, we define its limit infimum by the formula
+\[
+\liminf a_{n}=\sup_{N\geq1}\inf_{n\geq N}a_{n}.
+\]
+There is an analagous notion of limit supremum and limit infimum of
+a sequence of sets. 
 
 \begin{defn}\label{defn} Let $(A_{n})$ be a sequence of sets. The
 \textbf{limit supremum }of $(A_{n})$ is defined to be
@@ -1421,6 +1436,13 @@ The \textbf{limit infimum }of $(A_{n})$ is defined by
 \end{defn}
 
 \subsubsection{$(\sigma(\mathcal{A}),\mathrm{d}_{\mu})$ is complete}
+
+We now want to show that $(\sigma(\mathcal{A}),\mathrm{d}_{\mu})$
+is complete. In fact, we will do better than this. We will show that
+$(\Sigma,\mathrm{d}_{\mu})$ is complete, where $\Sigma$ is any $\sigma$-algebra
+which contains $\mathcal{A}$. Recall that this means that every Cauchy
+sequence in $(\Sigma,\mathrm{d}_{\mu})$ converges to a limit in $(\Sigma,\mathrm{d}_{\mu})$
+. Before we prove this, we need to establish two lemmas.
 
 \begin{lemma}\label{lemmaconvsubseq} Let $(X,\mathrm{d})$ be a pseudometric
 space and let $(x_{n})$ be a Cauchy sequence in $X$. Suppose there
@@ -1438,7 +1460,7 @@ $m,n\geq M$ implies
 \mathrm{d}(x_{m},x_{n})<\frac{\varepsilon}{2}.
 \]
 Choose such $M$ and $N$ and assume without loss of generality that
-$N\geq M$. Then $n\geq N$ implies
+$N\geq M$. Then $\pi(n)\geq n\geq N$ implies
 \begin{align*}
 \mathrm{d}(x_{n},x) & \leq\mathrm{d}(x_{\pi(n)},x_{n})+\mathrm{d}(x_{\pi(n)},x)\\
  & <\frac{\varepsilon}{2}+\frac{\varepsilon}{2}\\
@@ -1446,15 +1468,49 @@ $N\geq M$. Then $n\geq N$ implies
 \end{align*}
 It follows that $x_{n}\to x$. \end{proof}
 
-\begin{prop}\label{prop} Let $\Sigma$ be any $\sigma$-algebra which
-contains $\mathcal{A}$. Then $(\Sigma,\mathrm{d}_{\mu})$ is complete.
-In particular, $(\sigma(\mathcal{A}),\mathrm{d}_{\mu})$ is complete.
-\end{prop}
+\begin{lemma}\label{lemmasymmetricdifident} Let $(A_{n})$ be a sequence
+in $\mathcal{P}(X)$. Then
+\[
+\bigcup_{n=1}^{\infty}(A_{n}\Delta A_{n+1})=\bigcup_{n=1}^{\infty}A_{n}\backslash\bigcap_{m=1}^{\infty}A_{m}.
+\]
 
-\begin{proof} Let $(A_{n})$ be a Cauchy sequence in $\Sigma$. To
-show that $(A_{n})$ is convergent, it suffices to show that a subsequence
-of $(A_{n})$ is convergent, by Lemma~(\ref{lemmaconvsubseq}). We
-construct such a subsequence as follows. Since $(A_{n})$ is Cauchy,
+\end{lemma}
+
+\begin{proof} Suppose $x\in\bigcup_{n=1}^{\infty}(A_{n}\Delta A_{n+1})$.
+Choose $n\in\mathbb{N}$ such that $x\in A_{n}\Delta A_{n+1}$. Thus
+either $x\in A_{n}\backslash A_{n+1}$ or $x\in A_{n+1}\backslash A_{n}$.
+Without loss of generality, say $x\in A_{n}\backslash A_{n+1}$. Then
+since $x\in A_{n}$, we see that $x\in\bigcup_{n=1}^{\infty}A_{n}$
+and since $x\notin A_{n+1}$, we see that $x\notin\bigcap_{n=1}^{\infty}A_{n}$.
+Therefore $x\in\bigcup_{n=1}^{\infty}A_{n}\backslash\bigcap_{m=1}^{\infty}A_{m}$.
+This implies
+\[
+\bigcup_{n=1}^{\infty}(A_{n}\Delta A_{n+1})\subseteq\bigcup_{n=1}^{\infty}A_{n}\backslash\bigcap_{m=1}^{\infty}A_{m}.
+\]
+
+~~~Conversely, suppose $x\in\bigcup_{n=1}^{\infty}A_{n}\backslash\bigcap_{m=1}^{\infty}A_{m}$.
+Since $x\in\bigcup_{n=1}^{\infty}A_{n}$, there exists some $n\in\mathbb{N}$
+such that $x\in A_{n}$. Since $x\notin\bigcap_{m=1}^{\infty}A_{m}$,
+there exists some $k\in\mathbb{N}$ such that $x\notin A_{k}$. Assume
+without loss of generality that $k<n$. Choose $m$ to be the least
+natural number number such that $x\in A_{m}$, $x\notin A_{m-1}$,
+and $k<m\leq n$. Clearly this number exists since $x\notin A_{k}$
+and $x\in A_{n}$. Then $x\in A_{m}\Delta A_{m-1}$, which implies
+$x\in\bigcup_{n=1}^{\infty}(A_{n}\Delta A_{n+1})$. Thus
+\[
+\bigcup_{n=1}^{\infty}(A_{n}\Delta A_{n+1})\supseteq\bigcup_{n=1}^{\infty}A_{n}\backslash\bigcap_{m=1}^{\infty}A_{m}.
+\]
+
+\end{proof}
+
+\begin{theorem}\label{theorem} Let $\Sigma$ be any $\sigma$-algebra
+which contains $\mathcal{A}$. Then $(\Sigma,\mathrm{d}_{\mu})$ is
+complete. \end{theorem}
+
+\begin{proof} Let $(A_{n})$ be a Cauchy sequence in $(\Sigma,\mathrm{d}_{\mu})$
+. To show that $(A_{n})$ is convergent, it suffices to show that
+a subsequence of $(A_{n})$ is convergent, by Lemma~(\ref{lemmaconvsubseq}).
+We construct such a subsequence as follows: Since $(A_{n})$ is Cauchy,
 for each $n\geq1$ there exists a $\pi(n)\geq n$ such that $k,m\geq\pi(n)$
 implies
 \[
@@ -1462,53 +1518,44 @@ implies
 \]
 Choose such $\pi(n)\geq n$ such that $m<n$ implies $\pi(m)<\pi(n)$.
 In particular, for each $n\geq1$, we have
+\begin{equation}
+\mathrm{d}_{\mu}(A_{\pi(n)},A_{\pi(n+1)})<\frac{1}{2^{n}}.\label{eq:refinecauchysequence}
+\end{equation}
+By passing to the subsequence $(A_{\pi(n)})$ of $(A_{n})$ if necessary,
+we may as well assume that
 \[
-\mathrm{d}_{\mu}(A_{\pi(n)},A_{\pi(n+1)})<\frac{1}{2^{n}}.
+\mathrm{d}_{\mu}(A_{n},A_{n+1})<\frac{1}{2^{n}}
 \]
-
-Now consider the subsequence $(A_{\pi(n)})$ of $(A_{n})$ and set
-\[
-A:=\limsup A_{\pi(n)}.
-\]
-We claim that $A_{\pi(n)}\to A$. To see this, we first observe that
-for each $N\geq1$, we have
+for all $n\geq1$. Now set $A=\limsup A_{n}$. We claim that $A_{n}\to A$.
+Indeed, let $\varepsilon>0$ and choose $N\geq1$ such that $2^{2-N}<\varepsilon$.
+Then $n\ge N$ implies
 \begin{align*}
-\bigcap_{\pi(n)\geq\pi(N)}A_{\pi(n)} & \subseteq\bigcup_{M\geq1}\bigcap_{\pi(m)\geq M}A_{\pi(m)}\\
- & =\liminf A_{\pi(m)}\\
- & \subseteq\limsup A_{\pi(m)}\\
- & =\bigcap_{M\geq1}\bigcup_{\pi(m)\geq M}A_{\pi(m)}\\
- & \subseteq\bigcup_{\pi(n)\geq\pi(N)}A_{\pi(n)}.
-\end{align*}
-Now let $\varepsilon>0$ and choose $N\geq1$ such that $2^{2-N}<\varepsilon$.
-Then $\pi(n)\geq\pi(N)$ implies
-
-\begin{align*}
-\mathrm{d}_{\mu}(A,A_{\pi(n)}) & =\mu^{*}(A\Delta A_{\pi(n)})\\
- & =\mu^{*}(A\backslash A_{\pi(n)})+\mu^{*}(A_{\pi(n)}\backslash A)\\
- & \leq\mu^{*}\left(\bigcup_{\pi(m)\geq\pi(N)}A_{\pi(m)}\backslash\bigcap_{\pi(m)\geq\pi(N)}A_{\pi(m)}\right)+\mu^{*}\left(\bigcup_{\pi(m)\geq\pi(N)}A_{\pi(m)}\backslash\bigcap_{\pi(m)\geq\pi(N)}A_{\pi(m)}\right)\\
- & =2\mu^{*}\left(\bigcup_{\pi(m)\geq\pi(N)}A_{\pi(m)}\backslash\bigcap_{\pi(m)\geq\pi(N)}A_{\pi(m)}\right)\\
- & =2\mu^{*}\left(\bigcup_{\pi(m)\geq\pi(N)}(A_{\pi(m)}\Delta A_{\pi(m+1)})\right)\\
- & \leq2\sum_{\pi(m)\geq\pi(N)}\mu^{*}(A_{\pi(m)}\Delta A_{\pi(m+1)})\\
- & =2\sum_{\pi(m)\geq\pi(N)}\mathrm{d}_{\mu}(A_{\pi(m)}\Delta A_{\pi(m+1)})\\
- & <2\sum_{\pi(m)\geq\pi(N)}\frac{1}{2^{m}}\\
+\mathrm{d}_{\mu}(A,A_{n}) & =\mu^{*}(A\Delta A_{n})\\
+ & \leq\mu^{*}(A\backslash A_{n})+\mu^{*}(A_{n}\backslash A) &  & \text{finite subadditivity of }\mu^{*}\\
+ & \leq\mu^{*}\left(\bigcup_{m\geq N}A_{m}\backslash\bigcap_{m\geq N}A_{m}\right)+\mu^{*}\left(\bigcup_{m\geq N}A_{m}\backslash\bigcap_{m\geq N}A_{m}\right) &  & \text{monotonicity of }\mu^{*}\\
+ & =2\mu^{*}\left(\bigcup_{m\geq N}A_{m}\backslash\bigcap_{m\geq N}A_{m}\right)\\
+ & =2\mu^{*}\left(\bigcup_{m\geq N}(A_{m}\Delta A_{m+1})\right)\\
+ & \leq2\sum_{m\geq N}\mu^{*}(A_{m}\Delta A_{m+1})\\
+ & =2\sum_{m\geq N}\mathrm{d}_{\mu}(A_{m}\Delta A_{m+1})\\
  & <2\sum_{m\geq N}\frac{1}{2^{m}}\\
  & =2^{2-N}\\
  & <\varepsilon.
 \end{align*}
-It follows that $(A_{\pi(n)})$ converges to $A$. Finally, note that
+It follows that $(A_{n})$ converges to $A$. Finally, note that 
 \begin{align*}
 A & =\limsup A_{n}\\
  & =\bigcap_{N\geq1}\bigcup_{n\geq N}A_{n}\\
  & \in\Sigma.
 \end{align*}
-Thus every Cauchy sequence of sets in $\Sigma$ converges to a set
-in $\Sigma$. Therefore $(\Sigma,\mathrm{d}_{\mu}|_{\Sigma})$ is
-complete. \end{proof}
+Thus every Cauchy sequence of sets in $(\Sigma,\mathrm{d}_{\mu})$
+converges to a set in $(\Sigma,\mathrm{d}_{\mu})$. Therefore $(\Sigma,\mathrm{d}_{\mu})$
+is complete. \end{proof}
 
-\subsubsection{$\mathcal{A}$ is dense in $(\sigma(\mathcal{A}),\mathrm{d}_{\mu})$}
+\subsubsection{$(\mathcal{A},\mathrm{d}_{\mu})$ is dense in $(\sigma(\mathcal{A}),\mathrm{d}_{\mu})$}
 
-Now we want to show that $\mathcal{A}$ is a dense subset of $\sigma(\mathcal{A})$.
-In other words, we want to show that $\overline{\mathcal{A}}=\sigma(\mathcal{A})$,
+Now we want to show that $(\mathcal{A},\mathrm{d}_{\mu})$ is dense
+subset in $(\sigma(\mathcal{A}),\mathrm{d}_{\mu})$. In other words,
+we want to show that $\overline{\mathcal{A}}=\sigma(\mathcal{A})$,
 where $\overline{\mathcal{A}}$ denotes the closure of $\mathcal{A}$
 in the pseudometric space $(\mathcal{P}(X),\mathrm{d}_{\mu})$. Recall
 that $\overline{\mathcal{A}}$ is the \emph{smallest }closed set which
@@ -1522,15 +1569,15 @@ On the other hand, $\sigma(\mathcal{A})$ is the \emph{smallest }$\sigma$-algebra
 which contains $\mathcal{A}$. Thus if we can show that $\overline{\mathcal{A}}$
 is a $\sigma$-algebra, then we will have the reverse inclusion.
 
-\begin{prop}\label{prop} $\overline{\mathcal{A}}$ is a $\sigma$-algebra.
-\end{prop}
+\begin{prop}\label{propabarissigmaalg} $\overline{\mathcal{A}}$
+is a $\sigma$-algebra. \end{prop}
 
 \begin{proof} The proof consists of three steps.
 
 \hfill
 
-\textbf{Step 1: }We first show that \textbf{$\mathcal{A}$ }is an
-algebra. We have $\emptyset\in\mathcal{A}\subseteq\overline{\mathcal{A}}$.
+\textbf{Step 1: }We first show that \textbf{$\mathcal{\overline{\mathcal{A}}}$
+}is an algebra. We have $\emptyset\in\mathcal{A}\subseteq\overline{\mathcal{A}}$.
 Next, let $A\in\overline{\mathcal{A}}$. Choose a sequence $(A_{n})$
 in $\mathcal{A}$ such that $A_{n}\to A$. Then since taking complements
 is continuous, we have $A_{n}^{c}\to A^{c}$, which implies $A^{c}\in\overline{\mathcal{A}}$.
@@ -1544,7 +1591,8 @@ which implies $A\cup B\in\overline{\mathcal{A}}$.
 \textbf{Step 2: }We show that $\mu^{*}$ restricts to a measure on
 $\overline{\mathcal{A}}$. It suffices to show that $\mu^{*}$ is
 finitely additive on $\overline{\mathcal{A}}$ since we already know
-it is countably subadditive. Choose sequences $(A_{n})$ and $(B_{n})$
+it is countably subadditive. Let $A$ and $B$ be two disjoint members
+of $\overline{\mathcal{A}}$ and choose sequences $(A_{n})$ and $(B_{n})$
 in $\mathcal{A}$ such that $A_{n}\to A$ and $B_{n}\to B$. Then
 $A_{n}\cup B_{n}\to A\cup B$, and so it follows by continuity of
 $\mu^{*}$ that
@@ -1557,22 +1605,28 @@ $\mu^{*}$ that
  & =\mu^{*}(A)+\mu^{*}(B)-\mu^{*}(\emptyset)\\
  & =\mu^{*}(A)+\mu^{*}(B).
 \end{align*}
+where we needed to use the fact that $\mu$ is a finite measure in
+order to get the third line from the second line.
 
 \hfill
 
 \textbf{Step 3:} We now show that $\overline{\mathcal{A}}$ is a $\sigma$-algebra.
 Let $(A_{n})$ be a sequence of sets in $\overline{\mathcal{A}}$.
-Disjointify this sequence to $(B_{n})$: set $B_{1}=A_{1}$ and $B_{n}=A_{n}\backslash\bigcup_{i=1}^{n-1}A_{i}$
+We want to show $\bigcup_{n=1}^{\infty}A_{n}\in\overline{\mathcal{A}}$.
+To do this, we will shows that $\bigcup_{n=1}^{N}A_{n}\to\bigcup_{n=1}^{\infty}A_{n}$
+as $N\to\infty$. Then since $\bigcup_{n=1}^{N}A_{n}\in\overline{\mathcal{A}}$
+since $\overline{\mathcal{A}}$ is an algebra by step 2, it will then
+follow that $\bigcup_{n=1}^{\infty}A_{n}\in\overline{\mathcal{A}}$. 
+
+~~~Disjointify the sequence $(A_{n})$ to the sequence $(B_{n})$:
+set $B_{1}=A_{1}$ and $B_{n}=A_{n}\backslash\bigcup_{i=1}^{n-1}A_{i}$
 for all $n>1$. Then $(B_{n})$ is a sequence of pairwise disjoint
-sets in $\overline{\mathcal{A}}$. Moreover
-\[
-\bigcup_{n=1}^{N}B_{n}=\bigcup_{n=1}^{N}A_{n}
-\]
-for all $N\in\mathbb{N}$. For each $n\in\mathbb{N}$, let $C_{n}=\bigcup_{i=1}^{n}B_{i}\in\overline{\mathcal{A}}$.
-Then
+sets in $\overline{\mathcal{A}}$ since $\overline{\mathcal{A}}$
+is an algebra by step 2. Moreover, for each $N\in\mathbb{N}$, we
+have
 \begin{align*}
 \mathrm{d}_{\mu}\left(\bigcup_{n=1}^{\infty}A_{n},\bigcup_{n=1}^{N}A_{n}\right) & =\mathrm{d}_{\mu}\left(\bigcup_{n=1}^{\infty}B_{n},\bigcup_{n=1}^{N}B_{n}\right)\\
- & =\mu^{*}\left(\bigcup_{n=1}^{\infty}B_{n}\Delta\bigcup_{n=1}^{N}B_{n}\right)\\
+ & =\mu^{*}\left(\left(\bigcup_{n=1}^{\infty}B_{n}\right)\Delta\left(\bigcup_{n=1}^{N}B_{n}\right)\right)\\
  & =\mu^{*}\left(\bigcup_{n=N+1}^{\infty}B_{n}\right)\\
  & =\sum_{n=N+1}^{\infty}\mu^{*}(B_{n}),
 \end{align*}
@@ -1584,46 +1638,53 @@ tail of a convergent series:
  & <\infty.
 \end{align*}
 Therefore $\bigcup_{n=1}^{N}A_{n}\to\bigcup_{n=1}^{\infty}A_{n}$
-as $N\to\infty$, which implies
-\[
-\bigcup_{n=1}^{\infty}A_{n}\in\overline{\mathcal{A}}.
-\]
-Thus $\overline{\mathcal{A}}$ is a $\sigma$-algebra. \end{proof}
+as $N\to\infty$. \end{proof}
 
 \subsection{Uniqueness of Measure}
 
-\subsubsection{Uniqueness of Extensions when Target Space is Hausdorff}
+Recall that in the proof of Proposition~(\ref{propabarissigmaalg})
+we showed that $\mu^{*}$ restricts to a measure on $\overline{\mathcal{A}}=\sigma(\mathcal{A})$.
+In particular, since $\mu^{*}|_{\mathcal{A}}=\mu$, we see that the
+measure $\mu^{*}|_{\sigma(\mathcal{A})}$ is an extension of $\mu$
+to all of $\sigma(\mathcal{A})$. This gives us precisely one example
+of a measure which extends $\mu$ to all of $\sigma(\mathcal{A})$.
+It is not at all clear however that this is the \emph{only }such extension.
+If $\mu$ is not finite, then there may be more than one extension.
+Indeed, see problem 6 in homework 2 for an example of this. In our
+case however where $\mu$ is finite, we shall see that this extension
+is in fact unique. We will use ideas from Topology to show this. All
+of the topological work we just did is about to payoff! 
+
+\subsubsection{Uniqueness Extensions of Continuous Functions}
 
 \begin{prop}\label{propuniquenessofextensions} Let $X$ be a topological
-space and let $f\colon A\to Y$ be a continuous function from a dense
-subspace $A$ of $X$ to a Hausdorff space $Y$. If there exists a
-continuous extension of $f$ to all of $X$, then it must be unique.
-In other words, suppose $\widetilde{f}_{1}\colon X\to Y$ and $\widetilde{f}_{2}\colon X\to Y$
-are continuous functions such that
+space, let $A$ be a dense subspace of $X$, let $Y$ be a Hausdorff
+space, and let $f\colon A\to Y$ be a continuous function. If there
+exists a continuous extension of $f$ to all of $X$, then it must
+be unique, that is, if $\widetilde{f}_{1}\colon X\to Y$ and $\widetilde{f}_{2}\colon X\to Y$
+are two continuous functions such that 
 \[
-\widetilde{f}_{1}|_{A}=f=\widetilde{f}_{2}|_{A}.
+\widetilde{f}_{1}|_{A}=f=\widetilde{f}_{2}|_{A},
 \]
-Then $\widetilde{f}_{1}=\widetilde{f}_{2}$. \end{prop}
+then $\widetilde{f}_{1}=\widetilde{f}_{2}$. \end{prop}
 
-\begin{proof} To prove uniqueness, assume for a contradiction that
-$\widetilde{f}_{1}\colon X\to Y$ and $\widetilde{f}_{2}\colon X\to Y$
-are two continuous extensions of $f$ such that $\widetilde{f}_{1}\neq\widetilde{f}_{2}$.
-Choose $x\in X$ such that $\widetilde{f}_{1}(x)\neq\widetilde{f}_{2}(x)$.
+\begin{proof} Assume for a contradiction that $\widetilde{f}_{1}\colon X\to Y$
+and $\widetilde{f}_{2}\colon X\to Y$ are two continuous extensions
+of $f$ such that $\widetilde{f}_{1}\neq\widetilde{f}_{2}$. Choose
+$x\in X$ such that $\widetilde{f}_{1}(x)\neq\widetilde{f}_{2}(x)$.
 Since $Y$ is Hausdorff, we may choose open neighborhoods $V_{1}$
 and $V_{2}$ of $\widetilde{f}_{1}(x)$ and $\widetilde{f}_{2}(x)$
 respectively such that $V_{1}\cap V_{2}=\emptyset$. Then $\widetilde{f}_{1}^{-1}(V_{1})\cap\widetilde{f}_{2}^{-1}(V_{2})$
 is an open neighborhood of $x$, and so it must have a nonempty intersection
 with $A$. Choose $a\in A\cap\widetilde{f}_{1}^{-1}(V_{1})\cap\widetilde{f}_{2}^{-1}(V_{2})$.
-Then 
-\begin{align*}
-f(a) & =\widetilde{f}_{1}(a)\\
- & \in V_{1}.
-\end{align*}
+Then
+\[
+f(a)=\widetilde{f}_{1}(a)\in V_{1}.
+\]
 Similarly, 
-\begin{align*}
-f(a) & =\widetilde{f}_{2}(a)\\
- & \in V_{2}.
-\end{align*}
+\[
+f(a)=\widetilde{f}_{2}(a)\in V_{2}.
+\]
 Thus $f(a)\in V_{1}\cap V_{2}$, which is a contradiction since $V_{1}$
 and $V_{2}$ were chosen to disjoint from one another. \end{proof}
 
@@ -1665,9 +1726,9 @@ where we used the fact that $\mu$ is finite in the first line. \end{proof}
 
 \subsubsection{Uniqueness of Extension for Measures}
 
-\begin{prop}\label{prop} Let $\mu$ and $\nu$ be two finite measures
-defined on $\sigma(\mathcal{A})$ which coincide on $\mathcal{A}$.
-Then $\mu=\nu$. \end{prop}
+\begin{theorem}\label{theorem} Let $\mu$ and $\nu$ be two finite
+measures defined on $\sigma(\mathcal{A})$ which coincide on $\mathcal{A}$.
+Then $\mu=\nu$. \end{theorem}
 
 \begin{proof} We first note that $\mathrm{d}_{\mu|_{\mathcal{A}}}=\mathrm{d}_{\nu|_{\mathcal{A}}}$
 since $\mu$ and $\nu$ agree on $\mathcal{A}$. Indeed, let $A,B\in\sigma(\mathcal{A})$.
@@ -1690,11 +1751,12 @@ that $\mu=\nu$. \end{proof}
 
 \subsection{Measurability}
 
-We've just shown that any premeasure space $(X,\mathcal{A},\mu)$
-can be extended (uniquely) to the measure space $(X,\sigma(\mathcal{A}),\mu^{*}|_{\sigma(\mathcal{A})})$.
-It turns out that $(X,\mathcal{A},\mu)$ can be extended (uniquely)
-to an even bigger measure space $(X,\mathcal{M},\mu^{*}|_{\mathcal{M}})$.
-Let us define what this bigger measur space is. 
+We've just shown that any finite premeasure space $(X,\mathcal{A},\mu)$
+can be uniquely extended to the finite measure space $(X,\sigma(\mathcal{A}),\mu^{*}|_{\sigma(\mathcal{A})})$.
+In fact, since $\mu^{*}|_{\sigma(\mathcal{A})}$ is unique, we may
+as well simply denote it by $\mu$. It turns out that $(X,\mathcal{A},\mu)$
+can be uniquely extended to an even bigger measure space $(X,\mathcal{M},\mu^{*}|_{\mathcal{M}})$.
+Let us define what this bigger measure space is. 
 
 \begin{defn}\label{defn} Let $\mu$ be an outer measure on a set
 $X$. A subset $A$ of $X$ is said to be $\mu$-\textbf{measurable
@@ -1740,13 +1802,16 @@ Taking $\varepsilon\to0$ gives us
 Therefore $A$ is $\mu^{*}$-measurable since $S$ was arbitrary.
 \end{proof}
 
-$\mathcal{M}_{\mu^{*}}$ is
+\subsubsection{$(X,\mathcal{M}_{\mu^{*}},\mu^{*}|_{\mathcal{M}_{\mu^{*}}})$ is
+a measure space}
 
 \begin{prop}\label{propsigmaalgebramumeasurable} Let $(X,\mathcal{A},\mu)$
 be a premeasure space. Then $(X,\mathcal{M}_{\mu^{*}},\mu^{*}|_{\mathcal{M}_{\mu^{*}}})$
 is a measure space. \end{prop}
 
-\begin{proof} We prove this in several steps:
+\begin{proof} To clean notation in what follows, we denote $\mathcal{M}=\mathcal{M}_{\mu^{*}}$
+and $\mu^{*}=\mu^{*}|_{\mathcal{M}_{\mu^{*}}}$. We prove this proposition
+in several steps:
 
 \hfill
 
@@ -1773,9 +1838,11 @@ Therefore $X\backslash A\in\mathcal{M}$.
 
 \hfill
 
-\textbf{Step 2: }We show $\mu^{*}$ is finitely additive on $\mathcal{M}$.
-In fact, we claim that for any $S\in\mathcal{P}(X)$ and pairwise
-disjoint $A_{1},\dots,A_{n}\in\mathcal{M}$, we have 
+\textbf{Step 2: }We show that $\mu^{*}$ restricts to a measure on
+$\mathcal{M}$. To do this, we just need to show that $\mu^{*}$ is
+finitely additive on $\mathcal{M}$. In fact, we claim that for any
+$S\in\mathcal{P}(X)$ and pairwise disjoint $A_{1},\dots,A_{n}\in\mathcal{M}$,
+we have 
 \begin{equation}
 \mu^{*}\left(S\cap\left(\bigcup_{m=1}^{n}A_{m}\right)\right)=\sum_{m=1}^{n}\mu^{*}\left(S\cap A_{m}\right).\label{eq:finiteadditivitymustar}
 \end{equation}
@@ -1824,18 +1891,34 @@ where we applied countable subadditivity of $\mu^{*}$ to the first
 expression on the right-hand side. Thus $\bigcup_{n\in\mathbb{N}}A_{n}\in\mathcal{M}$.
 \end{proof}
 
+\begin{rem}\label{rem} One should compare the proof that $(X,\sigma(\mathcal{A}),\mu^{*}|_{\sigma(\mathcal{A})})$
+is a measure space with the proof that $(X,\mathcal{M},\mu^{*}|_{\mathcal{M}})$
+is a measure space. They both have three similar steps. However in
+the former case, we needed to use continuity of $\mu^{*}$ to prove
+these steps, whereas in the latter case, we needed to use $\mu^{*}$-measurability
+to prove these steps. Actually, we did prove a slightly stronger result
+in the former case, namely that $\overline{\mathcal{A}}=\sigma(\mathcal{A})$.
+\end{rem}
+
 ~~~In general, $\mathcal{M}_{\mu^{*}}$ strictly contains $\sigma(\mathcal{A})$.
 The $\sigma$-algebra $\mathcal{M}$ has the following additional
 property: if $E$ is a member of $\mathcal{M}$ and $\mu^{*}(E)=0$,
-then every subset of $E$ is also a member of $\mathcal{M}$. This
-is not necessarily true for $\sigma(\mathcal{A})$. In the special
-case $\mathcal{A}=\mathcal{I}$ interval algebra, we call this $\sigma$-algebra
-$\mathcal{M}$ the $\sigma$-algebra of \textbf{Lebesgue measurable
-sets}. Recall that $\sigma(\mathcal{I})$ is called the $\sigma$-algebra
-of \textbf{Borel measurable sets}. It is known that not every Lebesgue
-measurable set is Borel measurable. The extension of the length measure
-$\mathrm{m}$ from $\mathcal{I}$ to $\sigma(\mathcal{I})$ or $\mathcal{M}$
-is called \emph{the} \textbf{Lebesgue measure}. By \emph{a} \textbf{Borel
+then every subset of $E$ is also a member of $\mathcal{M}$. Indeed,
+if $S\subseteq E$, then for any $A\in\mathcal{A}$, we have
+\begin{align*}
+\mu^{*}(S\cap A)+\mu^{*}(S\backslash A) & \leq\mu^{*}(E)+\mu^{*}(S\backslash A)\\
+ & =\mu^{*}(S\backslash A)\\
+ & \leq\mu^{*}(S),
+\end{align*}
+which implies $S\in\mathcal{M}$. This property is not necessarily
+true for $\sigma(\mathcal{A})$. In the special case $\mathcal{A}=\mathcal{I}$
+interval algebra, we call this $\sigma$-algebra $\mathcal{M}$ the
+$\sigma$-algebra of \textbf{Lebesgue measurable sets}. Recall that
+$\sigma(\mathcal{I})$ is called the $\sigma$-algebra of \textbf{Borel
+measurable sets}. It is known that not every Lebesgue measurable set
+is Borel measurable. The extension of the length measure $\mathrm{m}$
+from $\mathcal{I}$ to $\sigma(\mathcal{I})$ or $\mathcal{M}$ is
+called \emph{the} \textbf{Lebesgue measure}. By \emph{a} \textbf{Borel
 measure}, we mean any measure defined on $\sigma(\mathcal{I})$. There
 are many Borel measures but there is only one Lebesgue measure. 
 
@@ -2336,108 +2419,90 @@ it follows that $\mathcal{B}(\mathbb{R})\subseteq\sigma(\mathcal{C})$.
 \begin{cor}\label{corequivdefofmeas} Let $(X,\mathcal{M})$ be a
 measurable space and let $f\colon X\to\mathbb{R}$ be a function.
 Then $f$ is measurable with respect to $\mathcal{M}$ and $\mathcal{B}(\mathbb{R})$
-if and only if $f^{-1}(-\infty,c)\in\mathcal{M}$ for all $c\in\mathbb{R}$.
+if and only if $\{f<c\}\in\mathcal{M}$ for all $c\in\mathbb{R}$.
 \end{cor}
 
 \begin{proof} Follows from Proposition~(\ref{propborelsigmaalgebragen})
 and Proposition~(\ref{equivalentdefofmeasurable}). \end{proof}
 
-~~~Let us introduce some more notation. Let $f\colon X\to\mathbb{R}$
-and let $c\in\mathbb{R}$. We shall write
+\begin{rem}\label{rem} Here $\{f<c\}$ denotes the set $\{x\in X\mid f(x)<c\}$.
+In fact, we shall often use this shorthand notation for other sets
+like this. For instance, we write
 \begin{align*}
 \{f<c\} & =\{x\in X\mid f(x)<c\}\\
+\{f\leq c\} & =\{x\in X\mid f(x)\leq c\}\\
 \{f>c\} & =\{x\in X\mid f(x)>c\}\\
+\{f\geq c\} & =\{x\in X\mid f(x)\geq c\}\\
 \{f=c\} & =\{x\in X\mid f(x)=c\}\\
 \{f\neq c\} & =\{x\in X\mid f(x)\neq c\}.
 \end{align*}
-This is common notation which is found throughout the literature. 
-
-\subsubsection{Pointwise Convergence of Measurable Functions is Measurable}
-
-\begin{prop}\label{proppointwiseconvmeasismeas} Let $(f_{n}\colon X\to\mathbb{R})$
-be a sequence of functions which converges pointwise to a function
-$f\colon X\to\mathbb{R}$. Then
-\[
-\{f\leq c\}=\bigcap_{k=1}^{\infty}\liminf_{n\to\infty}\{f_{n}<c+1/k\}.
-\]
-\end{prop}
-
-\begin{proof} We have
-\begin{align*}
-x\in\bigcap_{k=1}^{\infty}\liminf_{n\to\infty}\{f_{n}<c+1/k\} & \iff x\in\liminf_{n\to\infty}\{f_{n}<c+1/k\}\text{ for all }k\\
- & \iff x\in\{f_{\pi_{k}(n)}<c+1/k\}\text{ for all }k\text{ for some subsequence }(\pi_{k}(n))_{n\in\mathbb{N}}\text{ of }(n)_{n\in\mathbb{N}}\\
- & \iff f_{\pi_{k}(n)}(x)<c+1/k\text{ for all }k\text{ for some subsequence }(\pi_{k}(n))_{n\in\mathbb{N}}\text{ of }(n)_{n\in\mathbb{N}}\\
- & \iff f(x)\leq c+1/k\text{ for all }k\\
- & \iff f(x)\leq c\\
- & \iff x\in\{f\leq c\}
-\end{align*}
-where we obtained the fourth line from the third line since a subsequence
-of a convergent sequence must converge to the same limit (so $f_{\pi_{k}(n)}(x)\to f(x)$
-as $n\to\infty$). \end{proof}
-
-\begin{cor}\label{corpointwiseconvmeasismeas} If $(f_{n}\colon X\to\mathbb{R})$
-is a sequence of measurable functions which converges pointwise to
-$f\colon X\to\mathbb{R}$, then $f$ is measurable. \end{cor}
-
-\begin{proof} Exercise. \end{proof}
+This is notation is very common throughout the literature. \end{rem}
 
 \subsubsection{Combining Measurable Functions to get More Measurable Functions}
 
 \begin{prop}\label{prop} Let $f,g\colon X\to\mathbb{R}$ be measurable
-functions and let $a\in\mathbb{R}$. Then $af$, $|f|$, $f^{2}$,
-$f+g$, $fg$, $\max\{f,g\}$, and $\min\{f,g\}$ are all measurable.
+functions and let $a\in\mathbb{R}$. Then $af$, $f+g$, $f^{2}$,
+$|f|$, $fg$, $\max\{f,g\}$, and $\min\{f,g\}$ are all measurable.
 \end{prop}
 
 \begin{proof} We first show $af$ is measurable. If $a=0$, then
-$af$ is the zero function, which is measurable. So assume $a\neq0$.
-Then we have
+$af$ is the zero function, which is measurable, so assume $a\neq0$.
+Then for any $c\in\mathbb{R}$ we have
 \[
-(af)^{-1}(-\infty,c)=\begin{cases}
-f^{-1}(-\infty,c/a)\in\mathcal{M} & \mbox{if }a>0\\
-f^{-1}(c/a,\infty)\in\mathcal{M} & \mbox{if }a<0
+\{af<c\}=\begin{cases}
+\{f<c/a\}\in\mathcal{M} & \mbox{if }a>0\\
+\{f>c/a\}\in\mathcal{M} & \mbox{if }a<0
 \end{cases}
 \]
- $\alpha f$ is measurable $\alpha f$ is measurable. 
+It follows that $af$ is measurable. 
 
-Observe that
+~~~Next we show that $f+g$ is measurable. Observe that for any
+$c\in\mathbb{R}$, we have
 \begin{align*}
-x\in(f+g)^{-1}(-\infty,c) & \iff f(x)+g(x)<c\\
+x\in\{f+g<c\} & \iff f(x)+g(x)<c\\
  & \iff\text{there exists an }r\in\mathbb{Q}\text{ such that }f(x)<r\text{ and }r<c-g(x)\\
- & \iff\text{there exists an }r\in\mathbb{Q}\text{ such that }x\in f^{-1}(-\infty,r)\cap g^{-1}(-\infty,c-r).\\
- & \iff x\in\bigcup_{r\in\mathbb{Q}}f^{-1}(-\infty,r)\cap g^{-1}(-\infty,c-r).
+ & \iff\text{there exists an }r\in\mathbb{Q}\text{ such that }x\in\{f<r\}\cap\{g<c-r\}.\\
+ & \iff x\in\bigcup_{r\in\mathbb{Q}}\{f<r\}\cap\{g<c-r\}.
 \end{align*}
 Therefore
 \[
-(f+g)^{-1}(-\infty,c)=\bigcup_{r\in\mathbb{Q}}f^{-1}(-\infty,r)\cap g^{-1}(-\infty,c-r)\in\mathcal{M}.
+\{f+g<c\}=\bigcup_{r\in\mathbb{Q}}\{f<r\}\cap\{g<c-r\}\in\mathcal{M}.
 \]
+It follows that $f+g$ is measurable. 
 
-We first prove $f^{2}$ is measurable:
+~~~Next we show that $f^{2}$ is measurable. For any $c\in\mathbb{R}$,
+we have
 \[
-(f^{2})^{-1}(c,\infty)=\begin{cases}
-f^{-1}(\sqrt{c},\infty)\cup f^{-1}(-\infty,-\sqrt{c})\in\mathcal{M} & c\geq0\\
-E\in\mathcal{M} & c<0
+\{f^{2}>c\}=\begin{cases}
+\{f>\sqrt{c}\}\cup\{f<-\sqrt{c}\}\in\mathcal{M} & c\geq0\\
+X\in\mathcal{M} & c<0
 \end{cases}
 \]
- Next, note that 
-\[
-fg=\frac{1}{4}\left((f+g)^{2}-(f-g)^{2}\right)\in\mathcal{M}.
-\]
+It follows that $f^{2}$ is measurable. 
 
-Finally note that 
+~~~Next we show that $|f|$ is measurable. For any $c\in\mathbb{R}$,
+we have
 \[
-\max\{f,g\}=\frac{1}{2}(|f+g|+|f-g|)
+\{|f|>c\}=\begin{cases}
+\{f>c\}\cup\{f<-c\}\in\mathcal{M} & c\geq0\\
+X\in\mathcal{M} & c<0
+\end{cases}
 \]
-and
-\[
-\min\{f,g\}=\frac{1}{2}(|f+g|-|f-g|).
-\]
+It follows that $|f|$ is measurable. 
 
-\end{proof}
+~~~Finally, note that the remaining functions can be expressed
+as combinations of the previous ones. Indeed, 
+\begin{align*}
+fg & =\frac{1}{4}\left((f+g)^{2}-(f-g)^{2}\right)\\
+\max\{f,g\} & =\frac{1}{2}(|f+g|+|f-g|)\\
+\min\{f,g\} & =\frac{1}{2}(|f+g|-|f-g|)
+\end{align*}
+It follows that they are all measurable. \end{proof}
 
-\begin{prop}\label{prop} Let $(f_{n}\colon X\to\mathbb{R})$ be a
-sequence of measurable functions. Then $\sup f_{n}$, $\inf f_{n}$,
+\begin{prop}\label{proppointwiseconvmeas} Let $(f_{n}\colon X\to\mathbb{R})$
+be a sequence of measurable functions. Then $\sup f_{n}$, $\inf f_{n}$,
 $\limsup f_{n}$, and $\liminf f_{n}$ are all measurable. In particular,
-of 
+if 
 \[
 \lim_{n\to\infty}f_{n}(x)
 \]
@@ -2446,20 +2511,17 @@ exists for all $x\in X$. The corresponding function is also measurable.
 
 \begin{proof} Let $c\in\mathbb{R}$. Then we have
 \[
-(\sup f_{n})^{-1}(c,\infty)=\bigcup_{n}f_{n}^{-1}(c,\infty)\in\mathcal{M}.
+\{\sup f_{n}>c\}=\bigcup_{n\geq1}\{f_{n}>c\}.
 \]
-Similarly, we have
+This implies $\sup f_{n}$ is measurable. Similarly, we have
 \[
-(\inf f_{n})^{-1}(-\infty,c)=\bigcup_{n}f_{n}^{-1}(-\infty,c)\in\mathcal{M}.
+\{\inf f_{n}<c\}=\bigcup_{n\geq1}\{f_{n}<c\}.
 \]
-Also we have
+This implies $\inf f_{n}$ is measurable. Finally since 
 \[
-\limsup f_{n}=\inf_{k}\sup_{n\geq k}\in\mathcal{M}.
+\limsup f_{n}=\inf_{N\geq1}\sup_{n\geq N}f_{n}\qquad\text{and}\qquad\liminf f_{n}=\sup_{N\geq1}\inf_{n\geq N}f_{n},
 \]
-Similarly, we have
-\[
-\liminf f_{n}=\sup_{k}\inf_{n\geq k}f_{n}\in\mathcal{M}
-\]
+we see that both $\limsup f_{n}$ and $\liminf f_{n}$ are measurable.
 \end{proof}
 
 \subsubsection{Criterion for Nonnegative Function to be Measurable}
@@ -2478,9 +2540,9 @@ pointwise to $f$.
 \end{enumerate}
 \end{prop}
 
-\begin{proof} Corollary~(\ref{corpointwiseconvmeasismeas}) gives
-us 2 implies 1 (since simple functions are measurable!), so we just
-need to show 1 implies 2. Suppose $f$ is measurable. For each $n\in\mathbb{N}$
+\begin{proof} Proposition~(\ref{proppointwiseconvmeas}) gives us
+2 implies 1 (since simple functions are measurable!), so we just need
+to show 1 implies 2. Suppose $f$ is measurable. For each $n\in\mathbb{N}$
 and for each $1\leq i\leq2^{n}$, we define
 \[
 E_{n}=\{f\geq n\}\text{ and }E_{n,i}=\left\{ \frac{i-1}{2^{n}}\leq f<\frac{i}{2^{n}}\right\} .
@@ -2545,7 +2607,7 @@ Then
 \end{theorem}
 
 \begin{proof} The fact that $f\colon X\to[0,\infty]$ is measurable
-follows from (Proposition~(\ref{corpointwiseconvmeasismeas}). Therefore
+follows from (Proposition~(\ref{proppointwiseconvmeas}). Therefore
 $\int_{X}f\mathrm{d}\mu$ is defined. Since $f_{n}\leq f$ for all
 $n$, we have
 \begin{align*}
@@ -2733,16 +2795,20 @@ if $(f_{n})$ converges to $f$ pointwise, then $f=\liminf f_{n}$.
 
 \subsection{Integrable Functions}
 
-\begin{defn}\label{defn} Let $f\colon X\to[-\infty,\infty]$ be a
-measurable function. We define its \textbf{positive part $f^{+}\colon X\to[-\infty,\infty]$
-}and its \textbf{negative part }$f^{-}\colon X\to[-\infty,\infty]$
-by 
+\begin{defn}\label{defn} Let $(X,\mathcal{M},\mu)$ be a measure
+space and let $f\colon X\to[-\infty,\infty]$ be a measurable function.
+The \textbf{positive part }of $f$, denoted \textbf{$f^{+}$}, and
+the \textbf{negative part }of $f$, denoted\textbf{ }$f^{-}$, are
+defined by
 \[
 f^{+}(x)=\max\{f(x),0\}\quad\text{and}\quad f^{-}(x)=-\min\{f(x),0\}
 \]
 for all $x\in X$. Note that both $f^{+}$ and $f^{-}$ are both nonnegative
-measurable functions and $f=f^{+}-f^{-}$. We say $f$ is \textbf{integrable
-}if 
+measurable functions. Furthermore, we have 
+\[
+f=f^{+}-f^{-}\quad\text{and}\quad|f|=f^{+}+f^{-}.
+\]
+We say $f$ is \textbf{integrable }if 
 \[
 \int_{X}f^{+}\mathrm{d}\mu<\infty\quad\text{and}\quad\int_{X}f^{-}\mathrm{d}\mu<\infty.
 \]
@@ -2752,7 +2818,7 @@ Since $|f|=f^{+}+f^{-}$, this is equivalent to saying
 \]
 In this case, we define the \textbf{integral }of $f$ to be
 \[
-\int_{X}f\mathrm{d}\mu=\int_{X}f^{+}\mathrm{d}\mu-\int_{X}f^{-}\mathrm{d}\mu,
+\int_{X}f\mathrm{d}\mu:=\int_{X}f^{+}\mathrm{d}\mu-\int_{X}f^{-}\mathrm{d}\mu,
 \]
 \end{defn}
 
@@ -2871,7 +2937,7 @@ of $g-f_{n}$, and we obtain
 \begin{prop}\label{prop} (C-M) Let $f\colon X\to\mathbb{R}$ be an
 integrable function and let $c>0$. Then
 \[
-\mu(\{|f|\geq c\})\leq\frac{1}{c}\int_{X}|f|\mathrm{d}\mu.
+\mu\{|f|\geq c\}\leq\frac{1}{c}\int_{X}|f|\mathrm{d}\mu.
 \]
 \end{prop}
 
@@ -2879,146 +2945,214 @@ integrable function and let $c>0$. Then
 \begin{align*}
 \int_{X}|f|\mathrm{d}\mu & \geq\int_{X}|f|1_{\{|f|\geq c\}}\mathrm{d}\mu\\
  & \geq\int_{X}c1_{\{|f|\geq c\}}\mathrm{d}\mu\\
- & =c\mu(\{|f|\geq c\}).
+ & =c\mu\{|f|\geq c\}.
 \end{align*}
 \end{proof}
 
-\begin{prop}\label{prop} If $\int_{X}|f|\mathrm{d}\mu=0$, then $\mu(\{f\neq0\})=0$.
-\end{prop}
+\begin{prop}\label{prop} Let $(X,\mathcal{M},\mu)$ be a measure
+space and let $f$ be a measurable function. Then $\mu\{f\neq0\}=0$
+if and only if $\int_{X}|f|\mathrm{d}\mu=0$. \end{prop}
 
-\begin{proof} Note that $\{f\neq0\}=\{|f|\neq0\}$. Also $\{|f|\neq0\}=\bigcup_{n=1}^{\infty}\{|f|\geq1/n\}$.
-Thus
+\begin{proof} We first note that that $\{f\neq0\}=\{|f|\neq0\}$.
+Now suppose $\mu\{f\neq0\}=0$. Then we have
 \begin{align*}
-\mu(\{|f|\neq0\}) & =\mu\left(\bigcup_{n=1}^{\infty}\{|f|\geq1/n\}\right)\\
+\int_{X}|f|\mathrm{d}\mu & =\int_{\{f=0\}}|f|\mathrm{d}\mu+\int_{\{f\neq0\}}|f|\mathrm{d}\mu\\
+ & =\int_{\{f\neq0\}}|f|\mathrm{d}\mu\\
+ & =\sup\{\int_{\{f\neq0\}}\varphi\mathrm{d}\mu\mid\varphi\leq|f|\text{ is nonnegative simple function}\}\\
+ & =\sup\{0\mid\varphi\leq|f|\text{ is nonnegative simple function}\}\\
+ & =0.
+\end{align*}
+Conversely, suppose $\int_{X}|f|\mathrm{d}\mu=0.$ Then by Chebyshev-Markov's
+inequality, we have
+\begin{align*}
+\mu\{f\neq0\} & =\mu\{|f|\neq0\}\\
+ & =\mu\left(\bigcup_{n=1}^{\infty}\{|f|\geq1/n\}\right)\\
  & =\lim_{n\to\infty}\mu(\{|f|\geq1/n\})\\
-\text{(C-M)} & \leq\lim_{n\to\infty}n\int_{X}|f|\mathrm{d}\mu\\
+ & \leq\lim_{n\to\infty}n\int_{X}|f|\mathrm{d}\mu\\
  & =0.
 \end{align*}
 \end{proof}
 
-\begin{defn}\label{defn} A property is said to hold \textbf{almost
-everywhere }with respect to $\mu$ (denoted $\mu$ a.e.) if it is
-true everywhere except on a set of measure zero. \end{defn}
+\begin{defn}\label{defn} A property is said to hold \textbf{$\mu$-almost
+everywhere }(or more simpwith respect to $\mu$ (denoted $\mu$ a.e.)
+if it is true everywhere except on a set of measure zero. If the measure
+$\mu$ is understood from context, then we will simply write ``almost
+everywhere'' instead of ``$\mu$-almost everywhere''. \end{defn}
 
-\subsection{$L^{1}(X,\mathcal{M},\mu)$}
+\begin{cor}\label{corf=gaeiff} Let $(X,\mathcal{M},\mu)$ be a measure
+space and let $f$ and $g$ be integrable functions. Then $f=g$ be
+almost everywhere if and only if $\int_{X}|f|\mathrm{d}\mu=\int_{X}|g|\mathrm{d}\mu$.
+\end{cor}
 
-~~~Note that if $f=0$ a.e., then 
-\[
-\int_{X}|f(x)|\mathrm{d}\mu(x)=0.
-\]
-Indeed, let $E=\{f\neq0\}=\{|f|\neq0\}$. Then $f=0$ a.e. implies
-$\mu(E)=0$. Also $|f|=|f|\cdot1_{E}$. Let $0\leq\varphi\leq|f|$
-be a simple function and express it in its canonical form:
-\[
-\varphi=\sum a_{i}1_{A_{i}}.
-\]
-Then for $a_{i}\neq0$ we have $A_{i}\subseteq E$. Indeed, if $\varphi(x)>0$,
-then $|f(x)|>0$, which implies $x\in E$. Then
+\begin{proof} Suppose $f=g$ almost everywhere. Then also $|f|=|g|$
+almost everywhere, and so we have
 \begin{align*}
-\int_{X}\varphi(x)\mathrm{d}\mu(x) & =\sum_{i=1}^{n}a_{i}\mu(A_{i})\\
- & \leq\sum_{i=1}^{n}a_{i}\mu(E)\\
- & =0.
+\int_{X}|f|\mathrm{d}\mu & =\int_{\{f=g\}}|f|\mathrm{d}\mu+\int_{\{f\neq g\}}|f|\mathrm{d}\mu\\
+ & =\int_{\{f=g\}}|f|\mathrm{d}\mu\\
+ & =\int_{\{f=g\}}|g|\mathrm{d}\mu\\
+ & =\int_{\{f=g\}}|g|\mathrm{d}\mu+\int_{\{f\neq g\}}|g|\mathrm{d}\mu\\
+ & =\int_{X}|g|\mathrm{d}\mu.
 \end{align*}
-So 
-\[
-\int_{X}|f|\mathrm{d}\mu=\sup\{\int_{X}\varphi\mathrm{d}\mu\mid0\leq\varphi\leq|f|\}=0.
-\]
-We'll denote by $L^{1}(X,\mathcal{M},\mu)$ to be the set of all integrable
-functions $f\colon X\to\mathbb{R}$ where any two such functions $f,g$
-s.t. $f=g$ a.e. are identified. Equip this set with the following
-norm:
-\[
-\|f\|_{1}:=\int_{X}|f(x)|\mathrm{d}\mu(x).
-\]
-This is a norm since
-\begin{enumerate}
-\item $\|f\|_{1}=0$ if and only if $f=0$ a.e. 
-\item $\|cf\|_{1}=\int_{X}|cf(x)|\mathrm{d}\mu(x)=|c|\int_{X}|f(x)|\mathrm{d}\mu(x)=|c|\|f\|_{1}$
-\item $|f(x)+g(x)|\leq|f(x)|+|g(x)|$ for all $x\in X$ implies
+Conversely, suppose $\int_{X}|f|\mathrm{d}\mu=\int_{X}|g|\mathrm{d}\mu$.
+Then we have
 \begin{align*}
-\|f+g\|_{1} & =\int_{X}|f+g|\mathrm{d}\mu\\
- & \leq\int_{X}|f|\mathrm{d}\mu+\int_{X}|g|\mathrm{d}\mu\\
- & =\|f\|_{1}+\|g\|_{1}.
+0 & =\int_{X}|f|\mathrm{d}\mu-\int_{X}|g|\mathrm{d}\mu\\
+ & =\int_{X}(|f|-|g|)\mathrm{d}\mu.
 \end{align*}
-\end{enumerate}
-Therefore $\|\cdot\|_{1}$ is indeed a norm, so $L^{1}(X,\mathcal{M},\mu)$
-is a normed linear space.
+It follows that $|f|-|g|=0$ almost everywhere, which implies $f=g$
+almost everywhere. \end{proof}
 
-\begin{theorem}\label{theorem} $L^{1}(X,\mathcal{M},\mu)$ is a Banach
-space. \end{theorem}
+\subsection{$L^{1}$-Spaces}
 
-To prove this we'll use the following general fact:
+Throughout this subsection, let $(X,\mathcal{M},\mu)$ be a measure
+space. The set of all integrable function $f\colon X\to\mathbb{R}$
+is denoted $\mathrm{Int}^{1}(X,\mathcal{M},\mu)$. By Proposotion~(\ref{proprnotscalingmonaddnondsss})
+we see that $\mathrm{Int}^{1}(X,\mathcal{M},\mu)$ is an $\mathbb{R}$-vector
+space. We define a relation $\sim$ on $\mathrm{Int}^{1}(X,\mathcal{M},\mu)$
+as follows, if $f,g\in\mathrm{Int}^{1}(X,\mathcal{M},\mu)$, then
+we set $f\sim g$ if and only if $f=g$ almost everywhere. One checks
+that $\sim$ is in fact an equivalence relation. We will denote
+\[
+[\mathrm{Int}^{1}(X,\mathcal{M},\mu)]:=\mathrm{Int}^{1}(X,\mathcal{M},\mu)\slash\sim.
+\]
+Thus $[\mathrm{Int}^{1}(X,\mathcal{M},\mu)]$ is the set of all integrable
+functions from $X$ to $\mathbb{R}$ where two such functions are
+identified if they agree almost everywhere. Technically speaking,
+elements in $[\mathrm{Int}^{1}(X,\mathcal{M},\mu)]$ are \emph{cosets
+}of functions. Thus an element in $[\mathrm{Int}^{1}(X,\mathcal{M},\mu)]$
+should be expressed like $[f]$, where $f$ is an integrable function
+which represents the coset $[f]$. In practice however, we tend to
+abuse notation by dropping the square brackets around $[f]$ altogether. 
 
-\begin{prop}\label{prop} A normed linear space $\mathcal{X}$ is
-a Banach space if and only if every absolutely convergent series in
-$\mathcal{X}$ is convergent. \end{prop}
+~~~We can give $\mathrm{Int}^{1}(X,\mathcal{M},\mu)$ the structure
+of a pseudo-normed space as follows: We define $\|\cdot\|_{1}\colon\mathrm{Int}^{1}(X,\mathcal{M},\mu)\to[0,\infty)$
+by
+\[
+\|f\|_{1}:=\int_{X}|f|\mathrm{d}\mu
+\]
+for all $f\in\mathrm{Int}^{1}(X,\mathcal{M},\mu)$. Observe that monotonicity
+of integration implies subadditivity of $\|\cdot\|_{1}$. Also linearity
+of integration combined with absolute homogeneity of $|\cdot|$ implies
+absolute homogeneity of $\|\cdot\|_{1}$. The reason why $\|\cdot\|_{1}$
+is just a pseudo-norm and not a norm is because it lacks the positive-definiteness
+property: there exists $f\in\mathrm{Int}^{1}(X,\mathcal{M},\mu)$
+such that $f\neq0$ but $\|f\|_{1}=0$. On the other hand, $\|\cdot\|_{1}$
+induces a genuine norm when we pass to the quotient space $[\mathrm{Int}^{1}(X,\mathcal{M},\mu)]$!
+Indeed, we define a norm on $[\mathrm{Int}^{1}(X,\mathcal{M},\mu)]$,
+which again denote by $\|\cdot\|_{1}$, by
+\begin{equation}
+\|f\|_{1}:=\int_{X}|f|\mathrm{d}\mu\label{eq:l1normwelld}
+\end{equation}
+for all $f\in[\mathrm{Int}^{1}(X,\mathcal{M},\mu)]$. Note that (\ref{eq:l1normwelld})
+is well-defined by Corollary~(\ref{corf=gaeiff}). In fact, Corollary~(\ref{corf=gaeiff})
+tells us that $[\mathrm{Int}^{1}(X,\mathcal{M},\mu)]$ is the normed
+linear space induced by $\mathrm{Int}^{1}(X,\mathcal{M},\mu)$ with
+respect to the equivalence relation $\sim$ introduced above. We will
+denote this normed linear space by
+\[
+L^{1}(X,\mathcal{M},\mu):=([\mathrm{Int}^{1}(X,\mathcal{M},\mu)],\|\cdot\|_{1}).
+\]
+We often refer to $\|\cdot\|_{1}$ as the $L^{1}$\textbf{-norm}.
 
-~~~Recall that a series $\sum_{n=1}^{\infty}x_{n}$ in a normed
-linear space is said to be convergent in the sequence of its partial
-sums $s_{N}=\sum_{n=1}^{N}x_{n}$ is convergent. We say $\sum_{n=1}^{\infty}x_{n}$
-is absolutely convergent if $\sum_{n=1}^{\infty}\|x_{n}\|$ is convergent. 
+\subsubsection{$L^{1}$-Completeness}
 
-\begin{proof} Suppose $(f_{n})$ is a sequence in $L^{1}(X,\mathcal{M},\mu)$
-such that $\sum_{n=1}^{\infty}\|f_{n}\|<\infty$. Denote by
+We now wish to show that $L^{1}(X,\mathcal{M},\mu)$ is not just any
+normed linear space; it is a Banach space. 
+
+\begin{theorem}\label{theoreml1complete} $L^{1}(X,\mathcal{M},\mu)$
+is a Banach space. \end{theorem}
+
+To prove this we'll use the following criterion to test for completeness
+in a normed linear space. 
+
+\begin{lemma}\label{lemmaabsconvsertestforcomp} Let $\mathcal{X}$
+be a normed linear space. Then $\mathcal{X}$ is a Banach space if
+and only if every absolutely convergent series in $\mathcal{X}$ is
+convergent. \end{lemma}
+
+\begin{proof} Suppose first that every absolutely convergent series
+in $\mathcal{X}$ is convergent. Let $(x_{n})$ be a Cauchy sequence
+in $\mathcal{X}$. To show that $(x_{n})$ is convergent, it suffices
+to show that a subsequence of $(x_{n})$ is convergent, by Lemma~(\ref{lemmaconvsubseq}).
+Choose a subsequence $(x_{\pi(n)})$ of $(x_{n})$ such that
+\[
+\|x_{\pi(n)}-x_{\pi(n-1)}\|<\frac{1}{2^{n}}
+\]
+and for all $n\in\mathbb{N}$ (we can do this since $(x_{n})$ is
+Cauchy). Then the series $\sum_{n=1}^{\infty}(x_{\pi(n)}-x_{\pi(n-1)})$
+is absolutely convergent since
+\begin{align*}
+\sum_{n=1}^{\infty}\|x_{\pi(n)}-x_{\pi(n-1)}\| & <\sum_{n=1}^{\infty}\frac{1}{2^{n}}\\
+ & =1.
+\end{align*}
+Therefore it must be convergent, say $\sum_{n=1}^{\infty}(x_{\pi(n)}-x_{\pi(n-1)})\to x$.
+On the other hand, for each $n\in\mathbb{N}$, we have
+\begin{align*}
+x_{\pi(n)}-x_{\pi(1)} & =\sum_{m=1}^{n}(x_{\pi(m)}-x_{\pi(1)}).
+\end{align*}
+In particular, $x_{\pi(n)}\to x-x_{\pi(1)}$ as $n\to\infty$. Thus
+$(x_{\pi(n)})$ is a convergent subsequence of $(x_{n})$.
+
+~~~Conversely, suppose $\mathcal{X}$ is a Banach space and suppose
+$\sum_{n=1}^{\infty}x_{n}$ is absolutely convergent. Let $\varepsilon>0$
+and choose $K\in\mathbb{N}$ such that $N\geq M\geq K$ implies
+\[
+\sum_{n=M}^{N}\|x_{n}\|<\varepsilon.
+\]
+Then $N\geq M\geq K$ implies
+\begin{align*}
+\left\Vert \sum_{n=1}^{N}x_{n}-\sum_{n=1}^{M}x_{n}\right\Vert  & =\left\Vert \sum_{n=M}^{N}x_{n}\right\Vert \\
+ & \leq\sum_{n=M}^{N}\|x_{n}\|\\
+ & <\varepsilon.
+\end{align*}
+It follows that the sequence of partial sums $(\sum_{n=1}^{N}x_{n})_{N}$
+is Cauchy. Since $\mathcal{X}$ is a Banach space, it follows that
+$\sum_{n=1}^{\infty}x_{n}$ is convergent. \end{proof}
+
+~~~Now we prove Theorem~(\ref{theoreml1complete}).
+
+\begin{proof} By Lemma~(\ref{lemmaabsconvsertestforcomp}), it suffices
+to show that every absolutely convergent sequence is convergent. Suppose
+$(f_{n})$ is a sequence in $L^{1}(X,\mathcal{M},\mu)$ such that
+$\sum_{n=1}^{\infty}\|f_{n}\|_{1}<\infty$. Denote by
 \[
 G_{N}=\sum_{n=1}^{N}|f_{n}|\quad\text{and}\quad G=\sum_{n=1}^{\infty}|f_{n}|.
 \]
-Then=
+Observe that $(G_{N})$ is an increasing sequence of nonnegative measurable
+functions which converges pointwise to $G$. Therefore by MCT we have
 \begin{align*}
-\|G_{n}\|_{1} & =\int_{X}|G_{N}|\mathrm{d}\mu\\
- & =\int_{X}\sum_{n=1}^{N}|f_{n}(x)|\mathrm{d}\mu(x)\\
- & =\sum_{n=1}^{N}\int_{X}|f_{n}|\mathrm{d}\mu\\
- & =\sum_{n=1}^{N}\|f_{n}\|_{1}\\
- & \leq\sum_{n=1}^{\infty}\|f_{n}\|_{1}\\
- & <\infty.
-\end{align*}
-
-Therefore by MCT it follows that
-\begin{align*}
-\int_{X}|G|\mathrm{d}\mu & =\int_{X}G\mathrm{d}\mu\\
+\|G\|_{1} & =\lim_{N\to\infty}\|G_{N}\|_{1}\\
  & =\lim_{N\to\infty}\int_{X}G_{N}\mathrm{d}\mu\\
- & =\lim_{N\to\infty}\|G_{N}\|_{1}\\
- & \leq\sum_{n=1}^{\infty}\|f_{n}\|_{1}\\
+ & =\lim_{N\to\infty}\int_{X}\sum_{n=1}^{N}|f_{n}|\mathrm{d}\mu\\
+ & =\lim_{N\to\infty}\sum_{n=1}^{N}\int_{X}|f_{n}|\mathrm{d}\mu\\
+ & =\lim_{N\to\infty}\sum_{n=1}^{N}\|f_{n}\|_{1}\mathrm{d}\mu\\
+ & =\sum_{n=1}^{\infty}\|f_{n}\|_{1}\\
  & <\infty.
 \end{align*}
-This implies $G\in L^{1}(X,\mathcal{M},\mu)$. Let $F=\sum_{n=1}^{\infty}f_{n}$.
-Why does $\sum_{n=1}^{\infty}f_{n}$ converge? We know that $G=\sum_{n=1}^{\infty}|f_{n}|$
-is integrable. By a problem in HW6, this implies $G<\infty$ a.e.
-Therefore $\sum_{n=1}^{\infty}f_{n}$ converges a.e., and hence this
-allows us to define $F=\sum_{n=1}^{\infty}f_{n}$ a.e. Notice
+It follows that $G\in L^{1}(X,\mathcal{M},\mu)$. In particular, $\{G=\infty\}$
+has measure zero, so if we denote $F_{N}=\sum_{n=1}^{N}f_{n}$ and
+if we define $F\colon X\to\mathbb{R}$ by
+\[
+F(x)=\begin{cases}
+0 & \text{if }G(x)=\infty\\
+\sum_{n=1}^{\infty}f_{n}(x) & \text{if }G(x)<\infty
+\end{cases}
+\]
+then we see that $(F_{N})$ converges pointwise to $F$ almost everywhere,
+so the sequence $(F-F_{N})$ converges pointwise to the zero function
+almost everywhere. Note that if $G(x)<\infty$, then $\sum_{n=1}^{\infty}f_{n}(x)$
+converges since it converges absolutely, so the definition of $F$
+is well-posed. Also note that $F_{N},F\in L^{1}(X,\mathcal{M},\mu)$
+since $|F_{N}|,|F|\leq G$ and $G\in L^{1}(X,\mathcal{M},\mu)$. Finally,
+we note that $(F-F_{N})$ is dominated by the integrable function
+$2G$. It follows from the DCT that
 \begin{align*}
-|F| & =\left|\sum_{n=1}^{\infty}f_{n}\right|\\
- & \leq\sum_{n=1}^{\infty}|f_{n}|\\
- & =G
-\end{align*}
-a.e. We want to show that the sequence of partial sums $s_{N}=\sum_{n=1}^{N}f_{n}$
-converges in $L^{1}$ to something. A natural guess for the limit
-is $F$. Note that since $|F|\leq G$ and $G\in L^{1}(X,\mathcal{M},\mu)$,
-we have $F\in L^{1}(X,\mathcal{M},\mu)$. So $F$ is a valid candidate.
-So it remains to show $s_{N}\to F$ in $L^{1}$-sense, that is, $\|s_{N}-F\|_{1}\to0$.
-We have
-\begin{align*}
-\|s_{N}-F\|_{1} & =\int_{X}|s_{N}(x)-F(x)|\mathrm{d}\mu(x)\\
- & =\int_{X}\left|\sum_{n=N+1}^{\infty}f_{n}(x)\right|\mathrm{d}\mu(x).
-\end{align*}
-We want to apply one of the convergence theorems. We'll use DCT. Set
-$h_{N}=\left|\sum_{n=N+1}^{\infty}f_{n}\right|$. Then
-\begin{align*}
-|h_{N}| & =|s_{N}-F|\\
- & \leq|s_{N}|+|F|\\
- & \leq\sum_{n=1}^{N}|f_{n}|+|F|\\
- & \leq G+G\\
- & =2G,
-\end{align*}
-where $G$ is integrable. So we can apply DCT and obtain 
-\begin{align*}
-\lim_{N\to\infty}\|s_{N}-F\|_{1} & =\lim_{N\to\infty}\int_{X}h_{n}(x)\mathrm{d}\mu(x)\\
- & =\int_{X}\lim_{N\to\infty}h_{N}(x)\mathrm{d}\mu(x)\\
- & =\int_{X}0\mathrm{d}\mu(x)\\
+\lim_{N\to\infty}\|F-F_{N}\|_{1} & =\lim_{N\to\infty}\int_{X}|F_{N}-F|\mathrm{d}\mu\\
+ & =\int_{X}0\mathrm{d}\mu\\
  & =0.
 \end{align*}
-So we proved $s_{N}\to F$, that is, $\sum_{n=1}^{\infty}f_{n}$ converges
-in $L^{1}$-sense. \end{proof}
+Therefore every absolutely convergent series is convergent, which
+implies $L^{1}(X,\mathcal{M},\mu)$ is complete. \end{proof}
 
 ~~~What do we need to choose $(X,\mathcal{M},\mu)$ to be such
 that $L^{1}(X,\mathcal{M},\mu)=\ell^{1}(\mathbb{N})$. We need $X=\mathbb{N}$,
@@ -3035,11 +3169,19 @@ By using $f=f^{+}-f^{-}$ we can easily see that $\|f\|_{1}=\sum_{n=1}^{\infty}f(
 
 \subsubsection{Set of all Integrable Simple Functions is a Dense Subspace of $L^{1}(X,\mathcal{M},\mu)$}
 
-\begin{prop}\label{prop} The set of all integrable functions is a
-dense subspace of $L^{1}(X,\mathcal{M},\mu)$. \end{prop}
+We denote by $\mathrm{S}(X,\mathcal{M},\mu)$ to be the set of all
+integrable simple functions where we identify two simple functions
+if they agree almost everywhere. It is easy to check that $\|\cdot\|_{1}$
+restricts to a norm on $\mathrm{S}(X,\mathcal{M},\mu)$ making it
+into a normed linear subspace of $L^{1}(X,\mathcal{M},\mu)$. We now
+want to show that $\mathrm{S}(X,\mathcal{M},\mu)$ is a dense subspace
+of $L^{1}(X,\mathcal{M},\mu)$. 
+
+\begin{prop}\label{prop} $\mathrm{S}(X,\mathcal{M},\mu)$ is a dense
+subspace of $L^{1}(X,\mathcal{M},\mu)$. \end{prop}
 
 \begin{proof} Let $f\in L^{1}(X,\mathcal{M},\mu)$. Decompose $f$
-into its positive and negative parts
+into its positive and negative parts:
 \[
 f=f^{+}-f^{-}.
 \]
@@ -3049,24 +3191,25 @@ there exists an increasing sequence $(\psi_{n})$ of nonnegative simple
 functions which converges to $f^{-}$ pointwise. Then $(\varphi_{n}+\psi_{n})$
 is an increasing sequence of nonnegative simple functions which converges
 pointwise to $|f|$. Also note that $(\varphi_{n}-\psi_{n})$ is a
-sequence of simple functions which converges pointwise to $f$. Set
-$s_{n}=\varphi_{n}-\psi_{n}$. We claim that $\|s_{n}-f\|_{1}\to0$
+sequence of simple functions which converges pointwise to $f$. Now
+set $s_{n}=\varphi_{n}-\psi_{n}$. We claim that $\|s_{n}-f\|_{1}\to0$
 as $n\to\infty$. In other words, we claim that
 \[
 \int_{X}|s_{n}-f|\mathrm{d}\mu\to0
 \]
-as $n\to\infty$. To this, we'll use DCT. Observe that
+as $n\to\infty$. To this, we'll use DCT. Observe that for each $n\in\mathbb{N}$
+we have
 \begin{align*}
 |s_{n}-f| & \leq|s_{n}|+|f|\\
- & =|\varphi_{n}+\psi_{n}|+|f|\\
- & =\varphi_{n}+\psi_{n}+|f|\\
+ & =|\varphi_{n}-\psi_{n}|+|f|\\
+ & \leq\varphi_{n}+\psi_{n}+|f|\\
  & \leq|f|+|f|\\
  & \leq2|f|
 \end{align*}
 So $2|f|$ is a dominating function, which means we can apply DCT.
 Therefore
 \begin{align*}
-\lim_{n\to\infty}\int_{X}|s_{n}-f|\mathrm{d}\mu & =\int_{X}\lim_{n\to\infty}|s_{n}-f|\mathrm{d}\mu\\
+\lim_{n\to\infty}\|s_{n}-f\|_{1} & =\lim_{n\to\infty}\int_{X}|s_{n}-f|\mathrm{d}\mu\\
  & =\int_{X}0\mathrm{d}\mu\\
  & =0.
 \end{align*}
@@ -3101,21 +3244,102 @@ is a completion of $C[a,b]$ with respect to $\|\cdot\|_{1}$ norm.
 
 \subsection{$L^{p}$-Spaces}
 
-Similar to $L^{1}$, we identify $f,g\in L^{p}(X,\mathcal{M},\mu)$
-such that $f=g$ a.e. We equip this space with the $L^{p}$-norm
+Throughout this subsection, let $(X,\mathcal{M},\mu)$ be a measure
+space. Let $1<p<\infty$. Just as we defined the notion of an integral
+function, we can also define the notion of a $p$\textbf{-integral
+}function. In particular, if $f$ is a measurable function, then we
+say it is $p$-integral if 
 \[
-\|f\|_{p}=\left(\int_{X}|f|^{p}\mathrm{d}\mu\right)^{\frac{1}{p}}.
+\int_{X}|f|^{p}\mathrm{d}\mu<\infty.
 \]
-To show that this is a norm however will be slightly more difficult.
-Indeed, the most difficult step is to show the triangle inequality
-holds, so let's focus on this. The idea is to use the so called \textbf{Hölder's
-inequality}.
+We denote by $\mathrm{Int}^{p}(X,\mathcal{M},\mu)$ to be the set
+of all $p$-integral functions from $X$ to $\mathbb{R}$. It is straightforward
+to check that $\mathrm{Int}^{p}(X,\mathcal{M},\mu)$ is an $\mathbb{R}$-vector
+space just like in the case of $\mathrm{Int}^{1}(X,\mathcal{M},\mu)$,
+and just like before, we denote $[\mathrm{Int}^{p}(X,\mathcal{M},\mu)]$
+to be the quotient space induced by $\sim$. We can equip $[\mathrm{Int}^{p}(X,\mathcal{M},\mu)]$
+with another norm, which we call the $L^{p}$\textbf{-norm}. It is
+defined by
+\[
+\|f\|_{p}=\left(\int_{X}|f|^{p}\mathrm{d}\mu\right)^{\frac{1}{p}}
+\]
+for all $f\in[\mathrm{Int}^{p}(X,\mathcal{M},\mu)]$. We will denote
+this normed linear space by
+\[
+L^{p}(X,\mathcal{M},\mu):=([\mathrm{Int}^{p}(X,\mathcal{M},\mu)],\|\cdot\|_{p}).
+\]
+
+Absolute homogeneity and positive-definiteness of $\|\cdot\|_{p}$
+are straightforward to check. It turns out that subadditivity of $\|\cdot\|_{p}$
+takes a little more work to show. The idea is to use the so called
+\textbf{Hölder's inequality}. However this inequality itself relies
+on another inequality called \textbf{Young's inequality}, so let's
+begin with that. We often refer to $\|\cdot\|_{1}$ as the $L^{1}$\textbf{-norm}.
+
+\subsubsection{Young's Inequality}
+
+\begin{lemma}\label{lemmapreyoungineq} Let $x$ and $y$ be nonnegative
+real numbers and let $0<\gamma<1$. Then we have
+\begin{equation}
+x^{\gamma}y^{1-\gamma}\leq\gamma x+(1-\gamma)y.\label{eq:ineqyoung-1}
+\end{equation}
+
+\end{lemma}
+
+\begin{proof} We may assume that $x,y>0$ since otherwise it is trivial.
+Set $t=x/y$ and rewrite (\ref{eq:ineqyoung}) as
+\begin{equation}
+t^{\gamma}-\gamma t\leq1-\gamma.\label{eq:rewrityoungin-1}
+\end{equation}
+Thus, to show (\ref{eq:ineqyoung}) for all $x,y>0$, we just need
+to show (\ref{eq:rewrityoungin}) for all $t>0$. To see why (\ref{eq:rewrityoungin})
+holds, define $f\colon\mathbb{R}_{>0}\to\mathbb{R}$ by
+\[
+f(t)=t^{\gamma}-\gamma t
+\]
+for all $t\in\mathbb{R}_{>0}$. Observe that $f$ is a smooth function
+on $\mathbb{R}_{>0}$, with it's first derivative and second derivative
+given by
+\[
+f'(t)=\gamma t^{\gamma-1}-\gamma\quad\text{and}\quad f''(t)=\gamma(\gamma-1)t^{\gamma-2}
+\]
+for all $t\in\mathbb{R}_{>0}$ respectively. Observe that
+\begin{align*}
+f'(t)=0 & \iff\gamma t^{\gamma-1}=\gamma\\
+ & \iff t^{\gamma-1}=1\\
+ & \iff t=1,
+\end{align*}
+where the last if and only if follows from the fact that $t$ is a
+positive real number. Also, we clearly have $f''(t)<0$ for all $t\in\mathbb{R}_{>0}$.
+Thus, since $f$ is concave down on all of $\mathbb{R}_{>0}$, and
+$f'(t)=0$ if and only if $t=1$, it follows that $f$ has a global
+maximum at $t=1$. In particular, we have
+\begin{align*}
+t^{\gamma}-\gamma t & =f(t)\\
+ & \leq f(1)\\
+ & \leq1^{\gamma}-\gamma\cdot1\\
+ & =1-\gamma
+\end{align*}
+for all $t\in\mathbb{R}_{>0}$. \end{proof}
+
+\begin{prop}\label{prop} (Young's inequality) Let $a$ and $b$ be
+nonnegative real numbers and let $1\leq p,q<\infty$ such that $1/p+1/q=1$.
+Then we have 
+\[
+ab\leq\frac{a^{p}}{p}+\frac{b^{q}}{q}.
+\]
+\end{prop}
+
+\begin{proof} Set $\gamma=1/p$ (so $1-\gamma=1/q$), $a=x^{\gamma}$,
+and $b=y^{1-\gamma}$. Then Young's Inequality becomes (\ref{eq:ineqyoung-1}),
+which was proved in Lemma~(\ref{lemmapreyoungineq}). \end{proof}
 
 \subsubsection{Hölder's Inequality}
 
-\begin{prop}\label{prop} Let $1<p,q<\infty$ such that $1/p+1/q=1$.
-If $f\in L^{p}(X,\mathcal{M},\mu)$ and $g\in L^{q}(X,\mathcal{M},\mu)$,
-then $fg\in L^{1}(X,\mathcal{M},\mu)$ and 
+\begin{prop}\label{prop} (Hölder's inequality) Let $1<p,q<\infty$
+such that $1/p+1/q=1$, let $f\in L^{p}(X,\mathcal{M},\mu)$, and
+let $g\in L^{q}(X,\mathcal{M},\mu)$. Then $fg\in L^{1}(X,\mathcal{M},\mu)$
+and 
 \begin{equation}
 \|fg\|_{1}\leq\|f\|_{p}\|g\|_{q}.\label{eq:holderin}
 \end{equation}
@@ -3128,14 +3352,10 @@ Thus the inquality is trivial in this case, so we may assume that
 $\|f\|_{p}\neq0$ and $\|g\|_{q}\neq0$. We will first show the inequality
 in the special case where $\|f\|_{p}=1=\|g\|_{q}$. Then the righthand
 side of (\ref{eq:holderin}) is $1$, so we need to show $\|fg\|_{1}\leq1$.
-In fact, this follows immediately from Young's inequality, which says
-for all $a,b\geq0$ we have 
-\[
-ab\leq\frac{a^{p}}{p}+\frac{b^{q}}{q}.
-\]
-Indeed, we have
+This follows immediately from Young's inequality:
 \begin{align*}
-\int_{X}|fg|\mathrm{d}\mu & \leq\int_{X}\left(\frac{|f|^{p}}{p}+\frac{|g|^{q}}{q}\right)\mathrm{d}\mu\\
+\|fg\|_{1} & =\int_{X}|fg|\mathrm{d}\mu\\
+ & \leq\int_{X}\left(\frac{|f|^{p}}{p}+\frac{|g|^{q}}{q}\right)\mathrm{d}\mu\\
  & =\frac{1}{p}\int_{X}|f|^{p}\mathrm{d}\mu+\frac{1}{q}\int_{X}|g|^{q}\mathrm{d}\mu\\
  & =\frac{1}{p}+\frac{1}{q}\\
  & =1.
@@ -3146,49 +3366,50 @@ proved, we have
 \begin{align*}
 1 & \geq\int_{X}|FG|\mathrm{d}\mu\\
  & =\int_{X}\left|\frac{f}{\|f\|_{p}}\frac{g}{\|g\|_{q}}\right|\mathrm{d}\mu\\
- & =\frac{1}{\|f\|_{p}\|g\|_{q}}\int_{X}|fg|\mathrm{d}\mu.
+ & =\frac{1}{\|f\|_{p}\|g\|_{q}}\int_{X}|fg|\mathrm{d}\mu\\
+ & =\frac{1}{\|f\|_{p}\|g\|_{q}}\|fg\|_{1}.
 \end{align*}
 After multiplying both sides by $\|f\|_{p}\|g\|_{q}$, we obtain Hölder's
 inequality. \end{proof}
 
 \subsubsection{Minkowski's Inequality}
 
-\begin{prop}\label{prop} Let $1\leq p<\infty$ and $f,g\in L^{p}(X,\mathcal{M},\mu)$.
-Then
+For historical reasons, subadditivity of $\|\cdot\|_{p}$ is refered
+to as \textbf{Minkowski's inequality}. 
+
+\begin{prop}\label{prop} (Minkowski's inequality) Let $1\leq p<\infty$
+and let $f,g\in L^{p}(X,\mathcal{M},\mu)$. Then
 \[
 \|f+g\|_{p}\leq\|f\|_{p}+\|g\|_{p}.
 \]
 \end{prop}
 
-\begin{rem}\label{rem} This is just the triangle inequality for the
-$L^{p}$-norm, but we call it Minkowski's inequality for historical
-reasons. \end{rem}
-
 \begin{proof} We proved this for $p=1$, so let $p>1$. If $\|f+g\|_{p}=0$,
 then the inequality is obvious, so we can assume $\|f+g\|_{p}>0$.
 Observe that for $q$ such that $1/p+1/q=1$, we have $(p-1)q=p$.
-We have
+Thus we have
 \begin{align*}
-\int_{X}|f+g|^{p}\mathrm{d}\mu & \leq\int_{X}|f+g||f+g|^{p-1}\mathrm{d}\mu\\
- & \leq\int_{X}(|f|+|g|)|f+g|^{p-1}\mathrm{d}\mu\\
- & =\int_{X}|f||f+g|^{p-1}\mathrm{d}\mu+\int_{X}|g||f+g|^{p-1}\mathrm{d}\mu\\
- & \leq\|f\|_{p}\cdot\|(f+g)^{p-1}\|_{q}+\|g\|_{q}\cdot\|(f+g)^{p-1}\|_{q}\\
- & =(\|f\|_{p}+\|g\|_{q})\cdot\|(f+g)^{p-1}\|_{q}\\
- & =(\|f\|_{p}+\|g\|_{q})\left(\int_{X}|f+g|^{(p-1)q}\mathrm{d}\mu\right)^{\frac{1}{q}}\\
- & =(\|f\|_{p}+\|g\|_{q})\left(\int_{X}|f+g|^{p}\mathrm{d}\mu\right)^{\frac{1}{q}}.
-\end{align*}
-Thus
-\begin{align*}
-\left(\int_{X}|f+g|^{p}\mathrm{d}\mu\right)^{\frac{1}{p}} & =\left(\int_{X}|f+g|^{p}\mathrm{d}\mu\right)^{1-\frac{1}{q}}\\
- & \leq\|f\|_{p}+\|g\|_{p}.
+\|f+g\|_{p} & =\||f+g|^{p}\|_{1}^{1/p}\\
+ & =\||f+g|^{p}\|_{1}^{1-1/q}\\
+ & =\||f+g|^{p}\|_{1}\||f+g|^{p}\|_{1}^{-1/q}\\
+ & =\||f+g||f+g|^{p-1}\|_{1}\||f+g|^{p}\|_{1}^{-1/q}\\
+ & \leq\left(\||f||f+g|^{p-1}\|_{1}+\||g||f+g|^{p-1}\|_{1}\right)\||f+g|^{p}\|_{1}^{-1/q}\\
+ & \leq\left(\|f\|_{p}\||f+g|^{p-1}\|_{q}+\|g\|_{p}\||f+g|^{p-1}\|_{q}\right)\||f+g|^{p}\|_{1}^{-1/q}\\
+ & =(\|f\|_{p}+\|g\|_{p})\||f+g|^{p-1}\|_{q}\||f+g|^{p}\|_{1}^{-1/q}\\
+ & =(\|f\|_{p}+\|g\|_{p})\||f+g|^{q(p-1)}\|_{1}^{1/q}\||f+g|^{p}\|_{1}^{-1/q}\\
+ & =(\|f\|_{p}+\|g\|_{p})\||f+g|^{p}\|_{1}^{1/q}\||f+g|^{p}\|_{1}^{-1/q}\\
+ & =\|f\|_{p}+\|g\|_{p}.
 \end{align*}
  \end{proof}
 
 \subsection{Types of Convergences}
 
-\begin{defn}\label{defnuniformconvergence} Let $(f_{n}\colon X\to\mathbb{R})$
-be a sequence of functions and let $f\colon X\to\mathbb{R}$ be a
-function. 
+In this subsection, we wish to to discuss various types of convergences
+of sequences of functions. 
+
+\begin{defn}\label{defnuniformconvergence} Let $(X,\mathcal{M},\mu)$
+be a measure space, let $(f_{n}\colon X\to\mathbb{R})$ be a sequence
+of functions, and let $f\colon X\to\mathbb{R}$ be a function. 
 \begin{enumerate}
 \item We say $(f_{n})$ converges \textbf{pointwise }to $f$, denoted $f_{n}\xrightarrow{\mathrm{pw}}f$,
 if for all $x\in X$ and for all $\varepsilon>0$ there exists $N_{x,\varepsilon}\in\mathbb{N}$
@@ -3204,12 +3425,11 @@ implies
 \[
 |f_{n}(x)-f(x)|<\varepsilon
 \]
-for all $x\in X$.
 \item We say $(f_{n})$ converges to $f$ \textbf{almost uniformly}, denoted
 $f_{n}\xrightarrow{\mathrm{au}}f$,\textbf{ }if for all $\delta>0$
 there exists a set $E_{\delta}\subseteq X$ with $\mu(E_{\delta})<\delta$
-such that $f_{n}\to f$ uniformly on $E^{c}$. In other words, $(f_{n})$
-converges to $f$ almost uniformly if for all $\varepsilon,\delta>0$
+such that $f_{n}\to f$ uniformly on $E_{\delta}^{c}$. In other words,
+$(f_{n})$ converges to $f$ almost uniformly if for all $\varepsilon,\delta>0$
 there exists $E_{\delta}\subseteq X$ with $\mu(E_{\delta})<\delta$
 and $N_{\varepsilon,\delta}\in\mathbb{N}$ such that $n\geq N_{\varepsilon}$
 implies
@@ -3221,51 +3441,122 @@ for all $x\in E_{\delta}^{c}$.
 $f_{n}\xrightarrow{\mathrm{m}}f$, if for all $\varepsilon>0$ we
 have
 \[
-\mu(\{f_{n}-f\geq\varepsilon\})\to0
+\mu\{f_{n}-f\geq\varepsilon\}\to0
 \]
 as $n\to\infty$. In other words, for all $\varepsilon,\delta>0$,
 there exists $N_{\varepsilon,\delta}\in\mathbb{N}$ such that $n\geq N_{\varepsilon,\delta}$
 implies
 \[
-\mu(\{f_{n}-f\geq\varepsilon\})<\delta.
+\mu\{f_{n}-f\geq\varepsilon\}<\delta.
 \]
+\item A convergence is said to hold \textbf{almost everywhere }if there
+exists a set $E\in\mathcal{M}$ such that $\mu(E)=0$ and such that
+the convergence holds on $E^{c}$. 
 \end{enumerate}
 \end{defn}
 
-\begin{rem}\label{rem} If $(f_{n})$ converges to $f$ in the $L^{p}$-sense,
-then we denote this by $f_{n}\xrightarrow{L^{p}}f$. \end{rem}
+\subsubsection{Almost Pointwise is Equivalent to Pointwise Almost Everywhere}
 
-~~~Is it true that $f_{n}\xrightarrow{\mathrm{u}}f$ implies $f_{n}\xrightarrow{L^{1}}f$?
-If $\mu(X)<\infty$, then the answer is yes! Indeed
-\begin{align*}
-\|f_{n}-f\|_{1} & =\int_{X}|f_{n}-f|\mathrm{d}\mu\\
- & \leq\sup|f_{n}-f|\mu(X)\\
- & \to0.
-\end{align*}
+It may seem reasonable to make an additonal defintion: we say $(f_{n})$
+converges \textbf{almost pointwise }to $f$ if for all $\delta>0$
+there exists $E_{\delta}\in\mathcal{M}$ such that $\mu(E_{\delta})<\delta$
+and $(f_{n})$ converges pointwise to $f$ on $E_{\delta}^{c}$. It's
+clear that if $(f_{n})$ converges to $f$ pointwise almost everywhere,
+then $(f_{n})$ converges almost pointwise to $f$. In fact, the converse
+holds too! So ``almost pointwise'' and ``pointwise almost everywhere''
+are equivalent notions. Let us show this.
 
-Let's go over some more types of convergence implications:
+\begin{prop}\label{prop} Let $(X,\mathcal{M},\mu)$ be a measure
+space, let $(f_{n}\colon X\to\mathbb{R})$ be a sequence of functions,
+and let $f\colon X\to\mathbb{R}$ be a function. Then $(f_{n})$ converges\textbf{
+}almost pointwise to $f$ if and only if $(f_{n})$ converges to $f$
+pointwise almost everywhere. \end{prop}
 
-\subsubsection{Convergence in $L^{1}$ Implies Convergence in Measure Zero}
-
-\begin{prop}\label{prop} If $f_{n}\xrightarrow{L^{1}}f$, then $f_{n}\xrightarrow{\mathrm{m}}f$.
-\end{prop}
-
-\begin{proof} Suppose $f_{n}\xrightarrow{L^{1}}f$ and let $\varepsilon,\delta>0$.
-Choose $N_{\varepsilon,\delta}\in\mathbb{N}$ such that $n\geq N_{\varepsilon,\delta}$
-implies
+\begin{proof} We just need to show that almost pointwise implies
+pointwise almost everywhere, since the converse direction is trivial.
+Suppose $(f_{n})$ converges\textbf{ }almost pointwise to $f$. For
+each $k\in\mathbb{N}$, choose $E_{k}\in\mathcal{M}$ such that $\mu(E_{k})<1/k$
+and $(f_{n})$ converges to $f$ pointwise on $E_{k}^{c}$. Set 
 \[
-\|f_{n}-f\|_{1}<\varepsilon\delta.
+E=\bigcap_{k=1}^{\infty}E_{k}.
+\]
+Clearly we have $\mu(E)=0$. We claim that $(f_{n})$ converges to
+pointwise to $f$ on $E^{c}$. Indeed, let $x\in E^{c}$ and let $\varepsilon>0$.
+Since
+\[
+E^{c}=\bigcup_{k=1}^{\infty}E_{k}^{c},
+\]
+there exists a $k\in\mathbb{N}$ such that $x\in E_{k}^{c}$, so we
+choose such a $k\in\mathbb{N}$. Then since $(f_{n})$ converges pointwise
+to $f$ on $E_{k}^{c}$, we can choose $N\in\mathbb{N}$ such that
+$n\geq N$ implies
+\[
+|f_{n}(x)-f(x)|<\varepsilon.
+\]
+It follows that $(f_{n})$ converges pointwise to $f$ almost everywhere.
+Note that $N$ depends on $k$, $\varepsilon$, and $x$, but this
+isn't a problem! \end{proof} 
+
+\subsubsection{Uniform Convergence on Finite Measure Space Implies $L^{p}$ Convergence }
+
+\begin{prop}\label{prop} Let $(X,\mathcal{M},\mu)$ be a finite measure
+space, let $(f_{n}\colon X\to\mathbb{R})$ be a sequence of functions,
+let $f\colon X\to\mathbb{R}$ be a function, and let $0<p<\infty$.
+Suppose $(f_{n})$ converges to $f$ uniformly on $X$. Then $(f_{n})$
+converges to $f$ in the $L^{p}$-norm. \end{prop}
+
+\begin{proof} Let $\varepsilon>0$. Choose $N\in\mathbb{N}$ such
+that $n\geq N$ implies
+\[
+|f_{n}(x)-f(x)|<\frac{\varepsilon^{1/p}}{\mu(X)}
+\]
+for all $x\in X$. Then $n\geq N$ implies
+\begin{align*}
+\|f_{n}-f\|_{p} & =\int_{X}|f_{n}-f|^{p}\mathrm{d}\mu\\
+ & \leq\sup|f_{n}-f|^{p}\mu(X)\\
+ & <\frac{\varepsilon^{1/p}}{\mu(X)}\mu(X)\\
+ & =\varepsilon.
+\end{align*}
+It follows that $(f_{n})$ converges to $f$ in the $L^{p}$-norm.
+\end{proof}
+
+\subsubsection{Convergence in $L^{p}$ Implies Convergence in Measure Zero}
+
+\begin{prop}\label{prop} Let $(X,\mathcal{M},\mu)$ be a measure
+space, let $(f_{n}\colon X\to\mathbb{R})$ be a sequence of functions,
+let $f\colon X\to\mathbb{R}$ be a function, and let $0<p<\infty$.
+Suppose $(f_{n})$ converges to $f$ in the $L^{p}$-norm. Then $(f_{n})$
+converges to $f$ in measure zero. \end{prop}
+
+\begin{proof} Let $\varepsilon,\delta>0$. Choose $N_{\varepsilon,\delta}\in\mathbb{N}$
+such that $n\geq N_{\varepsilon,\delta}$ implies
+\[
+\|f_{n}-f\|_{p}<\varepsilon^{1/p}\delta^{1/p}.
 \]
 Then it follows from Chebyshev's inequality that
 \begin{align*}
-\mu\left(\left\{ \{x\in X\mid|f_{n}(x)-f(x)|\geq\varepsilon\}\right\} \right) & \leq\frac{1}{\varepsilon}\|f_{n}-f\|_{1}\\
+\mu\{|f_{n}-f|\geq\varepsilon^{1/p}\} & \leq\mu\{|f_{n}-f|^{p}\geq\varepsilon\}\\
+ & \leq\frac{1}{\varepsilon}\|f_{n}-f\|_{p}^{p}\\
  & <\frac{1}{\varepsilon}\varepsilon\delta\\
  & =\delta.
 \end{align*}
-Thus $f_{n}\xrightarrow{\mathrm{m}}f$. \end{proof}
+Therefore $(f_{n})$ converges to $f$ in meaure zero. \end{proof}
 
-Is it true that $f_{n}\xrightarrow{L^{1}}f$ implies $f_{n}\to f$
-pointwise a.e.? The answer is no! Indeed, consider the sequence 
+\subsubsection{Convergence in $L^{p}$ Does Not Imply Convergence Pointwise Almost
+Everywhere and Vice-Versa}
+
+\begin{example}\label{example} Let $(X,\mathcal{M},\mu)$ be a measure
+space, let $(f_{n}\colon X\to\mathbb{R})$ be a sequence of functions,
+let $f\colon X\to\mathbb{R}$ be a function, and let $0<p<\infty$.
+Clearly pointwise almost everywhere convergence does not imply $L^{p}$-convergence.
+It also turns out that if $(f_{n})$ converges to $f$ in the $L^{p}$-norm,
+then it is not necessarily the case that $(f_{n})$ converges to $f$
+pointwise almost everywhere. Similarly, if $(f_{n})$ converges to
+$f$ pointwise almost everywhere, then it is not necessarily the case
+that $(f_{n})$ converges to $f$ in the $L^{p}$-norm. To see this,
+consider the case where $X=[0,1]$, $\mu=\mathrm{m}$ is the Lebesgue
+measure, and $(f_{n})$ is the sequence of functions which starts
+out as
 \begin{align*}
 f_{1} & =1_{[0,1]}\\
 f_{2} & =1_{[0,1/2]}\\
@@ -3277,39 +3568,65 @@ f_{7} & =1_{[3/4,1]}\\
 f_{8} & =1_{[0,1/8]}\\
  & \vdots
 \end{align*}
-and so on. Then $f_{n}\xrightarrow{L^{1}}0$ but $f_{n}$ does not
-converge pointwise to any function. Indeed, for any $x\in[0,1]$,
-$f_{n}(x)=0$ for infinitely many $n$ and $f_{n}(x)=1$ for infinitely
-many $n$. Similarly, $f_{n}\to f$ pointwise does \emph{not }imply
-$f_{n}\xrightarrow{L^{1}}f$. 
+and so on. It is easy to check that $(f_{n})$ converges to the $0$
+function in the $L^{1}$-norm. However it does not converge pointwise
+almost everywhere to any function! Indeed, for any $x\in[0,1]$, we
+have $f_{n}(x)=0$ for infinitely many $n$ and $f_{n}(x)=1$ for
+infinitely many $n$. \end{example}
 
 \subsubsection{Convergence in Measure Zero Implies a Subsequence Converges Pointwise
 Almost Everywhere}
 
-\begin{prop}\label{prop} If $f_{n}\xrightarrow{\mathrm{m}}f$, then
-there exists a subsequence $(f_{\pi(n)})$ of $(f_{n})$ such that
-$f_{\pi(n)}\xrightarrow{\mathrm{pw}}f$ almost everywhere. \end{prop}
+\begin{lemma}\label{lemmameasureoflimsupequals0givenfinitecondition}
+Let $(X,\mathcal{M},\mu)$ be a measure space and let $(E_{n})$ be
+a sequence in $\mathcal{M}$ such that $\sum_{n=1}^{\infty}\mu(E_{n})<\infty$.
+Then
+\[
+\mu\left(\limsup E_{n}\right)=0.
+\]
+\textbf{ }\end{lemma}
 
-\begin{proof} Suppose $f_{n}\xrightarrow{\mathrm{m}}f$. Then for
-each $m\in\mathbb{N}$, we can find a $\pi(m)\geq m$, such that $n\geq\pi(m)$
-implies
+\begin{proof}\label{proof} Note that the sequence
+\[
+\left(\bigcup_{n\geq N}E_{n}\right)_{N\in\mathbb{N}}
+\]
+is a descending sequence in $N$. This together with the fact that
+$\mu\left(\bigcup_{n=1}^{\infty}E_{n}\right)<\infty$ implies
+\begin{align*}
+\mu\left(\limsup E_{n}\right) & =\mu\left(\bigcap_{N=1}^{\infty}\left(\bigcup_{n\geq N}E_{n}\right)\right)\\
+ & =\lim_{N\to\infty}\mu\left(\bigcup_{n\geq N}E_{n}\right)\\
+ & \leq\lim_{N\to\infty}\sum_{n=N}^{\infty}\mu(E_{n})\\
+ & =0,
+\end{align*}
+where the last equality follows since $\sum_{n=1}^{\infty}\mu(E_{n})<\infty$.
+\end{proof}
+
+\begin{prop}\label{prop} Let $(X,\mathcal{M},\mu)$ be a measure
+space, let $(f_{n}\colon X\to\mathbb{R})$ be a sequence of functions,
+and let $f\colon X\to\mathbb{R}$ be a function. Suppose $(f_{n})$
+converges to $f$ in measure zero. Then there exists a subsequence
+$(f_{\pi(n)})$ of $(f_{n})$ such that $(f_{\pi(n)})$ converges
+to $f$ pointwise almost everywhere. \end{prop}
+
+\begin{proof} For each $m\in\mathbb{N}$ choose $\pi(m)\geq m$ such
+that $n\geq\pi(m)$ implies
 \begin{equation}
-\mu\left(\{|f_{n}(x)-f(x)|\geq1/2^{m}\}\right)<1/2^{m}.\label{eq:m0ispaeeq}
+\mu\{|f_{n}-f|\geq1/2^{m}\}<1/2^{m}.\label{eq:m0ispaeeq}
 \end{equation}
 In fact, we don't need to know that (\ref{eq:m0ispaeeq}) holds for
 \emph{every }$n\geq\pi(m)$, we just need to know that it holds for
-$n=\pi(m)$! Indeed, for each $m\in\mathbb{N}$, let
+$n=\pi(m)$! Indeed, for each $m\in\mathbb{N}$, denote
 \[
-E_{m}:=\{x\in X\mid|f_{\pi(m)}(x)-f(x)|\geq1/2^{m}\}.
+E_{m}=\{|f_{\pi(m)}-f|\geq1/2^{m}\}
 \]
-So $\mu(E_{m})<1/2^{m}$, since this is a special case of (\ref{eq:m0ispaeeq})
-where $n=\pi(m)$. Next, let
+Then $\mu(E_{m})<1/2^{m}$ since this is a special case of (\ref{eq:m0ispaeeq})
+where $n=\pi(m)$. Next, denote
 \[
 E=\limsup E_{m}=\bigcap_{M\geq1}\bigcup_{m\geq M}E_{m}
 \]
-Observe that $\sum_{m=1}^{\infty}\mu(E_{m})<1$ implies $\mu(E)=0$
-(by a previous HW problem). We claim that $(f_{n})$ converges pointwise
-to $f$ on $E^{c}$. To see this, let $x\in E^{c}$. Then there exists
+Observe that $\sum_{m=1}^{\infty}\mu(E_{m})<1$. It follows from Lemma~(\ref{lemmameasureoflimsupequals0givenfinitecondition})
+that $\mu(E)=0$. We claim that $(f_{n})$ converges pointwise to
+$f$ on $E^{c}$. To see this, let $x\in E^{c}$. Then there exists
 some $M$ such that $x\notin\bigcup_{m\geq M}E_{m}$. In other words,
 there exists some $M$ such that $x\notin E_{m}$ for any $m\geq M$.
 In other words, there exists some $M$ such that
@@ -3317,68 +3634,100 @@ In other words, there exists some $M$ such that
 |f_{\pi(m)}(x)-f(x)|<1/2^{m}
 \]
 for all $m\geq M$. Therefore $f_{\pi(m)}(x)\to f(x)$ as $m\to\infty$.
-So $(f_{\pi(m)})$ converges to $f$ pointwise almost everywhere.
+This implies $(f_{\pi(m)})$ converges to $f$ pointwise almost everywhere.
 \end{proof}
 
-\begin{cor}\label{cor} $f_{n}\xrightarrow{L^{1}}f$ implies there
-exists a subsequence $(f_{n_{k}})$ such that $f_{n_{k}}\to f$ pointwise
-a.e. \end{cor}
+\begin{cor}\label{cor} Let $(X,\mathcal{M},\mu)$ be a measure space,
+let $(f_{n}\colon X\to\mathbb{R})$ be a sequence of functions, and
+let $f\colon X\to\mathbb{R}$ be a function. Suppose $(f_{n})$ converges
+to $f$ in the $L^{p}$-norm. Then there exists a subsequence $(f_{\pi(n)})$
+of $(f_{n})$ such that $(f_{\pi(n)})$ converges to $f$ pointwise
+almost everywhere. \end{cor}
 
-\subsubsection{On a Finite Measure Space, Pointwise a.e. Convergence Implies Almost
-Uniform Convergence}
+\subsubsection{Convergence Pointwise Almost Everywhere on a Finite Measure Space
+Implies Almost Uniform Convergence}
 
-\begin{prop}\label{prop} If $\mu(X)<\infty$ and $f_{n}\xrightarrow{\mathrm{pw}}f$
-almost everywhere, then $f_{n}\xrightarrow{\mathrm{au}}f$. \end{prop}
+\begin{prop}\label{prop} Let $(X,\mathcal{M},\mu)$ be a finite measure
+space, let $(f_{n}\colon X\to\mathbb{R})$ be a sequence of functions,
+let $f\colon X\to\mathbb{R}$ be a function, and let $0<p<\infty$.
+Suppose $(f_{n})$ converges to $f$ pointwise almost everywhere.
+Then $(f_{n})$ converges to $f$ almost uniformly. \end{prop}
 
-\begin{proof} Let 
-\[
-E_{n}(k):=\bigcup_{m\geq n}\{|f_{m}-f|\geq1/k\}
-\]
-for $n,k\in\mathbb{N}$. Then $E_{n}(k)\supseteq E_{n+1}(k)$ and
-\[
-\bigcap_{n=1}^{\infty}E_{n}(k)=\emptyset.
-\]
-Indeed, if $x\in\bigcap_{n=1}^{\infty}E_{n}(k)$, then there exists
-a subsequence $(f_{\pi(n)})$ of $(f_{n})$ such that
-\[
-|f_{\pi(n)}(x)-f(x)|\geq1/k
-\]
-for all $n\in\mathbb{N}$, but this is a contradiction since $f_{n}(x)\xrightarrow{\mathrm{pw}}f(x)$.
-Now, since $\mu(E_{1}(k))<\infty$, we have
-
-\begin{align*}
-\lim_{n\to\infty}\mu(E_{n}(k)) & =\mu\left(\bigcap_{n=1}^{\infty}E_{n}(k)\right)\\
- & =\mu(\emptyset)\\
- & =0.
-\end{align*}
-
-Let $\delta>0$. Since $\mu(E_{n}(k))\to0$ as $n\to\infty$, there
-exists $n_{k}\in\mathbb{N}$ such that
-\[
-\mu(E_{n_{k}}(k))<\frac{\delta}{2^{k}}.
-\]
- Now let $E=\bigcup_{k=1}^{\infty}E_{n_{k}}(k)$. Then 
-\begin{align*}
-\mu(E) & \leq\sum_{k=1}^{\infty}\mu\left(E_{n_{k}}(k)\right)\\
- & <\sum_{k=1}^{\infty}\frac{\delta}{2^{k}}\\
- & =\delta.
-\end{align*}
-For $x\notin E$ we have $x\notin E_{n_{k}}(k)$ for all $k\in\mathbb{N}$
-and hence
+\begin{proof} Let $\varepsilon,\delta>0$. We must find an $E_{\delta}\in\mathcal{M}$
+and an $N_{\varepsilon,\delta}\in\mathbb{N}$ such that $\mu(E_{\delta})<\delta$
+and $n\geq N_{\varepsilon,\delta}$ implies
 \[
 |f_{n}(x)-f(x)|<\frac{1}{k}
 \]
-for all $n\geq n_{k}$ and $k\in\mathbb{N}$. Now let $\varepsilon>0$.
-Choose $N=n_{k}$ where $1/k<\varepsilon$. Then for $n\geq N$, we
-have
+for all $x\in E_{\delta}^{c}$. Before we begin with the proof, let
+us state up front what $E_{\delta}$ and $N_{\varepsilon,\delta}$
+will be. We will have
+\[
+E_{\delta}=\bigcup_{k=1}^{\infty}\bigcup_{n\geq\pi(k)}\{|f_{n}-f|\geq1/k\}.
+\]
+Here, $\pi(k)\geq k$ will be chosen large enough such that $\mu(E_{\delta})<\delta$.
+So $x\in E_{\delta}$ if and only if there exists $k\in\mathbb{N}$
+and an $n\geq\pi(k)$ such that
+\[
+|f_{n}(x)-f(x)|\ge\frac{1}{k}
+\]
+and $x\in E_{\delta}^{c}$ if and only if for all $k\in\mathbb{N}$
+we have
+\[
+|f_{n}(x)-f(x)|<\frac{1}{k}
+\]
+for all $n\geq\pi(k)$. Thus if we choose $k\in\mathbb{N}$ such that
+$1/k<\varepsilon$, then we set $N_{\varepsilon,\delta}=\pi(k)$.
+It will then follow that $n\geq N_{\varepsilon,\delta}$ implies 
 \[
 |f_{n}(x)-f(x)|<\varepsilon
 \]
-for all $x\in E^{c}$. \end{proof}
+for all $x\in E_{\delta}^{c}$. This will imply almost uniform convergence.
+So the main goal of the proof is to find $\pi(k)$ for each $k$ such
+that $\mu(E_{\delta})<\delta$. 
+
+\hfill
+
+~~~For each $k,N\in\mathbb{N}$, let
+\[
+E_{N}(k)=\bigcup_{n\geq N}\{|f_{n}-f|\geq1/k\}.
+\]
+Observe that $(E_{N}(k))_{N\in\mathbb{N}}$ is a descending sequence
+of sets in $N$. Furthermore, we observe that 
+\[
+\mu\left(\bigcap_{N=1}^{\infty}E_{N}(k)\right)=0.
+\]
+Indeed, $x\in\bigcap_{N=1}^{\infty}E_{N}(k)$ if and only if there
+exists a subsequence $(f_{\rho(n)})$ of $(f_{n})$ such that
+\[
+|f_{\rho(n)}(x)-f(x)|\geq1/k
+\]
+for all $n\in\mathbb{N}$ if and only if $f_{n}(x)\not\to f(x)$.
+This set has measure zero by assumption. Now, since $\mu(X)<\infty$,
+we have $\mu(E_{1}(k))<\infty$, and thus
+\begin{align*}
+\lim_{N\to\infty}\mu(E_{N}(k)) & =\mu\left(\bigcap_{N=1}^{\infty}E_{N}(k)\right)\\
+ & =0.
+\end{align*}
+It follows that for each $k\in\mathbb{N}$, we can choose $\pi(k)\in\mathbb{N}$
+such that
+\[
+\mu(E_{\pi(k)}(k))<\frac{\delta}{2^{k}}.
+\]
+Now as we discuss earlier, we set $E_{\delta}=\bigcup_{k=1}^{\infty}E_{\pi(k)}(k)$.
+Then we have
+\begin{align*}
+\mu(E_{\delta}) & =\mu\left(\bigcup_{k=1}^{\infty}E_{\pi(k)}(k)\right)\\
+ & \leq\sum_{k=1}^{\infty}\mu\left(E_{\pi(k)}(k)\right)\\
+ & <\sum_{k=1}^{\infty}\frac{\delta}{2^{k}}\\
+ & =\delta.
+\end{align*}
+\end{proof}
 
 \subsubsection{Convergences Diagram}
 
-Let summarize the convergence implications in the following diagram
+We summarize our findings in the convergence implications diagram
+below. 
 
 \begin{center}\begin{tikzcd} & f_n \xrightarrow{\mathrm{u}} f \arrow[dl] \arrow[dr,"\mu (X) < \infty "]
 
@@ -3820,8 +4169,6 @@ Tonelli to both $f^{+}$ and $f^{-}$. We have
 \int_{X\times Y}f\mathrm{d}(\mu\otimes\nu) & =\int_{X\times Y}f^{+}\mathrm{d}(\mu\otimes\nu)-\int_{X\times Y}f^{-}\mathrm{d}(\mu\otimes\nu).\\
  & =\int_{X}\left(\int_{Y}(f^{+})_{(-)}\mathrm{d}\nu\right)\mathrm{d}\mu-\int_{X}\left(\int_{Y}(f^{-})_{(-)}\mathrm{d}\nu\right)\mathrm{d}\mu\\
  & =\int_{X}\left(\int_{Y}(f^{+})_{(-)}\mathrm{d}\nu-\int_{Y}(f^{-})_{(-)}\mathrm{d}\nu\right)\mathrm{d}\mu\\
- & =\int_{X}\left(\int_{Y}\left((f^{+})_{(-)}-(f^{-})_{(-)}\right)\mathrm{d}\nu\right)\mathrm{d}\mu\\
- & =\int_{X}\left(\int_{Y}\left((f_{(-)})^{+}-(f_{(-)})^{-}\right)\mathrm{d}\nu\right)\mathrm{d}\mu\\
  & =\int_{X}\left(\int_{Y}f_{(-)}\mathrm{d}\nu\right)\mathrm{d}\mu.
 \end{align*}
 We need to justify some of the steps that we used above. The first
@@ -3852,8 +4199,7 @@ why this holds, observe that for each $x\in X$, we have
 \end{align*}
 where we applied the definition of $\int_{Y}f_{x}\mathrm{d}\nu$ to
 obtain the second from the first line. Note that this makes sense
-because $f_{x}$ is $\mathcal{N}$-integrable almost everywhere. Indeed,
-since
+because $f_{x}$ is $\nu$-integrable almost everywhere. Indeed, since
 \[
 \int_{X}\left(\int_{Y}(f_{(-)})^{+}\mathrm{d}\nu\right)\mathrm{d}\mu<\infty,
 \]
@@ -3959,11 +4305,80 @@ such that $E\subseteq\bigcup_{n=1}^{\infty}P_{n}$. Then
 
 \subsubsection{Hahn Decomposition Theorem}
 
-\begin{theorem}\label{theorem}(Hahn decomposition theorem) If $\nu$
+\begin{theorem}\label{theorem} (Hahn decomposition theorem) If $\nu$
 is a signed measure on $(X,\mathcal{M})$, then there exists $P\in\mathcal{M}$
 $\nu$-positive and $Q\in\mathcal{M}$ $\nu$-negative such that $X=P\cup Q$
 and $P\cap Q=\emptyset$. If $P',Q'$ is another such pair, then $P\Delta P'$
 and $Q\Delta Q'$ are both $\nu$-null sets. \end{theorem}
+
+\begin{proof} Let $m=\sup\{\nu(E)\mid E\text{ is }\nu$-positive\}.
+Then for all $n\in\mathbb{N}$, there exists a $\nu$-positive set
+$P_{n}$ such that
+\[
+m\geq\nu(P_{n})>m-\frac{1}{n}.
+\]
+Then $\lim_{n\to\infty}\nu(P_{n})=m$ . Take $P=\bigcup_{n=1}^{\infty}P_{n}$.
+We showed last time $P$ is also $\nu$-positive and
+\begin{align*}
+\nu(P) & =\nu\left(\bigcup_{n=1}^{\infty}P_{n}\right)\\
+ & =\lim_{n\to\infty}\nu(P_{n})\\
+ & =m.
+\end{align*}
+Set $N=P^{c}$. We need to show $N$ is $\nu$-negative. First, we
+make two observations. First, if $E\subseteq N$ is a $\nu$-positive
+set, then $E$ must be a $\nu$-null set. Indeed, assume $\nu(E)>0$.
+Then
+\begin{align*}
+\nu(E\cup P) & =\nu(E)+\nu(P)\\
+ & =\nu(P)\\
+ & =m
+\end{align*}
+and $E\cup P$ is $\nu$-positive, but this is a contradiction. This
+establishes our first claim. The next claim we make is that if $A\subseteq N$
+and $\nu(A)>0$, then there exists $B\subseteq A$ with $\nu(B)>\nu(A)$.
+Indeed, we just proved that $A$ cannot be $\nu$-positive. Therefore
+there exists $C\subseteq A$ such that $\nu(C)<0$. Take $B=A\backslash C$.
+Then
+\begin{align*}
+\nu(B) & =\nu(A)-\nu(C)\\
+ & >\nu(A).
+\end{align*}
+This establishes our second claim.
+
+~~~Now we construct two sequence $(n_{k})\subseteq\mathbb{N}$
+and $(A_{k})$ of subsets of $N$ in the following way: Set
+\[
+n_{1}=\min\{k\in\mathbb{N}\mid\exists B\subseteq N\text{ with }\nu(B)>1/k\}.
+\]
+Next we define $A_{1}$ to be one such subset $B$, so $A_{1}\subseteq N$
+such that $\nu(A_{1})>1/n_{1}$. Next, we define
+\[
+n_{2}=\min\{k\in\mathbb{N}\mid\exists B\subseteq A_{1}\text{ with }\nu(B)>\nu(A_{1})+1/k\}.
+\]
+Next we define $A_{2}$ to be one such subset $B$, so $A_{2}\subseteq A_{1}$
+such that $\nu(A_{2})>\nu(A_{1})+1/n_{2}$. Continuing in this way,
+we obtain $(n_{k})$ and $(A_{k})$. Let $A=\bigcap_{n=1}^{\infty}A_{n}$.
+Then
+\begin{align*}
+\nu(A) & =\lim_{k\to\infty}\nu(A_{k})\\
+ & \geq\sum_{k=1}^{\infty}\frac{1}{n_{k}}.
+\end{align*}
+Since $\nu(A)$ is finite, we see that this series must be convergent.
+Thus $1/n^{k}\to0$ as $k\to\infty$. Then there exists $B\subseteq A$
+with the property that $\nu(B)>\nu(A)$. Let $N\in\mathbb{N}$ such
+that $1/N<\nu(B)-\nu(A)$. There exists $j$ such that
+\[
+\frac{1}{n_{j}}<\frac{1}{N}<\nu(B)-\nu(A).
+\]
+That is, $\nu(B)>\nu(A)+1/n_{j}$. Also 
+\begin{align*}
+B & \subseteq A\\
+ & =\bigcap_{k=1}^{\infty}A_{k}\\
+ & \subseteq A_{j}.
+\end{align*}
+So our assumption that $N$ is not negative is wrong. Thus $N$ is
+positive. The uniqueness part is simpler and left as an exercise.
+\end{proof}
 
 \subsubsection{Mutually Singular Signed Measures}
 
@@ -4014,6 +4429,110 @@ sets. Therefore if $A\in\mathcal{M}$, we have
  & =\nu^{+}(A),
 \end{align*}
 so $\mu^{+}=\nu^{+}$. Similarly, $\mu^{-}=\nu^{-}$. \end{proof}
+
+\subsection{Absolute Continuity For Signed Measures}
+
+\begin{defn}\label{defn} Let $\nu$ be a signed measure on $(X,\mathcal{M})$
+and let $\mu$ be a usual measure on $(X,\mathcal{M})$. We say $\nu$
+is \textbf{absolutely continuous }with respect to $\mu$ if for all
+$E\in\mathcal{M}$, we have $\mu(E)=0$ implies $\nu(E)=0$. We denote
+this by $\nu\ll\mu$. \end{defn}
+
+~~~It's esay to prove that
+\begin{align*}
+\nu\ll\mu & \iff\nu^{+}\ll\mu\text{ and }\nu^{-}\ll\mu\\
+ & \iff|\nu|\ll\mu.
+\end{align*}
+\begin{prop}\label{prop} $\nu\ll\mu$ if and only if for all $\varepsilon>0$
+there exists $\delta>0$ such that for all $E\in\mathcal{M}$ with
+$\mu(E)<\delta$, we have $\nu(E)<\delta$. \end{prop}
+
+\begin{proof} $(\impliedby)$ is easy. $(\implies)$ assume $\nu\ll\mu$
+but doesn't hold. Then there exists $\varepsilon>0$ fo rall $n\in\mathbb{N}$
+ther exists $E_{n}\in\mathcal{M}$ with $\mu(E_{n})<1/2^{n}$ buth
+$|\nu|(E_{n})\geq\varepsilon$. On the other hand, since $|\nu|(E_{n})\geq\varepsilon$,
+we have $|\nu|(F)\geq0$ which contradicts
+\[
+|\nu|\ll\mu\iff\nu\ll\mu.
+\]
+ \end{proof}
+
+\subsubsection{Radon-Nikodym}
+
+\begin{theorem}\label{theorem} (Radon-Nikodym) $\nu\ll\mu$ implies
+there exists $h\in L^{1}(\mu)$ such that 
+\[
+\nu(E)=\int_{X}1_{E}h\mathrm{d}\mu.
+\]
+\end{theorem}
+
+\begin{proof} Assume first that $\nu$ is the usual measure. Consider
+the Hilbert space $L^{2}(\mu+\nu)$. The map $\ell\colon L^{2}(\mu+\nu)\to\mathbb{R}$
+defined by
+\[
+\ell(f)=\int_{X}f\mathrm{d}\mu
+\]
+for all $f\in L^{2}(\mu+\nu)$ is a linear functional and
+\begin{align*}
+|\ell(f)| & =\left|\int_{X}f\mathrm{d}\mu\right|\\
+ & \leq\int_{X}|f|\mathrm{d}\mu\\
+ & \leq\sqrt{\int_{X}|f|^{2}\mathrm{d}(\mu+\nu)}\sqrt{\int_{X}1^{2}\mathrm{d}(\mu+\nu})\\
+ & =\|f||_{2}(\mu(X)+\nu(X)).
+\end{align*}
+So by the Riesz representation theorem, there exists $g\in L^{2}(\mu+\nu)$
+such that
+\[
+\ell(f)=\langle f,g\rangle=\int_{X}fg\mathrm{d}(\mu+\nu).
+\]
+So 
+\begin{align*}
+\int_{X}f\mathrm{d}\mu & =\int_{X}fg\mathrm{d}(\mu+\nu)
+\end{align*}
+which is equivalent to 
+\[
+\int_{X}f(1-g)\mathrm{d}\mu=\int_{X}fg\mathrm{d}\nu.
+\]
+We claim that $0<g\leq1$ for $\mu$ almost everywhere. Define $F\in\mathcal{M}$
+by
+\[
+F=\{x\in X\mid g(x)\leq0\}.
+\]
+Take $f=1_{F}$. Then 
+\begin{align*}
+\int_{X}1_{F}(1-g)\mathrm{d}\mu & =\int1_{F}g\mathrm{d}\nu\\
+ & \leq0
+\end{align*}
+which implies $\mu(0)\leq0$ which implies $\mu(F)=0$ which implies
+$0<g$ for $\mu$ a.e. Similarly, by considering the set
+\[
+G=\{x\in X\mid g(x)>1\},
+\]
+we can get $\mu(G)=0$ which implies $g\leq1$ for $\mu$ a.e. 
+
+~~~Now we can define $h=(1-g)/g$. For $E\in\mathcal{M}$, pick
+$f=1_{E}\cdot(1/g)$ plug in
+\[
+\int_{X}1_{E}\frac{1}{g}(1-g)\mathrm{d}\mu=\int1_{E}\mathrm{d}\nu
+\]
+this implies
+\[
+\int1_{E}h\mathrm{d}\mu=\int1_{E}\mathrm{d}\nu=\nu(E)
+\]
+Thus 
+\[
+\nu(E)=\int_{X}1_{E}h\mathrm{d}\mu.
+\]
+For general signed measures $\nu$, we write $\nu=\nu^{+}-\nu^{-}$
+and we use $\nu\ll\mu$ to imply $\nu^{+}\ll\mu$ and $\nu^{-}\ll\mu$
+to imlpies
+\[
+\nu^{+}(E)=\int1_{E}h_{1}\mathrm{d}\mu\quad\text{and }\nu^{-}(E)=\int1_{E}h_{2}\mathrm{d}\mu
+\]
+which implies 
+\[
+\nu(E)=\nu^{+}(E)-\nu^{-}(E)=\int1_{E}(h_{1}-h_{2})\mathrm{d}\mu.
+\]
+So we are done. \end{proof}
 
 \part{Homework}
 
@@ -6659,7 +7178,7 @@ If $\int_{X}f_{1}\mathrm{d}\mu<\infty$, then
 \end{equation}
 \end{prop}
 
-\begin{proof} For each $n\in\mathbb{N}$, set $g_{n}=f_{n+1}-f_{n}$.
+\begin{proof} For each $n\in\mathbb{N}$, set $g_{n}=f_{n}-f_{n+1}$.
 Since $(f_{n})$ is a decreasing sequence, each $g_{n}$ is nonnegative.
 Furthermore each $g_{n}$ is measurable since it is a difference of
 two measurable functions. Set $g=\sum_{n=1}^{\infty}g_{n}$ and observe
@@ -6667,20 +7186,20 @@ that
 \begin{align*}
 g & =\sum_{n=1}^{\infty}g_{n}\\
  & =\lim_{N\to\infty}\sum_{n=1}^{N}g_{n}\\
- & =\lim_{N\to\infty}\sum_{n=1}^{N}(f_{n+1}-f_{n})\\
- & =\lim_{N\to\infty}(f_{N}-f_{1})\\
- & =f-f_{1}.
+ & =\lim_{N\to\infty}\sum_{n=1}^{N}(f_{n}-f_{n+1})\\
+ & =\lim_{N\to\infty}(f_{1}-f_{N+1})\\
+ & =f_{1}-f.
 \end{align*}
-It follows from problem 4 that
+It follows from the monotone convergence theorem that
 \begin{align*}
-\int_{X}f\mathrm{d}\mu-\int_{X}f_{1}\mathrm{d}\mu & =\int_{X}(f-f_{1})\mathrm{d}\mu\\
+\int_{X}f_{1}\mathrm{d}\mu-\int_{X}f\mathrm{d}\mu & =\int_{X}(f_{1}-f)\mathrm{d}\mu\\
  & =\int_{X}g\mathrm{d}\mu\\
- & =\sum_{n=1}^{\infty}\int_{X}g_{n}\mathrm{d}\mu\\
+ & =\sum_{n=1}^{\infty}\int_{X}g_{n}\mathrm{d}\mu &  & \text{MCT}\\
  & =\lim_{N\to\infty}\sum_{n=1}^{N}\int_{X}g_{n}\mathrm{d}\mu\\
- & =\lim_{N\to\infty}\sum_{n=1}^{N}\int_{X}(f_{n+1}-f_{n})\mathrm{d}\mu\\
- & =\lim_{N\to\infty}\int_{X}\sum_{n=1}^{N}(f_{n+1}-f_{n})\mathrm{d}\mu\\
- & =\lim_{N\to\infty}\int_{X}(f_{N}-f_{1})\mathrm{d}\mu\\
- & =\lim_{N\to\infty}\int_{X}f_{N}\mathrm{d}\mu-\int_{X}f_{1}\mathrm{d}\mu.
+ & =\lim_{N\to\infty}\sum_{n=1}^{N}\int_{X}(f_{n}-f_{n+1})\mathrm{d}\mu\\
+ & =\lim_{N\to\infty}\int_{X}\sum_{n=1}^{N}(f_{n}-f_{n+1})\mathrm{d}\mu\\
+ & =\lim_{N\to\infty}\int_{X}(f_{1}-f_{N+1})\mathrm{d}\mu\\
+ & =\int_{X}f_{1}\mathrm{d}\mu-\lim_{N\to\infty}\int_{X}f_{N+1}\mathrm{d}\mu.
 \end{align*}
 Since $\int_{X}f_{1}\mathrm{d}\mu<0$, we can cancel it from both
 sides to get (\ref{eq:decseqcon}). \end{proof}

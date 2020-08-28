@@ -491,8 +491,8 @@ degree
 \begin_inset Formula $r$
 \end_inset
 
- as 
-\begin_inset Formula $|r|$
+ by 
+\begin_inset Formula $\deg r$
 \end_inset
 
 .
@@ -781,7 +781,11 @@ whenever
 \end_inset
 
  is not defined.
- What we can say however is that there exists nonzero elements 
+ What we can say however is that for each 
+\begin_inset Formula $r\in R$
+\end_inset
+
+ there exists nonzero elements 
 \begin_inset Formula $r_{h_{1}},\dots r_{h_{n}}$
 \end_inset
 
@@ -895,7 +899,7 @@ decomposition of
 \end_layout
 
 \begin_layout Subsubsection
-Examples of Graded Rings
+Trivially Graded Ring
 \end_layout
 
 \begin_layout Standard
@@ -969,18 +973,11 @@ end{example}
 
 \end_layout
 
+\begin_layout Subsubsection
+A Ring Equipped with Two Gradings
+\end_layout
+
 \begin_layout Standard
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
 Sometimes we speak of a graded ring as a 
 \series bold
 ring
@@ -998,19 +995,11 @@ equipped with an
 \begin_inset Formula $R$
 \end_inset
 
- is a ring, then it is possible for 
+ is a ring, then it may possible to equip 
 \begin_inset Formula $R$
 \end_inset
 
- to have both an 
-\begin_inset Formula $H$
-\end_inset
-
--grading and an 
-\begin_inset Formula $H'$
-\end_inset
-
--grading.
+ with two gradings.
  Here is an example of this:
 \end_layout
 
@@ -1199,6 +1188,23 @@ degree
 \end_inset
 
 .
+ If 
+\begin_inset Formula $u$
+\end_inset
+
+ is a homogeneous element in 
+\begin_inset Formula $M$
+\end_inset
+
+, then unless otherwise specified, we denote the degree of 
+\begin_inset Formula $u$
+\end_inset
+
+ by 
+\begin_inset Formula $\deg u$
+\end_inset
+
+.
  Whenever we write 
 \begin_inset Quotes eld
 \end_inset
@@ -1233,18 +1239,10 @@ let
 \end_inset
 
  will be an 
-\begin_inset Formula $\mathbb{Z}$
+\begin_inset Formula $\mathbb{N}$
 \end_inset
 
--graded ring with 
-\begin_inset Formula $R_{i}=0$
-\end_inset
-
- for all 
-\begin_inset Formula $i<0$
-\end_inset
-
- and 
+-graded ring and 
 \begin_inset Formula $M$
 \end_inset
 
@@ -1274,6 +1272,10 @@ let
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Subsubsection
+Twist of Graded Module
 \end_layout
 
 \begin_layout Standard
@@ -1369,7 +1371,7 @@ end{defn}
 
 \end_layout
 
-\begin_layout Subsubsection
+\begin_layout Subsection
 Graded 
 \begin_inset Formula $R$
 \end_inset
@@ -1574,7 +1576,7 @@ where
 \end_inset
 
  refers to the homogeneous component of 
-\begin_inset Formula $y_{\alpha}$
+\begin_inset Formula $r_{\alpha}$
 \end_inset
 
  concentrated in the degree 
@@ -1644,22 +1646,18 @@ ref{gradedsubmodule})
 
  is called a 
 \series bold
-graded 
+graded
 \series default
-(or 
+ 
 \series bold
-homogeneous
+submodule
 \series default
-) submodule.
+.
  A graded submodule of a graded ring is called a 
 \series bold
-graded 
-\series default
-(or 
-\series bold
 homogeneous
 \series default
-) 
+ 
 \series bold
 ideal
 \series default
@@ -1783,6 +1781,10 @@ end{rem}
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsubsection
+Criterion for Homogoneous Ideal to be Prime
 \end_layout
 
 \begin_layout Standard
@@ -2051,13 +2053,9 @@ label{defn}
 
  is called 
 \series bold
-homogeneous 
+graded of degree
 \series default
-(or 
-\series bold
-graded
-\series default
-) of degree 
+ 
 \begin_inset Formula $j$
 \end_inset
 
@@ -2074,13 +2072,13 @@ graded
 \begin_inset Formula $\varphi$
 \end_inset
 
- is homogeneous of degree zero then we will simply say 
+ is graded of degree zero then we will simply say 
 \begin_inset Formula $\varphi$
 \end_inset
 
  is 
 \series bold
-homogeneous
+graded
 \series default
 .
  
@@ -2127,11 +2125,11 @@ U:=\begin{pmatrix}X+Y+Z & W^{2}-X^{2} & X^{3}\\
 
 \end_inset
 
-defines a homomorphism 
+defines a graded homomorphism 
 \begin_inset Formula $U\colon R(-1)\oplus R(-2)\oplus R(-3)\to R\oplus R(-1)$
 \end_inset
 
- which is graded of degree zero.
+.
  
 \begin_inset ERT
 status open
