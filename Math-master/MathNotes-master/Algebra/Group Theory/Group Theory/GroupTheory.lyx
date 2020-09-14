@@ -16407,7 +16407,7 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section
+\begin_layout Subsection
 Composition Series and the Hölder program
 \end_layout
 
@@ -17138,26 +17138,41 @@ status open
 
 \backslash
 begin{defn}
+\backslash
+label{defn}
 \end_layout
 
 \end_inset
 
+ Let 
+\begin_inset Formula $G$
+\end_inset
+
+ be a group.
+ 
+\end_layout
+
+\begin_layout Enumerate
 A 
 \series bold
 filtration 
 \series default
-of a group 
+of 
 \begin_inset Formula $G$
 \end_inset
 
- is a sequence of subgroups 
+ is a finite sequence of subgroups 
 \begin_inset Formula $(G_{i})_{0\leq i\leq n}$
 \end_inset
 
- such that 
+ of 
+\begin_inset Formula $G$
+\end_inset
+
+ such that
 \begin_inset Formula 
 \begin{equation}
-G_{0}=G\supset G_{1}\supset\cdots\supset G_{n}=1,\label{eq:filtration}
+G_{0}=G\supset G_{1}\supset\cdots\supset G_{n}=1\label{eq:filtration}
 \end{equation}
 
 \end_inset
@@ -17171,7 +17186,7 @@ with
 \end_inset
 
  for 
-\begin_inset Formula $1\le i\le n-1$
+\begin_inset Formula $0\le i\le n-1$
 \end_inset
 
 .
@@ -17180,16 +17195,16 @@ with
 \end_inset
 
 , the successive quotients 
-\begin_inset Formula $G_{i}/G_{i+1}$
+\begin_inset Formula $G_{i}\slash G_{i+1}$
 \end_inset
 
  are denoted 
-\begin_inset Formula $\mbox{gr}_{i}(G)$
+\begin_inset Formula $\mathrm{gr}_{i}(G)$
 \end_inset
 
 .
  The sequence of the 
-\begin_inset Formula $\mbox{gr}_{i}(G)$
+\begin_inset Formula $\mathrm{gr}_{i}(G)$
 \end_inset
 
  is denoted by 
@@ -17198,35 +17213,10 @@ with
 
 .
  
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{defn}
 \end_layout
 
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{defn}
-\end_layout
-
-\end_inset
-
- A filtration 
+\begin_layout Enumerate
+A filtration 
 \begin_inset Formula $(G_{i})_{0\leq i\leq n}$
 \end_inset
 
@@ -17247,14 +17237,10 @@ Joran-Hölder series
 composition series
 \series default
 ) if 
-\begin_inset Formula $\mbox{gr}_{i}(G)$
+\begin_inset Formula $\mathrm{gr}_{i}(G)$
 \end_inset
 
- is simple for every 
-\begin_inset Formula $i$
-\end_inset
-
- such 
+ is simple all 
 \begin_inset Formula $0\leq i<n$
 \end_inset
 
@@ -17269,6 +17255,9 @@ length
 \series default
 of the filtration.
  
+\end_layout
+
+\begin_layout Standard
 \begin_inset ERT
 status open
 
@@ -17601,6 +17590,21 @@ end{example}
 
 \end_layout
 
+\begin_layout Subsubsection
+Every Finite Group has a Jordan-Hölder Filtration
+\end_layout
+
+\begin_layout Standard
+A group need not have a Jordan-Hölder filtration.
+ Indeed, consider the group of integers 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+.
+ It turns out that however, that finite groups always have Jordan-Hölder
+ filtrations.
+\end_layout
+
 \begin_layout Standard
 \begin_inset ERT
 status open
@@ -17614,7 +17618,17 @@ begin{prop}
 
 \end_inset
 
- Every finite group has a Jordan-Hölder filtration.
+ Let 
+\begin_inset Formula $G$
+\end_inset
+
+ be a finite group.
+ Then there exists a Jordan-Hölder filtration of 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ 
 \begin_inset ERT
 status open
 
@@ -17715,7 +17729,7 @@ ref{eq:filtration})
 
 , and of maximal order.
  Then 
-\begin_inset Formula $G/N$
+\begin_inset Formula $G\slash N$
 \end_inset
 
  is simple.
@@ -17728,7 +17742,7 @@ ref{eq:filtration})
 \end_inset
 
  and we obtain a Jordan-Hölder filtration 
-\begin_inset Formula $(N_{i})$
+\begin_inset Formula $(N_{i})_{0\leq i\leq n}$
 \end_inset
 
  for 
@@ -17737,18 +17751,27 @@ ref{eq:filtration})
 
 .
  Then 
-\begin_inset Formula $(G,N_{0},N_{1},\dots)$
+\begin_inset Formula $(G_{i})_{0\leq i\leq n+1}$
 \end_inset
 
  is a Jordan-Hölder filtration for 
 \begin_inset Formula $G$
 \end_inset
 
+, where 
+\begin_inset Formula $G_{0}=G$
+\end_inset
+
+ and 
+\begin_inset Formula $G_{i}=N_{i-1}$
+\end_inset
+
+ for all 
+\begin_inset Formula $1\leq i\leq n+1$
+\end_inset
+
 .
  
-\end_layout
-
-\begin_layout Standard
 \begin_inset ERT
 status open
 
@@ -17764,34 +17787,9 @@ end{proof}
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{rem}
-\end_layout
-
-\end_inset
-
- An infinite group may not have a Jordan-Hölder filtration; example: 
-\begin_inset Formula $\mathbb{Z}$
-\end_inset
-
-.
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{rem}
-\end_layout
-
+\begin_layout Subsubsection
+Uniqueness of 
+\begin_inset Formula $\mathrm{gr}_{i}(G)$
 \end_inset
 
 

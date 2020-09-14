@@ -2026,6 +2026,3503 @@ end{theorem}
 
 \end_layout
 
+\begin_layout Standard
+Let 
+\begin_inset Formula $f\in C[0,1]$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $f$
+\end_inset
+
+ is uniformly continuous.
+ For each 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ define a partition
+\begin_inset Formula 
+\[
+0<x_{0}^{(n)}<x_{1}^{(n)}<\cdots<x_{n}^{(n)}=1
+\]
+
+\end_inset
+
+of 
+\begin_inset Formula $[0,1]$
+\end_inset
+
+ such that none of these points are discontinuities of 
+\begin_inset Formula $f$
+\end_inset
+
+ and such that
+\begin_inset Formula 
+\[
+|x_{i+1}^{(n)}-x_{i}^{(n)}|<\frac{2}{n}
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $i=0,1,\dots,n$
+\end_inset
+
+.
+ Now define 
+\begin_inset Formula $\varphi_{n}\colon[0,1]\to\mathbb{R}$
+\end_inset
+
+ by
+\begin_inset Formula 
+\[
+\varphi_{n}(x)=\sum_{i=0}^{n-1}f(x_{i}^{(n)})1_{(x_{i}^{(n)},x_{i+1}^{(n)}]}
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $x\in[0,1]$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $f$
+\end_inset
+
+ is uniformly continuous, we see that 
+\begin_inset Formula $(\varphi_{n})$
+\end_inset
+
+ converges uniformly to 
+\begin_inset Formula $f$
+\end_inset
+
+.
+ Therefore 
+\begin_inset Formula $\widetilde{\ell}(\varphi_{n})\to\widetilde{\ell}(f)$
+\end_inset
+
+ and 
+\begin_inset Formula $\int_{0}^{1}\varphi_{n}\mathrm{d}\mu\to\int_{0}^{1}f\mathrm{d}\mu$
+\end_inset
+
+.
+ So it suffices to show
+\begin_inset Formula 
+\[
+\int_{0}^{1}\varphi_{n}\mathrm{d}\mu=\widetilde{\ell}(\varphi_{n}).
+\]
+
+\end_inset
+
+Thus
+\begin_inset Formula 
+\begin{align*}
+\widetilde{\ell}(\varphi_{n}) & =\widetilde{\ell}(\sum_{i=0}^{n-1}f(x_{i}^{(n)})1_{(x_{i}^{(n)},x_{i+1}^{(n)}]})\\
+ & =\sum_{i=0}^{n-1}f(x_{i}^{(n)})\widetilde{\ell}(1_{(x_{i}^{(n)},x_{i+1}^{(n)}]})\\
+ & =\int_{0}^{1}\varphi_{n}\mathrm{d}\mu
+\end{align*}
+
+\end_inset
+
+for all 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\backslash
+label{theorem}
+\end_layout
+
+\end_inset
+
+ (Hausdorff) A sequence 
+\begin_inset Formula $(a_{n})$
+\end_inset
+
+ is a moment sequence of some finite Borel measure 
+\begin_inset Formula $\mu$
+\end_inset
+
+ on 
+\begin_inset Formula $[0,1]$
+\end_inset
+
+, that is,
+\begin_inset Formula 
+\[
+a_{n}=\int_{0}^{1}x^{n}\mathrm{d}\mu
+\]
+
+\end_inset
+
+if and only if 
+\begin_inset Formula $(-1)^{k}(\Delta^{k}a)_{n}\geq0$
+\end_inset
+
+ for all 
+\begin_inset Formula $k,n\geq0$
+\end_inset
+
+ where 
+\begin_inset Formula $(\Delta a)_{n}=a_{n+1}-a_{n}$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We have
+\begin_inset Formula 
+\begin{align*}
+\Delta^{2}a & =\Delta(\Delta a)\\
+ & =(a_{n+2}-2a_{n+1}+a_{n})_{n}
+\end{align*}
+
+\end_inset
+
+More generally
+\begin_inset Formula 
+\[
+\Delta^{k}a=(\sum_{i=n}^{n+k}(-1)^{i}{n \choose i}a_{n+i}).
+\]
+
+\end_inset
+
+Sequences satisfying this condition
+\begin_inset Formula 
+\[
+((-1)^{k}\Delta^{k}a)_{n}\geq0
+\]
+
+\end_inset
+
+are called monotone sequences.
+ Observe that 
+\begin_inset Formula 
+\[
+(-1)^{k}(\Delta^{k}a)_{n}=\int_{0}^{1}x^{n}(1-x)^{k}\mathrm{d}\mu\geq0.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Hahn-Banach Theorem
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\backslash
+label{defn}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $V$
+\end_inset
+
+ be an 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+-vector space.
+ A 
+\series bold
+partial-seminorm 
+\series default
+is a function 
+\begin_inset Formula $p\colon V\to\mathbb{R}$
+\end_inset
+
+ which satisfies
+\end_layout
+
+\begin_layout Enumerate
+(nonnegativity) 
+\begin_inset Formula $p(x)\geq0$
+\end_inset
+
+ for all 
+\begin_inset Formula $x\in V$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+(nonnegative homogeneity) 
+\begin_inset Formula $p(\lambda x)=\lambda p(x)$
+\end_inset
+
+ for all 
+\begin_inset Formula $\lambda\geq0$
+\end_inset
+
+ and 
+\begin_inset Formula $x\in V$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+(subadditivity) 
+\begin_inset Formula $p(x+y)\leq p(x)+p(y)$
+\end_inset
+
+ for all 
+\begin_inset Formula $x,y\in V$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{rem}
+\backslash
+label{rem}
+\end_layout
+
+\end_inset
+
+ The terminology 
+\begin_inset Quotes eld
+\end_inset
+
+partial-seminorm
+\begin_inset Quotes erd
+\end_inset
+
+ is made up by me.
+ Recall that a 
+\series bold
+seminorm 
+\series default
+is a function 
+\begin_inset Formula $p\colon V\to\mathbb{R}$
+\end_inset
+
+ which satisfies
+\end_layout
+
+\begin_layout Enumerate
+(absolute homogeneity) 
+\begin_inset Formula $p(\lambda x)=|\lambda|p(x)$
+\end_inset
+
+ for all 
+\begin_inset Formula $\lambda\in\mathbb{R}$
+\end_inset
+
+ and 
+\begin_inset Formula $x\in V$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+(subadditivity) 
+\begin_inset Formula $p(x+y)\leq p(x)+p(y)$
+\end_inset
+
+ for all 
+\begin_inset Formula $x,y\in V$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+It is easy to check that a seminorm is necessarily nonnegative.
+ Thus every seminorm is a partial-seminorm.
+ On the other hand, there are partial-seminorms which are not seminorms.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{rem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\backslash
+label{theorem}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $V$
+\end_inset
+
+ be an 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+-vector space equipped with a partial-seminorm 
+\begin_inset Formula $p\colon V\to\mathbb{R}$
+\end_inset
+
+ and let 
+\begin_inset Formula $U$
+\end_inset
+
+ be a subspace of 
+\begin_inset Formula $V$
+\end_inset
+
+.
+ Then every linear functional 
+\begin_inset Formula $\varphi\colon U\to\mathbb{R}$
+\end_inset
+
+ such that 
+\begin_inset Formula $|\varphi|\leq p|_{U}$
+\end_inset
+
+ can be extended to a linear functional 
+\begin_inset Formula $\widetilde{\varphi}\colon V\to\mathbb{R}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\widetilde{\varphi}|_{U}=\varphi$
+\end_inset
+
+ and 
+\begin_inset Formula $|\widetilde{\varphi}|\leq p$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{rem}
+\backslash
+label{rem}
+\end_layout
+
+\end_inset
+
+ Note that by 
+\begin_inset Formula $|\varphi|\leq p|_{U}$
+\end_inset
+
+, we mean 
+\begin_inset Formula $|\varphi(u)|\leq p(u)$
+\end_inset
+
+ for all 
+\begin_inset Formula $u\in U$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{rem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $\varphi\colon U\to\mathbb{R}$
+\end_inset
+
+ be a linear functional such that 
+\begin_inset Formula $|\varphi|\leq p|_{U}$
+\end_inset
+
+.
+ We will construct an extension of 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ using Marcel Riesz's Extension Theorem.
+ Let
+\begin_inset Formula 
+\[
+P=\{(\lambda,v)\in\mathbb{R}\times V\mid p(v)\leq\lambda\}.
+\]
+
+\end_inset
+
+Then observe that 
+\begin_inset Formula $P$
+\end_inset
+
+ is a convex cone contained in the space 
+\begin_inset Formula $\mathbb{R}\times V$
+\end_inset
+
+.
+ Indeed, if 
+\begin_inset Formula $\alpha>0$
+\end_inset
+
+ and 
+\begin_inset Formula $(\lambda,v)\in P$
+\end_inset
+
+, then 
+\begin_inset Formula $(\alpha\lambda,\alpha v)\in P$
+\end_inset
+
+ since
+\begin_inset Formula 
+\begin{align*}
+p(\alpha v) & =\alpha p(v)\\
+ & \leq\alpha\lambda
+\end{align*}
+
+\end_inset
+
+Also if 
+\begin_inset Formula $(\lambda_{1},v_{1}),(\lambda_{2},v_{2})\in P$
+\end_inset
+
+, then 
+\begin_inset Formula $(\lambda_{1}+\lambda_{2},v_{1}+v_{2})\in P$
+\end_inset
+
+ since
+\begin_inset Formula 
+\begin{align*}
+p(v_{1}+v_{2}) & \leq p(v_{1})+p(v_{2})\\
+ & =\lambda_{1}+\lambda_{2}.
+\end{align*}
+
+\end_inset
+
+Furthermore, we have 
+\begin_inset Formula $\mathbb{R}\times V=(\mathbb{R}\times U)+P$
+\end_inset
+
+ , since if 
+\begin_inset Formula $(\lambda,v)\in\mathbb{R}\times V$
+\end_inset
+
+, then
+\begin_inset Formula 
+\[
+(\lambda,v)=(\lambda-p(v),0)+(p(v),v)
+\]
+
+\end_inset
+
+with 
+\begin_inset Formula $(\lambda-p(v),0)\in\mathbb{R}\times U$
+\end_inset
+
+ and 
+\begin_inset Formula $(p(v),v)\in P$
+\end_inset
+
+.
+ Finally define 
+\begin_inset Formula $\psi\colon\mathbb{R}\times U\to\mathbb{R}$
+\end_inset
+
+ by
+\begin_inset Formula 
+\[
+\psi(\lambda,u)=\lambda-\varphi(u)
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $(\lambda,u)\in\mathbb{R}\times U$
+\end_inset
+
+.
+ Observe that 
+\begin_inset Formula $\psi|_{(\mathbb{R}\times U)\cap P}\geq0$
+\end_inset
+
+.
+ Indeed, if 
+\begin_inset Formula $(\lambda,v)\in(\mathbb{R}\times U)\cap P$
+\end_inset
+
+, then
+\begin_inset Formula 
+\begin{align*}
+\psi(\lambda,v) & =\lambda-\varphi(v)\\
+ & \geq\lambda-p(v)\\
+ & \geq0
+\end{align*}
+
+\end_inset
+
+Thus we have all of the ingredients to apply the Marcel Riesz Extension
+ Theorem: choose 
+\begin_inset Formula $\widetilde{\psi}\colon\mathbb{R}\times V\to\mathbb{R}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\widetilde{\psi}|_{\mathbb{R}\times U}=\psi$
+\end_inset
+
+ and 
+\begin_inset Formula $\widetilde{\psi}|_{P}\geq0$
+\end_inset
+
+.
+ Define 
+\begin_inset Formula $\widetilde{\varphi}\colon V\to\mathbb{R}$
+\end_inset
+
+ by
+\begin_inset Formula 
+\[
+\widetilde{\varphi}(v)=-\widetilde{\psi}(0,v)
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $v\in V$
+\end_inset
+
+.
+ Note that if 
+\begin_inset Formula $u\in U$
+\end_inset
+
+, then
+\begin_inset Formula 
+\begin{align*}
+\widetilde{\varphi}(u) & =-\widetilde{\psi}(0,u)\\
+ & =-\psi(0,u)\\
+ & =\varphi(u).
+\end{align*}
+
+\end_inset
+
+Thus 
+\begin_inset Formula $\widetilde{\varphi}|_{U}=\varphi$
+\end_inset
+
+.
+ We claim 
+\begin_inset Formula $|\widetilde{\varphi}|\leq p$
+\end_inset
+
+.
+ To see this, assume for a contradiction that 
+\begin_inset Formula $v_{0}\in V$
+\end_inset
+
+ such that
+\begin_inset Formula 
+\[
+\widetilde{\varphi}(v_{0})>p(v_{0}).
+\]
+
+\end_inset
+
+Then using that 
+\begin_inset Formula $(p(x_{0}),x_{0})\in P$
+\end_inset
+
+, we have
+\begin_inset Formula 
+\begin{align*}
+0 & \leq\widetilde{\psi}(p(x_{0}),x_{0})\\
+ & =\widetilde{\psi}(0,x_{0})+\widetilde{\psi}(p(x_{0}),0)\\
+ & =-\widetilde{\varphi}(x_{0})+\psi(p(x_{0}),0)\\
+ & =-\widetilde{\varphi}(x_{0})+p(x_{0})\\
+ & <-p(x_{0})+p(x_{0})\\
+ & =0,
+\end{align*}
+
+\end_inset
+
+which is a contradiction.
+ This establishes our claim and we are done.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+In the setting of normed linear spaces, the Hahn-Banach Theorem says that
+ any linear functional 
+\begin_inset Formula $\ell$
+\end_inset
+
+ defined on a subspace 
+\begin_inset Formula $\mathcal{Y}\subseteq\mathcal{X}$
+\end_inset
+
+ which is bounded on 
+\begin_inset Formula $\mathcal{Y}$
+\end_inset
+
+ can be extended to a bounded linear functional 
+\begin_inset Formula $\widetilde{\ell}$
+\end_inset
+
+ on 
+\begin_inset Formula $\mathcal{X}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\widetilde{\ell}|_{\mathcal{Y}}=\ell$
+\end_inset
+
+ and 
+\begin_inset Formula $\|\widetilde{\ell}\|_{\mathcal{X}}=\|\ell\|_{\mathcal{Y}}$
+\end_inset
+
+.
+ This is an immediate consequence of our more general version that we have
+ just proved.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\backslash
+label{prop}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $\mathcal{X}$
+\end_inset
+
+ be a normed linear space and let 
+\begin_inset Formula $x_{0}$
+\end_inset
+
+ be a nonzero vector in 
+\begin_inset Formula $\mathcal{X}$
+\end_inset
+
+.
+ Then there exists a bounded linear functional 
+\begin_inset Formula $\ell\colon\mathcal{X}\to\mathbb{R}$
+\end_inset
+
+ with 
+\begin_inset Formula $\|\ell\|=1$
+\end_inset
+
+ such that 
+\begin_inset Formula $\ell(x_{0})=\|x_{0}\|$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+So if you have two points 
+\begin_inset Formula $a\neq b$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathcal{X}$
+\end_inset
+
+, then there exists a bounded linear functional 
+\begin_inset Formula $\ell\in\mathcal{X}^{*}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\ell(a)\neq\ell(b)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\backslash
+label{theorem}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $\mathcal{X}$
+\end_inset
+
+ be a reflexive Banach space and let 
+\begin_inset Formula $\mathcal{Y}$
+\end_inset
+
+ be a closed subspace of 
+\begin_inset Formula $\mathcal{X}$
+\end_inset
+
+.
+ Then for every 
+\begin_inset Formula $x\in\mathcal{X}$
+\end_inset
+
+ there exists 
+\begin_inset Formula $y_{0}\in\mathcal{Y}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\mathrm{d}(x,\mathcal{Y})=\|x-y_{0}\|$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{rem}
+\backslash
+label{rem}
+\end_layout
+
+\end_inset
+
+ We can replace 
+\begin_inset Formula $\mathcal{Y}$
+\end_inset
+
+ with a convex set.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{rem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Define a function 
+\begin_inset Formula $\varphi\colon\mathcal{Y}\to\mathbb{R}$
+\end_inset
+
+ by
+\begin_inset Formula 
+\[
+\varphi(y)=\|y-x\|
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $y\in\mathcal{Y}$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Geometric Form of the Hahn-Banach Theorem 
+\end_layout
+
+\begin_layout Subsection
+Gauge Functional
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\backslash
+label{defn}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $V$
+\end_inset
+
+ be an 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+-vector space and let 
+\begin_inset Formula $S$
+\end_inset
+
+ be a subset of 
+\begin_inset Formula $V$
+\end_inset
+
+.
+ A point 
+\begin_inset Formula $x\in S$
+\end_inset
+
+ is said to be an 
+\series bold
+interior point 
+\series default
+of 
+\begin_inset Formula $S$
+\end_inset
+
+ if for any 
+\begin_inset Formula $y\in V$
+\end_inset
+
+, there exists 
+\begin_inset Formula $\varepsilon_{x,y}>0$
+\end_inset
+
+ such that 
+\begin_inset Formula $|t|<\varepsilon_{x,y}$
+\end_inset
+
+ implies 
+\begin_inset Formula $x+ty\in S$
+\end_inset
+
+.
+ We denote by 
+\begin_inset Formula $\mathrm{int}\,S$
+\end_inset
+
+ to be the set of all interior points of 
+\begin_inset Formula $S$
+\end_inset
+
+.
+ Note that if 
+\begin_inset Formula $0\in\mathrm{int}\,S$
+\end_inset
+
+, then 
+\begin_inset Formula $0\in S$
+\end_inset
+
+.
+ Indeed, assuming 
+\begin_inset Formula $0\in\mathrm{int}\,S$
+\end_inset
+
+, then there exists 
+\begin_inset Formula $\varepsilon_{0,0}>0$
+\end_inset
+
+ such that 
+\begin_inset Formula $|t|<\varepsilon_{0,0}$
+\end_inset
+
+ implies 
+\begin_inset Formula $0=0+t\cdot0\in S$
+\end_inset
+
+.
+ The converse of course isn't true (take 
+\begin_inset Formula $S=\{0\}$
+\end_inset
+
+).
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{rem}
+\backslash
+label{rem}
+\end_layout
+
+\end_inset
+
+ Here we write 
+\begin_inset Formula $\varepsilon_{x,y}$
+\end_inset
+
+ to emphasize that 
+\begin_inset Formula $\varepsilon_{x,y}$
+\end_inset
+
+ 
+\emph on
+depends 
+\emph default
+on 
+\begin_inset Formula $x$
+\end_inset
+
+ and 
+\begin_inset Formula $y$
+\end_inset
+
+.
+ Usually we will just write 
+\begin_inset Formula $\varepsilon$
+\end_inset
+
+ instead of 
+\begin_inset Formula $\varepsilon_{x,y}$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{rem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\backslash
+label{defn}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $V$
+\end_inset
+
+ be an 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+-vector space and let 
+\begin_inset Formula $C\subseteq V$
+\end_inset
+
+ be a convex set with 
+\begin_inset Formula $0$
+\end_inset
+
+ as an interior point.
+ Define 
+\begin_inset Formula $\mathrm{p}_{C}\colon V\to\mathbb{R}$
+\end_inset
+
+ by
+\begin_inset Formula 
+\[
+\mathrm{p}_{C}(x)=\inf\{\alpha>0\mid(1/\alpha)x\in C\}
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $x\in V$
+\end_inset
+
+.
+ This is called the 
+\series bold
+gauge functional 
+\series default
+of 
+\begin_inset Formula $C$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\backslash
+label{example}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $(V,\|\cdot\|)$
+\end_inset
+
+ be a normed linear space and let 
+\begin_inset Formula $C=\mathrm{B}_{1}[0]$
+\end_inset
+
+ be the closed unit ball centered at 
+\begin_inset Formula $0$
+\end_inset
+
+ with radius 
+\begin_inset Formula $1$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\mathrm{p}_{C}(x)=\|x\|$
+\end_inset
+
+ for all 
+\begin_inset Formula $x\in V$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Gauge Functional is a Partial-Seminorm
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\backslash
+label{propgaugefunctionalisquasiseminorm}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $V$
+\end_inset
+
+ be an 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+-vector space and let 
+\begin_inset Formula $C\subseteq V$
+\end_inset
+
+ be a convex set with 
+\begin_inset Formula $0$
+\end_inset
+
+ as an interior point.
+ Then the gauge functional 
+\begin_inset Formula $\mathrm{p}_{C}$
+\end_inset
+
+ is a partial-seminorm.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ We first show 
+\begin_inset Formula $\mathrm{p}_{C}$
+\end_inset
+
+ is subadditive.
+ Let 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ and let 
+\begin_inset Formula $x,y\in V$
+\end_inset
+
+.
+ Set 
+\begin_inset Formula $a=\mathrm{p}_{C}(x)+\varepsilon/2$
+\end_inset
+
+ and set 
+\begin_inset Formula $b=\mathrm{p}_{C}(y)+\varepsilon/2$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $a,b>0$
+\end_inset
+
+ and 
+\begin_inset Formula $(1/a)x,(1/b)x\in C$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $C$
+\end_inset
+
+ is convex, we see that
+\begin_inset Formula 
+\[
+\frac{1}{a+b}(x+y)=\frac{a}{a+b}\left(\frac{1}{a}x\right)+\frac{b}{a+b}\left(\frac{1}{b}y\right)\in C.
+\]
+
+\end_inset
+
+It follows that
+\begin_inset Formula 
+\begin{align*}
+\mathrm{p}_{C}(x)+\mathrm{p}_{C}(y)+\varepsilon & =a+b\\
+ & \geq\mathrm{p}_{C}(x+y).
+\end{align*}
+
+\end_inset
+
+Taking 
+\begin_inset Formula $\varepsilon\to0$
+\end_inset
+
+ shows that 
+\begin_inset Formula $\mathrm{p}_{C}$
+\end_inset
+
+ is subadditive.
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Next we show that 
+\begin_inset Formula $\mathrm{p}_{C}$
+\end_inset
+
+ satisfies nonnegative homogeneity.
+ Let 
+\begin_inset Formula $\lambda\geq0$
+\end_inset
+
+ and let 
+\begin_inset Formula $x\in V$
+\end_inset
+
+.
+ First note that if 
+\begin_inset Formula $\lambda=0$
+\end_inset
+
+, then since
+\begin_inset Formula 
+\begin{align*}
+\mathrm{p}_{C}(0) & =\inf\{\alpha>0\mid(1/\alpha)\cdot0\in C\}=0,
+\end{align*}
+
+\end_inset
+
+we have 
+\begin_inset Formula $0=0\cdot\mathrm{p}_{C}(x)=\mathrm{p}_{C}(0\cdot x)$
+\end_inset
+
+.
+ Thus we may assume 
+\begin_inset Formula $\lambda>0$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\begin{align*}
+\mathrm{p}_{C}(\lambda x) & =\inf\{\alpha>0\mid(1/\alpha)\lambda x\in C\}\\
+ & =\lambda\inf\{\alpha>0\mid(1/\alpha)x\in C\}\\
+ & =\lambda\mathrm{p}_{C}(x).
+\end{align*}
+
+\end_inset
+
+Finally note that 
+\begin_inset Formula $\mathrm{p}_{C}$
+\end_inset
+
+ is nonnegative by definition.
+ Thus 
+\begin_inset Formula $\mathrm{p}_{C}$
+\end_inset
+
+ is a partial-seminorm.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Properties of Gauge Functional
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\backslash
+label{prop}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $V$
+\end_inset
+
+ be an 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+-vector space and let 
+\begin_inset Formula $C\subseteq V$
+\end_inset
+
+ be a convex set with 
+\begin_inset Formula $0$
+\end_inset
+
+ as an interior point.
+ We have
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $C\subseteq\{\mathrm{p}_{C}\leq1\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\mathrm{int}\,C=\{\mathrm{p}_{C}<1\}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ 1.
+ Let 
+\begin_inset Formula $x\in C$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $(1/1)x\in C$
+\end_inset
+
+ and hence 
+\begin_inset Formula $\mathrm{p}_{C}(x)\leq1$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+2.
+ Let 
+\begin_inset Formula $x\in\mathrm{int}\,C$
+\end_inset
+
+.
+ Then there exists 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ such that 
+\begin_inset Formula $x+\varepsilon x\in C$
+\end_inset
+
+.
+ So
+\begin_inset Formula 
+\begin{align*}
+x+\varepsilon x & =(1+\varepsilon)x\\
+ & =\frac{1}{1/(1+\varepsilon)}x
+\end{align*}
+
+\end_inset
+
+shows 
+\begin_inset Formula $\mathrm{p}_{C}(x)\leq1/(1+\varepsilon)<1$
+\end_inset
+
+.
+ Conversely, let 
+\begin_inset Formula $x\in V$
+\end_inset
+
+ such that 
+\begin_inset Formula $\mathrm{p}_{C}(x)<1$
+\end_inset
+
+.
+ Then there exists 
+\begin_inset Formula $0<\alpha<1$
+\end_inset
+
+ such that 
+\begin_inset Formula $(1/\alpha)x\in C$
+\end_inset
+
+.
+ Now let 
+\begin_inset Formula $y\in V$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $0\in\mathrm{int}(C)$
+\end_inset
+
+, there exists 
+\begin_inset Formula $\varepsilon>0$
+\end_inset
+
+ such that 
+\begin_inset Formula $|t|<\varepsilon$
+\end_inset
+
+ implies 
+\begin_inset Formula $ty\in C$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $|t|<\varepsilon$
+\end_inset
+
+ implies
+\begin_inset Formula 
+\begin{align*}
+x+(1-\alpha)ty & =\alpha(1/\alpha)x+(1-\alpha)ty\in C
+\end{align*}
+
+\end_inset
+
+since 
+\begin_inset Formula $C$
+\end_inset
+
+ is convex.
+ In particular, setting 
+\begin_inset Formula $\delta=(1-\alpha)\varepsilon$
+\end_inset
+
+, we see that 
+\begin_inset Formula $|t|<\delta$
+\end_inset
+
+ implies 
+\begin_inset Formula $x+ty\in C$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Gauge Functional Induced from Partial-Seminorm
+\end_layout
+
+\begin_layout Standard
+Recall from 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Proposition~(
+\backslash
+ref{propgaugefunctionalisquasiseminorm})
+\end_layout
+
+\end_inset
+
+ that is 
+\begin_inset Formula $C$
+\end_inset
+
+ is a convex subset of a real vector space 
+\begin_inset Formula $V$
+\end_inset
+
+ such that 
+\begin_inset Formula $0\in\mathrm{int}\,C$
+\end_inset
+
+, then the gauge functional 
+\begin_inset Formula $\mathrm{p}_{C}\colon V\to\mathbb{R}$
+\end_inset
+
+ is a partial-seminorm.
+ We will now show a converse to this.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\backslash
+label{prop}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $V$
+\end_inset
+
+ be an 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+-vector space, let 
+\begin_inset Formula $p\colon V\to\mathbb{R}$
+\end_inset
+
+ be a partial-seminorm, and set 
+\begin_inset Formula $C=\{p\leq1\}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $C$
+\end_inset
+
+ is a convex set, and moreover, we have 
+\begin_inset Formula $\mathrm{p}_{C}=p$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $x,y\in C$
+\end_inset
+
+ and 
+\begin_inset Formula $\alpha\in[0,1]$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\begin{align*}
+p((1-\alpha)x+\alpha y) & \leq p((1-\alpha)x)+p(\alpha y)\\
+ & =(1-\alpha)p(x)+\alpha p(y)\\
+ & \leq(1-\alpha)+\alpha\\
+ & =1
+\end{align*}
+
+\end_inset
+
+implies 
+\begin_inset Formula $(1-\alpha)x+\alpha y\in C$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $C$
+\end_inset
+
+ is a convex set.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Now assume there exists 
+\begin_inset Formula $x_{0}\in V$
+\end_inset
+
+ such that 
+\begin_inset Formula $\mathrm{p}_{C}(x_{0})<p(x_{0})$
+\end_inset
+
+.
+ Then there exists 
+\begin_inset Formula $\alpha\in\mathbb{R}$
+\end_inset
+
+ such that
+\begin_inset Formula 
+\[
+\mathrm{p}_{C}(x_{0})\leq\alpha<p(x_{0})
+\]
+
+\end_inset
+
+and such that 
+\begin_inset Formula $(1/\alpha)x_{0}\in C$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $p((1/\alpha)x_{0})\leq1$
+\end_inset
+
+ which is equivalent to 
+\begin_inset Formula $(1/\alpha)p(x_{0})\leq1$
+\end_inset
+
+ which implies 
+\begin_inset Formula $p(x_{0})\leq\alpha$
+\end_inset
+
+.
+ This is a contradiction.
+ So 
+\begin_inset Formula $\mathrm{p}_{C}(x)\geq p(x)$
+\end_inset
+
+ for all 
+\begin_inset Formula $x\in V$
+\end_inset
+
+.
+ Now assume there exists 
+\begin_inset Formula $x_{0}\in V$
+\end_inset
+
+ such that 
+\begin_inset Formula $p(x_{0})<\mathrm{p}_{C}(x_{0})$
+\end_inset
+
+.
+ Then there exists 
+\begin_inset Formula $\alpha\in\mathbb{R}$
+\end_inset
+
+ such that
+\begin_inset Formula 
+\[
+p(x_{0})\leq\alpha<\mathrm{p}_{C}(x_{0}).
+\]
+
+\end_inset
+
+Then 
+\begin_inset Formula $(1/\alpha)p(x_{0})\leq1$
+\end_inset
+
+.
+ In other words, 
+\begin_inset Formula $p((1/\alpha)x_{0})\leq1$
+\end_inset
+
+ which is equivalent to 
+\begin_inset Formula $(1/\alpha)x_{0}\in C$
+\end_inset
+
+.
+ This contradicts the fact that 
+\begin_inset Formula $\mathrm{p}_{C}(x_{0})$
+\end_inset
+
+ is the infimum of all such 
+\begin_inset Formula $\alpha>0$
+\end_inset
+
+.
+ Therefore 
+\begin_inset Formula $p(x)\geq\mathrm{p}_{C}(x)$
+\end_inset
+
+ for all 
+\begin_inset Formula $x\in V$
+\end_inset
+
+.
+ It follows that 
+\begin_inset Formula $p=\mathrm{p}_{C}$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\backslash
+label{theorem}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $V$
+\end_inset
+
+ be an 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+-vector space and let 
+\begin_inset Formula $C$
+\end_inset
+
+ be a nonempty convex subset of 
+\begin_inset Formula $V$
+\end_inset
+
+ such that 
+\begin_inset Formula $C=\mathrm{int}\,C$
+\end_inset
+
+.
+ Then for any 
+\begin_inset Formula $y\notin C$
+\end_inset
+
+, there exists a hyperplane 
+\begin_inset Formula $\{\ell=\alpha\}$
+\end_inset
+
+ where 
+\begin_inset Formula $\ell\colon V\to\mathbb{R}$
+\end_inset
+
+ is some linear functional and 
+\begin_inset Formula $\alpha\in\mathbb{R}$
+\end_inset
+
+ such that 
+\begin_inset Formula $y\in\{\ell=\alpha\}$
+\end_inset
+
+ and 
+\begin_inset Formula $C\subseteq\{\ell<\alpha\}$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ By translating if necessary, we may assume that 
+\begin_inset Formula $0\in\mathrm{int}\,C$
+\end_inset
+
+.
+ This means it is possible to define the gauge potential 
+\begin_inset Formula $\mathrm{p}_{C}$
+\end_inset
+
+ of 
+\begin_inset Formula $C$
+\end_inset
+
+.
+ Define 
+\begin_inset Formula $\ell\colon\mathbb{R}y\to\mathbb{R}$
+\end_inset
+
+ by 
+\begin_inset Formula $\ell(ay)=a$
+\end_inset
+
+ for all 
+\begin_inset Formula $ay\in\mathbb{R}y$
+\end_inset
+
+.
+ Notice if 
+\begin_inset Formula $a<0$
+\end_inset
+
+, then 
+\begin_inset Formula 
+\begin{align*}
+\ell(ay) & =a\\
+ & <0\\
+ & \leq\mathrm{p}_{C}(ay),
+\end{align*}
+
+\end_inset
+
+and if 
+\begin_inset Formula $a>0$
+\end_inset
+
+, then
+\begin_inset Formula 
+\begin{align*}
+\ell(ay) & =a\\
+ & \leq a\mathrm{p}_{C}(y)\\
+ & =\mathrm{p}_{C}(ay),
+\end{align*}
+
+\end_inset
+
+where we used the fact that 
+\begin_inset Formula $\mathrm{p}_{C}(y)\geq1$
+\end_inset
+
+ since 
+\begin_inset Formula $y\notin\mathrm{int}\,C=C$
+\end_inset
+
+.
+ So we see that 
+\begin_inset Formula $\ell\leq\mathrm{p}_{C}|_{\mathbb{R}y}$
+\end_inset
+
+.
+ Therefore by the Hahn-Banach Theorem, we can extend 
+\begin_inset Formula $\ell$
+\end_inset
+
+ to 
+\begin_inset Formula $\widetilde{\ell}\colon V\to\mathbb{R}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\widetilde{\ell}|_{\mathbb{R}y}=\ell$
+\end_inset
+
+ and 
+\begin_inset Formula $\widetilde{\ell}\leq\mathrm{p}_{C}$
+\end_inset
+
+.
+ In particular, if 
+\begin_inset Formula $x\in C$
+\end_inset
+
+, then
+\begin_inset Formula 
+\[
+\widetilde{\ell}(x)\leq\mathrm{p}_{C}(x)<1.
+\]
+
+\end_inset
+
+Thus 
+\begin_inset Formula $C\subseteq\{\widetilde{\ell}<\alpha\}$
+\end_inset
+
+ where 
+\begin_inset Formula $\alpha=1$
+\end_inset
+
+.
+ Also clearly 
+\begin_inset Formula $\widetilde{\ell}(y)=1$
+\end_inset
+
+, and so we are done.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+First Geometric Form of Hahn-Banach
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\backslash
+label{theorem}
+\end_layout
+
+\end_inset
+
+ (first geometric form of Hahn-Banach) Let 
+\begin_inset Formula $V$
+\end_inset
+
+ be an 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+-vector space and let 
+\begin_inset Formula $A,B\subseteq V$
+\end_inset
+
+ be nonempty convex sets such that 
+\begin_inset Formula $A\cap B=\emptyset$
+\end_inset
+
+.
+ Suppose 
+\begin_inset Formula $A$
+\end_inset
+
+ satisfies 
+\begin_inset Formula $A=\mathrm{int}\,A$
+\end_inset
+
+.
+ Then there exists a hyperplane that separates 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+.
+ More precisely, there exists a linear functional 
+\begin_inset Formula $\ell\colon V\to\mathbb{R}$
+\end_inset
+
+ and 
+\begin_inset Formula $\alpha\in\mathbb{R}$
+\end_inset
+
+ such that 
+\begin_inset Formula $A\subseteq\{\ell\leq\alpha\}$
+\end_inset
+
+ and 
+\begin_inset Formula $B\subseteq\{\ell\geq\alpha\}$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Set 
+\begin_inset Formula $C=A-B=\{a-b\mid a\in A,b\in B\}$
+\end_inset
+
+.
+ It's easy to see that 
+\begin_inset Formula $C$
+\end_inset
+
+ is a nonemtpy convex set.
+ It's also easy to see that 
+\begin_inset Formula $\mathrm{int}\,C=C$
+\end_inset
+
+.
+ Indeed,
+\begin_inset Formula 
+\[
+C=\bigcup_{b\in B}A-\{b\}.
+\]
+
+\end_inset
+
+Also 
+\begin_inset Formula $0\notin C$
+\end_inset
+
+ since 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+ are disjoint from one another.
+ By the previous result, there exists a linear functional 
+\begin_inset Formula $\ell\colon V\to\mathbb{R}$
+\end_inset
+
+ such that 
+\begin_inset Formula $0\in\{\ell=0\}$
+\end_inset
+
+ and 
+\begin_inset Formula $C\subseteq\{\ell<0\}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Now let 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ and 
+\begin_inset Formula $b\in B$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $a-b\in C$
+\end_inset
+
+, we have
+\begin_inset Formula 
+\begin{align*}
+0 & >\ell(a-b)\\
+ & =\ell(a)-\ell(b),
+\end{align*}
+
+\end_inset
+
+that is, 
+\begin_inset Formula $\ell(a)<\ell(b)$
+\end_inset
+
+.
+ Therefore 
+\begin_inset Formula 
+\[
+\sup\{\ell(a)\mid a\in A\}\leq\inf\{\ell(b)\mid b\in B\}.
+\]
+
+\end_inset
+
+So choose 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ between 
+\begin_inset Formula $\sup\{\ell(a)\mid a\in A\}$
+\end_inset
+
+ and 
+\begin_inset Formula $\inf\{\ell(b)\mid b\in B\}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $A\subseteq\{\ell\leq\alpha\}$
+\end_inset
+
+ and 
+\begin_inset Formula $B\subseteq\{\ell\geq\alpha\}$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Second Geometric Form of Hahn-Banach
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\backslash
+label{theorem}
+\end_layout
+
+\end_inset
+
+ (second geometric form of Hahn-Banach) Let 
+\begin_inset Formula $\mathcal{X}$
+\end_inset
+
+ be a normed linear space and let 
+\begin_inset Formula $A,B\subseteq\mathcal{X}$
+\end_inset
+
+ be two nonempty convex sets such that 
+\begin_inset Formula $A\cap B=\emptyset$
+\end_inset
+
+.
+ Suppose 
+\begin_inset Formula $A$
+\end_inset
+
+ is closed and 
+\begin_inset Formula $B$
+\end_inset
+
+ is compact.
+ Then there exists a closed hyperplane that strictly separates 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+.
+ More precisely, there exists a bounded linear functional 
+\begin_inset Formula $\ell\colon V\to\mathbb{R}$
+\end_inset
+
+ and 
+\begin_inset Formula $\alpha\in\mathbb{R}$
+\end_inset
+
+ such that 
+\begin_inset Formula $A\subseteq\{\ell<\alpha\}$
+\end_inset
+
+ and 
+\begin_inset Formula $B\subseteq\{\ell>\alpha\}$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Set 
+\begin_inset Formula $C=A-B=\{a-b\mid a\in A,b\in B\}$
+\end_inset
+
+.
+ It's easy to see that 
+\begin_inset Formula $C$
+\end_inset
+
+ is a nonemtpy convex set.
+ It's also easy to see that 
+\begin_inset Formula $C$
+\end_inset
+
+ is closed.
+ Also 
+\begin_inset Formula $0\notin C$
+\end_inset
+
+ since 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+ are disjoint from one another.
+ Then 
+\begin_inset Formula $C^{c}$
+\end_inset
+
+ is open so there exists 
+\begin_inset Formula $r>0$
+\end_inset
+
+ such that 
+\begin_inset Formula $\mathrm{B}_{r}(0)\subseteq C^{c}$
+\end_inset
+
+, that is, 
+\begin_inset Formula $\mathrm{B}_{r}(0)\cap C=\emptyset$
+\end_inset
+
+.
+ By the previous first geometric form of Hahn-Banach, we can separate 
+\begin_inset Formula $\mathrm{B}_{r}(0)$
+\end_inset
+
+ and 
+\begin_inset Formula $C$
+\end_inset
+
+ by a hyperplane, say 
+\begin_inset Formula $\{\ell=\alpha\}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\ell(a-b)\leq\ell(rx)$
+\end_inset
+
+ for all 
+\begin_inset Formula $a\in A$
+\end_inset
+
+, 
+\begin_inset Formula $b\in B$
+\end_inset
+
+ and 
+\begin_inset Formula $x\in\mathrm{B}_{1}(0)$
+\end_inset
+
+.
+ It can be shown that 
+\begin_inset Formula $\ell\colon\mathcal{X}\to\mathbb{R}$
+\end_inset
+
+ is bounded.
+ Therefore
+\begin_inset Formula 
+\[
+\ell(a-b)\leq\inf\{\ell(rx)\mid x\in\mathrm{B}_{1}(0)\}=-r\|\ell\|.
+\]
+
+\end_inset
+
+Now take 
+\begin_inset Formula $\varepsilon=(1/2)r\|\ell\|>0$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula 
+\[
+\ell(a)+\varepsilon\leq\ell(b)-\varepsilon
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ and 
+\begin_inset Formula $b\in B$
+\end_inset
+
+.
+ This implies
+\begin_inset Formula 
+\[
+\sup\{\ell(a)\mid a\in A\}<\inf\{\ell(b)\mid b\in B\}.
+\]
+
+\end_inset
+
+So choose 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ strictly between 
+\begin_inset Formula $\sup\{\ell(a)\mid a\in A\}$
+\end_inset
+
+ and 
+\begin_inset Formula $\inf\{\ell(b)\mid b\in B\}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $A\subseteq\{\ell<\alpha\}$
+\end_inset
+
+ and 
+\begin_inset Formula $B\subseteq\{\ell>\alpha\}$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Lower Semicontinuity
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\backslash
+label{defn}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $\mathcal{X}$
+\end_inset
+
+ be a normed linear space.
+ A function 
+\begin_inset Formula $\varphi\colon\mathcal{X}\to(-\infty,\infty]$
+\end_inset
+
+ is said to be 
+\series bold
+lower semicontinuous 
+\series default
+if for every 
+\begin_inset Formula $c\in\mathbb{R}$
+\end_inset
+
+ the set 
+\begin_inset Formula $\{\varphi\leq c\}$
+\end_inset
+
+ is closed.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Here are some basic facts:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\varphi$
+\end_inset
+
+ is lower semicontinuous if and only if 
+\begin_inset Formula $\{(x,\lambda)\mid\varphi(x)\leq\lambda\}$
+\end_inset
+
+ is a closed set in 
+\begin_inset Formula $\mathcal{X}\times\mathbb{R}$
+\end_inset
+
+ for every 
+\begin_inset Formula $\lambda\in\mathbb{R}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\varphi_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\varphi_{2}$
+\end_inset
+
+ are lower semicontinuous implies 
+\begin_inset Formula $\varphi_{1}+\varphi_{2}$
+\end_inset
+
+ is lower semicontinuous.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\{\varphi_{i}\}_{i\in I}$
+\end_inset
+
+ is a collection of lower semicontinuous functions, then 
+\begin_inset Formula $\sup_{i\in I}\varphi_{i}$
+\end_inset
+
+ is also lower semicontinuous.
+\end_layout
+
+\begin_layout Enumerate
+if 
+\begin_inset Formula $K\subseteq\mathcal{X}$
+\end_inset
+
+ is compact, then 
+\begin_inset Formula $\inf_{x\in\mathcal{K}}\varphi(x)$
+\end_inset
+
+ is acheived.
+ 
+\end_layout
+
+\begin_layout Subsection
+Convexity
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\backslash
+label{defn}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $\mathcal{X}$
+\end_inset
+
+ be a normed linear space.
+ A function 
+\begin_inset Formula $\varphi\colon\mathcal{X}\to(-\infty,\infty]$
+\end_inset
+
+ is said to be 
+\series bold
+convex 
+\series default
+if 
+\begin_inset Formula 
+\[
+\varphi(tx+(1-t)y)\leq t\varphi(x)+(1-t)\varphi(y)
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $x,y\in\mathcal{X}$
+\end_inset
+
+ and 
+\begin_inset Formula $t\in[0,1]$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Here are some basic facts:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\varphi$
+\end_inset
+
+ is convex if and only if 
+\begin_inset Formula $\mathrm{epi}(\varphi)=\{(x,\lambda)\mid\varphi(x)\leq\lambda\}$
+\end_inset
+
+ is a convex set in 
+\begin_inset Formula $\mathcal{X}\times\mathbb{R}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $\varphi_{1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\varphi_{2}$
+\end_inset
+
+ are convex, then 
+\begin_inset Formula $\varphi_{1}+\varphi_{2}$
+\end_inset
+
+ is convex.
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $\{\varphi_{i}\}_{i\in I}$
+\end_inset
+
+ are all convex, then 
+\begin_inset Formula $\sup_{i\in I}\varphi_{i}$
+\end_inset
+
+ is convex.
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ is convex, then 
+\begin_inset Formula $\{\varphi\leq c\}$
+\end_inset
+
+ is a convex set for all 
+\begin_inset Formula $c\in\mathbb{R}$
+\end_inset
+
+.
+ The converse is not true in general.
+ 
+\end_layout
+
+\begin_layout Standard
+We usually assume both convexity and lower semicontinuity in optimization
+ problems.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\backslash
+label{defn}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $\varphi\colon\mathcal{X}\to(-\infty,\infty]$
+\end_inset
+
+ such that 
+\begin_inset Formula $\varphi\neq\infty$
+\end_inset
+
+.
+ We define the 
+\series bold
+conjugate function 
+\series default
+of
+\series bold
+ 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ 
+\series default
+to be the function
+\series bold
+ 
+\series default
+
+\begin_inset Formula $\varphi^{*}\colon\mathcal{X}^{*}\to(-\infty,\infty]$
+\end_inset
+
+ defined by
+\begin_inset Formula 
+\[
+\varphi^{*}(\ell)=\sup_{x\in\mathcal{X}}(\ell(x)-\varphi(x))
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $\ell\in\mathcal{X}^{*}$
+\end_inset
+
+.
+ The conjugate function 
+\begin_inset Formula $\varphi^{*}$
+\end_inset
+
+ is sometimes called a 
+\series bold
+Fenchel transform 
+\series default
+of 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ or a 
+\series bold
+Legendre transform 
+\series default
+of 
+\begin_inset Formula $\varphi$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\backslash
+label{example}
+\end_layout
+
+\end_inset
+
+ Suppose 
+\begin_inset Formula $\mathcal{X}=\mathbb{R}$
+\end_inset
+
+ and 
+\begin_inset Formula 
+\[
+\varphi(x)=\frac{1}{p}|x|^{p}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $1<p<\infty$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\mathcal{X}^{*}=\mathbb{R}$
+\end_inset
+
+ and one can show that
+\begin_inset Formula 
+\[
+\varphi^{*}(x)=\frac{1}{q}|x|^{q}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $1<q<\infty$
+\end_inset
+
+ such that 
+\begin_inset Formula $1/p+1/q=1$
+\end_inset
+
+.
+ So Young's inequality, which says
+\begin_inset Formula 
+\[
+\frac{a^{p}}{p}+\frac{b^{q}}{q}\geq ab
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $a,b\geq0$
+\end_inset
+
+ can be restated as
+\begin_inset Formula 
+\[
+\varphi(a)+\varphi^{*}(b)\geq ab.
+\]
+
+\end_inset
+
+In general, we have
+\begin_inset Formula 
+\[
+\varphi^{*}(\ell)+\varphi(x)\geq\ell(x).
+\]
+
+\end_inset
+
+This is a simple consequence of the definition of 
+\begin_inset Formula $\varphi^{*}$
+\end_inset
+
+.
+ Indeed,
+\begin_inset Formula 
+\begin{align*}
+\varphi^{*}(\ell) & \geq\ell(x)-\varphi(x)
+\end{align*}
+
+\end_inset
+
+for all 
+\begin_inset Formula $x\in\mathcal{X}$
+\end_inset
+
+ which implies 
+\begin_inset Formula 
+\[
+\varphi^{*}(\ell)+\varphi(x)\geq\ell(x)
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $\ell\in\mathcal{X}^{*}$
+\end_inset
+
+ and 
+\begin_inset Formula $x\in\mathcal{X}$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\backslash
+label{prop}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $\varphi\colon\mathcal{X}\to(-\infty,\infty]$
+\end_inset
+
+ be a lower semicontinuous convex function such that 
+\begin_inset Formula $\varphi\neq\infty$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\varphi^{*}\neq\infty$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $x_{0}\in\mathcal{X}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\varphi(x_{0})<\infty$
+\end_inset
+
+ and let 
+\begin_inset Formula $\lambda_{0}\in\mathbb{R}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\lambda_{0}<\varphi(x_{0})$
+\end_inset
+
+.
+ Consider the normed linear space 
+\begin_inset Formula $\mathcal{X}\times\mathbb{R}$
+\end_inset
+
+ and the subsets 
+\begin_inset Formula $A=\mathrm{epi}(\varphi)=\{(x,\lambda)\mid\varphi(x)\leq\lambda\}$
+\end_inset
+
+ and 
+\begin_inset Formula $B=\{(x_{0},\lambda_{0})\}$
+\end_inset
+
+.
+ It is easy to show that both 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $B$
+\end_inset
+
+ are nonempty, convex, closed sets.
+ Furthemore, 
+\begin_inset Formula $B$
+\end_inset
+
+ is compact.
+ By the second geometric form of Hahn-Banach, there exists a bounded linear
+ functional 
+\begin_inset Formula $\ell\colon\mathcal{X}\times\mathbb{R}\to\mathbb{R}$
+\end_inset
+
+ and 
+\begin_inset Formula $\alpha\in\mathbb{R}$
+\end_inset
+
+ such that
+\begin_inset Formula 
+\[
+A\subseteq\{\ell>\alpha\}\quad\text{and}\quad B\subseteq\{\ell<\alpha\}.
+\]
+
+\end_inset
+
+Define 
+\begin_inset Formula $\psi\colon\mathcal{X}\to\mathbb{R}$
+\end_inset
+
+ by 
+\begin_inset Formula $\psi(x)=\ell(x,0)$
+\end_inset
+
+ for all 
+\begin_inset Formula $x\in\mathcal{X}$
+\end_inset
+
+.
+ Then since 
+\begin_inset Formula $\ell$
+\end_inset
+
+ is bounded, we see that 
+\begin_inset Formula $\psi$
+\end_inset
+
+ must be bounded too and it is clear that 
+\begin_inset Formula $\psi$
+\end_inset
+
+ is linear.
+ Now let 
+\begin_inset Formula $k=\ell(0,1)$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\begin{align*}
+\ell(x,\lambda) & =\ell(x,0)+\ell(0,\lambda)\\
+ & =\psi(x)+\lambda k.
+\end{align*}
+
+\end_inset
+
+Now by we have
+\begin_inset Formula 
+\[
+\begin{cases}
+\ell(x,\lambda)>\alpha & \text{for }(x,\lambda)\in A\\
+\ell(x_{0},\lambda_{0})<\alpha
+\end{cases}
+\]
+
+\end_inset
+
+In other words, 
+\begin_inset Formula $\psi(x)+\lambda k>\alpha$
+\end_inset
+
+ for 
+\begin_inset Formula $(x,\lambda)\in\mathrm{epi}(\varphi)$
+\end_inset
+
+ and 
+\begin_inset Formula $\psi(x_{0})+\lambda_{0}k<\alpha$
+\end_inset
+
+.
+ In particular, we have 
+\begin_inset Formula 
+\[
+\psi(x)+\varphi(x)k>\alpha>\psi(x_{0})+\lambda_{0}k.
+\]
+
+\end_inset
+
+This implies 
+\begin_inset Formula $k>0$
+\end_inset
+
+.
+ Therefore 
+\begin_inset Formula 
+\[
+-\frac{1}{k}\psi(x)-\varphi(x)<-\frac{\alpha}{k}
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $x\in\mathcal{X}$
+\end_inset
+
+.
+ This implies 
+\begin_inset Formula 
+\[
+\varphi^{*}(-1/k\psi)=\sup_{x\in\mathcal{X}}(-(1/k)\psi(x)-\varphi(x))\leq-\frac{\alpha}{k}<\infty.
+\]
+
+\end_inset
+
+So 
+\begin_inset Formula $\varphi^{*}\neq\infty$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Part
 Homework
 \end_layout

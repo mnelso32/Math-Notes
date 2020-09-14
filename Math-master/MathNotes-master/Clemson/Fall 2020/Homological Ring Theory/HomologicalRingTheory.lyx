@@ -1372,5 +1372,2233 @@ Thus
  
 \end_layout
 
+\begin_layout Standard
+
+\series bold
+Notation: 
+\series default
+We denote by 
+\begin_inset Formula $\mathrm{ZD}(R)$
+\end_inset
+
+ to be the set of zero-divisors in 
+\begin_inset Formula $R$
+\end_inset
+
+.
+ We denote by 
+\begin_inset Formula $\mathrm{ZD}^{0}(R)=\mathrm{ZD}(R)\cup\{0\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\backslash
+label{example}
+\end_layout
+
+\end_inset
+
+ If 
+\begin_inset Formula $R=k[X,Y]\slash\langle X^{a}Y^{b}\rangle$
+\end_inset
+
+ where 
+\begin_inset Formula $a,b\geq1$
+\end_inset
+
+, then 
+\begin_inset Formula $\overline{f}\in\mathrm{ZD}^{0}(R)$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $\overline{X}\mid\overline{f}$
+\end_inset
+
+ or 
+\begin_inset Formula $\overline{Y}\mid\overline{f}$
+\end_inset
+
+.
+ In other words,
+\begin_inset Formula 
+\[
+\mathrm{ZD}^{0}(R)=\langle\overline{X}\rangle\cup\langle\overline{Y}\rangle
+\]
+
+\end_inset
+
+Note that 
+\begin_inset Formula $\overline{X},\overline{Y}\in\mathrm{ZD}^{0}(R)$
+\end_inset
+
+ by 
+\begin_inset Formula $\overline{X}+\overline{Y}\notin\mathrm{ZD}^{0}(R)$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\backslash
+label{theorem}
+\end_layout
+
+\end_inset
+
+ We have
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\mathrm{ZD}^{0}(R)=\bigcup_{\mathfrak{p}\in\mathrm{Ass}(R)}\mathfrak{p}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $|\mathrm{Ass}(R)|<\infty$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\mathrm{Ass}(R)\supseteq\mathrm{Min}(R)\neq\emptyset$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Prime Avoidance
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lemma}
+\backslash
+label{lemma}
+\end_layout
+
+\end_inset
+
+ (prime avoidance) Let 
+\begin_inset Formula $\mathfrak{p}_{1},\dots,\mathfrak{p}_{n}\in\mathrm{Spec}(R)$
+\end_inset
+
+ and let 
+\begin_inset Formula $I$
+\end_inset
+
+ be an ideal in 
+\begin_inset Formula $R$
+\end_inset
+
+ such that 
+\begin_inset Formula $I\notin\mathfrak{p}_{i}$
+\end_inset
+
+ for any 
+\begin_inset Formula $1\leq i\leq n$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $I\notin\bigcup_{i=1}^{n}\mathfrak{p}_{i}$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lemma}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Algorithm: 
+\series default
+Finding maximal regular 
+\begin_inset Formula $R$
+\end_inset
+
+-sequences in 
+\begin_inset Formula $(R,\mathfrak{m})$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Step 1: 
+\series default
+If 
+\begin_inset Formula $\mathfrak{m}\in\mathrm{Ass}(R)$
+\end_inset
+
+, then stop because 
+\begin_inset Formula $\mathrm{ZD}^{0}(R)=\mathfrak{m}$
+\end_inset
+
+ which implies 
+\begin_inset Formula $\emptyset$
+\end_inset
+
+ is maximal 
+\begin_inset Formula $R$
+\end_inset
+
+-regular sequence in 
+\begin_inset Formula $\mathfrak{m}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Step 2: 
+\series default
+Assume 
+\begin_inset Formula $\mathfrak{m}\notin\mathrm{Ass}(R)=\{\mathfrak{p}_{1},\dots,\mathfrak{p}_{n}\}$
+\end_inset
+
+.
+ By prime avoidance, there exists 
+\begin_inset Formula $x_{1}\in\mathfrak{m}\backslash\{\bigcup_{i=1}^{n}\mathfrak{p}_{i}\}$
+\end_inset
+
+ because 
+\begin_inset Formula $\mathfrak{m}\not\subseteq\mathfrak{p}_{i}$
+\end_inset
+
+ for any 
+\begin_inset Formula $1\leq i\leq n$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $x_{i}\notin\bigcup_{i=1}^{n}\mathfrak{p}_{i}=\mathrm{ZD}^{0}(R)$
+\end_inset
+
+.
+ Therefore 
+\begin_inset Formula $x_{1}\in\mathfrak{m}$
+\end_inset
+
+ is a nonzero divisor on 
+\begin_inset Formula $R$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Step 3: 
+\series default
+Set 
+\begin_inset Formula $R_{1}=R\slash\langle x_{1}\rangle$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathfrak{m}_{1}=\mathfrak{m}\slash\langle x_{1}\rangle$
+\end_inset
+
+.
+ Repeat the process: if 
+\begin_inset Formula $\mathfrak{m}_{1}\in\mathrm{Ass}(R_{1})$
+\end_inset
+
+ then stop.
+ In that case 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+ is a maximal 
+\begin_inset Formula $R$
+\end_inset
+
+-regular sequence in 
+\begin_inset Formula $\mathfrak{m}$
+\end_inset
+
+.
+ Otherwise, assume 
+\begin_inset Formula $\mathfrak{m}_{1}\notin\mathrm{Ass}(R_{1})$
+\end_inset
+
+.
+ Then as above, there exists 
+\begin_inset Formula $\overline{x}_{2}\in\mathfrak{m}_{1}\backslash\mathrm{ZD}^{0}(R_{1})$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $x_{1},x_{2}\in\mathfrak{m}$
+\end_inset
+
+ is an 
+\begin_inset Formula $R$
+\end_inset
+
+-regular sequence.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Step 4: 
+\series default
+Set 
+\begin_inset Formula $R_{2}=R\slash\langle x_{1},x_{2}\rangle$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathfrak{m}_{2}=\mathfrak{m}\slash\langle x_{1},x_{2}\rangle$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $\mathfrak{m}_{2}\in\mathrm{Ass}(R_{2})$
+\end_inset
+
+ then stop...
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Repeat this until 
+\begin_inset Formula $\mathfrak{m}_{d}\in\mathrm{Ass}(R_{d})$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $x_{1},\dots,x_{d}$
+\end_inset
+
+ is a maximal 
+\begin_inset Formula $R$
+\end_inset
+
+-regular sequence in 
+\begin_inset Formula $\mathfrak{m}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\backslash
+label{example}
+\end_layout
+
+\end_inset
+
+ Consider the ring 
+\begin_inset Formula $K[a,b,\alpha,\beta]\slash\langle ab,a\alpha,b\beta\rangle$
+\end_inset
+
+.
+ We claim that a maximal 
+\begin_inset Formula $R$
+\end_inset
+
+-regular sequence is 
+\begin_inset Formula $\overline{a}-\overline{\alpha}$
+\end_inset
+
+, 
+\begin_inset Formula $\overline{b}-\overline{\beta}$
+\end_inset
+
+, so that 
+\begin_inset Formula $\mathrm{depth}(R)=2$
+\end_inset
+
+.
+ First note that
+\begin_inset Formula 
+\[
+\langle ab,a\alpha,b\beta\rangle=\langle a,b\rangle\cap\langle\alpha,b\rangle\cap\langle a,\beta\rangle.
+\]
+
+\end_inset
+
+Thus
+\begin_inset Formula 
+\[
+\mathrm{Ass}(R)=\{\langle a,b\rangle,\langle\alpha,b\rangle,\langle a,\beta\rangle\}.
+\]
+
+\end_inset
+
+Thus 
+\begin_inset Formula $\mathfrak{m}=\langle\overline{a},\overline{b},\overline{\alpha},\overline{\beta}\rangle\notin\mathrm{Ass}(R)$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\overline{a}-\overline{\alpha}\notin\langle\overline{a},\overline{b}\rangle\cup\langle\overline{\alpha},\overline{b}\rangle\cup\langle\overline{a},\overline{\beta}\rangle$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $\overline{a}-\overline{\alpha}\in\mathfrak{m}\backslash\mathrm{ZD}^{0}(R)$
+\end_inset
+
+.
+ Thus
+\begin_inset Formula 
+\[
+R\slash\langle\overline{a}-\overline{\alpha}\rangle\cong K[a,b,\alpha,\beta]\slash\langle ab,a\alpha,b\beta,a-\alpha\rangle\cong K[a,b,\beta]\slash\langle ab,a^{2},b\beta\rangle.
+\]
+
+\end_inset
+
+Next we have
+\begin_inset Formula 
+\[
+\langle ab,a^{2},b\beta\rangle=\langle a,\beta\rangle\cap\langle a^{2},b\rangle.
+\]
+
+\end_inset
+
+Set 
+\begin_inset Formula $R_{1}=K[a,b,\beta]\slash\langle ab,a^{2},b\beta\rangle$
+\end_inset
+
+.
+ Thus
+\begin_inset Formula 
+\[
+\mathrm{Ass}(R_{1})=\{\langle\overline{a},\overline{\beta}\rangle,\langle\overline{a},\overline{b}\rangle\}\not\ni\mathfrak{m}_{1}.
+\]
+
+\end_inset
+
+So we have one more step to go to find our maximal regular sequence.
+ We choose 
+\begin_inset Formula $\overline{b}-\overline{\beta}\notin\mathfrak{m}_{1}\backslash(\langle\overline{a},\overline{\beta}\rangle\cup\langle\overline{a},\overline{b}\rangle)$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\overline{a}-\overline{\alpha},\overline{b}-\overline{\beta}\in\mathfrak{m}$
+\end_inset
+
+ is an 
+\begin_inset Formula $R$
+\end_inset
+
+-regular sequence.
+ Then
+\begin_inset Formula 
+\[
+R\slash\langle a-\alpha,b-\beta\rangle\cong K[a,b]\slash\langle ab,a^{2},b^{2}\rangle.
+\]
+
+\end_inset
+
+Finally we are done since
+\begin_inset Formula 
+\[
+\langle ab,a^{2},b^{2}\rangle=\langle a,b^{2}\rangle\cap\langle a^{2},b\rangle
+\]
+
+\end_inset
+
+which implies
+\begin_inset Formula 
+\[
+\mathrm{Ass}(R_{2})=\{\langle\overline{a},\overline{b}\rangle\}\ni\mathfrak{m}_{2}
+\]
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\backslash
+label{example}
+\end_layout
+
+\end_inset
+
+ (Emmy's ring) 
+\begin_inset Formula $R=k[x,y]\slash\langle x^{2},xy\rangle$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\mathrm{depth}(R)=0$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\backslash
+label{theorem}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $R$
+\end_inset
+
+ be a graded ring and let 
+\begin_inset Formula $\mathfrak{p}\in\mathrm{Ass}(R)$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ is homogeneous.
+ Furthermore, 
+\begin_inset Formula $\mathfrak{p}=0:a$
+\end_inset
+
+ where 
+\begin_inset Formula $a\in R$
+\end_inset
+
+ is homogeneous.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lemma}
+\backslash
+label{lemma}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $R$
+\end_inset
+
+ be standard graded let 
+\begin_inset Formula $\mathfrak{p}_{1},\dots,\mathfrak{p}_{n}\in\mathrm{Spec}\,R$
+\end_inset
+
+ (not necessarily homogeneous) and let 
+\begin_inset Formula $I$
+\end_inset
+
+ be homogeneous ideal such that 
+\begin_inset Formula $I\not\subseteq\mathfrak{p}_{i}$
+\end_inset
+
+ for all 
+\begin_inset Formula $i$
+\end_inset
+
+.
+ Then there eexists homogeneous element
+\begin_inset Formula 
+\[
+f\in(I\backslash\bigcup_{i=1}^{n}\mathfrak{p}_{i})\cap R_{+}.
+\]
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lemma}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\backslash
+label{example}
+\end_layout
+
+\end_inset
+
+ Consider 
+\begin_inset Formula $R=\mathbb{F}_{2}[X,Y]\slash\langle XY(X+Y)\rangle$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $X,Y,X+Y$
+\end_inset
+
+ are all zero divisors.
+ So you cannot start an 
+\begin_inset Formula $R$
+\end_inset
+
+-regular sequence with homogeneous elements of degree 
+\begin_inset Formula $1$
+\end_inset
+
+.
+ However since
+\begin_inset Formula 
+\[
+\mathrm{Ass}(R)=\{\text{\ensuremath{\langle\overline{X}\rangle,\langle\overline{Y}\rangle,\langle\overline{X}+\overline{Y}\rangle\}}}
+\]
+
+\end_inset
+
+we have
+\begin_inset Formula 
+\[
+\overline{X}^{2}+\overline{X}\overline{Y}+\overline{Y}^{2}\notin\langle\overline{X}\rangle\cup\langle\overline{Y}\rangle\cup\langle\overline{X+Y}\rangle
+\]
+
+\end_inset
+
+is a NZD on 
+\begin_inset Formula $R$
+\end_inset
+
+ homog of deg 2.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Warning: 
+\series default
+Need to be careful in multi-graded setting.
+\end_layout
+
+\begin_layout Enumerate
+Associated primes in 
+\begin_inset Formula $\mathbb{N}^{d}$
+\end_inset
+
+-grading will all be 
+\begin_inset Formula $\mathbb{N}^{d}$
+\end_inset
+
+-graded.
+ 
+\end_layout
+
+\begin_layout Enumerate
+However the associated primes in this case will not be annihilators of multi-gra
+ded homogeneous elements.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\backslash
+label{example}
+\end_layout
+
+\end_inset
+
+ Consider the ring 
+\begin_inset Formula $R=K[a,b,\alpha,\beta]\slash\langle ab,a\alpha,b\beta\rangle$
+\end_inset
+
+.
+ Recall that
+\begin_inset Formula 
+\[
+\mathrm{Ass}(R)=\{\langle a,b\rangle,\langle\alpha,b\rangle,\langle a,\beta\rangle\}=\{0:,0:\overline{a},0\colon\overline{b}\}.
+\]
+
+\end_inset
+
+Thus 
+\begin_inset Formula $\mathfrak{m}=\langle\overline{a},\overline{b},\overline{\alpha},\overline{\beta}\rangle\notin\mathrm{Ass}(R)$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\overline{a}-\overline{\alpha}\notin\langle\overline{a},\overline{b}\rangle\cup\langle\overline{\alpha},\overline{b}\rangle\cup\langle\overline{a},\overline{\beta}\rangle$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $\overline{a}-\overline{\alpha}\in\mathfrak{m}\backslash\mathrm{ZD}^{0}(R)$
+\end_inset
+
+.
+ Thus
+\begin_inset Formula 
+\[
+R\slash\langle\overline{a}-\overline{\alpha}\rangle\cong K[a,b,\alpha,\beta]\slash\langle ab,a\alpha,b\beta,a-\alpha\rangle\cong K[a,b,\beta]\slash\langle ab,a^{2},b\beta\rangle.
+\]
+
+\end_inset
+
+Next we have
+\begin_inset Formula 
+\[
+\langle ab,a^{2},b\beta\rangle=\langle a,\beta\rangle\cap\langle a^{2},b\rangle.
+\]
+
+\end_inset
+
+Set 
+\begin_inset Formula $R_{1}=K[a,b,\beta]\slash\langle ab,a^{2},b\beta\rangle$
+\end_inset
+
+.
+ Thus
+\begin_inset Formula 
+\[
+\mathrm{Ass}(R_{1})=\{\langle\overline{a},\overline{\beta}\rangle,\langle\overline{a},\overline{b}\rangle\}\not\ni\mathfrak{m}_{1}.
+\]
+
+\end_inset
+
+So we have one more step to go to find our maximal regular sequence.
+ We choose 
+\begin_inset Formula $\overline{b}-\overline{\beta}\notin\mathfrak{m}_{1}\backslash(\langle\overline{a},\overline{\beta}\rangle\cup\langle\overline{a},\overline{b}\rangle)$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\overline{a}-\overline{\alpha},\overline{b}-\overline{\beta}\in\mathfrak{m}$
+\end_inset
+
+ is an 
+\begin_inset Formula $R$
+\end_inset
+
+-regular sequence.
+ Then
+\begin_inset Formula 
+\[
+R\slash\langle a-\alpha,b-\beta\rangle\cong K[a,b]\slash\langle ab,a^{2},b^{2}\rangle.
+\]
+
+\end_inset
+
+Finally we are done since
+\begin_inset Formula 
+\[
+\langle ab,a^{2},b^{2}\rangle=\langle a,b^{2}\rangle\cap\langle a^{2},b\rangle
+\]
+
+\end_inset
+
+which implies
+\begin_inset Formula 
+\[
+\mathrm{Ass}(R_{2})=\{\langle\overline{a},\overline{b}\rangle\}\ni\mathfrak{m}_{2}
+\]
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Rearrangements of Regular Sequences Need Not Be Regular
+\end_layout
+
+\begin_layout Standard
+Consider 
+\begin_inset Formula $R=k[X,Y,Z]$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $X,Y(1-X),Z(1-X)$
+\end_inset
+
+ is 
+\begin_inset Formula $R$
+\end_inset
+
+-regular, but 
+\begin_inset Formula $Y(1-X),Z(1-X),X$
+\end_inset
+
+ is not 
+\begin_inset Formula $R$
+\end_inset
+
+-regular.
+ So whether a sequence is 
+\begin_inset Formula $R$
+\end_inset
+
+-regular or not may depend on the order.
+ However in the local or graded case, this doesn't matter:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\backslash
+label{theorem}
+\end_layout
+
+\end_inset
+
+ Assume 
+\begin_inset Formula $(R,\mathfrak{m})$
+\end_inset
+
+ is local or standard graded and let 
+\begin_inset Formula $\underline{x}=x_{1},\dots,x_{n}\in\mathfrak{m}$
+\end_inset
+
+.
+ In graded case, assume all 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+ are homogeneous.
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $\underline{x}$
+\end_inset
+
+ is 
+\begin_inset Formula $R$
+\end_inset
+
+-regular then 
+\begin_inset Formula $x_{\sigma(1)},\dots,x_{\sigma(n)}$
+\end_inset
+
+ is 
+\begin_inset Formula $R$
+\end_inset
+
+-regular for all 
+\begin_inset Formula $\sigma\in S_{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+The following are equivalent
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\underline{x}$
+\end_inset
+
+ is 
+\begin_inset Formula $R$
+\end_inset
+
+-regular
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\mathrm{H}_{i}(\mathcal{K}(\underline{x}))=0$
+\end_inset
+
+ for all 
+\begin_inset Formula $i\geq1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\mathrm{H}_{1}(\mathcal{K}(\underline{x}))=0$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Fact: 
+\series default
+If 
+\begin_inset Formula $I$
+\end_inset
+
+ is a monomial ideal in 
+\begin_inset Formula $S$
+\end_inset
+
+, an ideal generated by monomials 
+\begin_inset Formula $\underline{x}^{\underline{a}}=x_{1}^{a_{1}}\cdots x_{d}^{a_{d}}$
+\end_inset
+
+, then
+\begin_inset Formula 
+\begin{align*}
+\mathrm{depth}(S\slash I)=0 & \iff\langle\overline{x}_{1},\dots,\overline{x}_{d}\rangle\in\mathrm{Ass}(S\slash I)\\
+ & \iff\langle x_{1}^{e_{1}},\dots,x_{d}^{e_{d}}\rangle\text{ occurs in primary decomposition of }I
+\end{align*}
+
+\end_inset
+
+For example, in 
+\begin_inset Formula $R=K[x,y]\slash\langle x^{2},xy\rangle$
+\end_inset
+
+, we have
+\begin_inset Formula 
+\[
+\langle x^{2},xy\rangle=\langle x\rangle\cap\langle x^{2},y\rangle.
+\]
+
+\end_inset
+
+Thus 
+\begin_inset Formula $\mathrm{depth}\,R=0$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\backslash
+label{defn}
+\end_layout
+
+\end_inset
+
+ An ideal 
+\begin_inset Formula $I\subseteq S$
+\end_inset
+
+ is 
+\series bold
+irreducible 
+\series default
+if it cannot be decomposed nontrivially as an intersection of ideals: if
+ 
+\begin_inset Formula $I=J\cap K$
+\end_inset
+
+, then either 
+\begin_inset Formula $I=J$
+\end_inset
+
+ or 
+\begin_inset Formula $I=K$
+\end_inset
+
+.
+ It is said to be 
+\series bold
+reducible 
+\series default
+if it is not irreducible.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\backslash
+label{example}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\langle XY\rangle=\langle X\rangle\cap\langle Y\rangle$
+\end_inset
+
+ is reducible.
+ 
+\begin_inset Formula $\langle X^{2},XY\rangle=\langle X\rangle\cap\langle X^{2},Y\rangle$
+\end_inset
+
+ is reducible.
+ 
+\begin_inset Formula $\langle0\rangle$
+\end_inset
+
+ is irreducible.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\backslash
+label{prop}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $I\subseteq S$
+\end_inset
+
+ be a 
+\emph on
+monomial 
+\emph default
+ideal.
+ Then 
+\begin_inset Formula $I$
+\end_inset
+
+ is irreducible if and only if 
+\begin_inset Formula $I$
+\end_inset
+
+ is of the form 
+\begin_inset Formula $\langle x_{i_{1}}^{a_{1}},\dots,x_{i_{n}}^{a_{n}}\rangle$
+\end_inset
+
+ for some 
+\begin_inset Formula $i_{j},a_{j}$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\backslash
+label{defn}
+\end_layout
+
+\end_inset
+
+ An 
+\series bold
+irreducible decomposition 
+\series default
+of an ideal 
+\begin_inset Formula $I\subseteq S$
+\end_inset
+
+ is a decomposition
+\begin_inset Formula 
+\begin{equation}
+I=Q_{1}\cap\cdots\cap Q_{n}\label{eq:decompirr}
+\end{equation}
+
+\end_inset
+
+such that each 
+\begin_inset Formula $Q_{i}$
+\end_inset
+
+ is irreducible.
+ The intersection is 
+\series bold
+irredundant 
+\series default
+if 
+\begin_inset Formula 
+\[
+I\neq\bigcap_{i\neq j}Q_{i}
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $j$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $I$
+\end_inset
+
+ is a monomial ideal, then the decomposition 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{eq:decompirr})
+\end_layout
+
+\end_inset
+
+ is irredundant if and only if 
+\begin_inset Formula $Q_{i}\not\subseteq Q_{j}$
+\end_inset
+
+ for some 
+\begin_inset Formula $i,j$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\backslash
+label{theorem}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $I\subseteq S$
+\end_inset
+
+ be a monomial ideal.
+ Then
+\begin_inset Formula 
+\[
+I=\bigcap_{\substack{I\subseteq J\\
+J\text{ monomial irreducible ideal}
+}
+}J.
+\]
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Note if 
+\begin_inset Formula $I=S$
+\end_inset
+
+, then there are no such 
+\begin_inset Formula $J$
+\end_inset
+
+'s since 
+\begin_inset Formula $I$
+\end_inset
+
+ is the empty intersection in this case, the desired conclusion holds.
+ Set 
+\begin_inset Formula 
+\[
+K=\bigcap_{\substack{I\subseteq J\\
+J\text{ monomial irreducible ideal}
+}
+}J.
+\]
+
+\end_inset
+
+Clearly we have 
+\begin_inset Formula $I\subseteq K$
+\end_inset
+
+.
+ Also since 
+\begin_inset Formula $I=Q_{1}\cap\cdots\cap Q_{n}$
+\end_inset
+
+ by the previous theorem, we have each 
+\begin_inset Formula $Q_{i}$
+\end_inset
+
+ occurs in 
+\begin_inset Formula $K$
+\end_inset
+
+, so
+\begin_inset Formula 
+\[
+K\subseteq Q_{1}\cap\cdots\cap Q_{n}=I.
+\]
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Notation:
+\series default
+ We denote by 
+\begin_inset Formula $[[S]]=\{\text{monomials in }S\}$
+\end_inset
+
+ and we set 
+\begin_inset Formula $[[I]]=I\cap[[S]]$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Fact: 
+\series default
+If 
+\begin_inset Formula $I$
+\end_inset
+
+ is a monomial ideal, then 
+\begin_inset Formula $I$
+\end_inset
+
+ is generated by a finite list of monomials.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\backslash
+label{theorem}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $f_{1},\dots,f_{m},g_{1},\dots,g_{n}\in[[S]]$
+\end_inset
+
+ and set 
+\begin_inset Formula $I=\langle f_{1},\dots,f_{m}\rangle$
+\end_inset
+
+ and 
+\begin_inset Formula $J=\langle g_{1},\dots,g_{n}\rangle$
+\end_inset
+
+.
+ Then 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $f_{1}\in J$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $f_{1}\in\langle g_{i}\rangle$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $g_{i}\mid f_{1}$
+\end_inset
+
+ for some 
+\begin_inset Formula $i$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $I\subseteq J$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $f_{j}\in J$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $f_{j}\in\langle g_{ij}\rangle$
+\end_inset
+
+ for some 
+\begin_inset Formula $i,j$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $g_{i,j}\mid f_{j}$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $[[I]]\subseteq[[J]]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $I=\bigcap_{I\subseteq J}J$
+\end_inset
+
+ where the intersection is taken over all minimal elements of irreducible
+ mononomial ideals 
+\begin_inset Formula $J$
+\end_inset
+
+ containing 
+\begin_inset Formula $I$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\backslash
+label{defn}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $f_{1},\dots,f_{m}\in[[S]]$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $f_{1},\dots,f_{m}$
+\end_inset
+
+ is said to be 
+\series bold
+redundant 
+\series default
+if 
+\begin_inset Formula $I=\langle f_{1},\dots,f_{i-1},f_{i+1},\dots,f_{m}\rangle$
+\end_inset
+
+.
+ The list is 
+\series bold
+irredundant 
+\series default
+if it is not redundant.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\backslash
+label{theorem}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $\underline{f}=f_{1},\dots,f_{m}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\underline{f}$
+\end_inset
+
+ is irredundant if and only if 
+\begin_inset Formula $f_{i}\nmid f_{j}$
+\end_inset
+
+ for all 
+\begin_inset Formula $i\neq j$
+\end_inset
+
+.
+ Every ideal in 
+\begin_inset Formula $S$
+\end_inset
+
+ has an irredundant 
+\begin_inset Formula $m$
+\end_inset
+
+ generating sequence such gen seqs are unique up to reordering.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\backslash
+label{example}
+\end_layout
+
+\end_inset
+
+ Consider 
+\begin_inset Formula $I=\langle ab,a\alpha,b\beta\rangle$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\backslash
+label{theorem}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $f_{1},\dots,f_{m}\in[[S]]$
+\end_inset
+
+ and 
+\begin_inset Formula $I=\langle f_{1},\dots,f_{m}\rangle$
+\end_inset
+
+ and 
+\begin_inset Formula $f_{1}=x_{i_{1}}^{a_{1}}\cdots x_{i_{p}}^{a_{p}}$
+\end_inset
+
+ such that 
+\begin_inset Formula $a_{i}\in\mathbb{N}$
+\end_inset
+
+ and 
+\begin_inset Formula $i_{1}<i_{2}<\cdots<i_{p}$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\[
+I=\bigcap_{j=1}^{p}\langle x_{i_{j}}^{a_{j}},f_{2},\dots,f_{m}\rangle.
+\]
+
+\end_inset
+
+We think of this as 
+\begin_inset Quotes eld
+\end_inset
+
+splitting generators
+\begin_inset Quotes erd
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\backslash
+label{example}
+\end_layout
+
+\end_inset
+
+ Consider 
+\begin_inset Formula $\langle ab,a\alpha,b\beta\rangle$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\begin{align*}
+\langle ab,a\alpha,b\beta\rangle & =\langle a,a\alpha,b\beta\rangle\cap\langle b,a\alpha,b\beta\rangle\\
+ & =\langle a,b\beta\rangle\cap\langle b,a\alpha\rangle\\
+ & =\langle a,b\rangle\cap\langle a,\beta\rangle\cap\langle b,a\rangle\cap\langle b,\alpha\rangle\\
+ & =\langle a,b\rangle\cap\langle a,\beta\rangle\cap\langle b,\alpha\rangle.
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Squarefree Monomials
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\backslash
+label{defn}
+\end_layout
+
+\end_inset
+
+ A monomial 
+\begin_inset Formula $f$
+\end_inset
+
+ is 
+\series bold
+square-free 
+\series default
+if it is not divisible by any squares of variables.
+ A monomial ideal is 
+\series bold
+square-free
+\series default
+ if it can be generated by square-free monomials.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\backslash
+label{example}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\langle ab,a\alpha,b\beta\rangle$
+\end_inset
+
+ is square-free, but 
+\begin_inset Formula $\langle x^{2},xy\rangle$
+\end_inset
+
+ is not square-free.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\backslash
+label{theorem}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $I\subseteq S$
+\end_inset
+
+ be a monomial ideal.
+ 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $I$
+\end_inset
+
+ is square-free if and only if irredundant generating sequence for 
+\begin_inset Formula $I$
+\end_inset
+
+ consists of square-free monomials if and only if 
+\begin_inset Formula $I$
+\end_inset
+
+ is a finite intersection of irreducible squarefree monomial ideals.
+\end_layout
+
+\begin_layout Enumerate
+nonzero irreducible squarefree monomial ideals are generated by lists of
+ variables.
+ they are prime
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $I$
+\end_inset
+
+ is square-free then 
+\begin_inset Formula $I=\bigcap J$
+\end_inset
+
+ where intersection is taken over all irred sq free m ideals containing
+ 
+\begin_inset Formula $I$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+if 
+\begin_inset Formula $I$
+\end_inset
+
+ is sq.free then intersection can be taken over minimal elements of intersection
+ above.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Edge Ideals
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $G$
+\end_inset
+
+ be a finite simple graph with vertex set 
+\begin_inset Formula $V=\{v_{1},\dots,v_{d}\}$
+\end_inset
+
+.
+ The edge ideal associated to 
+\begin_inset Formula $G$
+\end_inset
+
+ is the ideal generated by the edges of 
+\begin_inset Formula $G$
+\end_inset
+
+: 
+\begin_inset Formula 
+\[
+I(G)=I_{G}=\langle x_{i}x_{J}\mid v_{i}-v_{j}\text{ in }G\}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For example
+\begin_inset Formula 
+\[
+I(K_{23})=\langle x_{1}y_{1},x_{1}y_{2},x_{1}y_{3},x_{2}y_{1},x_{2}y_{2},x_{2}y_{3}\rangle.
+\]
+
+\end_inset
+
+
+\end_layout
+
 \end_body
 \end_document

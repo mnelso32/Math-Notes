@@ -129,13 +129,6 @@ Sheaves and Locally Ringed Spaces
 \end_layout
 
 \begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 \begin_inset CommandInset toc
 LatexCommand tableofcontents
 
@@ -1939,7 +1932,7 @@ label{example}
 \end_inset
 
  and 
-\begin_inset Formula $f_{i}=x\mid_{U_{i}}$
+\begin_inset Formula $f_{i}=x|_{U_{i}}$
 \end_inset
 
 .
@@ -1960,7 +1953,7 @@ label{example}
 \end_inset
 
  such that 
-\begin_inset Formula $f\mid_{U_{i}}=f_{i}$
+\begin_inset Formula $f|_{U_{i}}=f_{i}$
 \end_inset
 
  for all 

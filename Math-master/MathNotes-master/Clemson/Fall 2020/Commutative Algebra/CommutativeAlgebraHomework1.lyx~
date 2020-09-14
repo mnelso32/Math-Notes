@@ -259,7 +259,7 @@ label{sol}
 \begin_inset Formula $B$
 \end_inset
 
- must have finite prime index in 
+ must have finite index in 
 \begin_inset Formula $A$
 \end_inset
 
@@ -284,14 +284,14 @@ label{sol}
 \end_inset
 
 ), say 
-\begin_inset Formula $[A:B]=p$
+\begin_inset Formula $[A:B]=m$
 \end_inset
 
 .
  Then we have
 \begin_inset Formula 
 \begin{align*}
-A & =pA\\
+A & =mA\\
  & \subseteq B\\
  & \subseteq A,
 \end{align*}
@@ -302,8 +302,7 @@ which forces
 \begin_inset Formula $A=B$
 \end_inset
 
-.
- This gives us a contradiction.
+ which gives us a contradiction.
  
 \end_layout
 
@@ -323,7 +322,8 @@ Now we turn
 \begin_inset Formula $A$
 \end_inset
 
- into a ring in a trivial way, namely we define multiplication on 
+ into a ring in a rather trivial way, namely we define multiplication on
+ 
 \begin_inset Formula $A$
 \end_inset
 
@@ -344,8 +344,8 @@ for all
 \begin_inset Formula $A$
 \end_inset
 
- the structure of a commutative ring (but without an identity).
- Moroever since 
+ the structure of a commutative ring (but without an identity element).
+ Moreover since 
 \begin_inset Formula $A$
 \end_inset
 
@@ -1167,79 +1167,148 @@ R\subseteq\bigcap_{\substack{\mathfrak{m}\,\text{maximal}}
 
 \end_inset
 
-For the reverse direction, let 
-\begin_inset Formula $x/y\in R_{\mathfrak{m}}$
+For the reverse inclusion, let 
+\begin_inset Formula $\gamma\in R_{\mathfrak{m}}$
 \end_inset
 
  for all maximal ideals 
 \begin_inset Formula $\mathfrak{m}$
 \end_inset
 
- of 
+ in 
 \begin_inset Formula $R$
 \end_inset
 
 .
- In particular, this means 
-\begin_inset Formula $x,y\in R$
+ Consider the set
+\begin_inset Formula 
+\[
+R:\gamma=\{a\in R\mid a\gamma\in R\}.
+\]
+
+\end_inset
+
+Note that since 
+\begin_inset Formula $\gamma\in K$
+\end_inset
+
+, we can express it as 
+\begin_inset Formula $\gamma=x/y$
+\end_inset
+
+ where 
+\begin_inset Formula $x\in R$
+\end_inset
+
+ and 
+\begin_inset Formula $y\neq0$
+\end_inset
+
+.
+ Then it's easy to see that 
+\begin_inset Formula $y\in R:\gamma$
+\end_inset
+
+.
+ So 
+\begin_inset Formula $R:\gamma$
+\end_inset
+
+ can be though of as 
+\begin_inset Quotes eld
+\end_inset
+
+the set of all denominators of 
+\begin_inset Formula $\gamma$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+.
+ It is easy to see that 
+\begin_inset Formula $R:\gamma$
+\end_inset
+
+ is an ideal in 
+\begin_inset Formula $R$
+\end_inset
+
+.
+ We claim that 
+\begin_inset Formula $R:\gamma=R$
+\end_inset
+
+.
+ Indeed, assume for a contradiction that 
+\begin_inset Formula $R:\gamma$
+\end_inset
+
+ is proper ideal of 
+\begin_inset Formula $R$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $R:\gamma$
+\end_inset
+
+ is contained in a maximal ideal, say 
+\begin_inset Formula $\mathfrak{m}$
+\end_inset
+
+.
+ However this means that 
+\begin_inset Formula $\gamma\notin R_{\mathfrak{m}}$
+\end_inset
+
+: if 
+\begin_inset Formula $\gamma\in R_{\mathfrak{m}}$
+\end_inset
+
+, then we could express it as 
+\begin_inset Formula $\gamma=x/y$
+\end_inset
+
+ where 
+\begin_inset Formula $x\in R$
 \end_inset
 
  and 
 \begin_inset Formula $y\notin\mathfrak{m}$
 \end_inset
 
- for any maximal ideal 
+.
+ Then 
+\begin_inset Formula $y\in R:\gamma\subseteq\mathfrak{m}$
+\end_inset
+
+ which is a contradiction.
+ So we've found a maximal ideal 
 \begin_inset Formula $\mathfrak{m}$
 \end_inset
 
- of 
-\begin_inset Formula $R$
+ such that 
+\begin_inset Formula $\gamma\notin R_{\mathfrak{m}}$
 \end_inset
 
-.
- In particular, 
-\begin_inset Formula $y$
-\end_inset
-
- must be a unit in 
-\begin_inset Formula $R$
-\end_inset
-
-! Indeed, if 
-\begin_inset Formula $y$
-\end_inset
-
- is not a unit, then there would exist a maximal ideal which contains 
-\begin_inset Formula $y$
-\end_inset
-
-, but 
-\begin_inset Formula $y$
-\end_inset
-
- does not belong to 
-\emph on
-any
-\emph default
- maximal ideal of 
-\begin_inset Formula $R$
-\end_inset
-
-.
+ which gives us a contradiction.
  Thus 
-\begin_inset Formula $y$
-\end_inset
-
- is a unit of 
-\begin_inset Formula $R$
-\end_inset
-
-, and this implies 
-\begin_inset Formula $x/y\in R$
+\begin_inset Formula $R:\gamma=R$
 \end_inset
 
 .
- Thus we have the reverse direction
+ In that case, we see that 
+\begin_inset Formula $1\in R:\gamma$
+\end_inset
+
+, so 
+\begin_inset Formula $\gamma=1\cdot\gamma\in R$
+\end_inset
+
+.
+ Thus we have
 \begin_inset Formula 
 \[
 R\supseteq\bigcap_{\substack{\mathfrak{m}\,\text{maximal}}
