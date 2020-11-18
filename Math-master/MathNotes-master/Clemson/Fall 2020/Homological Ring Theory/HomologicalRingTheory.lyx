@@ -3600,5 +3600,594 @@ I(K_{23})=\langle x_{1}y_{1},x_{1}y_{2},x_{1}y_{3},x_{2}y_{1},x_{2}y_{2},x_{2}y_
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\backslash
+label{defn}
+\end_layout
+
+\end_inset
+
+ A 
+\series bold
+vertex cover 
+\series default
+of a graph 
+\begin_inset Formula $G=(V,E)$
+\end_inset
+
+ is a subset 
+\begin_inset Formula $W\subseteq V$
+\end_inset
+
+ such that every edge is incident to an element of 
+\begin_inset Formula $W$
+\end_inset
+
+.
+ A 
+\series bold
+minimal vertex cover 
+\series default
+of 
+\begin_inset Formula $G$
+\end_inset
+
+ is a vertex cover 
+\begin_inset Formula $W$
+\end_inset
+
+ such that for all 
+\begin_inset Formula $w\in W$
+\end_inset
+
+, the set 
+\begin_inset Formula $W\backslash\{w\}$
+\end_inset
+
+ is not a vertex cover for 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\backslash
+label{example}
+\end_layout
+
+\end_inset
+
+ Consider 
+\begin_inset Formula $P_{3}$
+\end_inset
+
+ = 
+\begin_inset Formula $\alpha-a-b-\beta$
+\end_inset
+
+.
+ The minimal covers for 
+\begin_inset Formula $P_{3}$
+\end_inset
+
+ are 
+\begin_inset Formula $\{a,b\}$
+\end_inset
+
+, 
+\begin_inset Formula $\{a,\beta\}$
+\end_inset
+
+, and 
+\begin_inset Formula $\{\alpha,b\}$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\backslash
+label{theorem}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $I(G)=\bigcap_{W\text{ v.c.}}\langle W\rangle=\bigcap_{W\text{ m.v.c}}\langle W\rangle$
+\end_inset
+
+ where the intersection is taken over all vertex covers of 
+\begin_inset Formula $G$
+\end_inset
+
+ and minimal vertex covers of 
+\begin_inset Formula $G$
+\end_inset
+
+ respectively.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\backslash
+label{defn}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $G$
+\end_inset
+
+ be graph with vertex set 
+\begin_inset Formula $V=\{v_{1},\dots,v_{d}\}$
+\end_inset
+
+.
+ The 
+\series bold
+suspension 
+\series default
+of 
+\begin_inset Formula $G$
+\end_inset
+
+ is a new graph with vertex set 
+\begin_inset Formula $V(\Sigma G)=\{v_{1},\dots,v_{d},w_{1},\dots,w_{d}\}$
+\end_inset
+
+ and 
+\begin_inset Formula $E(\Sigma G)=E(G)\cup\{v_{1}w_{1},\dots v_{d}w_{d}\}$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Hilbert Functions
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\backslash
+label{defn}
+\end_layout
+
+\end_inset
+
+ Assume 
+\begin_inset Formula $(R,\mathfrak{m},k)$
+\end_inset
+
+ is standard graded.
+ We have two Hilbert functions
+\begin_inset Formula 
+\[
+\mathrm{h}_{R}(n)=\dim_{k}(R_{n})
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathrm{H}_{R}(n)=\dim_{k}(R\slash\mathfrak{m}^{n+1})=\sum_{i=0}^{n}\mathrm{h}_{R}(i).
+\]
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\backslash
+label{theorem}
+\end_layout
+
+\end_inset
+
+ (Hilbert) Assume 
+\begin_inset Formula $(R,\mathfrak{m},k)$
+\end_inset
+
+ is standard graded.
+ Then there exists polynomials 
+\begin_inset Formula $\mathrm{p}_{R}(t),\mathrm{P}_{R}(t)\in\mathbb{Z}[t]$
+\end_inset
+
+ such that 
+\begin_inset Formula $\mathrm{h}_{R}(n)=\mathrm{p}_{R}(n)$
+\end_inset
+
+ for all 
+\begin_inset Formula $n\gg0$
+\end_inset
+
+ (eventually a polynomial).
+ Furthermore 
+\begin_inset Formula $\deg(\mathrm{p}_{R}(t))=\dim R-1$
+\end_inset
+
+ and
+\begin_inset Formula 
+\[
+\mathrm{p}_{R}(t)=\frac{e}{(d-1)!}t^{d-1}+\text{lower degree terms}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $e$
+\end_inset
+
+ is a positive integer.
+ Also 
+\begin_inset Formula $\mathrm{H}_{R}(n)=\mathrm{P}_{R}(n)$
+\end_inset
+
+ for all 
+\begin_inset Formula $n\gg0$
+\end_inset
+
+ and
+\begin_inset Formula 
+\[
+\mathrm{P}_{R}(t)=\frac{e}{d!}t^{d}+\text{lower degree terms}
+\]
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\backslash
+label{defn}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\mathrm{p}_{R}(t)$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathrm{P}_{R}(t)$
+\end_inset
+
+ are 
+\series bold
+Hilbert polynomials 
+\series default
+of 
+\begin_inset Formula $R$
+\end_inset
+
+ and 
+\begin_inset Formula $e$
+\end_inset
+
+ is the 
+\series bold
+degree/multiplicity 
+\series default
+of 
+\begin_inset Formula $R$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\backslash
+label{example}
+\end_layout
+
+\end_inset
+
+ Consider 
+\begin_inset Formula $R=k[X,Y,Z]\slash\langle X^{n}-YZ^{n-1}\rangle$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula 
+\[
+\mathrm{P}_{R}(t)=\frac{n}{2!}t^{2}+\text{ lower degree terms}
+\]
+
+\end_inset
+
+So 
+\begin_inset Formula $\dim R=2$
+\end_inset
+
+ and 
+\begin_inset Formula $e=n$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\backslash
+label{defn}
+\end_layout
+
+\end_inset
+
+ A local ring 
+\begin_inset Formula $R$
+\end_inset
+
+ is 
+\series bold
+regular 
+\series default
+if 
+\begin_inset Formula $\dim R=\mathrm{edim}\,R$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\backslash
+label{defn}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $I$
+\end_inset
+
+ be a proper ideal of 
+\begin_inset Formula $R$
+\end_inset
+
+.
+ Define 
+\begin_inset Formula $I$
+\end_inset
+
+
+\series bold
+-adic valuation 
+\series default
+on 
+\begin_inset Formula $R$
+\end_inset
+
+ to be 
+\begin_inset Formula $\nu_{I}\colon R\to\mathbb{N}\cup\{\infty\}$
+\end_inset
+
+ given by
+\begin_inset Formula 
+\[
+\nu_{I}(r)=\sup\{n\geq0\mid r\in I^{n}\}.
+\]
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_body
 \end_document

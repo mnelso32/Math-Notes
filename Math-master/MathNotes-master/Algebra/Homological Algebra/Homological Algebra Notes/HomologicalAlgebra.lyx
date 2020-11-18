@@ -31891,9 +31891,9 @@ Throughout this subsection, let
 
 -algebra called the 
 \series bold
-Koszul complex of
+Koszul complex 
 \series default
- 
+of 
 \begin_inset Formula $\underline{x}$
 \end_inset
 
@@ -32018,7 +32018,11 @@ Let
 \begin_inset Formula $\sigma^{\star}$
 \end_inset
 
- to be the compliment of 
+ to be the 
+\series bold
+compliment
+\series default
+ of 
 \begin_inset Formula $\sigma$
 \end_inset
 
@@ -32026,7 +32030,7 @@ Let
 \begin_inset Formula $[n]$
 \end_inset
 
-:
+, that is, 
 \begin_inset Formula 
 \[
 \sigma^{\star}:=[n]\backslash\sigma.
@@ -32299,48 +32303,6 @@ begin{proof}
 
 \end_inset
 
- The permutation which places 
-\begin_inset Formula $[\lambda]\cup[\sigma\cup\tau]$
-\end_inset
-
- into proper order is a composition of the permutation which places 
-\begin_inset Formula $[\lambda]\cup[\sigma]$
-\end_inset
-
- into proper order with the permutation which places 
-\begin_inset Formula $[\lambda]\cup[\tau]$
-\end_inset
-
- into proper order.
- 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{proof}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{proof}
-\end_layout
-
-\end_inset
-
  The permutation with puts 
 \begin_inset Formula $\lambda$
 \end_inset
@@ -32556,9 +32518,9 @@ begin{defn}
 
  The 
 \series bold
-Koszul complex of
+Koszul complex 
 \series default
- 
+of 
 \begin_inset Formula $\underline{x}$
 \end_inset
 
@@ -32566,11 +32528,15 @@ Koszul complex of
 \begin_inset Formula $(\mathcal{K}(\underline{x}),\mathrm{d}^{\mathcal{K}(\underline{x})})$
 \end_inset
 
- is the 
+ (or more simply by 
+\begin_inset Formula $\mathcal{K}(\underline{x})$
+\end_inset
+
+), is the 
 \begin_inset Formula $R$
 \end_inset
 
--complex whose graded 
+-complex whose underlying graded 
 \begin_inset Formula $R$
 \end_inset
 
@@ -32578,7 +32544,11 @@ Koszul complex of
 \begin_inset Formula $\mathcal{K}(x)$
 \end_inset
 
- has
+ has as its homogeneous component in degree 
+\begin_inset Formula $i$
+\end_inset
+
+ given by
 \begin_inset Formula 
 \begin{align*}
 \mathcal{K}_{i}(\underline{x}) & :=\begin{cases}
@@ -32589,11 +32559,7 @@ Koszul complex of
 
 \end_inset
 
-as its 
-\begin_inset Formula $i$
-\end_inset
-
-th homogeneous component, and whose differential 
+and whose differential 
 \begin_inset Formula $\mathrm{d}^{\mathcal{K}(\underline{x})}$
 \end_inset
 
@@ -32611,6 +32577,75 @@ for all nonempty
 
 .
  
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+More generally, suppose 
+\begin_inset Formula $M$
+\end_inset
+
+ is an 
+\begin_inset Formula $R$
+\end_inset
+
+-module.
+ The 
+\series bold
+Koszul complex 
+\series default
+of 
+\begin_inset Formula $\underline{x}$
+\end_inset
+
+ with 
+\series bold
+coefficients 
+\series default
+in 
+\begin_inset Formula $M$
+\end_inset
+
+, denoted 
+\begin_inset Formula $(\mathcal{K}(\underline{x},M),\mathrm{d}^{\mathcal{K}(\underline{x},M)})$
+\end_inset
+
+ (or more simply by 
+\begin_inset Formula $\mathcal{K}(\underline{x},M)$
+\end_inset
+
+), is the 
+\begin_inset Formula $R$
+\end_inset
+
+-complex 
+\begin_inset Formula $\mathcal{K}(\underline{x})\otimes_{R}M$
+\end_inset
+
+.
+ The homology of this 
+\begin_inset Formula $R$
+\end_inset
+
+-complex is denoted 
+\begin_inset Formula $\mathrm{H}(\mathcal{K}(\underline{x},M))$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
 \begin_inset ERT
 status open
 
@@ -34860,22 +34895,65 @@ end{proof}
 \end_layout
 
 \begin_layout Standard
-\begin_inset space ~
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\backslash
+label{prop}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $x\in R$
+\end_inset
+
+ and let 
+\begin_inset Formula $A$
+\end_inset
+
+ be an 
+\begin_inset Formula $R$
+\end_inset
+
+-complex.
+ For every 
+\begin_inset Formula $i\geq0$
+\end_inset
+
+, we have a short exact sequence
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+0\to\mathrm{H}_{0}(x,\mathrm{H}_{i}(A))\to\mathrm{H}_{i}(\mathcal{K}(x)\otimes_{R}A)\to\mathrm{H}_{1}(x,\mathrm{H}_{i-1}(A))\to0.
+\]
+
 \end_inset
 
 
-\begin_inset space ~
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
 \end_inset
 
 
-\begin_inset space ~
-\end_inset
-
-Denote 
-\begin_inset Formula $\mathcal{K}(\underline{x};M):=\mathcal{K}(\underline{x})\otimes_{R}M$
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Section

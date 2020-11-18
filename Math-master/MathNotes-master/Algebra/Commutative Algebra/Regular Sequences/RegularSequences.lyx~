@@ -209,9 +209,9 @@ begin{defn}
 \begin_inset Formula $R$
 \end_inset
 
- -module.
+-module.
  A sequence of elements 
-\begin_inset Formula $r_{1},\dots,r_{n}\in R$
+\begin_inset Formula $x_{1},\dots,x_{n}\in R$
 \end_inset
 
  is called an 
@@ -228,7 +228,7 @@ begin{defn}
 \end_inset
 
  is not a zerodivisor for 
-\begin_inset Formula $M/\langle r_{1},\dots,r_{\lambda-1}\rangle M$
+\begin_inset Formula $M/\langle x_{1},\dots,x_{\lambda-1}\rangle M$
 \end_inset
 
  for 
@@ -239,7 +239,7 @@ begin{defn}
 \end_layout
 
 \begin_layout Enumerate
-\begin_inset Formula $M\neq\langle r_{1},\dots,r_{n}\rangle M$
+\begin_inset Formula $M\neq\langle x_{1},\dots,x_{n}\rangle M$
 \end_inset
 
 
@@ -287,7 +287,7 @@ begin{tikzcd} M
 \backslash
 arrow[r," 
 \backslash
-cdot r_1 "] & M  
+cdot x_1 "] & M  
 \backslash
 end{tikzcd}
 \end_layout
@@ -312,11 +312,11 @@ status open
 
 
 \backslash
-begin{tikzcd} M/a_1 M  
+begin{tikzcd} M/x_1 M  
 \backslash
 arrow[r," 
 \backslash
-cdot r_2  "] & M/r_1 M 
+cdot x_2  "] & M/x_1 M 
 \backslash
 end{tikzcd}
 \end_layout
@@ -355,15 +355,15 @@ status open
 
 
 \backslash
-begin{tikzcd} M/(r_1 , 
+begin{tikzcd} M/(x_1 , 
 \backslash
-dots , r_{n-1} ) M 
+dots , x_{n-1} ) M 
 \backslash
 arrow[r," 
 \backslash
-cdot r_n  "] & M/(r_1 , 
+cdot x_n  "] & M/(x_1 , 
 \backslash
-dots , a_{r-1} ) M  
+dots , x_{r-1} ) M  
 \backslash
 end{tikzcd}
 \end_layout

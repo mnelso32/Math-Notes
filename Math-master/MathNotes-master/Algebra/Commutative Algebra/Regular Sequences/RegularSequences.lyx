@@ -209,9 +209,41 @@ begin{defn}
 \begin_inset Formula $R$
 \end_inset
 
--module.
+-module and let 
+\begin_inset Formula $x\in R$
+\end_inset
+
+.
+ We say 
+\begin_inset Formula $x$
+\end_inset
+
+ is 
+\begin_inset Formula $M$
+\end_inset
+
+
+\series bold
+-regular 
+\series default
+if 
+\begin_inset Formula $x$
+\end_inset
+
+ is a not a zero divisor for 
+\begin_inset Formula $M$
+\end_inset
+
+, or in other words, the map 
+\begin_inset Formula $M\xrightarrow{x}M$
+\end_inset
+
+
+ is injective.
+
+\lang english
  A sequence of elements 
-\begin_inset Formula $x_{1},\dots,x_{n}\in R$
+\begin_inset Formula $\mathbf{x}=x_{1},\dots,x_{n}\in R$
 \end_inset
 
  is called an 
@@ -220,49 +252,21 @@ begin{defn}
 \begin_inset Formula $M$
 \end_inset
 
--regular sequence
-\end_layout
-
-\begin_layout Enumerate
-\begin_inset Formula $r_{\lambda}$
+-sequence 
+\series default
+if 
+\begin_inset Formula $x_{i}$
 \end_inset
 
- is not a zerodivisor for 
-\begin_inset Formula $M/\langle x_{1},\dots,x_{\lambda-1}\rangle M$
+ is 
+\begin_inset Formula $(M\slash\langle x_{1},\dots,x_{i-1}\rangle M)$
 \end_inset
 
- for 
-\begin_inset Formula $\lambda=1,\dots,n$
+-regular for all 
+\begin_inset Formula $1\leq i\leq n$
 \end_inset
 
-; 
-\end_layout
-
-\begin_layout Enumerate
-\begin_inset Formula $M\neq\langle x_{1},\dots,x_{n}\rangle M$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{defn}
-\end_layout
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Standard
-Another way of phrasing the first condition is that the sequence of maps
+, or in other words, the sequences of maps
 \end_layout
 
 \begin_layout Standard
@@ -385,7 +389,66 @@ end{tikzcd}
 
 \begin_layout Standard
 are injective.
+ In this case, the sequence 
+\begin_inset Formula $\mathbf{x}$
+\end_inset
+
+ is said to have 
+\series bold
+length 
+\series default
+
+\begin_inset Formula $n$
+\end_inset
+
+.
+ Now let 
+\begin_inset Formula $I$
+\end_inset
+
+ be any ideal of 
+\begin_inset Formula $R$
+\end_inset
+
+.
+ We define the 
+\begin_inset Formula $I$
+\end_inset
+
+
+\series bold
+-depth 
+\series default
+of 
+\begin_inset Formula $M$
+\end_inset
+
+, denoted 
+\begin_inset Formula $\mathrm{depth}(I,M)$
+\end_inset
+
+
+, to be supremum of the lengths of 
+\begin_inset Formula $M$
+\end_inset
+
+-sequences.
+
+\lang english
  
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -404,45 +467,33 @@ label{example}
 \end_inset
 
  Let 
-\begin_inset Formula $S$
+\begin_inset Formula $R$
 \end_inset
 
  be an integral domain.
  Suppose that 
-\begin_inset Formula $g_{1},g_{2}$
+\begin_inset Formula $\mathbf{g}=g_{1},g_{2}$
 \end_inset
 
- form an 
-\begin_inset Formula $S$
+ is an 
+\begin_inset Formula $R$
 \end_inset
 
 -sequence.
- This means that the map from 
-\begin_inset Formula $S$
+ We claim that there are no nontrival ways of writing 
+\begin_inset Formula $g_{1}/g_{2}$
 \end_inset
 
- to 
-\begin_inset Formula $S$
+: they are all of the form 
+\begin_inset Formula $(hg_{1})/(hg_{2})$
 \end_inset
 
- given by multiplication by 
-\begin_inset Formula $g_{1}$
+ for some 
+\begin_inset Formula $h\in R$
 \end_inset
 
- and the map from 
-\begin_inset Formula $S/g_{1}$
-\end_inset
-
- to 
-\begin_inset Formula $S/g_{1}$
-\end_inset
-
- given by multiplication by 
-\begin_inset Formula $\overline{g}_{2}$
-\end_inset
-
- are both injective.
- Now let 
+.
+ Indeed, let 
 \begin_inset Formula $f_{1}$
 \end_inset
 
@@ -451,23 +502,11 @@ label{example}
 \end_inset
 
  be two elements in 
-\begin_inset Formula $S$
+\begin_inset Formula $R$
 \end_inset
 
  such that 
-\begin_inset Formula 
-\[
-\frac{g_{1}}{g_{2}}=\frac{f_{1}}{f_{2}}\in Q(S),
-\]
-
-\end_inset
-
-where 
-\begin_inset Formula $Q(S)$
-\end_inset
-
- is the quotient field of 
-\begin_inset Formula $S$
+\begin_inset Formula $g_{1}/g_{2}=f_{1}/f_{2}$
 \end_inset
 
 .
@@ -477,22 +516,22 @@ where
 
 .
  Since 
-\begin_inset Formula $g_{1},g_{2}$
+\begin_inset Formula 
+\[
+R\slash g_{1}\xrightarrow{g_{2}}R\slash g_{1}
+\]
+
 \end_inset
 
- form a regular sequence in 
-\begin_inset Formula $S$
-\end_inset
-
-, we must have 
+is injective, we must have 
 \begin_inset Formula $f_{1}=hg_{1}$
 \end_inset
 
  for some 
-\begin_inset Formula $h\in S$
+\begin_inset Formula $h\in R$
 \end_inset
 
- .
+.
  Hence,
 \begin_inset Formula 
 \begin{align*}
@@ -507,41 +546,20 @@ which implies
 \begin_inset Formula $f_{2}=hg_{2}$
 \end_inset
 
-.
+ since 
+\begin_inset Formula $R$
+\end_inset
+
+ is an integral domain.
  Therefore 
 \begin_inset Formula 
 \[
-\frac{g_{1}}{g_{2}}=\frac{f_{1}}{f_{2}}=\frac{hg_{1}}{hg_{2}}.
+\frac{f_{1}}{f_{2}}=\frac{hg_{1}}{hg_{2}}.
 \]
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-So what we've shown is that if 
-\begin_inset Formula $g_{1},g_{2}$
-\end_inset
-
- form a regular sequence in 
-\begin_inset Formula $S$
-\end_inset
-
-, then there are no nontrivial ways of writing 
-\begin_inset Formula $\frac{g_{1}}{g_{2}}$
-\end_inset
-
-: they are all of the form 
-\begin_inset Formula $\frac{hg_{1}}{hg_{2}}$
-\end_inset
-
- where 
-\begin_inset Formula $h\in S$
-\end_inset
-
-.
- 
 \end_layout
 
 \begin_layout Standard
@@ -561,11 +579,11 @@ On the other hand, we can show that if
 \end_inset
 
  fails to form a regular sequence in 
-\begin_inset Formula $S$
+\begin_inset Formula $R$
 \end_inset
 
 , then there exists nontrivial ways of writing 
-\begin_inset Formula $\frac{g_{1}}{g_{2}}$
+\begin_inset Formula $g_{1}/g_{2}$
 \end_inset
 
 .
@@ -573,41 +591,57 @@ On the other hand, we can show that if
 \begin_inset Formula $g_{1},g_{2}$
 \end_inset
 
- fail to form a regular sequence in 
-\begin_inset Formula $S$
+ fail to form an 
+\begin_inset Formula $R$
 \end_inset
 
-? Well, 
-\begin_inset Formula $S$
+-sequence? Well, 
+\begin_inset Formula $R$
 \end_inset
 
  is an integral domain, so the map from 
-\begin_inset Formula $S$
+\begin_inset Formula $R$
 \end_inset
 
  to 
-\begin_inset Formula $S$
+\begin_inset Formula $R$
 \end_inset
 
  given by multiplication of 
 \begin_inset Formula $g_{1}$
 \end_inset
 
- is injective.
- The only place where it can fail is if the map from 
-\begin_inset Formula $S/g_{1}$
+ is injective if and only if 
+\begin_inset Formula $g_{1}\neq0$
+\end_inset
+
+.
+ Then assuming 
+\begin_inset Formula $g_{1}\neq0$
+\end_inset
+
+, then 
+\begin_inset Formula $g_{1},g_{2}$
+\end_inset
+
+ is an 
+\begin_inset Formula $R$
+\end_inset
+
+-sequence if and only if the map from 
+\begin_inset Formula $R\slash g_{1}$
 \end_inset
 
  to 
-\begin_inset Formula $S/g_{1}$
+\begin_inset Formula $R\slash g_{1}$
 \end_inset
 
  given by multiplication of 
-\begin_inset Formula $\overline{g}_{2}$
+\begin_inset Formula $g_{2}$
 \end_inset
 
  is not injective.
- This means that there exists 
+ This happens if and only if there exists 
 \begin_inset Formula $f_{1},f_{2}$
 \end_inset
 
@@ -628,7 +662,15 @@ On the other hand, we can show that if
 \end_inset
 
  for some 
-\begin_inset Formula $h\in S$
+\begin_inset Formula $h\in R$
+\end_inset
+
+, and if 
+\begin_inset Formula $f_{1}=hg_{1}$
+\end_inset
+
+ then we can show 
+\begin_inset Formula $f_{2}=hg_{2}$
 \end_inset
 
 .
@@ -660,11 +702,11 @@ For instance, let
 \begin_inset Formula $2,1+\sqrt{-5}$
 \end_inset
 
- does not form a regular sequence in 
+ does not form an 
 \begin_inset Formula $\mathcal{O}_{K}$
 \end_inset
 
-.
+-sequence.
  Indeed, we have 
 \begin_inset Formula 
 \[

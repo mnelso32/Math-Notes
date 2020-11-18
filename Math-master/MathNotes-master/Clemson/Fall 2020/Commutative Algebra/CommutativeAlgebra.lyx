@@ -2952,6 +2952,954 @@ Integrality
 \end_layout
 
 \begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\backslash
+label{theorem}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $K$
+\end_inset
+
+ be a field, and 
+\begin_inset Formula $R\subseteq K$
+\end_inset
+
+ a ring, and 
+\begin_inset Formula $I\subseteq R$
+\end_inset
+
+ a proper ideal.
+ Then there exists a valuation domain 
+\begin_inset Formula $V$
+\end_inset
+
+ where 
+\begin_inset Formula $R\subseteq V\subseteq K$
+\end_inset
+
+ such that 
+\begin_inset Formula $K$
+\end_inset
+
+ is the quotient field of 
+\begin_inset Formula $V$
+\end_inset
+
+ and 
+\begin_inset Formula $I$
+\end_inset
+
+ survives in 
+\begin_inset Formula $V$
+\end_inset
+
+, that is, 
+\begin_inset Formula $IV\neq V$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Consider all pairs 
+\begin_inset Formula $(R_{j},I_{j})$
+\end_inset
+
+ where 
+\begin_inset Formula $R_{j}$
+\end_inset
+
+ is a ring between 
+\begin_inset Formula $R$
+\end_inset
+
+ and 
+\begin_inset Formula $K$
+\end_inset
+
+, 
+\begin_inset Formula $I_{j}\subseteq R_{j}$
+\end_inset
+
+ is a proper ideal containing 
+\begin_inset Formula $I$
+\end_inset
+
+.
+ We partially order this set of pairs via: 
+\begin_inset Formula $(R_{\alpha},I_{\alpha})\leq(R_{\beta},I_{\beta})$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $R_{\alpha}\subseteq R_{\beta}$
+\end_inset
+
+ and 
+\begin_inset Formula $I_{\alpha}\subseteq I_{\beta}$
+\end_inset
+
+.
+ We use Zorn's Lemma to find a maximal element of this set.
+ Let 
+\begin_inset Formula $\{(R_{\alpha},I_{\alpha})\}$
+\end_inset
+
+ be a chain.
+ Consider 
+\begin_inset Formula $(T,J)$
+\end_inset
+
+ where 
+\begin_inset Formula $T=\bigcup_{\alpha}R_{\alpha}$
+\end_inset
+
+ and 
+\begin_inset Formula $J=\bigcup_{\alpha}I_{\alpha}$
+\end_inset
+
+.
+ It is easy to see that 
+\begin_inset Formula $(T,J)$
+\end_inset
+
+ is an upper bound.
+ By Zorn, there exists a maximal element which we will call 
+\begin_inset Formula $(V,J)$
+\end_inset
+
+.
+ To see 
+\begin_inset Formula $V$
+\end_inset
+
+ is a valuatoin domain with quotient field 
+\begin_inset Formula $K$
+\end_inset
+
+, it suffices to show 
+\begin_inset Formula $u$
+\end_inset
+
+ or 
+\begin_inset Formula $u^{-1}$
+\end_inset
+
+ is in 
+\begin_inset Formula $V$
+\end_inset
+
+ for all 
+\begin_inset Formula $u\in K$
+\end_inset
+
+.
+ By previous proposition, we have 
+\begin_inset Formula $J$
+\end_inset
+
+ survives in 
+\begin_inset Formula $V[u]$
+\end_inset
+
+ or 
+\begin_inset Formula $V[u^{-1}]$
+\end_inset
+
+.
+ But 
+\begin_inset Formula $(V,J)$
+\end_inset
+
+ was a maximal pair.
+ So either 
+\begin_inset Formula $V[u]=V$
+\end_inset
+
+ or 
+\begin_inset Formula $V[u^{-1}]=V$
+\end_inset
+
+ (so 
+\begin_inset Formula $u$
+\end_inset
+
+ or 
+\begin_inset Formula $u^{-1}$
+\end_inset
+
+ is in 
+\begin_inset Formula $V$
+\end_inset
+
+).
+ So 
+\begin_inset Formula $V$
+\end_inset
+
+ is a valuation domain.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\backslash
+label{theorem}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $R$
+\end_inset
+
+ be an integral domain with quotient field 
+\begin_inset Formula $K$
+\end_inset
+
+ and integral closure 
+\begin_inset Formula $\overline{R}$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\[
+\overline{R}=\bigcap_{R\subseteq V\subseteq K}V
+\]
+
+\end_inset
+
+where the integration is take over all valuation domains 
+\begin_inset Formula $V$
+\end_inset
+
+ such that 
+\begin_inset Formula $R\subseteq V\subseteq K$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\backslash
+label{defn}
+\end_layout
+
+\end_inset
+
+ We say the domain 
+\begin_inset Formula $R$
+\end_inset
+
+ is a 
+\series bold
+Bezout domain 
+\series default
+if every finitely generated ideal is principal.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A Noetherian Bezout domain is a principal ideal domain.
+ The ring of entire functions on the complex plane is a Bezout domain.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\backslash
+label{theorem}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $R$
+\end_inset
+
+ be an integral domain.
+ Then 
+\begin_inset Formula $R$
+\end_inset
+
+ is a valuation domain if and only if 
+\begin_inset Formula $R$
+\end_inset
+
+ is a local Bezout domain.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ One direction is easy.
+ For the reverse direction, consider the ideal 
+\begin_inset Formula $\langle a,b\rangle$
+\end_inset
+
+ in 
+\begin_inset Formula $R$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $R$
+\end_inset
+
+ is Bezout, we see that 
+\begin_inset Formula $\langle a,b\rangle=\langle d\rangle$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $a=a'd$
+\end_inset
+
+, 
+\begin_inset Formula $b=b'd$
+\end_inset
+
+, and 
+\begin_inset Formula $ra+sb=d$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $R$
+\end_inset
+
+ is a domain, this implies 
+\begin_inset Formula $ra'+sb'=1$
+\end_inset
+
+.
+ Note also that 
+\begin_inset Formula $R$
+\end_inset
+
+ is quasilocal with maximal ideal 
+\begin_inset Formula $\mathfrak{m}$
+\end_inset
+
+.
+ So either 
+\begin_inset Formula $ra'$
+\end_inset
+
+ or 
+\begin_inset Formula $sb'$
+\end_inset
+
+ is not in 
+\begin_inset Formula $\mathfrak{m}$
+\end_inset
+
+, say 
+\begin_inset Formula $ra'\notin\mathfrak{m}$
+\end_inset
+
+.
+ So 
+\begin_inset Formula $ra'$
+\end_inset
+
+, hence 
+\begin_inset Formula $a'$
+\end_inset
+
+ is a unit.
+ Therefore 
+\begin_inset Formula $a=a'd\mid b'd=b$
+\end_inset
+
+ and 
+\begin_inset Formula $R$
+\end_inset
+
+ is a valuation domain.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Fractional Ideals
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\backslash
+label{prop}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $I$
+\end_inset
+
+ be a finitely generated ideal.
+ Then 
+\begin_inset Formula $I$
+\end_inset
+
+ is invertible if and only if it is locally principle, that is, if and only
+ if 
+\begin_inset Formula $I_{\mathfrak{m}}$
+\end_inset
+
+ is principal for all maximal ideals 
+\begin_inset Formula $\mathfrak{m}$
+\end_inset
+
+ in 
+\begin_inset Formula $R$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Suppose 
+\begin_inset Formula $I$
+\end_inset
+
+ is invertible and let 
+\begin_inset Formula $\mathfrak{m}$
+\end_inset
+
+ be a maximal ideal in 
+\begin_inset Formula $R$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $I_{\mathfrak{m}}$
+\end_inset
+
+ is invertible in 
+\begin_inset Formula $R_{\mathfrak{m}}$
+\end_inset
+
+, thus must be principal.
+ Conversely, suppose 
+\begin_inset Formula $I$
+\end_inset
+
+ is locally principal.
+ Since 
+\begin_inset Formula $I$
+\end_inset
+
+ is finitely generated, we can write it as 
+\begin_inset Formula $I=\langle x_{1},\dots,x_{n}\rangle$
+\end_inset
+
+.
+ We know that 
+\begin_inset Formula $II^{-1}\subseteq R$
+\end_inset
+
+.
+ Assume for a contradiction that 
+\begin_inset Formula $II^{-1}\not\subseteq R$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $II^{-1}\subseteq\mathfrak{m}$
+\end_inset
+
+ for some maximal ideal 
+\begin_inset Formula $\mathfrak{m}$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $I_{\mathfrak{m}}$
+\end_inset
+
+ is principal, we have 
+\begin_inset Formula $I_{\mathfrak{m}}=\langle y/s\rangle=\langle y/1\rangle$
+\end_inset
+
+ where 
+\begin_inset Formula $y\in R$
+\end_inset
+
+.
+ Then observe that for all 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+, we can find 
+\begin_inset Formula $s_{i}\notin\mathfrak{m}$
+\end_inset
+
+ such that 
+\begin_inset Formula $s_{i}x_{i}\in\langle y\rangle$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $s=s_{1}\cdots s_{n}$
+\end_inset
+
+ and note 
+\begin_inset Formula $sy^{-1}$
+\end_inset
+
+ conducts each 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+ into 
+\begin_inset Formula $R$
+\end_inset
+
+ (
+\begin_inset Formula $sy^{-1}x_{i}\in R$
+\end_inset
+
+ for all 
+\begin_inset Formula $1\leq i\leq n$
+\end_inset
+
+).
+ Therefore 
+\begin_inset Formula $sy^{-1}\in I^{-1}$
+\end_inset
+
+, and so 
+\begin_inset Formula $(sy^{-1})y\in II^{-1}\subseteq\mathfrak{m}$
+\end_inset
+
+.
+ Therefore 
+\begin_inset Formula $s\in\mathfrak{m}$
+\end_inset
+
+, a contradiction.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\backslash
+label{theorem}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $R$
+\end_inset
+
+ be a domain with quotient field 
+\begin_inset Formula $K$
+\end_inset
+
+.
+ The following are equivalent.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $K$
+\end_inset
+
+ is finitely generated as a ring over 
+\begin_inset Formula $R$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $K=R[u]$
+\end_inset
+
+ for some 
+\begin_inset Formula $u\in K$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Such a domain is called a 
+\begin_inset Formula $G$
+\end_inset
+
+
+\series bold
+-domain
+\series default
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\backslash
+label{example}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $p$
+\end_inset
+
+ be a prime and consider 
+\begin_inset Formula $\mathbb{Z}_{(p)}=\{a/b\mid\gcd(p,b)=1\}$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\mathbb{Q}=\mathbb{Z}_{(p)}[1/p]$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{example}
+\backslash
+label{example}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $K$
+\end_inset
+
+ be any field and consider the power series ring 
+\begin_inset Formula $K[[x]]$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $K((x))=K[[x]][1/x]$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{example}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\backslash
+label{theorem}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $R$
+\end_inset
+
+ be a domain with quotient field 
+\begin_inset Formula $K$
+\end_inset
+
+.
+ For any nonzero 
+\begin_inset Formula $u\in R$
+\end_inset
+
+, the following are equivalent.
+\end_layout
+
+\begin_layout Enumerate
+Any nonzero prime ideal contains 
+\begin_inset Formula $u$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Any nonzero ideal of 
+\begin_inset Formula $R$
+\end_inset
+
+ contains a power of 
+\begin_inset Formula $u$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $K=R[u^{-1}]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
 
 \end_layout
 

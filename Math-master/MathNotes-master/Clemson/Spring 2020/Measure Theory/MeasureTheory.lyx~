@@ -22378,26 +22378,27 @@ label{defn}
 \end_inset
 
  be a measurable space.
- A measure 
+ A function 
 \begin_inset Formula $\nu\colon\mathcal{M}\to\mathbb{R}$
 \end_inset
 
- is said to be a (finite) 
+ is said to be a 
+\series bold
+finite
+\series default
+ 
 \series bold
 signed measure 
 \series default
-if
-\end_layout
-
-\begin_layout Enumerate
+if 
 \begin_inset Formula $\nu(\emptyset)=0$
 \end_inset
 
+ and if 
+\begin_inset Formula $\nu$
+\end_inset
 
-\end_layout
-
-\begin_layout Enumerate
-if 
+ is countably additive: if 
 \begin_inset Formula $(E_{n})$
 \end_inset
 
@@ -22415,9 +22416,6 @@ if
 
 where the series converges absolutely.
  
-\end_layout
-
-\begin_layout Standard
 \begin_inset ERT
 status open
 
@@ -23751,6 +23749,126 @@ end{proof}
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection
+Banach Space of Signed Measures
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $(X,\mathcal{M})$
+\end_inset
+
+ be a measurable space.
+ We denote by 
+\begin_inset Formula $M(X,\mathcal{M})$
+\end_inset
+
+ to be the set of all finite signed measures on 
+\begin_inset Formula $\mathcal{M}$
+\end_inset
+
+.
+ First let us give 
+\begin_inset Formula $M(X,\mathcal{M})$
+\end_inset
+
+ the structure of an 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+-vector space as follows: Let 
+\begin_inset Formula $a\in\mathbb{R}$
+\end_inset
+
+ and let 
+\begin_inset Formula $\mu,\nu\in M(X,\mathcal{M})$
+\end_inset
+
+.
+ We define addition 
+\begin_inset Formula $\mu+\nu\colon\mathcal{M}\to\mathbb{R}$
+\end_inset
+
+ and scalar multiplication 
+\begin_inset Formula $a\mu\colon\mathcal{M}\to\mathbb{R}$
+\end_inset
+
+ by
+\begin_inset Formula 
+\begin{align*}
+(\mu+\nu)(E) & =\mu(E)+\nu(E)\\
+(a\mu)(E) & =a\mu(E)
+\end{align*}
+
+\end_inset
+
+for all 
+\begin_inset Formula $E\in\mathcal{M}$
+\end_inset
+
+.
+ It is straightforward to check that addition and scalar multiplication
+ defined in this way gives 
+\begin_inset Formula $M(X,\mathcal{M})$
+\end_inset
+
+ the structure of an 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+-vector space.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Next let us give 
+\begin_inset Formula $M(X,\mathcal{M})$
+\end_inset
+
+ the structure of a normed linear space as follows: Let 
+\begin_inset Formula $\mu\in M(X,\mathcal{M})$
+\end_inset
+
+ and let 
+\begin_inset Formula $\mu=\mu^{+}-\mu^{-}$
+\end_inset
+
+ be the Jordan decomposition of 
+\begin_inset Formula $\mu$
+\end_inset
+
+.
+ We define the norm 
+\begin_inset Formula $\|\cdot\|\colon M(X,\mathcal{M})\to\mathbb{R}_{\geq0}$
+\end_inset
+
+ by
+\begin_inset Formula 
+\[
+\|\mu\|=\mu^{+}(X)+\mu^{-}(X).
+\]
+
+\end_inset
+
+Again it is staightforward to check that this gives 
+\begin_inset Formula $M(X,\mathcal{M})$
+\end_inset
+
+ the structure of a normed linear space.
+  
 \end_layout
 
 \begin_layout Subsection

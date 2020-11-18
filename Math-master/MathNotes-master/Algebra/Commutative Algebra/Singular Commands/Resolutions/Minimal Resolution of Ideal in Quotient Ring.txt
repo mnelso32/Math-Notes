@@ -51,15 +51,34 @@ rs;
 print(rs);
 
 
-ring A=2,(x,y,z),(c,ds);
-ideal I=x3+y3+z3;
+ring A=2,(x,y),(c,dp);
+ideal I=y2-x3;
 std(I);
 qring B=std(I);
 basering;
-ideal J=x,y,z;
+ideal J=x,y;
 resolution rs=mres(J,6);
 rs;
 print(rs);
+
+
+ring A=0,(x,y),(c,dp);
+ideal I=y2-x^2+x3;
+std(I);
+qring B=std(I);
+basering;
+ideal J=x,y;
+resolution rs=mres(J,6);
+rs;
+print(rs);
+
+
+
+
+
+
+
+
 
 
 ring A=2,(x,y),(c,ds);

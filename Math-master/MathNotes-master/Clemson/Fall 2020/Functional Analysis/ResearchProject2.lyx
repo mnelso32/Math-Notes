@@ -1,0 +1,579 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{tikz}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\usetikzlibrary{shapes.geometric}
+\usepackage{tikz-cd}
+\usepackage{amsthm}
+\usepackage{xparse,etoolbox}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{cor}{Corollary}
+\newtheorem{conj}{Conjecture}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{ex}{Exercise}
+\newtheorem{sol}{Solution} 
+\newtheorem{example}{Example}[section]
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+\newtheorem{note}{Note}
+\newtheorem{case}{Case}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{tikz-cd}
+\usetikzlibrary{calc,arrows,decorations.pathreplacing}
+\tikzset{mydot/.style={circle,fill,inner sep=1.5pt},
+commutative diagrams/.cd,
+  arrow style=tikz,
+  diagrams={>=latex},
+}
+
+\usepackage{babel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=blue,
+    filecolor=blue,
+    linkcolor=blue,
+    urlcolor=blue
+}
+\usepackage{pgfplots}
+\usetikzlibrary{decorations.markings}
+\pgfplotsset{compat=1.9}
+
+
+\newcommand{\blocktheorem}[1]{%
+  \csletcs{old#1}{#1}% Store \begin
+  \csletcs{endold#1}{end#1}% Store \end
+  \RenewDocumentEnvironment{#1}{o}
+    {\par\addvspace{1.5ex}
+     \noindent\begin{minipage}{\textwidth}
+     \IfNoValueTF{##1}
+       {\csuse{old#1}}
+       {\csuse{old#1}[##1]}}
+    {\csuse{endold#1}
+     \end{minipage}
+     \par\addvspace{1.5ex}}
+}
+
+\raggedbottom
+
+\blocktheorem{theorem}% Make theo into a block
+\blocktheorem{defn}% Make defi into a block
+\blocktheorem{lemma}% Make lem into a block
+\blocktheorem{rem}% Make rem into a block
+\blocktheorem{cor}% Make col into a block
+\blocktheorem{prop}% Make prop into a block
+
+
+\makeatletter
+\newcommand*{\@old@slash}{}\let\@old@slash\slash
+\def\slash{\relax\ifmmode\delimiter"502F30E\mathopen{}\else\@old@slash\fi}
+\makeatother
+
+\def\backslash{\delimiter"526E30F\mathopen{}}
+
+
+
+\usepackage[bottom]{footmisc}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding iso8859-15
+\fontencoding global
+\font_roman "palatino" "default"
+\font_sans "lmss" "default"
+\font_typewriter "lmtt" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf true
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing single
+\use_hyperref false
+\papersize custom
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date true
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\paperwidth 30cm
+\paperheight 35cm
+\topmargin 2cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0bp
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Research Project
+\end_layout
+
+\begin_layout Author
+Michael Nelson
+\end_layout
+
+\begin_layout Subsection
+Notation and Conventions
+\end_layout
+
+\begin_layout Subsubsection
+Category Theory
+\end_layout
+
+\begin_layout Standard
+In this document, we consider the following categories:
+\end_layout
+
+\begin_layout Itemize
+The category of all compact Hausdorff spaces and continuous maps between
+ them, denoted 
+\begin_inset Formula $\mathbf{Comp}$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Itemize
+The category of all Banach spaces and bounded linear maps between them,
+ denoted 
+\begin_inset Formula $\mathbf{Ban}$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $X$
+\end_inset
+
+ be a compact Hausdorff space.
+ We denote by 
+\begin_inset Formula $C(X)$
+\end_inset
+
+ to be the space of real-valued continuous functions on 
+\begin_inset Formula $X$
+\end_inset
+
+ equipped with the supremum norm.
+ Recall that if 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ is any collection of subsets of 
+\begin_inset Formula $X$
+\end_inset
+
+, then we denote by 
+\begin_inset Formula $\sigma(\mathcal{C})$
+\end_inset
+
+ to be the smallest 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-algebra which contains 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+.
+ Suppose 
+\begin_inset Formula 
+\[
+\mathcal{C}=\{f
+\]
+
+\end_inset
+
+
+\begin_inset Formula $\tau$
+\end_inset
+
+ denotes the collection of all open subset of 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+, then 
+\begin_inset Formula $\sigma(\tau)$
+\end_inset
+
+ is the Borel 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-
+\end_layout
+
+\begin_layout Subsection
+Baire 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-algebra
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\backslash
+label{defn}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $X$
+\end_inset
+
+ be a compact Hausdorff space.
+ 
+\end_layout
+
+\begin_layout Enumerate
+The 
+\series bold
+Borel 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-algebra 
+\series default
+
+\begin_inset Formula $\mathcal{B}_{X}$
+\end_inset
+
+ is the 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-algebra generated by all open sets subsets of 
+\begin_inset Formula $X$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+The 
+\series bold
+Baire 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-algebra 
+\begin_inset Formula $\mathcal{M}_{X}$
+\end_inset
+
+ 
+\series default
+is the 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-algebra generated by all sets of the form 
+\begin_inset Formula $f^{-1}(U)$
+\end_inset
+
+ where 
+\begin_inset Formula $U$
+\end_inset
+
+ is an open subset of 
+\begin_inset Formula $\mathbb{C}$
+\end_inset
+
+ and where 
+\begin_inset Formula $f\in C(X)$
+\end_inset
+
+.
+ In particular, 
+\begin_inset Formula $\mathcal{M}_{X}$
+\end_inset
+
+ is the smallest 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-algebra which makes every 
+\begin_inset Formula $f\in C(X)$
+\end_inset
+
+ measurable.
+ 
+\end_layout
+
+\begin_layout Enumerate
+A measure 
+\begin_inset Formula $\mu$
+\end_inset
+
+ is called a 
+\series bold
+Baire measure 
+\series default
+if it satisfies the following conditions:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+The domain of 
+\begin_inset Formula $\mu$
+\end_inset
+
+ contains 
+\begin_inset Formula $\mathcal{M}_{X}$
+\end_inset
+
+;
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\mu(K)<\infty$
+\end_inset
+
+ for all compact Baire measureable sets 
+\begin_inset Formula $K$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\mu$
+\end_inset
+
+ is inner regular, that is, for each Baire measurable set 
+\begin_inset Formula $E$
+\end_inset
+
+, we have
+\begin_inset Formula 
+\[
+\mu(E)=\sup\{\mu(K)\mid K\text{ is a compact Baire measurable set such that }K\subseteq E\}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\mu$
+\end_inset
+
+ is outer regular, that is, for each Baire measurable set 
+\begin_inset Formula $E$
+\end_inset
+
+, we have
+\begin_inset Formula 
+\[
+\mu(E)=\inf\{\mu(U)\mid U\text{ is an open Baire measurable set such that }E\subseteq U\}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We will prove the following form of the Riesz representation theorem:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\backslash
+label{theorem}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $X$
+\end_inset
+
+ be a compact Hausdorff space, let 
+\begin_inset Formula $C(X)$
+\end_inset
+
+ be the space of continuous real-valued functions on 
+\begin_inset Formula $X$
+\end_inset
+
+ equipped with the supremum norm, and let 
+\begin_inset Formula $\ell$
+\end_inset
+
+ be a positive linear functional on 
+\begin_inset Formula $C(X)$
+\end_inset
+
+.
+ Then there exists a unique Baire measure 
+\begin_inset Formula $\mu$
+\end_inset
+
+ on 
+\begin_inset Formula $X$
+\end_inset
+
+ such that 
+\begin_inset Formula 
+\[
+\ell(f)=\int_{X}f\mathrm{d}\mu
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $f\in C(X)$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Banach Space of Signed Measures
+\end_layout
+
+\end_body
+\end_document
