@@ -16495,7 +16495,7 @@ status open
 \backslash
 begin{defn}
 \backslash
-label{defn}
+label{defnvaluationstuffterm}
 \end_layout
 
 \end_inset
@@ -16515,7 +16515,11 @@ label{defn}
 \begin_layout Enumerate
 The 
 \series bold
-value group of 
+value group 
+\series default
+of
+\series bold
+ 
 \begin_inset Formula $v$
 \end_inset
 
@@ -16545,7 +16549,11 @@ is the subgroup of
 \begin_layout Enumerate
 The 
 \series bold
-valuation ring of 
+valuation domain 
+\series default
+of
+\series bold
+ 
 \begin_inset Formula $v$
 \end_inset
 
@@ -16603,13 +16611,50 @@ ref{defnvaluationring})
 \end_inset
 
 .
+ Furthermore, 
+\begin_inset Formula $R_{v}$
+\end_inset
+
+ is in fact a domain since if 
+\begin_inset Formula $ab=0$
+\end_inset
+
+ for 
+\begin_inset Formula $a,b\in R$
+\end_inset
+
+, then 
+\begin_inset Formula $\infty=v(a)+v(b)$
+\end_inset
+
+ implies either 
+\begin_inset Formula $v(a)=\infty$
+\end_inset
+
+ or 
+\begin_inset Formula $v(b)=\infty$
+\end_inset
+
+, that is, either 
+\begin_inset Formula $a=0$
+\end_inset
+
+ or 
+\begin_inset Formula $b=0$
+\end_inset
+
+.
  
 \end_layout
 
 \begin_layout Enumerate
 The 
 \series bold
-maximal ideal associated to 
+maximal ideal associated 
+\series default
+to
+\series bold
+ 
 \begin_inset Formula $v$
 \end_inset
 
@@ -16677,7 +16722,11 @@ Thus
 \begin_layout Enumerate
 The 
 \series bold
-residue field associated to 
+residue field associated 
+\series default
+to
+\series bold
+ 
 \begin_inset Formula $v$
 \end_inset
 
@@ -17132,7 +17181,7 @@ Let
 \end_inset
 
 .
- It is easy to check that the valuation ring 
+ It is easy to check that the valuation domain 
 \begin_inset Formula $R_{v}$
 \end_inset
 
@@ -17162,7 +17211,7 @@ status open
 \backslash
 begin{defn}
 \backslash
-label{defn}
+label{defnvaluationdomain}
 \end_layout
 
 \end_inset
@@ -17182,7 +17231,7 @@ label{defn}
 
  is a 
 \series bold
-valuation ring 
+valuation domain 
 \series default
 if it satisfies the property that for all 
 \begin_inset Formula $x\in K$
@@ -17229,18 +17278,38 @@ Thus
 \begin_inset Formula $R_{v}$
 \end_inset
 
- is a valuation ring.
+ is a valuation domain in the sense of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Definition~(
+\backslash
+ref{defnvaluationdomain})
+\end_layout
+
+\end_inset
+
+, so our terminology in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Definition~(
+\backslash
+ref{defnvaluationstuffterm})
+\end_layout
+
+\end_inset
+
+ is justified.
  In the next proposition, we show that there is a converse to this.
- Namely, any valuation ring is the valuation ring of a valuation! This is
- why we call such a ring a 
-\begin_inset Quotes eld
-\end_inset
-
-valuation ring
-\begin_inset Quotes erd
-\end_inset
-
-.
+ Namely, any valuation domain is the valuation domain of a valuation! In
+ the theorem that follows, we show that this valuation is unique up to equivalen
+ce.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -50016,6 +50085,410 @@ which we shall write as
 \end_inset
 
  as well.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{lemma}
+\backslash
+label{lemma1.10}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $K$
+\end_inset
+
+ be a field and let 
+\begin_inset Formula $L$
+\end_inset
+
+ be a field extension of 
+\begin_inset Formula $K$
+\end_inset
+
+ that is finitely generated as a 
+\begin_inset Formula $K$
+\end_inset
+
+-algebra.
+ Then 
+\begin_inset Formula $L$
+\end_inset
+
+ is a finite extension of 
+\begin_inset Formula $K$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{lemma}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ We apply to 
+\begin_inset Formula $L$
+\end_inset
+
+ Noether's normalization theorem and obtain a finite injective homomorphism
+ 
+\begin_inset Formula $K[T_{1},\dots,T_{n}]\to L$
+\end_inset
+
+ of 
+\begin_inset Formula $K$
+\end_inset
+
+-algebras.
+ In particular 
+\begin_inset Formula $K[T_{1},\dots,T_{n}]\to L$
+\end_inset
+
+ is an integral extension.
+ By 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Lemma~(
+\backslash
+ref{lemma1intabfield})
+\end_layout
+
+\end_inset
+
+, we must have 
+\begin_inset Formula $n=0$
+\end_inset
+
+ which shows that 
+\begin_inset Formula $K\to L$
+\end_inset
+
+ is a finite extension.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Hilbert's Nullstellensatz
+\end_layout
+
+\begin_layout Standard
+The connection between affine algebraic sets and commutative algebra is
+ established by Hilbert's Nullstellensatz.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\backslash
+label{theorem}
+\end_layout
+
+\end_inset
+
+ (Hilbert's Nullstellensatz) Let 
+\begin_inset Formula $R$
+\end_inset
+
+ be a finitely generated 
+\begin_inset Formula $K$
+\end_inset
+
+-algebra.
+ Then 
+\begin_inset Formula $R$
+\end_inset
+
+ is 
+\series bold
+Jacobson
+\series default
+, that is, for every prime ideal 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ of 
+\begin_inset Formula $R$
+\end_inset
+
+, we have 
+\begin_inset Formula 
+\[
+\mathfrak{p}=\bigcap_{\begin{subarray}{c}
+\mathfrak{m}\supset\mathfrak{p}\\
+\mathfrak{m}\text{ is maximal}
+\end{subarray}}\mathfrak{m}.
+\]
+
+\end_inset
+
+Moreover, suppose 
+\begin_inset Formula $\mathfrak{m}$
+\end_inset
+
+ is a maximal ideal of 
+\begin_inset Formula $R$
+\end_inset
+
+.
+ Then the field extension 
+\begin_inset Formula $K\subseteq R\slash\mathfrak{m}$
+\end_inset
+
+ is finite.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ (Hilbert's Nullstellensatz) 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Lemma~(
+\backslash
+ref{lemma1.10})
+\end_layout
+
+\end_inset
+
+ implies at once the second assertion.
+ Indeed, 
+\begin_inset Formula $R\slash\mathfrak{m}$
+\end_inset
+
+ is a field extension of 
+\begin_inset Formula $K$
+\end_inset
+
+ which is finitely generated as a 
+\begin_inset Formula $K$
+\end_inset
+
+-algebra.
+ For the proof of the first assertion we start with a remark.
+ If 
+\begin_inset Formula $L$
+\end_inset
+
+ is a finite field extension of 
+\begin_inset Formula $K$
+\end_inset
+
+ and 
+\begin_inset Formula $\varphi\colon R\to L$
+\end_inset
+
+ is a 
+\begin_inset Formula $K$
+\end_inset
+
+-algebra homomorphism, then the image of 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ is an integral domain that is finite over 
+\begin_inset Formula $K$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $\mathrm{im}\,\varphi$
+\end_inset
+
+ is a field and therefore 
+\begin_inset Formula $\ker\varphi$
+\end_inset
+
+ is a maximal ideal of 
+\begin_inset Formula $R$
+\end_inset
+
+.
+ We now show that 
+\begin_inset Formula $R$
+\end_inset
+
+ is Jacobson.
+ Let 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ be a prime ideal of 
+\begin_inset Formula $R$
+\end_inset
+
+.
+ By replacing 
+\begin_inset Formula $R$
+\end_inset
+
+ with 
+\begin_inset Formula $R\slash\mathfrak{p}$
+\end_inset
+
+ if necessary, we may assume that 
+\begin_inset Formula $R$
+\end_inset
+
+ is a domain.
+ In this case, we are trying to show that given a finitely generated 
+\begin_inset Formula $K$
+\end_inset
+
+-algebra 
+\begin_inset Formula $R$
+\end_inset
+
+ which happens to also be an integral domain, the intersection of all maximal
+ ideals of 
+\begin_inset Formula $R$
+\end_inset
+
+ is the zero ideal.
+ Assume for a contradiction that there existed 
+\begin_inset Formula $x\neq0$
+\end_inset
+
+ that is contained in all maximal ideals of 
+\begin_inset Formula $R$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $x$
+\end_inset
+
+ is a nonzerodivisor, 
+\begin_inset Formula $R[x^{-1}]$
+\end_inset
+
+ is a nonzero finitely generated 
+\begin_inset Formula $K$
+\end_inset
+
+-algebra.
+ Let 
+\begin_inset Formula $\mathfrak{n}$
+\end_inset
+
+ be a maximal ideal of 
+\begin_inset Formula $R[x^{-1}]$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $L:=R[x^{-1}]/\mathfrak{n}$
+\end_inset
+
+ is a finite extension of 
+\begin_inset Formula $K$
+\end_inset
+
+ by the second assertion of the Nullstellensatz.
+ The kernel of the composition 
+\begin_inset Formula $\varphi:R\to R[x^{-1}]\to L$
+\end_inset
+
+ is a maximal ideal by the above remark, but it does not contain 
+\begin_inset Formula $x$
+\end_inset
+
+.
+ Contradiction.
  
 \begin_inset ERT
 status open

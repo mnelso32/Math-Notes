@@ -7415,6 +7415,10 @@ of
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Standard
 The 
 \series bold
 limit infimum 
@@ -7445,6 +7449,47 @@ end{defn}
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Note that if we ascendify the sequence 
+\begin_inset Formula $(A_{n})$
+\end_inset
+
+ to the sequence 
+\begin_inset Formula $(B_{n})$
+\end_inset
+
+, then 
+\begin_inset Formula $\limsup A_{n}=\bigcap_{n\geq1}(B_{n})$
+\end_inset
+
+.
+ Similarly, if we descendify the sequence 
+\begin_inset Formula $(A_{n})$
+\end_inset
+
+ to the sequence 
+\begin_inset Formula $(C_{n})$
+\end_inset
+
+, then 
+\begin_inset Formula $\liminf A_{n}=\bigcup_{n\geq1}C_{n}$
+\end_inset
+
+.
+ 
 \end_layout
 
 \begin_layout Subsubsection
@@ -23868,7 +23913,7 @@ Again it is staightforward to check that this gives
 \end_inset
 
  the structure of a normed linear space.
-  
+ 
 \end_layout
 
 \begin_layout Subsection
