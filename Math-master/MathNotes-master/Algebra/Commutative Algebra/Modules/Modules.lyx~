@@ -5209,7 +5209,7 @@ label{prop}
 \begin_inset Formula $R$
 \end_inset
 
--homomorphisms is commutative with exact rows
+-linear maps is commutative with exact rows
 \end_layout
 
 \begin_layout Standard
@@ -10485,7 +10485,7 @@ kills
 \series bold
 torsion element 
 \series default
-in 
+of 
 \begin_inset Formula $M$
 \end_inset
 
@@ -10494,7 +10494,7 @@ in
 \begin_inset Formula $M_{\mathrm{tor}}$
 \end_inset
 
- to be the set of all torsion elements in 
+ to be the set of all torsion elements of 
 \begin_inset Formula $M$
 \end_inset
 
@@ -10511,7 +10511,7 @@ if
 \begin_inset Formula $M_{\mathrm{tor}}=0$
 \end_inset
 
-, that is, the only torsion element in 
+, that is, the only torsion element of 
 \begin_inset Formula $M$
 \end_inset
 
@@ -10589,7 +10589,7 @@ label{prop}
 \begin_inset Formula $0:_{R}u$
 \end_inset
 
- is an ideal in 
+ is an ideal of 
 \begin_inset Formula $R$
 \end_inset
 
@@ -10639,7 +10639,7 @@ begin{proof}
 \begin_inset Formula $0:_{R}u$
 \end_inset
 
- is an ideal in 
+ is an ideal of 
 \begin_inset Formula $R$
 \end_inset
 
@@ -10681,7 +10681,7 @@ implies
 \begin_inset Formula $0:_{R}u$
 \end_inset
 
- is an ideal in 
+ is an ideal of 
 \begin_inset Formula $R$
 \end_inset
 
@@ -62831,8 +62831,13 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section
-Cohen-Macaulay Modules
+\begin_layout Subsection
+Koszul Complex and Depth
+\end_layout
+
+\begin_layout Standard
+This subsection is for readers who are familiar with tools and techniques
+ from homological algebra.
 \end_layout
 
 \begin_layout Standard
@@ -62843,76 +62848,314 @@ status open
 
 
 \backslash
-begin{defn}
+begin{theorem}
 \backslash
-label{defn1}
+label{theorem}
 \end_layout
 
 \end_inset
 
  Let 
-\begin_inset Formula $(R,\mathfrak{m})$
-\end_inset
-
- be a Noetherian local ring and let 
-\begin_inset Formula $M$
-\end_inset
-
- be a finitely-generated 
 \begin_inset Formula $R$
 \end_inset
 
--module.
- We say 
+ be a Noetherian ring, let 
+\begin_inset Formula $I=\langle x_{1},\dots,x_{n}\rangle=\langle\underline{x}\rangle$
+\end_inset
+
+ an ideal of 
+\begin_inset Formula $R$
+\end_inset
+
+, and let 
 \begin_inset Formula $M$
 \end_inset
 
- is a 
-\series bold
-Cohen-Macaulay module 
-\series default
-if 
-\begin_inset Formula $M=0$
+ a finitely-generated 
+\begin_inset Formula $R$
 \end_inset
 
- or 
-\begin_inset Formula $M\neq0$
+-module such that 
+\begin_inset Formula $M\neq IM$
 \end_inset
 
- and
+.
+ Set 
+\begin_inset Formula $\delta=\text{sup}\{i\mid\mathrm{H}_{i}(\underline{x},M)\neq0\}$
+\end_inset
+
+.
+ Then all maximal 
+\begin_inset Formula $M$
+\end_inset
+
+-sequences in 
+\begin_inset Formula $I$
+\end_inset
+
+ have length 
+\begin_inset Formula $n-\delta$
+\end_inset
+
+.
+ In particular,
 \begin_inset Formula 
 \[
-\mathrm{depth}\,M=\dim M.
+\mathrm{depth}(I,M)=n-\sup\{i\mid\mathrm{H}_{i}(\underline{x},M)\neq0\}.
 \]
 
 \end_inset
 
-If 
-\begin_inset Formula $\mathrm{depth}\,M=\dim R$
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
 \end_inset
 
-, then 
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ First suppose that every element in 
+\begin_inset Formula $I$
+\end_inset
+
+ is a zerodivisor for 
 \begin_inset Formula $M$
 \end_inset
 
- is called 
-\series bold
-maximal Cohen-Macaulay
-\series default
 .
- We say 
+ Then 
+\begin_inset Formula $I$
+\end_inset
+
+ is contained in an associated prime of 
+\begin_inset Formula $M$
+\end_inset
+
+, say 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ where 
+\begin_inset Formula $\mathfrak{p}=0:u$
+\end_inset
+
+ for some nonzero 
+\begin_inset Formula $u\in M$
+\end_inset
+
+.
+ In particular, we have 
+\begin_inset Formula $Iu=0$
+\end_inset
+
+, hence 
+\begin_inset Formula $u\in0:_{M}I=\mathrm{H}_{n}(\underline{x},M)$
+\end_inset
+
+.
+ It follows that 
+\begin_inset Formula $\mathrm{H}_{n}(\underline{x},M)\neq0$
+\end_inset
+
+, so 
+\begin_inset Formula $\delta=n$
+\end_inset
+
+.
+ Thus every maximal 
+\begin_inset Formula $M$
+\end_inset
+
+-sequence has length 
+\begin_inset Formula $0=n-\delta$
+\end_inset
+
+ in this case.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Now suppose that 
+\begin_inset Formula $y_{1},\dots,y_{q}\in I$
+\end_inset
+
+ is a maximal 
+\begin_inset Formula $M$
+\end_inset
+
+-sequence in 
+\begin_inset Formula $I$
+\end_inset
+
+.
+ We shall prove 
+\begin_inset Formula $\delta=n-q$
+\end_inset
+
+ by induction on 
+\begin_inset Formula $q$
+\end_inset
+
+.
+ The base case 
+\begin_inset Formula $q=0$
+\end_inset
+
+ was shown above, so assume that 
+\begin_inset Formula $q>0$
+\end_inset
+
+.
+ Consider the short exact sequence of 
 \begin_inset Formula $R$
 \end_inset
 
- is a 
-\series bold
-Cohen-Macaulay ring 
-\series default
-if it is a Cohen-Macaulay 
+-modules
+\begin_inset Formula 
+\[
+0\to M\xrightarrow{y_{1}}M\to M\slash y_{1}M\to0.
+\]
+
+\end_inset
+
+This short exact sequence of 
 \begin_inset Formula $R$
 \end_inset
 
--module.
+-modules induces a short exact sequence of 
+\begin_inset Formula $R$
+\end_inset
+
+-complexes
+\begin_inset Formula 
+\[
+0\to\mathcal{K}(\underline{x},M)\xrightarrow{y_{1}}\mathcal{K}(\underline{x},M)\to\mathcal{K}(\underline{x},M\slash y_{1}M)\to0.
+\]
+
+\end_inset
+
+Taking the long exact sequence in homology and using the fact that 
+\begin_inset Formula $y_{1}$
+\end_inset
+
+ kills 
+\begin_inset Formula $\mathrm{H}(\underline{x},M)$
+\end_inset
+
+, we obtain following short exact sequence of 
+\begin_inset Formula $R$
+\end_inset
+
+-modules
+\begin_inset Formula 
+\begin{equation}
+0\to\mathrm{H}_{i+1}(\underline{x},M)\to\mathrm{H}_{i+1}(\underline{x},M\slash y_{1}M)\to\mathrm{H}_{i}(\underline{x},M)\to0\label{eq:shortexatcfjklsjfklsdmjfk}
+\end{equation}
+
+\end_inset
+
+for all 
+\begin_inset Formula $i\in\mathbb{Z}$
+\end_inset
+
+.
+ Note that 
+\begin_inset Formula $y_{2},\dots,y_{q}$
+\end_inset
+
+ is a maximal 
+\begin_inset Formula $M\slash y_{1}M$
+\end_inset
+
+ sequence.
+ Also note that 
+\begin_inset Formula $I(M\slash y_{1}M)\neq M\slash y_{1}M$
+\end_inset
+
+ since 
+\begin_inset Formula $M\neq IM$
+\end_inset
+
+.
+ Thus we have by induction that 
+\begin_inset Formula $\mathrm{H}_{i+1}(\underline{x},M\slash y_{1}M)=0$
+\end_inset
+
+ for all 
+\begin_inset Formula $i>n-(q-1)$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathrm{H}_{n-q+1}(\underline{x},M\slash y_{1}M)\neq0$
+\end_inset
+
+.
+ Using this together with the short exact sequence 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{eq:shortexatcfjklsjfklsdmjfk})
+\end_layout
+
+\end_inset
+
+ gives us 
+\begin_inset Formula $\mathrm{H}_{i}(\underline{x},M)=0$
+\end_inset
+
+ for all 
+\begin_inset Formula $i>n-q$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathrm{H}_{n-q}(\underline{x},M)\neq0$
+\end_inset
+
+.
+ In other words, 
+\begin_inset Formula $\delta=n-q$
+\end_inset
+
+.
  
 \begin_inset ERT
 status open
@@ -62921,12 +63164,729 @@ status open
 
 
 \backslash
-end{defn}
+end{proof}
 \end_layout
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{rem}
+\backslash
+label{remsdfdsfsdsf}
+\end_layout
+
+\end_inset
+
+ It's worth pointing out that we obtain slightly more than what's stated
+ in the theorem above; namely from 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{eq:shortexatcfjklsjfklsdmjfk})
+\end_layout
+
+\end_inset
+
+ we obtain 
+\begin_inset Formula $\mathrm{H}_{\delta+1}(\underline{x},M\slash y_{1}M)\cong\mathrm{H}_{\delta}(\underline{x},M)$
+\end_inset
+
+.
+ An inductive argument then gives us
+\begin_inset Formula 
+\begin{align*}
+\mathrm{H}_{\delta}(\underline{x},M) & \cong\mathrm{H}_{n}(\underline{x},M\slash\underline{y}M)\\
+ & \cong0:_{M\slash\underline{y}M}I\\
+ & =\mathrm{Hom}_{R}(R\slash I,M\slash\underline{y}M)\\
+ & \cong\mathrm{Ext}_{R}^{0}(R\slash I,M\slash\underline{y}M)\\
+ & \cong\mathrm{Ext}_{R}^{q}(R\slash I,M).
+\end{align*}
+
+\end_inset
+
+The last isomorphism will be explained in the next section.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{rem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\backslash
+label{koszulcomplexsequence}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $M$
+\end_inset
+
+ be a nonzero 
+\begin_inset Formula $R$
+\end_inset
+
+-module and let 
+\begin_inset Formula $\underline{x}=x_{1},\dots,x_{n}$
+\end_inset
+
+ be a sequence in 
+\begin_inset Formula $R$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+If 
+\begin_inset Formula $\underline{x}$
+\end_inset
+
+ is an 
+\begin_inset Formula $M$
+\end_inset
+
+-sequence, then 
+\begin_inset Formula $\mathrm{H}_{i}(\underline{x},M)=0$
+\end_inset
+
+ for all 
+\begin_inset Formula $i>0$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Suppose 
+\begin_inset Formula $(R,\mathfrak{m})$
+\end_inset
+
+ is local with 
+\begin_inset Formula $\underline{x}\in\mathfrak{m}$
+\end_inset
+
+.
+ If 
+\begin_inset Formula $M$
+\end_inset
+
+ is finitely-generated and 
+\begin_inset Formula $\mathrm{H}_{1}(\underline{x},M)=0$
+\end_inset
+
+, then 
+\begin_inset Formula $\underline{x}$
+\end_inset
+
+ is an 
+\begin_inset Formula $M$
+\end_inset
+
+-sequence.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ 1.
+ We prove this by induction on 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ For the base case, suppose 
+\begin_inset Formula $n=1$
+\end_inset
+
+.
+ Then since 
+\begin_inset Formula $\mathrm{H}_{1}(x_{1},M)=0:_{M}x_{1}$
+\end_inset
+
+, we see that 
+\begin_inset Formula $\mathrm{H}_{1}(x_{1},M)=0$
+\end_inset
+
+ if and only if 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+ is 
+\begin_inset Formula $M$
+\end_inset
+
+-regular.
+ This establishes the base case.
+ For the induction step, assume 
+\begin_inset Formula $n>1$
+\end_inset
+
+ and that we've shown the theorem to be true for all 
+\begin_inset Formula $M$
+\end_inset
+
+-sequences of length 
+\begin_inset Formula $m<n$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\underline{x}=x_{1},\dots,x_{n}$
+\end_inset
+
+ be an 
+\begin_inset Formula $M$
+\end_inset
+
+-sequence of length 
+\begin_inset Formula $n$
+\end_inset
+
+ and let 
+\begin_inset Formula $\underline{x}'=x_{1},\dots,x_{n-1}$
+\end_inset
+
+ be an 
+\begin_inset Formula $M$
+\end_inset
+
+-sequence of length 
+\begin_inset Formula $n-1$
+\end_inset
+
+ obtained by removing 
+\begin_inset Formula $x_{n}$
+\end_inset
+
+ from 
+\begin_inset Formula $\underline{x}$
+\end_inset
+
+.
+ The multiplication by 
+\begin_inset Formula $x_{n}$
+\end_inset
+
+ map from 
+\begin_inset Formula $\mathcal{K}(\underline{x}',M)$
+\end_inset
+
+ to itself induces a short exact sequence of 
+\begin_inset Formula $R$
+\end_inset
+
+-complexes
+\begin_inset Formula 
+\begin{equation}
+0\to\mathcal{K}(\underline{x}',M)\to\mathrm{C}(x_{n})\to\Sigma\mathcal{K}(\underline{x}',M)\to0,\label{eq:conemapdsifods}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\mathrm{C}(x_{n})$
+\end_inset
+
+ is the mapping cone with respect to the multiplication by 
+\begin_inset Formula $x_{n}$
+\end_inset
+
+ map.
+ Since 
+\begin_inset Formula $\mathrm{C}(x_{n})\cong\mathcal{K}(\underline{x},M)$
+\end_inset
+
+ and since the connecting map induced by 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{eq:conemapdsifods})
+\end_layout
+
+\end_inset
+
+ is just multiplication by 
+\begin_inset Formula $x_{n}$
+\end_inset
+
+, we we obtain a long exact sequence in homology
+\begin_inset Formula 
+\begin{equation}
+\cdots\to\mathrm{H}_{i}(\underline{x}',M)\to\mathrm{H}_{i}(\underline{x},M)\to\mathrm{H}_{i-1}(\underline{x}',M)\xrightarrow{x_{n}}\mathrm{H}_{i-1}(\underline{x}',M)\to\cdots.\label{eq:longdskljflksef}
+\end{equation}
+
+\end_inset
+
+Since 
+\begin_inset Formula $\underline{x}'$
+\end_inset
+
+ is an 
+\begin_inset Formula $M$
+\end_inset
+
+-sequence of length 
+\begin_inset Formula $n-1$
+\end_inset
+
+, we have by induction 
+\begin_inset Formula $\mathrm{H}_{i}(\underline{x}',M)=0$
+\end_inset
+
+ for all 
+\begin_inset Formula $i>0$
+\end_inset
+
+.
+ This together with the long exact sequence in homology 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{eq:longdskljflksef})
+\end_layout
+
+\end_inset
+
+ implies 
+\begin_inset Formula $\mathrm{H}_{i}(\underline{x},M)=0$
+\end_inset
+
+ for all 
+\begin_inset Formula $i>1$
+\end_inset
+
+.
+ The vanishing of 
+\begin_inset Formula $\mathrm{H}_{1}(\underline{x},M)$
+\end_inset
+
+ follows from taking 
+\begin_inset Formula $i=1$
+\end_inset
+
+ in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{eq:longdskljflksef})
+\end_layout
+
+\end_inset
+
+ together with the fact that 
+\begin_inset Formula $\mathrm{H}_{0}(\underline{x}',M)\cong M\slash x'M$
+\end_inset
+
+ and 
+\begin_inset Formula $x_{n}$
+\end_inset
+
+ is 
+\begin_inset Formula $(M\slash\underline{x}'M)$
+\end_inset
+
+-regular.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+2.
+ We prove this by induction on 
+\begin_inset Formula $n$
+\end_inset
+
+.
+ The base case 
+\begin_inset Formula $n=1$
+\end_inset
+
+ is proved similarly as in the base case in 1.
+ For the induction step, suppose that we've shown the theorem to be true
+ for all sequences in 
+\begin_inset Formula $\mathfrak{m}$
+\end_inset
+
+ of length 
+\begin_inset Formula $m<n$
+\end_inset
+
+ for some 
+\begin_inset Formula $n>1$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\underline{x}=x_{1},\dots,x_{n}\in\mathfrak{m}$
+\end_inset
+
+ be a sequence in 
+\begin_inset Formula $\mathfrak{m}$
+\end_inset
+
+ of length 
+\begin_inset Formula $n$
+\end_inset
+
+ and suppose that 
+\begin_inset Formula $\mathrm{H}_{1}(\underline{x},M)=0$
+\end_inset
+
+.
+ As in 1, let let 
+\begin_inset Formula $\underline{x}'=x_{1},\dots,x_{n-1}$
+\end_inset
+
+ be a sequence in 
+\begin_inset Formula $\mathfrak{m}$
+\end_inset
+
+ of length 
+\begin_inset Formula $n-1$
+\end_inset
+
+ obtained by removing 
+\begin_inset Formula $x_{n}$
+\end_inset
+
+ from 
+\begin_inset Formula $\underline{x}$
+\end_inset
+
+.
+ By the same argument as in 1, we obtain a long exact sequence in homology
+\begin_inset Formula 
+\begin{equation}
+\cdots\to\mathrm{H}_{i+1}(\underline{x},M)\to\mathrm{H}_{i}(\underline{x}',M)\xrightarrow{x_{n}}\mathrm{H}_{i}(\underline{x}',M)\to\mathrm{H}_{i}(\underline{x},M)\to\cdots.\label{eq:longdskljflksef-1}
+\end{equation}
+
+\end_inset
+
+In particular, since 
+\begin_inset Formula $\mathrm{H}_{1}(\underline{x},M)=0$
+\end_inset
+
+, we have a surjective map 
+\begin_inset Formula $\mathrm{H}_{1}(\underline{x}',M)\xrightarrow{x_{n}}\mathrm{H}_{1}(\underline{x}',M)$
+\end_inset
+
+.
+ By Nakayama's lemma, this implies 
+\begin_inset Formula $\mathrm{H}_{1}(\underline{x}',M)=0$
+\end_inset
+
+.
+ Using induction, we obtain that 
+\begin_inset Formula $\underline{x}'$
+\end_inset
+
+ is an 
+\begin_inset Formula $M$
+\end_inset
+
+-sequence.
+ Finally, using the fact that 
+\begin_inset Formula $\mathrm{H}_{1}(\underline{x},M)=0$
+\end_inset
+
+ together with the long exact sequence in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{eq:longdskljflksef-1})
+\end_layout
+
+\end_inset
+
+ we see that 
+\begin_inset Formula $\mathrm{H}_{0}(\underline{x}',M)\xrightarrow{x_{n}}\mathrm{H}_{0}(\underline{x}',M)$
+\end_inset
+
+ is injective.
+ Since 
+\begin_inset Formula $\mathrm{H}_{0}(\underline{x}',M)\cong M\slash x'M$
+\end_inset
+
+, it follows that 
+\begin_inset Formula $\underline{x}$
+\end_inset
+
+ is an 
+\begin_inset Formula $M$
+\end_inset
+
+-sequence.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{cor}
+\backslash
+label{cor}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $(R,\mathfrak{m})$
+\end_inset
+
+ be a local ring, let 
+\begin_inset Formula $I=\langle x_{1},\dots,x_{n}\rangle=\langle\underline{x}\rangle$
+\end_inset
+
+ be a proper ideal of 
+\begin_inset Formula $R$
+\end_inset
+
+, and let 
+\begin_inset Formula $M$
+\end_inset
+
+ be a nonzero finitely-generated 
+\begin_inset Formula $R$
+\end_inset
+
+-module.
+ Suppose 
+\begin_inset Formula $\underline{y}=y_{1},\dots,y_{n}$
+\end_inset
+
+ is an 
+\begin_inset Formula $M$
+\end_inset
+
+-sequence of length 
+\begin_inset Formula $n$
+\end_inset
+
+ contained in 
+\begin_inset Formula $I$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\underline{x}$
+\end_inset
+
+ is an 
+\begin_inset Formula $M$
+\end_inset
+
+-sequence.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{cor}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Since 
+\begin_inset Formula $\underline{y}$
+\end_inset
+
+ is an 
+\begin_inset Formula $M$
+\end_inset
+
+-sequence of length 
+\begin_inset Formula $n$
+\end_inset
+
+ contained in the ideal 
+\begin_inset Formula $I$
+\end_inset
+
+ which is generated by 
+\begin_inset Formula $n$
+\end_inset
+
+ elements, we must have 
+\begin_inset Formula $\mathrm{depth}(I,M)=n$
+\end_inset
+
+.
+ In particular, this implies 
+\begin_inset Formula $\mathrm{H}_{1}(\underline{x},M)=0$
+\end_inset
+
+.
+ Therefore 
+\begin_inset Formula $\underline{x}$
+\end_inset
+
+ must be an 
+\begin_inset Formula $M$
+\end_inset
+
+-sequence, by 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Theorem~(
+\backslash
+ref{koszulcomplexsequence})
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Ext and Depth
 \end_layout
 
 \begin_layout Standard
@@ -62939,7 +63899,7 @@ status open
 \backslash
 begin{prop}
 \backslash
-label{prop}
+label{propextdepthmeas}
 \end_layout
 
 \end_inset
@@ -63624,7 +64584,97 @@ we obtain a long exact sequence in Ext
 
 \end_inset
 
-Recall that if 
+Note that 
+\begin_inset Formula $x_{1}^{k}$
+\end_inset
+
+ kills 
+\begin_inset Formula $\mathrm{Ext}_{R}(M,N)$
+\end_inset
+
+.
+ To see this, let 
+\begin_inset Formula $(E,\mathrm{d})$
+\end_inset
+
+ be an injective resolution of 
+\begin_inset Formula $N$
+\end_inset
+
+ over 
+\begin_inset Formula $R$
+\end_inset
+
+.
+ Then for any 
+\begin_inset Formula $\varphi\in\mathrm{Hom}_{R}^{\star}(M,E)$
+\end_inset
+
+, we have 
+\begin_inset Formula $x_{1}^{k}\varphi=0$
+\end_inset
+
+ by the same argument as in the base case.
+ It follows that 
+\begin_inset Formula $x_{1}^{k}$
+\end_inset
+
+ kills 
+\begin_inset Formula $\mathrm{Hom}_{R}^{\star}(M,E)$
+\end_inset
+
+.
+ In particular, we have
+\begin_inset Formula 
+\begin{align*}
+x_{1}^{k}\mathrm{Ext}_{R}(M,N) & =x_{1}^{k}\mathrm{H}(\mathrm{Hom}_{R}^{\star}(M,E))\\
+ & \rightarrowtail\mathrm{H}(x_{1}^{k}\mathrm{Hom}_{R}^{\star}(M,E))\\
+ & =\mathrm{H}(0)\\
+ & =0.
+\end{align*}
+
+\end_inset
+
+Thus 
+\begin_inset Formula $x_{1}^{k}$
+\end_inset
+
+ kills 
+\begin_inset Formula $\mathrm{Ext}_{R}(M,N)$
+\end_inset
+
+ as claimed.
+ It follows that the long exact sequence in homology 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{eq:exactsequenceextdepthdfsd})
+\end_layout
+
+\end_inset
+
+ breaks up into short exact sequences of 
+\begin_inset Formula $R$
+\end_inset
+
+-modules
+\begin_inset Formula 
+\begin{equation}
+0\to\mathrm{Ext}_{R}^{i}(M,N)\to\mathrm{Ext}_{R}^{i}(M,N\slash x_{1}^{k}N)\to\mathrm{Ext}_{R}^{i+1}(M,N)\to0\label{eq:shortexactseqexfdsjkl}
+\end{equation}
+
+\end_inset
+
+for all 
+\begin_inset Formula $i\in\mathbb{Z}$
+\end_inset
+
+.
+ Now recall that if 
 \begin_inset Formula $x_{1},x_{2},\dots,x_{n}$
 \end_inset
 
@@ -63653,11 +64703,21 @@ Recall that if
 \begin_inset Formula $n-1$
 \end_inset
 
-, so by induction (with 
+.
+ Thus, using induction (with 
 \begin_inset Formula $N'=N\slash x_{1}^{k}N$
 \end_inset
 
-) and the exact sequence 
+), we have 
+\begin_inset Formula $\mathrm{Ext}_{R}^{i+1}(M,N\slash x_{1}^{k}N)=0$
+\end_inset
+
+ for all 
+\begin_inset Formula $i+1<n$
+\end_inset
+
+.
+ Using this together with the short exact sequence 
 \begin_inset ERT
 status open
 
@@ -63665,76 +64725,21 @@ status open
 
 (
 \backslash
-ref{eq:exactsequenceextdepthdfsd})
+ref{eq:shortexactseqexfdsjkl})
 \end_layout
 
 \end_inset
 
- we see that the map 
-\begin_inset Formula 
-\[
-\mathrm{Ext}_{R}^{i}(M,N)\xrightarrow{x_{1}^{k}}\mathrm{Ext}_{R}^{i}(M,N)
-\]
-
+ gives us 
+\begin_inset Formula $\mathrm{Ext}_{R}^{i}(M,N)=0$
 \end_inset
 
-is injective for all 
-\begin_inset Formula $i<n-1$
+ for all 
+\begin_inset Formula $i<n$
 \end_inset
 
 .
- Finally, note that for all 
-\begin_inset Formula $i\in\mathbb{Z}$
-\end_inset
-
-, multiplication by 
-\begin_inset Formula $x_{1}^{k}$
-\end_inset
-
- on 
-\begin_inset Formula $\mathrm{Ext}_{R}^{i}(M,N)$
-\end_inset
-
- is the zero map.
- To see this, let 
-\begin_inset Formula $\varepsilon\colon N\to E$
-\end_inset
-
- be an injective resolution of 
-\begin_inset Formula $N$
-\end_inset
-
- over 
-\begin_inset Formula $R$
-\end_inset
-
-.
- Then for any 
-\begin_inset Formula $\varphi\in\mathrm{Hom}_{R}^{\star}(M,E)$
-\end_inset
-
-, we have 
-\begin_inset Formula $x_{1}^{k}\varphi=0$
-\end_inset
-
- by the same argument as in the base case.
- It follows that 
-\begin_inset Formula $x_{1}^{k}\mathrm{Hom}_{R}^{\star}(M,E)=0$
-\end_inset
-
-.
- In particular, we have
-\begin_inset Formula 
-\begin{align*}
-x_{1}^{k}\mathrm{Ext}_{R}(M,N) & =x_{1}^{k}\mathrm{H}(\mathrm{Hom}_{R}^{\star}(M,E))\\
- & \rightarrowtail\mathrm{H}(x_{1}^{k}\mathrm{Hom}_{R}^{\star}(M,E))\\
- & =\mathrm{H}(0)\\
- & =0.
-\end{align*}
-
-\end_inset
-
-
+ 
 \begin_inset ERT
 status open
 
@@ -63743,6 +64748,330 @@ status open
 
 \backslash
 end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Keep the same notation as in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Proposition~(
+\backslash
+ref{propextdepthmeas})
+\end_layout
+
+\end_inset
+
+.
+ Then the proposition above tells us that
+\begin_inset Formula 
+\begin{align*}
+\mathrm{depth}(I,N) & =\inf\{i\mid\mathrm{Ext}_{R}^{i}(R\slash I,N)\neq0\}.
+\end{align*}
+
+\end_inset
+
+Indeed, denote 
+\begin_inset Formula $q=\mathrm{depth}(I,N)$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $I$
+\end_inset
+
+ contains an 
+\begin_inset Formula $N$
+\end_inset
+
+-sequence of length 
+\begin_inset Formula $q$
+\end_inset
+
+ which implies 
+\begin_inset Formula $\mathrm{Ext}_{R}^{i}(R\slash I,N)=0$
+\end_inset
+
+ for all 
+\begin_inset Formula $i<q$
+\end_inset
+
+.
+ On the other hand, any maximal 
+\begin_inset Formula $N$
+\end_inset
+
+-sequence contained in 
+\begin_inset Formula $I$
+\end_inset
+
+ must also have length 
+\begin_inset Formula $q$
+\end_inset
+
+, so we must have 
+\begin_inset Formula $\mathrm{Ext}_{R}^{q}(R\slash I,N)\neq0$
+\end_inset
+
+ (otherwise there would be an 
+\begin_inset Formula $N$
+\end_inset
+
+-sequence in 
+\begin_inset Formula $I$
+\end_inset
+
+ of length 
+\begin_inset Formula $q+1$
+\end_inset
+
+).
+ In fact, we get more than just this from 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Proposition~(
+\backslash
+ref{propextdepthmeas})
+\end_layout
+
+\end_inset
+
+.
+ Indeed, if 
+\begin_inset Formula $\sqrt{I}N\neq N$
+\end_inset
+
+, then 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Proposition~(
+\backslash
+ref{propextdepthmeas})
+\end_layout
+
+\end_inset
+
+ also implies
+\begin_inset Formula 
+\begin{align*}
+\mathrm{depth}(I,N) & =\inf\{i\mid\mathrm{Ext}_{R}^{i}(R\slash\sqrt{I},N)\neq0\}.\\
+ & =\mathrm{depth}(\sqrt{I},N).
+\end{align*}
+
+\end_inset
+
+More generally, if 
+\begin_inset Formula $J$
+\end_inset
+
+ is any ideal of 
+\begin_inset Formula $R$
+\end_inset
+
+ such that 
+\begin_inset Formula $\sqrt{J}=\sqrt{I}$
+\end_inset
+
+, then 
+\begin_inset Formula $\mathrm{depth}(I,N)=\mathrm{depth}(J,N)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Note also that just as in the Koszul case, we obtain more than what's stated
+ in the theorem above.
+ In particular, denote 
+\begin_inset Formula $y=x_{1}^{k}$
+\end_inset
+
+ in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{eq:shortexactseqexfdsjkl})
+\end_layout
+
+\end_inset
+
+ and let 
+\begin_inset Formula $q=\mathrm{depth}(I,N)$
+\end_inset
+
+.
+ Then 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{eq:shortexactseqexfdsjkl})
+\end_layout
+
+\end_inset
+
+ gives us an isomorphism
+\begin_inset Formula 
+\[
+\mathrm{Ext}_{R}^{q}(M,N)\cong\mathrm{Ext}_{R}^{q-1}(M,N\slash yN).
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This explains 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Remark~(
+\backslash
+ref{remsdfdsfsdsf})
+\end_layout
+
+\end_inset
+
+ in the last section.
+\end_layout
+
+\begin_layout Section
+Cohen-Macaulay Modules
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\backslash
+label{defn1}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $(R,\mathfrak{m})$
+\end_inset
+
+ be a Noetherian local ring and let 
+\begin_inset Formula $M$
+\end_inset
+
+ be a finitely-generated 
+\begin_inset Formula $R$
+\end_inset
+
+-module.
+ We say 
+\begin_inset Formula $M$
+\end_inset
+
+ is a 
+\series bold
+Cohen-Macaulay module 
+\series default
+if 
+\begin_inset Formula $M=0$
+\end_inset
+
+ or 
+\begin_inset Formula $M\neq0$
+\end_inset
+
+ and
+\begin_inset Formula 
+\[
+\mathrm{depth}\,M=\dim M.
+\]
+
+\end_inset
+
+If 
+\begin_inset Formula $\mathrm{depth}\,M=\dim R$
+\end_inset
+
+, then 
+\begin_inset Formula $M$
+\end_inset
+
+ is called 
+\series bold
+maximal Cohen-Macaulay
+\series default
+.
+ We say 
+\begin_inset Formula $R$
+\end_inset
+
+ is a 
+\series bold
+Cohen-Macaulay ring 
+\series default
+if it is a Cohen-Macaulay 
+\begin_inset Formula $R$
+\end_inset
+
+-module.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
 \end_layout
 
 \end_inset
@@ -65287,49 +66616,19 @@ label{lemma7.8.9}
 \end_inset
 
  Let 
-\begin_inset Formula $(A,\mathfrak{m})$
+\begin_inset Formula $(R,\mathfrak{m})$
 \end_inset
 
- be a Noetherian local ring and 
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\backslash
-begin{tikzcd} 0 
-\backslash
-arrow[r] & M_1 
-\backslash
-arrow[r, "
-\backslash
-psi "] & M_2 
-\backslash
-arrow[r, "
-\backslash
-varphi "] & M_3 
-\backslash
-arrow[r] & 0 
-\backslash
-end{tikzcd}
-\backslash
-end{center}
-\end_layout
+ be a Noetherian local ring and let
+\begin_inset Formula 
+\[
+0\to M_{1}\to M_{2}\to M_{3}\to0
+\]
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-be an exact sequence of 
-\begin_inset Formula $A$
+be a short exact sequence of 
+\begin_inset Formula $R$
 \end_inset
 
 -modules.
@@ -65348,7 +66647,7 @@ be an exact sequence of
 If the inequality is strict, then 
 \begin_inset Formula 
 \[
-\mathrm{depth}(M_{1})=\mathrm{depth}(M_{3})+1.
+\mathrm{depth}\,M_{1}=\mathrm{depth}\,M_{3}+1.
 \]
 
 \end_inset
@@ -65385,17 +66684,21 @@ begin{proof}
 
 \end_inset
 
- Assume all three modules have positive depth.
- First we observe that we can find a common nonzerodivisor 
-\begin_inset Formula $f\in\mathfrak{m}\subset A$
+ First assume all three modules have positive depth.
+ Observe that we can find a common nonzerodivisor 
+\begin_inset Formula $x\in\mathfrak{m}$
 \end_inset
 
  of 
-\begin_inset Formula $M_{1},M_{2},M_{3}$
+\begin_inset Formula $M_{1},M_{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $M_{3}$
 \end_inset
 
 .
- The reason is because the set of all zerodivisors of 
+ Indeed, the set of all zerodivisors of 
 \begin_inset Formula $M_{j}$
 \end_inset
 
@@ -65411,16 +66714,24 @@ begin{proof}
 \end_layout
 
 \begin_layout Standard
-Assume that we cannot find a common nonzerodivisor 
-\begin_inset Formula $f\in\mathfrak{m}\subset A$
+Assuming for a contradiction that we cannot find a common nonzerodivisor
+ 
+\begin_inset Formula $x\in\mathfrak{m}$
 \end_inset
 
  of 
-\begin_inset Formula $M_{1},M_{2},M_{3}$
+\begin_inset Formula $M_{1}$
 \end_inset
 
-.
- Then this implies that 
+,
+\begin_inset Formula $M_{2}$
+\end_inset
+
+, and 
+\begin_inset Formula $M_{3}$
+\end_inset
+
+, then we would have
 \begin_inset Formula 
 \[
 \bigcup_{\substack{\mathfrak{p}\in\text{Ass}(M_{j})\\
@@ -65449,7 +66760,7 @@ Since the number associated primes is finite, we must have
 
 , by prime avoidance.
  However this is a contradiction, since it would imply that every 
-\begin_inset Formula $f\in\mathfrak{m}$
+\begin_inset Formula $x\in\mathfrak{m}$
 \end_inset
 
  is a zerodivisor for 
@@ -65457,461 +66768,93 @@ Since the number associated primes is finite, we must have
 \end_inset
 
 .
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset space ~
+ Thus we can find a common nonzerodivisor 
+\begin_inset Formula $x\in\mathfrak{m}$
 \end_inset
 
-
-\begin_inset space ~
+ of 
+\begin_inset Formula $M_{1}$
 \end_inset
 
-
-\begin_inset space ~
+, 
+\begin_inset Formula $M_{2}$
 \end_inset
 
-The next observation we make is that 
-\begin_inset Formula $f$
-\end_inset
-
- being 
+, and 
 \begin_inset Formula $M_{3}$
 \end_inset
 
--regular induces a short exact sequence 
+.
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\backslash
-begin{tikzcd} 0 
-\backslash
-arrow[r] & M_1 / f M_1 
-\backslash
-arrow[r,  " 
-\backslash
-overline{ 
-\backslash
-psi } "] & M_2 / fM_2 
-\backslash
-arrow[r, " 
-\backslash
-overline{ 
-\backslash
-varphi } "] & M_3 / fM_3 
-\backslash
-arrow[r] & 0 
-\backslash
-end{tikzcd}
-\backslash
-end{center}
-\end_layout
-
+\begin_inset space ~
 \end_inset
 
 
-\end_layout
+\begin_inset space ~
+\end_inset
 
-\begin_layout Standard
+
+\begin_inset space ~
+\end_inset
+
 Since 
-\begin_inset Formula $-\otimes A/f$
-\end_inset
-
- is right exact, we only need to check that 
-\begin_inset Formula $M_{1}/fM_{1}\to M_{2}/fM_{2}$
-\end_inset
-
- injective.
- Let 
-\begin_inset Formula $\overline{m}_{1}\in M_{1}$
-\end_inset
-
- such that 
-\begin_inset Formula $\overline{\psi}(\overline{m}_{1})=0$
-\end_inset
-
-.
- Then 
-\begin_inset Formula $\psi(m_{1})=fm_{2}$
-\end_inset
-
- for some 
-\begin_inset Formula $m_{2}\in M_{2}$
-\end_inset
-
-.
- After applying 
-\begin_inset Formula $\varphi$
-\end_inset
-
- to both sides, we have 
-\begin_inset Formula $f\varphi(m_{2})=0$
-\end_inset
-
-.
- Since 
-\begin_inset Formula $f$
+\begin_inset Formula $x$
 \end_inset
 
  is 
 \begin_inset Formula $M_{3}$
 \end_inset
 
--regular, this implies 
-\begin_inset Formula $\varphi(m_{2})=0$
-\end_inset
-
-.
- By exactness of the sequence in the lemma, this implies 
-\begin_inset Formula $m_{2}=\psi(n_{1})$
-\end_inset
-
- for some 
-\begin_inset Formula $n_{1}\in M_{1}$
-\end_inset
-
-.
- After plugging in 
-\begin_inset Formula $\psi(n_{1})$
-\end_inset
-
- into our original equation 
-\begin_inset Formula $\psi(m_{1})=fm_{2}$
-\end_inset
-
-, we have 
-\begin_inset Formula $\psi(m_{1}-fn_{1})=0$
-\end_inset
-
-.
- Finally, this implies 
-\begin_inset Formula $m_{1}=fn_{1}$
-\end_inset
-
-, since 
-\begin_inset Formula $\psi$
-\end_inset
-
- is injective.
- Therefore 
-\begin_inset Formula $\overline{m}_{1}=0$
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-Next, note that depth drops by one if we divide by 
-\begin_inset Formula $f$
-\end_inset
-
-.
- This follows from the fact that the short exact sequence 
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\backslash
-begin{tikzcd} 0 
-\backslash
-arrow[r] & M_j 
-\backslash
-arrow[r, "
-\backslash
-cdot f "] & M_j 
-\backslash
-arrow[r] & M_j / fM_j 
-\backslash
-arrow[r] & 0 
-\backslash
-end{tikzcd}
-\backslash
-end{center}
-\end_layout
+-regular, we obtain a short exact sequence
+\begin_inset Formula 
+\[
+0\to M_{1}\slash xM_{1}\to M_{2}\slash xM_{2}\to M_{3}\slash xM_{3}\to0
+\]
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-induces a long exact sequence in homology 
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\backslash
-begin{tikzcd}[row sep=40]  && 
-\backslash
-cdots 
-\backslash
-arrow[r] 
-\backslash
-arrow[d, phantom, ""{coordinate, name=Z'}] & 0 
-\backslash
-cong H_{n-1} (x_1 , 
-\backslash
-dots , x_n , M_j / fM_j)  
-\backslash
-arrow[dll,  rounded corners, to path={ -- ([xshift=2ex]
-\backslash
-tikztostart.east) |- (Z') [near end]
-\backslash
-tikztonodes -| ([xshift=-2ex]
-\backslash
-tikztotarget.west) -- (
-\backslash
-tikztotarget)}] 
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-
-\backslash
-  & H_{n} (x_1 , 
-\backslash
-dots , x_n , M_j ) 
-\backslash
-arrow[r, "
-\backslash
-cdot f "] & H_{n} (x_1 , 
-\backslash
-dots , x_n , M_j ) 
-\backslash
-arrow[r,] 
-\backslash
-arrow[d, phantom, ""{coordinate, name=Z}] & H_{n} (x_1 , 
-\backslash
-dots , x_n , M_j / f M_j ) 
-\backslash
-arrow[dll, rounded corners, to path={ -- ([xshift=2ex]
-\backslash
-tikztostart.east) |- (Z) [near end]
-\backslash
-tikztonodes -| ([xshift=-2ex]
-\backslash
-tikztotarget.west) -- (
-\backslash
-tikztotarget)}] 
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-
-\backslash
- & H_{n-1} (x_1 , 
-\backslash
-dots , x_n , M_j ) 
-\backslash
-arrow[r, "
-\backslash
-cdot f "] & H_{n-1} (x_1 , 
-\backslash
-dots , x_n , M_j ) 
-\backslash
-arrow[r] 
-\backslash
-arrow[d, phantom, ""{coordinate, name=Z''}] & H_{n-1} (x_1 , 
-\backslash
-dots , x_n , M_j / fM_j)
-\backslash
-arrow[dll, rounded corners, to path={ -- ([xshift=2ex]
-\backslash
-tikztostart.east) |- (Z'') [near end]
-\backslash
-tikztonodes -| ([xshift=-2ex]
-\backslash
-tikztotarget.west) -- (
-\backslash
-tikztotarget)}] 
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-
-\backslash
- & H_{n-2} (x_1 , 
-\backslash
-dots , x_n , M_j ) 
-\backslash
-arrow[r, "
-\backslash
-cdot f "] & H_{n-2} (x_1 , 
-\backslash
-dots , x_n , M_j ) 
-\backslash
-arrow[r] & 
-\backslash
-cdots 
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{tikzcd}
-\backslash
-end{center}
-\end_layout
-
+Since depth drops by one when we divide by 
+\begin_inset Formula $x$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-where 
-\begin_inset Formula $\mathfrak{m}=\langle x_{1},\dots,x_{n}\rangle$
-\end_inset
-
-.
- If 
-\begin_inset Formula $\text{depth}(M_{j})=q$
-\end_inset
-
-, then 
-\begin_inset Formula $H_{i}(x_{1},\dots,x_{n},M_{j})\cong0$
-\end_inset
-
- for all 
-\begin_inset Formula $i>n-q$
-\end_inset
-
- and 
-\begin_inset Formula $H_{n-q}(x_{1},\dots x_{n},M_{j})\not\cong0$
-\end_inset
-
-.
- The map 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\backslash
-begin{tikzcd} H_{i} (x_1 , 
-\backslash
-dots , x_n , M_j ) 
-\backslash
-arrow[r, "
-\backslash
-cdot f "] & H_{i} (x_1 , 
-\backslash
-dots , x_n , M_j ) 
-\backslash
-end{tikzcd}
-\backslash
-end{center}
-\end_layout
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Standard
-is simply the zero map, and thus induces isomorphisms 
-\begin_inset Formula $H_{i}(x_{1},\dots,x_{n},M_{j})\cong H_{i+1}(x_{1},\dots,x_{n},M_{j}/fM_{j})$
-\end_inset
-
- for all 
-\begin_inset Formula $i\geq n-q$
-\end_inset
-
-.
- This implies, in particular, that 
-\begin_inset Formula $\text{depth}(M_{j}/fM_{j})=q-1$
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-From all of this, we see that the proof of the lemma can be reduced to the
- case that the depth of one of the 
-\begin_inset Formula $M_{i}$
+, we see that the proof of the lemma can be reduced to the case that the
+ depth of one of the 
+\begin_inset Formula $M_{j}$
 \end_inset
 
  is zero.
- Suppose that 
-\begin_inset Formula $\text{depth}(M_{1})=0$
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Case 1: 
+\series default
+Suppose that 
+\begin_inset Formula $\mathrm{depth}\,M_{1}=0$
 \end_inset
 
 .
- But then 
-\begin_inset Formula $\text{depth}(M_{2})=0$
+ Then 
+\begin_inset Formula $\mathrm{depth}\,M_{2}=0$
 \end_inset
 
 , because any nonzerodivisor of 
@@ -65924,25 +66867,48 @@ From all of this, we see that the proof of the lemma can be reduced to the
 
 .
  The lemma is proved in this case.
- Now assume that 
-\begin_inset Formula $\text{depth}(M_{2})=0$
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
 \end_inset
 
-.
- Suppose 
-\begin_inset Formula $\text{depth}(M_{1})>0$
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Case 2: 
+\series default
+Suppose that 
+\begin_inset Formula $\mathrm{depth}\,M_{2}=0$
+\end_inset
+
+ and assume for a contradiction that 
+\begin_inset Formula $\mathrm{depth}\,M_{1}>0$
 \end_inset
 
  and 
-\begin_inset Formula $\text{depth}(M_{3})>0$
+\begin_inset Formula $\mathrm{depth}\,M_{3}>0$
 \end_inset
 
 .
  Let 
-\begin_inset Formula $f\in\mathfrak{m}\subset A$
+\begin_inset Formula $x\in\mathfrak{m}$
 \end_inset
 
- be a nonzerodivisor of 
+ be a common nonzerodivisor of 
 \begin_inset Formula $M_{1}$
 \end_inset
 
@@ -65951,13 +66917,8 @@ From all of this, we see that the proof of the lemma can be reduced to the
 \end_inset
 
 .
- Again, we can find such an 
-\begin_inset Formula $f$
-\end_inset
-
- by prime avoidance.
- From the Snake Lemma we obtain that 
-\begin_inset Formula $f$
+ From the snake lemma we obtain that 
+\begin_inset Formula $x$
 \end_inset
 
  is a nonzerodivisor for 
@@ -65966,17 +66927,41 @@ From all of this, we see that the proof of the lemma can be reduced to the
 
  too.
  This is a contradiction.
- Finally assume that 
-\begin_inset Formula $\text{depth}(M_{3})=0$
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Case 3: 
+\series default
+Suppose that 
+\begin_inset Formula $\mathrm{depth}\,M_{3}=0$
 \end_inset
 
 .
  If 
-\begin_inset Formula $\text{depth}(M_{2})>0$
+\begin_inset Formula $\mathrm{depth}\,M_{2}>0$
 \end_inset
 
 , let 
-\begin_inset Formula $f\in\mathfrak{m}$
+\begin_inset Formula $x\in\mathfrak{m}$
 \end_inset
 
  be a nonzerodivisor of 
@@ -65984,49 +66969,47 @@ From all of this, we see that the proof of the lemma can be reduced to the
 \end_inset
 
 .
- This is also a nonzerodivisor for 
+ This is also a nonzero divisor for 
 \begin_inset Formula $M_{1}$
 \end_inset
 
 , and therefore 
-\begin_inset Formula $\text{depth}(M_{1})>0$
+\begin_inset Formula $\mathrm{depth}\,M_{1}>0$
 \end_inset
 
 .
- Using the Snake Lemma, we obtain an inclusion
+ Using the snake lemma, we obtain an injective map
 \begin_inset Formula 
 \[
-\text{Ker}(f:M_{3}\to M_{3})\subset M_{1}/fM_{1}.
+\ker(M_{3}\xrightarrow{x}M_{3})\rightarrowtail M_{1}\slash xM_{1}.
 \]
 
 \end_inset
 
 As 
-\begin_inset Formula $\text{depth}(M_{3})=0$
+\begin_inset Formula $\mathrm{depth}\,M_{3}=0$
 \end_inset
 
 , we have 
-\begin_inset Formula $\text{Ker}(f:M_{3}\to M_{3})\neq0$
+\begin_inset Formula $\ker(M_{3}\xrightarrow{x}M_{3})\neq0$
 \end_inset
 
 .
  Any nonzerodivisor of 
-\begin_inset Formula $M_{1}/fM_{1}$
+\begin_inset Formula $M_{1}\slash xM_{1}$
 \end_inset
 
  would give a nonzerodivisor of 
-\begin_inset Formula $\text{Ker}(f:M_{3}\to M_{3})\subset M_{3}$
+\begin_inset Formula $\ker(M_{3}\xrightarrow{x}M_{3})$
 \end_inset
 
 .
  But this is not possible, and therefore 
-\begin_inset Formula $\text{depth}(M_{1})=1$
+\begin_inset Formula $\mathrm{depth}\,M_{1}=1$
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
+ 
 \begin_inset ERT
 status open
 
@@ -66043,236 +67026,17 @@ end{proof}
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{rem}
-\end_layout
-
-\end_inset
-
- Note that the lemma says that if 
-\begin_inset Formula $\text{depth}(M_{1})>\text{depth}(M_{2})$
-\end_inset
-
-, then we must have 
-\begin_inset Formula $\text{depth}(M_{2})=\text{depth}(M_{3})$
-\end_inset
-
-.
- For if 
-\begin_inset Formula $\text{depth}(M_{2})>\text{depth}(M_{3})$
-\end_inset
-
-, then 
-\begin_inset Formula $\text{depth}(M_{1})=\text{depth}(M_{3})+1$
-\end_inset
-
-.
- But this would contradict the fact that 
-\begin_inset Formula $\text{depth}(M_{1})>\text{depth}(M_{2})$
-\end_inset
-
-.
- Similarly, if 
-\begin_inset Formula $\text{depth}(M_{3})>\text{depth}(M_{2})$
-\end_inset
-
-, then we must have 
-\begin_inset Formula $\text{depth}(M_{2})=\text{depth}(M_{1})$
-\end_inset
-
-.
- If 
-\begin_inset Formula $\text{depth}(M_{1})=\text{depth}(M_{2})$
-\end_inset
-
-, then either 
-\begin_inset Formula $\text{depth}(M_{3})=\text{depth}(M_{1})-1$
-\end_inset
-
- or 
-\begin_inset Formula $\text{depth}(M_{3})=\text{depth}(M_{1})$
-\end_inset
-
-.
- If 
-\begin_inset Formula $\text{depth}(M_{3})=\text{depth}(M_{2})$
-\end_inset
-
-, then we must have 
-\begin_inset Formula $\text{depth}(M_{3})=\text{depth}(M_{1})$
-\end_inset
-
-.
- In all other cases, we have 
-\begin_inset Formula $\text{depth}(M_{1})=\text{depth}(M_{3})+1$
-\end_inset
-
-.
- We summarize this in the table below.
-\end_layout
-
-\begin_layout Standard
-\align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="5" columns="2">
-<features tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Condition
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Implication
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\text{depth}(M_{1})>\text{depth}(M_{2})$
+\begin_inset space ~
 \end_inset
 
 
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\text{depth}(M_{2})=\text{depth}(M_{3})$
+\begin_inset space ~
 \end_inset
 
 
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\text{depth}(M_{1})=\text{depth}(M_{2})$
+\begin_inset space ~
 \end_inset
 
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\text{depth}(M_{3})=\text{depth}(M_{1})-1$
-\end_inset
-
- or 
-\begin_inset Formula $\text{depth}(M_{2})=\text{depth}(M_{1})$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\text{depth}(M_{3})\geq\text{depth}(M_{2})$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\text{depth}(M_{2})=\text{depth}(M_{1})$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-All other cases
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Formula $\text{depth}(M_{1})=\text{depth}(M_{3})+1$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{rem}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 We are now ready to state the Auslander-Buchsbaum Formula.
  
 \end_layout
@@ -66340,13 +67104,26 @@ begin{proof}
 
 \end_inset
 
+ Denote 
+\begin_inset Formula $q_{M}=\mathrm{depth}\,M$
+\end_inset
+
+, 
+\begin_inset Formula $q_{R}=\mathrm{depth}\,R$
+\end_inset
+
+, and 
+\begin_inset Formula $p=\mathrm{pd}_{R}\,M$
+\end_inset
+
+.
  The proof is by induction on 
-\begin_inset Formula $\mathrm{depth}\,R$
+\begin_inset Formula $q_{R}$
 \end_inset
 
 .
  First assume 
-\begin_inset Formula $\mathrm{depth}\,R=0$
+\begin_inset Formula $q_{R}=0$
 \end_inset
 
 .
@@ -66354,11 +67131,11 @@ begin{proof}
 \begin_inset Formula $\mathfrak{m}$
 \end_inset
 
- consists of zero divisors.
+ consists of zerodivisors.
  In particular, 
 \begin_inset Formula 
 \[
-\mathfrak{m}\subset\bigcup_{\mathfrak{p}\in\text{Ass }R}\mathfrak{p},
+\mathfrak{m}\subseteq\bigcup_{\mathfrak{p}\in\text{Ass }R}\mathfrak{p},
 \]
 
 \end_inset
@@ -66389,58 +67166,20 @@ and since the number of associated primes of
 \begin_inset Formula $x\in R$
 \end_inset
 
- and let
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{equation}
-\backslash
-begin{tikzcd} 0 
-\backslash
-arrow[r] & F_{n} 
-\backslash
-arrow[r, " 
-\backslash
-varphi _n " ] & F_{n-1} 
-\backslash
-arrow[r, " 
-\backslash
-varphi _{n-1} "] & 
-\backslash
-cdots  
-\backslash
-arrow[r] & F_0 
-\backslash
-arrow[r, " 
-\backslash
-varphi _0 "] & M  
-\backslash
-arrow[r] & 0
-\backslash
-end{tikzcd}
-\backslash
-end{equation}
-\end_layout
-
+ and let 
+\begin_inset Formula $(F,\mathrm{d})$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-be a minimal free resolution of 
+ be a minimal free resolution of 
 \begin_inset Formula $M$
 \end_inset
 
  over 
 \begin_inset Formula $R$
+\end_inset
+
+ of finite length 
+\begin_inset Formula $n$
 \end_inset
 
 .
@@ -66451,7 +67190,7 @@ be a minimal free resolution of
 , then by minimality of the resolution, we have
 \begin_inset Formula 
 \begin{align*}
-\varphi_{n}(xF_{n}) & =x\varphi_{n}(F_{n})\\
+\mathrm{d}_{n}(xF_{n}) & =x\mathrm{d}_{n}(F_{n})\\
  & \subseteq x\mathfrak{m}F_{n-1}\\
  & =0.
 \end{align*}
@@ -66459,15 +67198,15 @@ be a minimal free resolution of
 \end_inset
 
 This implies 
-\begin_inset Formula $xF_{n}\cong0$
+\begin_inset Formula $xF_{n}=0$
 \end_inset
 
  since 
-\begin_inset Formula $\varphi_{n}$
+\begin_inset Formula $\mathrm{d}_{n}$
 \end_inset
 
  is injective, and thus 
-\begin_inset Formula $F_{n}\cong0$
+\begin_inset Formula $F_{n}=0$
 \end_inset
 
  since 
@@ -66486,15 +67225,14 @@ This implies
 
 .
  In other words, we have 
-\begin_inset Formula $\mathrm{pd}_{R}\,M=0$
+\begin_inset Formula $p=0$
 \end_inset
 
  and 
-\begin_inset Formula $\mathrm{depth}\,M=\mathrm{depth}\,R$
+\begin_inset Formula $q_{M}=q_{R}$
 \end_inset
 
 .
- 
 \end_layout
 
 \begin_layout Standard
@@ -66510,11 +67248,11 @@ This implies
 \end_inset
 
 Now we assume 
-\begin_inset Formula $\mathrm{depth}\,R>0$
+\begin_inset Formula $q_{R}>0$
 \end_inset
 
  and 
-\begin_inset Formula $\mathrm{depth}\,M>0$
+\begin_inset Formula $q_{M}>0$
 \end_inset
 
 .
@@ -66522,7 +67260,7 @@ Now we assume
 \begin_inset Formula $x\in\mathfrak{m}$
 \end_inset
 
- be a nonzerodivisor of both 
+ be a common nonzerodivisor of both 
 \begin_inset Formula $M$
 \end_inset
 
@@ -66540,7 +67278,7 @@ Now we assume
 
  have positive depth).
  Then the projective dimension is constant if we divide by 
-\begin_inset Formula $f$
+\begin_inset Formula $x$
 \end_inset
 
 , that is, 
@@ -66552,55 +67290,31 @@ Now we assume
 \end_inset
 
 but the depth drops by one.
- This is because the sequence
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{equation}
-\backslash
-begin{tikzcd} 0 
-\backslash
-arrow[r] & F_{n} / xF_{n} 
-\backslash
-arrow[r, " 
-\backslash
-overline{ 
-\backslash
-varphi  } _n " ] & F_{n-1} / xF_{n-1} 
-\backslash
-arrow[r, "  
-\backslash
-overline{ 
-\backslash
-varphi  } _{n-1} "] & 
-\backslash
-cdots  
-\backslash
-arrow[r] & F_0 / xF_0 
-\backslash
-arrow[r, "  
-\backslash
-overline{ 
-\backslash
-varphi  } _0  "] & M /fM 
-\backslash
-arrow[r] & 0
-\backslash
-end{tikzcd}
-\backslash
-end{equation}
-\end_layout
-
+ This is because the sequence if 
+\begin_inset Formula $(F,\mathrm{d})$
 \end_inset
 
- remains exact as long as 
+ is a minimal free resolution of 
+\begin_inset Formula $M$
+\end_inset
+
+ over 
+\begin_inset Formula $R$
+\end_inset
+
+, then 
+\begin_inset Formula $(F\slash xF,\overline{\mathrm{d}})$
+\end_inset
+
+ is a minimal free resolution of 
+\begin_inset Formula $M\slash xM$
+\end_inset
+
+ over 
+\begin_inset Formula $R\slash xR$
+\end_inset
+
+ as long as 
 \begin_inset Formula $x$
 \end_inset
 
@@ -66612,44 +67326,7 @@ end{equation}
 \begin_inset Formula $R$
 \end_inset
 
--regular (that is a nonzero divisor of both 
-\begin_inset Formula $M$
-\end_inset
-
- and 
-\begin_inset Formula $R$
-\end_inset
-
-).
- Moreover, it is a minimal free 
-\begin_inset Formula $M\slash xM$
-\end_inset
-
- resolution over 
-\begin_inset Formula $R\slash x$
-\end_inset
-
- since 
-\begin_inset Formula 
-\[
-\overline{\varphi}_{i}(F_{i}/xF_{i})\subset\overline{\mathfrak{m}}(F_{i}/xF_{i})
-\]
-
-\end_inset
-
-for all 
-\begin_inset Formula $0\leq i\leq n$
-\end_inset
-
-, where 
-\begin_inset Formula $\overline{\mathfrak{m}}$
-\end_inset
-
- is the maximal ideal in 
-\begin_inset Formula $R\slash x$
-\end_inset
-
-.
+-regular.
  It follows from the induction hypothesis, that
 \begin_inset Formula 
 \begin{align*}
@@ -66676,16 +67353,16 @@ for all
 \end_inset
 
 Finally, assume 
-\begin_inset Formula $\mathrm{depth}\,R>0$
+\begin_inset Formula $q_{R}>0$
 \end_inset
 
  and 
-\begin_inset Formula $\mathrm{depth}\,M=0$
+\begin_inset Formula $q_{M}=0$
 \end_inset
 
 .
  Then 
-\begin_inset Formula $\mathrm{pd}_{R}\,M>0$
+\begin_inset Formula $p>0$
 \end_inset
 
 , because otherwise 
@@ -66693,54 +67370,32 @@ Finally, assume
 \end_inset
 
  would be free and we would have 
-\begin_inset Formula $\mathrm{depth}\,M=\mathrm{depth}\,R>0$
+\begin_inset Formula $q_{M}=q_{R}>0$
 \end_inset
 
 , which is a contradiction.
  Let 
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\backslash
-begin{tikzcd} 0 
-\backslash
-arrow[r] & N 
-\backslash
-arrow[r] & F 
-\backslash
-arrow[r] & M 
-\backslash
-arrow[r] &  0 
-\backslash
-end{tikzcd}
-\backslash
-end{center}
-\end_layout
+\begin_inset Formula 
+\[
+0\to N\to F\to M\to0
+\]
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-be an exact sequence where 
-\begin_inset Formula $F$
-\end_inset
-
- is a finitely generated free 
+be a short exact sequence of 
 \begin_inset Formula $R$
 \end_inset
 
--module and 
-\begin_inset Formula $0\neq N\subset\mathfrak{m}F$
+-modules where 
+\begin_inset Formula $F$
+\end_inset
+
+ is a finitely-generated free 
+\begin_inset Formula $R$
+\end_inset
+
+-module and where 
+\begin_inset Formula $0\neq N\subseteq\mathfrak{m}F$
 \end_inset
 
 .
@@ -66802,35 +67457,23 @@ begin{example}
 \end_inset
 
  Let 
-\begin_inset Formula $A=K[x,y,z]_{\langle x,y,z\rangle}$
+\begin_inset Formula $R=K[x,y,z]_{\langle x,y,z\rangle}$
 \end_inset
 
  and let 
-\begin_inset Formula $I$
-\end_inset
-
- be an ideal in 
-\begin_inset Formula $A$
-\end_inset
-
- given by 
 \begin_inset Formula $I=\langle xz,yz\rangle$
 \end_inset
 
 .
- We want to compute a minimal free resolution of 
-\begin_inset Formula $A/I$
+ The minimal free resolution of 
+\begin_inset Formula $R\slash I$
 \end_inset
 
-.
- Then we would have 
-\begin_inset Formula $\text{depth}(A/I)=n-\text{pd}_{A}(A/I)$
+ over 
+\begin_inset Formula $R$
 \end_inset
 
-.
-\end_layout
-
-\begin_layout Standard
+ is given by
 \begin_inset ERT
 status open
 
@@ -66846,7 +67489,7 @@ begin{tikzcd}[column sep=huge, row sep=0.4, ampersand replacement=
 \backslash
 arrow[r] 
 \backslash
-&  A 
+&  R 
 \backslash
 arrow{r}{
 \backslash
@@ -66858,7 +67501,7 @@ begin{pmatrix} -y
 \backslash
 end{pmatrix} } 
 \backslash
-& A^2 
+& R^2 
 \backslash
 arrow{r}{ 
 \backslash
@@ -66866,11 +67509,11 @@ begin{pmatrix} xz & yz
 \backslash
 end{pmatrix} } 
 \backslash
-& A 
+& R 
 \backslash
 arrow[r] 
 \backslash
-& A/I  
+& 0  
 \backslash
 end{tikzcd}
 \backslash
@@ -66879,27 +67522,27 @@ end{center}
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-So 
-\begin_inset Formula $\text{pd}_{A}(A/I)=2$
+In particular, 
+\begin_inset Formula $\mathrm{pd}_{R}(R\slash I)=2$
 \end_inset
 
-, hence 
-\begin_inset Formula $\text{depth}(A/I)=1$
+, and hence 
+\begin_inset Formula $\mathrm{depth}(R\slash I)=1$
+\end_inset
+
+ since 
+\begin_inset Formula $\mathrm{depth}\,R=3$
 \end_inset
 
 .
  On the other hand, we know that 
-\begin_inset Formula $\text{dim}(A/I)\geq2$
+\begin_inset Formula $\text{dim}(R\slash I)\geq2$
 \end_inset
 
 , since 
 \begin_inset Formula 
 \[
-A\supset\langle x,y,z\rangle\supset\langle y,z\rangle\supset\langle z\rangle\supset I
+\langle\overline{x},\overline{y},\overline{z}\rangle\supset\langle\overline{y},\overline{z}\rangle\supset\langle\overline{z}\rangle
 \]
 
 \end_inset
@@ -66914,11 +67557,11 @@ gives a chain of prime ideals of length
 
 .
  Therefore 
-\begin_inset Formula $A/I$
+\begin_inset Formula $R\slash I$
 \end_inset
 
- is not a Cohen Macaulay 
-\begin_inset Formula $A$
+ is not a Cohen-Macaulay 
+\begin_inset Formula $R$
 \end_inset
 
 -module.
@@ -66955,24 +67598,20 @@ begin{example}
 \end_inset
 
  Let 
-\begin_inset Formula $A=K[x,y,z]_{\langle x,y,z\rangle}$
+\begin_inset Formula $R=K[x,y,z]_{\langle x,y,z\rangle}$
 \end_inset
 
  and let 
-\begin_inset Formula $I$
-\end_inset
-
- be an ideal in 
-\begin_inset Formula $A$
-\end_inset
-
- given by 
 \begin_inset Formula $I=\langle xy,xz,yz\rangle$
 \end_inset
 
 .
- A minimal free resolution of 
-\begin_inset Formula $A/I$
+ The minimal free resolution of 
+\begin_inset Formula $R\slash I$
+\end_inset
+
+ over 
+\begin_inset Formula $R$
 \end_inset
 
  is given by
@@ -66994,7 +67633,7 @@ begin{tikzcd}[column sep=huge, row sep=0.4, ampersand replacement=
 \backslash
 arrow[r] 
 \backslash
-&  A^2 
+&  R^2 
 \backslash
 arrow{r}{
 \backslash
@@ -67010,7 +67649,7 @@ begin{pmatrix} 0 & -z
 \backslash
 end{pmatrix} } 
 \backslash
-& A^3 
+& R^3 
 \backslash
 arrow{r}{ 
 \backslash
@@ -67018,11 +67657,11 @@ begin{pmatrix} xy & xz & yz
 \backslash
 end{pmatrix} } 
 \backslash
-& A 
+& R 
 \backslash
 arrow[r] 
 \backslash
-& A/I  
+& 0  
 \backslash
 end{tikzcd}
 \backslash
@@ -67036,31 +67675,32 @@ end{center}
 
 \begin_layout Standard
 So 
-\begin_inset Formula $\text{pd}_{A}(A/I)=2$
+\begin_inset Formula $\mathrm{pd}_{R}(R\slash I)=2$
 \end_inset
 
-, hence 
-\begin_inset Formula $\text{depth}(A/I)=1$
+, and hence 
+\begin_inset Formula $\mathrm{depth}(R\slash I)=1$
+\end_inset
+
+ since 
+\begin_inset Formula $\mathrm{depth}\,R=3$
 \end_inset
 
 .
  We also have 
-\begin_inset Formula $\text{dim}(A/I)=1$
+\begin_inset Formula $\text{dim}(R\slash I)=1$
 \end_inset
 
 , so 
-\begin_inset Formula $A/I$
+\begin_inset Formula $R\slash I$
 \end_inset
 
- is a Cohen Macaulay 
-\begin_inset Formula $A$
+ is a Cohen-Macaulay 
+\begin_inset Formula $R$
 \end_inset
 
 -module.
  
-\end_layout
-
-\begin_layout Standard
 \begin_inset ERT
 status open
 
@@ -67081,7 +67721,7 @@ Duality Canonical Modules, and Gorenstein Rings
 \end_layout
 
 \begin_layout Standard
-Let 
+Unless otherwise specified, let 
 \begin_inset Formula $K$
 \end_inset
 
@@ -67138,7 +67778,7 @@ in general.
 
 \end_inset
 
-The following example shows that we may not have 
+In general, we may not have 
 \begin_inset Formula $\mathrm{Hom}_{R}(I,R)\cong R\slash I$
 \end_inset
 
@@ -67146,6 +67786,10 @@ The following example shows that we may not have
  
 \end_layout
 
+\begin_layout Subsection
+Dualizing Functors
+\end_layout
+
 \begin_layout Standard
 \begin_inset ERT
 status open
@@ -67154,119 +67798,35 @@ status open
 
 
 \backslash
-begin{example}
+begin{defn}
 \backslash
-label{example1}
+label{defn}
 \end_layout
 
 \end_inset
 
  Let 
-\begin_inset Formula $R=K[x,y]\slash\langle x^{2},xy^{2},y^{3}\rangle$
+\begin_inset Formula $D$
 \end_inset
 
- and let 
-\begin_inset Formula $I=\langle\overline{y}\rangle$
-\end_inset
-
-.
- Then we have
-\begin_inset Formula 
-\begin{align*}
-\mathrm{Hom}_{R}(R\slash I,R) & \cong\mathrm{Ann}\,I\\
- & =\langle\overline{xy},\overline{y}^{2}\rangle.
-\end{align*}
-
-\end_inset
-
-Now let's calculate 
-\begin_inset Formula $\mathrm{Hom}_{R}(\langle\overline{xy},\overline{y}^{2}\rangle,R)$
-\end_inset
-
-.
- Well any 
-\begin_inset Formula $\varphi\in\mathrm{Hom}_{R}(\langle\overline{xy},\overline{y}^{2}\rangle,R)$
-\end_inset
-
- is completely determined by where it maps the generators 
-\begin_inset Formula $\overline{xy}$
-\end_inset
-
- and 
-\begin_inset Formula $\overline{y}^{2}$
-\end_inset
-
-, but we must keep in mind that 
-\begin_inset Formula $\varphi$
-\end_inset
-
- can't send these elements to 
-\emph on
-any 
-\emph default
-two elements in 
+ be a contravariant functor from the category of finitely-generated 
 \begin_inset Formula $R$
 \end_inset
 
-.
- For example, we cannot have 
-\begin_inset Formula $\overline{xy}\mapsto\overline{y}$
+-modules to itself.
+ We say 
+\begin_inset Formula $D$
 \end_inset
 
- since
-\begin_inset Formula 
-\begin{align*}
-\varphi(\overline{x}\overline{xy}) & =\varphi(0)\\
- & =0\\
- & \neq\overline{xy}\\
- & =\overline{x}\varphi(\overline{xy}).
-\end{align*}
-
+ is a 
+\series bold
+dualizing functor 
+\series default
+if it is exact and 
+\begin_inset Formula $D^{2}$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-It is straightforward to check that both 
-\begin_inset Formula $\overline{xy}$
-\end_inset
-
- and 
-\begin_inset Formula $\overline{y}^{2}$
-\end_inset
-
- can be mapped to any 
-\begin_inset Formula $K$
-\end_inset
-
--linear combination of 
-\begin_inset Formula $\overline{xy}$
-\end_inset
-
- and 
-\begin_inset Formula $\overline{y}^{2}$
-\end_inset
-
-.
- Thus as a 
-\begin_inset Formula $K$
-\end_inset
-
--vector space, we have 
-\begin_inset Formula $\mathrm{Hom}_{R}(\langle\overline{xy},\overline{y}^{2}\rangle,R)\cong K^{4}$
-\end_inset
-
-.
- On the other hand, as a 
-\begin_inset Formula $K$
-\end_inset
-
--vector space, we have 
-\begin_inset Formula $R\slash I\cong K^{3}$
-\end_inset
-
-.
+ is naturally isomorphic to the identity functor.
  
 \begin_inset ERT
 status open
@@ -67275,7 +67835,7 @@ status open
 
 
 \backslash
-end{example}
+end{defn}
 \end_layout
 
 \end_inset
@@ -67284,10 +67844,127 @@ end{example}
 \end_layout
 
 \begin_layout Standard
-\begin_inset space ~
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\backslash
+label{prop}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $D$
+\end_inset
+
+ bea dualizing functor from the category of finitely-generated 
+\begin_inset Formula $R$
+\end_inset
+
+-modules to itself.
+\end_layout
+
+\begin_layout Enumerate
+Suppose 
+\begin_inset Formula $\mathfrak{m}$
+\end_inset
+
+ is a maximal ideal of 
+\begin_inset Formula $R$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $D$
+\end_inset
+
+ takes the simple module 
+\begin_inset Formula $R\slash\mathfrak{m}$
+\end_inset
+
+ to an isomorphic copy of itself.
+\end_layout
+
+\begin_layout Enumerate
+Suppose 
+\begin_inset Formula $M$
+\end_inset
+
+ is a finitely-generated 
+\begin_inset Formula $R$
+\end_inset
+
+-module of finite length.
+ Then 
+\begin_inset Formula $D(M)$
+\end_inset
+
+ has finite length and 
+\begin_inset Formula $\mathrm{length}\,M=\mathrm{length}\,D(M)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+d
+\end_layout
+
+\begin_layout Enumerate
+s
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof} 
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
 \begin_inset space ~
 \end_inset
 
@@ -67344,125 +68021,7 @@ for all
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{example}
-\end_layout
-
-\end_inset
-
- Returning to 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-Example~(
-\backslash
-ref{example1})
-\end_layout
-
-\end_inset
-
-, we see that 
-\begin_inset Formula $D(A/I)=K\varphi_{x}+K\varphi_{xy}$
-\end_inset
-
-, where 
-\begin_inset Formula $\varphi_{x}(x)=1$
-\end_inset
-
-, 
-\begin_inset Formula $\varphi_{x}(xy)=0$
-\end_inset
-
- and 
-\begin_inset Formula $\varphi_{xy}(x)=0$
-\end_inset
-
- and 
-\begin_inset Formula $\varphi_{xy}(xy)=1$
-\end_inset
-
-.
- Then 
-\begin_inset Formula $x\cdot\varphi_{x}=0$
-\end_inset
-
- since 
-\begin_inset Formula 
-\begin{align*}
-x\cdot\varphi_{x}(xy) & =\varphi_{x}(x^{2}y)\\
- & =\varphi_{x}(0)\\
- & =0
-\end{align*}
-
-\end_inset
-
- and
-\begin_inset Formula 
-\begin{align*}
-x\cdot\varphi_{x}(x) & =\varphi_{x}(x^{2})\\
- & =\varphi_{x}(0)\\
- & =0.
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Similarly, one can show that 
-\begin_inset Formula $x\cdot\varphi_{xy}=0$
-\end_inset
-
-, 
-\begin_inset Formula $y\cdot\varphi_{x}=0$
-\end_inset
-
-, and 
-\begin_inset Formula $y\cdot\varphi_{xy}=\varphi_{x}$
-\end_inset
-
-.
- 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{example}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-With 
+ With 
 \begin_inset Formula $D$
 \end_inset
 
@@ -67471,7 +68030,7 @@ With
 \end_inset
 
  a contravariant functor from the category of finitely generated 
-\begin_inset Formula $A$
+\begin_inset Formula $R$
 \end_inset
 
 -modules to itself.
@@ -67488,34 +68047,34 @@ With
 \end_inset
 
  sending 
-\begin_inset Formula $m\in M$
+\begin_inset Formula $u\in M$
 \end_inset
 
  to the functional 
-\begin_inset Formula $\widehat{m}:\varphi\mapsto\varphi(m)$
+\begin_inset Formula $\widehat{u}:\varphi\mapsto\varphi(u)$
 \end_inset
 
 , for 
-\begin_inset Formula $\varphi\in\text{Hom}_{K}(M,K)$
+\begin_inset Formula $\varphi\in\mathrm{Hom}_{K}(M,K)$
 \end_inset
 
  is an isomorphism of vector spaces.
  In fact, it is an isomophism of 
-\begin_inset Formula $A$
+\begin_inset Formula $R$
 \end_inset
 
 -modules.
  Indeed, we have 
-\begin_inset Formula $\widehat{am}=a\cdot\widehat{m}$
+\begin_inset Formula $\widehat{au}=a\widehat{u}$
 \end_inset
 
  since 
 \begin_inset Formula 
 \begin{align*}
-\left(a\cdot\widehat{m}\right)\left(\varphi\right) & =\widehat{m}\left(a\cdot\varphi\right)\\
- & =\left(a\cdot\varphi\right)\left(m\right)\\
- & =\varphi\left(am\right)\\
- & =\widehat{am}(\varphi)
+(a\widehat{u})(\varphi) & =\widehat{u}(a\varphi)\\
+ & =(a\varphi)(u)\\
+ & =\varphi(au)\\
+ & =\widehat{au}(\varphi)
 \end{align*}
 
 \end_inset
@@ -67547,12 +68106,12 @@ in the sense that it takes exact sequences to exact sequences (with arrows
 \begin_inset Formula $D$
 \end_inset
 
- is a 
+ is a dualizing functor
 \series bold
-dualizing functor 
+ 
 \series default
 on the category of finitely generated 
-\begin_inset Formula $A$
+\begin_inset Formula $R$
 \end_inset
 
 -modules.
@@ -67576,11 +68135,11 @@ To get an idea of how
 \end_inset
 
  acts, note first that if 
-\begin_inset Formula $\mathfrak{p}$
+\begin_inset Formula $\mathfrak{m}$
 \end_inset
 
  is a maximal ideal of 
-\begin_inset Formula $A$
+\begin_inset Formula $R$
 \end_inset
 
 , then any dualizing functor 
@@ -67588,33 +68147,33 @@ To get an idea of how
 \end_inset
 
  takes the simple module 
-\begin_inset Formula $A/\mathfrak{p}$
+\begin_inset Formula $R\slash\mathfrak{m}$
 \end_inset
 
  to itself.
  Indeed, 
-\begin_inset Formula $D(A/\mathfrak{p})$
+\begin_inset Formula $D(R\slash\mathfrak{m})$
 \end_inset
 
  must be simple, because else it would have a proper factor module 
 \begin_inset Formula $M$
 \end_inset
 
- and 
+ and then 
 \begin_inset Formula $D(M)$
 \end_inset
 
  would be a proper submodule of 
-\begin_inset Formula $A/\mathfrak{p}$
+\begin_inset Formula $R\slash\mathfrak{m}$
 \end_inset
 
 .
  As 
-\begin_inset Formula $A$
+\begin_inset Formula $R$
 \end_inset
 
- is local, it has only one simple module, and thus 
-\begin_inset Formula $D(A/\mathfrak{p})\cong A/\mathfrak{p}$
+ is local, it has only one simple module up to isomorphism, and thus 
+\begin_inset Formula $D(R\slash\mathfrak{p})\cong R\slash\mathfrak{p}$
 \end_inset
 
 .
@@ -67643,7 +68202,7 @@ turns composition series upside down
 \end_inset
 
 is a chain of modules with simple quotients 
-\begin_inset Formula $M_{i}/M_{i-1}\cong A/\mathfrak{p}$
+\begin_inset Formula $M_{i}\slash M_{i-1}\cong R\slash\mathfrak{m}$
 \end_inset
 
 , then 
@@ -67671,20 +68230,13 @@ is a chain of surjections whose kernels
  
 \end_layout
 
+\begin_layout Subsection
+Top and Socle of Module
+\end_layout
+
 \begin_layout Standard
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
 A central role in the theory of modules over a local ring 
-\begin_inset Formula $(A,\mathfrak{p})$
+\begin_inset Formula $(R,\mathfrak{m})$
 \end_inset
 
  is played by what might be thought of as the 
@@ -67696,10 +68248,14 @@ of a module
 \end_inset
 
 , defined to be the quotient 
-\begin_inset Formula $\text{Top}(M):=M/\mathfrak{p}M$
+\begin_inset Formula 
+\[
+\mathrm{Top}\,M:=M\slash\mathfrak{m}M.
+\]
+
 \end_inset
 
-; Nakayama's lemma shows that this quotient controls the generators of 
+Nakayama's lemma shows that this quotient controls the generators of 
 \begin_inset Formula $M$
 \end_inset
 
@@ -67709,10 +68265,10 @@ of a module
 \end_inset
 
  that is a direct sum of simple modules.
- That is, 
+ That is,
 \begin_inset Formula 
 \[
-M/\mathfrak{p}M=\bigoplus_{i}\left(A/\mathfrak{p}\right).
+M\slash\mathfrak{m}M=\bigoplus_{i}R\slash\mathfrak{m}.
 \]
 
 \end_inset
@@ -67729,33 +68285,33 @@ of
 \begin_inset Formula $M$
 \end_inset
 
-, denoted 
-\begin_inset Formula $\text{Soc}(M)$
+, defined to be 
+\begin_inset Formula 
+\[
+\mathrm{Soc}\,M=0:_{M}\mathfrak{m}=\{u\in M\mid u\mathfrak{m}=0\}.
+\]
+
 \end_inset
 
-: It is defined as the annihilator in 
+Equivalently, the socle of 
 \begin_inset Formula $M$
 \end_inset
 
- of the maximal ideal 
-\begin_inset Formula $\mathfrak{p}$
-\end_inset
-
-, or equivalently, as the sum of all the simple submodules of 
+ is the sum of all the simple submodules of 
 \begin_inset Formula $M$
 \end_inset
 
 .
  Note that since the top of 
-\begin_inset Formula $A$
+\begin_inset Formula $R$
 \end_inset
 
  is 
-\begin_inset Formula $A/\mathfrak{p}$
+\begin_inset Formula $R\slash\mathfrak{m}$
 \end_inset
 
-, a simple module, the socle of 
-\begin_inset Formula $D(A)$
+, a simple module, hence the socle of 
+\begin_inset Formula $D(R)$
 \end_inset
 
  must be a simple module as well.
@@ -67910,13 +68466,14 @@ end{rem}
 \begin_inset space ~
 \end_inset
 
-Any dualizing functor preserves endomorphism rings; more generally, 
-\begin_inset Formula $\text{Hom}_{A}(D(M),D(N))\cong\text{Hom}_{A}(N,M)$
+Any dualizing functor preserves endomorphism rings; more generally, we have
+ 
+\begin_inset Formula $\mathrm{Hom}_{R}(D(M),D(N))\cong\mathrm{Hom}_{R}(N,M)$
 \end_inset
 
 .
  In particular, 
-\begin_inset Formula $D(A)$
+\begin_inset Formula $D(R)$
 \end_inset
 
  is a module with endomorphism ring 
@@ -68001,6 +68558,10 @@ Since
  is surjective.
 \end_layout
 
+\begin_layout Subsection
+Canonical module of a local zero-dimensional ring
+\end_layout
+
 \begin_layout Standard
 \begin_inset ERT
 status open
@@ -68017,7 +68578,7 @@ label{prop21.1}
 \end_inset
 
  Let 
-\begin_inset Formula $(A,\mathfrak{m})$
+\begin_inset Formula $(R,\mathfrak{m})$
 \end_inset
 
  be a local zero-dimensional ring.
@@ -68026,20 +68587,20 @@ label{prop21.1}
 \end_inset
 
  is any dualizing functor from the category of finitely generated 
-\begin_inset Formula $A$
+\begin_inset Formula $R$
 \end_inset
 
 -modules to itself, then there is an isomorphism of functors 
-\begin_inset Formula $E(-)\cong\text{Hom}_{A}(-,E(A))$
+\begin_inset Formula $E(-)\cong\mathrm{Hom}_{R}(-,E(R))$
 \end_inset
 
 .
  Further, 
-\begin_inset Formula $E(A)$
+\begin_inset Formula $E(R)$
 \end_inset
 
  is isomorphic to the injective hull of 
-\begin_inset Formula $A/\mathfrak{m}$
+\begin_inset Formula $R\slash\mathfrak{m}$
 \end_inset
 
 .
@@ -68078,7 +68639,7 @@ begin{proof}
 \end_inset
 
  as functors, the map 
-\begin_inset Formula $\text{Hom}_{A}(M,N)\to\text{Hom}_{A}(E(N),E(M))$
+\begin_inset Formula $\mathrm{Hom}_{R}(M,N)\to\mathrm{Hom}_{R}(E(N),E(M))$
 \end_inset
 
  given by 
@@ -68092,9 +68653,11 @@ begin{proof}
 
 , 
 \begin_inset Formula 
-\[
-E(M)\cong\text{Hom}_{A}(A,E(M))\cong\text{Hom}_{A}(E(E(M)),E(A))\cong\text{Hom}_{A}(M,E(A)).
-\]
+\begin{align*}
+E(M) & \cong\mathrm{Hom}_{R}(R,E(M))\\
+ & \cong\mathrm{Hom}_{R}(E(E(M)),E(R))\\
+ & \cong\mathrm{Hom}_{R}(M,E(R))
+\end{align*}
 
 \end_inset
 
@@ -68115,25 +68678,25 @@ This proves the first statement.
 \end_inset
 
 Since 
-\begin_inset Formula $A$
+\begin_inset Formula $R$
 \end_inset
 
  is projective, 
-\begin_inset Formula $E(A)$
+\begin_inset Formula $E(R)$
 \end_inset
 
  is injective.
  As we observed above, 
-\begin_inset Formula $A$
+\begin_inset Formula $R$
 \end_inset
 
  has a simple top, so 
-\begin_inset Formula $E(A)$
+\begin_inset Formula $E(R)$
 \end_inset
 
  has a simple socle.
  Because 
-\begin_inset Formula $A$
+\begin_inset Formula $R$
 \end_inset
 
  is zero-dimensional, every module contains simple submodules.
@@ -68155,19 +68718,19 @@ Since
 
 .
  Since 
-\begin_inset Formula $A/\mathfrak{m}$
+\begin_inset Formula $R\slash\mathfrak{m}$
 \end_inset
 
  appears as an essential submodule of 
-\begin_inset Formula $E(A)$
+\begin_inset Formula $E(R)$
 \end_inset
 
 , we see that 
-\begin_inset Formula $E(A)$
+\begin_inset Formula $E(R)$
 \end_inset
 
  is an injective hull of 
-\begin_inset Formula $A/\mathfrak{m}$
+\begin_inset Formula $R\slash\mathfrak{m}$
 \end_inset
 
 .
@@ -68217,15 +68780,15 @@ ref{prop21.1})
 canonical module 
 \series default
 
-\begin_inset Formula $\omega_{A}$
+\begin_inset Formula $\omega_{R}$
 \end_inset
 
  of a local zero-dimensional ring 
-\begin_inset Formula $A$
+\begin_inset Formula $R$
 \end_inset
 
  to be the injective hull of the residue class field of 
-\begin_inset Formula $A$
+\begin_inset Formula $R$
 \end_inset
 
 .
@@ -68242,24 +68805,385 @@ ref{prop21.1})
 
 \end_inset
 
-, any 
-\series bold
-dualizing functor 
-\series default
+, any dualizing functor on the category of finitely generated 
+\begin_inset Formula $R$
+\end_inset
 
+-modules is naturally isomorphic to 
+\begin_inset Formula $\mathrm{Hom}_{R}(-,\omega_{R})$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\backslash
+label{prop21.2}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $(R,\mathfrak{m})$
+\end_inset
+
+ be a local zero-dimensional ring.
+ The functor 
+\begin_inset Formula $D:=\mathrm{Hom}_{R}(-,\omega_{R})$
+\end_inset
+
+ is a dualizing functor on the category of finitely generated 
+\begin_inset Formula $R$
+\end_inset
+
+-modules.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ The functor 
 \begin_inset Formula $D$
 \end_inset
 
- on the category of finitely generated 
-\begin_inset Formula $A$
+ is contravariant.
+ It is also exact since 
+\begin_inset Formula $\omega_{R}$
 \end_inset
 
--modules must be 
-\begin_inset Formula $D(M):=\text{Hom}_{A}(M,\omega_{A})$
+ is an injective 
+\begin_inset Formula $R$
 \end_inset
 
-, and in fact this functor is always dualizing.
+-module.
+ Thus it suffices to show that 
+\begin_inset Formula $D^{2}$
+\end_inset
+
+ is naturally isomorphic to the identity.
+ Let 
+\begin_inset Formula $\alpha\colon1\to D^{2}$
+\end_inset
+
+ be the natural transformation given by maps
+\begin_inset Formula 
+\[
+\alpha_{M}:M\to\mathrm{Hom}_{R}(\mathrm{Hom}_{R}(M,\omega_{R}),\omega_{R})
+\]
+
+\end_inset
+
+given by mapping 
+\begin_inset Formula $u\in M$
+\end_inset
+
+ to 
+\begin_inset Formula $\widehat{u}$
+\end_inset
+
+, where 
+\begin_inset Formula $\widehat{u}$
+\end_inset
+
+ is the 
+\begin_inset Formula $R$
+\end_inset
+
+-linear map taking 
+\begin_inset Formula $\varphi\in\mathrm{Hom}_{R}(M,\omega_{R})$
+\end_inset
+
+ to 
+\begin_inset Formula $\varphi(u)$
+\end_inset
+
+.
+ We shall show that 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ is an isomorphism by showing that each 
+\begin_inset Formula $\alpha_{M}$
+\end_inset
+
+ is an isomorphism.
  
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+We do induction on the length of 
+\begin_inset Formula $M$
+\end_inset
+
+.
+ First suppose that the length is 
+\begin_inset Formula $1$
+\end_inset
+
+, so that 
+\begin_inset Formula $M\cong R\slash\mathfrak{m}$
+\end_inset
+
+, where 
+\begin_inset Formula $\mathfrak{m}$
+\end_inset
+
+ is the maximal ideal of 
+\begin_inset Formula $R$
+\end_inset
+
+, thus it suffices to show that 
+\begin_inset Formula $\alpha_{R\slash\mathfrak{m}}$
+\end_inset
+
+ is an isomorphism.
+ Since 
+\begin_inset Formula $\omega_{R}$
+\end_inset
+
+ is the injective hull of 
+\begin_inset Formula $R\slash\mathfrak{m}$
+\end_inset
+
+, the socle of 
+\begin_inset Formula $\omega_{R}$
+\end_inset
+
+ is isomorphic to 
+\begin_inset Formula $R\slash\mathfrak{m}$
+\end_inset
+
+, and we have 
+\begin_inset Formula $\mathrm{Hom}_{R}(R\slash\mathfrak{m},\omega_{R})\cong R\slash\mathfrak{m}$
+\end_inset
+
+, generated by any nonzero map 
+\begin_inset Formula $R\slash\mathfrak{m}\to\omega_{R}$
+\end_inset
+
+.
+ Thus
+\begin_inset Formula 
+\[
+\mathrm{Hom}_{R}(\mathrm{Hom}_{R}(R\slash\mathfrak{m},\omega_{R}),\omega_{R})\cong\mathrm{Hom}_{R}(R\slash\mathfrak{m},\omega_{R})\cong R\slash\mathfrak{m},
+\]
+
+\end_inset
+
+generated by any nonzero map.
+ But if 
+\begin_inset Formula $1\in R\slash\mathfrak{m}$
+\end_inset
+
+ is the identity, then the map induced by 
+\begin_inset Formula $1$
+\end_inset
+
+ takes the inclusion 
+\begin_inset Formula $R\slash\mathfrak{m}\hookrightarrow\omega_{R}$
+\end_inset
+
+ to the image of 
+\begin_inset Formula $1$
+\end_inset
+
+ under that inclusion, and is thus nonzero, so 
+\begin_inset Formula $\alpha_{R\slash\mathfrak{m}}$
+\end_inset
+
+ is an isomorphism.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+If the length of 
+\begin_inset Formula $M$
+\end_inset
+
+ is greater than 
+\begin_inset Formula $1$
+\end_inset
+
+, let 
+\begin_inset Formula $M'$
+\end_inset
+
+ be any proper submodule and let 
+\begin_inset Formula $M''=M/M'$
+\end_inset
+
+.
+ By the naturality of 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ and the exactness of 
+\begin_inset Formula $D^{2}$
+\end_inset
+
+ it follows that there is a commutative diagram with exact rows
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\backslash
+begin{tikzcd} 0 
+\backslash
+arrow[r] & M' 
+\backslash
+arrow[r] 
+\backslash
+arrow[d, " 
+\backslash
+alpha _M' "] & M 
+\backslash
+arrow[r] 
+\backslash
+arrow[d, " 
+\backslash
+alpha _M "] & M'' 
+\backslash
+arrow[r] 
+\backslash
+arrow[d, " 
+\backslash
+alpha _M' "] & 0
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+0 
+\backslash
+arrow[r] & D^2 (M') 
+\backslash
+arrow[r]  & D^2 (M) 
+\backslash
+arrow[r] & D^2 (M'') 
+\backslash
+arrow[r] & 0  
+\backslash
+end{tikzcd}
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Both 
+\begin_inset Formula $M'$
+\end_inset
+
+ and 
+\begin_inset Formula $M''$
+\end_inset
+
+ have lengths stricly less than the length of 
+\begin_inset Formula $M$
+\end_inset
+
+, so the left-hand and right-hand vertical maps are isomorphisms by induction.
+ It follows by an easy diagram chase that the middle map 
+\begin_inset Formula $\alpha_{M}$
+\end_inset
+
+ is an isomorphism too.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -68639,7 +69563,7 @@ Both
 \end_inset
 
 , so the left-hand and right-hand vertical maps are isomorphisms by induction.
- It follows by an easy diagram chase that the middle map 
+ It follows by the five lemma that the middle map 
 \begin_inset Formula $\alpha_{M}$
 \end_inset
 
@@ -69119,6 +70043,10 @@ end{proof}
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsection
+Zero Dimensional Local Gorenstein Rings
 \end_layout
 
 \begin_layout Standard
@@ -69965,7 +70893,7 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
+\begin_layout Subsection
 Canonical Modules and Gorenstein Rings in Higher Dimension
 \end_layout
 
@@ -70363,7 +71291,7 @@ end{example}
 
 \end_layout
 
-\begin_layout Section*
+\begin_layout Subsection
 Maximal Cohen-Macaulay Modules
 \end_layout
 
@@ -70383,7 +71311,7 @@ label{prop21.9}
 \end_inset
 
  Let 
-\begin_inset Formula $A$
+\begin_inset Formula $R$
 \end_inset
 
  be a local ring of dimension 
@@ -70394,8 +71322,8 @@ label{prop21.9}
 \begin_inset Formula $M$
 \end_inset
 
- be a finitely generated 
-\begin_inset Formula $A$
+ be a finitely-generated 
+\begin_inset Formula $R$
 \end_inset
 
 -module.
@@ -70404,7 +71332,7 @@ label{prop21.9}
 
 \begin_layout Enumerate
 Every system of parameters in 
-\begin_inset Formula $A$
+\begin_inset Formula $R$
 \end_inset
 
  is an 
@@ -70416,7 +71344,7 @@ Every system of parameters in
 
 \begin_layout Enumerate
 Some system of parameters in 
-\begin_inset Formula $A$
+\begin_inset Formula $R$
 \end_inset
 
  is an 
@@ -70427,10 +71355,10 @@ Some system of parameters in
 \end_layout
 
 \begin_layout Enumerate
-\begin_inset Formula $\text{depth}(M)=d$
+\begin_inset Formula $\mathrm{depth}\,M=d$
 \end_inset
 
-.
+
 \end_layout
 
 \begin_layout Standard
@@ -70441,17 +71369,17 @@ If these conditions are satisfied, we say that
  is a 
 \series bold
 maximal Cohen-Maculay module over 
-\begin_inset Formula $A$
+\begin_inset Formula $R$
 \end_inset
 
 
 \series default
 .
  Every element outside the minimal primes of 
-\begin_inset Formula $A$
+\begin_inset Formula $R$
 \end_inset
 
- is a nonzero divisor on 
+ is a nonzerodivisor on 
 \begin_inset Formula $M$
 \end_inset
 
@@ -70485,17 +71413,10 @@ begin{proof}
 
 \end_inset
 
- The implications 1
-\begin_inset Formula $\implies$
-\end_inset
-
-2
-\begin_inset Formula $\implies$
-\end_inset
-
-3 are immediate from the definitions.
+ The implications 1 implies 2 implies 3 are immediate from the definitions.
+ Let us show 3 implies 1.
  Suppose 
-\begin_inset Formula $\text{depth}(M)=d$
+\begin_inset Formula $\mathrm{depth}\,M=d$
 \end_inset
 
 .
@@ -70503,7 +71424,7 @@ begin{proof}
 \begin_inset Formula $x_{1},\dots,x_{d}$
 \end_inset
 
- is a system of parameters then 
+ is a system of parameters, then 
 \begin_inset Formula $Q=\langle x_{1},\dots,x_{d}\rangle$
 \end_inset
 
@@ -70519,9 +71440,12 @@ begin{proof}
 .
  Therefore
 \begin_inset Formula 
-\[
-\text{depth}(Q,M)=\text{depth}(\mathfrak{m},M)=d,
-\]
+\begin{align*}
+\mathrm{depth}(Q,M) & =\mathrm{depth}(\sqrt{Q},M)\\
+ & =\mathrm{depth}(\mathfrak{m},M)\\
+ & =\mathrm{depth}\,M\\
+ & =d,
+\end{align*}
 
 \end_inset
 
@@ -70529,11 +71453,11 @@ which implies
 \begin_inset Formula $x_{1},\dots,x_{d}$
 \end_inset
 
- is a regular sequence on 
+ is an 
 \begin_inset Formula $M$
 \end_inset
 
-.
+-regular sequence.
 \end_layout
 
 \begin_layout Standard
@@ -70553,11 +71477,11 @@ To prove the last statement, note that if
 \end_inset
 
  is not in any minimal prime of 
-\begin_inset Formula $A$
+\begin_inset Formula $R$
 \end_inset
 
 , then 
-\begin_inset Formula $\text{dim}(A/x_{1})=\text{dim}(A)-1$
+\begin_inset Formula $\text{dim}(R\slash x_{1})=\text{dim}R-1$
 \end_inset
 
 , so a system of parameters mod 
@@ -70565,7 +71489,7 @@ To prove the last statement, note that if
 \end_inset
 
  may be lifted to a system of parameters for 
-\begin_inset Formula $A$
+\begin_inset Formula $R$
 \end_inset
 
  beginning with 
@@ -70577,7 +71501,7 @@ To prove the last statement, note that if
 \begin_inset Formula $x_{1}$
 \end_inset
 
- is a nonzero divisor on 
+ is a nonzerodivisor on 
 \begin_inset Formula $M$
 \end_inset
 
@@ -70776,688 +71700,8 @@ lattices
  
 \end_layout
 
-\begin_layout Subsection*
+\begin_layout Subsection
 Modules of Finite Injective Dimension
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{lemma}
-\backslash
-label{2}
-\end_layout
-
-\end_inset
-
- Let 
-\begin_inset Formula $A$
-\end_inset
-
- be a ring, 
-\begin_inset Formula $B$
-\end_inset
-
- an 
-\begin_inset Formula $A$
-\end_inset
-
--algebra, 
-\begin_inset Formula $E$
-\end_inset
-
- an injective 
-\begin_inset Formula $A$
-\end_inset
-
--module, and 
-\begin_inset Formula $P$
-\end_inset
-
- a projective 
-\begin_inset Formula $B$
-\end_inset
-
--module.
- Then 
-\begin_inset Formula $\text{Hom}_{A}(P,E)$
-\end_inset
-
- is an injective 
-\begin_inset Formula $B$
-\end_inset
-
--module, where 
-\begin_inset Formula $B$
-\end_inset
-
- acts on 
-\begin_inset Formula $\text{Hom}_{A}(P,E)$
-\end_inset
-
- by 
-\begin_inset Formula 
-\[
-(b\cdot\varphi)(x)=\varphi(bx),
-\]
-
-\end_inset
-
-where 
-\begin_inset Formula $b\in B$
-\end_inset
-
-, 
-\begin_inset Formula $\varphi\in\text{Hom}_{A}(P,E)$
-\end_inset
-
-, and 
-\begin_inset Formula $x\in P$
-\end_inset
-
-.
- 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{lemma}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{proof}
-\end_layout
-
-\end_inset
-
- We need to show that 
-\begin_inset Formula $\text{Hom}_{B}(-,\text{Hom}_{A}(P,E))$
-\end_inset
-
- is exact.
- From the universal property of tensor products, we have 
-\begin_inset Formula 
-\[
-\text{Hom}_{B}(-,\text{Hom}_{A}(P,E))\cong\text{Hom}_{A}(-\otimes_{B}P,E).
-\]
-
-\end_inset
-
-Now notice that the functor 
-\begin_inset Formula $-\otimes_{B}P$
-\end_inset
-
- is exact since 
-\begin_inset Formula $P$
-\end_inset
-
- is projective.
- As 
-\begin_inset Formula $E$
-\end_inset
-
- is injective, it follows that 
-\begin_inset Formula $\text{Hom}_{A}(-,E)$
-\end_inset
-
- is exact.
- Combine both to obtain the result.
- 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{proof}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{prop}
-\backslash
-label{prop21.10}
-\end_layout
-
-\end_inset
-
- Let 
-\begin_inset Formula $A$
-\end_inset
-
- be a ring, 
-\begin_inset Formula $M$
-\end_inset
-
- be an 
-\begin_inset Formula $A$
-\end_inset
-
--module, 
-\begin_inset Formula $x\in A$
-\end_inset
-
- be an 
-\begin_inset Formula $A$
-\end_inset
-
--regular and 
-\begin_inset Formula $M$
-\end_inset
-
--regular element, and 
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\backslash
-begin{tikzcd} 
-\backslash
-mathcal{E} : E_0  
-\backslash
-arrow[r, "
-\backslash
-varphi _1 "] & E_1  
-\backslash
-arrow[r, " 
-\backslash
-varphi _2 "] & E_2  
-\backslash
-arrow[r] & 
-\backslash
-cdots  
-\backslash
-end{tikzcd}
-\backslash
-end{center}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-be a minimal injective resolution of 
-\begin_inset Formula $M$
-\end_inset
-
-.
- Set 
-\begin_inset Formula $E_{i}':=\text{Hom}_{A}(A/x,E_{i})\cong\left\{ m\in E_{i}\mid xm=0\right\} $
-\end_inset
-
-.
- The complex
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\backslash
-begin{tikzcd}  
-\backslash
-mathcal{E'} : E_1 '  
-\backslash
-arrow[r, "
-\backslash
-varphi _2 "] & E_2 '  
-\backslash
-arrow[r, " 
-\backslash
-varphi _3 "] & E_3 '  
-\backslash
-arrow[r] & 
-\backslash
-cdots  
-\backslash
-end{tikzcd}
-\backslash
-end{center}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-is a minimal injective resolution of 
-\begin_inset Formula $M/xM$
-\end_inset
-
- over 
-\begin_inset Formula $A/x$
-\end_inset
-
-.
- Thus, 
-\begin_inset Formula 
-\[
-\text{id}_{A/x}(M/xM)=\text{id}_{A}(M)-1.
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-and if 
-\begin_inset Formula $N$
-\end_inset
-
- is an 
-\begin_inset Formula $A$
-\end_inset
-
--module annihilated by 
-\begin_inset Formula $x$
-\end_inset
-
-, then 
-\begin_inset Formula 
-\[
-\text{Ext}_{A}^{i+1}(N,M)\cong\text{Ext}_{A/x}^{i}(N,M/xM)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-for all 
-\begin_inset Formula $i\geq0$
-\end_inset
-
-.
- 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{prop}
-\end_layout
-
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{proof}
-\end_layout
-
-\end_inset
-
- 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-Lemma~(
-\backslash
-ref{2})
-\end_layout
-
-\end_inset
-
- tells us that 
-\begin_inset Formula $E_{i}'$
-\end_inset
-
- are injective 
-\begin_inset Formula $(A/x)$
-\end_inset
-
--modules.
- The homology of the complex 
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\backslash
-begin{tikzcd}  
-\backslash
-text{Hom}_A (A/x , 
-\backslash
-mathcal{E} ) : E_0 ' 
-\backslash
-arrow[r, "
-\backslash
-varphi _1 "] & E_1 '  
-\backslash
-arrow[r, "
-\backslash
-varphi _2 "] & E_2 '  
-\backslash
-arrow[r, " 
-\backslash
-varphi _3 "] & E_3 '  
-\backslash
-arrow[r] & 
-\backslash
-cdots  
-\backslash
-end{tikzcd}
-\backslash
-end{center}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-is by definintion 
-\begin_inset Formula $\text{Ext}_{A}^{*}(A/x,M)$
-\end_inset
-
-.
- On the other hand, 
-\begin_inset Formula $M$
-\end_inset
-
- is an essential submodule of 
-\begin_inset Formula $E_{0}$
-\end_inset
-
-, and 
-\begin_inset Formula $M$
-\end_inset
-
- contains no submodule annihilated by 
-\begin_inset Formula $x$
-\end_inset
-
-, so 
-\begin_inset Formula $E_{0}$
-\end_inset
-
- contains no submodule annihilated by 
-\begin_inset Formula $x$
-\end_inset
-
-.
- Thus 
-\begin_inset Formula $E_{0}'=0$
-\end_inset
-
-, and we see that 
-\begin_inset Formula $\text{Hom}_{A}(A/x,\mathcal{E})=\mathcal{E}'$
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-Computing 
-\begin_inset Formula $\text{Ext}_{A}^{*}(A/x,M)$
-\end_inset
-
- instead from the free resolution
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\backslash
-begin{tikzcd} 0 
-\backslash
-arrow[r] & A 
-\backslash
-arrow[r, " 
-\backslash
-cdot x "] & A 
-\backslash
-arrow[r] & A/x 
-\backslash
-arrow[r] & 0, 
-\backslash
-end{tikzcd}
-\backslash
-end{center}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-we see that 
-\begin_inset Formula $\text{Ext}_{A}^{1}(A/x,M)=M/xM$
-\end_inset
-
- while 
-\begin_inset Formula $\text{Ext}_{A}^{i}(A/x,M)=0$
-\end_inset
-
- for 
-\begin_inset Formula $i\neq1$
-\end_inset
-
-.
- Thus, 
-\begin_inset Formula $\mathcal{E}'$
-\end_inset
-
- is an injective resolution of 
-\begin_inset Formula $M/xM$
-\end_inset
-
-.
- Note that the numbering of the terms of 
-\begin_inset Formula $\mathcal{E}'$
-\end_inset
-
- is such that 
-\begin_inset Formula $\text{Ext}_{A/x}^{i}(N,M/xM)$
-\end_inset
-
- is the homology of 
-\begin_inset Formula $\text{Hom}_{A/x}(N,\mathcal{E}')$
-\end_inset
-
- at 
-\begin_inset Formula $\text{Hom}_{A/x}(N,E_{j+1}');$
-\end_inset
-
- strictly speaking, we should say that 
-\begin_inset Formula $\mathcal{E}'[1]$
-\end_inset
-
- is an injective resolution of 
-\begin_inset Formula $M/xM$
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-To see that 
-\begin_inset Formula $\mathcal{E}'$
-\end_inset
-
- is minimal, note that 
-\begin_inset Formula $\text{Ker}\left(\varphi_{n+1}:E_{n}'\to E_{n+1}'\right)$
-\end_inset
-
- is the intersection of the essential submodule 
-\begin_inset Formula $\text{Ker}\left(\varphi_{n+1}:E_{n}\to E_{n+1}\right)$
-\end_inset
-
- with 
-\begin_inset Formula $E_{n}'$
-\end_inset
-
-, and is thus essential in 
-\begin_inset Formula $E_{n}'$
-\end_inset
-
-.
- It follows at once that 
-\begin_inset Formula $\text{id}_{A/x}(M/xM)=\text{id}_{A}(M)-1$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-If 
-\begin_inset Formula $x$
-\end_inset
-
- annihilates the 
-\begin_inset Formula $A$
-\end_inset
-
--module 
-\begin_inset Formula $N$
-\end_inset
-
-, then every map from 
-\begin_inset Formula $N$
-\end_inset
-
- to an 
-\begin_inset Formula $E_{i}$
-\end_inset
-
- has image killed by 
-\begin_inset Formula $x$
-\end_inset
-
-, so 
-\begin_inset Formula 
-\[
-\text{Hom}_{A}(N,\mathcal{E})=\text{Hom}_{A}(N,\mathcal{E}')=\text{Hom}_{A/x}(N,\mathcal{E}').
-\]
-
-\end_inset
-
-Taking homology, and taking into account the shift in numbering, we get
- the last statement of the proposition.
- 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{proof}
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -71480,7 +71724,7 @@ label{prop21.10}
 \end_inset
 
  be a ring, let 
-\begin_inset Formula $M$
+\begin_inset Formula $N$
 \end_inset
 
  be an 
@@ -71496,19 +71740,15 @@ label{prop21.10}
 \end_inset
 
 -regular and an 
-\begin_inset Formula $M$
+\begin_inset Formula $N$
 \end_inset
 
--regular element, and let
-\begin_inset Formula 
-\[
-E=(0\to E_{0}\to E_{1}\to E_{2}\to\cdots)
-\]
-
+-regular element, and let 
+\begin_inset Formula $(E,\mathrm{d})$
 \end_inset
 
-be a minimal injective resolution of 
-\begin_inset Formula $M$
+ be a minimal injective resolution of 
+\begin_inset Formula $N$
 \end_inset
 
  over 
@@ -71517,20 +71757,16 @@ be a minimal injective resolution of
 
 .
  Set 
-\begin_inset Formula $E_{i}'=0:_{E_{i}}x\cong\mathrm{Hom}_{R}(R\slash x,E_{i})$
+\begin_inset Formula $\widetilde{E}=\bigoplus_{i}0:_{E_{i}}x\cong\mathrm{Hom}_{R}^{\star}(R\slash x,E)$
 \end_inset
 
 .
- Then the complex
-\begin_inset Formula 
-\[
-E'=(0\to E_{1}'\to E_{2}'\to E_{3}'\to\cdots)
-\]
-
+ Then 
+\begin_inset Formula $\Sigma\widetilde{E}$
 \end_inset
 
-is a minimal injective resolution of 
-\begin_inset Formula $M\slash xM$
+ is an injective resolution of 
+\begin_inset Formula $N\slash xN$
 \end_inset
 
  over 
@@ -71541,27 +71777,27 @@ is a minimal injective resolution of
  Thus
 \begin_inset Formula 
 \[
-\mathrm{id}_{R\slash x}(M\slash xM)=\mathrm{id}_{R}(M)-1,
+\mathrm{id}_{R\slash x}(N\slash xN)=\mathrm{id}_{R}(N)-1.
 \]
 
 \end_inset
 
-and if 
-\begin_inset Formula $N$
+Furthermore, let 
+\begin_inset Formula $M$
 \end_inset
 
- is an 
+ be an 
 \begin_inset Formula $R$
 \end_inset
 
--module annihilated by 
+-module which is annihilated by 
 \begin_inset Formula $x$
 \end_inset
 
 , then
 \begin_inset Formula 
 \[
-\mathrm{Ext}_{R}^{i+1}(N,M)\cong\mathrm{Ext}_{R\slash x}^{i}(N,M\slash xM)
+\mathrm{Ext}_{R}^{i+1}(M,N)\cong\mathrm{Ext}_{R\slash x}^{i}(M,N\slash xN)
 \]
 
 \end_inset
@@ -71600,7 +71836,7 @@ begin{proof}
 
 \end_inset
 
- 
+ By 
 \begin_inset ERT
 status open
 
@@ -71608,300 +71844,200 @@ status open
 
 Lemma~(
 \backslash
-ref{2})
+ref{lemmaprojectiveinjective})
 \end_layout
 
 \end_inset
 
- tells us that 
-\begin_inset Formula $E_{i}'$
+, we see that each 
+\begin_inset Formula $\widetilde{E}^{i}$
 \end_inset
 
- are injective 
+ is an injective 
+\begin_inset Formula $(R\slash x)$
+\end_inset
+
+-module.
+ Furthermore, note that 
+\begin_inset Formula $E^{0}$
+\end_inset
+
+ is an essential extension of 
+\begin_inset Formula $N$
+\end_inset
+
+ since 
+\begin_inset Formula $E$
+\end_inset
+
+ is a 
+\emph on
+minimal
+\emph default
+ injective resolution of 
+\begin_inset Formula $N$
+\end_inset
+
+ over 
+\begin_inset Formula $R$
+\end_inset
+
+.
+ In particular, since 
+\begin_inset Formula 
+\[
+\widetilde{E}^{0}\cap N=0:_{N}x=0,
+\]
+
+\end_inset
+
+we see that 
+\begin_inset Formula $\widetilde{E}^{0}=0$
+\end_inset
+
+.
+ It remains to show that 
+\begin_inset Formula $\mathrm{H}^{0}(\Sigma\widetilde{E})\cong N\slash xN$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathrm{H}^{i}(\Sigma\widetilde{E})\cong0$
+\end_inset
+
+ for all 
+\begin_inset Formula $i\geq1$
+\end_inset
+
+, or equivalently, that 
+\begin_inset Formula $\mathrm{H}^{1}(\widetilde{E})\cong N\slash xN$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathrm{H}^{i}(\widetilde{E})\cong0$
+\end_inset
+
+ for all 
+\begin_inset Formula $i\geq2$
+\end_inset
+
+.
+ Note that 
+\begin_inset Formula $\mathrm{H}(\widetilde{E})=\mathrm{Ext}_{R}(R\slash x,N)$
+\end_inset
+
+ by definition.
+ Computing this homology using the short exact sequence
+\begin_inset Formula 
+\[
+0\to R\xrightarrow{x}R\to R\slash x\to0
+\]
+
+\end_inset
+
+gives us 
+\begin_inset Formula $\mathrm{Ext}_{R}^{1}(R\slash x,N)\cong N\slash xN$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathrm{Ext}_{R}^{i}(R\slash x,N)\cong0$
+\end_inset
+
+ for all 
+\begin_inset Formula $i\geq2$
+\end_inset
+
+.
+ It follows that 
+\begin_inset Formula $\Sigma\widetilde{E}$
+\end_inset
+
+ is an injective resolution of 
+\begin_inset Formula $N\slash xN$
+\end_inset
+
+ over 
 \begin_inset Formula $R\slash x$
 \end_inset
 
--modules.
- The homology of the complex 
-\begin_inset Formula $E'$
-\end_inset
-
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\backslash
-begin{tikzcd}  
-\backslash
-text{Hom}_A (A/x , 
-\backslash
-mathcal{E} ) : E_0 ' 
-\backslash
-arrow[r, "
-\backslash
-varphi _1 "] & E_1 '  
-\backslash
-arrow[r, "
-\backslash
-varphi _2 "] & E_2 '  
-\backslash
-arrow[r, " 
-\backslash
-varphi _3 "] & E_3 '  
-\backslash
-arrow[r] & 
-\backslash
-cdots  
-\backslash
-end{tikzcd}
-\backslash
-end{center}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-is by definintion 
-\begin_inset Formula $\mathrm{Ext}_{R}(R\slash x,M)$
-\end_inset
-
 .
- On the other hand, 
-\begin_inset Formula $M$
-\end_inset
+ To see that 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\xout off
+\uuline off
+\uwave off
+\noun off
+\color none
 
- is an essential submodule of 
-\begin_inset Formula $E_{0}$
-\end_inset
-
-, and 
-\begin_inset Formula $M$
-\end_inset
-
- contains no submodule annihilated by 
-\begin_inset Formula $x$
-\end_inset
-
-, so 
-\begin_inset Formula $E_{0}$
-\end_inset
-
- contains no submodule annihilated by 
-\begin_inset Formula $x$
-\end_inset
-
-.
- Thus 
-\begin_inset Formula $E_{0}'=0$
-\end_inset
-
-, and we see that 
-\begin_inset Formula $\text{Hom}_{A}(A/x,\mathcal{E})=\mathcal{E}'$
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset space ~
+\begin_inset Formula $\Sigma\widetilde{E}$
 \end_inset
 
 
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-Computing 
-\begin_inset Formula $\text{Ext}_{A}^{*}(A/x,M)$
-\end_inset
-
- instead from the free resolution
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\backslash
-begin{tikzcd} 0 
-\backslash
-arrow[r] & A 
-\backslash
-arrow[r, " 
-\backslash
-cdot x "] & A 
-\backslash
-arrow[r] & A/x 
-\backslash
-arrow[r] & 0, 
-\backslash
-end{tikzcd}
-\backslash
-end{center}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-we see that 
-\begin_inset Formula $\text{Ext}_{A}^{1}(A/x,M)=M/xM$
-\end_inset
-
- while 
-\begin_inset Formula $\text{Ext}_{A}^{i}(A/x,M)=0$
-\end_inset
-
- for 
-\begin_inset Formula $i\neq1$
-\end_inset
-
-.
- Thus, 
-\begin_inset Formula $\mathcal{E}'$
-\end_inset
-
- is an injective resolution of 
-\begin_inset Formula $M/xM$
-\end_inset
-
-.
- Note that the numbering of the terms of 
-\begin_inset Formula $\mathcal{E}'$
-\end_inset
-
- is such that 
-\begin_inset Formula $\text{Ext}_{A/x}^{i}(N,M/xM)$
-\end_inset
-
- is the homology of 
-\begin_inset Formula $\text{Hom}_{A/x}(N,\mathcal{E}')$
-\end_inset
-
- at 
-\begin_inset Formula $\text{Hom}_{A/x}(N,E_{j+1}');$
-\end_inset
-
- strictly speaking, we should say that 
-\begin_inset Formula $\mathcal{E}'[1]$
-\end_inset
-
- is an injective resolution of 
-\begin_inset Formula $M/xM$
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-To see that 
-\begin_inset Formula $\mathcal{E}'$
-\end_inset
-
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\xout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
  is minimal, note that 
-\begin_inset Formula $\text{Ker}\left(\varphi_{n+1}:E_{n}'\to E_{n+1}'\right)$
+\begin_inset Formula $\ker\widetilde{\mathrm{d}}^{n}$
 \end_inset
 
  is the intersection of the essential submodule 
-\begin_inset Formula $\text{Ker}\left(\varphi_{n+1}:E_{n}\to E_{n+1}\right)$
+\begin_inset Formula $\ker\mathrm{d}^{n}$
 \end_inset
 
  with 
-\begin_inset Formula $E_{n}'$
+\begin_inset Formula $\widetilde{E}^{n}$
 \end_inset
 
 , and is thus essential in 
-\begin_inset Formula $E_{n}'$
+\begin_inset Formula $\widetilde{E}^{n}$
 \end_inset
 
 .
- It follows at once that 
-\begin_inset Formula $\text{id}_{A/x}(M/xM)=\text{id}_{A}(M)-1$
+ It follows at once that
+\begin_inset Formula 
+\[
+\mathrm{id}_{R\slash x}(N\slash xN)=\mathrm{id}_{R}(N)-1.
+\]
+
 \end_inset
 
-.
-\end_layout
-
-\begin_layout Standard
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-If 
-\begin_inset Formula $x$
-\end_inset
-
- annihilates the 
-\begin_inset Formula $A$
-\end_inset
-
--module 
-\begin_inset Formula $N$
-\end_inset
-
-, then every map from 
-\begin_inset Formula $N$
+For the latter part of the proposition, note that every map from 
+\begin_inset Formula $M$
 \end_inset
 
  to an 
-\begin_inset Formula $E_{i}$
+\begin_inset Formula $E^{i}$
 \end_inset
 
  has image killed by 
 \begin_inset Formula $x$
 \end_inset
 
-, so 
+, so
 \begin_inset Formula 
-\[
-\text{Hom}_{A}(N,\mathcal{E})=\text{Hom}_{A}(N,\mathcal{E}')=\text{Hom}_{A/x}(N,\mathcal{E}').
-\]
+\begin{align*}
+\mathrm{Hom}_{R}^{\star}(M,E) & =\mathrm{Hom}_{R}^{\star}(M,\widetilde{E})\\
+ & =\mathrm{Hom}_{R\slash x}^{\star}(M,\widetilde{E})\\
+ & =\Sigma^{-1}\mathrm{Hom}_{R\slash x}^{\star}(M,\Sigma\widetilde{E})
+\end{align*}
 
 \end_inset
 
-Taking homology, and taking into account the shift in numbering, we get
- the last statement of the proposition.
+Taking homology gives us the last statement of the proposition.
  
 \begin_inset ERT
 status open
@@ -71934,127 +72070,70 @@ label{rem}
 \end_inset
 
  Recall that if 
-\begin_inset Formula $(A,\mathfrak{m})$
+\begin_inset Formula $(R,\mathfrak{m})$
 \end_inset
 
  is a local ring, 
 \begin_inset Formula $M$
 \end_inset
 
- is an 
-\begin_inset Formula $A$
+ is a finitely-generated 
+\begin_inset Formula $R$
 \end_inset
 
 -module, and 
 \begin_inset Formula $x\in\mathfrak{m}$
 \end_inset
 
- is 
-\begin_inset Formula $A$
+ is an 
+\begin_inset Formula $R$
 \end_inset
 
 -regular and 
 \begin_inset Formula $M$
 \end_inset
 
--regular, then 
-\begin_inset Formula $\text{pd}_{A/x}(M/xM)=\text{pd}_{A}(M)$
+-regular element, then 
+\begin_inset Formula $\mathrm{pd}_{R\slash x}(M\slash xM)=\mathrm{pd}_{R}(M)$
 \end_inset
 
 .
- The idea behind that proof was to start with a minimal projective resolution
+ The idea behind that proof is as follows: we start with a minimal projective
+ resolution 
+\begin_inset Formula $P$
+\end_inset
+
  of 
 \begin_inset Formula $M$
 \end_inset
 
-,
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\backslash
-begin{tikzcd}  
-\backslash
-mathcal{P} : 
-\backslash
-cdots 
-\backslash
-arrow[r] & P_2  
-\backslash
-arrow[r, "
-\backslash
-varphi _2 "] & P_1  
-\backslash
-arrow[r, " 
-\backslash
-varphi _1 "] & P_0 
-\backslash
-end{tikzcd}
-\backslash
-end{center}
-\end_layout
-
+ over 
+\begin_inset Formula $R$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-and show that the sequence
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\backslash
-begin{tikzcd}  
-\backslash
-mathcal{P} 
-\backslash
-otimes ( A/x ): 
-\backslash
-cdots 
-\backslash
-arrow[r] & P_2 / xP_2  
-\backslash
-arrow[r, "
-\backslash
-overline{ 
-\backslash
-varphi  }_2 "] & P_1 / xP_1  
-\backslash
-arrow[r, " 
-\backslash
-overline{ 
-\backslash
-varphi } _1 "] & P_0 /xP_0  
-\backslash
-end{tikzcd}
-\backslash
-end{center}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-was a minimal projective resolution of 
-\begin_inset Formula $M/xM$
+ and denote 
+\begin_inset Formula $p=\mathrm{pd}\,M$
 \end_inset
 
 .
+ Then one shows that 
+\begin_inset Formula $P\slash xP$
+\end_inset
+
+ is a minimal projective resolution of 
+\begin_inset Formula $M\slash xM$
+\end_inset
+
+ over 
+\begin_inset Formula $R\slash xR$
+\end_inset
+
+.
+ They key here however is that 
+\begin_inset Formula $(P\slash xP)_{p}=P_{p}\slash xP_{p}\neq0$
+\end_inset
+
+ by Nakayama's lemma.
  
 \begin_inset ERT
 status open
@@ -72104,22 +72183,21 @@ label{prop21.11}
 \end_inset
 
  Let 
-\begin_inset Formula $A$
+\begin_inset Formula $R$
 \end_inset
 
- be a local Cohen-Macaulay ring.
- If 
+ be a local Cohen-Macaulay ring and let 
 \begin_inset Formula $M$
 \end_inset
 
- is a maximal Cohen-Macaulay module of finite injective dimension, then
- 
-\begin_inset Formula $\text{id}_{A}(M)=\text{dim}(A)$
+ be a maximal Cohen-Macaulay module of finite injective dimension.
+ Then 
+\begin_inset Formula $\mathrm{id}_{R}(M)=\dim\,R$
 \end_inset
 
 .
- If 
-\begin_inset Formula $\text{dim}(A)=0$
+ Moreover, if 
+\begin_inset Formula $\dim\,R=0$
 \end_inset
 
 , then 
@@ -72127,15 +72205,15 @@ label{prop21.11}
 \end_inset
 
  is a direct sum of copies of 
-\begin_inset Formula $\omega_{A}$
+\begin_inset Formula $\omega_{R}$
 \end_inset
 
 , and 
-\begin_inset Formula $M\cong\omega_{A}$
+\begin_inset Formula $M\cong\omega_{R}$
 \end_inset
 
  if and only if 
-\begin_inset Formula $\text{End}_{A}(M)=A$
+\begin_inset Formula $\mathrm{End}_{R}(M)=R$
 \end_inset
 
 .
@@ -72169,20 +72247,15 @@ begin{proof}
 \end_inset
 
  Suppose first that 
-\begin_inset Formula $\text{dim}(A)=0$
+\begin_inset Formula $\dim\,R=0$
 \end_inset
 
-.
- Let 
-\begin_inset Formula $D=\text{Hom}_{A}(-,\omega_{A})$
+ and let 
+\begin_inset Formula $D=\mathrm{Hom}_{R}(-,\omega_{R})$
 \end_inset
 
  be the dualizing functor.
- If 
-\begin_inset Formula $M$
-\end_inset
-
- has finite injective dimension, then applying 
+ Applying 
 \begin_inset Formula $D$
 \end_inset
 
@@ -72201,11 +72274,11 @@ uchsbaum formula.
 \end_inset
 
  again we see that 
-\begin_inset Formula $M\simeq D^{2}(M)$
+\begin_inset Formula $M\cong D^{2}(M)$
 \end_inset
 
  is a direct sum of copies of 
-\begin_inset Formula $D(A)=\omega_{A}$
+\begin_inset Formula $D(R)=\omega_{R}$
 \end_inset
 
 .
@@ -72214,16 +72287,16 @@ uchsbaum formula.
 \end_inset
 
 , we see that the endomorphism ring of 
-\begin_inset Formula $\omega_{A}^{n}$
+\begin_inset Formula $\omega_{R}^{n}$
 \end_inset
 
  is the same as the endomorphism ring of 
-\begin_inset Formula $A^{n}$
+\begin_inset Formula $R^{n}$
 \end_inset
 
 .
  Thus it is equal to 
-\begin_inset Formula $A$
+\begin_inset Formula $R$
 \end_inset
 
  if and only if 
@@ -72246,23 +72319,25 @@ uchsbaum formula.
 \begin_inset space ~
 \end_inset
 
-If 
-\begin_inset Formula $\text{dim}(A)=d$
+Now suppose 
+\begin_inset Formula $\dim R=d$
 \end_inset
 
- is arbitrary, then we may choose a regular sequence 
+ is arbitrary.
+ Choose an 
+\begin_inset Formula $R$
+\end_inset
+
+-regular sequence 
 \begin_inset Formula $x_{1},\dots,x_{d}$
 \end_inset
 
- of 
-\begin_inset Formula $A$
-\end_inset
-
- that is a regular sequence on 
+ that is also an 
 \begin_inset Formula $M$
 \end_inset
 
-, and use 
+-regular sequence.
+ Then by 
 \begin_inset ERT
 status open
 
@@ -72275,10 +72350,10 @@ ref{prop21.10})
 
 \end_inset
 
- to conclude that
+, together with an induction argument, we conclude that
 \begin_inset Formula 
 \begin{align*}
-\text{id}_{A}(M) & =d+\text{id}_{A/\langle x_{1},\dots,x_{d}\rangle}\left(M/\langle x_{1},\dots,x_{d}\rangle M\right)\\
+\mathrm{id}_{R}(M) & =d+\mathrm{id}_{R\slash\langle x_{1},\dots,x_{d}\rangle}(M\slash\langle x_{1},\dots,x_{d}\rangle M)\\
  & =d+0\\
  & =d.
 \end{align*}
@@ -72309,72 +72384,6 @@ status open
 
 
 \backslash
-begin{rem}
-\backslash
-label{rem}
-\end_layout
-
-\end_inset
-
- We can generalize some of 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-Proposition~(
-\backslash
-ref{prop0.7})
-\end_layout
-
-\end_inset
-
- as follows: Let 
-\begin_inset Formula $A$
-\end_inset
-
- be a local Noetherian ring, and 
-\begin_inset Formula $M$
-\end_inset
-
- be a finitely generated 
-\begin_inset Formula $A$
-\end_inset
-
--module of finite injective dimension.
- Then 
-\begin_inset Formula 
-\[
-\text{dim}(M)\leq\text{id}_{A}(M)=\text{depth}(A).
-\]
-
-\end_inset
-
-For a proof of this, see my notes on Injective Modules.
- 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{rem}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
 begin{prop}
 \backslash
 label{prop21.12}
@@ -72383,15 +72392,15 @@ label{prop21.12}
 \end_inset
 
  Let 
-\begin_inset Formula $A$
+\begin_inset Formula $(R,\mathfrak{m})$
 \end_inset
 
  be a local Cohen-Macaulay ring of dimension 
 \begin_inset Formula $d$
 \end_inset
 
-, and let 
-\begin_inset Formula $M$
+ and let 
+\begin_inset Formula $N$
 \end_inset
 
  be a maximal Cohen-Macaulay module of finite injective dimension.
@@ -72399,24 +72408,24 @@ label{prop21.12}
 \end_layout
 
 \begin_layout Enumerate
-If 
-\begin_inset Formula $N$
+Let 
+\begin_inset Formula $M$
 \end_inset
 
- is a finitely generated 
-\begin_inset Formula $A$
+ be a finitely-generated 
+\begin_inset Formula $R$
 \end_inset
 
 -module of depth 
-\begin_inset Formula $e$
+\begin_inset Formula $q$
 \end_inset
 
 , then 
-\begin_inset Formula $\text{Ext}_{A}^{j}(N,M)=0$
+\begin_inset Formula $\mathrm{Ext}_{R}^{i}(M,N)\cong0$
 \end_inset
 
  for 
-\begin_inset Formula $j>d-e$
+\begin_inset Formula $i>d-q$
 \end_inset
 
 .
@@ -72424,31 +72433,32 @@ If
 \end_layout
 
 \begin_layout Enumerate
-If 
+Let 
 \begin_inset Formula $x$
 \end_inset
 
- is a nonzerodivisor on 
-\begin_inset Formula $M$
-\end_inset
-
-, then 
-\begin_inset Formula $x$
-\end_inset
-
- is a nonzerodivisor on 
-\begin_inset Formula $\text{Hom}_{A}(N,M)$
-\end_inset
-
-.
- If 
+ be an 
 \begin_inset Formula $N$
+\end_inset
+
+-regular element.
+ Then 
+\begin_inset Formula $x$
+\end_inset
+
+ is a 
+\begin_inset Formula $\mathrm{Hom}_{R}(M,N)$
+\end_inset
+
+-regular element.
+ Furthermore, if 
+\begin_inset Formula $M$
 \end_inset
 
  is also a maximal Cohen-Macaulay module, then
 \begin_inset Formula 
 \[
-\text{Hom}_{A}(N,M)/x\text{Hom}_{A}(N,M)\cong\text{Hom}_{A/x}(N/xN,M/xM)
+\mathrm{Hom}_{R}(M,N)\slash x\mathrm{Hom}_{R}(M,N)\cong\mathrm{Hom}_{R\slash x}(M\slash xM,N\slash xN)
 \]
 
 \end_inset
@@ -72498,25 +72508,9 @@ begin{proof}
 
 \end_inset
 
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-hfill
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-We do induction on 
-\begin_inset Formula $e$
+ 1.
+ We do induction on 
+\begin_inset Formula $q$
 \end_inset
 
 .
@@ -72534,7 +72528,7 @@ ref{prop21.11})
 \end_inset
 
 , the injective dimension of 
-\begin_inset Formula $M$
+\begin_inset Formula $N$
 \end_inset
 
  is 
@@ -72542,7 +72536,7 @@ ref{prop21.11})
 \end_inset
 
 , so that 
-\begin_inset Formula $\text{Ext}_{A}^{j}(N,M)=0$
+\begin_inset Formula $\mathrm{Ext}_{R}^{i}(M,N)\cong0$
 \end_inset
 
  for any 
@@ -72550,283 +72544,173 @@ ref{prop21.11})
 \end_inset
 
  if 
-\begin_inset Formula $j>d$
+\begin_inset Formula $i>d$
 \end_inset
 
 .
- This gives the case 
-\begin_inset Formula $e=0$
+ This gives the case where 
+\begin_inset Formula $q=0$
 \end_inset
 
 .
  Now suppose 
-\begin_inset Formula $e>0$
+\begin_inset Formula $q>0$
 \end_inset
 
-, and let 
-\begin_inset Formula $x$
+ and let 
+\begin_inset Formula $x\in\mathfrak{m}$
 \end_inset
 
- be a nonzerodivisor on 
-\begin_inset Formula $N$
+ be an 
+\begin_inset Formula $M$
 \end_inset
 
- that lies in the maximal ideal of 
-\begin_inset Formula $A$
-\end_inset
-
-.
- From the short exact sequence 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\backslash
-begin{tikzcd} 0 
-\backslash
-arrow[r] & N 
-\backslash
-arrow[r, " 
-\backslash
-cdot x "]  & N 
-\backslash
-arrow[r]  & N/xN 
-\backslash
-arrow[r]  & 0 
-\backslash
-end{tikzcd}
-\backslash
-end{center}
-\end_layout
+-regular element.
+ From the short exact sequence
+\begin_inset Formula 
+\[
+0\to M\xrightarrow{x}M\to M\slash xM\to0
+\]
 
 \end_inset
 
- we get a long exact sequence 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
+we get a long exact sequence in 
+\begin_inset Formula $\mathrm{Ext}$
+\end_inset
 
 
-\backslash
-begin{center}
-\backslash
-begin{tikzcd} 
-\backslash
-cdots 
-\backslash
-arrow[r] & 
-\backslash
-text{Ext}_A ^j (N,M) 
-\backslash
-arrow[r, "
-\backslash
-cdot x "]  & 
-\backslash
-text{Ext}_A ^j (N,M) 
-\backslash
-arrow[r]  & 
-\backslash
-text{Ext}_A ^{j+1} (N/xN,M) 
-\backslash
-arrow[r]  & 
-\backslash
-cdots 
-\backslash
-end{tikzcd}
-\backslash
-end{center}
-\end_layout
+\begin_inset Formula 
+\[
+\cdots\to\mathrm{Ext}_{R}^{i}(M,N)\xrightarrow{x}\mathrm{Ext}_{R}^{i}(M,N)\to\mathrm{Ext}_{R}^{i+1}(M\slash xM,N)\to\cdots
+\]
 
 \end_inset
 
 The module 
-\begin_inset Formula $N/xN$
+\begin_inset Formula $M\slash xM$
 \end_inset
 
  has depth 
-\begin_inset Formula $e-1$
+\begin_inset Formula $q-1$
 \end_inset
 
 , so by induction 
-\begin_inset Formula $\text{Ext}_{A}^{j+1}(N/xN,M)$
+\begin_inset Formula $\mathrm{Ext}_{R}^{i+1}(M\slash xM,N)$
 \end_inset
 
  vanishes if 
-\begin_inset Formula $j+1>d-(e-1)$
+\begin_inset Formula $i+1>d-(q-1)$
 \end_inset
 
 , that is, if 
-\begin_inset Formula $j>d-e$
+\begin_inset Formula $i>d-q$
 \end_inset
 
 .
- By Nakayama's lemma, 
-\begin_inset Formula $\text{Ext}_{A}^{j}(N,M)$
+ By Nakayama's lemma, we conclude that 
+\begin_inset Formula $\mathrm{Ext}_{R}^{i}(M,N)$
 \end_inset
 
  vanishes if 
-\begin_inset Formula $j>d-e$
+\begin_inset Formula $i>d-q$
 \end_inset
 
 .
- 
-\end_layout
-
-\begin_layout Enumerate
-From the short exact sequence 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\backslash
-begin{tikzcd} 0 
-\backslash
-arrow[r] & M 
-\backslash
-arrow[r, " 
-\backslash
-cdot x "]  & M 
-\backslash
-arrow[r]  & M/xM 
-\backslash
-arrow[r]  & 0 
-\backslash
-end{tikzcd}
-\backslash
-end{center}
-\end_layout
-
-\end_inset
-
-we derive a long exact sequence beginning 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\backslash
-begin{tikzcd} 0 
-\backslash
-arrow[r] & 
-\backslash
-text{Hom}_A (N,M) 
-\backslash
-arrow[r, " 
-\backslash
-cdot x "]  & 
-\backslash
-text{Hom}_A (N,M) 
-\backslash
-arrow[r]  & 
-\backslash
-text{Hom}_A (N,M/xM) 
-\backslash
-arrow[r]  & 
-\backslash
-text{Ext}_A ^1 (N,M) 
-\backslash
-arrow[r] & 
-\backslash
-cdots 
-\backslash
-end{tikzcd}
-\backslash
-end{center}
-\end_layout
-
-\end_inset
-
- Thus 
-\begin_inset Formula $x$
-\end_inset
-
- is a nonzerodivisor on 
-\begin_inset Formula $\text{Hom}_{A}(N,M)$
-\end_inset
-
-.
- If 
-\begin_inset Formula $N$
-\end_inset
-
- is a maximal Cohen-Macaulay module then 
-\begin_inset Formula $\text{depth}(N)=d$
-\end_inset
-
-, so 
-\begin_inset Formula $\text{Ext}_{A}^{1}(N,M)=0$
-\end_inset
-
- by part 1.
- Every homomorphism 
-\begin_inset Formula $N\to M/xM$
-\end_inset
-
- factors uniquely through 
-\begin_inset Formula $N/xN$
-\end_inset
-
-, so 
-\begin_inset Formula $\text{Hom}_{A}(N,M/xM)=\text{Hom}_{A}(N/xN,M/xM)$
-\end_inset
-
-.
- The short exact sequence above thus becomes 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\backslash
-begin{tikzcd} 0 
-\backslash
-arrow[r] & 
-\backslash
-text{Hom}_A (N,M) 
-\backslash
-arrow[r, " 
-\backslash
-cdot x "]  & 
-\backslash
-text{Hom}_A (N,M) 
-\backslash
-arrow[r]  & 
-\backslash
-text{Hom}_A (N/xN,M/xM) 
-\backslash
-arrow[r]  & 0 
-\backslash
-end{tikzcd}
-\backslash
-end{center}
-\end_layout
-
-\end_inset
-
- Since 
-\begin_inset Formula $\text{Hom}_{A}(M/xM,N/xN)=\text{Hom}_{A/x}(N/xN,M/xM)$
-\end_inset
-
-, this proves part 2.
  
 \end_layout
 
 \begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hfill
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+2.
+ From the short exact sequence 
+\begin_inset Formula 
+\[
+0\to N\xrightarrow{x}N\to N\slash xN\to0,
+\]
+
+\end_inset
+
+we derive a long exact sequence in 
+\begin_inset Formula $\mathrm{Ext}$
+\end_inset
+
+ beginning
+\begin_inset Formula 
+\[
+0\to\mathrm{Hom}_{R}(M,N)\xrightarrow{x}\mathrm{Hom}_{R}(M,N)\to\mathrm{Hom}_{R}(M,N\slash xN)\to\mathrm{Ext}_{R}^{1}(M,N)\to\cdots
+\]
+
+\end_inset
+
+Thus 
+\begin_inset Formula $x$
+\end_inset
+
+ is 
+\begin_inset Formula $\mathrm{Hom}_{R}(M,N)$
+\end_inset
+
+-regular.
+ Now assume that 
+\begin_inset Formula $M$
+\end_inset
+
+ is maximal Cohen-Macaulay, so 
+\begin_inset Formula $q=d$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\mathrm{Ext}_{R}^{1}(M,N)\cong0$
+\end_inset
+
+ by part 1.
+ Every 
+\begin_inset Formula $R$
+\end_inset
+
+-linear map 
+\begin_inset Formula $M\to N\slash xN$
+\end_inset
+
+ factors uniquely through 
+\begin_inset Formula $M\slash xM$
+\end_inset
+
+, so 
+\begin_inset Formula $\mathrm{Hom}_{R}(M,N\slash xN)=\mathrm{Hom}_{R}(M\slash xM,N\slash xN)$
+\end_inset
+
+.
+ The short exact sequence above thus becomes
+\begin_inset Formula 
+\[
+0\to\mathrm{Hom}_{R}(M,N)\xrightarrow{x}\mathrm{Hom}_{R}(M,N)\to\mathrm{Hom}_{R}(M\slash xM,N\slash xN)\to0
+\]
+
+\end_inset
+
+Finally since 
+\begin_inset Formula $\mathrm{Hom}_{R}(M\slash xM,N\slash xN)=\mathrm{Hom}_{R\slash x}(M\slash xM,N\slash xN)$
+\end_inset
+
+, we obtain part 2.
+ 
 \begin_inset ERT
 status open
 
@@ -72858,7 +72742,7 @@ label{prop21.13}
 \end_inset
 
  Let 
-\begin_inset Formula $A$
+\begin_inset Formula $(R,\mathfrak{m})$
 \end_inset
 
  be a local ring, and let 
@@ -72870,40 +72754,35 @@ label{prop21.13}
 \end_inset
 
  be finitely generated 
-\begin_inset Formula $A$
+\begin_inset Formula $R$
 \end_inset
 
--modules.
- Suppose that 
-\begin_inset Formula $x$
+-modules, and let 
+\begin_inset Formula $x\in\mathfrak{m}$
 \end_inset
 
- is a nonzerodivisor on 
-\begin_inset Formula $M$
+ be an 
+\begin_inset Formula $N$
 \end_inset
 
- and that 
-\begin_inset Formula $x$
-\end_inset
-
- is in the maximal ideal of 
-\begin_inset Formula $A$
-\end_inset
-
-.
+-regular element.
  If 
-\begin_inset Formula $\varphi:N\to M$
+\begin_inset Formula $\varphi\colon M\to N$
 \end_inset
 
- is a map and 
-\begin_inset Formula $\overline{\varphi}:N/xN\to M/xM$
+ is an 
+\begin_inset Formula $R$
+\end_inset
+
+-linear map and 
+\begin_inset Formula $\overline{\varphi}\colon M\slash xM\to N\slash xN$
 \end_inset
 
  is the map induced by 
 \begin_inset Formula $\varphi$
 \end_inset
 
-, then 
+, then
 \end_layout
 
 \begin_layout Enumerate
@@ -72911,11 +72790,11 @@ If
 \begin_inset Formula $\overline{\varphi}$
 \end_inset
 
- is an epimorphism, then 
+ is surjective, then 
 \begin_inset Formula $\varphi$
 \end_inset
 
- is an epimorhpism.
+ is surjective.
 \end_layout
 
 \begin_layout Enumerate
@@ -72923,12 +72802,23 @@ If
 \begin_inset Formula $\overline{\varphi}$
 \end_inset
 
- is a monomorphism, then 
+ is injective, then 
 \begin_inset Formula $\varphi$
 \end_inset
 
- is a monomorphism.
- 
+ is injective.
+\end_layout
+
+\begin_layout Standard
+In particular, if 
+\begin_inset Formula $\overline{\varphi}$
+\end_inset
+
+ is an isomorphism, then 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ is an isomorphism.
 \end_layout
 
 \begin_layout Standard
@@ -72960,7 +72850,31 @@ begin{proof}
 
 \end_inset
 
+ 1.
+ Suppose 
+\begin_inset Formula $\overline{\varphi}$
+\end_inset
 
+ is surjective.
+ Then 
+\begin_inset Formula $N=\varphi(M)+xN$
+\end_inset
+
+.
+ By Nakayama's lemma, this implies 
+\begin_inset Formula $N=\varphi(M)$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ is surjective.
+ 
+\end_layout
+
+\begin_layout Standard
 \begin_inset ERT
 status open
 
@@ -72976,39 +72890,28 @@ hfill
 
 \end_layout
 
-\begin_layout Enumerate
-If 
+\begin_layout Standard
+2.
+ Suppose 
 \begin_inset Formula $\overline{\varphi}$
 \end_inset
 
- is an epimorphism, then 
-\begin_inset Formula $\varphi$
-\end_inset
-
- is an epimorphism by Nakayama's lemma.
- 
-\end_layout
-
-\begin_layout Enumerate
-Suppose 
-\begin_inset Formula $\overline{\varphi}$
-\end_inset
-
- is a monomorphism, and let 
-\begin_inset Formula $J=\text{Ker}(\varphi)$
+ is injective.
+ Let 
+\begin_inset Formula $L=\ker\varphi$
 \end_inset
 
 .
  Since 
-\begin_inset Formula $J$
+\begin_inset Formula $L$
 \end_inset
 
  goes to zero in 
-\begin_inset Formula $N/xN$
+\begin_inset Formula $N\slash xN$
 \end_inset
 
 , we must have 
-\begin_inset Formula $J\subset xN$
+\begin_inset Formula $L\subseteq xM$
 \end_inset
 
 .
@@ -73020,28 +72923,28 @@ Suppose
 \begin_inset Formula $\varphi$
 \end_inset
 
-, we have 
-\begin_inset Formula $J:_{N}x=J$
+, we must have 
+\begin_inset Formula $L:_{M}x=L$
 \end_inset
 
 .
  To see this, note that 
-\begin_inset Formula $n\in J:_{N}x$
+\begin_inset Formula $v\in L:_{M}x$
 \end_inset
 
  implies 
-\begin_inset Formula $xn\in J$
+\begin_inset Formula $xv\in L$
 \end_inset
 
-, thus 
+, thus
 \begin_inset Formula 
 \[
-0=\varphi(xn)=x\varphi(n).
+0=\varphi(xv)=x\varphi(v),
 \]
 
 \end_inset
 
-Then 
+then 
 \begin_inset Formula $x$
 \end_inset
 
@@ -73050,35 +72953,32 @@ Then
 \end_inset
 
  implies 
-\begin_inset Formula $\varphi(n)=0$
+\begin_inset Formula $\varphi(v)=0$
 \end_inset
 
 , or 
-\begin_inset Formula $n\in J$
+\begin_inset Formula $v\in L$
 \end_inset
 
 .
  So 
-\begin_inset Formula $J:_{N}x=J$
+\begin_inset Formula $L:_{M}x=L$
 \end_inset
 
  and 
-\begin_inset Formula $J\subset xN$
+\begin_inset Formula $L\subseteq xM$
 \end_inset
 
  implies 
-\begin_inset Formula $xJ=J$
+\begin_inset Formula $xL=L$
 \end_inset
 
-, and so 
-\begin_inset Formula $J=0$
+, and hence 
+\begin_inset Formula $L=0$
 \end_inset
 
  by Nakayama's lemma.
  
-\end_layout
-
-\begin_layout Standard
 \begin_inset ERT
 status open
 
@@ -73110,7 +73010,7 @@ label{theorem}
 \end_inset
 
  Let 
-\begin_inset Formula $A$
+\begin_inset Formula $R$
 \end_inset
 
  be a local Cohen-Macaulay ring of dimension 
@@ -73122,23 +73022,27 @@ label{theorem}
 \end_inset
 
  be a finitely generated 
-\begin_inset Formula $A$
+\begin_inset Formula $R$
 \end_inset
 
--module.
+-module of depth 
+\begin_inset Formula $q$
+\end_inset
+
+.
  Then 
 \begin_inset Formula $W$
 \end_inset
 
  is a canonical module for 
-\begin_inset Formula $A$
+\begin_inset Formula $R$
 \end_inset
 
  if and only if
 \end_layout
 
 \begin_layout Enumerate
-\begin_inset Formula $\textmd{depth}(W)=d$
+\begin_inset Formula $\mathrm{depth}\,W=\dim R$
 \end_inset
 
 .
@@ -73158,10 +73062,10 @@ label{theorem}
 \end_layout
 
 \begin_layout Enumerate
-\begin_inset Formula $\text{End}_{A}(W)=A$
+\begin_inset Formula $\mathrm{End}_{R}\,W=R$
 \end_inset
 
-.
+
 \end_layout
 
 \begin_layout Standard
@@ -73199,31 +73103,31 @@ begin{proof}
 
  is a canonical module.
  We do induction on the dimension of 
-\begin_inset Formula $A$
+\begin_inset Formula $R$
 \end_inset
 
 .
  Suppose 
-\begin_inset Formula $\text{dim}(A)=0$
+\begin_inset Formula $d=0$
 \end_inset
 
 .
  Then condition 1 is vacuous, since 
-\begin_inset Formula $\text{depth}(W)\leq\text{dim}(A)$
+\begin_inset Formula $q\leq d$
 \end_inset
 
 .
  Also, condition 2 is satisfied because 
-\begin_inset Formula $W=\omega_{A}$
+\begin_inset Formula $W=\omega_{R}$
 \end_inset
 
  is injective.
  Lastly, condition 3 follows because, by duality
 \begin_inset Formula 
 \begin{align*}
-\text{End}_{A}(\omega_{A}) & \cong\text{End}_{A}(D(\omega_{A}))\\
- & \cong\text{End}_{A}(A)\\
- & \cong A.
+\mathrm{End}_{R}(\omega_{R}) & \cong\mathrm{End}_{R}(D(\omega_{R}))\\
+ & \cong\mathrm{End}_{R}\,R\\
+ & \cong R.
 \end{align*}
 
 \end_inset
@@ -73241,7 +73145,7 @@ begin{proof}
 \end_inset
 
 Now suppose 
-\begin_inset Formula $\text{dim}(A)>0$
+\begin_inset Formula $d>0$
 \end_inset
 
 , and let 
@@ -73250,15 +73154,15 @@ Now suppose
 
  be a nonzerodivisor.
  By hypothesis, 
-\begin_inset Formula $W/xW$
+\begin_inset Formula $W\slash xW$
 \end_inset
 
  is a canonical module over 
-\begin_inset Formula $A/x$
+\begin_inset Formula $R\slash x$
 \end_inset
 
 , and by induction it satisfies conditions 1,2, and 3 as an 
-\begin_inset Formula $(A/x)$
+\begin_inset Formula $(R\slash x)$
 \end_inset
 
 -module.
@@ -73271,7 +73175,7 @@ Now suppose
 \end_inset
 
  and 
-\begin_inset Formula $W/xW$
+\begin_inset Formula $W\slash xW$
 \end_inset
 
  has depth 
@@ -73299,7 +73203,7 @@ ref{prop21.10})
  has finite injective dimension, in particular
 \begin_inset Formula 
 \[
-d-1=\text{id}_{A/x}(W/xW)=\text{id}_{A}(W)-1.
+d-1=\mathrm{id}_{R\slash x}(W\slash xW)=\mathrm{id}_{R}\,W-1.
 \]
 
 \end_inset
@@ -73317,23 +73221,23 @@ d-1=\text{id}_{A/x}(W/xW)=\text{id}_{A}(W)-1.
 \end_inset
 
 Let 
-\begin_inset Formula $B=\text{End}_{A}(W)$
+\begin_inset Formula $S=\mathrm{End}_{R}\,W$
 \end_inset
 
-, and consider the natural map 
-\begin_inset Formula $\varphi:A\to B$
+, and consider the homothety map 
+\begin_inset Formula $\varphi\colon R\to S$
 \end_inset
 
  sending each element 
-\begin_inset Formula $a\in A$
+\begin_inset Formula $a\in R$
 \end_inset
 
  to the map 
-\begin_inset Formula $m_{a}\in\text{End}_{A}(W)$
+\begin_inset Formula $\mathrm{m}_{a}\in\mathrm{End}_{R}\,W$
 \end_inset
 
 , where 
-\begin_inset Formula $m_{a}(w)=aw$
+\begin_inset Formula $\mathrm{m}_{a}(w)=aw$
 \end_inset
 
  for all 
@@ -73364,11 +73268,11 @@ ref{prop21.12})
 \end_inset
 
  is a nonzerodivisor on 
-\begin_inset Formula $B$
+\begin_inset Formula $S$
 \end_inset
 
 , and 
-\begin_inset Formula $B/xB=\text{End}_{A/x}(W/xW)=A/x$
+\begin_inset Formula $S\slash xS=\mathrm{End}_{R\slash x}(W\slash xW)=R\slash x$
 \end_inset
 
 .
@@ -73377,7 +73281,7 @@ ref{prop21.12})
 \end_inset
 
  induces an isomorhpism 
-\begin_inset Formula $A/xA\to B/xB$
+\begin_inset Formula $R\slash x\to S\slash xS$
 \end_inset
 
 .
@@ -73418,21 +73322,21 @@ Next suppose that
 \end_inset
 
  is an 
-\begin_inset Formula $A$
+\begin_inset Formula $R$
 \end_inset
 
 -module satisfying conditions 1,2, and 3.
  Again, we do induction on 
-\begin_inset Formula $\text{dim}(A)$
+\begin_inset Formula $d$
 \end_inset
 
 .
  In case 
-\begin_inset Formula $\text{dim}(A)=0$
+\begin_inset Formula $d=0$
 \end_inset
 
  we must show that 
-\begin_inset Formula $W=\omega_{A}$
+\begin_inset Formula $W=\omega_{R}$
 \end_inset
 
 .
@@ -73450,23 +73354,8 @@ ref{prop21.11})
 \end_inset
 
 , this follows from conditions 2 and 3.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-Now suppose that 
-\begin_inset Formula $\text{dim}(A)>0$
+ Now suppose that 
+\begin_inset Formula $d>0$
 \end_inset
 
 , and let 
@@ -73474,7 +73363,7 @@ Now suppose that
 \end_inset
 
  be a nonzerodivisor in 
-\begin_inset Formula $A$
+\begin_inset Formula $R$
 \end_inset
 
 .
@@ -73500,7 +73389,7 @@ ref{prop21.9})
 \end_inset
 
 , so 
-\begin_inset Formula $W/xW$
+\begin_inset Formula $W\slash xW$
 \end_inset
 
  has depth 
@@ -73508,7 +73397,7 @@ ref{prop21.9})
 \end_inset
 
  over 
-\begin_inset Formula $A/x$
+\begin_inset Formula $R\slash x$
 \end_inset
 
 .
@@ -73526,7 +73415,7 @@ ref{prop21.10})
 \end_inset
 
 , 
-\begin_inset Formula $\text{id}_{A/x}(W/xW)<\infty$
+\begin_inset Formula $\mathrm{id}_{R\slash x}(W\slash xW)<\infty$
 \end_inset
 
 , and by 
@@ -73543,16 +73432,19 @@ ref{prop21.12})
 \end_inset
 
 , 
-\begin_inset Formula $\text{End}_{A/x}(W/xW)=\text{End}_{A}(W)/x\text{End}_{A}(W)=A/x$
+\begin_inset Formula 
+\[
+\mathrm{End}_{R\slash x}(W\slash xW)=\mathrm{End}_{R}(W)\slash x\mathrm{End}_{R}(W)=R\slash x.
+\]
+
 \end_inset
 
-.
- Thus, 
-\begin_inset Formula $W/xW$
+Thus, 
+\begin_inset Formula $W\slash xW$
 \end_inset
 
  is a canonical module for 
-\begin_inset Formula $A/x$
+\begin_inset Formula $R\slash x$
 \end_inset
 
  by induction, and 
@@ -73560,14 +73452,10 @@ ref{prop21.12})
 \end_inset
 
  is a canonical module for 
-\begin_inset Formula $A$
+\begin_inset Formula $R$
 \end_inset
 
 .
- 
-\end_layout
-
-\begin_layout Standard
 \begin_inset ERT
 status open
 
@@ -73583,13 +73471,174 @@ end{proof}
 
 \end_layout
 
-\begin_layout Section*
+\begin_layout Subsection
 Uniqueness and (Often) Existence
 \end_layout
 
 \begin_layout Standard
 These results imply a strong uniqueness result.
  
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{cor}
+\backslash
+label{cor}
+\end_layout
+
+\end_inset
+
+ (Uniqueness of canonical modules).
+ Let 
+\begin_inset Formula $R$
+\end_inset
+
+ be a local Cohen-Macualay ring of dimension 
+\begin_inset Formula $d$
+\end_inset
+
+ with a canonical module 
+\begin_inset Formula $W$
+\end_inset
+
+, and let 
+\begin_inset Formula $M$
+\end_inset
+
+ be a finitely-generated maximal Cohen-Macaulay 
+\begin_inset Formula $R$
+\end_inset
+
+-module of finite injective dimension.
+ Then 
+\begin_inset Formula $M$
+\end_inset
+
+ is a direct sum of copies of 
+\begin_inset Formula $W$
+\end_inset
+
+.
+ In particular, any two canonical module of 
+\begin_inset Formula $R$
+\end_inset
+
+ are isomorphic.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{cor}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ We do induction on 
+\begin_inset Formula $d$
+\end_inset
+
+, the case 
+\begin_inset Formula $d=0$
+\end_inset
+
+ being 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Proposition~(
+\backslash
+ref{prop21.11})
+\end_layout
+
+\end_inset
+
+.
+ If 
+\begin_inset Formula $x\in R$
+\end_inset
+
+ is a nonzerodivisor, then 
+\begin_inset Formula $x$
+\end_inset
+
+ is a nonzerodivisor on 
+\begin_inset Formula $W$
+\end_inset
+
+ and on 
+\begin_inset Formula $M$
+\end_inset
+
+, and 
+\begin_inset Formula $M\slash xM\cong(W\slash xW)^{n}$
+\end_inset
+
+ for some 
+\begin_inset Formula $n$
+\end_inset
+
+ by induction.
+ By 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Proposition~(
+\backslash
+ref{prop21.13})
+\end_layout
+
+\end_inset
+
+, there is an isomorphism 
+\begin_inset Formula $M\cong W^{n}$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard

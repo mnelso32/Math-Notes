@@ -326,7 +326,7 @@ Let
 \begin_inset Formula $R$
 \end_inset
 
--complex algebra and let 
+-complex and let 
 \begin_inset Formula $\mu\colon A\otimes_{R}A\to A$
 \end_inset
 
@@ -413,21 +413,13 @@ Leibniz law
  Satisfying Leibniz law means 
 \begin_inset Formula 
 \[
-\mathrm{d}(ab)=\mathrm{d}(a)b+(-1)^{i}a\mathrm{d}(b)
+\mathrm{d}(ab)=\mathrm{d}(a)b+(-1)^{|a|}a\mathrm{d}(b)
 \]
 
 \end_inset
 
-for all 
-\begin_inset Formula $a\in A_{i}$
-\end_inset
-
- and 
-\begin_inset Formula $b\in A_{j}$
-\end_inset
-
- for all 
-\begin_inset Formula $i,j\in\mathbb{Z}$
+for all homogeneous 
+\begin_inset Formula $a,b\in A$
 \end_inset
 
 .
@@ -474,24 +466,17 @@ graded-commutative
 if
 \begin_inset Formula 
 \[
-ab=(-1)^{i}ba
+ab=(-1)^{|a||b|}ba
 \]
 
 \end_inset
 
-for all 
-\begin_inset Formula $a\in A_{i}$
-\end_inset
-
- and 
-\begin_inset Formula $b\in A_{j}$
-\end_inset
-
- for all 
-\begin_inset Formula $i,j\in\mathbb{Z}$
+for all homogeneous 
+\begin_inset Formula $a,b\in A$
 \end_inset
 
 .
+ 
 \end_layout
 
 \begin_layout Enumerate
@@ -566,7 +551,7 @@ The triple
 \begin_inset Formula $(A,\mathrm{d},\mu)$
 \end_inset
 
- is called 
+ is called a 
 \series bold
 differential graded 
 \begin_inset Formula $R$
@@ -641,8 +626,8 @@ let
 \begin_inset Quotes erd
 \end_inset
 
- without specifying its differential or multiplication, then it will be
- understood that it's differential is denoted 
+ without specifying its differential or multiplication operations, then
+ it will be understood that it's differential is denoted 
 \begin_inset Formula $\mathrm{d}_{A}$
 \end_inset
 
@@ -810,11 +795,11 @@ PDG
 -module
 \series default
 ) is a triple 
-\begin_inset Formula $(M,\mathrm{d}_{M},\mu_{M})$
+\begin_inset Formula $(X,\mathrm{d}_{X},\mu_{A,X})$
 \end_inset
 
  where 
-\begin_inset Formula $(M,\mathrm{d}_{M})$
+\begin_inset Formula $(X,\mathrm{d}_{X})$
 \end_inset
 
  is an 
@@ -822,15 +807,15 @@ PDG
 \end_inset
 
 -complex and where 
-\begin_inset Formula $\mu_{M}\colon A\otimes_{R}M\to M$
+\begin_inset Formula $\mu_{A,X}\colon A\otimes_{R}X\to X$
 \end_inset
 
  is a chain map which satisfies 
-\begin_inset Formula $1u=u$
+\begin_inset Formula $1x=x$
 \end_inset
 
  for all 
-\begin_inset Formula $u\in M$
+\begin_inset Formula $x\in X$
 \end_inset
 
 .
@@ -863,36 +848,31 @@ end{defn}
 \end_inset
 
 Here again we are using the convention that the image of a tensor 
-\begin_inset Formula $\sum_{i=1}^{n}a_{i}\otimes u_{i}$
+\begin_inset Formula $\sum_{i=1}^{n}a_{i}\otimes x_{i}$
 \end_inset
 
  in 
-\begin_inset Formula $A\otimes_{R}M$
+\begin_inset Formula $A\otimes_{R}X$
 \end_inset
 
  under the map 
-\begin_inset Formula $\mu_{M}$
+\begin_inset Formula $\mu_{X}$
 \end_inset
 
  is denoted by
 \begin_inset Formula 
 \[
-\mu_{M}\left(\sum_{i=1}^{n}a_{i}\otimes u_{i}\right)=\sum_{i=1}^{n}a_{i}\star_{\mu_{M}}u_{i}=\sum_{i=1}^{n}a_{i}u_{i}
+\mu_{A,X}\left(\sum_{i=1}^{n}a_{i}\otimes x_{i}\right)=\sum_{i=1}^{n}a_{i}\star_{\mu_{A,X}}x_{i}=\sum_{i=1}^{n}a_{i}x_{i}
 \]
 
 \end_inset
 
-where 
-\begin_inset Formula $\mu_{M}$
-\end_inset
-
- is understood from context.
- Also, as before, if we write 
+Also, as before, if we write 
 \begin_inset Quotes eld
 \end_inset
 
 let 
-\begin_inset Formula $M$
+\begin_inset Formula $X$
 \end_inset
 
  be a PDG 
@@ -903,18 +883,32 @@ let
 \begin_inset Quotes erd
 \end_inset
 
- without specifying its differential or scalar multiplication, then it will
- be understood that it's differential is denoted 
-\begin_inset Formula $\mathrm{d}_{M}$
+ without specifying its differential or scalar-multiplication operations,
+ then it will be understood that it's differential is denoted 
+\begin_inset Formula $\mathrm{d}_{X}$
 \end_inset
 
  and its multiplication is denoted 
-\begin_inset Formula $\mu_{M}$
+\begin_inset Formula $\mu_{A,X}$
+\end_inset
+
+.
+ In fact, if 
+\begin_inset Formula $A$
+\end_inset
+
+ is understood from context, then we simplify this notation even further
+ by writing 
+\begin_inset Formula $\mu_{X}$
+\end_inset
+
+ rather than 
+\begin_inset Formula $\mu_{A,X}$
 \end_inset
 
 .
  Note that 
-\begin_inset Formula $\mu_{M}$
+\begin_inset Formula $\mu_{X}$
 \end_inset
 
  being a chain map implies it is satisfies 
@@ -924,30 +918,26 @@ Leibniz law
 , which in this context says 
 \begin_inset Formula 
 \[
-\mathrm{d}_{M}(au)=\mathrm{d}_{A}(a)u+(-1)^{i}a\mathrm{d}_{M}(u)
+\mathrm{d}_{X}(ax)=\mathrm{d}_{A}(a)x+(-1)^{|a|}a\mathrm{d}_{X}(x)
 \]
 
 \end_inset
 
-for all 
-\begin_inset Formula $a\in A_{i}$
+for all homogeneous 
+\begin_inset Formula $a\in A$
 \end_inset
 
-, 
-\begin_inset Formula $i\in\mathbb{Z}$
-\end_inset
-
-, and 
-\begin_inset Formula $u\in M$
+ and 
+\begin_inset Formula $x\in X$
 \end_inset
 
 .
  Notice that we do not require 
-\begin_inset Formula $\mu_{M}$
+\begin_inset Formula $\mu_{X}$
 \end_inset
 
  to be associative in order for 
-\begin_inset Formula $M$
+\begin_inset Formula $X$
 \end_inset
 
  to be a PDG 
@@ -957,20 +947,20 @@ for all
 -module, that is, we do not require here the identity
 \begin_inset Formula 
 \[
-(ab)u=a(bu)
+(ab)x=a(bx)
 \]
 
 \end_inset
 
-for all 
+to hold for all 
 \begin_inset Formula $a,b\in A$
 \end_inset
 
  and 
-\begin_inset Formula $u\in M$
+\begin_inset Formula $x\in X$
 \end_inset
 
- to hold.
+.
  
 \end_layout
 
@@ -990,11 +980,11 @@ label{defn}
 \end_inset
 
  Let 
-\begin_inset Formula $M$
+\begin_inset Formula $X$
 \end_inset
 
  and 
-\begin_inset Formula $N$
+\begin_inset Formula $Y$
 \end_inset
 
  be two PDG 
@@ -1011,11 +1001,11 @@ label{defn}
 -linear map 
 \series default
 betweem them is a chain map 
-\begin_inset Formula $\varphi\colon M\to N$
+\begin_inset Formula $\varphi\colon X\to Y$
 \end_inset
 
  which satisfies 
-\begin_inset Formula $\varphi(au)=a\varphi(u)$
+\begin_inset Formula $\varphi(ax)=a\varphi(x)$
 \end_inset
 
  for all 
@@ -1023,7 +1013,20 @@ betweem them is a chain map
 \end_inset
 
  and 
-\begin_inset Formula $u\in M$
+\begin_inset Formula $x\in X$
+\end_inset
+
+.
+ The collection of all PDG 
+\begin_inset Formula $A$
+\end_inset
+
+-modules together with their 
+\begin_inset Formula $A$
+\end_inset
+
+-linear maps forms a category, which we denote by 
+\begin_inset Formula $\mathbf{PMod}_{A}$
 \end_inset
 
 .
@@ -1041,34 +1044,6 @@ end{defn}
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-The collection of all PDG 
-\begin_inset Formula $A$
-\end_inset
-
--modules together with their 
-\begin_inset Formula $A$
-\end_inset
-
--linear maps forms a category, which we denote by 
-\begin_inset Formula $\mathbf{PMod}_{A}$
-\end_inset
-
-.
- 
 \end_layout
 
 \begin_layout Subsubsection
@@ -1091,11 +1066,11 @@ label{defn}
 \end_inset
 
  Let 
-\begin_inset Formula $M$
+\begin_inset Formula $X$
 \end_inset
 
  and 
-\begin_inset Formula $N$
+\begin_inset Formula $Y$
 \end_inset
 
  be two PDG 
@@ -1104,7 +1079,7 @@ label{defn}
 
 -modules.
  We say 
-\begin_inset Formula $M$
+\begin_inset Formula $X$
 \end_inset
 
  is a 
@@ -1120,11 +1095,11 @@ PDG
 -submodule 
 \series default
 of 
-\begin_inset Formula $N$
+\begin_inset Formula $Y$
 \end_inset
 
  if 
-\begin_inset Formula $M\subseteq N$
+\begin_inset Formula $X\subseteq Y$
 \end_inset
 
 .
@@ -1146,15 +1121,15 @@ of
 
 .
  Given any collection 
-\begin_inset Formula $\{u_{\lambda}\}_{\lambda\in\Lambda}$
+\begin_inset Formula $\{x_{\lambda}\}_{\lambda\in\Lambda}$
 \end_inset
 
  of elements of 
-\begin_inset Formula $M$
+\begin_inset Formula $X$
 \end_inset
 
 , we denote by 
-\begin_inset Formula $\langle\langle u_{\lambda}\rangle\rangle_{\lambda\in\Lambda}$
+\begin_inset Formula $\langle\langle x_{\lambda}\rangle\rangle_{\lambda\in\Lambda}$
 \end_inset
 
  to be the smallest PDG 
@@ -1166,12 +1141,12 @@ of
 \end_inset
 
  which contains 
-\begin_inset Formula $\{u_{\lambda}\}_{\lambda\in\Lambda}$
+\begin_inset Formula $\{x_{\lambda}\}_{\lambda\in\Lambda}$
 \end_inset
 
 .
  We denote by 
-\begin_inset Formula $\langle u_{\lambda}\rangle_{\lambda\in\Lambda}$
+\begin_inset Formula $\langle x_{\lambda}\rangle_{\lambda\in\Lambda}$
 \end_inset
 
  to be the set of all 
@@ -1179,7 +1154,7 @@ of
 \end_inset
 
 -linear combinations of 
-\begin_inset Formula $\{u_{\lambda}\}_{\lambda\in\Lambda}$
+\begin_inset Formula $\{x_{\lambda}\}_{\lambda\in\Lambda}$
 \end_inset
 
 .
@@ -1215,30 +1190,26 @@ label{prop}
 \end_inset
 
  Let 
-\begin_inset Formula $M$
+\begin_inset Formula $X$
 \end_inset
 
  be a PDG 
 \begin_inset Formula $A$
 \end_inset
 
--submodule of 
-\begin_inset Formula $N$
-\end_inset
-
- and let 
-\begin_inset Formula $\{u_{\lambda}\}_{\lambda\in\Lambda}$
+-module and let 
+\begin_inset Formula $\{x_{\lambda}\}_{\lambda\in\Lambda}$
 \end_inset
 
  be a collection of elements of 
-\begin_inset Formula $M$
+\begin_inset Formula $X$
 \end_inset
 
 .
  Then 
 \begin_inset Formula 
 \[
-\langle\langle u_{\lambda}\rangle\rangle_{\lambda\in\Lambda}=\langle u_{\lambda},\mathrm{d}(u_{\lambda})\rangle_{\lambda\in\Lambda}
+\langle\langle x_{\lambda}\rangle\rangle_{\lambda\in\Lambda}=\langle x_{\lambda},\mathrm{d}_{X}(x_{\lambda})\rangle_{\lambda\in\Lambda}
 \]
 
 \end_inset
@@ -1286,7 +1257,7 @@ begin{proof}
 
  from the subscript of our bracket notation.
  Since 
-\begin_inset Formula $\langle\langle u_{\lambda}\rangle\rangle$
+\begin_inset Formula $\langle\langle x_{\lambda}\rangle\rangle$
 \end_inset
 
  is the smallest PDG 
@@ -1294,15 +1265,15 @@ begin{proof}
 \end_inset
 
 -submodule of 
-\begin_inset Formula $M$
+\begin_inset Formula $X$
 \end_inset
 
  which contains 
-\begin_inset Formula $\{u_{\lambda}\}$
+\begin_inset Formula $\{x_{\lambda}\}$
 \end_inset
 
 , we must have 
-\begin_inset Formula $\mathrm{d}(u_{\lambda})\in\langle\langle u_{\lambda}\rangle\rangle$
+\begin_inset Formula $\mathrm{d}_{X}(x_{\lambda})\in\langle\langle x_{\lambda}\rangle\rangle$
 \end_inset
 
  for all 
@@ -1315,48 +1286,68 @@ begin{proof}
 \end_inset
 
 -linear combinations of 
-\begin_inset Formula $\{u_{\lambda},\mathrm{d}(u_{\lambda})\}$
+\begin_inset Formula $\{x_{\lambda},\mathrm{d}_{X}(x_{\lambda})\}$
 \end_inset
 
  belong to 
-\begin_inset Formula $\langle\langle u_{\lambda}\rangle\rangle$
+\begin_inset Formula $\langle\langle x_{\lambda}\rangle\rangle$
 \end_inset
 
-.
+ as well.
  Thus
 \begin_inset Formula 
 \[
-\langle u_{\lambda},\mathrm{d}(u_{\lambda})\rangle\subseteq\langle\langle u_{\lambda}\rangle\rangle.
+\langle x_{\lambda},\mathrm{d}_{X}(x_{\lambda})\rangle\subseteq\langle\langle x_{\lambda}\rangle\rangle.
 \]
 
 \end_inset
 
 For the reverse direction, notice that Leibniz law ensures that 
-\begin_inset Formula $\langle u_{\lambda},\mathrm{d}(u_{\lambda})\rangle$
+\begin_inset Formula $\langle x_{\lambda},\mathrm{d}_{X}(x_{\lambda})\rangle$
 \end_inset
 
  is 
-\begin_inset Formula $\mathrm{d}$
+\begin_inset Formula $\mathrm{d}_{X}$
 \end_inset
 
 -stable.
  Indeed, if 
-\begin_inset Formula $\sum_{i=1}^{m}a_{i}u_{\lambda_{i}}+\sum_{j=1}^{n}b_{j}\mathrm{d}(u_{\lambda_{j}})\in\langle u_{\lambda},\mathrm{d}(u_{\lambda})\rangle$
+\begin_inset Formula 
+\[
+\sum_{i=1}^{m}a_{i}x_{\lambda_{i}}+\sum_{j=1}^{n}b_{j}\mathrm{d}_{X}(x_{\lambda_{j}}),
+\]
+
 \end_inset
 
-, then note that
+is a finite 
+\begin_inset Formula $A$
+\end_inset
+
+-linear combination of elements in 
+\begin_inset Formula $\{x_{\lambda},\mathrm{d}_{X}(x_{\lambda})\}$
+\end_inset
+
+ where each 
+\begin_inset Formula $a_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $b_{j}$
+\end_inset
+
+ are homogeneous, then note that
 \begin_inset Formula 
 \begin{align*}
-\mathrm{d}\left(\sum_{i=1}^{m}a_{i}u_{\lambda_{i}}+\sum_{j=1}^{n}b_{j}\mathrm{d}(u_{\lambda_{j}})\right) & =\sum_{i=1}^{m}\mathrm{d}(a_{i}u_{\lambda_{i}})+\sum_{j=1}^{n}\mathrm{d}(b_{j}\mathrm{d}(u_{\lambda_{j}}))\\
- & =\sum_{i=1}^{m}\left(\mathrm{d}(a_{i})u_{\lambda_{i}}+(-1)^{|a_{i}|}a_{i}\mathrm{d}(u_{\lambda_{i}})\right)+\sum_{j=1}^{n}\left(\mathrm{d}(b_{j})\mathrm{d}(u_{\lambda_{j}})+(-1)^{|b_{j}|}b_{j}\mathrm{d}^{2}(u_{\lambda_{j}})\right)\\
- & =\sum_{i=1}^{m}\mathrm{d}(a_{i})u_{\lambda_{i}}+\sum_{i=1}^{m}(-1)^{|a_{i}|}a_{i}\mathrm{d}(u_{\lambda_{i}})+\sum_{j=1}^{n}\mathrm{d}(b_{j})\mathrm{d}(u_{\lambda_{j}})\\
- & \in\langle u_{\lambda},\mathrm{d}(u_{\lambda})\rangle.
+\mathrm{d}_{X}\left(\sum_{i=1}^{m}a_{i}x_{\lambda_{i}}+\sum_{j=1}^{n}b_{j}\mathrm{d}_{X}(x_{\lambda_{j}})\right) & =\sum_{i=1}^{m}\mathrm{d}_{X}(a_{i}x_{\lambda_{i}})+\sum_{j=1}^{n}\mathrm{d}_{X}(b_{j}\mathrm{d}(x_{\lambda_{j}}))\\
+ & =\sum_{i=1}^{m}\left(\mathrm{d}_{A}(a_{i})x_{\lambda_{i}}+(-1)^{|a_{i}|}a_{i}\mathrm{d}_{X}(x_{\lambda_{i}})\right)+\sum_{j=1}^{n}\left(\mathrm{d}_{A}(b_{j})x_{\lambda_{j}}+(-1)^{|b_{j}|}b_{j}\mathrm{d}_{X}^{2}(x_{\lambda_{j}})\right)\\
+ & =\sum_{i=1}^{m}\mathrm{d}_{A}(a_{i})x_{\lambda_{i}}+\sum_{i=1}^{m}(-1)^{|a_{i}|}a_{i}\mathrm{d}_{X}(x_{\lambda_{i}})+\sum_{j=1}^{n}\mathrm{d}_{A}(b_{j})x_{\lambda_{j}}\\
+ & \in\langle x_{\lambda},\mathrm{d}_{X}(x_{\lambda})\rangle.
 \end{align*}
 
 \end_inset
 
 In particular, we see that 
-\begin_inset Formula $\langle u_{\lambda},\mathrm{d}(u_{\lambda})\rangle$
+\begin_inset Formula $\langle x_{\lambda},\mathrm{d}_{X}(x_{\lambda})\rangle$
 \end_inset
 
  is a PDG 
@@ -1364,34 +1355,38 @@ In particular, we see that
 \end_inset
 
 -submodule of 
-\begin_inset Formula $M$
+\begin_inset Formula $X$
 \end_inset
 
  which contains 
-\begin_inset Formula $\{u_{\lambda}\}$
+\begin_inset Formula $\{x_{\lambda}\}$
 \end_inset
 
 .
  Since 
-\begin_inset Formula $\langle\langle u_{\lambda}\rangle\rangle$
+\begin_inset Formula $\langle\langle x_{\lambda}\rangle\rangle$
 \end_inset
 
- is the smallest PDG 
+ is the 
+\emph on
+smallest
+\emph default
+ PDG 
 \begin_inset Formula $A$
 \end_inset
 
 -submodule of 
-\begin_inset Formula $M$
+\begin_inset Formula $X$
 \end_inset
 
  which contains 
-\begin_inset Formula $\{u_{\lambda}\}$
+\begin_inset Formula $\{x_{\lambda}\}$
 \end_inset
 
 , it follows that
 \begin_inset Formula 
 \[
-\langle u_{\lambda},\mathrm{d}(u_{\lambda})\rangle\supseteq\langle\langle u_{\lambda}\rangle\rangle.
+\langle x_{\lambda},\mathrm{d}_{X}(x_{\lambda})\rangle\supseteq\langle\langle x_{\lambda}\rangle\rangle.
 \]
 
 \end_inset
@@ -1497,7 +1492,7 @@ In fact,
 \end_inset
 
 Now let us consider the case where 
-\begin_inset Formula $M$
+\begin_inset Formula $X$
 \end_inset
 
  is a PDG 
@@ -1505,16 +1500,16 @@ Now let us consider the case where
 \end_inset
 
 -module and let 
-\begin_inset Formula $u\in M$
+\begin_inset Formula $x\in X$
 \end_inset
 
 .
  We can define the annihilator 
-\begin_inset Formula $0:u$
+\begin_inset Formula $0:x$
 \end_inset
 
  with respect to 
-\begin_inset Formula $u$
+\begin_inset Formula $x$
 \end_inset
 
  as a subset of 
@@ -1524,13 +1519,13 @@ Now let us consider the case where
  as before:
 \begin_inset Formula 
 \[
-0:u=\{a\in A\mid au=0\},
+0:x=\{a\in A\mid ax=0\},
 \]
 
 \end_inset
 
 however this time the set 
-\begin_inset Formula $0:u$
+\begin_inset Formula $0:x$
 \end_inset
 
  need not be a PDG ideal of 
@@ -1705,299 +1700,6 @@ for all
 \end_layout
 
 \begin_layout Subsection
-Homology of 
-\begin_inset Formula $[M]$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Let 
-\begin_inset Formula $A$
-\end_inset
-
- be a PDG 
-\begin_inset Formula $R$
-\end_inset
-
--algebra and let 
-\begin_inset Formula $M$
-\end_inset
-
- be a PDG 
-\begin_inset Formula $A$
-\end_inset
-
--module.
- It is easy to see that 
-\begin_inset Formula $\mu_{M}$
-\end_inset
-
- is associative if and only if 
-\begin_inset Formula $[M]=0$
-\end_inset
-
-.
- Given that 
-\begin_inset Formula $[M]$
-\end_inset
-
- is an 
-\begin_inset Formula $R$
-\end_inset
-
--complex, we have a weaker form of associativity:
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{defn}
-\backslash
-label{defn}
-\end_layout
-
-\end_inset
-
- We say 
-\begin_inset Formula $\mu_{M}$
-\end_inset
-
- is 
-\series bold
-homologically associative 
-\series default
-if 
-\begin_inset Formula $\mathrm{H}([M])=0$
-\end_inset
-
-.
- 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{defn}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-Clearly if 
-\begin_inset Formula $\mu_{M}$
-\end_inset
-
- is associative, then 
-\begin_inset Formula $\mu_{M}$
-\end_inset
-
- is homologically associative.
- It turns out that the converse is also true if 
-\begin_inset Formula $M$
-\end_inset
-
- bounded below and is 
-\series bold
-minimal
-\series default
-, that is, if 
-\begin_inset Formula $\mathrm{d}_{M}(M)\subseteq\mathfrak{m}M$
-\end_inset
-
- where 
-\begin_inset Formula $\mathfrak{m}$
-\end_inset
-
- is the maximal ideal in the local ring 
-\begin_inset Formula $R$
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{prop}
-\backslash
-label{prophomologyassociator}
-\end_layout
-
-\end_inset
-
- Let 
-\begin_inset Formula $A$
-\end_inset
-
- be a PDG 
-\begin_inset Formula $R$
-\end_inset
-
--algebra and let 
-\begin_inset Formula $M$
-\end_inset
-
- and a PDG 
-\begin_inset Formula $A$
-\end_inset
-
--module.
- Assume that 
-\begin_inset Formula $M$
-\end_inset
-
- is minimal and bounded below.
- Then the following conditions are equivalent
-\end_layout
-
-\begin_layout Enumerate
-\begin_inset Formula $\mu_{M}$
-\end_inset
-
- is associative.
-\end_layout
-
-\begin_layout Enumerate
-\begin_inset Formula $\mu_{M}$
-\end_inset
-
- is homologically associative.
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{prop}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{proof}
-\end_layout
-
-\end_inset
-
- Clearly 1 implies 2.
- To show 2 implies 1, we prove the contrapositive: assume 
-\begin_inset Formula $\mu_{M}$
-\end_inset
-
- is not associative, so 
-\begin_inset Formula $[M]\neq0$
-\end_inset
-
-.
- Choose 
-\begin_inset Formula $m\in\mathbb{Z}$
-\end_inset
-
- minimal so that 
-\begin_inset Formula $[M]_{m}\neq0$
-\end_inset
-
- and 
-\begin_inset Formula $[M]_{m-1}=0$
-\end_inset
-
-.
- By Nakayama's Lemma, we can find a triple 
-\begin_inset Formula $(a,b,u)$
-\end_inset
-
- such that 
-\begin_inset Formula $|a|+|b|+|u|=m$
-\end_inset
-
- and such that 
-\begin_inset Formula $[a,b,u]\notin\mathfrak{m}[M]_{m}$
-\end_inset
-
-.
- By minimality of 
-\begin_inset Formula $m$
-\end_inset
-
-, we have 
-\begin_inset Formula $\mathrm{d}_{[M]}[a,b,u]=0$
-\end_inset
-
-.
- Also, since 
-\begin_inset Formula $M$
-\end_inset
-
- is minimal, we have 
-\begin_inset Formula $\mathrm{d}_{M}[M]\subseteq\mathfrak{m}[M]$
-\end_inset
-
-.
- Thus 
-\begin_inset Formula $[a,b,u]$
-\end_inset
-
- represents a nontrivial element in homology.
- 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{proof}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsection
 \begin_inset Formula $\mathbf{PMod}_{A}$
 \end_inset
 
@@ -2048,44 +1750,36 @@ label{prop}
 \end_inset
 
  Let 
-\begin_inset Formula $M$
+\begin_inset Formula $\varphi\colon X\to Y$
 \end_inset
 
- and 
-\begin_inset Formula $M'$
-\end_inset
-
- be two PDG 
+ be a morphism of PDG 
 \begin_inset Formula $A$
 \end_inset
 
 -modules and let 
-\begin_inset Formula $\varphi\colon M\to M'$
+\begin_inset Formula $K=\ker\varphi$
 \end_inset
 
- be an 
-\begin_inset Formula $A$
-\end_inset
-
--linear map.
+.
  Then 
-\begin_inset Formula $(\ker\varphi,\widetilde{\mathrm{d}},\widetilde{\mu})$
+\begin_inset Formula $K$
 \end_inset
 
- is a PDG 
+ has the structure of a PDG 
 \begin_inset Formula $A$
 \end_inset
 
 -submodule of 
-\begin_inset Formula $M$
+\begin_inset Formula $X$
 \end_inset
 
 , where 
-\begin_inset Formula $\widetilde{\mathrm{d}}=\mathrm{d}|_{\ker\varphi}$
+\begin_inset Formula $\mathrm{d}_{K}=\mathrm{d}|_{K}$
 \end_inset
 
- and 
-\begin_inset Formula $\widetilde{\mu}=\mu|_{\ker\varphi\otimes_{R}\ker\varphi}$
+ and where 
+\begin_inset Formula $\mu_{K}=\mu_{X}|_{A\otimes_{R}K}$
 \end_inset
 
 .
@@ -2118,113 +1812,117 @@ begin{proof}
 
 \end_inset
 
- We just need to check that 
-\begin_inset Formula $\widetilde{\mathrm{\mathrm{d}}}$
+ Since both 
+\begin_inset Formula $\mathrm{d}_{K}$
 \end_inset
 
  and 
-\begin_inset Formula $\widetilde{\mu}$
+\begin_inset Formula $\mu_{K}$
+\end_inset
+
+ are restrictions, we just need to check that 
+\begin_inset Formula $\mathrm{d}_{K}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mu_{K}$
 \end_inset
 
  land in 
-\begin_inset Formula $\ker\varphi$
+\begin_inset Formula $K$
 \end_inset
 
 .
- Then it will follow that 
-\begin_inset Formula $(\ker\varphi,\widetilde{\mathrm{d}},\widetilde{\mu})$
+ Indeed, then all of the properties needed in order for 
+\begin_inset Formula $K$
 \end_inset
 
- is a a PDG 
+ to be a PDG 
 \begin_inset Formula $A$
 \end_inset
 
 -submodule of 
-\begin_inset Formula $M$
+\begin_inset Formula $X$
 \end_inset
 
- since it will inherit the properties needed to be a PDG 
-\begin_inset Formula $A$
-\end_inset
-
--module from 
-\begin_inset Formula $M$
+ will be inherited from 
+\begin_inset Formula $X$
 \end_inset
 
 .
  First we show 
-\begin_inset Formula $\widetilde{\mathrm{d}}$
+\begin_inset Formula $\mathrm{d}_{K}$
 \end_inset
 
  lands in 
-\begin_inset Formula $\ker\varphi$
+\begin_inset Formula $K$
 \end_inset
 
 .
  Let 
-\begin_inset Formula $u\in\ker\varphi$
+\begin_inset Formula $x\in K$
 \end_inset
 
 .
  Then
 \begin_inset Formula 
 \begin{align*}
-\varphi\mathrm{d}(u) & =\mathrm{d}\varphi(u)\\
- & =\mathrm{d}(0)\\
+\varphi\mathrm{d}_{K}(x) & =\mathrm{d}_{K}\varphi(x)\\
+ & =\mathrm{d}_{K}(0)\\
  & =0
 \end{align*}
 
 \end_inset
 
 implies 
-\begin_inset Formula $\mathrm{d}(a)\in\ker\varphi$
+\begin_inset Formula $\mathrm{d}_{K}(x)\in K$
 \end_inset
 
 .
  It follows that 
-\begin_inset Formula $\widetilde{\mathrm{d}}$
+\begin_inset Formula $\mathrm{d}_{K}$
 \end_inset
 
  lands in 
-\begin_inset Formula $\ker\varphi$
+\begin_inset Formula $K$
 \end_inset
 
 .
  Now we show 
-\begin_inset Formula $\widetilde{\mu}$
+\begin_inset Formula $\mu_{K}$
 \end_inset
 
  lands in 
-\begin_inset Formula $\ker\varphi$
+\begin_inset Formula $K$
 \end_inset
 
 .
  Let 
-\begin_inset Formula $u\otimes v$
+\begin_inset Formula $a\otimes x$
 \end_inset
 
  be an elementary tensor in 
-\begin_inset Formula $\ker\varphi\otimes_{R}\ker\varphi$
+\begin_inset Formula $A\otimes_{R}K$
 \end_inset
 
 .
  Then
 \begin_inset Formula 
 \begin{align*}
-\varphi(\mu(u\otimes v)) & =\varphi(uv)\\
- & =\varphi(u)\varphi(v)\\
- & =0\star0\\
+\varphi\mu_{K}(a\otimes x) & =\varphi(ax)\\
+ & =a\varphi(x)\\
+ & =a\cdot0\\
  & =0.
 \end{align*}
 
 \end_inset
 
 It follows that 
-\begin_inset Formula $\widetilde{\mu}$
+\begin_inset Formula $\mu_{K}$
 \end_inset
 
  lands in 
-\begin_inset Formula $\ker\varphi$
+\begin_inset Formula $K$
 \end_inset
 
 .
@@ -2609,7 +2307,7 @@ Let
 \end_inset
 
 -algebra and let 
-\begin_inset Formula $M$
+\begin_inset Formula $X$
 \end_inset
 
  be a PDG 
@@ -2617,73 +2315,73 @@ Let
 \end_inset
 
 -module.
- Given a triple 
-\begin_inset Formula $(a,b,u)$
-\end_inset
-
- where 
+ Given 
 \begin_inset Formula $a,b\in A$
 \end_inset
 
  and 
-\begin_inset Formula $u\in M$
+\begin_inset Formula $x\in X$
 \end_inset
 
-, its 
+, we define the 
 \series bold
 associator 
-\begin_inset Formula $[a,b,u]$
+\series default
+of the triple 
+\begin_inset Formula $(a,b,x)$
 \end_inset
 
- 
-\series default
-is defined by
+, denoted 
+\begin_inset Formula $[a,b,x]$
+\end_inset
+
+, by the formula
 \begin_inset Formula 
 \begin{equation}
-[a,b,u]=(ab)u-a(bu).\label{eq:associatordefjklfsd}
+[a,b,x]=(ab)x-a(bx).\label{eq:associatordefjklfsd}
 \end{equation}
 
 \end_inset
 
-More generally, if 
-\begin_inset Formula $\alpha_{A,A,M}\colon(A\otimes_{R}A)\otimes_{R}M\to A\otimes_{R}(A\otimes_{R}M)$
+More generally, let 
+\begin_inset Formula $\alpha_{A,A,X}\colon(A\otimes_{R}A)\otimes_{R}X\to A\otimes_{R}(A\otimes_{R}X)$
 \end_inset
 
- denotes the unique chain map defined on elementary tensors by 
+ denote the unique chain map defined on elementary tensors by 
 \begin_inset Formula 
 \[
-(a\otimes b)\otimes u\mapsto a\otimes(b\otimes u),
+(a\otimes b)\otimes x\mapsto a\otimes(b\otimes x).
 \]
 
 \end_inset
 
-then we define the 
+We define the 
 \series bold
-associator 
+associator chain map 
 \series default
 with respect to 
-\begin_inset Formula $M$
+\begin_inset Formula $\mu_{X}$
 \end_inset
 
  to be chain map 
-\begin_inset Formula $[\cdot,\cdot,\cdot]_{\mu_{M}}\colon(A\otimes_{R}A)\otimes_{R}M\to M$
+\begin_inset Formula $[\cdot,\cdot,\cdot]_{\mu_{X}}\colon(A\otimes_{R}A)\otimes_{R}X\to X$
 \end_inset
 
  defined by
 \begin_inset Formula 
 \[
-[\cdot,\cdot,\cdot]_{\mu_{M}}:=\mu_{M}(1\otimes\mu_{M})\alpha_{A,A,M}-\mu_{M}(\mu_{A}\otimes1).
+[\cdot,\cdot,\cdot]_{\mu_{X}}:=\mu_{X}(1\otimes\mu_{X})\alpha_{A,A,X}-\mu_{X}(\mu_{A}\otimes1).
 \]
 
 \end_inset
 
 If 
-\begin_inset Formula $\mu_{M}$
+\begin_inset Formula $\mu_{X}$
 \end_inset
 
  is understood from context, then we will simplify our notation by dropping
  
-\begin_inset Formula $\mu_{M}$
+\begin_inset Formula $\mu_{X}$
 \end_inset
 
  from the subscript in 
@@ -2692,18 +2390,38 @@ If
 
 .
  Thus, if 
-\begin_inset Formula $(a\otimes b)\otimes u$
+\begin_inset Formula $(a\otimes b)\otimes x$
 \end_inset
 
  is an elementary tensor in 
-\begin_inset Formula $(A\otimes_{R}A)\otimes_{R}M$
+\begin_inset Formula $(A\otimes_{R}A)\otimes_{R}X$
 \end_inset
 
-, then 
-\begin_inset Formula $[\cdot,\cdot,\cdot]((a\otimes b)\otimes u)=[a,b,u]$
+ then the associatior chain map with respect to 
+\begin_inset Formula $X$
 \end_inset
 
- as defined above in 
+ maps the elementary tensor 
+\begin_inset Formula $(a\otimes b)\otimes x$
+\end_inset
+
+ to the associator of the triple 
+\begin_inset Formula $(a,b,x)$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+[\cdot,\cdot,\cdot]((a\otimes b)\otimes x)=[a,b,x],
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $[a,b,x]$
+\end_inset
+
+ is as defined above in 
 \begin_inset ERT
 status open
 
@@ -2717,33 +2435,39 @@ ref{eq:associatordefjklfsd})
 \end_inset
 
 .
- We denote by 
-\begin_inset Formula $[A,A,M]$
+ We define the 
+\series bold
+associator complex 
+\series default
+with respect to 
+\begin_inset Formula $\mu_{X}$
 \end_inset
 
- to be the image of 
+, denoted 
+\begin_inset Formula $[X]_{\mu_{X}}$
+\end_inset
+
+, to be the image of 
 \begin_inset Formula $[\cdot,\cdot,\cdot]$
 \end_inset
 
-.
- If 
-\begin_inset Formula $A$
-\end_inset
-
- is understood from context, then we will simplify our notation even further
- by writing 
-\begin_inset Formula $[M]$
+, where again we simplify notation by writing 
+\begin_inset Formula $[X]$
 \end_inset
 
  instead of 
-\begin_inset Formula $[A,A,M]$
+\begin_inset Formula $[X]_{\mu_{X}}$
 \end_inset
 
-.
+ if 
+\begin_inset Formula $\mu_{X}$
+\end_inset
+
+ is understood from context.
  Thus
 \begin_inset Formula 
 \[
-[M]=\mathrm{span}_{R}\{[a,b,u]\mid a,b\in A\text{ and }u\in M\}.
+[X]=\mathrm{Span}_{R}\{[a,b,x]\mid a,b\in A\text{ and }x\in X\}.
 \]
 
 \end_inset
@@ -2752,19 +2476,32 @@ Since
 \begin_inset Formula $[\cdot,\cdot,\cdot]$
 \end_inset
 
- is a chain map from 
-\begin_inset Formula $(A\otimes_{R}A)\otimes_{R}M$
+ is a chain map, we see that 
+\begin_inset Formula $[X]$
 \end_inset
 
-, we see that 
+, being the image of 
 \begin_inset Formula $[\cdot,\cdot,\cdot]$
 \end_inset
 
- is a graded trilinear map satisfies Leibniz law, where Leibniz law in this
- case is the equation 
+, is an 
+\begin_inset Formula $R$
+\end_inset
+
+-subcomplex of 
+\begin_inset Formula $X$
+\end_inset
+
+.
+ We also see that 
+\begin_inset Formula $[\cdot,\cdot,\cdot]$
+\end_inset
+
+ is a graded-trilinear map which satisfies Leibniz law, where Leibniz law
+ in this context says 
 \begin_inset Formula 
 \begin{equation}
-\mathrm{d}_{[M]}[a,b,u]=[\mathrm{d}_{A}(a),b,u]+(-1)^{|a|}[a,\mathrm{d}_{A}(b),u]+(-1)^{|a|+|b|}[a,b,\mathrm{d}_{M}(u)].\label{eq:associatiorleibniz-1}
+\mathrm{d}_{X}[a,b,x]=[\mathrm{d}_{A}(a),b,x]+(-1)^{|a|}[a,\mathrm{d}_{A}(b),x]+(-1)^{|a|+|b|}[a,b,\mathrm{d}_{X}(x)].\label{eq:associatiorleibniz-1}
 \end{equation}
 
 \end_inset
@@ -2774,7 +2511,7 @@ for all homogeneous
 \end_inset
 
  and 
-\begin_inset Formula $u\in M$
+\begin_inset Formula $x\in X$
 \end_inset
 
 .
@@ -2793,7 +2530,7 @@ for all homogeneous
 \end_inset
 
 Now suppose 
-\begin_inset Formula $M'$
+\begin_inset Formula $Y$
 \end_inset
 
  is another PDG 
@@ -2801,20 +2538,20 @@ Now suppose
 \end_inset
 
 -module and 
-\begin_inset Formula $\varphi\colon M\to M'$
+\begin_inset Formula $\varphi\colon X\to Y$
 \end_inset
 
  is an 
 \begin_inset Formula $A$
 \end_inset
 
--linear.
- We obtain an induced map of 
+-linear map.
+ We obtain an induced chain map of 
 \begin_inset Formula $R$
 \end_inset
 
 -complexes 
-\begin_inset Formula $[\varphi]\colon[M]\to[M']$
+\begin_inset Formula $[\varphi]\colon[X]\to[Y]$
 \end_inset
 
 , where 
@@ -2824,11 +2561,11 @@ Now suppose
  is the unique chain map which satisfies
 \begin_inset Formula 
 \begin{align*}
-[\varphi][a,b,u] & =\varphi((ab)u-a(bu))\\
- & =\varphi((ab)u)-\varphi(a(bu))\\
- & =(ab)\varphi(u)-a\varphi(bu)\\
- & =(ab)\varphi(u)-a(b\varphi(u))\\
- & =[a,b,\varphi(u)].
+[\varphi][a,b,x] & =\varphi((ab)x-a(bx))\\
+ & =\varphi((ab)x)-\varphi(a(bx))\\
+ & =(ab)\varphi(x)-a\varphi(bx)\\
+ & =(ab)\varphi(x)-a(b\varphi(x))\\
+ & =[a,b,\varphi(x)].
 \end{align*}
 
 \end_inset
@@ -2854,350 +2591,76 @@ In particular, the map
 \begin_inset Formula $\varphi\mapsto[\varphi]$
 \end_inset
 
- gives rise to a functor 
-\begin_inset Formula 
-\[
-\mathcal{A}\colon\mathbf{PMod}_{A}\to\mathbf{Comp}_{R}
-\]
-
-\end_inset
-
-which we call the 
-\series bold
-associator functor
-\series default
-.
-\end_layout
-
-\begin_layout Subsubsection
-Stable PDG ideals of 
+ gives rise to a functor from the category of PDG 
 \begin_inset Formula $A$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-The associator functor 
-\begin_inset Formula $\mathcal{A}\colon\mathbf{PMod}_{A}\to\mathbf{Mod}_{R}$
-\end_inset
-
- need not be exact.
- To see what goes wrong, let
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{equation}
-\backslash
-label{diagram23423}
-\backslash
-begin{tikzcd} 0 
-\backslash
-arrow[r] & M_1 
-\backslash
-arrow[r,"
-\backslash
-varphi _1 "]  & M_2 
-\backslash
-arrow[r,"
-\backslash
-varphi _2 "] & M_3  
-\backslash
-arrow[r] & 0 
-\backslash
-end{tikzcd}
-\backslash
-end{equation}
-\end_layout
-
-\end_inset
-
-be a short exact sequence of PDG 
-\begin_inset Formula $A$
-\end_inset
-
--modules.
- We obtain an induced sequence of 
+-modules to the category of 
 \begin_inset Formula $R$
 \end_inset
 
--complexes
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\backslash
-begin{tikzcd} 0 
-\backslash
-arrow[r] & 
-\backslash
-text{[} M_1 
-\backslash
-text{]} 
-\backslash
-arrow[r,"
-\backslash
-text{[} 
-\backslash
-varphi _1 
-\backslash
-text{]} "]  & 
-\backslash
-text{[} M_2 
-\backslash
-text{]} 
-\backslash
-arrow[r,"
-\backslash
-text{[} 
-\backslash
-varphi _2 
-\backslash
-text{]} "] & 
-\backslash
-text{[} M_3 
-\backslash
-text{]} 
-\backslash
-arrow[r] & 0 
-\backslash
-end{tikzcd}
-\backslash
-end{center}
-\end_layout
-
+-complex.
+ We call this functor the 
+\series bold
+associator functor 
+\series default
+with respect to 
+\begin_inset Formula $A$
 \end_inset
 
-We claim that we have exactness at 
-\begin_inset Formula $[M_{1}]$
-\end_inset
-
- and 
-\begin_inset Formula $[M_{3}]$
+, and we denote this functor by 
+\begin_inset Formula $[\cdot]_{\mu_{A}}\colon\mathbf{PMod}_{A}\to\mathbf{Comp}_{R}$
 \end_inset
 
 .
- Indeed, this is equivalent to showing 
-\begin_inset Formula $[\varphi_{1}]$
+ As usual, we simplify our notation by droping 
+\begin_inset Formula $\mu_{A}$
 \end_inset
 
- is injective 
-\begin_inset Formula $[\varphi_{3}]$
+ from 
+\begin_inset Formula $[\cdot]$
 \end_inset
 
- is surjective, and this follows from the fact that 
-\begin_inset Formula $[\varphi_{1}]$
-\end_inset
-
- is restriction of the injective function 
-\begin_inset Formula $\varphi_{1}$
-\end_inset
-
- and 
-\begin_inset Formula $[\varphi_{3}]$
-\end_inset
-
- is the restriction of the surjective function 
-\begin_inset Formula $\varphi_{3}$
-\end_inset
-
-.
- Let us see what goes wrong when trying to prove exactness at 
-\begin_inset Formula $[M_{2}]$
-\end_inset
-
-.
- Let 
-\begin_inset Formula $\sum_{i=1}^{n}[a_{i},b_{i},v_{i}]\in\ker[\varphi_{2}]$
-\end_inset
-
-.
- In particular, we have 
-\begin_inset Formula $\sum_{i=1}^{n}[a_{i},b_{i},v_{i}]\in\ker\varphi_{2}$
-\end_inset
-
-.
- By exactness of 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-(
-\backslash
-ref{diagram23423})
-\end_layout
-
-\end_inset
-
-, there exists 
-\begin_inset Formula $u\in M_{1}$
-\end_inset
-
- such that 
-\begin_inset Formula $\varphi_{1}(u)=\sum_{i=1}^{n}[a_{i},b_{i},v_{i}]$
-\end_inset
-
-.
- It is not at all clear however that 
-\begin_inset Formula $u\in[M_{1}]$
-\end_inset
-
-.
+ when context is clear.
  
 \end_layout
 
+\begin_layout Subsubsection
+Homology of 
+\begin_inset Formula $[X]$
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
-\begin_inset space ~
+Let 
+\begin_inset Formula $X$
 \end_inset
 
-
-\begin_inset space ~
-\end_inset
-
-
-\begin_inset space ~
-\end_inset
-
-Now let us consider the simpler case where 
-\begin_inset Formula $\mathfrak{a}$
-\end_inset
-
- is a PDG ideal of 
+ be a PDG 
 \begin_inset Formula $A$
+\end_inset
+
+-module.
+ It is easy to see that 
+\begin_inset Formula $\mu_{X}$
+\end_inset
+
+ is associative if and only if 
+\begin_inset Formula $[X]=0$
 \end_inset
 
 .
- Then
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{equation}
-\backslash
-label{diagram23423}
-\backslash
-begin{tikzcd} 0 
-\backslash
-arrow[r] & 
-\backslash
-mathfrak {a} 
-\backslash
-arrow[r,hookrightarrow]  & A 
-\backslash
-arrow[r] & A 
-\backslash
-slash 
-\backslash
-mathfrak {a}  
-\backslash
-arrow[r] & 0 
-\backslash
-end{tikzcd}
-\backslash
-end{equation}
-\end_layout
-
+ Given that 
+\begin_inset Formula $[X]$
 \end_inset
 
-is a short exact sequence of PDG 
-\begin_inset Formula $A$
-\end_inset
-
--modules.
- Again, we obtian an induced sequence 
+ is an 
 \begin_inset Formula $R$
 \end_inset
 
--complexes
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{equation}
-\backslash
-label{diagram233343423}
-\backslash
-begin{tikzcd} 0 
-\backslash
-arrow[r] & 
-\backslash
-text{[} 
-\backslash
-mathfrak {a} 
-\backslash
-text{]}   
-\backslash
-arrow[r,hookrightarrow]  & 
-\backslash
-text{[} A 
-\backslash
-text{]} 
-\backslash
-arrow[r] & 
-\backslash
-text{[} A 
-\backslash
-slash 
-\backslash
-mathfrak {a}  
-\backslash
-text{]} 
-\backslash
-arrow[r] & 0 
-\backslash
-end{tikzcd}
-\backslash
-end{equation}
-\end_layout
-
-\end_inset
-
-where exactness at 
-\begin_inset Formula $[\mathfrak{a}]$
-\end_inset
-
- and 
-\begin_inset Formula $[A\slash\mathfrak{a}]$
-\end_inset
-
- are clear.
- It is easy to see that we also have exactness at 
-\begin_inset Formula $[A]$
-\end_inset
-
- if and only if 
-\begin_inset Formula $[A]\cap\mathfrak{a}=[\mathfrak{a}]$
-\end_inset
-
-.
- This leads us to the following definition.
+-complex, we also have a weaker form of associativity:
 \end_layout
 
 \begin_layout Standard
@@ -3215,25 +2678,16 @@ label{defn}
 
 \end_inset
 
- Let 
-\begin_inset Formula $\mathfrak{a}$
-\end_inset
-
- be a PDG ideal of 
-\begin_inset Formula $A$
-\end_inset
-
-.
  We say 
-\begin_inset Formula $\mathfrak{a}$
+\begin_inset Formula $\mu_{X}$
 \end_inset
 
  is 
 \series bold
-stable 
+homologically associative 
 \series default
 if 
-\begin_inset Formula $[A]\cap\mathfrak{a}=[\mathfrak{a}]$
+\begin_inset Formula $\mathrm{H}([X])=0$
 \end_inset
 
 .
@@ -3265,15 +2719,210 @@ end{defn}
 \begin_inset space ~
 \end_inset
 
-Thus if 
-\begin_inset Formula $\mathfrak{a}$
+Clearly if 
+\begin_inset Formula $\mu_{X}$
 \end_inset
 
- is a stable PDG ideal of 
+ is associative, then 
+\begin_inset Formula $\mu_{X}$
+\end_inset
+
+ is homologically associative.
+ It turns out that the converse is also true if 
+\begin_inset Formula $[X]$
+\end_inset
+
+ is bounded below and 
+\series bold
+minimal
+\series default
+ in the sense that 
+\begin_inset Formula $\mathrm{d}_{X}([X])\subseteq\mathfrak{m}[X]$
+\end_inset
+
+ where 
+\begin_inset Formula $\mathfrak{m}$
+\end_inset
+
+ is the maximal ideal in the local ring 
+\begin_inset Formula $R$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\backslash
+label{prophomologyassociator}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $X$
+\end_inset
+
+ be a PDG 
 \begin_inset Formula $A$
 \end_inset
 
-, then 
+-module and assume that 
+\begin_inset Formula $[X]$
+\end_inset
+
+ is bounded below and minimal.
+ Then 
+\begin_inset Formula $\mu_{X}$
+\end_inset
+
+ is associative if and only if 
+\begin_inset Formula $\mu_{X}$
+\end_inset
+
+ is homologically associative.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Clearly if 
+\begin_inset Formula $\mu_{X}$
+\end_inset
+
+ is associative, then it is homologically associative.
+ To show the converse, we prove the contrapositive: assume 
+\begin_inset Formula $\mu_{X}$
+\end_inset
+
+ is not associative, so 
+\begin_inset Formula $[X]\neq0$
+\end_inset
+
+.
+ Choose 
+\begin_inset Formula $i\in\mathbb{Z}$
+\end_inset
+
+ minimal so that 
+\begin_inset Formula $[X]_{i}\neq0$
+\end_inset
+
+ and 
+\begin_inset Formula $[X]_{i-1}=0$
+\end_inset
+
+.
+ By Nakayama's Lemma, we can find a triple 
+\begin_inset Formula $(a,b,x)$
+\end_inset
+
+ such that 
+\begin_inset Formula $|a|+|b|+|x|=i$
+\end_inset
+
+ and such that 
+\begin_inset Formula $[a,b,x]\notin\mathfrak{m}[X]_{i}$
+\end_inset
+
+.
+ By minimality of 
+\begin_inset Formula $i$
+\end_inset
+
+, we have 
+\begin_inset Formula $\mathrm{d}_{X}[a,b,x]=0$
+\end_inset
+
+.
+ Also, since 
+\begin_inset Formula $X$
+\end_inset
+
+ is minimal, we have 
+\begin_inset Formula $\mathrm{d}_{X}[X]\subseteq\mathfrak{m}[X]$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $[a,b,x]$
+\end_inset
+
+ represents a nontrivial element in homology.
+ It follows that 
+\begin_inset Formula $\mu_{X}$
+\end_inset
+
+ is not homologically associative.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Note that if 
+\begin_inset Formula $A$
+\end_inset
+
+ and 
+\begin_inset Formula $X$
+\end_inset
+
+ are both minimal, then the Leibniz law 
 \begin_inset ERT
 status open
 
@@ -3281,7 +2930,591 @@ status open
 
 (
 \backslash
-ref{diagram233343423})
+ref{eq:associatiorleibniz-1})
+\end_layout
+
+\end_inset
+
+ implies 
+\begin_inset Formula $[X]$
+\end_inset
+
+ is minimal too.
+ Also our assumption in 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Proposition~(
+\backslash
+ref{prophomologyassociator})
+\end_layout
+
+\end_inset
+
+ that 
+\begin_inset Formula $[X]$
+\end_inset
+
+ is bounded below can clearly be weakened since in the proof we just needed
+ to find an 
+\begin_inset Formula $i\in\mathbb{Z}$
+\end_inset
+
+ such that 
+\begin_inset Formula $[X]_{i}\neq0$
+\end_inset
+
+ and 
+\begin_inset Formula $[X]_{i-1}=0$
+\end_inset
+
+.
+ At the same time, the proof of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Proposition~(
+\backslash
+ref{prophomologyassociator})
+\end_layout
+
+\end_inset
+
+ tells us something a bit more than what was stated in the proposition.
+ To see this, we first need a definition
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\backslash
+label{defn}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $X$
+\end_inset
+
+ be a PDG 
+\begin_inset Formula $A$
+\end_inset
+
+-module and assume that 
+\begin_inset Formula $[X]$
+\end_inset
+
+ is bounded below.
+ We define the 
+\series bold
+associative index 
+\series default
+of 
+\begin_inset Formula $\mu_{X}$
+\end_inset
+
+, denoted 
+\begin_inset Formula $\mathrm{\mathrm{index}}\,\mu_{X}$
+\end_inset
+
+, is defined to be the smallest 
+\begin_inset Formula $i\in\mathbb{Z}\cup\{\infty\}$
+\end_inset
+
+ such that 
+\begin_inset Formula $[X]_{i}\neq0$
+\end_inset
+
+ where we set 
+\begin_inset Formula $\mathrm{index}\,\mu_{X}=\infty$
+\end_inset
+
+ if 
+\begin_inset Formula $\mu_{X}$
+\end_inset
+
+ is associative.
+ We extend this definition to case where 
+\begin_inset Formula $[X]$
+\end_inset
+
+ is not bounded below by setting 
+\begin_inset Formula $\mathrm{index}\,\mu_{X}=-\infty$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+With the associative index of 
+\begin_inset Formula $\mu_{X}$
+\end_inset
+
+ defined, we see, after analyzing the proof of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+Proposition~(
+\backslash
+ref{prophomologyassociator})
+\end_layout
+
+\end_inset
+
+, that if we assume 
+\begin_inset Formula $\mu_{X}$
+\end_inset
+
+ is not associative then
+\begin_inset Formula 
+\[
+\mathrm{index}\,\mu_{X}=\inf\{i\in\mathbb{Z}\mid\mathrm{H}_{i}([X])\neq0\}
+\]
+
+\end_inset
+
+In other words, the associative index of 
+\begin_inset Formula $\mu_{X}$
+\end_inset
+
+ can be measured homologically.
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+We can also define an associative index of 
+\begin_inset Formula $R$
+\end_inset
+
+-complex.
+ Let us record this definition now:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\backslash
+label{defn}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $X$
+\end_inset
+
+ be a PDG 
+\begin_inset Formula $A$
+\end_inset
+
+-module.
+ We define the 
+\series bold
+associative index 
+\series default
+of 
+\begin_inset Formula $X$
+\end_inset
+
+, denoted 
+\begin_inset Formula $\mathrm{index}\,X$
+\end_inset
+
+, to be
+\begin_inset Formula 
+\[
+\mathrm{index}\,X=\sup\{\mathrm{index}\,\mu\mid\mu\text{ is a multplication on }X\}.
+\]
+
+\end_inset
+
+Let 
+\begin_inset Formula $I$
+\end_inset
+
+ be an ideal of 
+\begin_inset Formula $R$
+\end_inset
+
+ and let 
+\begin_inset Formula $F$
+\end_inset
+
+ be the minimal free resolution of 
+\begin_inset Formula $R\slash I$
+\end_inset
+
+ over 
+\begin_inset Formula $R$
+\end_inset
+
+.
+ We define the 
+\series bold
+associative index 
+\series default
+of 
+\begin_inset Formula $R\slash I$
+\end_inset
+
+, denoted 
+\begin_inset Formula $\mathrm{index}(R\slash I)$
+\end_inset
+
+, to be the associative index of 
+\begin_inset Formula $F$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Stable PDG 
+\begin_inset Formula $A$
+\end_inset
+
+-Submodules
+\end_layout
+
+\begin_layout Standard
+The associator functor 
+\begin_inset Formula $[\cdot]\colon\mathbf{PMod}_{A}\to\mathbf{Mod}_{R}$
+\end_inset
+
+ need not be exact.
+ To see what goes wrong, let
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}
+\backslash
+label{diagram23423}
+\backslash
+begin{tikzcd} 0 
+\backslash
+arrow[r] & X 
+\backslash
+arrow[r,"
+\backslash
+varphi "]  & Y 
+\backslash
+arrow[r," 
+\backslash
+psi "] & Z  
+\backslash
+arrow[r] & 0 
+\backslash
+end{tikzcd}
+\backslash
+end{equation}
+\end_layout
+
+\end_inset
+
+be a short exact sequence of PDG 
+\begin_inset Formula $A$
+\end_inset
+
+-modules.
+ We obtain an induced sequence of 
+\begin_inset Formula $R$
+\end_inset
+
+-complexes
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}
+\backslash
+label{diagramfjklsdfmklsd}
+\backslash
+begin{tikzcd} 0 
+\backslash
+arrow[r] & 
+\backslash
+text{[} X 
+\backslash
+text{]} 
+\backslash
+arrow[r,"
+\backslash
+text{[} 
+\backslash
+varphi 
+\backslash
+text{]} "]  & 
+\backslash
+text{[} Y 
+\backslash
+text{]} 
+\backslash
+arrow[r,"
+\backslash
+text{[} 
+\backslash
+psi 
+\backslash
+text{]} "] & 
+\backslash
+text{[} Z 
+\backslash
+text{]} 
+\backslash
+arrow[r] & 0 
+\backslash
+end{tikzcd}
+\backslash
+end{equation}
+\end_layout
+
+\end_inset
+
+We claim that we have exactness at 
+\begin_inset Formula $[X]$
+\end_inset
+
+ and 
+\begin_inset Formula $[Z]$
+\end_inset
+
+.
+ Indeed, this is equivalent to showing 
+\begin_inset Formula $[\varphi]$
+\end_inset
+
+ is injective and 
+\begin_inset Formula $[\psi]$
+\end_inset
+
+ is surjective, which follows from the fact that 
+\begin_inset Formula $[\varphi]$
+\end_inset
+
+ (respectively 
+\begin_inset Formula $[\psi]$
+\end_inset
+
+) is the restriction of the injective map 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ (respectively the surjective map 
+\begin_inset Formula $\psi$
+\end_inset
+
+).
+ Let us see what goes wrong when trying to prove exactness at 
+\begin_inset Formula $[Y]$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\sum_{i=1}^{n}[a_{i},b_{i},y_{i}]\in\ker[\psi]$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\sum_{i=1}^{n}[a_{i},b_{i},y_{i}]\in\ker\varphi_{2}$
+\end_inset
+
+, and so by exactness of 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{diagram23423})
+\end_layout
+
+\end_inset
+
+, there exists 
+\begin_inset Formula $x\in X$
+\end_inset
+
+ such that 
+\begin_inset Formula $\varphi(x)=\sum_{i=1}^{n}[a_{i},b_{i},y_{i}]$
+\end_inset
+
+.
+ It is not at all clear however that 
+\begin_inset Formula $x\in[X]$
+\end_inset
+
+.
+ This leads us to consider the following definition:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defn}
+\backslash
+label{defn}
+\end_layout
+
+\end_inset
+
+ Let 
+\begin_inset Formula $X$
+\end_inset
+
+ be a PDG 
+\begin_inset Formula $A$
+\end_inset
+
+-submodule of 
+\begin_inset Formula $Y$
+\end_inset
+
+.
+ We say 
+\begin_inset Formula $X$
+\end_inset
+
+ is a 
+\series bold
+stable 
+\series default
+PDG 
+\begin_inset Formula $A$
+\end_inset
+
+-submodule of 
+\begin_inset Formula $Y$
+\end_inset
+
+ if it satisfies 
+\begin_inset Formula $[X]=X\cap[Y]$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defn}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Now it is easy to check that 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{diagramfjklsdfmklsd})
 \end_layout
 
 \end_inset
@@ -3290,8 +3523,943 @@ ref{diagram233343423})
 \begin_inset Formula $R$
 \end_inset
 
--complexes.
+-complexes if and only if 
+\begin_inset Formula $\varphi(X)$
+\end_inset
+
+ is a stable PDG 
+\begin_inset Formula $A$
+\end_inset
+
+-submodule of 
+\begin_inset Formula $Y$
+\end_inset
+
+.
+ Thus if 
+\begin_inset Formula $\varphi(X)$
+\end_inset
+
+ is a stable PDG 
+\begin_inset Formula $A$
+\end_inset
+
+-submodule of 
+\begin_inset Formula $Y$
+\end_inset
+
+, then the short exact sequence 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{diagramfjklsdfmklsd})
+\end_layout
+
+\end_inset
+
+ of 
+\begin_inset Formula $R$
+\end_inset
+
+-complexes induces a long exact sequence in homology
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}
+\backslash
+label{diagram3}
+\backslash
+begin{tikzcd}[row sep=40]  && 
+\backslash
+cdots 
+\backslash
+arrow[r] 
+\backslash
+arrow[d, phantom, ""{coordinate, name=Z'}] & 
+\backslash
+mathrm{H}_{i+1} (
+\backslash
+text{[} Z   
+\backslash
+text{]}) 
+\backslash
+arrow[dll,  swap, rounded corners, to path={ -- ([xshift=2ex]
+\backslash
+tikztostart.east) |- (Z') [near end]
+\backslash
+tikztonodes -| ([xshift=-2ex]
+\backslash
+tikztotarget.west) -- (
+\backslash
+tikztotarget)}] 
+\backslash
+
+\backslash
+  & 
+\backslash
+mathrm{H}_{i} (
+\backslash
+text{[} X 
+\backslash
+text{]}) 
+\backslash
+arrow[r] & 
+\backslash
+mathrm{H}_{i} (
+\backslash
+text{[} Y   
+\backslash
+text{]}) 
+\backslash
+arrow[r] 
+\backslash
+arrow[d, phantom, ""{coordinate, name=Z}] & 
+\backslash
+mathrm{H}_{i} (
+\backslash
+text{[} Z 
+\backslash
+text{]}) 
+\backslash
+arrow[dll,  swap, rounded corners, to path={ -- ([xshift=2ex]
+\backslash
+tikztostart.east) |- (Z) [near end]
+\backslash
+tikztonodes -| ([xshift=-2ex]
+\backslash
+tikztotarget.west) -- (
+\backslash
+tikztotarget)}] 
+\backslash
+
+\backslash
+ & 
+\backslash
+mathrm{H}_{i-1} (
+\backslash
+text{[} X 
+\backslash
+text{]}) 
+\backslash
+arrow[r] & 
+\backslash
+cdots 
+\backslash
+end{tikzcd}
+\backslash
+end{equation}
+\end_layout
+
+\end_inset
+
+From this, one concludes immediately the following theorem:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\backslash
+label{theorem}
+\end_layout
+
+\end_inset
+
+ Suppose 
+\begin_inset Formula $X$
+\end_inset
+
+ is a PDG 
+\begin_inset Formula $A$
+\end_inset
+
+-submodule of 
+\begin_inset Formula $Y$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $\mu_{Y}$
+\end_inset
+
+ is homologically associative if and only if 
+\begin_inset Formula $\mu_{X}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mu_{Y\slash X}$
+\end_inset
+
+ are homologically associative.
  
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Invariant
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $I$
+\end_inset
+
+ be an ideal of 
+\begin_inset Formula $R$
+\end_inset
+
+ and let 
+\begin_inset Formula $F$
+\end_inset
+
+ be the minimal free resolution of 
+\begin_inset Formula $R\slash I$
+\end_inset
+
+ over 
+\begin_inset Formula $R$
+\end_inset
+
+.
+ The multilpication map 
+\begin_inset Formula $R\slash I\otimes_{R}R\slash I\to R\slash I$
+\end_inset
+
+ can be lifted to a multiplication map 
+\begin_inset Formula $\mu_{F}\colon F\otimes_{R}F\to F$
+\end_inset
+
+, which in general is associative and graded-commutative only up to homotopy.
+ Moreover 
+\begin_inset Formula $\mu_{F}$
+\end_inset
+
+ is unique only up to homotopy.
+ It is known that 
+\begin_inset Formula $\mu_{F}$
+\end_inset
+
+ can be chosen to be graded-commutative “on the nose”, but in general it
+ is not possible to choose 
+\begin_inset Formula $\mu_{F}$
+\end_inset
+
+ such that it is associative.
+ Choose such a 
+\begin_inset Formula $\mu_{F}$
+\end_inset
+
+ throughout the rest of this section.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Now suppose 
+\begin_inset Formula $r\in\mathfrak{m}$
+\end_inset
+
+ is an 
+\begin_inset Formula $(R\slash I)$
+\end_inset
+
+-regular element.
+ Then the mapping cone 
+\begin_inset Formula $\mathrm{C}(r)$
+\end_inset
+
+ is the minimal free resolution of 
+\begin_inset Formula $R\slash\langle I,x\rangle$
+\end_inset
+
+ over 
+\begin_inset Formula $R$
+\end_inset
+
+.
+ The multiplication 
+\begin_inset Formula $\mu_{F}$
+\end_inset
+
+ on 
+\begin_inset Formula $F$
+\end_inset
+
+ induces a multilpication 
+\begin_inset Formula $\mu_{\mathrm{C}(r)}$
+\end_inset
+
+ on 
+\begin_inset Formula $\mathrm{C}(r)$
+\end_inset
+
+ as follows: First note that 
+\begin_inset Formula $F\oplus F(-1)$
+\end_inset
+
+ is the underlying graded 
+\begin_inset Formula $R$
+\end_inset
+
+-module of 
+\begin_inset Formula $\mathrm{C}(r)$
+\end_inset
+
+.
+ Express this graded 
+\begin_inset Formula $R$
+\end_inset
+
+-module in the form 
+\begin_inset Formula $F+Fe$
+\end_inset
+
+ where 
+\begin_inset Formula $e$
+\end_inset
+
+ is a generator of degree 
+\begin_inset Formula $-1$
+\end_inset
+
+ and where 
+\begin_inset Formula $\{1,e\}$
+\end_inset
+
+ is an 
+\begin_inset Formula $F$
+\end_inset
+
+-linearly independent set.
+ Thus an element in 
+\begin_inset Formula $F+Fe$
+\end_inset
+
+ can be expressed in the form 
+\begin_inset Formula $\alpha+\beta e$
+\end_inset
+
+ for unique 
+\begin_inset Formula $\alpha,\beta\in F$
+\end_inset
+
+.
+ If this element is homogeneous of degree 
+\begin_inset Formula $i$
+\end_inset
+
+, then 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ and 
+\begin_inset Formula $\beta$
+\end_inset
+
+ are homogeneous of degrees 
+\begin_inset Formula $i$
+\end_inset
+
+ and 
+\begin_inset Formula $i-1$
+\end_inset
+
+ respectively.
+ With this understood, the multilpication 
+\begin_inset Formula $\mu_{\mathrm{C}(r)}$
+\end_inset
+
+ is defined on homogeneous elements 
+\begin_inset Formula $\alpha,\beta,\gamma,\delta\in F$
+\end_inset
+
+ by
+\begin_inset Formula 
+\[
+(\alpha+\beta e)(\gamma+\delta e)=\alpha\gamma+(\alpha\delta+(-1)^{|\gamma|}\beta\gamma)e
+\]
+
+\end_inset
+
+and extended 
+\begin_inset Formula $R$
+\end_inset
+
+-linearly everywhere else.
+ The mapping cone 
+\begin_inset Formula $\mathrm{C}(r)$
+\end_inset
+
+ inherits a natural PDG 
+\begin_inset Formula $F$
+\end_inset
+
+-module structure via restriction of scalars.
+ Now there are two associator complexes to consider.
+ The first is the associator complex with respect to 
+\begin_inset Formula $\mu_{F,\mathrm{C}(r)}$
+\end_inset
+
+, given by
+\begin_inset Formula 
+\[
+[\mathrm{C}(r)]_{\mu_{F,\mathrm{C}(r)}}=\mathrm{Span}_{R}\{[\alpha,\beta,\gamma+\delta e]\mid\alpha,\beta,\gamma,\delta\in F\}.
+\]
+
+\end_inset
+
+The second is the associator complex with respect to 
+\begin_inset Formula $\mu_{\mathrm{C}(r)}$
+\end_inset
+
+, given by
+\begin_inset Formula 
+\[
+[\mathrm{C}(r)]_{\mu_{\mathrm{C}(r)}}=\mathrm{Span}_{R}\{[\alpha+\beta e,\gamma+\delta e,\varepsilon+\zeta e]\mid\alpha,\beta,\gamma,\delta,\varepsilon,\zeta\in F\}.
+\]
+
+\end_inset
+
+It turns out that these two associator complexes are the same.
+ Indeed, clearly we have 
+\begin_inset Formula 
+\[
+[\mathrm{C}(r)]_{\mu_{F,\mathrm{C}(r)}}\subseteq[\mathrm{C}(r)]_{\mu_{\mathrm{C}(r)}}.
+\]
+
+\end_inset
+
+Conversely, a calculation gives us
+\begin_inset Formula 
+\begin{align*}
+[\alpha,\beta,\gamma+\delta e] & =[\alpha,\beta,\gamma]+[\alpha,\beta,\delta]e\\{}
+[\alpha,\beta+\gamma e,\delta] & =[\alpha,\beta,\gamma]+(-1)^{|\delta|}[\alpha,\gamma,\delta]e\\{}
+[\alpha+\beta e,\gamma,\delta] & =[\alpha,\gamma,\delta]+(-1)^{|\gamma|+|\delta|}[\beta,\gamma,\delta]e
+\end{align*}
+
+\end_inset
+
+where 
+\begin_inset Formula $\alpha,\beta,\gamma,\delta\in F$
+\end_inset
+
+.
+ Using these identities together with the fact that 
+\begin_inset Formula $e^{2}=0$
+\end_inset
+
+ and the identity 
+\begin_inset Formula $1$
+\end_inset
+
+ associates with everything, we obtain
+\begin_inset Formula 
+\begin{align*}
+[\alpha+\beta e,\gamma+\delta e,\varepsilon+\zeta e] & =[\alpha,\gamma,\varepsilon]+[\alpha,\gamma,\zeta]e+(-1)^{|\varepsilon|}[\alpha,\delta,\varepsilon]e+(-1)^{|\gamma|+|\varepsilon|}[\beta,\gamma,\varepsilon]e\\
+ & =[\alpha,\gamma,\varepsilon+\zeta e]+(-1)^{|\varepsilon|}[\alpha,\delta,\varepsilon]e+(-1)^{|\gamma|+|\varepsilon|}[\beta,\gamma,\varepsilon]e\\
+ & =[\alpha,\gamma,\varepsilon+\zeta e]+(-1)^{|\varepsilon|}[\alpha,\delta,1+\varepsilon e]+(-1)^{|\gamma|+|\varepsilon|}[\beta,\gamma,1+\varepsilon e],
+\end{align*}
+
+\end_inset
+
+where 
+\begin_inset Formula $\alpha,\beta,\gamma,\delta,\varepsilon,\zeta\in F$
+\end_inset
+
+.
+ It follows that 
+\begin_inset Formula 
+\[
+[\mathrm{C}(r)]_{\mu_{F,\mathrm{C}(r)}}\supseteq[\mathrm{C}(r)]_{\mu_{\mathrm{C}(r)}}.
+\]
+
+\end_inset
+
+Thus we are justified in simplifying our notation by dropping either 
+\begin_inset Formula $\mu_{F,\mathrm{C}(r)}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mu_{\mathrm{C}(r)}$
+\end_inset
+
+ from the subscript and just writing 
+\begin_inset Formula $[\mathrm{C}(r)]$
+\end_inset
+
+ to denote the common 
+\begin_inset Formula $R$
+\end_inset
+
+-complex.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Now the homothety map 
+\begin_inset Formula $F\xrightarrow{r}F$
+\end_inset
+
+ gives rise to a short exact sequence of 
+\begin_inset Formula $R$
+\end_inset
+
+-complexes
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}
+\backslash
+label{mappingconejflksd}
+\backslash
+begin{tikzcd} 0 
+\backslash
+arrow[r] & F 
+\backslash
+arrow[r, 
+\begin_inset Quotes eld
+\end_inset
+
+
+\backslash
+iota 
+\begin_inset Quotes eld
+\end_inset
+
+]  & 
+\backslash
+mathrm{C} (r) 
+\backslash
+arrow[r, 
+\begin_inset Quotes eld
+\end_inset
+
+
+\backslash
+pi 
+\begin_inset Quotes eld
+\end_inset
+
+]  & 
+\backslash
+Sigma F 
+\backslash
+arrow[r]  & 0 
+\backslash
+end{tikzcd}
+\backslash
+end{equation}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\iota\colon F\to\mathrm{C}(r)$
+\end_inset
+
+ is the inclusion map and where 
+\begin_inset Formula $\pi\colon\mathrm{C}(r)\to\Sigma F$
+\end_inset
+
+ is the projection map given by
+\begin_inset Formula 
+\[
+\pi(\alpha+\beta e)=\beta
+\]
+
+\end_inset
+
+for all 
+\begin_inset Formula $\alpha,\beta\in F$
+\end_inset
+
+.
+ In fact, both 
+\begin_inset Formula $\iota$
+\end_inset
+
+ and 
+\begin_inset Formula $\pi$
+\end_inset
+
+ are 
+\begin_inset Formula $A$
+\end_inset
+
+-linear maps, and so 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{mappingconejflksd})
+\end_layout
+
+\end_inset
+
+ is a short exact sequence of PDG 
+\begin_inset Formula $F$
+\end_inset
+
+-modules.
+ In fact, it is a stable short exact sequence of PDG 
+\begin_inset Formula $F$
+\end_inset
+
+-modules, as the next proposition shows
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{prop}
+\backslash
+label{prop}
+\end_layout
+
+\end_inset
+
+ With the notation above, 
+\begin_inset Formula $F$
+\end_inset
+
+ is a stable PDG 
+\begin_inset Formula $F$
+\end_inset
+
+-submodule of 
+\begin_inset Formula $\mathrm{C}(r)$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{prop}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ We must check that 
+\begin_inset Formula $[\mathrm{C}(r)]\cap F\subseteq[F]$
+\end_inset
+
+ since the reverse inclusion is trivial.
+ Suppose 
+\begin_inset Formula $\sum_{i=1}^{m}r_{i}[\alpha_{i},\beta_{i},\gamma_{i}+\delta_{i}e]\in[\mathrm{C}(r)]\cap F$
+\end_inset
+
+ where 
+\begin_inset Formula $r_{i}\in R$
+\end_inset
+
+ abd 
+\begin_inset Formula $\alpha_{i},\beta_{i},\gamma_{i},\delta_{i}\in F$
+\end_inset
+
+ for each 
+\begin_inset Formula $1\leq i\leq m$
+\end_inset
+
+.
+ Observe that
+\begin_inset Formula 
+\begin{align*}
+\sum_{i=1}^{m}r_{i}[\alpha_{i},\beta_{i},\gamma_{i}+\delta_{i}e] & =\sum_{i=1}^{m}r_{i}([\alpha_{i},\beta_{i},\gamma_{i}]+([\alpha_{i},\beta_{i},\delta_{i}]e)\\
+ & =\sum_{i=1}^{m}r_{i}[\alpha_{i},\beta_{i},\gamma_{i}]+\sum_{i=1}^{m}r_{i}[\alpha_{i},\beta_{i},\delta_{i}]e
+\end{align*}
+
+\end_inset
+
+Since 
+\begin_inset Formula $\sum_{i=1}^{m}r_{i}[\alpha_{i},\beta_{i},\gamma_{i}+\delta_{i}e]\in F$
+\end_inset
+
+, it follows that 
+\begin_inset Formula $\sum_{i=1}^{m}r_{i}[\alpha_{i},\beta_{i},\delta_{i}]=0$
+\end_inset
+
+.
+ Thus
+\begin_inset Formula 
+\begin{align*}
+\sum_{i=1}^{m}r_{i}[\alpha_{i},\beta_{i},\gamma_{i}+\delta_{i}e] & =\sum_{i=1}^{m}r_{i}[\alpha_{i},\beta_{i},\gamma_{i}]\in[F].
+\end{align*}
+
+\end_inset
+
+Therefore 
+\begin_inset Formula $[\mathrm{C}(r)]\cap F\subseteq[F]$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+Since 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+(
+\backslash
+ref{mappingconejflksd})
+\end_layout
+
+\end_inset
+
+ is a stable short exact sequence of PDG 
+\begin_inset Formula $F$
+\end_inset
+
+-modules, we obtain a long exact sequence in homology
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{equation}
+\backslash
+label{diagram3}
+\backslash
+begin{tikzcd}[row sep=30]  && 
+\backslash
+cdots 
+\backslash
+arrow[r] 
+\backslash
+arrow[d, phantom, ""{coordinate, name=Z'}] & 
+\backslash
+mathrm{H}_{i} (
+\backslash
+text{[} F 
+\backslash
+text{]} ) 
+\backslash
+arrow[dll, 
+\begin_inset Quotes eld
+\end_inset
+
+r
+\begin_inset Quotes erd
+\end_inset
+
+, swap, rounded corners, to path={ -- ([xshift=2ex]
+\backslash
+tikztostart.east) |- (Z') [near end]
+\backslash
+tikztonodes -| ([xshift=-2ex]
+\backslash
+tikztotarget.west) -- (
+\backslash
+tikztotarget)}] 
+\backslash
+
+\backslash
+  & 
+\backslash
+mathrm{H}_{i} (
+\backslash
+text{[} F 
+\backslash
+text{]}) 
+\backslash
+arrow[r] & 
+\backslash
+mathrm{H}_{i} (
+\backslash
+text{[} 
+\backslash
+mathrm{C} (r)   
+\backslash
+text{]}) 
+\backslash
+arrow[r] 
+\backslash
+arrow[d, phantom, ""{coordinate, name=Z}] & 
+\backslash
+mathrm{H}_{i-1} (
+\backslash
+text{[}  F   
+\backslash
+text{]}) 
+\backslash
+arrow[dll, 
+\begin_inset Quotes eld
+\end_inset
+
+r
+\begin_inset Quotes erd
+\end_inset
+
+, swap, rounded corners, to path={ -- ([xshift=2ex]
+\backslash
+tikztostart.east) |- (Z) [near end]
+\backslash
+tikztonodes -| ([xshift=-2ex]
+\backslash
+tikztotarget.west) -- (
+\backslash
+tikztotarget)}] 
+\backslash
+
+\backslash
+ & 
+\backslash
+mathrm{H}_{i-1} (
+\backslash
+text{[} F 
+\backslash
+text{]}) 
+\backslash
+arrow[r] & 
+\backslash
+cdots 
+\backslash
+end{tikzcd}
+\backslash
+end{equation}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using Nakayama's lemma, we obtain 
+\begin_inset Formula $\mathrm{index}(\mu_{F})=\mathrm{index}(\mu_{\mathrm{C}(r)})$
+\end_inset
+
+.
+ In particular, this implies
+\begin_inset Formula 
+\[
+\mathrm{index}(R\slash\langle I,r\rangle)\geq\mathrm{index}(R\slash I).
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section

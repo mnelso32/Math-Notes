@@ -23128,16 +23128,8 @@ label{defn}
 \series bold
 field 
 \series default
-
-\begin_inset Formula $K$
-\end_inset
-
- is a commutative ring with identity such that every nonzero element in
- 
-\begin_inset Formula $K$
-\end_inset
-
- is a unit.
+is a commutative ring with the property that every nonzero element is a
+ unit.
  
 \begin_inset ERT
 status open
@@ -23155,18 +23147,16 @@ end{defn}
 \end_layout
 
 \begin_layout Standard
-\begin_inset space ~
+Let 
+\begin_inset Formula $K$
 \end_inset
 
-
-\begin_inset space ~
+ be a field.
+ Observe that 
+\begin_inset Formula $K$
 \end_inset
 
-
-\begin_inset space ~
-\end_inset
-
-In particular, a field is an integral domain.
+ is an integral domain.
  Indeed, if 
 \begin_inset Formula $a,b\in K$
 \end_inset
@@ -23179,7 +23169,7 @@ In particular, a field is an integral domain.
 \begin_inset Formula $ab=0$
 \end_inset
 
-, 
+, then
 \begin_inset Formula 
 \begin{align*}
 0 & =a^{-1}\cdot0\\
@@ -23189,7 +23179,7 @@ In particular, a field is an integral domain.
 
 \end_inset
 
- In fact, any finite integral domain is automatically a field:
+Conversely, any finite integral domain is automatically a field:
 \end_layout
 
 \begin_layout Subsubsection
