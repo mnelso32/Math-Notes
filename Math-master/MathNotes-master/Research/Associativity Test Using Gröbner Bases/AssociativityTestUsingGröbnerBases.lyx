@@ -1,0 +1,898 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{tikz}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\usetikzlibrary{shapes.geometric}
+\usepackage{tikz-cd}
+\usepackage{amsthm}
+\usepackage{xparse,etoolbox}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{cor}{Corollary}
+\newtheorem{conj}{Conjecture}
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{ex}{Exercise}
+\newtheorem{sol}{Solution} 
+\newtheorem{example}{Example}[section]
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+\newtheorem{note}{Note}
+\newtheorem{case}{Case}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{tikz-cd}
+\usetikzlibrary{calc,arrows,decorations.pathreplacing}
+\tikzset{mydot/.style={circle,fill,inner sep=1.5pt},
+commutative diagrams/.cd,
+  arrow style=tikz,
+  diagrams={>=latex},
+}
+
+\usepackage{babel}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=blue,
+    filecolor=blue,
+    linkcolor=blue,
+    urlcolor=blue
+}
+\usepackage{pgfplots}
+\usetikzlibrary{decorations.markings}
+\pgfplotsset{compat=1.9}
+
+
+\newcommand{\blocktheorem}[1]{%
+  \csletcs{old#1}{#1}% Store \begin
+  \csletcs{endold#1}{end#1}% Store \end
+  \RenewDocumentEnvironment{#1}{o}
+    {\par\addvspace{1.5ex}
+     \noindent\begin{minipage}{\textwidth}
+     \IfNoValueTF{##1}
+       {\csuse{old#1}}
+       {\csuse{old#1}[##1]}}
+    {\csuse{endold#1}
+     \end{minipage}
+     \par\addvspace{1.5ex}}
+}
+
+\raggedbottom
+
+\blocktheorem{theorem}% Make theo into a block
+\blocktheorem{defn}% Make defi into a block
+\blocktheorem{lemma}% Make lem into a block
+\blocktheorem{rem}% Make rem into a block
+\blocktheorem{cor}% Make col into a block
+\blocktheorem{prop}% Make prop into a block
+
+
+\makeatletter
+\newcommand*{\@old@slash}{}\let\@old@slash\slash
+\def\slash{\relax\ifmmode\delimiter"502F30E\mathopen{}\else\@old@slash\fi}
+\makeatother
+
+\def\backslash{\delimiter"526E30F\mathopen{}}
+
+
+
+\usepackage[bottom]{footmisc}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding iso8859-15
+\fontencoding global
+\font_roman "palatino" "default"
+\font_sans "lmss" "default"
+\font_typewriter "lmtt" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf true
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing single
+\use_hyperref false
+\papersize custom
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date true
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\paperwidth 30cm
+\paperheight 35cm
+\topmargin 2cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0bp
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Associativity Test Using Gröbner Bases
+\end_layout
+
+\begin_layout Section
+Setup
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $K$
+\end_inset
+
+ be a field and let 
+\begin_inset Formula $A$
+\end_inset
+
+ be an 
+\begin_inset Formula $n$
+\end_inset
+
+-dimensional graded 
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Graded Algebra Setup
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $K$
+\end_inset
+
+ be a field, let 
+\begin_inset Formula $A$
+\end_inset
+
+ be an 
+\begin_inset Formula $n$
+\end_inset
+
+-dimensional graded 
+\begin_inset Formula $K$
+\end_inset
+
+-vector space, and let 
+\begin_inset Formula $\star\colon A\otimes_{K}A\to A$
+\end_inset
+
+ be a graded 
+\begin_inset Formula $K$
+\end_inset
+
+-linear map.
+ If 
+\begin_inset Formula $\sum_{i=1}^{m}a_{i}\otimes b_{i}$
+\end_inset
+
+ is a tensor in 
+\begin_inset Formula $A\otimes_{R}A$
+\end_inset
+
+, then we often denote its image under 
+\begin_inset Formula $\star$
+\end_inset
+
+ by
+\begin_inset Formula 
+\[
+\star\left(\sum_{i=1}^{m}a_{i}\otimes b_{i}\right)=\sum_{i=1}^{m}a_{i}\star b_{i}.
+\]
+
+\end_inset
+
+We think of 
+\begin_inset Formula $\star$
+\end_inset
+
+ as giving 
+\begin_inset Formula $A$
+\end_inset
+
+ the structure of a graded 
+\begin_inset Formula $K$
+\end_inset
+
+-algebra.
+ Now suppose 
+\begin_inset Formula $\{e_{1},\dots,e_{n}\}$
+\end_inset
+
+ is a basis for 
+\begin_inset Formula $A$
+\end_inset
+
+ as graded 
+\begin_inset Formula $K$
+\end_inset
+
+-vector space.
+ Then for each 
+\begin_inset Formula $1\leq i,j\leq n$
+\end_inset
+
+, we have
+\begin_inset Formula 
+\[
+e_{i}\star e_{j}=\sum_{1\leq k\leq n}c_{i,j}^{k}e_{k}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $c_{i,j}^{k}\in K$
+\end_inset
+
+ for all 
+\begin_inset Formula $1\leq k\leq n$
+\end_inset
+
+.
+ The 
+\begin_inset Formula $c_{i,j}^{k}$
+\end_inset
+
+ uniquely determine the graded-multiplication map 
+\begin_inset Formula $\star$
+\end_inset
+
+; they are called the 
+\series bold
+structure coefficients
+\series default
+.
+ Since 
+\begin_inset Formula $\star$
+\end_inset
+
+ is a 
+\emph on
+graded
+\emph default
+-multiplication, we have 
+\begin_inset Formula $c_{i,j}^{k}=0$
+\end_inset
+
+ if 
+\begin_inset Formula $|e_{i}|+|e_{j}|\neq|e_{k}|$
+\end_inset
+
+, where 
+\begin_inset Formula $|a|$
+\end_inset
+
+ denotes the degree of a homogeneous element 
+\begin_inset Formula $a\in A$
+\end_inset
+
+.
+ We assume that 
+\begin_inset Formula $\star$
+\end_inset
+
+ is commutative, however we will not assume that 
+\begin_inset Formula $\star$
+\end_inset
+
+ is associative.
+ To measure the failure of associativity, we define the associatior with
+ respect to the triple 
+\begin_inset Formula $(a,b,c)\in A^{3}$
+\end_inset
+
+ as
+\begin_inset Formula 
+\[
+[a,b,c]=(a\star b)\star c-a\star(b\star c).
+\]
+
+\end_inset
+
+It is clear that 
+\begin_inset Formula $A$
+\end_inset
+
+ is associative if and only if 
+\begin_inset Formula $[a,b,c]=0$
+\end_inset
+
+ for all 
+\begin_inset Formula $a,b,c\in A$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsection
+Monomial Ordering Setup
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $S=K[x_{1},\dots,x_{n}]$
+\end_inset
+
+.
+ For each 
+\begin_inset Formula $1\leq i,j\leq n$
+\end_inset
+
+, let 
+\begin_inset Formula $f_{i,j}=x_{i}x_{j}-x_{i}\star x_{j}$
+\end_inset
+
+ where 
+\begin_inset Formula $x_{i}\star x_{j}=\sum_{k}c_{i,j}^{k}x_{k}$
+\end_inset
+
+.
+ Note that since both 
+\begin_inset Formula $\star$
+\end_inset
+
+ and 
+\begin_inset Formula $\cdot$
+\end_inset
+
+ are commutative, we have 
+\begin_inset Formula $f_{i,j}=f_{j,i}$
+\end_inset
+
+ for all 
+\begin_inset Formula $1\leq i,j\leq n$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $\mathcal{F}=\{f_{i,j}\mid1\leq i\leq j\leq n\}$
+\end_inset
+
+ and let 
+\begin_inset Formula $I$
+\end_inset
+
+ be the homogeneous ideal in 
+\begin_inset Formula $S$
+\end_inset
+
+ generated by 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+.
+ We equip 
+\begin_inset Formula $S$
+\end_inset
+
+ with a weighted lexicographic ordering where 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+ is assigned the weight 
+\begin_inset Formula $|x_{i}|=n+1-|e_{i}|$
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+the reason we assign 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+ the weight 
+\begin_inset Formula $n+1-|e_{i}|$
+\end_inset
+
+ and not 
+\begin_inset Formula $|e_{i}|$
+\end_inset
+
+ is so that this becomes a global ordering.
+ 
+\end_layout
+
+\end_inset
+
+.
+ Thus given two monomials 
+\begin_inset Formula 
+\[
+x^{\alpha}=x_{1}^{\alpha_{1}}\cdots x_{n}^{\alpha_{n}}\quad\text{and}\quad x^{\beta}=x_{1}^{\beta_{1}}\cdots x_{n}^{\beta_{n}},
+\]
+
+\end_inset
+
+we say 
+\begin_inset Formula $x^{\alpha}>_{\mathrm{Wp}}x^{\beta}$
+\end_inset
+
+ if either
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $|\alpha|>|\beta|$
+\end_inset
+
+ where 
+\begin_inset Formula $|\alpha|=\sum_{i=1}^{n}\alpha_{i}|x_{i}|$
+\end_inset
+
+ and 
+\begin_inset Formula $|\beta|=\sum_{i=1}^{n}\beta_{i}|e_{i}|$
+\end_inset
+
+ or;
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $|\alpha|=|\beta|$
+\end_inset
+
+ and there exists 
+\begin_inset Formula $1\leq i\leq n$
+\end_inset
+
+ such that 
+\begin_inset Formula $\alpha_{i}=\beta_{i}$
+\end_inset
+
+ andf
+\begin_inset Formula 
+\begin{eqnarray*}
+\alpha_{1} & = & \beta_{1}\\
+ & \vdots\\
+\alpha_{i-1} & = & \beta_{i-1}\\
+\beta_{i-1} & = & \beta_{i}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Observe that for each 
+\begin_inset Formula $1\leq i,j\le n$
+\end_inset
+
+, we have 
+\begin_inset Formula $\mathrm{LT}(f_{i,j})=x_{i}x_{j}$
+\end_inset
+
+.
+ In particular, if 
+\begin_inset Formula $\mathcal{M}=\{\text{monomials }m\mid m\notin\mathrm{LT}(I)\}$
+\end_inset
+
+, then we see that 
+\begin_inset Formula $\mathcal{M}$
+\end_inset
+
+ is a subset of 
+\begin_inset Formula $\{x_{1},\dots,x_{n}\}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Section
+Main Theorem
+\end_layout
+
+\begin_layout Standard
+We are now ready to state and prove the main theorem.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{theorem}
+\backslash
+label{theorem}
+\end_layout
+
+\end_inset
+
+ The following statements are equivalent:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\star$
+\end_inset
+
+ is associative.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+ is a Gröbner basis.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\mathcal{M}=\{x_{1},\dots,x_{n}\}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{theorem}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{proof}
+\end_layout
+
+\end_inset
+
+ Statements 2 and 3 are easily seen to be equivalent, so we will only show
+ that statements 1 and 2 are equivalent.
+ Let us calculate the 
+\begin_inset Formula $S$
+\end_inset
+
+-polynomial of 
+\begin_inset Formula $f_{i,j}$
+\end_inset
+
+ and 
+\begin_inset Formula $f_{j,k}$
+\end_inset
+
+ where 
+\begin_inset Formula $1\leq i\leq j<k\leq n$
+\end_inset
+
+.
+ We have
+\begin_inset Formula 
+\begin{align*}
+S(f_{i,j},f_{j,k}) & =x_{k}f_{i,j}-x_{i}f_{j,k}\\
+ & =x_{k}(x_{i}x_{j}-x_{i}\star x_{j})-x_{i}(x_{j}x_{k}-x_{j}\star x_{k})\\
+ & =x_{i}(x_{j}\star x_{k})-x_{k}(x_{i}\star x_{j})\\
+ & =x_{i}\left(\sum_{l}c_{j,k}^{l}x_{l}\right)-x_{k}\left(\sum_{l}c_{i,j}^{l}x_{l}\right)\\
+ & =\sum_{l}c_{j,k}^{l}x_{i}x_{l}-\sum_{l}c_{i,j}^{l}x_{k}x_{l}.
+\end{align*}
+
+\end_inset
+
+In particular, we see that
+\begin_inset Formula 
+\begin{align*}
+S(f_{i,j},f_{j,k})-\sum_{l}c_{j,k}^{l}f_{i,l}+\sum_{l}c_{i,j}^{l}f_{k,l} & =\sum_{l}c_{j,k}^{l}x_{i}x_{l}-\sum_{l}c_{i,j}^{l}x_{k}x_{l}-\sum_{l}c_{j,k}^{l}f_{i,l}+\sum_{l}c_{i,j}^{l}f_{k,l}\\
+ & =\sum_{l}c_{j,k}^{l}(x_{i}x_{l}-f_{i,l})+\sum_{l}c_{i,j}^{l}(f_{k,l}-x_{k}x_{l})\\
+ & =\sum_{l}c_{j,k}^{l}(x_{i}x_{l}-x_{i}x_{l}+x_{i}\star x_{l})+\sum_{l}c_{i,j}^{l}(x_{k}x_{l}-x_{k}\star x_{l}-x_{k}x_{l})\\
+ & =\sum_{l}c_{j,k}^{l}x_{i}\star x_{l}-\sum_{l}c_{i,j}^{l}x_{k}\star x_{l}\\
+ & =x_{i}\star\left(\sum_{l}c_{j,k}^{l}x_{l}\right)-\left(\sum_{l}c_{i,j}^{l}x_{l}\right)\star x_{k}\\
+ & =x_{i}\star(x_{j}\star x_{k})-(x_{i}\star x_{j})\star x_{k}\\
+ & =[x_{i},x_{j},x_{k}].
+\end{align*}
+
+\end_inset
+
+It follows that 
+\begin_inset Formula $S(f_{i,j},f_{j,k})^{\mathcal{F}}=[x_{i},x_{j},x_{k}]$
+\end_inset
+
+.
+ A straightforward comptutation also shows that 
+\begin_inset Formula $S(f_{i,i},f_{i,i})^{\mathcal{F}}=0$
+\end_inset
+
+ for all 
+\begin_inset Formula $1\le i\leq n$
+\end_inset
+
+.
+ Similarly, we have 
+\begin_inset Formula $S(f_{i,j},f_{k,l})^{\mathcal{F}}=0$
+\end_inset
+
+ for all 
+\begin_inset Formula $1\leq i\leq j<k\leq l\leq n$
+\end_inset
+
+.
+ Now the equivalence of statements 1 and 2 follow immediately from Buchberger's
+ Criterion.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{proof}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Example
+\end_layout
+
+\begin_layout Standard
+Let 
+\begin_inset Formula $A$
+\end_inset
+
+ be the graded 
+\begin_inset Formula $K$
+\end_inset
+
+-vector space with basis 
+\begin_inset Formula $\{e_{1},e_{2},e_{3},e_{4},e_{12},e_{13},e_{14},e_{24},e_{34},e_{123},e_{124},e_{134},e_{234},e_{1234}\}$
+\end_inset
+
+ with the obvious grading.
+ We attempt to put a graded-multiplication on 
+\begin_inset Formula $A$
+\end_inset
+
+ in the Singular code below:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+intvec w=(4,4,4,4,3,3,3,3,3,3,2,2,2,2,1); 
+\end_layout
+
+\begin_layout Plain Layout
+
+ring A=2,(x1,x2,x3,x4,x12,x13,x14,x23,x24,x34,x123,x124,x134,x234,x1234),Wp(w);
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+ideal I= x1*x1,
+\end_layout
+
+\begin_layout Plain Layout
+
+x2*x2,
+\end_layout
+
+\begin_layout Plain Layout
+
+x3*x3,
+\end_layout
+
+\begin_layout Plain Layout
+
+x4*x4,
+\end_layout
+
+\begin_layout Plain Layout
+
+x1*x2+x12,
+\end_layout
+
+\begin_layout Plain Layout
+
+x1*x3+x14+x34,
+\end_layout
+
+\begin_layout Plain Layout
+
+x1*x4+x12+x24,
+\end_layout
+
+\begin_layout Plain Layout
+
+x2*x3+x23, 
+\end_layout
+
+\begin_layout Plain Layout
+
+x2*x4+x12+x13+x34,  
+\end_layout
+
+\begin_layout Plain Layout
+
+x3*x4+x14+x13,
+\end_layout
+
+\begin_layout Plain Layout
+
+x2*x13+x123,
+\end_layout
+
+\begin_layout Plain Layout
+
+x2*x14+x134,
+\end_layout
+
+\begin_layout Plain Layout
+
+x4*x23+x124+x234,
+\end_layout
+
+\begin_layout Plain Layout
+
+x2*x24+x123+x234,
+\end_layout
+
+\begin_layout Plain Layout
+
+x2*x124+x1234;
+\end_layout
+
+\begin_layout Plain Layout
+
+groebner(I);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+_[1]=x1234 // not associative
+\end_layout
+
+\begin_layout Plain Layout
+
+_[2]=x123+x124+x134+x234 = [x2,x3,x4] // not associative
+\end_layout
+
+\begin_layout Plain Layout
+
+_[3]=x234^2 
+\end_layout
+
+\begin_layout Plain Layout
+
+_[4]=x134*x234 
+\end_layout
+
+\begin_layout Plain Layout
+
+_[5]=x134^2
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+....
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+_[78]=x1*x4+x12+x24
+\end_layout
+
+\begin_layout Plain Layout
+
+_[79]=x1*x3+x14+x34 
+\end_layout
+
+\begin_layout Plain Layout
+
+_[80]=x1*x2+x12 
+\end_layout
+
+\begin_layout Plain Layout
+
+_[81]=x1^2
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+We see that the multiplication that we are attempting to build is already
+ not associative.
+\end_layout
+
+\end_body
+\end_document

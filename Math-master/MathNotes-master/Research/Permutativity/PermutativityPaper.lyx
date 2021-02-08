@@ -5439,8 +5439,9 @@ We list our summary in the table below
 \paragraph_spacing other 2.8
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="5" columns="2">
+<lyxtabular version="3" rows="5" columns="3">
 <features tabularvalignment="middle">
+<column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <row>
@@ -5453,11 +5454,20 @@ Algebra
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 Equation
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Number of Equations
 \end_layout
 
 \end_inset
@@ -5473,11 +5483,24 @@ Permutatitive
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 \begin_inset Formula $0=\sum\limits _{j_{1},j_{2},j_{3},k_{1},k_{2}}(a_{i_{1}}^{j_{1}}a_{i_{2}}^{j_{2}}c_{i_{3},i_{4}}^{k_{1}}c_{k_{2},j_{3}}^{k}-a_{i_{3}}^{j_{1}}a_{i_{4}}^{j_{2}}c_{i_{1},i_{2}}^{k_{1}}c_{j_{3},k_{2}}^{k})a_{k_{1}}^{j_{3}}c_{j_{1},j_{2}}^{k_{2}}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+for each 
+\begin_inset Formula $1\leq i_{1},i_{2},i_{3},i_{4},k\leq n$
 \end_inset
 
 
@@ -5496,11 +5519,24 @@ Permutative + Abelian
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 \begin_inset Formula $0=\sum\limits _{j_{1},j_{2},j_{3},k_{1},k_{2}}(a_{i_{1}}^{j_{1}}a_{i_{2}}^{j_{2}}c_{i_{3},i_{4}}^{k_{1}}-a_{i_{3}}^{j_{1}}a_{i_{4}}^{j_{2}}c_{i_{1},i_{2}}^{k_{1}})a_{k_{1}}^{j_{3}}c_{j_{1},j_{2}}^{k_{2}}c_{k_{2},j_{3}}^{k}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+for each 
+\begin_inset Formula $1\leq i_{1},i_{2},i_{3},i_{4},k\leq n$
 \end_inset
 
 
@@ -5519,11 +5555,24 @@ Hom-Associative
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 \begin_inset Formula $0=\sum\limits _{j_{1},k_{1}}(a_{i_{1}}^{j_{1}}c_{i_{2},i_{3}}^{k_{1}}c_{j_{1},k_{1}}^{k}-a_{i_{3}}^{j_{1}}c_{i_{1},i_{2}}^{k_{1}}c_{k_{1},j_{1}}^{k})$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+for each 
+\begin_inset Formula $1\leq i_{1},i_{2},i_{3},k\leq n$
 \end_inset
 
 
@@ -5542,11 +5591,24 @@ Hom-Associative + Abelian
 
 \end_inset
 </cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
 
 \begin_layout Plain Layout
 \begin_inset Formula $0=\sum\limits _{j_{1},k_{1}}(a_{i_{1}}^{j_{1}}c_{i_{2},i_{3}}^{k_{1}}-a_{i_{3}}^{j_{1}}c_{i_{1},i_{2}}^{k_{1}})c_{j_{1},k_{1}}^{k}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+for each 
+\begin_inset Formula $1\leq i_{1},i_{2},i_{3},k\leq n$
 \end_inset
 
 
