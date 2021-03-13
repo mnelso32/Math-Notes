@@ -379,15 +379,14 @@ Let
 \end_inset
 
 , let 
-\begin_inset Formula $f_{i,j}=x_{i}x_{j}-x_{i}\star x_{j}$
+\begin_inset Formula 
+\[
+f_{i,j}=x_{i}x_{j}-\sum_{k}c_{i,j}^{k}x_{k}
+\]
+
 \end_inset
 
- where 
-\begin_inset Formula $x_{i}\star x_{j}=\sum_{k}c_{i,j}^{k}x_{k}$
-\end_inset
-
-.
- Note that since both 
+Note that since both 
 \begin_inset Formula $\star$
 \end_inset
 

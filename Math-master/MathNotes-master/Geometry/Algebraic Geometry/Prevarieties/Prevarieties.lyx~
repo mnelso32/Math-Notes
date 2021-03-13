@@ -429,7 +429,7 @@ Let
 \end_inset
 
  and let 
-\begin_inset Formula $\mathrm{ev}_{x}:K[T_{1},\dots,T_{n}]\to K$
+\begin_inset Formula $\mathrm{ev}_{x}\colon K[T_{1},\dots,T_{n}]\to K$
 \end_inset
 
  be the unique 
@@ -2669,15 +2669,15 @@ label{defn}
 morphism
 \series default
  
-\begin_inset Formula $f:X\to Y$
+\begin_inset Formula $f\colon X\to Y$
 \end_inset
 
  of affine algebraic sets is a map 
-\begin_inset Formula $f:X\to Y$
+\begin_inset Formula $f\colon X\to Y$
 \end_inset
 
  of the underlying sets such that there exist polynomials 
-\begin_inset Formula $f_{1},\dots,f_{n}\in k[T_{1},\dots,T_{n}]$
+\begin_inset Formula $f_{1},\dots,f_{n}\in k[T_{1},\dots,T_{m}]$
 \end_inset
 
  with 
@@ -3158,11 +3158,11 @@ Intersections of affine algebraic sets in
 
  are closed and hence again affine algebraic sets.
  But we cannot distinguish between 
-\begin_inset Formula $V(X)\cap V(Y)\subset\mathbb{A}^{2}(k)$
+\begin_inset Formula $\mathrm{V}(X)\cap\mathrm{V}(Y)\subset\mathbb{A}^{2}(k)$
 \end_inset
 
  and 
-\begin_inset Formula $V(Y)\cap V(X^{2}-Y)\subset\mathbb{A}^{2}(k)$
+\begin_inset Formula $\mathrm{V}(Y)\cap\mathrm{V}(X^{2}-Y)\subset\mathbb{A}^{2}(k)$
 \end_inset
 
  although the geometric situation seems to be different.
@@ -3244,7 +3244,7 @@ begin{proof}
 \end_inset
 
  Suppose 
-\begin_inset Formula $Y=V(p_{1},\dots,p_{r})$
+\begin_inset Formula $Y=\mathrm{V}(p_{1},\dots,p_{r})$
 \end_inset
 
  and let 
@@ -3618,7 +3618,7 @@ More generally, if
 \end_inset
 
  galois extension with galois group 
-\begin_inset Formula $G=\text{Gal}(L/K)$
+\begin_inset Formula $G=\mathrm{Gal}(L/K)$
 \end_inset
 
 .
@@ -3765,7 +3765,7 @@ Let
 
  of affine algebraic sets.
  The set 
-\begin_inset Formula $\text{Hom}(X,\mathbb{A}^{1}(k))$
+\begin_inset Formula $\mathrm{Hom}(X,\mathbb{A}^{1}(k))$
 \end_inset
 
  carries in a natural way the structure of a 
@@ -3788,7 +3788,7 @@ To elements of
  The homomorphism 
 \begin_inset Formula 
 \[
-k[T_{1},\dots,T_{n}]\to\text{Hom}(X,\mathbb{A}^{1}(k))
+k[T_{1},\dots,T_{n}]\to\mathrm{Hom}(X,\mathbb{A}^{1}(k))
 \]
 
 \end_inset
@@ -3798,7 +3798,7 @@ is a surjective homomorphism of
 \end_inset
 
 -algebras with kernel 
-\begin_inset Formula $I(X)$
+\begin_inset Formula $\mathrm{I}(X)$
 \end_inset
 
 .
@@ -3832,7 +3832,7 @@ label{defn}
 -algebra
 \begin_inset Formula 
 \[
-\Gamma(X):=k[T_{1},\dots,T_{n}]/I(X)\cong\text{Hom}(X,\mathbb{A}^{1}(k))
+\Gamma(X):=k[T_{1},\dots,T_{n}]\slash\mathrm{I}(X)\cong\mathrm{Hom}(X,\mathbb{A}^{1}(k))
 \]
 
 \end_inset
@@ -3874,10 +3874,10 @@ label{rem}
 \end_inset
 
  Let 
-\begin_inset Formula $\pi:k[T_{1},\dots,T_{n}]\to\Gamma(X)$
+\begin_inset Formula $\pi\colon k[T_{1},\dots,T_{n}]\to\Gamma(X)$
 \end_inset
 
- be the projection map and let 
+ be the natural quotient map and let 
 \begin_inset Formula $f\in\Gamma(X)$
 \end_inset
 
@@ -3906,13 +3906,15 @@ where
 \begin_inset Formula $\widetilde{f}$
 \end_inset
 
- is any lift
-\begin_inset Foot
-status open
+ is any lift of 
+\begin_inset Formula $f$
+\end_inset
 
-\begin_layout Plain Layout
-i.e.
- any 
+ with respect to 
+\begin_inset Formula $\pi$
+\end_inset
+
+ (that is 
 \begin_inset Formula $\widetilde{f}\in k[T_{1},\dots,T_{n}]$
 \end_inset
 
@@ -3920,12 +3922,7 @@ i.e.
 \begin_inset Formula $\pi(\widetilde{f})=f$
 \end_inset
 
-.
- 
-\end_layout
-
-\end_inset
-
+).
  To see that this is well-defined, let 
 \begin_inset Formula $\widetilde{f}'$
 \end_inset

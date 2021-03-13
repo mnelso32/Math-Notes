@@ -128,37 +128,6 @@ Schemes
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{defn}
-\backslash
-label{defn}
-\end_layout
-
-\end_inset
-
-
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{defn}
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
 A locally ringed space 
 \begin_inset Formula $(X,\mathcal{O}_{X})$
 \end_inset
@@ -192,21 +161,18 @@ of affine schemes is a morphism of locally ringed spaces.
 \end_layout
 
 \begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{defn}
-\backslash
-label{defn}
-\end_layout
-
+\begin_inset space ~
 \end_inset
 
- A 
+
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+A 
 \series bold
 scheme 
 \series default
@@ -233,20 +199,6 @@ morphism
 \end_inset
 
 .
- 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{defn}
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \end_body

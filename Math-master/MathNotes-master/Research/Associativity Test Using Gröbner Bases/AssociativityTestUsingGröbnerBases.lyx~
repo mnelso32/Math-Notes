@@ -171,6 +171,26 @@ Associativity Test Using Gröbner Bases
 Setup
 \end_layout
 
+\begin_layout Standard
+Let 
+\begin_inset Formula $K$
+\end_inset
+
+ be a field and let 
+\begin_inset Formula $A$
+\end_inset
+
+ be an 
+\begin_inset Formula $n$
+\end_inset
+
+-dimensional graded 
+\begin_inset Formula $ $
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Graded Algebra Setup
 \end_layout

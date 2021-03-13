@@ -80198,12 +80198,16 @@ label{defn}
 \series bold
 simple function 
 \series default
-(with respect to the measure space 
+(with respect to the measurable space 
 \begin_inset Formula $(X,\mathcal{M}$
 \end_inset
 
-)) if it is a linear combination of indicators of measurable sets, that
- is, it has the form
+)) if it is an 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+-linear combination of indicators of measurable sets, or in other words,
+ it has the form
 \begin_inset Formula 
 \begin{equation}
 \varphi=\sum_{i=1}^{n}a_{i}1_{A_{i}}\label{eq:representationofsimpfunction}
@@ -80321,15 +80325,11 @@ of
 \begin_inset Formula $\varphi$
 \end_inset
 
- (which is why we say it is 
+ (which is why we say it is the
 \emph on
-the canonical
+ canonical
 \emph default
- 
-\emph on
-representation
-\emph default
-).
+ representation).
  
 \begin_inset ERT
 status open
@@ -80571,36 +80571,11 @@ ref{eq:noncanonrepss})
 \end_inset
 
 .
- For each 
-\begin_inset Formula $j$
-\end_inset
-
- we have
-\begin_inset Formula 
-\[
-A_{j}=\bigcup_{i\mid c_{i}=a_{j}}E_{i},
-\]
-
-\end_inset
-
-and so
-\begin_inset Formula 
-\begin{align*}
-a_{j}\mu(A_{j}) & =a_{j}\sum_{i\mid c_{i}=a_{j}}\mu(E_{i})\\
- & =\sum_{i\mid c_{i}=a_{j}}a_{j}\mu(E_{i})\\
- & =\sum_{i\mid c_{i}=a_{j}}c_{i}\mu(E_{i}).
-\end{align*}
-
-\end_inset
-
-Now sum over all 
-\begin_inset Formula $j$
-\end_inset
-
- to get
+ Then we have
 \begin_inset Formula 
 \begin{align*}
 \int_{X}\varphi\mathrm{d}\mu(x) & =\sum_{j=1}^{n}a_{j}\mu(A_{j})\\
+ & =\sum_{j=1}^{n}a_{j}\mu\left(\bigcup_{i\mid c_{i}=a_{j}}E_{i}\right)\\
  & =\sum_{j=1}^{n}a_{j}\sum_{i\mid c_{i}=a_{j}}\mu(E_{i})\\
  & =\sum_{j=1}^{n}\sum_{i\mid c_{i}=a_{j}}c_{i}\mu(E_{i})\\
  & =\sum_{i=1}^{m}c_{i}\mu(E_{i}).
@@ -146348,7 +146323,7 @@ integral of
 is defined by the formula
 \begin_inset Formula 
 \[
-\int_{\gamma}f(z)dz=\int_{a}^{b}f(\gamma(t))\gamma'(t)dt.
+\int_{\gamma}f(z)\mathrm{d}z=\int_{a}^{b}f(\gamma(t))\gamma'(t)\mathrm{d}t.
 \]
 
 \end_inset
@@ -146395,7 +146370,7 @@ of the interval
 , and we define 
 \begin_inset Formula 
 \[
-\int_{\gamma}f(z)dz=\sum_{k=0}^{n-1}\int_{t_{k}}^{t_{k+1}}f(\gamma(t))\gamma'(t)dt.
+\int_{\gamma}f(z)\mathrm{d}z=\sum_{k=0}^{n-1}\int_{t_{k}}^{t_{k+1}}f(\gamma(t))\gamma'(t)\mathrm{d}t.
 \]
 
 \end_inset
@@ -146527,13 +146502,17 @@ As in the continuous case, the parameter interval
 \begin_inset Formula $\gamma\colon[a,b]\to\mathbb{C}$
 \end_inset
 
-, then the change of variables formula implies
+, then the change of variables formula with 
+\begin_inset Formula $t=\varphi(s)$
+\end_inset
+
+ implies
 \begin_inset Formula 
 \begin{align*}
-\int_{\gamma}f(z)dz & =\int_{a}^{b}f(\gamma(t))\gamma'(t)dt\\
- & =\int_{c}^{d}f(\gamma(\varphi(s)))\gamma'(\varphi(s))\varphi'(s)ds\\
- & =\int_{c}^{d}f((\gamma\circ\varphi)(s))(\gamma\circ\varphi)'(s)ds\\
- & =\int_{\gamma\circ\varphi}f(z)dz.
+\int_{\gamma}f(z)\mathrm{d}z & =\int_{a}^{b}f(\gamma(t))\gamma'(t)\mathrm{d}t\\
+ & =\int_{c}^{d}f(\gamma(\varphi(s)))\gamma'(\varphi(s))\varphi'(s)\mathrm{d}s\\
+ & =\int_{c}^{d}f((\gamma\circ\varphi)(s))(\gamma\circ\varphi)'(s)\mathrm{d}s\\
+ & =\int_{\gamma\circ\varphi}f(z)\mathrm{d}z.
 \end{align*}
 
 \end_inset
@@ -146566,13 +146545,13 @@ of
 \end_inset
 
 , denoted 
-\begin_inset Formula $\text{length}(\gamma)$
+\begin_inset Formula $\mathrm{length}(\gamma)$
 \end_inset
 
 , is defined by the formula
 \begin_inset Formula 
 \[
-\text{length}(\gamma):=\int_{a}^{b}\left|\gamma'(t)\right|dt.
+\mathrm{length}(\gamma):=\int_{a}^{b}\left|\gamma'(t)\right|\mathrm{d}t.
 \]
 
 \end_inset
@@ -146608,7 +146587,7 @@ of the interval
 , and we define 
 \begin_inset Formula 
 \[
-\text{length}(\gamma)=\sum_{k=0}^{n-1}\text{length}\left(\gamma|_{[t_{k},t_{k+1}]}\right).
+\mathrm{length}(\gamma)=\sum_{k=0}^{n-1}\mathrm{length}\left(\gamma|_{[t_{k},t_{k+1}]}\right).
 \]
 
 \end_inset
@@ -146649,12 +146628,12 @@ Let
  Then by the change of variables formula, we have
 \begin_inset Formula 
 \begin{align*}
-\text{length}(\gamma) & =\int_{a}^{b}\left|\gamma'(t)\right|dt.\\
- & =\int_{0}^{1}\left|\gamma'(\varphi(s))\right|\varphi'(s)ds\\
- & =\int_{0}^{1}\left|\gamma'(\varphi(s))\right|\left|\varphi'(s)\right|ds\\
- & =\int_{0}^{1}\left|\gamma'(\varphi(s))\varphi'(s)\right|ds\\
- & =\int_{0}^{1}\left|(\gamma\circ\varphi)'(s)\right|ds\\
- & =\text{length}(\gamma\circ\varphi),
+\mathrm{length}(\gamma) & =\int_{a}^{b}\left|\gamma'(t)\right|\mathrm{d}t.\\
+ & =\int_{0}^{1}\left|\gamma'(\varphi(s))\right|\varphi'(s)\mathrm{d}s\\
+ & =\int_{0}^{1}\left|\gamma'(\varphi(s))\right|\left|\varphi'(s)\right|\mathrm{d}s\\
+ & =\int_{0}^{1}\left|\gamma'(\varphi(s))\varphi'(s)\right|\mathrm{d}s\\
+ & =\int_{0}^{1}\left|(\gamma\circ\varphi)'(s)\right|\mathrm{d}s\\
+ & =\mathrm{length}(\gamma\circ\varphi),
 \end{align*}
 
 \end_inset
